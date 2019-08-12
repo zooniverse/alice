@@ -10,6 +10,15 @@ import Zooniverse from './images/zooniverse.png'
 const StyledHeader = styled(Heading)`
   font-weight: 300;
   line-height: 0.9em;
+  font-size: 6em;
+
+  @media (max-width: 1060px) {
+    font-size: 4em;
+  }
+
+  @media (max-width: 725px) {
+    font-size: 2em;
+  }
 `
 
 const SmallHeader = styled(Heading)`
@@ -47,28 +56,31 @@ export default function Home () {
   return (
     <Box direction='row' fill>
       <Box alignSelf='start' margin={{ horizontal: 'medium' }}>
-        <StyledHeader size='xlarge'>
+        <StyledHeader>
           Zooniverse transcription viewer/editor
         </StyledHeader>
         <Box
           direction='row'
-          border='bottom'>
+          border='bottom'
+          gap='medium'>
           {content.map(item =>
-            <Box width='20vw' margin={{ right: 'medium', bottom: 'xlarge' }}>
+            <Box width='20vw' margin={{ bottom: 'xlarge' }}>
               <Text size='small' weight='bold'>{item.header}</Text>
               <Text size='small' margin={{ vertical: 'small' }}>{item.text}</Text>
               <Text size='small'>{item.link}</Text>
             </Box>)}
         </Box>
-        <Box direction='row' height='xsmall' align='center'>
-          {images.map(image => <Image src={image} margin={{ right: 'medium' }}/>)}
+        <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='large'>
+          {images.map(image => <Image src={image}/>)}
         </Box>
-        <CapitalText size='xsmall'>
+        <Box>
+          <CapitalText size='xsmall'>
           This material is based upon work supported by the national endowment
           for the humanities under award HAA-263825-19. The Zooniverse is a
           collaboration between the Adler Planetarium, the University of Oxford,
           the University of Minnesota, and the broader Citizen Science Alliance.
-        </CapitalText>
+          </CapitalText>
+        </Box>
         <Text margin={{ vertical: 'small' }} size='small'>
           <a href="https://www.zooniverse.org" target="_blank" rel="noopener noreferrer">
             www.zooniverse.org
@@ -87,7 +99,7 @@ export default function Home () {
           <FormField
             name="username"
             required/>
-          <Box direction='row' justify='between'>
+          <Box direction='row' justify='between' wrap>
             <Text size='small'>Username</Text>
             <CapitalText size='small'>Forgot Username?</CapitalText>
           </Box>
@@ -95,7 +107,7 @@ export default function Home () {
             name="password"
             type="password"
             required/>
-            <Box direction='row' justify='between'>
+            <Box direction='row' justify='between' wrap>
               <Text size='small'>Password</Text>
               <CapitalText size='small'>Forgot Password?</CapitalText>
             </Box>
