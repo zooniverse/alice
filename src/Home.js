@@ -1,5 +1,6 @@
 import React from 'react'
-import { Box, Image, Heading, Text } from 'grommet'
+import { Box, Button, Form, FormField, Image, Heading, Text } from 'grommet'
+import { FormNextLink } from 'grommet-icons'
 import styled from 'styled-components'
 import Adler from './images/adler.png'
 import NEH from './images/neh.png'
@@ -9,6 +10,10 @@ import Zooniverse from './images/zooniverse.png'
 const StyledHeader = styled(Heading)`
   font-weight: 300;
   line-height: 0.9em;
+`
+
+const SmallHeader = styled(Heading)`
+  font-weight: 300;
 `
 
 const CapitalText = styled(Text)`
@@ -73,7 +78,34 @@ export default function Home () {
       <Box
         background='white'
         margin={{"right": "2em"}}
-        width='large'>
+        width='large'
+        pad='medium'>
+        <SmallHeader level="3" margin={{ top: 'large' }}>
+          Log in with your Zooniverse username to get started
+        </SmallHeader>
+        <Form>
+          <FormField
+            name="username"
+            required/>
+          <Box direction='row' justify='between'>
+            <Text size='small'>Username</Text>
+            <CapitalText size='small'>Forgot Username?</CapitalText>
+          </Box>
+          <FormField
+            name="password"
+            type="password"
+            required/>
+            <Box direction='row' justify='between'>
+              <Text size='small'>Password</Text>
+              <CapitalText size='small'>Forgot Password?</CapitalText>
+            </Box>
+            <Button type="submit">
+              <Box pad={{ vertical: 'small' }} direction='row' align='center' gap='xsmall'>
+                <CapitalText size='small'>Sign In</CapitalText>
+                <FormNextLink size='small'/>
+              </Box>
+            </Button>
+        </Form>
       </Box>
     </Box>
   )
