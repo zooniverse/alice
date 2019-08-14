@@ -75,10 +75,10 @@ export default function Home () {
         </Box>
         <Box>
           <CapitalText size='xsmall'>
-          This material is based upon work supported by the national endowment
-          for the humanities under award HAA-263825-19. The Zooniverse is a
-          collaboration between the Adler Planetarium, the University of Oxford,
-          the University of Minnesota, and the broader Citizen Science Alliance.
+            This material is based upon work supported by the national endowment
+            for the humanities under award HAA-263825-19. The Zooniverse is a
+            collaboration between the Adler Planetarium, the University of Oxford,
+            the University of Minnesota, and the broader Citizen Science Alliance.
           </CapitalText>
         </Box>
         <Text margin={{ vertical: 'small' }} size='small'>

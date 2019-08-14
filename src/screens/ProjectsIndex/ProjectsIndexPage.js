@@ -1,7 +1,9 @@
 import React from 'react'
+import { Box } from 'grommet'
+import EditorHeader from '../../components/EditorHeader'
 
 export default () => (
-  <div>
-    <h1>Hello World</h1>
-  </div>
+  <Box pad={{ bottom: 'small' }} border='bottom' margin='medium'>
+    <EditorHeader />
+  </Box>
 )

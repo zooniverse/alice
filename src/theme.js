@@ -1,6 +1,7 @@
 const theme = {
   global: {
     colors: {
+      medGray: '#5C5C5C',
       gray: '#979797',
       sand: '#EFF2F5'
     },
