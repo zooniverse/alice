@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Image, Text } from 'grommet'
+import { Box, Text } from 'grommet'
 import DefaultAvatar from '../../images/simple-avatar.png'
 import styled from 'styled-components'
 
