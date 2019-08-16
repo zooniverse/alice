@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { Box, CheckBox, DataTable } from 'grommet'
-import mockColumns from './mockColumns'
-import DATA from './mockData'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+const RoundedBox = styled(Box)`
+  border-radius: 0.5em;
+`
 
 class IndexTable extends Component {
-  state = { checked: [] }
+  state = { checked: [], columns: [] }
 
   onCheck = (e, value) => {
     const { checked } = this.state;
@@ -17,13 +21,14 @@ class IndexTable extends Component {
   }
 
   onCheckAll = e =>
-    this.setState({ checked: e.target.checked? DATA.map(datum => datum.id) : [] })
+    this.setState({ checked: e.target.checked? this.props.data.map(datum => datum.id) : [] })
 
   render() {
     const { checked } = this.state;
+    const { columns, data } = this.props;
 
     return (
-      <Box background='white' margin={{ vertical: 'small' }} pad='medium'>
+      <RoundedBox background='white' margin={{ vertical: 'small' }} pad='medium'>
         <DataTable
           columns={[
             {
@@ -37,22 +42,31 @@ class IndexTable extends Component {
               ),
               header: (
                 <CheckBox
-                  checked={checked.length === DATA.length}
+                  checked={checked.length === data.length}
                   indeterminate={
-                    checked.length > 0 && checked.length < DATA.length
+                    checked.length > 0 && checked.length < data.length
                   }
                   onChange={this.onCheckAll}
                 />
               ),
             },
-            ...mockColumns
+            ...columns
           ].map(col => ({ ...col }))}
-          data={DATA}
+          data={data}
         />
-      </Box>
+      </RoundedBox>
     )
   }
 }
 
+IndexTable.defaultProps = {
+  columns: [],
+  data: []
+}
+
+IndexTable.propTypes = {
+  columns: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.arrayOf(PropTypes.object)
+}
 
 export default IndexTable

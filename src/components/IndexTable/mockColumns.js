@@ -14,12 +14,10 @@ const columns = [
   {
     property: "subjects",
     header: "Approved Subjects",
-    render: datum => datum.subjects,
   },
   {
     property: "lastEdit",
     header: "Last Edit",
-    render: datum => datum.lastEdit,
   },
   {
     property: "lastEditor",

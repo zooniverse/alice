@@ -63,15 +63,15 @@ export default function Home () {
           direction='row'
           border='bottom'
           gap='medium'>
-          {content.map(item =>
-            <Box width='20vw' margin={{ bottom: 'xlarge' }}>
+          {content.map((item, i) =>
+            <Box key={`INFO_${i}`} width='20vw' margin={{ bottom: 'xlarge' }}>
               <Text size='small' weight='bold'>{item.header}</Text>
               <Text size='small' margin={{ vertical: 'small' }}>{item.text}</Text>
               <Text size='small'>{item.link}</Text>
             </Box>)}
         </Box>
         <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='large'>
-          {images.map(image => <Image src={image}/>)}
+          {images.map((image, i) => <Image key={`LOGO_${i}`} src={image}/>)}
         </Box>
         <Box>
           <CapitalText size='xsmall'>

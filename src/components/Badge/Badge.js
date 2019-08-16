@@ -12,6 +12,7 @@ const StyledAvatar = styled.img`
 `
 
 const CapitalText = styled(Text)`
+  line-height: 0.5em;
   text-transform: uppercase;
 `
 
