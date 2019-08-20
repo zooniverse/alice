@@ -2,10 +2,11 @@ import React from 'react'
 import { Box, Button, Form, FormField, Image, Heading, Text } from 'grommet'
 import { FormNextLink } from 'grommet-icons'
 import styled from 'styled-components'
-import Adler from './images/adler.png'
-import NEH from './images/neh.png'
-import Oxford from './images/oxford.png'
-import Zooniverse from './images/zooniverse.png'
+import Adler from '../../images/adler.png'
+import NEH from '../../images/neh.png'
+import Oxford from '../../images/oxford.png'
+import Zooniverse from '../../images/zooniverse.png'
+import InfoText from './components/InfoText'
 
 const StyledHeader = styled(Heading)`
   font-weight: 300;
@@ -63,12 +64,7 @@ export default function Home () {
           direction='row'
           border='bottom'
           gap='medium'>
-          {content.map((item, i) =>
-            <Box key={`INFO_${i}`} width='20vw' margin={{ bottom: 'xlarge' }}>
-              <Text size='small' weight='bold'>{item.header}</Text>
-              <Text size='small' margin={{ vertical: 'small' }}>{item.text}</Text>
-              <Text size='small'>{item.link}</Text>
-            </Box>)}
+          {content.map((item, i) => <InfoText index={i} item={item}/> )}
         </Box>
         <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='large'>
           {images.map((image, i) => <Image key={`LOGO_${i}`} src={image}/>)}
