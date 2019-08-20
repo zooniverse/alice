@@ -5,6 +5,9 @@
   "dependencies": {
     "@zooniverse/grommet-theme": "^2.1.0",
     "formik": "^1.5.8",
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "grommet": "^2.7.4",
     "grommet-icons": "^4.3.0",
     "mobx": "^5.13.0",
