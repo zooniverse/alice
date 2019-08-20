@@ -1,10 +1,14 @@
 const theme = {
   global: {
     colors: {
-      medGray: '#5C5C5C',
+      link: '#005FFF',
       gray: '#979797',
+      medGray: '#5C5C5C',
       sand: '#EFF2F5'
     }
+  },
+  anchor: {
+    textDecoration: 'underline'
   },
   table: {
     extend: props => `

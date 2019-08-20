@@ -1,24 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Text } from 'grommet'
+import { Anchor, Box, Text } from 'grommet'
 
 function InfoText ({ index, item }) {
   return (
-    <Box key={`INFO_${index}`} width='20vw' margin={{ bottom: 'xlarge' }}>
-      <Text size='small' weight='bold'>{item.header}</Text>
-      <Text size='small' margin={{ vertical: 'small' }}>{item.text}</Text>
-      <Text size='small'>{item.link}</Text>
+    <Box key={`INFO_${index}`} width='medium'>
+      <Text weight='bold'>{item.header}</Text>
+      <Text margin={{ vertical: 'xsmall' }} size='xsmall'>{item.text}</Text>
+      <Anchor color='link' href={item.link} size='xsmall'>{item.link}</Anchor>
     </Box>
   )
 }
 
-InfoText.defaultProps = {
+InfoText.propTypes = {
   index: PropTypes.number,
   item: PropTypes.shape({
     header: PropTypes.string,
     link: PropTypes.string,
     text: PropTypes.string
   })
+}
+
+InfoText.defaultProps = {
+  index: 0,
+  item: null
 }
 
 export default InfoText

@@ -36,7 +36,7 @@ const content = [
     header: 'WHAT IS THIS',
     text: `
       The Zooniverse team have craeted a tool to view and edit
-      the results of transcription projects hosted on Zooniverse,
+      the results of transcription projects hosted on Zooniverse.
     `,
     link: '',
   },{
@@ -61,9 +61,10 @@ export default function Home () {
           Zooniverse transcription viewer/editor
         </StyledHeader>
         <Box
+          border={{ color: 'black', side: 'bottom' }}
           direction='row'
-          border='bottom'
-          gap='medium'>
+          gap='medium'
+          pad={{ bottom: 'xlarge', top: 'large' }}>
           {content.map((item, i) => <InfoText index={i} item={item}/> )}
         </Box>
         <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='large'>
