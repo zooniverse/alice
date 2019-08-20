@@ -25,7 +25,10 @@
     "@storybook/addon-links": "^3.4.8",
     "@storybook/addons": "^3.4.8",
     "@storybook/react": "^3.4.8",
-    "babel-core": "^6.26.3"
+    "babel-core": "^6.26.3",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "react-test-renderer": "^16.9.0"
   },
   "scripts": {
     "start": "react-scripts start",

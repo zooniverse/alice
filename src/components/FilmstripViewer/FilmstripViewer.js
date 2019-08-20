@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from './components/StepNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -45,6 +46,18 @@ function FilmstripViewer ({ images, isOpen, onToggle }) {
       )}
     </RoundedBox>
   )
+}
+
+FilmstripViewer.defaultProps = {
+  images: [],
+  isOpen: true,
+  onToggle: () => {}
+}
+
+FilmstripViewer.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string),
+  isOpen: PropTypes.bool,
+  onToggle: PropTypes.func
 }
 
 export default FilmstripViewer
