@@ -12,12 +12,18 @@ class FilmstripViewerContainer extends Component {
     super(props)
 
     this.state = {
-      images: [Page1, Page2, Page3, Page4, Page5, Page6]
+      images: [Page1, Page2, Page3, Page4, Page5, Page6],
+      isOpen: true
     }
   }
 
+  onToggle = e =>
+    this.setState({ isOpen: !this.state.isOpen })
+
   render () {
-    return <FilmstripViewer images={this.state.images} />
+    const { images, isOpen } = this.state;
+
+    return <FilmstripViewer images={images} isOpen={isOpen} onToggle={this.onToggle} />
   }
 }
 
