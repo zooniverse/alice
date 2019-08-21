@@ -132,12 +132,14 @@ export default function Home () {
           <Box direction='row' justify='between' wrap>
             <Text size='small'>Password</Text>
           </Box>
-          <Button type="submit">
-            <Box direction='row' margin={{ top: 'large' }}>
-              <CapitalText size='small'>Sign In</CapitalText>
-              <FormNextLink size='small'/>
-            </Box>
-          </Button>
+          <Button
+            gap='xxsmall'
+            icon={<FormNextLink size='small'/>}
+            label={<CapitalText size='small'>Sign In</CapitalText>}
+            plain
+            reverse
+            type="submit"
+          />
         </Form>
       </Box>
     </Box>
