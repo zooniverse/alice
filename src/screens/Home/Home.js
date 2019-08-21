@@ -1,5 +1,15 @@
 import React from 'react'
-import { Anchor, Box, Button, Form, FormField, Image, Heading, Text } from 'grommet'
+import {
+  Anchor,
+  Box,
+  Button,
+  Form,
+  FormField,
+  Heading,
+  Image,
+  Text,
+  TextInput
+} from 'grommet'
 import { FormNextLink } from 'grommet-icons'
 import styled from 'styled-components'
 import Adler from '../../images/adler.png'
@@ -93,11 +103,9 @@ export default function Home () {
             the University of Minnesota, and the broader Citizen Science Alliance.
           </CapitalText>
         </Box>
-        <Text margin={{ vertical: 'small' }} size='small'>
-          <a href="https://www.zooniverse.org" target="_blank" rel="noopener noreferrer">
-            <CapitalText>zooniverse.org</CapitalText>
-          </a>
-        </Text>
+        <Anchor color='link' href="https://www.zooniverse.org" margin={{ vertical: 'small' }} target="_blank" rel="noopener noreferrer">
+          <CapitalText>zooniverse.org</CapitalText>
+        </Anchor>
       </Box>
       <Box
         background='white'
@@ -109,10 +117,13 @@ export default function Home () {
         </SmallHeader>
         <Form>
           <FormField
-            name="username"
-            required/>
+            name="email"
+            required
+          >
+            <TextInput placeholder="e.g. zoofan1@nasa.gov" size='small'/>
+          </FormField>
           <Box direction='row' justify='between' wrap>
-            <Text size='small'>Username</Text>
+            <Text size='small'>Email Address</Text>
           </Box>
           <FormField
             name="password"
