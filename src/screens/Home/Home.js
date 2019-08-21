@@ -2,21 +2,18 @@ import React from 'react'
 import {
   Anchor,
   Box,
-  Button,
-  Form,
-  FormField,
+  Grid,
   Heading,
   Image,
   Text,
-  TextInput
 } from 'grommet'
-import { FormNextLink } from 'grommet-icons'
 import styled from 'styled-components'
 import Adler from '../../images/adler.png'
 import NEH from '../../images/neh.png'
 import Oxford from '../../images/oxford.png'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
+import LoginForm from './components/LoginForm'
 
 const StyledHeader = styled(Heading)`
   font-size: 6em;
@@ -31,10 +28,6 @@ const StyledHeader = styled(Heading)`
   @media (max-width: 725px) {
     font-size: 2em;
   }
-`
-
-const SmallHeader = styled(Heading)`
-  font-weight: 300;
 `
 
 const CapitalText = styled(Text)`
@@ -71,8 +64,11 @@ const content = [
 
 export default function Home () {
   return (
-    <Box direction='row' fill>
-      <Box alignSelf='start' margin={{ horizontal: 'medium' }}>
+    <Grid
+      areas={[{ name: 'content', start: [0, 0], end: [0, 0] }, { name: 'login', start: [1, 0], end: [1, 0] }]}
+      columns={['2/3', '1/3']}
+      rows={['full']}>
+      <Box gridArea='content' pad='medium'>
         <Box margin={{ vertical: 'large' }}>
           <Box height='2em' width='12em'>
             <Image fit='contain' src={Zooniverse} />
@@ -107,41 +103,9 @@ export default function Home () {
           <CapitalText>zooniverse.org</CapitalText>
         </Anchor>
       </Box>
-      <Box
-        background='white'
-        margin={{"right": "2em"}}
-        width='large'
-        pad='medium'>
-        <SmallHeader level="3" margin={{ top: 'large' }}>
-          Log in with your Zooniverse username to get started
-        </SmallHeader>
-        <Form>
-          <FormField
-            name="email"
-            required
-          >
-            <TextInput placeholder="e.g. zoofan1@nasa.gov" size='small'/>
-          </FormField>
-          <Box direction='row' justify='between' wrap>
-            <Text size='small'>Email Address</Text>
-          </Box>
-          <FormField
-            name="password"
-            type="password"
-            required/>
-          <Box direction='row' justify='between' wrap>
-            <Text size='small'>Password</Text>
-          </Box>
-          <Button
-            gap='xxsmall'
-            icon={<FormNextLink size='small'/>}
-            label={<CapitalText size='small'>Sign In</CapitalText>}
-            plain
-            reverse
-            type="submit"
-          />
-        </Form>
+      <Box gridArea='login'>
+        <LoginForm />
       </Box>
-    </Box>
+    </Grid>
   )
 }
