@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Form, FormField, Image, Heading, Text } from 'grommet'
+import { Anchor, Box, Button, Form, FormField, Image, Heading, Text } from 'grommet'
 import { FormNextLink } from 'grommet-icons'
 import styled from 'styled-components'
 import Adler from '../../images/adler.png'
@@ -9,9 +9,10 @@ import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 
 const StyledHeader = styled(Heading)`
-  font-weight: 300;
-  line-height: 0.9em;
   font-size: 6em;
+  font-weight: 300;
+  letter-spacing: -6.16px;
+  line-height: 0.9em;
 
   @media (max-width: 1060px) {
     font-size: 4em;
@@ -34,22 +35,27 @@ const images = [ NEH, Zooniverse, Adler, Oxford ];
 const content = [
   {
     header: 'WHAT IS THIS',
-    text: `
-      The Zooniverse team have craeted a tool to view and edit
-      the results of transcription projects hosted on Zooniverse.
-    `,
-    link: '',
+    text:
+      <Text>
+        The Zooniverse team have created this app to view and edit
+        the results of transcription projects hosted on Zooniverse.
+      </Text>
   },{
     header: 'WHO CAN USE IT',
-    text: 'Anyone with a text transcription can use this tool.',
-    link: '',
+    text:
+      <Text>
+        Anyone with a text transcription project can use this tool.
+      <Anchor color='link' margin={{ left: '0.2em' }} size='xsmall'>Contact</Anchor> the Zooniverse team to set up your transcription project.</Text>
   }, {
     header: 'HOW TO USE IT',
-    text: `
-      Documentation has been created to help use this tool but
-      honestly it's so well designed you won't need it.
-    `,
-    link: 'Link to documentation',
+    text:
+      <Box>
+        <Text>
+          Documentation has been created to help research teams set up
+          and optimally use this tool.
+        </Text>
+        <Anchor color='link' href='#' margin={{ vertical: 'xsmall' }} size='xsmall'>Link to Documentation</Anchor>
+      </Box>
   }
 ]
 
@@ -57,18 +63,27 @@ export default function Home () {
   return (
     <Box direction='row' fill>
       <Box alignSelf='start' margin={{ horizontal: 'medium' }}>
-        <StyledHeader>
-          Zooniverse transcription viewer/editor
-        </StyledHeader>
+        <Box margin={{ vertical: 'large' }}>
+          <Box height='2em' width='12em'>
+            <Image fit='contain' src={Zooniverse} />
+          </Box>
+          <StyledHeader >
+            Transcription viewer/editor
+          </StyledHeader>
+        </Box>
         <Box
           border={{ color: 'black', side: 'bottom' }}
           direction='row'
           gap='medium'
-          pad={{ bottom: 'xlarge', top: 'large' }}>
+          pad={{ bottom: 'xlarge' }}>
           {content.map((item, i) => <InfoText index={i} item={item}/> )}
         </Box>
-        <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='large'>
-          {images.map((image, i) => <Image key={`LOGO_${i}`} src={image}/>)}
+        <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='medium'>
+          {images.map((image, i) =>
+            <Box height='3em' width='xsmall'>
+              <Image key={`LOGO_${i}`} fit='contain' src={image}/>
+            </Box>
+          )}
         </Box>
         <Box>
           <CapitalText size='xsmall'>
@@ -80,7 +95,7 @@ export default function Home () {
         </Box>
         <Text margin={{ vertical: 'small' }} size='small'>
           <a href="https://www.zooniverse.org" target="_blank" rel="noopener noreferrer">
-            www.zooniverse.org
+            <CapitalText>zooniverse.org</CapitalText>
           </a>
         </Text>
       </Box>
@@ -98,22 +113,20 @@ export default function Home () {
             required/>
           <Box direction='row' justify='between' wrap>
             <Text size='small'>Username</Text>
-            <CapitalText size='small'>Forgot Username?</CapitalText>
           </Box>
           <FormField
             name="password"
             type="password"
             required/>
-            <Box direction='row' justify='between' wrap>
-              <Text size='small'>Password</Text>
-              <CapitalText size='small'>Forgot Password?</CapitalText>
+          <Box direction='row' justify='between' wrap>
+            <Text size='small'>Password</Text>
+          </Box>
+          <Button type="submit">
+            <Box direction='row' margin={{ top: 'large' }}>
+              <CapitalText size='small'>Sign In</CapitalText>
+              <FormNextLink size='small'/>
             </Box>
-            <Button type="submit">
-              <Box pad={{ vertical: 'small' }} direction='row' align='center' gap='xsmall'>
-                <CapitalText size='small'>Sign In</CapitalText>
-                <FormNextLink size='small'/>
-              </Box>
-            </Button>
+          </Button>
         </Form>
       </Box>
     </Box>

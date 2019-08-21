@@ -6,7 +6,7 @@ function InfoText ({ index, item }) {
   return (
     <Box key={`INFO_${index}`} width='medium'>
       <Text weight='bold'>{item.header}</Text>
-      <Text margin={{ vertical: 'xsmall' }} size='xsmall'>{item.text}</Text>
+      <Box margin={{ vertical: 'xsmall' }}>{item.text}</Box>
       <Anchor color='link' href={item.link} size='xsmall'>{item.link}</Anchor>
     </Box>
   )
@@ -17,7 +17,7 @@ InfoText.propTypes = {
   item: PropTypes.shape({
     header: PropTypes.string,
     link: PropTypes.string,
-    text: PropTypes.string
+    text: PropTypes.func
   })
 }
 

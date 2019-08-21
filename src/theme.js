@@ -10,6 +10,11 @@ const theme = {
   anchor: {
     textDecoration: 'underline'
   },
+  formField: {
+    margin: {
+      bottom: 'xsmall'
+    }
+  },
   table: {
     extend: props => `
       tr:nth-child(even) {
