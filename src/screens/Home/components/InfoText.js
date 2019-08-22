@@ -17,7 +17,7 @@ InfoText.propTypes = {
   item: PropTypes.shape({
     header: PropTypes.string,
     link: PropTypes.string,
-    text: PropTypes.func
+    text: PropTypes.object
   })
 }
 

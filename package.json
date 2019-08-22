@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@zooniverse/grommet-theme": "^2.1.0",
+    "formik": "^1.5.8",
     "grommet": "^2.7.4",
     "grommet-icons": "^4.3.0",
     "mobx": "^5.13.0",

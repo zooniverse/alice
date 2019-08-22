@@ -67,7 +67,8 @@ export default function Home () {
     <Grid
       areas={[{ name: 'content', start: [0, 0], end: [0, 0] }, { name: 'login', start: [1, 0], end: [1, 0] }]}
       columns={['2/3', '1/3']}
-      rows={['full']}>
+      rows={['full']}
+      fill>
       <Box gridArea='content' pad='medium'>
         <Box margin={{ vertical: 'large' }}>
           <Box height='2em' width='12em'>
@@ -82,12 +83,12 @@ export default function Home () {
           direction='row'
           gap='medium'
           pad={{ bottom: 'xlarge' }}>
-          {content.map((item, i) => <InfoText index={i} item={item}/> )}
+          {content.map((item, i) => <InfoText key={`INFO_${i}`} index={i} item={item}/> )}
         </Box>
         <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='medium'>
           {images.map((image, i) =>
-            <Box height='3em' width='xsmall'>
-              <Image key={`LOGO_${i}`} fit='contain' src={image}/>
+            <Box key={`LOGO_${i}`} height='3em' width='xsmall'>
+              <Image fit='contain' src={image}/>
             </Box>
           )}
         </Box>
