@@ -1,6 +1,9 @@
 const theme = {
   global: {
     colors: {
+      border: {
+        light: '#A6A7A9'
+      },
       link: '#005FFF',
       gray: '#979797',
       medGray: '#5C5C5C',
@@ -28,7 +31,6 @@ const theme = {
       }
       label div {
         border-radius: 0;
-        border-color: 1px solid #979797;
         height: 1em;
         width: 1em;
       }

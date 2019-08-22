@@ -9,7 +9,7 @@ const CapitalText = styled(Text)`
 
 function EditorHeader (props) {
   return (
-    <Box direction='row' pad={{ bottom: 'small' }} margin={{ bottom: 'small' }} border='bottom'>
+    <Box direction='row' pad={{ bottom: 'small' }} border='bottom'>
       <Box direction='row' justify='between' border='right' fill='horizontal'>
         <Box align='center' direction='row' gap='medium'>
           <Text size='xlarge'>Project Name</Text>

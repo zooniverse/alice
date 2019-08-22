@@ -9,13 +9,13 @@ import Projects from './screens/ProjectsIndex'
 import baseTheme from './theme'
 
 function App() {
-  const mergedTheme = merge({}, baseTheme, zooTheme)
+  const mergedTheme = merge({}, zooTheme, baseTheme)
   return (
     <Router>
       <>
         <main>
           <Grommet theme={mergedTheme}>
-            <Route path="/" exact component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/projects" component={Projects} />
           </Grommet>
         </main>

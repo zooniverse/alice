@@ -88,7 +88,7 @@ export default function Home () {
           </StyledHeader>
         </Box>
         <Box
-          border={{ color: 'black', side: 'bottom' }}
+          border='bottom'
           direction='row'
           gap='medium'
           pad={{ bottom: 'xlarge' }}>
