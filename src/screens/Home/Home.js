@@ -34,7 +34,16 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-const images = [ NEH, Zooniverse, Adler, Oxford ];
+const images = [{
+    logo: NEH, title: 'NEH'
+  }, {
+    logo: Zooniverse, title: 'Zooniverse'
+  }, {
+    logo: Adler, title: 'Adler'
+  }, {
+    logo: Oxford, title: 'Oxford'
+}];
+
 const content = [
   {
     header: 'WHAT IS THIS',
@@ -88,7 +97,7 @@ export default function Home () {
         <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='medium'>
           {images.map((image, i) =>
             <Box key={`LOGO_${i}`} height='3em' width='xsmall'>
-              <Image fit='contain' src={image}/>
+              <Image alt={`${image.title} Logo`} fit='contain' src={image.logo}/>
             </Box>
           )}
         </Box>

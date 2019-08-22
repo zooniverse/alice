@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Button, FormField, Heading, Text, TextInput } from 'grommet'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormNextLink } from 'grommet-icons'
 import { Formik } from 'formik'
@@ -85,6 +86,16 @@ function LoginForm ({ initialValues, onSubmit }) {
       </Formik>
     </Box>
   )
+}
+
+LoginForm.defaultProps = {
+  initialValues: null,
+  onSubmit: () => {}
+}
+
+LoginForm.propTypes = {
+  initialValues: PropTypes.shape(),
+  onSubmit:PropTypes.func
 }
 
 export default LoginForm
