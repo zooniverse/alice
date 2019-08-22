@@ -18,6 +18,9 @@ const theme = {
       bottom: 'xsmall'
     }
   },
+  heading: {
+    weight: 300
+  },
   table: {
     extend: props => `
       tr:nth-child(even) {

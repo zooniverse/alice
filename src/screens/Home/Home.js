@@ -17,7 +17,6 @@ import LoginForm from './components/LoginForm'
 
 const StyledHeader = styled(Heading)`
   font-size: 6em;
-  font-weight: 300;
   letter-spacing: -6.16px;
   line-height: 0.9em;
 
