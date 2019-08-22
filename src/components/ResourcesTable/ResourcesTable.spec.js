@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import IndexTable from './IndexTable'
+import ResourcesTable from './ResourcesTable'
 
 let wrapper;
 let html;
@@ -27,16 +27,16 @@ const DATA = [
   }
 ]
 
-describe('Component > IndexTable', function () {
+describe('Component > ResourcesTable', function () {
   beforeEach(function() {
-    wrapper = shallow(<IndexTable columns={COLUMNS} data={DATA} />);
+    wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} />);
     html = wrapper.html()
   })
 
   it('should render without crashing', function () {
     expect(wrapper).toBeDefined()
   })
-  
+
   it('should render the correct columns', function () {
     expect(html).toContain(COLUMNS[0].header);
     expect(html).toContain(COLUMNS[1].header);

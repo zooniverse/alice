@@ -7,7 +7,7 @@ const RoundedBox = styled(Box)`
   border-radius: 0.5em;
 `
 
-class IndexTable extends Component {
+class ResourcesTable extends Component {
   state = { checked: [], columns: [] }
 
   onCheck = (e, value) => {
@@ -59,14 +59,14 @@ class IndexTable extends Component {
   }
 }
 
-IndexTable.defaultProps = {
+ResourcesTable.defaultProps = {
   columns: [],
   data: []
 }
 
-IndexTable.propTypes = {
+ResourcesTable.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object),
   data: PropTypes.arrayOf(PropTypes.object)
 }
 
-export default IndexTable
+export default ResourcesTable
