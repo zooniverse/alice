@@ -18,7 +18,6 @@ const CapitalText = styled(Text)`
 `
 
 function Badge (props) {
-  console.log(DefaultAvatar);
   return (
     <Box align='center' direction='row' height='xxsmall' width='14em'>
       <StyledAvatar fallback={DefaultAvatar} src={DefaultAvatar} />

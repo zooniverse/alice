@@ -9,9 +9,9 @@ const CapitalText = styled(Text)`
 
 function EditorHeader (props) {
   return (
-    <Box direction='row' pad={{ bottom: 'small' }} border='bottom'>
+    <Box as='header' direction='row' pad={{ bottom: 'small' }} border='bottom'>
       <Box direction='row' justify='between' border='right' fill='horizontal'>
-        <Box align='center' direction='row' gap='medium'>
+        <Box align='center'>
           <Heading level='2'>Text Transcription Project</Heading>
         </Box>
         <Box align='center' direction='row' gap='medium' pad={{ horizontal: 'medium' }}>

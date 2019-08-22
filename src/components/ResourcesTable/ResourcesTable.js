@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
-import { Box, CheckBox, DataTable } from 'grommet'
+import { Box, CheckBox, DataTable, FormField } from 'grommet'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-
-const RoundedBox = styled(Box)`
-  border-radius: 0.5em;
-`
 
 class ResourcesTable extends Component {
   state = { checked: [], columns: [] }
@@ -25,48 +20,56 @@ class ResourcesTable extends Component {
 
   render() {
     const { checked } = this.state;
-    const { columns, data } = this.props;
+    const { columns, data, resource } = this.props;
 
     return (
-      <RoundedBox background='white' margin={{ vertical: 'small' }} pad='medium'>
+      <Box background='white' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
         <DataTable
           columns={[
             {
               property: "checkbox",
               render: datum => (
-                <CheckBox
-                  key={datum.name}
-                  checked={checked.indexOf(datum.id) !== -1}
-                  onChange={e => this.onCheck(e, datum.id)}
-                />
+                <FormField htmlFor={`${resource}_ID_${datum.id}`}>
+                  <CheckBox
+                    key={datum.name}
+                    id={`${resource}_ID_${datum.id}`}
+                    checked={checked.indexOf(datum.id) !== -1}
+                    onChange={e => this.onCheck(e, datum.id)}
+                  />
+                </FormField>
               ),
               header: (
-                <CheckBox
-                  checked={checked.length === data.length}
-                  indeterminate={
-                    checked.length > 0 && checked.length < data.length
-                  }
-                  onChange={this.onCheckAll}
-                />
+                <FormField htmlFor={`All_${resource}`}>
+                  <CheckBox
+                    checked={checked.length === data.length}
+                    id={`All_${resource}`}
+                    indeterminate={
+                      checked.length > 0 && checked.length < data.length
+                    }
+                    onChange={this.onCheckAll}
+                  />
+                </FormField>
               ),
             },
             ...columns
           ].map(col => ({ ...col }))}
           data={data}
         />
-      </RoundedBox>
+      </Box>
     )
   }
 }
 
 ResourcesTable.defaultProps = {
   columns: [],
-  data: []
+  data: [],
+  resource: null
 }
 
 ResourcesTable.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object),
-  data: PropTypes.arrayOf(PropTypes.object)
+  data: PropTypes.arrayOf(PropTypes.object),
+  resource: PropTypes.string
 }
 
 export default ResourcesTable
