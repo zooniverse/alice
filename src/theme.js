@@ -2,18 +2,25 @@ const theme = {
   global: {
     colors: {
       border: {
-        light: '#A6A7A9'
+        light: 'light-5'
       },
-      link: '#005FFF',
       gray: '#979797',
-      medGray: '#5C5C5C',
-      sand: '#EFF2F5'
+      medGray: 'dark-5',
+      sand: 'light-1'
     }
   },
   anchor: {
+    color: '#005FFF',
     textDecoration: 'underline'
   },
+  checkBox: {
+    check: {
+      radius: 0
+    },
+    size: '1em'
+  },
   formField: {
+    border: 'none',
     margin: {
       bottom: 'xsmall'
     }
@@ -31,11 +38,6 @@ const theme = {
       }
       span {
         font-size: 0.8em;
-      }
-      label div {
-        border-radius: 0;
-        height: 1em;
-        width: 1em;
       }
     `
   }
