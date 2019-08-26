@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Box, RadioButtonGroup } from 'grommet'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FormPrevious, FormNext } from 'grommet-icons'
 
 const StyledButton = styled(Button)`
   &:first-of-type {
@@ -47,7 +46,7 @@ class StepNavigation extends React.Component {
           <StyledButton
             data-index={prevStep}
             disabled={activeStep === 0}
-            icon={<FontAwesomeIcon icon={faChevronLeft} />}
+            icon={<FormPrevious />}
             onClick={() => setStep(prevStep)}
             plain
           />
@@ -62,7 +61,7 @@ class StepNavigation extends React.Component {
           <StyledButton
             data-index={nextStep}
             disabled={activeStep === steps.length - 1}
-            icon={<FontAwesomeIcon icon={faChevronRight} />}
+            icon={<FormNext />}
             onClick={() => setStep(nextStep)}
             plain
           />

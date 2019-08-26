@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from './components/StepNavigation'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
+import { FormDown, FormUp } from 'grommet-icons'
 
 const RoundedBox = styled(Box)`
   border-radius: 0.25em 0.25em 0 0;
@@ -17,13 +16,15 @@ const Uppercase = styled(Text)`
 
 function FilmstripViewer ({ images, isOpen, onToggle }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
+
+
   return (
     <RoundedBox background='#FFFFFF' pad='small'>
       <Box direction='row' justify='between'>
         <Text>All pages</Text>
         {!isOpen && ( <StepNavigation steps={images} /> )}
         <Button
-          icon={<FontAwesomeIcon icon={isOpen ? faCaretDown : faCaretUp} />}
+          icon={isOpen ? <FormDown /> : <FormUp />}
           label={<Uppercase>{actionText} Filmstrip</Uppercase>}
           gap='xsmall'
           onClick={onToggle}
