@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
+import merge from 'lodash/merge'
+import { Grommet } from 'grommet'
+import zooTheme from '@zooniverse/grommet-theme'
+import './App.css'
+import Home from './screens/Home'
+import Projects from './screens/ProjectsIndex'
+import baseTheme from './theme'
 
 function App() {
+  const mergedTheme = merge({}, zooTheme, baseTheme)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <>
+        <main>
+          <Grommet theme={mergedTheme}>
+            <Route exact path="/" component={Home} />
+            <Route path="/projects" component={Projects} />
+          </Grommet>
+        </main>
+      </>
+    </Router>
   );
 }
 

@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@zooniverse/grommet-theme": "^2.1.0",
+    "formik": "^1.5.8",
     "grommet": "^2.7.4",
+    "grommet-icons": "^4.3.0",
     "mobx": "^5.13.0",
     "mobx-react": "^6.1.1",
     "mobx-state-tree": "^3.14.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2"
   },
@@ -32,5 +36,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "~1.14.0",
+    "react-test-renderer": "^16.9.0"
   }
 }
