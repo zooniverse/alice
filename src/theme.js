@@ -25,7 +25,8 @@ const theme = {
   formField: {
     label: {
       margin: { "horizontal": "none" }
-    }
+    },
+    margin: 'medium'
   },
   heading: {
     weight: 300
