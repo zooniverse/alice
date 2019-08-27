@@ -7,6 +7,9 @@ const theme = {
       gray: '#979797',
       medGray: 'dark-5',
       sand: 'light-1'
+    },
+    input: {
+      padding: '0'
     }
   },
   anchor: {
@@ -20,9 +23,8 @@ const theme = {
     size: '1em'
   },
   formField: {
-    border: 'none',
-    margin: {
-      bottom: 'xsmall'
+    label: {
+      margin: { "horizontal": "none" }
     }
   },
   heading: {

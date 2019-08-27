@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormNextLink } from 'grommet-icons'
 import { Formik } from 'formik'
+import Label from '../Label'
 
 const SmallHeader = styled(Heading)`
   font-weight: 300;
@@ -12,6 +13,10 @@ const SmallHeader = styled(Heading)`
 const CapitalText = styled(Text)`
   line-height: 0.5em;
   text-transform: uppercase;
+`
+
+const StyledFormField = styled(FormField)`
+  flex-direction: column-reverse;
 `
 
 function LoginForm ({ initialValues, onSubmit }) {
@@ -35,9 +40,10 @@ function LoginForm ({ initialValues, onSubmit }) {
           values
         }) => (
           <Box as='form' onSubmit={handleSubmit}>
-            <FormField
+            <StyledFormField
               error={errors.email && touched.email && errors.email}
-              htmlFor='email'>
+              htmlFor='email'
+              label={<Label text="Email Address" />}>
               <TextInput
                 disabled={isSubmitting}
                 id='email'
@@ -49,13 +55,11 @@ function LoginForm ({ initialValues, onSubmit }) {
                 size='small'
                 type='text'
                 value={values.email}/>
-            </FormField>
-            <Box direction='row' justify='between' wrap>
-              <Text size='small'>Email Address</Text>
-            </Box>
-            <FormField
+            </StyledFormField>
+            <StyledFormField
               error={errors.password && touched.password && errors.password}
-              htmlFor='password'>
+              htmlFor='password'
+              label={<Label text="Password" />}>
               <TextInput
                 disabled={isSubmitting}
                 id='password'
@@ -66,10 +70,7 @@ function LoginForm ({ initialValues, onSubmit }) {
                 size='small'
                 type='password'
                 value={values.password}/>
-            </FormField>
-            <Box direction='row' justify='between' wrap>
-              <Text size='small'>Password</Text>
-            </Box>
+            </StyledFormField>
             <Button
               alignSelf='start'
               disabled={isSubmitting}
