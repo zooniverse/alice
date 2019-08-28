@@ -1,11 +1,20 @@
 import React from 'react'
-import { Box, Text } from 'grommet'
+import { CheckBox, Text } from 'grommet'
+import styled from 'styled-components'
 
-function EditorHeader (props) {
+const CapitalText = styled(Text)`
+  text-transform: uppercase;
+`
+
+function EditorHeader ({ checked, onChange }) {
   return (
-    <Box>
-      <Text>Hello World</Text>
-    </Box>
+    <CheckBox
+      checked={checked}
+      label={<CapitalText color='#5C5C5C'>Mark As Approved</CapitalText>}
+      onChange={onChange}
+      reverse
+      toggle
+    />
   )
 }
 
