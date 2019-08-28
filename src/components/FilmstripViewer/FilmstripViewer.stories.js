@@ -1,9 +1,8 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { Box, Grommet } from 'grommet';
-import FilmstripViewer from '../src/components/FilmstripViewer'
 import zooTheme from '@zooniverse/grommet-theme'
+import FilmstripViewer from './FilmstripViewer'
 
 storiesOf('FilmstripViewer', module)
   .add('Default', () => (
