@@ -22,6 +22,11 @@ const theme = {
     },
     size: '1em'
   },
+  dataTable: {
+    primary: {
+      weight: 300
+    }
+  },
   formField: {
     label: {
       margin: { "horizontal": "none" }
