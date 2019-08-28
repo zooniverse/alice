@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import merge from 'lodash/merge'
 import { Grommet } from 'grommet'
 import zooTheme from '@zooniverse/grommet-theme'
