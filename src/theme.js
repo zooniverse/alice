@@ -28,9 +28,6 @@ const theme = {
     },
     margin: 'medium'
   },
-  heading: {
-    weight: 300
-  },
   table: {
     extend: props => `
       tr:nth-child(even) {
