@@ -26,7 +26,12 @@ const theme = {
     label: {
       margin: { "horizontal": "none" }
     },
-    margin: 'medium'
+    margin: 'medium',
+    extend: props => `
+      div:first-child {
+        border-bottom: none;
+      }
+    `
   },
   table: {
     extend: props => `
