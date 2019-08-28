@@ -18,7 +18,7 @@ const theme = {
   },
   checkBox: {
     check: {
-      radius: 0
+      radius: '0'
     },
     size: '1em'
   },
