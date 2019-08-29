@@ -81,7 +81,7 @@ export default function Home () {
       <Box gridArea='content' pad='medium'>
         <Box margin={{ vertical: 'large' }}>
           <Box height='2em' width='12em'>
-            <Image a11yTitle="Powered by Zooniverse" fit='contain' src={Zooniverse} />
+            <Image alt="Powered by Zooniverse" fit='contain' src={Zooniverse} />
           </Box>
           <StyledHeader >
             Transcription viewer/editor
