@@ -14,13 +14,36 @@ const AbsoluteBox = styled(Box)`
 `
 
 class SubjectViewerContainer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+        showImageTools: false
+    }
+
+    this.onMouseOver = this.onMouseOver.bind(this)
+    this.onMouseLeave = this.onMouseLeave.bind(this)
+  }
+
+  onMouseOver() {
+    this.setState({ showImageTools: true })
+  }
+
+  onMouseLeave() {
+    this.setState({ showImageTools: false })
+  }
+
+  onMouseLeave
+
   render() {
+    const { showImageTools } = this.state;
+
     return (
-      <Box background={{ color: '#858585' }} height='large' width='large' round='xsmall'>
+      <Box onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseLeave} background={{ color: '#858585' }} height='large' width='large' round='xsmall'>
         <SubjectViewerHeader />
         <RelativeBox fill>
           <AbsoluteBox margin='small'>
-            <ImageTools />
+            {showImageTools && (<ImageTools />)}
           </AbsoluteBox>
           <SubjectViewer />
         </RelativeBox>

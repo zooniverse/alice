@@ -16,9 +16,9 @@ function InteractionLayer({ onMouseMove, onMouseDown, onMouseUp }) {
 }
 
 InteractionLayer.propTypes = {
-  onMouseMove: func.isRequired,
-  onMouseDown: func.isRequired,
-  onMouseUp: func.isRequired
+  onMouseMove: func,
+  onMouseDown: func,
+  onMouseUp: func
 }
 
 export default InteractionLayer
