@@ -14,7 +14,7 @@ class LoginFormContainer extends Component {
 
   render() {
     return (
-      <LoginForm initialValues={{ email: '', password: '' }} onSubmit={this.onSubmit}/>
+      <LoginForm initialValues={{ login: '', password: '' }} onSubmit={this.onSubmit}/>
     )
   }
 }

@@ -19,7 +19,7 @@ function EditorHeader (props) {
           <StyledHeader level='2'>Text Transcription Project</StyledHeader>
         </Box>
         <Box align='center' direction='row' gap='medium' pad={{ horizontal: 'medium' }}>
-          <CapitalText color='medGray' size='small'>Download all data</CapitalText>
+          <CapitalText color='dark-5' size='small'>Download all data</CapitalText>
         </Box>
       </Box>
       <Badge />

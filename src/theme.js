@@ -4,9 +4,7 @@ const theme = {
       border: {
         light: 'light-5'
       },
-      gray: '#979797',
-      medGray: 'dark-5',
-      sand: 'light-1'
+      gray: '#979797'
     },
     input: {
       padding: '0'

@@ -41,20 +41,20 @@ function LoginForm ({ initialValues, onSubmit }) {
         }) => (
           <Box as='form' onSubmit={handleSubmit}>
             <StyledFormField
-              error={errors.email && touched.email && errors.email}
-              htmlFor='email'
-              label={<Label text="Email Address" />}>
+              error={errors.login && touched.login && errors.login}
+              htmlFor='login'
+              label={<Label text="Username or Email Address" />}>
               <TextInput
                 disabled={isSubmitting}
-                id='email'
-                name='email'
+                id='login'
+                name='login'
                 onBlur={handleBlur}
                 onChange={handleChange}
                 placeholder="e.g. zoofan1@nasa.gov"
                 required
                 size='small'
                 type='text'
-                value={values.email}/>
+                value={values.login}/>
             </StyledFormField>
             <StyledFormField
               error={errors.password && touched.password && errors.password}
