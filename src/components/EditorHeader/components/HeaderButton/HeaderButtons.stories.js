@@ -5,6 +5,7 @@ import { mergedTheme } from '../../../../theme'
 import UndoButtonContainer from './UndoButtonContainer'
 import SaveButtonContainer from './SaveButtonContainer'
 import MoreButtonContainer from './MoreButtonContainer'
+import LayoutButtonContainer from './LayoutButtonContainer'
 
 storiesOf('HeaderButtons', module)
   .add('UndoButton', () => (
@@ -20,5 +21,10 @@ storiesOf('HeaderButtons', module)
   .add('MoreButton', () => (
     <Grommet theme={mergedTheme}>
       <MoreButtonContainer />
+    </Grommet>
+  ))
+  .add('LayoutButton', () => (
+    <Grommet theme={mergedTheme}>
+      <LayoutButtonContainer />
     </Grommet>
   ))

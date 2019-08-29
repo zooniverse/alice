@@ -1,12 +1,12 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import UndoButton from './UndoButton'
+import LayoutButtonContainer from './LayoutButtonContainer'
 
 let wrapper
 
 describe('Component > UndoButton', function () {
   beforeEach(function() {
-    wrapper = shallow(<UndoButton />);
+    wrapper = shallow(<LayoutButtonContainer />);
   })
 
   it('should render without crashing', function () {

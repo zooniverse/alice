@@ -13,7 +13,7 @@ class MoreButtonContainer extends Component {
   render () {
     return (
       <HeaderButton
-        icon={<FormDown color='#555555' size='small'/>}
+        icon={<FormDown color='#555555' size='medium'/>}
         label={'More'}
         onClick={this.onClick}
       />

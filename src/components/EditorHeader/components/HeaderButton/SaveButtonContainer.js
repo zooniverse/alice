@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import HeaderButton from './HeaderButton'
-import { Save } from 'grommet-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSave } from '@fortawesome/free-solid-svg-icons'
 
 class SaveButtonContainer extends Component {
   constructor (props) {
@@ -13,7 +14,7 @@ class SaveButtonContainer extends Component {
   render () {
     return (
       <HeaderButton
-        icon={<Save color='#555555' size='small'/>}
+        icon={<FontAwesomeIcon color='#555555' icon={faSave} size='xs' />}
         label={'Save'}
         onClick={this.onClick}
       />
