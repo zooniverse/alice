@@ -33,8 +33,6 @@ class SubjectViewerContainer extends React.Component {
     this.setState({ showImageTools: false })
   }
 
-  onMouseLeave
-
   render() {
     const { showImageTools } = this.state;
 

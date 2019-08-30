@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box } from 'grommet'
-import { Refresh, ZoomIn, ZoomOut } from 'grommet-icons'
+import ZoomInButtonContainer from './components/ZoomInButton'
+import ZoomOutButtonContainer from './components/ZoomOutButton'
+import RotateButtonContainer from './components/RotateButton'
 
 function ImageTools() {
   const borderStyle = { side: 'right', color: '#979797' }
@@ -8,13 +10,13 @@ function ImageTools() {
   return (
     <Box background='#A6A7A9' direction='row' elevation='large' round='xxsmall'>
       <Box border={borderStyle} pad={padStyle}>
-        <ZoomIn color='#000000' />
+        <ZoomInButtonContainer />
       </Box>
       <Box border={borderStyle} pad={padStyle}>
-        <ZoomOut color='#000000' />
+        <ZoomOutButtonContainer />
       </Box>
       <Box pad={padStyle}>
-        <Refresh color='#000000' />
+        <RotateButtonContainer />
       </Box>
     </Box>
   )
