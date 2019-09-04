@@ -5,7 +5,6 @@ import ResourcesTable from '../../components/ResourcesTable'
 
 export default () => (
   <Box margin='medium' fill='vertical'>
-    <EditorHeader />
     <ResourcesTable />
   </Box>
 )
