@@ -23,7 +23,7 @@ function Badge (props) {
       <StyledAvatar fallback={DefaultAvatar} src={DefaultAvatar} />
       <Box>
         <Text>Erin Green</Text>
-        <CapitalText color='medGray' size='xsmall'>Project Owner</CapitalText>
+        <CapitalText color='dark-5' size='xsmall'>Project Owner</CapitalText>
       </Box>
       <FormDown />
     </Box>

@@ -2,24 +2,39 @@ const theme = {
   global: {
     colors: {
       border: {
-        light: '#A6A7A9'
+        light: 'light-5'
       },
-      link: '#005FFF',
-      gray: '#979797',
-      medGray: '#5C5C5C',
-      sand: '#EFF2F5'
+      gray: '#979797'
+    },
+    input: {
+      padding: '0'
     }
   },
   anchor: {
+    color: '#005FFF',
     textDecoration: 'underline'
   },
-  formField: {
-    margin: {
-      bottom: 'xsmall'
+  checkBox: {
+    check: {
+      radius: '0'
+    },
+    size: '1em'
+  },
+  dataTable: {
+    primary: {
+      weight: 300
     }
   },
-  heading: {
-    weight: 300
+  formField: {
+    label: {
+      margin: { "horizontal": "none" }
+    },
+    margin: 'medium',
+    extend: props => `
+      div:first-child {
+        border-bottom: none;
+      }
+    `
   },
   table: {
     extend: props => `
@@ -31,11 +46,6 @@ const theme = {
       }
       span {
         font-size: 0.8em;
-      }
-      label div {
-        border-radius: 0;
-        height: 1em;
-        width: 1em;
       }
     `
   }

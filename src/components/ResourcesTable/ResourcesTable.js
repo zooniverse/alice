@@ -54,6 +54,7 @@ class ResourcesTable extends Component {
             ...columns
           ].map(col => ({ ...col }))}
           data={data}
+          primaryKey="id"
         />
       </Box>
     )
