@@ -34,7 +34,7 @@ function AggregatedTranscriptions (props) {
         pad='small'
       >
         <Text size='large'>Transcribed Text</Text>
-        <CapitalText>Add Line</CapitalText>
+        <CapitalText size='large'>Add Line</CapitalText>
       </Box>
       <OverflowBox margin={{ right: '0.25em' }}>
         <TranscriptionTable />
