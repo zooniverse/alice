@@ -9,6 +9,19 @@ const CapitalText = styled(Text)`
 
 const OverflowBox = styled(Box)`
   overflow: auto;
+  &::-webkit-scrollbar-thumb {
+    background-color: #BABABA;
+    border: 10px solid transparent;
+    border-radius: 1em;
+    background-clip: content-box;
+  }
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
+  &::-webkit-scrollbar {
+    background: white;
+    width: 1.5em;
+  }
 `
 
 function AggregatedTranscriptions (props) {
@@ -20,10 +33,10 @@ function AggregatedTranscriptions (props) {
         justify='between'
         pad='small'
       >
-        <Text>Transcribed Text</Text>
+        <Text size='large'>Transcribed Text</Text>
         <CapitalText>Add Line</CapitalText>
       </Box>
-      <OverflowBox>
+      <OverflowBox margin={{ right: '0.25em' }}>
         <TranscriptionTable />
       </OverflowBox>
     </Box>
