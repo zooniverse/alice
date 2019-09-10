@@ -31,4 +31,6 @@ function App() {
   );
 }
 
-export default App;
+App.contextType = AppContext
+
+export default observer(App);
