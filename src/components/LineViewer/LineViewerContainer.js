@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import LineViewer from './LineViewer'
+import mockLines from './mockLines'
 
 class LineViewerContainer extends Component {
   render () {
-    return <LineViewer />
+    return <LineViewer classifications={mockLines}/>
   }
 }
 
