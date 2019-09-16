@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import {
   Anchor,
   Box,
@@ -14,7 +14,6 @@ import Oxford from '../../images/oxford.png'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 import LoginForm from './components/LoginForm'
-import AppContext from '../../store'
 
 const StyledHeader = styled(Heading)`
   font-size: 6em;
@@ -73,8 +72,6 @@ const content = [
 ]
 
 export default function Home () {
-  const store = useContext(AppContext)
-  console.log(store);
   return (
     <Grid
       areas={[{ name: 'content', start: [0, 0], end: [0, 0] }, { name: 'login', start: [1, 0], end: [1, 0] }]}

@@ -1,9 +1,9 @@
 import { types } from 'mobx-state-tree'
-import { UserStore } from './UserStore'
+import { AuthStore } from './AuthStore'
 
 const AppStore = types.model('AppStore', {
   initialised: types.optional(types.boolean, false),
-  user: types.optional(UserStore, () => UserStore.create({})),
+  auth: types.optional(AuthStore, () => AuthStore.create({})),
 })
 
 export { AppStore }
