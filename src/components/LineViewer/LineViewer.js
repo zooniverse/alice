@@ -1,8 +1,10 @@
 import React from 'react'
-import { Box, Button, Text } from 'grommet'
+import { Box, Button, CheckBox, Text, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import TranscriptionLine from './components/TranscriptionLine'
+import withThemeContext from '../../helpers/withThemeContext'
+import theme from './theme'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -21,8 +23,16 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
           <Text>{consensusScore}/{classifications.length}</Text>
         </Box>
       </Box>
-      <Box margin={{ top: 'xsmall' }}>
+      <Box border='bottom' margin={{ top: 'xsmall' }}>
         {classifications.map((classification, index) => <TranscriptionLine classification={classification} index={index} key={`LINE_${index}`} />)}
+        <Box direction='row' margin='xsmall'>
+          <Box justify='center' margin={{ left: 'xsmall' }}>
+            <CheckBox />
+          </Box>
+          <Box fill='horizontal' margin='xsmall'>
+            <TextInput placeholder='Write new...' size='small' />
+          </Box>
+        </Box>
       </Box>
       <Box direction='row' justify='between' margin='xsmall'>
         <Box direction='row'>
@@ -50,4 +60,4 @@ LineViewer.propTypes = {
   consensusScore: PropTypes.number
 }
 
-export default LineViewer
+export default withThemeContext(LineViewer, theme)
