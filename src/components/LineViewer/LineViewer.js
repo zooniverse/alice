@@ -17,11 +17,13 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
           <CapitalText size='xsmall'>Consensus Score</CapitalText>
         </Box>
         <Box direction='row' justify='between' pad={{ top: 'xsmall' }}>
-          <Text>{aggregatedText}</Text>
+          <Text weight='bold'>{aggregatedText}</Text>
           <Text>{consensusScore}/{classifications.length}</Text>
         </Box>
       </Box>
-      {classifications.map((classification, index) => <TranscriptionLine classification={classification} index={index} />)}
+      <Box margin={{ top: 'xsmall' }}>
+        {classifications.map((classification, index) => <TranscriptionLine classification={classification} index={index} key={`LINE_${index}`} />)}
+      </Box>
       <Box direction='row' justify='between' margin='xsmall'>
         <Box direction='row'>
           <Button margin={{ right: 'small' }}><CapitalText>Add Line Below</CapitalText></Button>
