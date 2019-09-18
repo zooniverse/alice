@@ -21,7 +21,7 @@ const theme = {
     check: {
       radius: '0'
     },
-    size: '1em',
+    size: '1.35em',
     gap: 'xxsmall',
     toggle: {
       extend: props => `

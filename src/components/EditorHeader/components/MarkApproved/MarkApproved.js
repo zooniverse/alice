@@ -6,7 +6,7 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function EditorHeader ({ checked, onChange }) {
+function MarkApproved ({ checked, onChange }) {
   return (
     <CheckBox
       checked={checked}
@@ -19,4 +19,4 @@ function EditorHeader ({ checked, onChange }) {
 }
 
 
-export default EditorHeader
+export default MarkApproved
