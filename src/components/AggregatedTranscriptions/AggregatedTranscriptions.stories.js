@@ -1,14 +1,14 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Box, Grommet } from 'grommet'
-import FilmstripViewerContainer from './FilmstripViewerContainer'
+import AggregatedTranscriptionsContainer from './AggregatedTranscriptionsContainer'
 import { mergedTheme } from '../../theme'
 
-storiesOf('FilmstripViewer', module)
+storiesOf('AggregatedTranscriptions', module)
   .add('Default', () => (
     <Grommet theme={mergedTheme}>
       <Box background='#D8D8D8' height='xlarge'>
-        <FilmstripViewerContainer />
+        <AggregatedTranscriptionsContainer />
       </Box>
     </Grommet>
   ))
