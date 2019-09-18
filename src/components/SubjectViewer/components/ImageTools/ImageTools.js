@@ -6,16 +6,15 @@ import RotateButtonContainer from './components/RotateButton'
 
 function ImageTools() {
   const borderStyle = { side: 'right', color: '#979797' }
-  const padStyle = { horizontal: 'small', vertical: 'xsmall' }
   return (
     <Box background='#A6A7A9' direction='row' elevation='large' round='xxsmall'>
-      <Box border={borderStyle} pad={padStyle}>
+      <Box border={borderStyle}>
         <ZoomInButtonContainer />
       </Box>
-      <Box border={borderStyle} pad={padStyle}>
+      <Box border={borderStyle}>
         <ZoomOutButtonContainer />
       </Box>
-      <Box pad={padStyle}>
+      <Box>
         <RotateButtonContainer />
       </Box>
     </Box>
