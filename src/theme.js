@@ -1,3 +1,6 @@
+import merge from 'lodash/merge'
+import zooTheme from '@zooniverse/grommet-theme'
+
 const theme = {
   global: {
     colors: {
@@ -18,7 +21,23 @@ const theme = {
     check: {
       radius: '0'
     },
-    size: '1em'
+    size: '1.35em',
+    gap: 'xxsmall',
+    toggle: {
+      extend: props => `
+      background-color: #D8D8D8;
+      border-color: #979797;
+      `,
+      knob: {
+        extend: ({ checked }) => `
+        background-color: #FFFFFF;
+        border: 2px solid #5C5C5C;
+        height: 1em;
+        width: 1em;
+        ${checked ? `margin: 0.15em 0;` : `margin: 0.15em`}
+        `
+      }
+    }
   },
   dataTable: {
     primary: {
@@ -27,7 +46,7 @@ const theme = {
   },
   formField: {
     label: {
-      margin: { "horizontal": "none" }
+      margin: { bottom: 'xsmall', horizontal: "none" }
     },
     margin: 'medium',
     extend: props => `
@@ -51,4 +70,5 @@ const theme = {
   }
 }
 
-module.exports = theme;
+const mergedTheme = merge({}, zooTheme, theme)
+export { mergedTheme, theme }

@@ -17,7 +17,6 @@ const Uppercase = styled(Text)`
 function FilmstripViewer ({ images, isOpen, onToggle }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
 
-
   return (
     <RoundedBox background='#FFFFFF' pad='small'>
       <Box direction='row' justify='between'>
