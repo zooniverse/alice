@@ -2,12 +2,19 @@ import React from 'react'
 import { Box, Button, CheckBox, Text, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import TranscriptionLine from './components/TranscriptionLine'
 import withThemeContext from '../../helpers/withThemeContext'
 import theme from './theme'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
+`
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  height: 0.5em;
+  opacity: 0.5;
 `
 
 function LineViewer ({ aggregatedText, classifications, consensusScore }) {
@@ -20,6 +27,10 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
         </Box>
         <Box direction='row' justify='between' pad={{ top: 'xsmall' }}>
           <Text weight='bold'>{aggregatedText}</Text>
+          <Box direction='row' align='center'>
+            <StyledFontAwesomeIcon color='tomato' icon={faCircle} />
+            <StyledFontAwesomeIcon color='green' icon={faCircle} />
+          </Box>
           <Text>{consensusScore}/{classifications.length}</Text>
         </Box>
       </Box>
@@ -49,7 +60,7 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
 }
 
 LineViewer.defaultProps = {
-  aggregatedText: 'Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.',
+  aggregatedText: '',
   classifications: [],
   consensusScore: 0
 }
