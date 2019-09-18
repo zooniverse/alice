@@ -6,13 +6,6 @@ import { faCircle, faStar } from '@fortawesome/free-solid-svg-icons'
 import withThemeContext from '../../../../helpers/withThemeContext'
 import theme from './theme'
 
-const EllipsedText = styled(Text)`
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`
-
 const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
@@ -39,12 +32,11 @@ const columns = [
   {
     property: 'transcription',
     header: <CapitalText>Aggregated Transcription</CapitalText>,
-    render: datum => <Box width='27em'><EllipsedText>{datum.transcription}</EllipsedText></Box>
+    render: datum => <Box><Text>{datum.transcription}</Text></Box>
   },
   {
     property: 'flag',
     header: <CapitalText textAlign='center'>Flag</CapitalText>,
-    align: 'center',
     render: datum => RenderFlags(datum)
   },
   {

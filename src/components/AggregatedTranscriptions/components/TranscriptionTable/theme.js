@@ -15,6 +15,17 @@ const theme = {
       tbody td div {
         padding: 0em;
       }
+      td > div:first-child {
+        height: inherit;
+      }
+      td > div:first-child > div {
+        margin-bottom: 0.75em;
+        margin-top: auto;
+      }
+      td span {
+        margin-bottom: 0.75em;
+        margin-top: auto;
+      }
     `
   }
 }
