@@ -30,7 +30,7 @@ class ResourcesTable extends Component {
 
   onClickRow(e) {
     if (e.target.type === 'checkbox') return;
-    this.props.history.push('/projects/workflows/subject-sets');
+    this.props.history.push(e.datum.link);
   }
 
   render() {

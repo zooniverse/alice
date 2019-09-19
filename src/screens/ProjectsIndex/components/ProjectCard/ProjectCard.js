@@ -28,7 +28,6 @@ export default function ProjectCard({ src, title }) {
             margin='small'
             textAlign='center'
             weight='bold'
-            wrap
           >
             {title}
           </CapitalText>

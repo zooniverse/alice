@@ -1,1 +1,1 @@
-export { default } from './SubjectSetContainer'
+export { default } from './SubjectSetPageContainer'
