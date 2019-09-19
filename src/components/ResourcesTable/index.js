@@ -1,1 +1,1 @@
-export { default } from './ResourcesTableContainer'
+export { default } from './ResourcesTable'
