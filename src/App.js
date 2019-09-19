@@ -23,7 +23,7 @@ function App() {
             <Route exact path="/projects/workflows" component={WorkflowsIndex}/>
             <Route exact path="/projects/workflows/subject-sets" component={SubjectSetsIndex}/>
             <Route exact path="/projects/workflows/subject-sets/subjects" component={SubjectsIndex}/>
-            <Route exact path="/projects/editor" component={Editor}/>
+            <Route exact path="/projects/workflows/subject-sets/subjects/editor" component={Editor}/>
           </Grommet>
         </main>
       </>

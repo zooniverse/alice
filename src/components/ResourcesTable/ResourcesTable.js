@@ -70,6 +70,7 @@ class ResourcesTable extends Component {
           ].map(col => ({ ...col }))}
           data={data}
           onClickRow={this.onClickRow}
+          pad='xsmall'
           primaryKey="id"
         />
       </Box>

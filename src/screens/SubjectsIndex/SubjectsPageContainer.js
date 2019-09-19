@@ -7,7 +7,7 @@ export default class WorkflowPageContainer extends Component {
   render() {
     return (
       <Box margin='medium' fill='vertical'>
-        <ResourcesTable columns={mockColumns} mockData={mockData} />
+        <ResourcesTable columns={mockColumns} data={mockData} />
       </Box>
     )
   }

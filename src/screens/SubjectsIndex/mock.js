@@ -1,3 +1,13 @@
+import React from 'react'
+import { Text } from 'grommet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components'
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  height: 0.25em;
+`
+
 const mockData = [
   {
     id: 458050,
@@ -10,7 +20,8 @@ const mockData = [
     classifications: 6,
     lines: 100,
     pages: 5,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458049,
@@ -23,7 +34,8 @@ const mockData = [
     classifications: 2,
     lines: 78,
     pages: 1,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458048,
@@ -36,7 +48,8 @@ const mockData = [
     classifications: 8,
     lines: 41,
     pages: 5,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458047,
@@ -49,7 +62,8 @@ const mockData = [
     classifications: 3,
     lines: 95,
     pages: 6,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458046,
@@ -62,7 +76,8 @@ const mockData = [
     classifications: 13,
     lines: 35,
     pages: 4,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458045,
@@ -75,7 +90,8 @@ const mockData = [
     classifications: 6,
     lines: 89,
     pages: 2,
-    locked: true
+    locked: true,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458044,
@@ -88,7 +104,8 @@ const mockData = [
     classifications: 2,
     lines: 84,
     pages: 7,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458043,
@@ -101,7 +118,8 @@ const mockData = [
     classifications: 8,
     lines: 87,
     pages: 6,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458042,
@@ -114,7 +132,8 @@ const mockData = [
     classifications: 3,
     lines: 96,
     pages: 1,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458041,
@@ -127,7 +146,8 @@ const mockData = [
     classifications: 13,
     lines: 100,
     pages: 5,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458040,
@@ -140,7 +160,8 @@ const mockData = [
     classifications: 6,
     lines: 78,
     pages: 1,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458039,
@@ -153,7 +174,8 @@ const mockData = [
     classifications: 8,
     lines: 95,
     pages: 6,
-    locked: true
+    locked: true,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458038,
@@ -166,7 +188,8 @@ const mockData = [
     classifications: 8,
     lines: 95,
     pages: 6,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458037,
@@ -179,7 +202,8 @@ const mockData = [
     classifications: 3,
     lines: 35,
     pages: 4,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458036,
@@ -192,7 +216,8 @@ const mockData = [
     classifications: 13,
     lines: 89,
     pages: 2,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458035,
@@ -205,7 +230,8 @@ const mockData = [
     classifications: 6,
     lines: 84,
     pages: 7,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458034,
@@ -218,7 +244,8 @@ const mockData = [
     classifications: 2,
     lines: 87,
     pages: 6,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458033,
@@ -231,7 +258,8 @@ const mockData = [
     classifications: 8,
     lines: 96,
     pages: 1,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458032,
@@ -244,7 +272,8 @@ const mockData = [
     classifications: 3,
     lines: 35,
     pages: 5,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458031,
@@ -257,7 +286,8 @@ const mockData = [
     classifications: 13,
     lines: 89,
     pages: 1,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   },
   {
     id: 458030,
@@ -270,7 +300,8 @@ const mockData = [
     classifications: 6,
     lines: 84,
     pages: 5,
-    locked: false
+    locked: false,
+    link: '/projects/workflows/subject-sets/subjects/editor'
   }
 ];
 
@@ -285,7 +316,11 @@ const mockColumns = [
   },
   {
     property: "lastEdit",
-    header: "Last Edit"
+    header: "Last Edit",
+    render: datum => {
+      const color = datum.locked ? 'red' : 'black'
+      return <Text color={color}>{datum.locked ? 'LOCKED' : datum.lastEdit}</Text>
+    }
   },
   {
     property: "lastEditor",
@@ -297,11 +332,16 @@ const mockColumns = [
   },
   {
     property: "flag",
-    header: "Flag"
+    header: "Flag",
+    render: datum => datum.flag ? <StyledFontAwesomeIcon color='tomato' icon={faCircle} /> : null
   },
   {
     property: "consensusScore",
-    header: "Consensus Score"
+    header: "Consensus Score",
+    render: datum => {
+      const color = datum.consensusScore <= datum.classifications / 2 ? 'red' : 'black'
+      return <Text color={color}>{datum.consensusScore}/{datum.classifications}</Text>
+    }
   },
   {
     property: "lines",
