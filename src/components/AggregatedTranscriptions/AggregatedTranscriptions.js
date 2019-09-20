@@ -15,8 +15,8 @@ const OverflowBox = styled(Box)`
     border-radius: 1em;
     background-clip: content-box;
   }
-  &::-webkit-scrollbar-track {
-    background: white;
+  &::-webkit-scrollbar {
+    border-radius: 0.5em;
   }
   &::-webkit-scrollbar {
     background: white;
@@ -26,15 +26,15 @@ const OverflowBox = styled(Box)`
 
 function AggregatedTranscriptions (props) {
   return (
-    <Box background='white' height='large' round='xxsmall' width='large'>
+    <Box background='white' height='large' round='xsmall' width='large'>
       <Box
         border={{ color: 'light-5', side: 'bottom' }}
         direction='row'
         justify='between'
-        pad='small'
+        pad={{ horizontal: 'small', bottom: 'small', top: 'xsmall' }}
       >
-        <Text size='large'>Transcribed Text</Text>
-        <CapitalText size='large'>Add Line</CapitalText>
+        <Text>Transcribed Text</Text>
+        <CapitalText>Add Line</CapitalText>
       </Box>
       <OverflowBox margin={{ right: '0.25em' }}>
         <TranscriptionTable />

@@ -6,10 +6,6 @@ import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from './components/StepNavigation'
 import { FormDown, FormUp } from 'grommet-icons'
 
-const RoundedBox = styled(Box)`
-  border-radius: 0.25em 0.25em 0 0;
-`
-
 const Uppercase = styled(Text)`
   text-transform: uppercase;
 `
@@ -18,7 +14,7 @@ function FilmstripViewer ({ images, isOpen, onToggle }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
 
   return (
-    <RoundedBox background='#FFFFFF' pad='small'>
+    <Box background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
       <Box direction='row' justify='between'>
         <Text>All pages</Text>
         {!isOpen && ( <StepNavigation steps={images} /> )}
@@ -44,7 +40,7 @@ function FilmstripViewer ({ images, isOpen, onToggle }) {
           </Box>
         </Box>
       )}
-    </RoundedBox>
+    </Box>
   )
 }
 
