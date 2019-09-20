@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom';
 import ResourcesTable from './ResourcesTable'
 
 let wrapper;
@@ -29,7 +30,10 @@ const DATA = [
 
 describe('Component > ResourcesTable', function () {
   beforeEach(function() {
-    wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} />);
+    wrapper = shallow(
+      <BrowserRouter>
+        <ResourcesTable columns={COLUMNS} data={DATA} />
+      </BrowserRouter>);
     html = wrapper.html()
   })
 

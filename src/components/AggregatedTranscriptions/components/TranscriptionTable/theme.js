@@ -6,9 +6,6 @@ const theme = {
       }
     },
     extend: props => `
-      tr:nth-child(even) {
-        background: white;
-      }
       tbody tr {
         border-bottom: 1px solid #ECECEC;
       }
