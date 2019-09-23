@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Box, Button, FormField, Heading, Text, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormNextLink } from 'grommet-icons'
 import { Formik } from 'formik'
 import { Link } from 'react-router-dom'
-import AppContext from 'store'
 import Label from '../Label'
 
 const SmallHeader = styled(Heading)`
@@ -22,8 +21,6 @@ const StyledFormField = styled(FormField)`
 `
 
 function LoginForm ({ initialValues, onSubmit }) {
-  const store = useContext(AppContext);
-
   return (
     <Box
       background='white'
@@ -82,7 +79,7 @@ function LoginForm ({ initialValues, onSubmit }) {
               icon={<FormNextLink size='small'/>}
               label={<CapitalText size='small'><Link style={{ textDecoration: 'none' }} to='/projects'>Sign In</Link></CapitalText>}
               margin={{ top: 'large' }}
-              onClick={store.auth.login}
+              onClick={onSubmit}
               plain
               reverse
               type="submit"
