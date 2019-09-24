@@ -26,6 +26,15 @@ const AuthStore = types.model('AuthStore', {
       self.error = error.message
       setSubmitting(false)
     }
+  }),
+
+  logout: flow(function* logout () {
+    try {
+      yield auth.signOut()
+    } catch (error) {
+      console.log(error);
+    }
+    history.push('/')
   })
 }))
 

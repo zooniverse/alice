@@ -1,7 +1,6 @@
 import React from 'react'
-import { Box, Text } from 'grommet'
+import { Box, Menu, Text } from 'grommet'
 import styled from 'styled-components'
-import { FormDown } from 'grommet-icons'
 import PropTypes from 'prop-types'
 import DefaultAvatar from '../../images/simple-avatar.png'
 
@@ -18,26 +17,34 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function Badge ({ name, src }) {
+function Badge ({ name, role, signOut, src }) {
+  console.log(signOut);
   return (
-    <Box align='center' direction='row' height='xxsmall' width='14em'>
+    <Box align='center' direction='row'>
       <StyledAvatar fallback={DefaultAvatar} src={src} />
-      <Box>
+      <Box flex='grow'>
         <Text>{name}</Text>
-        <CapitalText color='dark-5' size='xsmall'>Project Owner</CapitalText>
+        <CapitalText color='dark-5' size='xsmall'>{role}</CapitalText>
       </Box>
-      <FormDown />
+      <Menu
+        dropAlign={{ right: 'right', top: 'bottom' }}
+        items={[{ label: 'Log Out', onClick: signOut }]}
+      />
     </Box>
   )
 }
 
 Badge.defaultProps = {
   name: '',
+  role: '',
+  signOut: () => {},
   src: DefaultAvatar
 }
 
 Badge.propTypes = {
   name: PropTypes.string,
+  role: PropTypes.string,
+  signOut: PropTypes.func,
   src: PropTypes.string
 }
 
