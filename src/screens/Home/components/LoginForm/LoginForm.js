@@ -20,7 +20,7 @@ const StyledFormField = styled(FormField)`
   flex-direction: column-reverse;
 `
 
-function LoginForm ({ initialValues, onSubmit }) {
+function LoginForm ({ error, initialValues, onSubmit }) {
   return (
     <Box
       background='white'
@@ -72,14 +72,16 @@ function LoginForm ({ initialValues, onSubmit }) {
                 type='password'
                 value={values.password}/>
             </StyledFormField>
+            <Box height='3em'>
+              <Text color='red'>{error}</Text>
+            </Box>
             <Button
               alignSelf='start'
               disabled={isSubmitting}
               gap='xxsmall'
               icon={<FormNextLink size='small'/>}
-              label={<CapitalText size='small'><Link style={{ textDecoration: 'none' }} to='/projects'>Sign In</Link></CapitalText>}
-              margin={{ top: 'large' }}
-              onClick={onSubmit}
+              label={<CapitalText size='small'>Sign In</CapitalText>}
+              onClick={handleSubmit}
               plain
               reverse
               type="submit"

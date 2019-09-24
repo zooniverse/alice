@@ -1,18 +1,21 @@
 import React from 'react'
-import { useLocalStore, useObserver } from 'mobx-react'
+import { observer } from 'mobx-react'
 import AppContext from 'store'
 import LoginForm from './LoginForm'
 
-export default function LoginFormContainer() {
+function LoginFormContainer () {
   const store = React.useContext(AppContext)
-  const localStore = useLocalStore(() => ({
-    onSubmit: store.auth.login
-  }))
+  const onSubmit = (e, { setSubmitting }) => {
+    store.auth.login(e.login, e.password, setSubmitting)
+  }
 
-  return useObserver(() => (
+  return (
     <LoginForm
+      error={store.auth.error}
       initialValues={{ login: '', password: '' }}
-      onSubmit={localStore.onSubmit}
+      onSubmit={onSubmit}
     />
-  ))
+  )
 }
+
+export default observer(LoginFormContainer)

@@ -13,7 +13,7 @@ import { mergedTheme } from './theme'
 
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <>
         <main>
           <Grommet theme={mergedTheme}>
