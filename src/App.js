@@ -1,6 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Router, Route } from 'react-router-dom'
 import { Grommet } from 'grommet'
+import AppContext from 'store'
+import history from './history'
 import './App.css'
 import Home from './screens/Home'
 import ProjectsIndex from './screens/ProjectsIndex'
@@ -12,6 +14,9 @@ import Header from './screens/Header'
 import { mergedTheme } from './theme'
 
 function App() {
+  const store = React.useContext(AppContext)
+  store.auth.checkCurrent()
+
   return (
     <Router history={history}>
       <>

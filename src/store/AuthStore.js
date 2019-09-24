@@ -9,8 +9,12 @@ const AuthStore = types.model('AuthStore', {
   checkCurrent: flow(function* checkCurrent () {
     try {
       const user = yield auth.checkCurrent()
-      if (user) { self.user = user }
-      history.push('/projects')
+      if (user) {
+        history.push('/projects')
+        self.user = user
+      } else if (history.location.pathname !== '/') {
+        history.push('/')
+      }
     } catch (error) {
       console.log(error);
     }

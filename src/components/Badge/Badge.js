@@ -18,7 +18,6 @@ const CapitalText = styled(Text)`
 `
 
 function Badge ({ name, role, signOut, src }) {
-  console.log(signOut);
   return (
     <Box align='center' direction='row'>
       <StyledAvatar fallback={DefaultAvatar} src={src} />
