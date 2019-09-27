@@ -36,6 +36,7 @@ function Badge ({ name, role, signOut, src }) {
 Badge.defaultProps = {
   name: '',
   role: '',
+  signOut: () => {},
   src: DefaultAvatar
 }
 

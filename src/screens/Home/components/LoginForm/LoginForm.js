@@ -38,11 +38,11 @@ function LoginForm ({ error, initialValues, onSubmit }) {
           handleSubmit,
           isSubmitting,
           touched,
+          validateForm,
           values
         }) => (
           <Box as='form' onSubmit={handleSubmit}>
             <StyledFormField
-              error={errors.login && touched.login && errors.login}
               htmlFor='login'
               label={<Label text="Username or Email Address" />}>
               <TextInput
@@ -58,7 +58,6 @@ function LoginForm ({ error, initialValues, onSubmit }) {
                 value={values.login}/>
             </StyledFormField>
             <StyledFormField
-              error={errors.password && touched.password && errors.password}
               htmlFor='password'
               label={<Label text="Password" />}>
               <TextInput
@@ -81,7 +80,7 @@ function LoginForm ({ error, initialValues, onSubmit }) {
               gap='xxsmall'
               icon={<FormNextLink size='small'/>}
               label={<CapitalText size='small'>Sign In</CapitalText>}
-              onClick={handleSubmit}
+              onClick={() => validateForm().then(() => onSubmit)}
               plain
               reverse
               type="submit"
@@ -94,11 +93,13 @@ function LoginForm ({ error, initialValues, onSubmit }) {
 }
 
 LoginForm.defaultProps = {
+  error: '',
   initialValues: null,
   onSubmit: () => {}
 }
 
 LoginForm.propTypes = {
+  error: PropTypes.string,
   initialValues: PropTypes.shape(),
   onSubmit:PropTypes.func
 }
