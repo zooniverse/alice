@@ -21,7 +21,7 @@ const mockData = [
     lines: 100,
     pages: 5,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458049,
@@ -35,7 +35,7 @@ const mockData = [
     lines: 78,
     pages: 1,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458048,
@@ -49,7 +49,7 @@ const mockData = [
     lines: 41,
     pages: 5,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458047,
@@ -63,7 +63,7 @@ const mockData = [
     lines: 95,
     pages: 6,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458046,
@@ -77,7 +77,7 @@ const mockData = [
     lines: 35,
     pages: 4,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458045,
@@ -91,7 +91,7 @@ const mockData = [
     lines: 89,
     pages: 2,
     locked: true,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458044,
@@ -105,7 +105,7 @@ const mockData = [
     lines: 84,
     pages: 7,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458043,
@@ -119,7 +119,7 @@ const mockData = [
     lines: 87,
     pages: 6,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458042,
@@ -133,7 +133,7 @@ const mockData = [
     lines: 96,
     pages: 1,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458041,
@@ -147,7 +147,7 @@ const mockData = [
     lines: 100,
     pages: 5,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458040,
@@ -161,7 +161,7 @@ const mockData = [
     lines: 78,
     pages: 1,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458039,
@@ -175,7 +175,7 @@ const mockData = [
     lines: 95,
     pages: 6,
     locked: true,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458038,
@@ -189,7 +189,7 @@ const mockData = [
     lines: 95,
     pages: 6,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458037,
@@ -203,7 +203,7 @@ const mockData = [
     lines: 35,
     pages: 4,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458036,
@@ -217,7 +217,7 @@ const mockData = [
     lines: 89,
     pages: 2,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458035,
@@ -231,7 +231,7 @@ const mockData = [
     lines: 84,
     pages: 7,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458034,
@@ -245,7 +245,7 @@ const mockData = [
     lines: 87,
     pages: 6,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458033,
@@ -259,7 +259,7 @@ const mockData = [
     lines: 96,
     pages: 1,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458032,
@@ -273,7 +273,7 @@ const mockData = [
     lines: 35,
     pages: 5,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458031,
@@ -287,7 +287,7 @@ const mockData = [
     lines: 89,
     pages: 1,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   },
   {
     id: 458030,
@@ -301,7 +301,7 @@ const mockData = [
     lines: 84,
     pages: 5,
     locked: false,
-    link: '/projects/workflows/subject-sets/subjects/editor'
+    link: '/projects/workflows/subject-sets/subjects/edit'
   }
 ];
 
