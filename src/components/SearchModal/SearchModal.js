@@ -1,41 +1,51 @@
 import React from 'react'
-import { Box, Button, CheckBox, Text } from 'grommet'
+import { Box, Button, Menu, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import withThemeContext from '../../helpers/withThemeContext'
+import theme from './theme'
+import SearchCheckBox from './components/SearchCheckBox'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function SearchModal() {
+function SearchModal({ searchID, toggleID }) {
   return (
-    <Box background='white' pad='xsmall' round='xsmall'>
+    <Box background='white' pad='small' round='xsmall' width='medium'>
       <Box>
         <Box align='center' direction='row' justify='between'>
           <Text size='large'>Search or Filter</Text>
           <FontAwesomeIcon icon={faTimesCircle} />
         </Box>
 
-        <Box gap='small' margin={{ top: 'small' }}>
+        <Box gap='small' margin={{ vertical: 'small' }}>
           <CapitalText>Find a specific subject</CapitalText>
-          <CapitalText>Filter subject list by status</CapitalText>
+          <Menu
+            label={searchID}
+            items={[
+              { label: 'ZOONIVERSE ID', onClick: toggleID },
+              { label: 'ZOONIVERSE ID', onClick: toggleID }
+            ]}
+          />
         </Box>
-        <Box direction='row' margin={{ vertical: 'medium' }}>
+        <CapitalText>Filter subject list by status</CapitalText>
+        <Box direction='row' justify='between' margin={{ vertical: 'small' }}>
           <Box gap='small'>
-            <Text>Approval Status</Text>
-            <CheckBox label='UNREVIEWED'/>
-            <CheckBox label='IN PROGRESS'/>
-            <CheckBox label='READY FOR REVIEW'/>
-            <CheckBox label='APPROVED'/>
+            <Text weight='bold'>Approval Status</Text>
+            <SearchCheckBox label='UNREVIEWED'/>
+            <SearchCheckBox label='IN PROGRESS'/>
+            <SearchCheckBox label='READY FOR REVIEW'/>
+            <SearchCheckBox label='APPROVED'/>
           </Box>
           <Box gap='small'>
-            <Text>Additional Filters</Text>
-            <CheckBox label='Flagged'/>
-            <CheckBox label='Low consensus score'/>
+            <Text weight='bold'>Additional Filters</Text>
+            <SearchCheckBox label='Flagged'/>
+            <SearchCheckBox label='Low consensus score'/>
           </Box>
         </Box>
-        <Box direction='row' justify='between'>
+        <Box direction='row' justify='between' margin={{ top: 'small' }}>
           <Button plain><CapitalText>Close</CapitalText></Button>
           <Button plain><CapitalText>Search</CapitalText></Button>
         </Box>
@@ -44,4 +54,4 @@ function SearchModal() {
   )
 }
 
-export default SearchModal
+export default withThemeContext(SearchModal, theme)

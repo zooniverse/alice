@@ -1,14 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Box, Grommet } from 'grommet';
-import SearchModal from './SearchModal'
+import SearchModalContainer from './SearchModalContainer'
 import { mergedTheme } from '../../theme'
 
-storiesOf('SearchModal', module)
+storiesOf('SearchModalContainer', module)
   .add('Default', () => (
     <Grommet theme={mergedTheme}>
       <Box background='#D8D8D8' height='xlarge'>
-        <SearchModal />
+        <SearchModalContainer />
       </Box>
     </Grommet>
   ))
