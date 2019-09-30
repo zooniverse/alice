@@ -1,7 +1,7 @@
 const personalProjects = [
     {
       src: '',
-      title: 'Anti-Slavey Manuscripts'
+      title: 'Anti-Slavery Manuscripts'
     },
     {
       src: '',
