@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 import { Box, CheckBox, DataTable, FormField } from 'grommet'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
 class ResourcesTable extends Component {
-  state = { checked: [], columns: [] }
+  constructor() {
+    super()
 
-  onCheck = (e, value) => {
+    this.state = { checked: [], columns: [] }
+
+    this.onCheck = this.onCheck.bind(this);
+    this.onCheckAll = this.onCheckAll.bind(this);
+    this.onClickRow = this.onClickRow.bind(this);
+  }
+
+  onCheck(e, value) {
     const { checked } = this.state;
     if (e.target.checked) {
       checked.push(value);
@@ -15,8 +24,14 @@ class ResourcesTable extends Component {
     }
   }
 
-  onCheckAll = e =>
+  onCheckAll(e) {
     this.setState({ checked: e.target.checked? this.props.data.map(datum => datum.id) : [] })
+  }
+
+  onClickRow(e) {
+    if (e.target.type === 'checkbox') return;
+    this.props.history.push(e.datum.link);
+  }
 
   render() {
     const { checked } = this.state;
@@ -54,6 +69,8 @@ class ResourcesTable extends Component {
             ...columns
           ].map(col => ({ ...col }))}
           data={data}
+          onClickRow={this.onClickRow}
+          pad='xsmall'
           primaryKey="id"
         />
       </Box>
@@ -73,4 +90,4 @@ ResourcesTable.propTypes = {
   resource: PropTypes.string
 }
 
-export default ResourcesTable
+export default withRouter(ResourcesTable)

@@ -5,7 +5,8 @@ const DATA = [
     sets: 7,
     subjects: 960,
     lastEdit: "May 17, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Second Name",
@@ -13,7 +14,8 @@ const DATA = [
     sets: 3,
     subjects: 2,
     lastEdit: "Jun 11, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Transcriptions are fun",
@@ -21,7 +23,8 @@ const DATA = [
     sets: 7,
     subjects: 49,
     lastEdit: "Jun 12, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Another one",
@@ -29,7 +32,8 @@ const DATA = [
     sets: 2,
     subjects: 3725,
     lastEdit: "April 15, 2019",
-    lastEditor: "Charles Davies"
+    lastEditor: "Charles Davies",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Workflow Name",
@@ -37,7 +41,8 @@ const DATA = [
     sets: 6,
     subjects: 1001,
     lastEdit: "Aug 31, 2019",
-    lastEditor: "Laura Sofía Ureña"
+    lastEditor: "Laura Sofía Ureña",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Second workflow",
@@ -45,7 +50,8 @@ const DATA = [
     sets: 1,
     subjects: 272,
     lastEdit: "May 17, 2019",
-    lastEditor: "Monica Böttger"
+    lastEditor: "Monica Böttger",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Workflow Name",
@@ -53,7 +59,8 @@ const DATA = [
     sets: 7,
     subjects: 910,
     lastEdit: "May 17, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Second Name",
@@ -61,7 +68,8 @@ const DATA = [
     sets: 3,
     subjects: 2,
     lastEdit: "Jun 11, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Transcriptions are fun",
@@ -69,7 +77,8 @@ const DATA = [
     sets: 7,
     subjects: 149,
     lastEdit: "Jun 12, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Another one",
@@ -77,7 +86,8 @@ const DATA = [
     sets: 2,
     subjects: 3725,
     lastEdit: "April 15, 2019",
-    lastEditor: "Charles Davies"
+    lastEditor: "Charles Davies",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Workflow Name",
@@ -85,7 +95,8 @@ const DATA = [
     sets: 6,
     subjects: 1002,
     lastEdit: "Aug 31, 2019",
-    lastEditor: "Laura Sofía Ureña"
+    lastEditor: "Laura Sofía Ureña",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Second workflow",
@@ -93,7 +104,8 @@ const DATA = [
     sets: 1,
     subjects: 272,
     lastEdit: "May 17, 2019",
-    lastEditor: "Monica Böttger"
+    lastEditor: "Monica Böttger",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Workflow Name",
@@ -101,7 +113,8 @@ const DATA = [
     sets: 7,
     subjects: 940,
     lastEdit: "May 17, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Second Name",
@@ -109,7 +122,8 @@ const DATA = [
     sets: 3,
     subjects: 2,
     lastEdit: "Jun 11, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Transcriptions are fun",
@@ -117,7 +131,8 @@ const DATA = [
     sets: 7,
     subjects: 249,
     lastEdit: "Jun 12, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Another one",
@@ -125,7 +140,8 @@ const DATA = [
     sets: 2,
     subjects: 3725,
     lastEdit: "April 15, 2019",
-    lastEditor: "Charles Davies"
+    lastEditor: "Charles Davies",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Workflow Name",
@@ -133,7 +149,8 @@ const DATA = [
     sets: 6,
     subjects: 1000,
     lastEdit: "Aug 31, 2019",
-    lastEditor: "Laura Sofía Ureña"
+    lastEditor: "Laura Sofía Ureña",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Second workflow",
@@ -141,7 +158,8 @@ const DATA = [
     sets: 1,
     subjects: 272,
     lastEdit: "May 17, 2019",
-    lastEditor: "Monica Böttger"
+    lastEditor: "Monica Böttger",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Workflow Name",
@@ -149,7 +167,8 @@ const DATA = [
     sets: 7,
     subjects: 900,
     lastEdit: "May 17, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Second Name",
@@ -157,7 +176,8 @@ const DATA = [
     sets: 3,
     subjects: 2,
     lastEdit: "Jun 11, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Transcriptions are fun",
@@ -165,7 +185,8 @@ const DATA = [
     sets: 7,
     subjects: 349,
     lastEdit: "Jun 12, 2019",
-    lastEditor: "Erin Green"
+    lastEditor: "Erin Green",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Another one",
@@ -173,7 +194,8 @@ const DATA = [
     sets: 2,
     subjects: 3725,
     lastEdit: "April 15, 2019",
-    lastEditor: "Charles Davies"
+    lastEditor: "Charles Davies",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Workflow Name",
@@ -181,7 +203,8 @@ const DATA = [
     sets: 6,
     subjects: 1003,
     lastEdit: "Aug 31, 2019",
-    lastEditor: "Laura Sofía Ureña"
+    lastEditor: "Laura Sofía Ureña",
+    link: "/projects/workflows/subject-sets"
   },
   {
     name: "Second workflow",
@@ -189,7 +212,8 @@ const DATA = [
     sets: 1,
     subjects: 272,
     lastEdit: "May 17, 2019",
-    lastEditor: "Monica Böttger"
+    lastEditor: "Monica Böttger",
+    link: "/projects/workflows/subject-sets"
   },
 ];
 

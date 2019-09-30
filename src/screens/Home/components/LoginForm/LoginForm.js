@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormNextLink } from 'grommet-icons'
 import { Formik } from 'formik'
+import { Link } from 'react-router-dom'
 import Label from '../Label'
 
 const SmallHeader = styled(Heading)`
@@ -76,7 +77,7 @@ function LoginForm ({ initialValues, onSubmit }) {
               disabled={isSubmitting}
               gap='xxsmall'
               icon={<FormNextLink size='small'/>}
-              label={<CapitalText size='small'>Sign In</CapitalText>}
+              label={<CapitalText size='small'><Link style={{ textDecoration: 'none' }} to='/projects'>Sign In</Link></CapitalText>}
               margin={{ top: 'large' }}
               plain
               reverse

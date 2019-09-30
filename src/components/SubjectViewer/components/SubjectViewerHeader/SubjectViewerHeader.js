@@ -8,11 +8,10 @@ const CapitalText = styled(Text)`
 
 function InteractionLayer() {
   return (
-    <Box background={{ color: 'white' }} round={{ size: 'xsmall', corner: 'top' }} pad='small'>
+    <Box background={{ color: 'white' }} round={{ size: 'xsmall', corner: 'top' }} pad='xsmall'>
       <Box direction='row' justify='between'>
         <Text>Original Subject</Text>
         <Box direction='row' gap='small'>
-          <CapitalText>Hide Lines</CapitalText>
           <CapitalText>View All Lines</CapitalText>
         </Box>
       </Box>
