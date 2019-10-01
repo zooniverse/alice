@@ -2,18 +2,26 @@ import React from 'react'
 import { CheckBox, Text } from 'grommet'
 import PropTypes from 'prop-types'
 
-function SearchCheckBox({ label }) {
+function SearchCheckBox({ checked, label, onChange, title }) {
   return (
-    <CheckBox label={<Text size='small'>{label}</Text>}/>
+    <CheckBox
+      checked={checked}
+      id={title}
+      label={<Text size='small'>{label}</Text>}
+      name={title}
+      onChange={onChange}
+    />
   )
 }
 
 SearchCheckBox.defaultProps = {
-  label: ''
+  label: '',
+  title: ''
 }
 
 SearchCheckBox.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
+  title: PropTypes.string
 }
 
 export default SearchCheckBox

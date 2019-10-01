@@ -8,7 +8,9 @@ storiesOf('SearchModalContainer', module)
   .add('Default', () => (
     <Grommet theme={mergedTheme}>
       <Box background='#D8D8D8' height='xlarge'>
-        <SearchModalContainer />
+        <Box width='25em'>
+          <SearchModalContainer />
+        </Box>
       </Box>
     </Grommet>
   ))

@@ -5,6 +5,13 @@ const theme = {
     },
     gap: '0.5em',
     size: '0.75em'
+  },
+  select: {
+    icons: {
+      margin: {
+        horizontal: '0'
+      }
+    }
   }
 }
 
