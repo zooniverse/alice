@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormNextLink } from 'grommet-icons'
 import { Formik } from 'formik'
-import { Link } from 'react-router-dom'
 import Label from '../Label'
 
 const SmallHeader = styled(Heading)`
