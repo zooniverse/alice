@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Menu, Text } from 'grommet'
+import { Box, Button, Select, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
@@ -11,7 +11,7 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function SearchModal({ searchID, toggleID }) {
+function SearchModal({ options, setValue, value }) {
   return (
     <Box background='white' pad='small' round='xsmall' width='medium'>
       <Box>
@@ -22,13 +22,18 @@ function SearchModal({ searchID, toggleID }) {
 
         <Box gap='small' margin={{ vertical: 'small' }}>
           <CapitalText>Find a specific subject</CapitalText>
-          <Menu
-            label={searchID}
-            items={[
-              { label: 'ZOONIVERSE ID', onClick: toggleID },
-              { label: 'ZOONIVERSE ID', onClick: toggleID }
-            ]}
-          />
+          <Box direction='row'>
+            <Box border='bottom'>
+              <Select
+                dropAlign={{ top: 'top' }}
+                options={options}
+                value={value}
+                onChange={({ option }) => setValue(option)}
+                placeholder='Select...'
+                plain
+              />
+            </Box>
+          </Box>
         </Box>
         <CapitalText>Filter subject list by status</CapitalText>
         <Box direction='row' justify='between' margin={{ vertical: 'small' }}>
