@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormNextLink } from 'grommet-icons'
 import { Formik } from 'formik'
-import { Link } from 'react-router-dom'
 import Label from '../Label'
 
 const SmallHeader = styled(Heading)`
@@ -20,7 +19,7 @@ const StyledFormField = styled(FormField)`
   flex-direction: column-reverse;
 `
 
-function LoginForm ({ initialValues, onSubmit }) {
+function LoginForm ({ error, initialValues, onSubmit }) {
   return (
     <Box
       background='white'
@@ -38,11 +37,11 @@ function LoginForm ({ initialValues, onSubmit }) {
           handleSubmit,
           isSubmitting,
           touched,
+          validateForm,
           values
         }) => (
           <Box as='form' onSubmit={handleSubmit}>
             <StyledFormField
-              error={errors.login && touched.login && errors.login}
               htmlFor='login'
               label={<Label text="Username or Email Address" />}>
               <TextInput
@@ -58,7 +57,6 @@ function LoginForm ({ initialValues, onSubmit }) {
                 value={values.login}/>
             </StyledFormField>
             <StyledFormField
-              error={errors.password && touched.password && errors.password}
               htmlFor='password'
               label={<Label text="Password" />}>
               <TextInput
@@ -72,13 +70,16 @@ function LoginForm ({ initialValues, onSubmit }) {
                 type='password'
                 value={values.password}/>
             </StyledFormField>
+            <Box height='3em'>
+              <Text color='red'>{error}</Text>
+            </Box>
             <Button
               alignSelf='start'
               disabled={isSubmitting}
               gap='xxsmall'
               icon={<FormNextLink size='small'/>}
-              label={<CapitalText size='small'><Link style={{ textDecoration: 'none' }} to='/projects'>Sign In</Link></CapitalText>}
-              margin={{ top: 'large' }}
+              label={<CapitalText size='small'>Sign In</CapitalText>}
+              onClick={() => validateForm().then(() => onSubmit)}
               plain
               reverse
               type="submit"
@@ -91,11 +92,13 @@ function LoginForm ({ initialValues, onSubmit }) {
 }
 
 LoginForm.defaultProps = {
+  error: '',
   initialValues: null,
   onSubmit: () => {}
 }
 
 LoginForm.propTypes = {
+  error: PropTypes.string,
   initialValues: PropTypes.shape(),
   onSubmit:PropTypes.func
 }

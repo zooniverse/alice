@@ -14,9 +14,10 @@
     "mobx": "^5.13.0",
     "mobx-react": "^6.1.1",
     "mobx-state-tree": "^3.14.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1",
+    "panoptes-client": "^2.12.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.1.0",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2"
   },
@@ -28,6 +29,7 @@
     "babel-core": "^6.26.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "~1.14.0",
+    "nock": "^11.3.5",
     "react-test-renderer": "^16.9.0"
   },
   "scripts": {

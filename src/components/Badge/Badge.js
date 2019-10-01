@@ -1,8 +1,8 @@
 import React from 'react'
-import { Box, Text } from 'grommet'
+import { Box, Menu, Text } from 'grommet'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import DefaultAvatar from '../../images/simple-avatar.png'
-import { FormDown } from 'grommet-icons'
 
 const StyledAvatar = styled.img`
   border-radius: 100%;
@@ -17,18 +17,34 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function Badge (props) {
+function Badge ({ name, role, signOut, src }) {
   return (
-    <Box align='center' direction='row' height='xxsmall' width='14em'>
-      <StyledAvatar fallback={DefaultAvatar} src={DefaultAvatar} />
-      <Box>
-        <Text>Erin Green</Text>
-        <CapitalText color='dark-5' size='xsmall'>Project Owner</CapitalText>
+    <Box align='center' direction='row'>
+      <StyledAvatar fallback={DefaultAvatar} src={src} />
+      <Box flex='grow'>
+        <Text>{name}</Text>
+        <CapitalText color='dark-5' size='xsmall'>{role}</CapitalText>
       </Box>
-      <FormDown />
+      <Menu
+        dropAlign={{ right: 'right', top: 'bottom' }}
+        items={[{ label: 'Log Out', onClick: signOut }]}
+      />
     </Box>
   )
 }
 
+Badge.defaultProps = {
+  name: '',
+  role: '',
+  signOut: () => {},
+  src: DefaultAvatar
+}
+
+Badge.propTypes = {
+  name: PropTypes.string,
+  role: PropTypes.string,
+  signOut: PropTypes.func,
+  src: PropTypes.string
+}
 
 export default Badge

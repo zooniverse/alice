@@ -1,10 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { observer } from 'mobx-react'
+import AppContext from 'store'
 import Badge from './Badge'
 
-class BadgeContainer extends Component {
-  render () {
-    return <Badge />
-  }
+function BadgeContainer () {
+  const store = React.useContext(AppContext)
+  const user = store.auth.user
+
+  const name = user && user.display_name
+  const signOut = store.auth.logout
+  const src = user && user.avatar_src
+
+  return <Badge name={name} signOut={signOut} src={src} />
 }
 
-export default BadgeContainer
+export default observer(BadgeContainer)
