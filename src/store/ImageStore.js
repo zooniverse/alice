@@ -20,8 +20,9 @@ const ImageStore = types.model('ImageStore', {
   rotate() {
     self.rotation = self.rotation === 360 ? 0 : self.rotation + ROTATION_STEP
   },
-  setTranslate() {
-    console.log('setting');
+  setTranslate(pos) {
+    self.translateX += pos.x
+    self.translateY += pos.y
   },
   zoomIn() {
     if (self.scale < MAX_STEP)
