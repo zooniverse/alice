@@ -10,6 +10,7 @@ function ZoomInButton({ onClick }) {
         <Box margin='xsmall'>
           <ZoomInIcon color='#000000' />
         </Box>}
+      onClick={onClick}
       plain
     />
   )

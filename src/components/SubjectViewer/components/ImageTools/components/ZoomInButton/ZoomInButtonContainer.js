@@ -1,12 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
+import AppContext from 'store'
 import ZoomInButton from './ZoomInButton'
 
-class ZoomInButtonContainer extends Component {
-    render() {
-      return (
-        <ZoomInButton />
-      )
-    }
+export default function ZoomInButtonContainer() {
+  const store = React.useContext(AppContext)
+  return <ZoomInButton onClick={store.image.zoomIn} />
 }
-
-export default ZoomInButtonContainer

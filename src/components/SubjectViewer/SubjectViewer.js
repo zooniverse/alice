@@ -7,23 +7,20 @@ const SVG = styled.svg`
   width: 100%;
 `
 
-function SubjectViewer ({ ref, url }) {
+function SubjectViewer ({ ref, scale, url }) {
+  const transform = `scale(${scale})`
   return (
     <SVG ref={ref}>
-      <image
-        height='100%'
-        width='100%'
-        xlinkHref={'https://via.placeholder.com/150'}
-      />
+      <g transform={transform}>
+        <image
+          height='100%'
+          width='100%'
+          xlinkHref={'https://via.placeholder.com/150'}
+        />
+      </g>
       <InteractionLayer />
     </SVG>
   )
-}
-
-SubjectViewer.defaultProps = {
-}
-
-SubjectViewer.propTypes = {
 }
 
 export default SubjectViewer

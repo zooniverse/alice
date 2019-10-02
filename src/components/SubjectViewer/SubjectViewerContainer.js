@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box } from 'grommet'
 import styled from 'styled-components'
+import AppContext from 'store'
+import { observer } from 'mobx-react'
 import SubjectViewer from './SubjectViewer'
 import SubjectViewerHeader from './components/SubjectViewerHeader'
 import ImageTools from './components/ImageTools'
@@ -13,7 +15,8 @@ const AbsoluteBox = styled(Box)`
   position: absolute;
 `
 
-export default function SubjectViewerContainer() {
+function SubjectViewerContainer() {
+  const store = React.useContext(AppContext)
   const [showTools, setTools] = React.useState(false)
   const onMouseOver = e => setTools(true)
   const onMouseLeave = e => setTools(false)
@@ -25,8 +28,10 @@ export default function SubjectViewerContainer() {
         <AbsoluteBox margin='small'>
           {showTools && (<ImageTools />)}
         </AbsoluteBox>
-        <SubjectViewer />
+        <SubjectViewer scale={store.image.scale} />
       </RelativeBox>
     </Box>
   )
 }
+
+export default observer(SubjectViewerContainer)

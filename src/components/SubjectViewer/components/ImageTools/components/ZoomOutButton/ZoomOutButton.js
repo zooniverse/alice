@@ -10,6 +10,7 @@ function ZoomOutButton({ onClick }) {
         <Box margin='xsmall'>
           <ZoomOutIcon color='#000000'/>
         </Box>}
+      onClick={onClick}
       plain
     />
   )
