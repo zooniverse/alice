@@ -1,14 +1,15 @@
 import React from 'react'
 import { func } from 'prop-types'
 
-function InteractionLayer({ onMouseMove, onMouseDown, onMouseUp }) {
+function InteractionLayer({ onMouseDown, onMouseMove, onMouseUp }) {
   return (
     <rect
       id='InteractionLayer'
       width='100%'
       height='100%'
-      onMouseMove={onMouseMove}
       onMouseDown={onMouseDown}
+      onMouseLeave={onMouseUp}
+      onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       fill='transparent'
     />

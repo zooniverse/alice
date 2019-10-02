@@ -11,8 +11,8 @@ const G = styled.g`
   transform-origin: 50% 50%;
 `
 
-function SubjectViewer ({ ref, rotation, scale, url }) {
-  const transform = `scale(${scale}) rotate(${rotation})`
+function SubjectViewer ({ ref, rotation, scale, translateX, translateY, url }) {
+  const transform = `scale(${scale}) translate(${translateX}, ${translateY}) rotate(${rotation})`
 
   return (
     <SVG ref={ref} viewBox="0 0 100 100">

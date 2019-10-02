@@ -28,7 +28,12 @@ function SubjectViewerContainer() {
         <AbsoluteBox margin='small'>
           {showTools && (<ImageTools />)}
         </AbsoluteBox>
-        <SubjectViewer rotation={store.image.rotation} scale={store.image.scale} />
+        <SubjectViewer
+          rotation={store.image.rotation}
+          scale={store.image.scale}
+          translateX={store.image.translateX}
+          translateY={store.image.translateY}
+        />
       </RelativeBox>
     </Box>
   )
