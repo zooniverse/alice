@@ -9,6 +9,9 @@ const SVG = styled.svg`
 
 const G = styled.g`
   transform-origin: 50% 50%;
+  :hover {
+    cursor: move;
+  }
 `
 
 function SubjectViewer ({ ref, rotation, scale, translateX, translateY, url }) {
