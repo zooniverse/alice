@@ -7,17 +7,22 @@ const SVG = styled.svg`
   width: 100%;
 `
 
-function SubjectViewer ({ ref, scale, url }) {
-  const transform = `scale(${scale})`
+const G = styled.g`
+  transform-origin: 50% 50%;
+`
+
+function SubjectViewer ({ ref, rotation, scale, url }) {
+  const transform = `scale(${scale}) rotate(${rotation})`
+
   return (
-    <SVG ref={ref}>
-      <g transform={transform}>
+    <SVG ref={ref} viewBox="0 0 100 100">
+      <G transform={transform}>
         <image
           height='100%'
           width='100%'
           xlinkHref={'https://via.placeholder.com/150'}
         />
-      </g>
+      </G>
       <InteractionLayer />
     </SVG>
   )

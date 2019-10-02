@@ -1,12 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
+import AppContext from 'store'
 import RotateButton from './RotateButton'
 
-class RotateButtonContainer extends Component {
-    render() {
-      return (
-        <RotateButton />
-      )
-    }
+export default function RotateButtonContainer() {
+  const store = React.useContext(AppContext)
+  return <RotateButton onClick={store.image.rotate} />
 }
-
-export default RotateButtonContainer
