@@ -1,6 +1,7 @@
 import { types } from 'mobx-state-tree'
 
 const ROTATION_STEP = 90;
+const DEFAULT_STEP = 1
 const STEP = 0.4;
 const MAX_STEP = 2;
 const MIN_STEP = 0.6;
@@ -13,7 +14,7 @@ const ImageStore = types.model('ImageStore', {
 }).actions(self => ({
   reset() {
     self.rotation = 0;
-    self.scale = 1;
+    self.scale = DEFAULT_STEP;
     self.translateX = 0;
     self.translateY = 0;
   },
@@ -34,4 +35,4 @@ const ImageStore = types.model('ImageStore', {
   }
 }))
 
-export { ImageStore }
+export { ImageStore, DEFAULT_STEP, STEP, MAX_STEP, MIN_STEP }
