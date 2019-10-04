@@ -15,7 +15,7 @@ export default function EditorHeader ({ buttons }) {
         <Box align='center'>
           <StyledHeader level='2'>Text Transcription Project</StyledHeader>
         </Box>
-        <Box align='center' direction='row' gap='small' pad={{ horizontal: 'medium' }}>
+        <Box align='center' direction='row' gap='small' pad={{ horizontal: 'medium' }} wrap>
           {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} />)}
         </Box>
       </Box>
