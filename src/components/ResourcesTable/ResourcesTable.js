@@ -30,7 +30,8 @@ class ResourcesTable extends Component {
 
   onClickRow(e) {
     if (e.target.type === 'checkbox') return;
-    this.props.history.push(e.datum.link);
+    const newLocation = this.props.history.location.pathname + e.datum.link
+    this.props.history.push(newLocation);
   }
 
   render() {

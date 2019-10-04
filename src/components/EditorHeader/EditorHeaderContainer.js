@@ -1,4 +1,5 @@
 import React from 'react'
+import { matchPath } from "react-router-dom";
 import EditorHeader from './EditorHeader'
 import SearchButton from './components/HeaderButton/SearchButtonContainer'
 import DownloadSetData from './components/HeaderButton/DownloadSetDataContainer'
@@ -9,15 +10,18 @@ import LayoutButton from './components/HeaderButton/LayoutButtonContainer'
 import MoreButton from './components/HeaderButton/MoreButtonContainer'
 import { SUBJECTS_PATH, EDIT_PATH } from 'paths'
 
+function routeMatcher(currentPath, route) {
+  const matchProfile = matchPath(currentPath, { path: route });
+  return !!(matchProfile && matchProfile.isExact)
+}
+
 function getHeaderTools(path) {
-  switch (path) {
-    case SUBJECTS_PATH:
-      return [DownloadSetData, SearchButton]
-    case EDIT_PATH:
-      return [MarkApproved, UndoButton, SaveButton, LayoutButton, MoreButton]
-    default:
-      return []
+  if (routeMatcher(path, SUBJECTS_PATH)) {
+    return [DownloadSetData, SearchButton]
+  } else if (routeMatcher(path, EDIT_PATH)) {
+    return [MarkApproved, UndoButton, SaveButton, LayoutButton, MoreButton]
   }
+  return []
 }
 
 export default function EditorHeaderContainer() {

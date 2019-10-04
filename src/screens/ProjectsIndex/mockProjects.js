@@ -1,58 +1,71 @@
 const personalProjects = [
     {
       src: '',
-      title: 'Anti-Slavery Manuscripts'
+      title: 'Anti-Slavery Manuscripts',
+      id: '123'
     },
     {
       src: '',
-      title: 'Text Transcription Project'
+      title: 'Text Transcription Project',
+      id: '123'
     },
     {
       src: '',
-      title: 'Dongguan'
+      title: 'Dongguan',
+      id: '123'
     }
 ]
 
 const collaborativeProjects = [
     {
       src: '',
-      title: 'Perm'
+      title: 'Perm',
+      id: '123'
     },
     {
       src: '',
-      title: 'Dhaka'
+      title: 'Dhaka',
+      id: '123'
     },
     {
       src: '',
-      title: 'Hudson'
+      title: 'Hudson',
+      id: '123'
     },
     {
       src: '',
-      title: 'Caracas'
+      title: 'Caracas',
+      id: '123'
     },
     {
       src: '',
-      title: 'Casablanca'
+      title: 'Casablanca',
+      id: '123'
     },
     {
       src: '',
-      title: 'City Scene'
+      title: 'City Scene',
+      id: '123'
     },
     {
       src: '',
-      title: 'Cliffside'
+      title: 'Cliffside',
+      id: '123'
     },
     {
       src: '',
-      title: 'Bridges'
+      title: 'Bridges',
+      id: '123'
     },
     {
       src: '',
-      title: 'Scribes of the Cairo Geniza'
+      title: 'Scribes of the Cairo Geniza',
+      id: '123'
     },
     {
       src: '',
-      title: 'Light Pollution'
+      title: 'Light Pollution',
+      id: '123'
     }
 ]
 
