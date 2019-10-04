@@ -6,9 +6,10 @@ import PropTypes from 'prop-types'
 const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
-function HeaderButton ({ icon, label, onClick }) {
+function HeaderButton ({ disabled, icon, label, onClick }) {
   return (
     <Button
+      disabled={disabled}
       gap='xsmall'
       icon={icon}
       label={<CapitalText color='#5C5C5C'>{label}</CapitalText>}
@@ -20,12 +21,14 @@ function HeaderButton ({ icon, label, onClick }) {
 }
 
 HeaderButton.defaultProps = {
+  disabled: false,
   icon: null,
   label: '',
   onClick: () => {}
 }
 
 HeaderButton.propTypes = {
+  disabled: PropTypes.bool,
   icon: PropTypes.shape(),
   label: PropTypes.string,
   onClick: PropTypes.func
