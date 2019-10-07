@@ -14,7 +14,24 @@ const CapitalText = styled(Text)`
 
 const ReverseFormField = styled(FormField)`
   flex-direction: column-reverse;
+
+  > span {
+    margin: 1em 0em;
+    position: absolute;
+  }
 `
+
+const validateForm = (values) => {
+  const boxChecked = Object.values(values).some(value => value && value.valueOf() === true );
+  let errors = {}
+  if (!boxChecked && !values.id) {
+    errors.id = 'You must enter an id'
+  }
+  if (values.id && values.id.length > 0 && !values.type) {
+    errors.type = 'Type is required'
+  }
+  return errors
+}
 
 function SearchModal({ onSubmit, initialValues, options, setValue, value }) {
   return (
@@ -25,8 +42,9 @@ function SearchModal({ onSubmit, initialValues, options, setValue, value }) {
           <FontAwesomeIcon icon={faTimesCircle} />
         </Box>
         <CapitalText>Find a specific subject</CapitalText>
-        <Formik initialValues={initialValues} onSubmit={onSubmit}>
+        <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validateForm} validateOnChange={false}>
           {({
+            errors,
             handleChange,
             handleSubmit,
             setFieldValue,
@@ -38,7 +56,7 @@ function SearchModal({ onSubmit, initialValues, options, setValue, value }) {
             <Box as='form' onSubmit={handleSubmit} gap='small'>
               <Box direction='row' gap='xsmall' margin={{ bottom: 'xsmall' }}>
                 <Box basis='1/3'>
-                  <ReverseFormField htmlFor='type' label='ID Type'>
+                  <ReverseFormField htmlFor='type' label='ID Type' error={errors && errors.type}>
                     <Select
                       disabled={disableInput}
                       dropAlign={{ top: 'top' }}
@@ -55,7 +73,7 @@ function SearchModal({ onSubmit, initialValues, options, setValue, value }) {
                   </ReverseFormField>
                 </Box>
                 <Box basis='2/3'>
-                  <ReverseFormField htmlFor='id' label='Name'>
+                  <ReverseFormField htmlFor='id' label='Name' error={errors && errors.id}>
                     <TextInput
                       color='red'
                       disabled={disableInput}
