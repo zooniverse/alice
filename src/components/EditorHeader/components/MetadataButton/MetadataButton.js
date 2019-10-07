@@ -10,7 +10,7 @@ const CapitalText = styled(Text)`
 `
 
 export default function MetadataButton({ goldStandard, lines, metadata, pages, score, transcribers }) {
-  const inputEl = React.useRef(null)
+  const targetEl = React.useRef(null)
   const [isOpen, toggleDrop] = React.useState(false)
 
   return (
@@ -19,13 +19,13 @@ export default function MetadataButton({ goldStandard, lines, metadata, pages, s
         icon={<FontAwesomeIcon icon={faInfoCircle} />}
         onClick={toggleDrop}
         plain
-        ref={inputEl}
+        ref={targetEl}
       />
       {isOpen && (
         <Drop
           align={{ top: 'bottom', left: 'right' }}
           onClickOutside={toggleDrop}
-          target={inputEl.current}
+          target={targetEl.current}
         >
           <Box background='white' gap='xsmall' pad='small'>
             <Box direction='row' justify='between'>
