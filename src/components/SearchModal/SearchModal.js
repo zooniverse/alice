@@ -25,10 +25,13 @@ const validateForm = (values) => {
   const boxChecked = Object.values(values).some(value => value && value.valueOf() === true );
   let errors = {}
   if (!boxChecked && !values.id) {
-    errors.id = 'You must enter an id'
+    errors.id = 'You must enter an ID'
   }
   if (values.id && values.id.length > 0 && !values.type) {
     errors.type = 'Type is required'
+  }
+  if (values.id && values.id.length && !/^[0-9]*$/.test(values.id)) {
+    errors.id = 'ID must be a number'
   }
   return errors
 }
