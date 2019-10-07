@@ -2,9 +2,14 @@ import React from 'react'
 import { Box, Button, Drop, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { shape } from 'prop-types'
+import { number, shape } from 'prop-types'
+import styled from 'styled-components'
 
-export default function MetadataButton({ metadata }) {
+const CapitalText = styled(Text)`
+  text-transform: uppercase;
+`
+
+export default function MetadataButton({ goldStandard, lines, metadata, pages, score, transcribers }) {
   const inputEl = React.useRef(null)
   const [isOpen, toggleDrop] = React.useState(false)
 
@@ -30,16 +35,16 @@ export default function MetadataButton({ metadata }) {
               </Button>
             </Box>
             <Box direction='row'>
-              <Text size='xsmall'>
-                78 PAGES &#8226; 14/2 TRANSCRIBERS/GOLD STANDARD &#8226; TRANSCRIBED LINES &#8226; 1/2 AVERAGE CONSENSUS
-              </Text>
+              <CapitalText size='xsmall'>
+                {pages} pages &#8226; {transcribers}/{goldStandard} transcribers/gold standard &#8226; {lines} transcribed lines &#8226; {score}/{transcribers} average consensus
+              </CapitalText>
             </Box>
             <Box gap='xsmall'>
               {Object.keys(metadata).map((key, i) => {
                 return (
                   <Box direction='row' key={`METADATA_VALUE_${i}`}>
                     <Box basis='1/3'>
-                      <Text>{key}</Text>
+                      <CapitalText>{key}</CapitalText>
                     </Box>
                     <Box basis='2/3'>
                       <Text>{metadata[key]}</Text>
@@ -56,9 +61,19 @@ export default function MetadataButton({ metadata }) {
 }
 
 MetadataButton.defaultProps = {
-  metadata: null
+  goldStandard: 0,
+  lines: 0,
+  metadata: null,
+  pages: 0,
+  score: 0,
+  transcribers: 0
 }
 
 MetadataButton.propTypes = {
-  metadata: shape()
+  goldStandard: number,
+  lines: number,
+  metadata: shape(),
+  pages: number,
+  score: number,
+  transcribers: number
 }
