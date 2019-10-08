@@ -7,6 +7,7 @@ import { Formik } from 'formik'
 import withThemeContext from '../../helpers/withThemeContext'
 import theme from './theme'
 import SearchCheckBox from './components/SearchCheckBox'
+import { TYPES } from './SearchModalContainer'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -24,14 +25,14 @@ const ReverseFormField = styled(FormField)`
 const validateForm = (values) => {
   const boxChecked = Object.values(values).some(value => value && value.valueOf() === true );
   let errors = {}
-  if (!boxChecked && !values.id) {
-    errors.id = 'You must enter an ID'
-  }
-  if (values.id && values.id.length > 0 && !values.type) {
+  if (!boxChecked && values.type.length === 0) {
     errors.type = 'Type is required'
   }
-  if (values.id && values.id.length && !/^[0-9]*$/.test(values.id)) {
-    errors.id = 'ID must be a number'
+  if (!values.id && !boxChecked && values.type.length > 0) {
+    errors.id = 'You must enter an ID'
+  }
+  if (values.type === TYPES.ZOONIVERSE && values.id && values.id.length && !/^[0-9]*$/.test(values.id)) {
+    errors.id = 'Zooniverse ID must be a number'
   }
   return errors
 }

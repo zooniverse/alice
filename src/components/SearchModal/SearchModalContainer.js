@@ -36,4 +36,5 @@ function SearchModalContainer() {
   )
 }
 
+export { TYPES }
 export default observer(SearchModalContainer)
