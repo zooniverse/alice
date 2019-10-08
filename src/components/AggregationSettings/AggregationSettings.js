@@ -2,9 +2,10 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { func, string } from 'prop-types'
 import ChooseReducer from './ChooseReducer'
 
-export default function AggregationSettings() {
+export default function AggregationSettings({ selectReducer, selectedReducer }) {
   return (
     <Box
       background='white'
@@ -22,7 +23,10 @@ export default function AggregationSettings() {
         <FontAwesomeIcon icon={faTimesCircle} />
       </Box>
       <Box height='medium' pad='small'>
-        <ChooseReducer />
+        <ChooseReducer
+          selectReducer={selectReducer}
+          selectedReducer={selectedReducer}
+        />
       </Box>
       <Box
         border='top'
@@ -36,4 +40,14 @@ export default function AggregationSettings() {
       </Box>
     </Box>
   )
+}
+
+ChooseReducer.defaultProps = {
+  selectReducer: () => {},
+  selectedReducer: null
+}
+
+ChooseReducer.propTypes = {
+  selectReducer: func,
+  selectedReducer: string
 }

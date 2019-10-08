@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import AggregationSettingsContainer from './AggregationSettingsContainer'
+import { AggregationSettingsContainer } from './AggregationSettingsContainer'
 
 let wrapper
 
