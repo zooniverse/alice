@@ -10,7 +10,6 @@ const AuthStore = types.model('AuthStore', {
     try {
       const user = yield auth.checkCurrent()
       if (user) {
-        history.push('/projects')
         self.user = user
       } else if (history.location.pathname !== '/') {
         history.push('/')

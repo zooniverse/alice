@@ -14,12 +14,12 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-export default function ProjectCard({ src, title }) {
+export default function ProjectCard({ id, src, title }) {
   const imageSrc = src.length ? src : SimplePattern
 
   return (
     <Box margin={{ bottom: 'small' }}>
-      <StyledLink to='/projects/workflows'>
+      <StyledLink to={`/projects/${id}/workflows`}>
         <Box height='small' width='small'>
           <Image alt={`${title} Display Image`} fit='cover' src={imageSrc} />
         </Box>
@@ -38,11 +38,13 @@ export default function ProjectCard({ src, title }) {
 }
 
 ProjectCard.defaultProps = {
+  id: '',
   src: '',
   title: ''
 }
 
 ProjectCard.propTypes = {
+  id: PropTypes.string,
   src: PropTypes.string,
   title: PropTypes.string
 }

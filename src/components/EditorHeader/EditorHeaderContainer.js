@@ -1,10 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { matchPath } from "react-router-dom";
 import EditorHeader from './EditorHeader'
+import SearchButton from './components/HeaderButton/SearchButtonContainer'
+import DownloadSetData from './components/HeaderButton/DownloadSetDataContainer'
+import MarkApproved from './components/MarkApproved'
+import UndoButton from './components/HeaderButton/UndoButtonContainer'
+import SaveButton from './components/HeaderButton/SaveButtonContainer'
+import LayoutButton from './components/HeaderButton/LayoutButtonContainer'
+import MoreButton from './components/HeaderButton/MoreButtonContainer'
+import { SUBJECTS_PATH, EDIT_PATH } from 'paths'
 
-class EditorHeaderContainer extends Component {
-  render () {
-    return <EditorHeader />
-  }
+function routeMatcher(currentPath, route) {
+  const matchProfile = matchPath(currentPath, { path: route });
+  return !!(matchProfile && matchProfile.isExact)
 }
 
-export default EditorHeaderContainer
+function getHeaderTools(path) {
+  if (routeMatcher(path, SUBJECTS_PATH)) {
+    return [DownloadSetData, SearchButton]
+  } else if (routeMatcher(path, EDIT_PATH)) {
+    return [MarkApproved, UndoButton, SaveButton, LayoutButton, MoreButton]
+  }
+  return []
+}
+
+export default function EditorHeaderContainer() {
+  const buttons = getHeaderTools(window.location.pathname)
+  return <EditorHeader buttons={buttons} />
+}

@@ -1,25 +1,22 @@
 import React from 'react'
-import { Box, Heading, Text } from 'grommet'
+import { Box, Heading } from 'grommet'
 import Badge from '../Badge'
 import styled from 'styled-components'
-
-const CapitalText = styled(Text)`
-  text-transform: uppercase;
-`
+import PropTypes from 'prop-types'
 
 const StyledHeader = styled(Heading)`
   font-weight: 300;
 `
 
-function EditorHeader (props) {
+export default function EditorHeader ({ buttons }) {
   return (
     <Box as='header' direction='row' pad={{ bottom: 'small' }} border='bottom'>
       <Box direction='row' justify='between' border='right' fill='horizontal'>
         <Box align='center'>
           <StyledHeader level='2'>Text Transcription Project</StyledHeader>
         </Box>
-        <Box align='center' direction='row' gap='medium' pad={{ horizontal: 'medium' }}>
-          <CapitalText color='dark-5' size='small'>Download all data</CapitalText>
+        <Box align='center' direction='row' gap='small' pad={{ horizontal: 'medium' }} wrap>
+          {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} />)}
         </Box>
       </Box>
       <Badge />
@@ -27,5 +24,10 @@ function EditorHeader (props) {
   )
 }
 
+EditorHeader.propTypes = {
+  buttons: PropTypes.array
+}
 
-export default EditorHeader
+EditorHeader.defaultProps = {
+  buttons: []
+}

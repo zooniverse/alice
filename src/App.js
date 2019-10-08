@@ -12,6 +12,13 @@ import WorkflowsIndex from './screens/WorkflowsIndex'
 import Editor from './screens/Editor'
 import Header from './screens/Header'
 import { mergedTheme } from './theme'
+import {
+  PROJECTS_PATH,
+  WORKFLOWS_PATH,
+  SUBJECT_SETS_PATH,
+  SUBJECTS_PATH,
+  EDIT_PATH
+} from 'paths'
 
 function App() {
   const store = React.useContext(AppContext)
@@ -24,11 +31,11 @@ function App() {
           <Grommet theme={mergedTheme}>
             <Route exact path="/" component={Home} />
             <Route path="/projects" component={Header}/>
-            <Route exact path="/projects" component={ProjectsIndex}/>
-            <Route exact path="/projects/workflows" component={WorkflowsIndex}/>
-            <Route exact path="/projects/workflows/subject-sets" component={SubjectSetsIndex}/>
-            <Route exact path="/projects/workflows/subject-sets/subjects" component={SubjectsIndex}/>
-            <Route exact path="/projects/workflows/subject-sets/subjects/edit" component={Editor}/>
+            <Route exact path={PROJECTS_PATH} component={ProjectsIndex}/>
+            <Route exact path={WORKFLOWS_PATH} component={WorkflowsIndex}/>
+            <Route exact path={SUBJECT_SETS_PATH} component={SubjectSetsIndex}/>
+            <Route exact path={SUBJECTS_PATH} component={SubjectsIndex}/>
+            <Route exact path={EDIT_PATH} component={Editor}/>
           </Grommet>
         </main>
       </>

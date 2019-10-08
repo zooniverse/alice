@@ -3,6 +3,7 @@ import { CheckBox, Text } from 'grommet'
 import styled from 'styled-components'
 
 const CapitalText = styled(Text)`
+  text-align: end;
   text-transform: uppercase;
 `
 
