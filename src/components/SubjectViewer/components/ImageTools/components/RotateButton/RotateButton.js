@@ -10,6 +10,7 @@ function RefreshButton({ onClick }) {
         <Box margin='xsmall'>
           <Refresh color='#000000' />
         </Box>}
+      onClick={onClick}
       plain
     />
   )

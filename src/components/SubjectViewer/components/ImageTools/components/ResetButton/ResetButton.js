@@ -1,14 +1,14 @@
 import React from 'react'
-import { ZoomIn as ZoomInIcon } from 'grommet-icons'
+import { Revert } from 'grommet-icons'
 import { Box, Button } from 'grommet'
 import PropTypes from 'prop-types'
 
-function ZoomInButton({ onClick }) {
+function ResetButton({ onClick }) {
   return (
     <Button
       label={
         <Box margin='xsmall'>
-          <ZoomInIcon color='#000000' />
+          <Revert color='#000000' />
         </Box>}
       onClick={onClick}
       plain
@@ -16,12 +16,12 @@ function ZoomInButton({ onClick }) {
   )
 }
 
-ZoomInButton.propTypes = {
+ResetButton.propTypes = {
   onClick: PropTypes.func
 }
 
-ZoomInButton.defaultProps = {
+ResetButton.defaultProps = {
   onClick: () => {}
 }
 
-export default ZoomInButton
+export default ResetButton

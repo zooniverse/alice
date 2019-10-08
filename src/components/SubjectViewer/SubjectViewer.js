@@ -7,23 +7,30 @@ const SVG = styled.svg`
   width: 100%;
 `
 
-function SubjectViewer ({ ref, url }) {
+const G = styled.g`
+  transform-origin: 50% 50%;
+  :hover {
+    cursor: move;
+  }
+`
+
+function SubjectViewer ({ ref, rotation, scale, translateX, translateY, url }) {
+  const transform = `scale(${scale}) translate(${translateX}, ${translateY}) rotate(${rotation})`
+  const inputEl = React.useRef(null);
+  const boundingBox = (inputEl && inputEl.current && inputEl.current.getBoundingClientRect());
+
   return (
-    <SVG ref={ref}>
-      <image
-        height='100%'
-        width='100%'
-        xlinkHref={'https://via.placeholder.com/150'}
-      />
-      <InteractionLayer />
+    <SVG ref={inputEl}>
+      <G transform={transform}>
+        <image
+          height='100%'
+          width='100%'
+          xlinkHref={'https://via.placeholder.com/150'}
+        />
+        <InteractionLayer boundingBox={boundingBox} />
+      </G>
     </SVG>
   )
-}
-
-SubjectViewer.defaultProps = {
-}
-
-SubjectViewer.propTypes = {
 }
 
 export default SubjectViewer

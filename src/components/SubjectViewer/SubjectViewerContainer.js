@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box } from 'grommet'
 import styled from 'styled-components'
+import AppContext from 'store'
+import { observer } from 'mobx-react'
 import SubjectViewer from './SubjectViewer'
 import SubjectViewerHeader from './components/SubjectViewerHeader'
 import ImageTools from './components/ImageTools'
@@ -13,47 +15,28 @@ const AbsoluteBox = styled(Box)`
   position: absolute;
 `
 
-class SubjectViewerContainer extends React.Component {
-  constructor(props) {
-    super(props)
+function SubjectViewerContainer() {
+  const store = React.useContext(AppContext)
+  const [showTools, setTools] = React.useState(false)
+  const onMouseOver = e => setTools(true)
+  const onMouseLeave = e => setTools(false)
 
-    this.state = {
-        showImageTools: false
-    }
-
-    this.onMouseOver = this.onMouseOver.bind(this)
-    this.onMouseLeave = this.onMouseLeave.bind(this)
-  }
-
-  onMouseOver() {
-    this.setState({ showImageTools: true })
-  }
-
-  onMouseLeave() {
-    this.setState({ showImageTools: false })
-  }
-
-  render() {
-    const { showImageTools } = this.state;
-
-    return (
-      <Box onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseLeave} background={{ color: '#858585' }} height='large' width='large' round='xsmall'>
-        <SubjectViewerHeader />
-        <RelativeBox fill>
-          <AbsoluteBox margin='small'>
-            {showImageTools && (<ImageTools />)}
-          </AbsoluteBox>
-          <SubjectViewer />
-        </RelativeBox>
-      </Box>
-    )
-  }
+  return (
+    <Box onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} background={{ color: '#858585' }} height='large' width='large' round='xsmall'>
+      <SubjectViewerHeader />
+      <RelativeBox fill>
+        <AbsoluteBox margin='small'>
+          {showTools && (<ImageTools />)}
+        </AbsoluteBox>
+        <SubjectViewer
+          rotation={store.image.rotation}
+          scale={store.image.scale}
+          translateX={store.image.translateX}
+          translateY={store.image.translateY}
+        />
+      </RelativeBox>
+    </Box>
+  )
 }
 
-SubjectViewerContainer.propTypes = {
-}
-
-SubjectViewerContainer.defaultProps = {
-}
-
-export default SubjectViewerContainer
+export default observer(SubjectViewerContainer)

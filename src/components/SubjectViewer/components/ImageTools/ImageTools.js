@@ -3,6 +3,7 @@ import { Box } from 'grommet'
 import ZoomInButtonContainer from './components/ZoomInButton'
 import ZoomOutButtonContainer from './components/ZoomOutButton'
 import RotateButtonContainer from './components/RotateButton'
+import ResetButtonContainer from './components/ResetButton'
 
 function ImageTools() {
   const borderStyle = { side: 'right', color: '#979797' }
@@ -14,8 +15,11 @@ function ImageTools() {
       <Box border={borderStyle}>
         <ZoomOutButtonContainer />
       </Box>
-      <Box>
+      <Box border={borderStyle}>
         <RotateButtonContainer />
+      </Box>
+      <Box>
+        <ResetButtonContainer />
       </Box>
     </Box>
   )

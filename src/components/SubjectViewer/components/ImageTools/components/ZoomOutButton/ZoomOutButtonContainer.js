@@ -1,12 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
+import AppContext from 'store'
 import ZoomOutButton from './ZoomOutButton'
 
-class ZoomOutButtonContainer extends Component {
-    render() {
-      return (
-        <ZoomOutButton />
-      )
-    }
+export default function ZoomOutButtonContainer() {
+  const store = React.useContext(AppContext)
+  return <ZoomOutButton onClick={store.image.zoomOut} />
 }
-
-export default ZoomOutButtonContainer
