@@ -22,7 +22,7 @@ function SubjectViewerContainer() {
   const onMouseLeave = e => setTools(false)
 
   return (
-    <Box onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} background={{ color: '#858585' }} height='large' width='large' round='xsmall'>
+    <Box onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} background={{ color: '#858585' }} height='large' round='xsmall'>
       <SubjectViewerHeader />
       <RelativeBox fill>
         <AbsoluteBox margin='small'>
