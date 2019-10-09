@@ -1,26 +1,27 @@
 import React from 'react'
+import { Box } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
-const StyledIcon = styled(FontAwesomeIcon)`
+const StyledBox = styled(Box)`
   :hover {
     cursor: ${props => props.direction === 'row' ? 'col-resize' : 'row-resize'};
   }
 `
 
-function mouseDown() {
-  console.log('MOUSE DOWN');
-}
-
-export default function Resizer({ direction }) {
+export default function Resizer({ direction, onMouseDown }) {
   const ellipsis = direction === 'row' ? faEllipsisV : faEllipsisH
 
   return (
-    <StyledIcon
+    <StyledBox
+      align='center'
       direction={direction}
-      icon={ellipsis}
-      onMouseDown={mouseDown}
-    />
+      justify='center'
+      onMouseDown={onMouseDown}
+      pad='xsmall'
+    >
+      <FontAwesomeIcon icon={ellipsis} />
+    </StyledBox>
   )
 }
