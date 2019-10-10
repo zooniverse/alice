@@ -45,7 +45,6 @@ function Editor() {
       setTranscriberSize(transcriberSize)
     }
   }
-  const onMouseUp = e => setMove(false)
   const onMouseMove = e => {
     if (isMoving) {
       resizePanels()
@@ -54,30 +53,27 @@ function Editor() {
   }
 
   return (
-    <Box>
+    <Box gap='small' margin={{ horizontal: 'medium'}}>
       <Box
         direction={direction}
         height='large'
-        pad={{ horizontal: 'medium' }}
-        onMouseLeave={onMouseUp}
+        onMouseLeave={() => { setMove(false) }}
         onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
+        onMouseUp={() => { setMove(false) }}
         ref={editorBox}
       >
-        <Box fill basis={`${viewerSize}%`}>
+        <Box basis={`${viewerSize}%`}>
           <SubjectViewer />
         </Box>
         <Resizer
           direction={direction}
           onMouseDown={onMouseDown}
         />
-        <Box fill basis={`${transcriberSize}%`}>
+        <Box basis={`${transcriberSize}%`}>
           <AggregatedTranscriptions />
         </Box>
       </Box>
-      <Box margin={{ horizontal: 'medium', top: 'small' }}>
-        <FilmstripViewer />
-      </Box>
+      <FilmstripViewer />
     </Box>
   )
 }
