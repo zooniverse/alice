@@ -7,6 +7,8 @@ import SubjectViewer from '../../components/SubjectViewer'
 import FilmstripViewer from '../../components/FilmstripViewer'
 import AggregatedTranscriptions from '../../components/AggregatedTranscriptions'
 
+const MIN_WIDTH = 33;
+
 function Editor() {
   const editorBox = React.useRef(null)
   const store = React.useContext(AppContext)
@@ -38,8 +40,10 @@ function Editor() {
     }
     const viewerSize = newViewerSize.toFixed(0)
     const transcriberSize = 100 - viewerSize
-    setViewerSize(viewerSize)
-    setTranscriberSize(transcriberSize)
+    if (viewerSize > MIN_WIDTH && transcriberSize > MIN_WIDTH) {
+      setViewerSize(viewerSize)
+      setTranscriberSize(transcriberSize)
+    }
   }
   const onMouseUp = e => setMove(false)
   const onMouseMove = e => {
