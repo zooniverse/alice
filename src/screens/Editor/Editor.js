@@ -19,20 +19,33 @@ function Editor() {
 
   const onMouseDown = e => {
     setMove(true)
-    setPos({ x: e.clientX })
+    setNewPosition(e);
+  }
+  const setNewPosition = e => {
+    const bounds = editorBox.current.getBoundingClientRect();
+    if (direction === 'row') {
+      setPos({ x: e.clientX - bounds.left })
+    } else {
+      setPos({ y: e.clientY - bounds.top })
+    }
   }
   const resizePanels = (e) => {
-    const newViewerWidth = currentPos.x / editorBox.current.clientWidth * 100
-    const viewerWidth = newViewerWidth.toFixed(1)
-    const transcriberWidth = 100 - viewerWidth
-    setViewerSize(viewerWidth)
-    setTranscriberSize(transcriberWidth)
+    let newViewerSize
+    if (direction === 'row') {
+      newViewerSize = currentPos.x / editorBox.current.clientWidth * 100
+    } else {
+      newViewerSize = currentPos.y / editorBox.current.clientHeight * 100
+    }
+    const viewerSize = newViewerSize.toFixed(0)
+    const transcriberSize = 100 - viewerSize
+    setViewerSize(viewerSize)
+    setTranscriberSize(transcriberSize)
   }
   const onMouseUp = e => setMove(false)
   const onMouseMove = e => {
     if (isMoving) {
       resizePanels()
-      setPos({ x: e.clientX })
+      setNewPosition(e)
     }
   }
 
@@ -40,20 +53,21 @@ function Editor() {
     <Box>
       <Box
         direction={direction}
+        height='large'
         pad={{ horizontal: 'medium' }}
         onMouseLeave={onMouseUp}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
         ref={editorBox}
       >
-        <Box basis={`${viewerSize}%`}>
+        <Box fill basis={`${viewerSize}%`}>
           <SubjectViewer />
         </Box>
         <Resizer
           direction={direction}
           onMouseDown={onMouseDown}
         />
-        <Box basis={`${transcriberSize}%`}>
+        <Box fill basis={`${transcriberSize}%`}>
           <AggregatedTranscriptions />
         </Box>
       </Box>
