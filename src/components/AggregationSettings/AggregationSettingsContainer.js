@@ -2,13 +2,14 @@ import React from 'react'
 import AggregationSettings from './AggregationSettings'
 
 const REDUCERS = {
-  OPTICS: 'OPTICS',
-  DBSCAN: 'DBSCAN'
+  OPTICS: 'OPTICS_REDUCER',
+  DBSCAN: 'DBSCAN_REDUCER'
 }
 
 const SCREENS = {
   CHOOSE_REDUCER: 'CHOOSE_REDUCER',
-  ADJUST_REDUCER: 'ADJUST_REDUCER'
+  OPTICS_REDUCER: 'OPTICS_REDUCER',
+  DBSCAN_REDUCER: 'DBSCAN_REDUCER'
 }
 
 function AggregationSettingsContainer() {
