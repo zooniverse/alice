@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  dev:
+    image: zooniverse-text-editor:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    entrypoint:
+      - "yarn"
+    command: ["start"]
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${PWD}:/src
+      - /src/node_modules
