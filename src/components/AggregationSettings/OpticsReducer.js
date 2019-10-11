@@ -1,7 +1,9 @@
 import React from 'react'
-import { Box, Text } from 'grommet'
+import { Box, Button, Text } from 'grommet'
 import { Field, Formik } from 'formik'
 import styled from 'styled-components'
+import { func } from 'prop-types'
+import { SCREENS } from './AggregationSettingsContainer'
 
 const StyledNumberInput = styled(Field)`
   border: 1px solid #979797;
@@ -14,7 +16,7 @@ const StyledLabel = styled.label`
   font-size: 0.75em;
 `
 
-export default function AdjustReducer() {
+export default function OpticsReducer({ setScreen }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
@@ -99,10 +101,37 @@ export default function AdjustReducer() {
                 <StyledNumberInput name='minLineLength' type='number' step='0.1' />
               </Box>
             </Box>
-
+            <Box
+              border='top'
+              direction='row'
+              gap='small'
+              justify='between'
+              pad={{ top: 'xsmall' }}
+            >
+              <Button
+                label={<Text size='small'>BACK TO ALGORITHM CHOICE</Text>}
+                onClick={() => setScreen(SCREENS.CHOOSE_REDUCER)}
+                plain
+              />
+              <Box direction='row'>
+                <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain />
+                <Button
+                  label={<Text size='small'>NEXT</Text>}
+                  plain
+                />
+              </Box>
+            </Box>
           </Box>
         )}
       </Formik>
     </Box>
   )
+}
+
+OpticsReducer.defaultProps = {
+  setScreen: () => {}
+}
+
+OpticsReducer.propTypes = {
+  setScreen: func
 }

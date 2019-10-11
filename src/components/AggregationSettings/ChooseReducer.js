@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Button, Text } from 'grommet'
-import { func, string } from 'prop-types'
+import { bool, func, string } from 'prop-types'
 import { REDUCERS } from './AggregationSettingsContainer'
 import styled from 'styled-components'
 
@@ -16,7 +16,7 @@ const DbScanBox = styled(Box)`
     '1px solid #979797' : '1px solid transparent'};
 `
 
-export default function ChooseReducer({ selectReducer, selectedReducer }) {
+export default function ChooseReducer({ currentScreen, selectReducer, selectedReducer, setScreen }) {
   return (
     <Box gap='xsmall'>
       <Text>
@@ -25,6 +25,7 @@ export default function ChooseReducer({ selectReducer, selectedReducer }) {
       </Text>
       <Box
         direction='row'
+        margin={{ bottom: 'large' }}
       >
         <Button
           label={
@@ -49,16 +50,35 @@ export default function ChooseReducer({ selectReducer, selectedReducer }) {
           plain
         />
       </Box>
+      <Box
+        border='top'
+        direction='row'
+        gap='small'
+        justify='end'
+        pad={{ top: 'xsmall' }}
+      >
+        <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain/>
+        <Button
+          disabled={selectedReducer === null}
+          label={<Text size='small'>NEXT</Text>}
+          onClick={() => setScreen(selectedReducer)}
+          plain
+        />
+      </Box>
     </Box>
   )
 }
 
 ChooseReducer.defaultProps = {
+  currentScreen: null,
+  disableNext: true,
   selectReducer: () => {},
   selectedReducer: null
 }
 
 ChooseReducer.propTypes = {
+  currentScreen: string,
+  disableNext: bool,
   selectReducer: func,
   selectedReducer: string
 }
