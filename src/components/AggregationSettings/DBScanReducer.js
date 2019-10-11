@@ -4,7 +4,7 @@ import { Field, Formik } from 'formik'
 import styled from 'styled-components'
 import { func } from 'prop-types'
 import * as Yup from 'yup'
-import { SCREENS } from './AggregationSettingsContainer'
+import { REDUCERS } from './AggregationSettingsContainer'
 
 const StyledNumberInput = styled(Field)`
   border: 1px solid #979797;
@@ -151,7 +151,7 @@ export default function DBScanReducer({ setScreen, submitDBScan }) {
             >
               <Button
                 label={<Text size='small'>BACK TO ALGORITHM CHOICE</Text>}
-                onClick={() => setScreen(SCREENS.CHOOSE_REDUCER)}
+                onClick={() => setScreen(REDUCERS.CHOOSE)}
                 plain
               />
               <Box direction='row' gap='small'>
