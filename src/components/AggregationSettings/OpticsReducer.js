@@ -44,7 +44,7 @@ export default function OpticsReducer({ setScreen }) {
               <Box basis='xsmall'>
                 <StyledNumberInput name='minSamples' type='number' min='2' />
                 <Box align='center' direction='row'>
-                  <Field id='auto' name='auto' type='checkbox'/>
+                  <Field id='auto' name='auto' type='checkbox' checked/>
                   <StyledLabel htmlFor='auto'>auto</StyledLabel>
                 </Box>
               </Box>
@@ -72,7 +72,7 @@ export default function OpticsReducer({ setScreen }) {
                 </Text>
               </Box>
               <Box basis='xsmall'>
-                <StyledNumberInput name='angleEps' type='number' step='0.1' />
+                <StyledNumberInput name='angleEps' type='number' min='0' max='180' step='0.1' />
               </Box>
             </Box>
 
@@ -85,7 +85,7 @@ export default function OpticsReducer({ setScreen }) {
                 </Text>
               </Box>
               <Box basis='xsmall'>
-                <StyledNumberInput name='gutterEps' type='number' step='0.1' />
+                <StyledNumberInput name='gutterEps' type='number' min='0' step='0.1' />
               </Box>
             </Box>
 
@@ -98,7 +98,7 @@ export default function OpticsReducer({ setScreen }) {
                 </Text>
               </Box>
               <Box basis='xsmall'>
-                <StyledNumberInput name='minLineLength' type='number' step='0.1' />
+                <StyledNumberInput name='minLineLength' type='number' min='0' step='0.1' />
               </Box>
             </Box>
             <Box
@@ -113,10 +113,10 @@ export default function OpticsReducer({ setScreen }) {
                 onClick={() => setScreen(SCREENS.CHOOSE_REDUCER)}
                 plain
               />
-              <Box direction='row'>
+              <Box direction='row' gap='small'>
                 <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain />
                 <Button
-                  label={<Text size='small'>NEXT</Text>}
+                  label={<Text size='small'>APPLY</Text>}
                   plain
                 />
               </Box>
