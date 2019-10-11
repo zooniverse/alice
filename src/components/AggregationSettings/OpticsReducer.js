@@ -4,13 +4,13 @@ import { Field, Formik } from 'formik'
 import styled from 'styled-components'
 import { func } from 'prop-types'
 import * as Yup from 'yup'
-import { SCREENS } from './AggregationSettingsContainer'
+import { REDUCERS } from './AggregationSettingsContainer'
 
 const opticsSchema = Yup.object().shape({
-  minSamples: Yup.number()
-    .min(2, 'Must be at least two')
-    .max(50, 'Too long'),
   auto: Yup.boolean(),
+  minSamples: Yup.number()
+  .min(2, 'Must be at least two')
+  .max(50, 'Too long'),
   xi: Yup.number()
     .min(0, 'Must be no less than 0')
     .max(1, 'Must not be greater than 1')
@@ -139,7 +139,7 @@ export default function OpticsReducer({ setScreen, submitOptics }) {
             >
               <Button
                 label={<Text size='small'>BACK TO ALGORITHM CHOICE</Text>}
-                onClick={() => setScreen(SCREENS.CHOOSE_REDUCER)}
+                onClick={() => setScreen(REDUCERS.CHOOSE)}
                 plain
               />
               <Box direction='row' gap='small'>
