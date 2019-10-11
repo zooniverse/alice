@@ -3,7 +3,29 @@ import { Box, Button, Text } from 'grommet'
 import { Field, Formik } from 'formik'
 import styled from 'styled-components'
 import { func } from 'prop-types'
+import * as Yup from 'yup'
 import { SCREENS } from './AggregationSettingsContainer'
+
+const opticsSchema = Yup.object().shape({
+  minSamples: Yup.number()
+    .min(2, 'Must be at least two')
+    .max(50, 'Too long'),
+  auto: Yup.boolean(),
+  xi: Yup.number()
+    .min(0, 'Must be no less than 0')
+    .max(1, 'Must not be greater than 1')
+    .required('Required'),
+  angleEps: Yup.number()
+    .min(0, 'Must be at least 0')
+    .max(180, 'Must not be greater than 180')
+    .required('Required'),
+  gutterEps: Yup.number()
+    .min(0, 'Must be at least 0')
+    .required('Required'),
+  minLineLength: Yup.number()
+    .min(0, 'Must be at least 0')
+    .required('Required'),
+});
 
 const StyledNumberInput = styled(Field)`
   border: 1px solid #979797;
@@ -16,7 +38,7 @@ const StyledLabel = styled.label`
   font-size: 0.75em;
 `
 
-export default function OpticsReducer({ setScreen }) {
+export default function OpticsReducer({ setScreen, submitOptics }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
@@ -28,9 +50,11 @@ export default function OpticsReducer({ setScreen }) {
           minSamples: 2,
           xi: 0.05,
         }}
+        isInitialValid
+        validationSchema={opticsSchema}
       >
-        {({ errors }) => (
-          <Box gap='small'>
+        {({ errors, isValid }) => (
+          <Box as='form' onSubmit={submitOptics} gap='small'>
             <Text>OPTICS Reducer</Text>
 
             <Box direction='row' gap='small'>
@@ -40,6 +64,7 @@ export default function OpticsReducer({ setScreen }) {
                   Increase if a single line of text is being identified multiple times,
                   decrease if multiple lines are being clustered together.
                 </Text>
+                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minSamples}</Text>
               </Box>
               <Box basis='xsmall'>
                 <StyledNumberInput name='minSamples' type='number' min='2' />
@@ -57,6 +82,7 @@ export default function OpticsReducer({ setScreen }) {
                   Increase if a single line of text is being identified multiple times,
                   decrease if multiple lines are being clustered together.
                 </Text>
+                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.xi}</Text>
               </Box>
               <Box basis='xsmall'>
                 <StyledNumberInput name='xi' type='number' min='0' max='1' step='0.01' />
@@ -70,6 +96,7 @@ export default function OpticsReducer({ setScreen }) {
                   How close the angle of two lines need to be in order to be placed in
                   the same angle cluster. Changes the reading order.
                 </Text>
+                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.angleEps}</Text>
               </Box>
               <Box basis='xsmall'>
                 <StyledNumberInput name='angleEps' type='number' min='0' max='180' step='0.1' />
@@ -83,6 +110,7 @@ export default function OpticsReducer({ setScreen }) {
                   How close the 'x' position of thes tart of two lines need to be in
                   order to be placed in the same column cluster. Changes the reading order.
                 </Text>
+                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.gutterEps}</Text>
               </Box>
               <Box basis='xsmall'>
                 <StyledNumberInput name='gutterEps' type='number' min='0' step='0.1' />
@@ -96,6 +124,7 @@ export default function OpticsReducer({ setScreen }) {
                   Used to filter out short lines that were drawn but don't correspond
                   with text in the image.
                 </Text>
+                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minLineLength}</Text>
               </Box>
               <Box basis='xsmall'>
                 <StyledNumberInput name='minLineLength' type='number' min='0' step='0.1' />
@@ -116,8 +145,10 @@ export default function OpticsReducer({ setScreen }) {
               <Box direction='row' gap='small'>
                 <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain />
                 <Button
+                  disabled={!isValid}
                   label={<Text size='small'>APPLY</Text>}
                   plain
+                  type='submit'
                 />
               </Box>
             </Box>

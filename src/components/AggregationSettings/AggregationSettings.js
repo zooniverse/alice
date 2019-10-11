@@ -8,7 +8,7 @@ import OpticsReducer from './OpticsReducer'
 import DBScanReducer from './DBScanReducer'
 import { SCREENS } from './AggregationSettingsContainer'
 
-export default function AggregationSettings({ currentScreen, selectReducer, selectedReducer, setScreen }) {
+export default function AggregationSettings({ currentScreen, selectReducer, selectedReducer, setScreen, submitDBScan, submitOptics }) {
   return (
     <Box
       background='white'
@@ -32,8 +32,8 @@ export default function AggregationSettings({ currentScreen, selectReducer, sele
             selectedReducer={selectedReducer}
             setScreen={setScreen}
           />}
-        {currentScreen === SCREENS.OPTICS_REDUCER && <OpticsReducer setScreen={setScreen} />}
-        {currentScreen === SCREENS.DBSCAN_REDUCER && <DBScanReducer setScreen={setScreen} />}
+        {currentScreen === SCREENS.OPTICS_REDUCER && <OpticsReducer setScreen={setScreen} submitOptics={submitOptics} />}
+        {currentScreen === SCREENS.DBSCAN_REDUCER && <DBScanReducer setScreen={setScreen} submitDBScan={submitDBScan} />}
       </Box>
     </Box>
   )
@@ -43,12 +43,16 @@ ChooseReducer.defaultProps = {
   currentScreen: null,
   selectReducer: () => {},
   selectedReducer: null,
-  setScreen: () => {}
+  setScreen: () => {},
+  submitDBScan: () => {},
+  submitOptics: () => {}
 }
 
 ChooseReducer.propTypes = {
   currentScreen: string,
   selectReducer: func,
   selectedReducer: string,
-  setScreen: func
+  setScreen: func,
+  submitDBScan: func,
+  submitOptics: func
 }

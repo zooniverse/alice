@@ -15,6 +15,8 @@ const SCREENS = {
 function AggregationSettingsContainer() {
   const [ selectedReducer, selectReducer ] = React.useState(null);
   const [ currentScreen, setScreen ] = React.useState(SCREENS.CHOOSE_REDUCER);
+  const submitOptics = () => { console.log('Submitting Optics Form')}
+  const submitDBScan = () => { console.log('Submitting DBScan Form')}
 
   return (
     <AggregationSettings
@@ -22,6 +24,8 @@ function AggregationSettingsContainer() {
       selectReducer={selectReducer}
       selectedReducer={selectedReducer}
       setScreen={setScreen}
+      submitDBScan={submitDBScan}
+      submitOptics={submitOptics}
     />
   )
 }
