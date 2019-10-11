@@ -14,3 +14,13 @@ services:
     volumes:
       - ${PWD}:/src
       - /src/node_modules
+  storybook:
+    image: zooniverse-text-editor:latest
+    entrypoint:
+      - "yarn"
+    command: ["storybook"]
+    ports:
+      - "6006:6006"
+    volumes:
+      - ${PWD}:/src
+      - /src/node_modules
