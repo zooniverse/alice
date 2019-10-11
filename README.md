@@ -9,5 +9,6 @@ This project uses [yarn](https://yarnpkg.com) commands to get the app up and run
 
 **Steps:**  
 - `yarn install` to install package dependencies  
+- `yarn test` to run all tests within the repo  
 - `yarn storybook` to open a [Storybook](https://storybook.js.org) viewer at `http://localhost:6006` to view components in isolation  
 - `yarn start` to open a staging version of the site at `http://localhost:3000`  
