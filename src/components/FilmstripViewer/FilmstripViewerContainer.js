@@ -7,7 +7,7 @@ import Page4 from '../../images/mockImages/page4.jpg'
 import Page5 from '../../images/mockImages/page5.jpg'
 import Page6 from '../../images/mockImages/page6.jpg'
 
-class FilmstripViewerContainer extends Component {
+export default class FilmstripViewerContainer extends Component {
   constructor (props) {
     super(props)
 
@@ -26,5 +26,3 @@ class FilmstripViewerContainer extends Component {
     return <FilmstripViewer images={images} isOpen={isOpen} onToggle={this.onToggle} />
   }
 }
-
-export default FilmstripViewerContainer

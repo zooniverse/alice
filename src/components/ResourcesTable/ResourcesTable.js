@@ -30,8 +30,14 @@ class ResourcesTable extends Component {
 
   onClickRow(e) {
     if (e.target.type === 'checkbox') return;
-    const newLocation = this.props.history.location.pathname + e.datum.link
-    this.props.history.push(newLocation);
+
+    if (this.props.onSelection) {
+      this.props.onSelection(e.datum.id)
+    } else {
+      const newLocation = this.props.history.location.pathname + e.datum.link
+      this.props.history.push(newLocation);
+    }
+
   }
 
   render() {
@@ -82,12 +88,14 @@ class ResourcesTable extends Component {
 ResourcesTable.defaultProps = {
   columns: [],
   data: [],
+  onSelection: () => {},
   resource: null
 }
 
 ResourcesTable.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object),
   data: PropTypes.arrayOf(PropTypes.object),
+  onSelection: PropTypes.func,
   resource: PropTypes.string
 }
 
