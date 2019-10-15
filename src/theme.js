@@ -7,11 +7,12 @@ const theme = {
       border: {
         light: 'light-5'
       },
-      gray: '#979797'
+      gray: '#979797',
+      placeholder: '#ACACAC'
     },
     input: {
       padding: '0'
-    }
+    },
   },
   anchor: {
     color: '#005FFF',
