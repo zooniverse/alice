@@ -49,6 +49,7 @@ function Editor() {
     if (isMoving) {
       resizePanels()
       setNewPosition(e)
+      e.preventDefault()
     }
   }
 
