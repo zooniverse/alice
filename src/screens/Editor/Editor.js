@@ -29,7 +29,7 @@ function Editor () {
   return (
     <Box>
       <Box direction='row' gap='small' margin={{ horizontal: 'medium' }}>
-        <SubjectViewer subject={subject} />
+        <SubjectViewer />
         <AggregatedTranscriptions />
       </Box>
       <Box margin={{ horizontal: 'medium', top: 'small' }}>
