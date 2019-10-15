@@ -12,6 +12,7 @@
     "grommet": "^2.7.4",
     "grommet-icons": "^4.3.0",
     "mobx": "^5.13.0",
+    "mobx-devtools-mst": "^0.9.21",
     "mobx-react": "^6.1.1",
     "mobx-state-tree": "^3.14.1",
     "panoptes-client": "^2.12.3",
