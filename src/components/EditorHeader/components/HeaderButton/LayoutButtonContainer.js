@@ -8,9 +8,9 @@ import HeaderButton from './HeaderButton'
 
 function LayoutButtonContainer() {
   const store = React.useContext(AppContext)
-  const onClick = e => { store.classifier.toggleLayout() }
-  const rowShade = store.classifier.layout === 'row' ? '#555555' : '#CCCCCC'
-  const columnShade = store.classifier.layout === 'column' ? '#555555' : '#CCCCCC'
+  const onClick = e => { store.editor.toggleLayout() }
+  const rowShade = store.editor.layout === 'row' ? '#555555' : '#CCCCCC'
+  const columnShade = store.editor.layout === 'column' ? '#555555' : '#CCCCCC'
 
   return (
     <HeaderButton

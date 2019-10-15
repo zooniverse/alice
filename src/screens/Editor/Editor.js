@@ -12,7 +12,7 @@ const MIN_WIDTH = 33;
 function Editor() {
   const editorBox = React.useRef(null)
   const store = React.useContext(AppContext)
-  const direction = store.classifier.layout
+  const direction = store.editor.layout
 
   const [viewerSize, setViewerSize] = React.useState(50)
   const [transcriberSize, setTranscriberSize] = React.useState(50)

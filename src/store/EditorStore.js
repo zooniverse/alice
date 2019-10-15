@@ -5,7 +5,7 @@ const LAYOUT = {
   COLUMN: 'column'
 }
 
-const ClassifierStore = types.model('ClassifierStore', {
+const EditorStore = types.model('EditorStore', {
   layout: types.optional(types.string, LAYOUT.ROW),
 }).actions(self => ({
   toggleLayout() {
@@ -13,4 +13,4 @@ const ClassifierStore = types.model('ClassifierStore', {
   }
 }))
 
-export { ClassifierStore }
+export { EditorStore }
