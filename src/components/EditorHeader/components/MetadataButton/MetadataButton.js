@@ -40,7 +40,7 @@ export default function MetadataButton({ goldStandard, lines, metadata, pages, s
               </CapitalText>
             </Box>
             <Box gap='xsmall'>
-              {Object.keys(metadata).map((key, i) => {
+              {metadata && Object.keys(metadata).map((key, i) => {
                 return (
                   <Box direction='row' key={`METADATA_VALUE_${i}`}>
                     <Box basis='1/3'>

@@ -1,0 +1,8 @@
+const ASYNC_STATES = {
+  IDLE: 'IDLE',
+  SUCCESS: 'SUCCESS',
+  FETCHING: 'FETCHING',
+  ERROR: 'ERROR'
+}
+
+export default ASYNC_STATES

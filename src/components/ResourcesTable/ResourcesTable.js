@@ -88,7 +88,7 @@ class ResourcesTable extends Component {
 ResourcesTable.defaultProps = {
   columns: [],
   data: [],
-  onSelection: () => {},
+  onSelection: null,
   resource: null
 }
 
