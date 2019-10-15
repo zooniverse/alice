@@ -33,10 +33,7 @@ function FilmstripViewer ({ images, isOpen, onToggle }) {
             <FilmstripThumbnail rotationDegrees={90} src={images[1]}/>
           </Box>
           <Box direction='row'>
-            <FilmstripThumbnail src={images[2]}/>
-            <FilmstripThumbnail src={images[3]}/>
-            <FilmstripThumbnail src={images[4]}/>
-            <FilmstripThumbnail src={images[5]}/>
+            {images.map(image => <FilmstripThumbnail src={image} /> )}
           </Box>
         </Box>
       )}

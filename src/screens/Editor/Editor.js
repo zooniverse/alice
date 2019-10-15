@@ -10,7 +10,11 @@ import AggregatedTranscriptions from '../../components/AggregatedTranscriptions'
 function Editor () {
   const store = React.useContext(AppContext)
   const params = useParams()
-  const subject = store.subject.getCurrent(params)
+  const subject = store.subject.current
+  const locations = store.subject.locations
+  if (!subject && params.subject) {
+    store.subject.fetchSubject(params.subject)
+  }
 
   return (
     <Box>
@@ -19,7 +23,7 @@ function Editor () {
         <AggregatedTranscriptions />
       </Box>
       <Box margin={{ horizontal: 'medium', top: 'small' }}>
-        <FilmstripViewer images={subject && subject.locations} />
+        <FilmstripViewer images={locations} />
       </Box>
       <FilmstripViewer />
     </Box>
