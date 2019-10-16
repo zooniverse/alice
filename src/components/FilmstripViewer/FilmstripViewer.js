@@ -10,14 +10,19 @@ const Uppercase = styled(Text)`
   text-transform: uppercase;
 `
 
-function FilmstripViewer ({ subjectIndex, images, isOpen, setOpen }) {
+function FilmstripViewer ({ selectImage, subjectIndex, images, isOpen, setOpen }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
 
   return (
     <Box background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
       <Box direction='row' justify='between'>
         <Text>All pages</Text>
-        {!isOpen && ( <StepNavigation steps={images} /> )}
+        {!isOpen && (
+          <StepNavigation
+            activeStep={subjectIndex}
+            setStep={selectImage}
+            steps={images}
+          /> )}
         <Button
           icon={isOpen ? <FormDown /> : <FormUp />}
           label={<Uppercase>{actionText} Filmstrip</Uppercase>}
@@ -36,8 +41,7 @@ function FilmstripViewer ({ subjectIndex, images, isOpen, setOpen }) {
                   index={i}
                   isActive={isActive}
                   src={image}
-                />
-              )
+                />)
             })}
           </Box>
       )}
