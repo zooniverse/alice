@@ -40,6 +40,7 @@ function FilmstripViewer ({ selectImage, subjectIndex, images, isOpen, setOpen }
                   key={`THUMBNAIL_${i}`}
                   index={i}
                   isActive={isActive}
+                  selectImage={selectImage}
                   src={image}
                 />)
             })}
@@ -52,13 +53,17 @@ function FilmstripViewer ({ selectImage, subjectIndex, images, isOpen, setOpen }
 FilmstripViewer.defaultProps = {
   images: [],
   isOpen: true,
-  setOpen: () => {}
+  selectImage: () => {},
+  setOpen: () => {},
+  subjectIndex: 0
 }
 
 FilmstripViewer.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   isOpen: PropTypes.bool,
-  setOpen: PropTypes.func
+  selectImage: PropTypes.func,
+  setOpen: PropTypes.func,
+  subjectIndex: PropTypes.number
 }
 
 export default FilmstripViewer

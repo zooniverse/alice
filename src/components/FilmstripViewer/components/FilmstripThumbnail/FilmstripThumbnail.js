@@ -1,19 +1,16 @@
 import React from 'react'
 import { Box, Button, Image, Text } from 'grommet'
 import styled from 'styled-components'
-import AppContext from 'store'
+import { bool, func, number, string } from 'prop-types'
 
 const StyledBox = styled(Box)`
   background-color: rgba(0, 95, 255, 0.14);
   position: absolute;
 `
 
-function FilmstripThumbnail ({ index, isActive, rotationDegrees, src }) {
-  const store = React.useContext(AppContext)
-  const selectImage = () => { store.subject.changeIndex(index) }
-
+export default function FilmstripThumbnail ({ index, isActive, rotationDegrees, selectImage, src }) {
   return (
-      <Button margin='xsmall' onClick={selectImage}>
+      <Button margin='xsmall' onClick={() => selectImage(index)}>
         <Box height='xsmall' width='xsmall'>
           {isActive && (
             <StyledBox
@@ -31,4 +28,18 @@ function FilmstripThumbnail ({ index, isActive, rotationDegrees, src }) {
   )
 }
 
-export default FilmstripThumbnail
+FilmstripThumbnail.propTypes = {
+  index: number,
+  isActive: bool,
+  rotationDegrees: number,
+  selectImage: func,
+  src: string
+}
+
+FilmstripThumbnail.defaultProps = {
+  index: 0,
+  isActive: false,
+  rotationDegrees: null,
+  selectImage: () => {},
+  src: ''
+}

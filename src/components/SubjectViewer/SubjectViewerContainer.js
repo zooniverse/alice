@@ -29,7 +29,14 @@ function SubjectViewerContainer() {
   const src = findCurrentSrc(store.subject.current.locations, store.subject.index)
 
   return (
-    <Box onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} background={{ color: '#858585' }} height='large' round='xsmall'>
+    <Box
+      background={{ color: '#858585' }}
+      height='large'
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
+      round='xsmall'
+      width='large'
+    >
       <SubjectViewerHeader />
       <RelativeBox fill>
         <AbsoluteBox margin='small'>

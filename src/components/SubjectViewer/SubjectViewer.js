@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { number, string } from 'prop-types'
 import InteractionLayer from './components/InteractionLayer'
 
 const SVG = styled.svg`
@@ -14,7 +15,7 @@ const G = styled.g`
   }
 `
 
-function SubjectViewer ({ rotation, scale, src, translateX, translateY }) {
+export default function SubjectViewer ({ rotation, scale, src, translateX, translateY }) {
   const transform = `scale(${scale}) translate(${translateX}, ${translateY}) rotate(${rotation})`
   const inputEl = React.useRef(null);
   const boundingBox = (inputEl && inputEl.current && inputEl.current.getBoundingClientRect());
@@ -33,4 +34,18 @@ function SubjectViewer ({ rotation, scale, src, translateX, translateY }) {
   )
 }
 
-export default SubjectViewer
+SubjectViewer.propTypes = {
+  rotation: number,
+  scale: number,
+  src: string,
+  translateX: number,
+  translateY: number
+}
+
+SubjectViewer.defaultProps = {
+  rotation: 0,
+  scale: 0,
+  src: '',
+  translateX: 0,
+  translateY: 0
+}
