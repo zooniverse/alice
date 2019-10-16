@@ -22,4 +22,3 @@ services:
       - "6006:6006"
     volumes:
       - ${PWD}/src:/usr/src/src
-      - /src/node_modules
