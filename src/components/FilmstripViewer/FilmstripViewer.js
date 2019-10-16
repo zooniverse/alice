@@ -10,7 +10,7 @@ const Uppercase = styled(Text)`
   text-transform: uppercase;
 `
 
-function FilmstripViewer ({ subjectIndex, images, isOpen, onToggle }) {
+function FilmstripViewer ({ subjectIndex, images, isOpen, setOpen }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
 
   return (
@@ -22,7 +22,7 @@ function FilmstripViewer ({ subjectIndex, images, isOpen, onToggle }) {
           icon={isOpen ? <FormDown /> : <FormUp />}
           label={<Uppercase>{actionText} Filmstrip</Uppercase>}
           gap='xsmall'
-          onClick={onToggle}
+          onClick={() => { setOpen(!isOpen) }}
           plain
           reverse />
       </Box>
@@ -48,13 +48,13 @@ function FilmstripViewer ({ subjectIndex, images, isOpen, onToggle }) {
 FilmstripViewer.defaultProps = {
   images: [],
   isOpen: true,
-  onToggle: () => {}
+  setOpen: () => {}
 }
 
 FilmstripViewer.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   isOpen: PropTypes.bool,
-  onToggle: PropTypes.func
+  setOpen: PropTypes.func
 }
 
 export default FilmstripViewer

@@ -11,7 +11,7 @@ function FilmstripViewerContainer({ images }) {
     <FilmstripViewer
       images={images}
       isOpen={isOpen}
-      onToggle={setOpen}
+      setOpen={setOpen}
       subjectIndex={store.subject.index}
     />
   )
