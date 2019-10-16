@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  dev:
+    image: zooniverse-text-editor:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    entrypoint:
+      - "yarn"
+    command: ["start"]
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${PWD}/src:/usr/src/src
+  storybook:
+    image: zooniverse-text-editor:latest
+    entrypoint:
+      - "yarn"
+    command: ["storybook"]
+    ports:
+      - "6006:6006"
+    volumes:
+      - ${PWD}/src:/usr/src/src
