@@ -2,14 +2,14 @@ import React from 'react'
 import { Box, Button, Drop, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { number, shape } from 'prop-types'
+import { number, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-export default function MetadataButton({ goldStandard, lines, metadata, pages, score, transcribers }) {
+export default function MetadataButton({ goldStandard, id, lines, metadata, pages, score, transcribers }) {
   const targetEl = React.useRef(null)
   const [isOpen, toggleDrop] = React.useState(false)
 
@@ -29,7 +29,7 @@ export default function MetadataButton({ goldStandard, lines, metadata, pages, s
         >
           <Box background='white' gap='xsmall' pad='small'>
             <Box direction='row' justify='between'>
-              <Text size='large'>Dolor sit amet</Text>
+              <Text size='large'>{`Subject ${id}`}</Text>
               <Button onClick={() => {toggleDrop(false) }} plain>
                 <FontAwesomeIcon icon={faTimesCircle} size='xs' />
               </Button>
@@ -62,6 +62,7 @@ export default function MetadataButton({ goldStandard, lines, metadata, pages, s
 
 MetadataButton.defaultProps = {
   goldStandard: 0,
+  id: '',
   lines: 0,
   metadata: null,
   pages: 0,
@@ -71,6 +72,7 @@ MetadataButton.defaultProps = {
 
 MetadataButton.propTypes = {
   goldStandard: number,
+  id: string,
   lines: number,
   metadata: shape(),
   pages: number,
