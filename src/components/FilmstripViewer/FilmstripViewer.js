@@ -10,7 +10,7 @@ const Uppercase = styled(Text)`
   text-transform: uppercase;
 `
 
-function FilmstripViewer ({ images, isOpen, onToggle }) {
+function FilmstripViewer ({ subjectIndex, images, isOpen, onToggle }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
 
   return (
@@ -27,15 +27,19 @@ function FilmstripViewer ({ images, isOpen, onToggle }) {
           reverse />
       </Box>
       {isOpen && (
-        <Box direction='row' margin={{ vertical: 'xsmall' }}>
-          <Box border={{ color: '#979797' }} direction='row'>
-            <FilmstripThumbnail src={images[0]}/>
-            <FilmstripThumbnail rotationDegrees={90} src={images[1]}/>
-          </Box>
           <Box direction='row'>
-            {images.map((image, i) => <FilmstripThumbnail key={`THUMBNAIL_${i}`} src={image} /> )}
+            {images.map((image, i) => {
+              const isActive = i === subjectIndex
+              return (
+                <FilmstripThumbnail
+                  key={`THUMBNAIL_${i}`}
+                  index={i}
+                  isActive={isActive}
+                  src={image}
+                />
+              )
+            })}
           </Box>
-        </Box>
       )}
     </Box>
   )
