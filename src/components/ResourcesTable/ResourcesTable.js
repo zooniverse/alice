@@ -37,7 +37,6 @@ class ResourcesTable extends Component {
       const newLocation = this.props.history.location.pathname + e.datum.link
       this.props.history.push(newLocation);
     }
-
   }
 
   render() {

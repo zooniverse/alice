@@ -1,7 +1,6 @@
 import { types, flow } from 'mobx-state-tree'
 import { subjects } from '@zooniverse/panoptes-js'
 import ASYNC_STATES from 'helpers/asyncStates'
-import history from '../history'
 
 const TEMPORARY_SUBJECT_ID = '72815'
 
@@ -21,7 +20,7 @@ const SubjectStore = types.model('SubjectStore', {
     self.index = index
   },
 
-  fetchSubject: flow (function * fetchSubject (id, redirect = false) {
+  fetchSubject: flow (function * fetchSubject (id) {
     self.asyncState = ASYNC_STATES.FETCHING
     try {
       const response = yield subjects.get({ id: TEMPORARY_SUBJECT_ID })
@@ -33,10 +32,11 @@ const SubjectStore = types.model('SubjectStore', {
           metadata: subject.metadata
         })
         self.current = newSubject
-        if (redirect) history.push(`${history.location.pathname}/${id}/edit`)
+        self.asyncState = ASYNC_STATES.READY
       }
     } catch (error) {
       console.log(error);
+      self.asyncState = ASYNC_STATES.ERROR
     }
   })
 }))

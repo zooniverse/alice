@@ -1,12 +1,18 @@
 import React from 'react'
 import { Box } from 'grommet'
 import AppContext from 'store'
+import { generatePath, withRouter } from 'react-router-dom'
+import { EDIT_PATH } from 'paths'
 import ResourcesTable from '../../components/ResourcesTable'
 import { mockColumns, mockData } from './mock'
 
-export default function SubjectsPageContainer () {
+function SubjectsPageContainer (props) {
   const store = React.useContext(AppContext)
-  const onSelection = (id) => store.subject.fetchSubject(id, true)
+  const onSelection = (id) => {
+    store.subject.fetchSubject(id, true)
+    const nextPath = generatePath(EDIT_PATH, { subject: id, ...props.match.params})
+    props.history.replace(nextPath)
+  }
 
   return (
     <Box margin='medium' fill='vertical'>
@@ -14,3 +20,5 @@ export default function SubjectsPageContainer () {
     </Box>
   )
 }
+
+export default withRouter(SubjectsPageContainer)
