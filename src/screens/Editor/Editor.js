@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from 'grommet'
 import { observer } from 'mobx-react'
-import { useParams } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import AppContext from 'store'
 import ASYNC_STATES from 'helpers/asyncStates'
 import SubjectViewer from '../../components/SubjectViewer'
@@ -17,9 +17,9 @@ function findLocations(subject) {
   })
 }
 
-function Editor () {
+function Editor ({ match }) {
   const store = React.useContext(AppContext)
-  const params = useParams()
+  const params = match.params
   const subject = store.subject.current
   if (subject.id !== params.subject && store.subject.asyncState === ASYNC_STATES.IDLE) {
     store.subject.fetchSubject(params.subject)
@@ -40,4 +40,4 @@ function Editor () {
   )
 }
 
-export default observer(Editor)
+export default withRouter(observer(Editor))
