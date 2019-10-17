@@ -25,6 +25,7 @@ function AggregationSettingsContainer() {
   )
 }
 
+export default AggregationSettingsContainer
 export {
   AggregationSettingsContainer,
   REDUCERS

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, DropButton, Text } from 'grommet'
-import { FormUp } from 'grommet-icons'
+import { FormDown } from 'grommet-icons'
 import HeaderButton from '../HeaderButton'
 
 export default function MoreButton() {
@@ -9,14 +9,14 @@ export default function MoreButton() {
       label={
         <Box align='center' direction='row'>
           <Text>MORE</Text>
-          <FormUp />
+          <FormDown />
         </Box>
       }
-      dropAlign={{ top: 'bottom', right: 'left' }}
+      dropAlign={{ top: 'bottom', right: 'right' }}
       dropContent={
-        <Box background='white' gap='small' pad='small'>
-          <HeaderButton label='Download Subject Data' />
-          <HeaderButton label='Edit Aggregation Settings' />
+        <Box background='white'>
+          <HeaderButton label='Download Subject Data' margin='small' />
+          <HeaderButton label='Edit Aggregation Settings' margin='small' />
         </Box>
       }
       plain
