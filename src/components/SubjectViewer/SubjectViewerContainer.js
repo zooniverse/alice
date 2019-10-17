@@ -40,7 +40,7 @@ function SubjectViewerContainer() {
       <SubjectViewerHeader />
       <RelativeBox fill>
         <AbsoluteBox margin='small'>
-          {showTools && (<ImageTools />)}
+          {showTools && <ImageTools />}
         </AbsoluteBox>
         <SubjectViewer
           rotation={store.image.rotation}
