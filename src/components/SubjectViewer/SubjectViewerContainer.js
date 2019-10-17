@@ -35,7 +35,6 @@ function SubjectViewerContainer() {
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
       round='xsmall'
-      width='large'
     >
       <SubjectViewerHeader />
       <RelativeBox fill>
