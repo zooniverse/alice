@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Box, Button } from 'grommet'
+import { Button } from 'grommet'
 import MetadataButton from './MetadataButton'
 import mockMetadata from './mockMetadata'
 
