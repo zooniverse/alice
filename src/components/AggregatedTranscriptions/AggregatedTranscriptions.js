@@ -26,7 +26,7 @@ const OverflowBox = styled(Box)`
 
 function AggregatedTranscriptions (props) {
   return (
-    <Box background='white' height='large' round='xsmall' width='large'>
+    <Box background='white' height='large' round='xsmall'>
       <Box
         border={{ color: 'light-5', side: 'bottom' }}
         direction='row'

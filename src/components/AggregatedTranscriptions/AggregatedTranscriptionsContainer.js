@@ -1,10 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import AggregatedTranscriptions from './AggregatedTranscriptions'
 
-class AggregatedTranscriptionsContainer extends Component {
-  render () {
-    return <AggregatedTranscriptions />
-  }
+export default function AggregatedTranscriptionsContainer() {
+  return <AggregatedTranscriptions />
 }
-
-export default AggregatedTranscriptionsContainer
