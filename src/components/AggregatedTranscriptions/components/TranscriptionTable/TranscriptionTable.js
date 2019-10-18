@@ -66,28 +66,29 @@ const dragItems = [
   { id: '789', name: 'That we will reorganize' }
 ]
 
-function handleDragStart(e, dragID) {
-   e.dataTransfer.setData('dragID', dragID);
-}
-
-function handleDrop(e, dropID, data, setData) {
-  const dragID = e.dataTransfer.getData('dragID');
-  let copiedArray = data.slice()
-  const itemToMove = copiedArray.splice(dragID, 1)[0]
-  copiedArray.splice(dropID,0,itemToMove)
-  setData(copiedArray)
+function handleDragStart(e, dragID, setDragID) {
+   setDragID(dragID)
 }
 
 function allowDrop(e) {
   e.preventDefault()
 }
 
-function renderRow(datum, i, data, setData) {
+function dragEnter(e, dropID, data, dragID, setData, setDragID) {
+  e.preventDefault()
+  let copiedArray = data.slice()
+  const itemToMove = copiedArray.splice(dragID, 1)[0]
+  copiedArray.splice(dropID,0,itemToMove)
+  setDragID(dropID)
+  setData(copiedArray)
+}
+
+function renderRow(datum, i, data, setData, setDragID, dragID) {
   return (
     <TableRow
       draggable='true'
-      onDragStart={(e) => handleDragStart(e, i)}
-      onDrop={(e) => handleDrop(e, i, data, setData)}
+      onDragEnter={(e) => dragEnter(e, i, data, dragID, setData, setDragID)}
+      onDragStart={(e) => handleDragStart(e, i, setDragID)}
       onDragOver={allowDrop}
     >
       <TableCell scope='row'>{datum.id}</TableCell>
@@ -98,6 +99,7 @@ function renderRow(datum, i, data, setData) {
 
 function TranscriptionTable () {
   const [data, setData] = React.useState(dragItems)
+  const [dragID, setDragID] = React.useState(0)
 
   return (
     <Table>
@@ -113,7 +115,7 @@ function TranscriptionTable () {
       </TableHeader>
       <TableBody>
         {data.map((datum, i) => {
-          return renderRow(datum, i, data, setData)
+          return renderRow(datum, i, data, setData, setDragID, dragID)
         })}
       </TableBody>
     </Table>
