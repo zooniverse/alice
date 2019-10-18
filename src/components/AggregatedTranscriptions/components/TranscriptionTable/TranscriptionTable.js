@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Box,
-  DataTable,
   Table,
   TableBody,
   TableCell,
@@ -12,6 +11,7 @@ import {
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faStar } from '@fortawesome/free-solid-svg-icons'
+import TranscriptionTableRow from './TranscriptionTableRow'
 import withThemeContext from '../../../../helpers/withThemeContext'
 import theme from './theme'
 
@@ -66,37 +66,6 @@ const dragItems = [
   { id: '789', name: 'That we will reorganize' }
 ]
 
-function handleDragStart(e, dragID, setDragID) {
-   setDragID(dragID)
-}
-
-function allowDrop(e) {
-  e.preventDefault()
-}
-
-function dragEnter(e, dropID, data, dragID, setData, setDragID) {
-  e.preventDefault()
-  let copiedArray = data.slice()
-  const itemToMove = copiedArray.splice(dragID, 1)[0]
-  copiedArray.splice(dropID,0,itemToMove)
-  setDragID(dropID)
-  setData(copiedArray)
-}
-
-function renderRow(datum, i, data, setData, setDragID, dragID) {
-  return (
-    <TableRow
-      draggable='true'
-      onDragEnter={(e) => dragEnter(e, i, data, dragID, setData, setDragID)}
-      onDragStart={(e) => handleDragStart(e, i, setDragID)}
-      onDragOver={allowDrop}
-    >
-      <TableCell scope='row'>{datum.id}</TableCell>
-      <TableCell>{datum.name}</TableCell>
-    </TableRow>
-  )
-}
-
 function TranscriptionTable () {
   const [data, setData] = React.useState(dragItems)
   const [dragID, setDragID] = React.useState(0)
@@ -115,7 +84,16 @@ function TranscriptionTable () {
       </TableHeader>
       <TableBody>
         {data.map((datum, i) => {
-          return renderRow(datum, i, data, setData, setDragID, dragID)
+          return (
+            <TranscriptionTableRow
+              data={data}
+              datum={datum}
+              dragID={dragID}
+              index={i}
+              setData={setData}
+              setDragID={setDragID}
+            />
+          )
         })}
       </TableBody>
     </Table>
