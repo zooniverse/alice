@@ -66,9 +66,30 @@ const dragItems = [
   { id: '789', name: 'That we will reorganize' }
 ]
 
-function renderRow(datum) {
+function handleDragStart(e, dragID) {
+   e.dataTransfer.setData('dragID', dragID);
+}
+
+function handleDrop(e, dropID, data, setData) {
+  const dragID = e.dataTransfer.getData('dragID');
+  let copiedArray = data.slice()
+  const itemToMove = copiedArray.splice(dragID, 1)[0]
+  copiedArray.splice(dropID,0,itemToMove)
+  setData(copiedArray)
+}
+
+function allowDrop(e) {
+  e.preventDefault()
+}
+
+function renderRow(datum, i, data, setData) {
   return (
-    <TableRow>
+    <TableRow
+      draggable='true'
+      onDragStart={(e) => handleDragStart(e, i)}
+      onDrop={(e) => handleDrop(e, i, data, setData)}
+      onDragOver={allowDrop}
+    >
       <TableCell scope='row'>{datum.id}</TableCell>
       <TableCell>{datum.name}</TableCell>
     </TableRow>
@@ -91,8 +112,8 @@ function TranscriptionTable () {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {data.map((datum) => {
-          return renderRow(datum)
+        {data.map((datum, i) => {
+          return renderRow(datum, i, data, setData)
         })}
       </TableBody>
     </Table>
