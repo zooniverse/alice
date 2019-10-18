@@ -1,5 +1,14 @@
 import React from 'react'
-import { Box, DataTable, Text } from 'grommet'
+import {
+  Box,
+  DataTable,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableRow,
+  Text
+} from 'grommet'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faStar } from '@fortawesome/free-solid-svg-icons'
@@ -51,13 +60,42 @@ const columns = [
   }
 ];
 
-function TranscriptionTable ({ data }) {
+const dragItems = [
+  { id: '123', name: 'These are some transcribed lines' },
+  { id: '456', name: 'And still there are more lines' },
+  { id: '789', name: 'That we will reorganize' }
+]
+
+function renderRow(datum) {
   return (
-    <DataTable
-      columns={columns}
-      data={data}
-      pad={{ header: { left: 'small', top: 'xsmall' }, body: { vertical: '0.25em', left: 'small' } }}
-    />
+    <TableRow>
+      <TableCell scope='row'>{datum.id}</TableCell>
+      <TableCell>{datum.name}</TableCell>
+    </TableRow>
+  )
+}
+
+function TranscriptionTable () {
+  const [data, setData] = React.useState(dragItems)
+
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableCell scope="col" border="bottom">
+            ID
+          </TableCell>
+          <TableCell scope="col" border="bottom">
+            Name
+          </TableCell>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {data.map((datum) => {
+          return renderRow(datum)
+        })}
+      </TableBody>
+    </Table>
   )
 }
 
