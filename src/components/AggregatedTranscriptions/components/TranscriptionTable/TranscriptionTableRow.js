@@ -1,6 +1,7 @@
 import React from 'react'
-import { Box } from 'grommet'
+import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
+import Flags from './Flags'
 
 function handleDragStart(e, dragID, setDragID, setHover) {
   e.dataTransfer.setDragImage(new Image(), 0, 0)
@@ -35,6 +36,7 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
       direction='row'
       draggable='true'
       elevation={elevation}
+      flex={false}
       gap='xsmall'
       onDragEnd={() => { setDragID(null) }}
       onDragEnter={(e) => dragEnter(e, index, data, dragID, setData, setDragID)}
@@ -44,11 +46,18 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
       onMouseLeave={() => { setHover(false) }}
       round={round}
     >
-      <Box pad='xsmall' width='0.1em'>
+      <Box basis='5%' pad='xsmall' width='0.1em'>
         <Menu color={hamburgerColor} size='small' />
       </Box>
-      <Box>{datum.id}</Box>
-      <Box>{datum.name}</Box>
+      <Box basis='75%' wrap>
+        <Text>{datum.transcription}</Text>
+      </Box>
+      <Box basis='10'>
+        <Flags datum={datum} />
+      </Box>
+      <Box basis='10%'>
+        <Text>{datum.consensus}/{datum.counts}</Text>
+      </Box>
     </Box>
   )
 }
