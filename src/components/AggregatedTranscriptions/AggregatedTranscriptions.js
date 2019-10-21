@@ -7,6 +7,10 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
+const StyledBox = styled(Box)`
+  opacity: ${props => props.opacity}
+`
+
 const OverflowBox = styled(Box)`
   overflow: auto;
   &::-webkit-scrollbar-thumb {
@@ -24,9 +28,11 @@ const OverflowBox = styled(Box)`
   }
 `
 
-function AggregatedTranscriptions (props) {
+function AggregatedTranscriptions ({ disabled }) {
+  const opacity = disabled ? '0.5' : '1'
+
   return (
-    <Box background='white' height='large' round='xsmall'>
+    <StyledBox background='white' height='large' round='xsmall' opacity={opacity}>
       <Box
         border={{ color: 'light-5', side: 'bottom' }}
         direction='row'
@@ -39,7 +45,7 @@ function AggregatedTranscriptions (props) {
       <OverflowBox margin={{ right: '0.25em' }}>
         <TranscriptionTable />
       </OverflowBox>
-    </Box>
+    </StyledBox>
   )
 }
 

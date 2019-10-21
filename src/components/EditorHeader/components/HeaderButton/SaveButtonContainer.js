@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 import HeaderButton from './HeaderButton'
+import { observer } from 'mobx-react'
+import AppContext from 'store'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from '@fortawesome/free-solid-svg-icons'
 
-class SaveButtonContainer extends Component {
-  constructor (props) {
-    super(props)
-    this.onClick = this.onClick.bind(this);
-  }
+function SaveButtonContainer() {
+  const store = React.useContext(AppContext)
+  const disabled = store.aggregations.showSettings
 
-  onClick() {}
-
-  render () {
-    return (
-      <HeaderButton
-        icon={<FontAwesomeIcon color='#555555' icon={faSave} size='xs' />}
-        label={'Save'}
-        onClick={this.onClick}
-      />
-    )
-  }
+  return (
+    <HeaderButton
+      disabled={disabled}
+      icon={<FontAwesomeIcon color='#555555' icon={faSave} size='xs' />}
+      label={'Save'}
+      onClick={() => {}}
+    />
+  )
 }
 
-export default SaveButtonContainer
+export default observer(SaveButtonContainer)

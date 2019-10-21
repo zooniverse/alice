@@ -9,11 +9,13 @@ import HeaderButton from './HeaderButton'
 function LayoutButtonContainer() {
   const store = React.useContext(AppContext)
   const onClick = e => { store.editor.toggleLayout() }
+  const disabled = store.aggregations.showSettings
   const rowShade = store.editor.layout === 'row' ? '#555555' : '#CCCCCC'
   const columnShade = store.editor.layout === 'column' ? '#555555' : '#CCCCCC'
 
   return (
     <HeaderButton
+      disabled={disabled}
       icon={
         <Box direction='row' gap='xxsmall'>
           <FontAwesomeIcon color={rowShade} icon={faPause} size='xs' />

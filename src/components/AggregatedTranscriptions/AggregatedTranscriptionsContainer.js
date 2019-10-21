@@ -23,7 +23,7 @@ function AggregatedTranscriptionsContainer() {
         </StyledRnd>
       )}
 
-      <AggregatedTranscriptions showSettings={showSettings}/>
+      <AggregatedTranscriptions disabled={showSettings}/>
     </Box>
   )
 }

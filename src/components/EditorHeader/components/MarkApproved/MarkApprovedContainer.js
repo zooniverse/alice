@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 import MarkApproved from './MarkApproved'
+import { observer } from 'mobx-react'
+import AppContext from 'store'
 
-class MarkApprovedContainer extends Component {
-  constructor (props) {
-    super(props)
-    this.onChange = this.onChange.bind(this);
-    this.state = {
-      checked: false
-    }
-  }
+function MarkApprovedContainer() {
+  const store = React.useContext(AppContext)
+  const disabled = store.aggregations.showSettings
+  const [isChecked, setChecked] = React.useState(false)
 
-  onChange() {
-    this.setState({ checked: !this.state.checked })
-  }
-
-  render () {
-    return <MarkApproved checked={this.state.checked} onChange={this.onChange} />
-  }
+  return (
+    <MarkApproved
+      checked={isChecked}
+      disabled={disabled}
+      onChange={() => { setChecked(!isChecked) }}
+    />
+  )
 }
 
-export default MarkApprovedContainer
+export default observer(MarkApprovedContainer)
