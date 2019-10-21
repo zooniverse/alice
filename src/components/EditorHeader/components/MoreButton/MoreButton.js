@@ -10,7 +10,7 @@ export default function MoreButton({ toggleSettings }) {
     <DropButton
       label={
         <Box align='center' direction='row'>
-          <Text>MORE</Text>
+          <Text color="#5C5C5C">MORE</Text>
           <FormDown />
         </Box>
       }

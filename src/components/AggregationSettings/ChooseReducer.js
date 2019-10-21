@@ -19,43 +19,45 @@ const DbScanBox = styled(Box)`
 export default function ChooseReducer({ currentScreen, selectReducer, selectedReducer, setScreen, toggleSettings }) {
   return (
     <Box gap='xsmall'>
-      <Text>
-        Choose a clustering algorithm based on the way in which transcriptions
-        have been made.
-      </Text>
-      <Box
-        direction='row'
-        margin={{ bottom: 'large' }}
-      >
-        <Button
-          label={
-            <OpticsBox selectedReducer={selectedReducer} gap='xsmall' pad='small'>
-              <Box background='light-4' height='8em' fill='horizontal'/>
-              <Text>OPTICS Reducer</Text>
-              <Text>Short description of when to use this algorithm</Text>
-            </OpticsBox>
-          }
-          onClick={() => { selectReducer(REDUCERS.OPTICS)}}
-          plain
-        />
-        <Button
-          label={
-            <DbScanBox selectedReducer={selectedReducer} gap='xsmall' pad='small'>
-              <Box background='light-4' height='8em' fill='horizontal'/>
-              <Text>DBSCAN Reducer</Text>
-              <Text>Short description of when to use this algorithm</Text>
-            </DbScanBox>
-          }
-          onClick={() => { selectReducer(REDUCERS.DBSCAN)}}
-          plain
-        />
+      <Box pad='small'>
+        <Text>
+          Choose a clustering algorithm based on the way in which transcriptions
+          have been made.
+        </Text>
+        <Box
+          direction='row'
+          margin={{ bottom: 'large' }}
+        >
+          <Button
+            label={
+              <OpticsBox selectedReducer={selectedReducer} gap='xsmall' pad='small'>
+                <Box background='light-4' height='8em' fill='horizontal'/>
+                <Text>OPTICS Reducer</Text>
+                <Text>Short description of when to use this algorithm</Text>
+              </OpticsBox>
+            }
+            onClick={() => { selectReducer(REDUCERS.OPTICS)}}
+            plain
+          />
+          <Button
+            label={
+              <DbScanBox selectedReducer={selectedReducer} gap='xsmall' pad='small'>
+                <Box background='light-4' height='8em' fill='horizontal'/>
+                <Text>DBSCAN Reducer</Text>
+                <Text>Short description of when to use this algorithm</Text>
+              </DbScanBox>
+            }
+            onClick={() => { selectReducer(REDUCERS.DBSCAN)}}
+            plain
+          />
+        </Box>
       </Box>
       <Box
         border='top'
         direction='row'
         gap='small'
         justify='end'
-        pad={{ top: 'xsmall' }}
+        pad='xsmall'
       >
         <Button
           label={<Text size='small'>CLOSE AND CANCEL</Text>}

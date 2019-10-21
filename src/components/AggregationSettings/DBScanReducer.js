@@ -37,7 +37,7 @@ const dbScanSchema = Yup.object().shape({
 
 export default function DBScanReducer({ setScreen, submitDBScan, toggleSettings }) {
   return (
-    <Box gap='small' direction='row'>
+    <Box gap='xsmall' direction='row'>
       <Formik
         initialValues={{
           epsSlope: 25,
@@ -51,103 +51,101 @@ export default function DBScanReducer({ setScreen, submitDBScan, toggleSettings 
         validationSchema={dbScanSchema}
       >
         {({ errors, isValid }) => (
-          <Box as='form' onSubmit={submitDBScan} gap='small'>
-            <Text>DBSCAN Reducer</Text>
+          <Box as='form' onSubmit={submitDBScan} gap='xsmall'>
+            <Box pad='small'>
+              <Text>DBSCAN Reducer</Text>
 
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>eps_slope</Text>
-                <Text>
-                  Increase if too many angle clusters are found, decrease if
-                  there are too few.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsSlope}</Text>
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>eps_slope</Text>
+                  <Text>
+                    Increase if too many angle clusters are found, decrease if
+                    there are too few.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsSlope}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='epsSlope' type='number' min='0' max='180' step='1' />
+                </Box>
               </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='epsSlope' type='number' min='0' max='180' step='1' />
+
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>eps_line</Text>
+                  <Text>
+                    Increase if a line of text is identified multiple times,
+                    decrease if multiple lines of text are clustered together.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsLine}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='epsLine' type='number' min='0' step='1' />
+                </Box>
+              </Box>
+
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>eps_word</Text>
+                  <Text>
+                    How close horizontally the end points of a line should be
+                    to be identified as a single point.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsWord}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='epsWord' type='number' min='0' step='1' />
+                </Box>
+              </Box>
+
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>gutter_tol</Text>
+                  <Text>
+                    Increase if neighboring columns of text are not separated as
+                    multiple columns. This only works without annotations bridging
+                    the gap between columns.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.gutterTol}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='gutterTol' type='number' min='0' step='0.1' />
+                </Box>
+              </Box>
+
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>min_samples</Text>
+                  <Text>
+                    How many points need to be close together for a cluster to be
+                    identified. Set to 1 to keep all annotations. Increase to
+                    remove outlier annotations.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minSamples}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='minSamples' type='number' min='1' step='1' />
+                </Box>
+              </Box>
+
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>min_word_count</Text>
+                  <Text>
+                    Increasing to keep only high consensus words in the final text.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minWordCount}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='minWordCount' type='number' min='1' step='1' />
+                </Box>
               </Box>
             </Box>
-
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>eps_line</Text>
-                <Text>
-                  Increase this number if a single line of text is being identified
-                  multiple times, decrease if multiple lines of text are being
-                  clustered together.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsLine}</Text>
-              </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='epsLine' type='number' min='0' step='1' />
-              </Box>
-            </Box>
-
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>eps_word</Text>
-                <Text>
-                  How close horizontally the end points of a line need to be in
-                  order to be identified as a single point.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsWord}</Text>
-              </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='epsWord' type='number' min='0' step='1' />
-              </Box>
-            </Box>
-
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>gutter_tol</Text>
-                <Text>
-                  Increase this value if neighboring columns of text are not
-                  being separated as multiple columns. This will only work if
-                  there are no annotations that bridge the gap between the columns.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.gutterTol}</Text>
-              </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='gutterTol' type='number' min='0' step='0.1' />
-              </Box>
-            </Box>
-
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>min_samples</Text>
-                <Text>
-                  For all clustering stages, this is how many points need to be
-                  close together for a cluster to be identified. Set this to 1 for
-                  all annotations to be kept. Increase this value to remove outlier
-                  annotations for the aggregation.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minSamples}</Text>
-              </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='minSamples' type='number' min='1' step='1' />
-              </Box>
-            </Box>
-
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>min_word_count</Text>
-                <Text>
-                  Increasing this number will only keep high consensus words in
-                  the final text.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minWordCount}</Text>
-              </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='minWordCount' type='number' min='1' step='1' />
-              </Box>
-            </Box>
-
             <Box
               border='top'
               direction='row'
               gap='small'
               justify='between'
-              pad={{ top: 'xsmall' }}
+              pad={{ horizontal: 'small', vertical: 'xsmall' }}
             >
               <Button
                 label={<Text size='small'>BACK TO ALGORITHM CHOICE</Text>}

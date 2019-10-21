@@ -14,7 +14,7 @@ export default function AggregationSettings({ currentScreen, selectReducer, sele
       background='white'
       elevation='small'
       round='xsmall'
-      width='30em'
+      width='28em'
     >
       <Box
         border='bottom'
@@ -29,7 +29,7 @@ export default function AggregationSettings({ currentScreen, selectReducer, sele
           plain
         />
       </Box>
-      <Box pad='small'>
+      <Box>
         {currentScreen === REDUCERS.CHOOSE &&
           <ChooseReducer
             selectReducer={selectReducer}

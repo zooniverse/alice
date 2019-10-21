@@ -1,12 +1,11 @@
 import React from 'react'
-import { Box, Layer } from 'grommet'
+import { Box } from 'grommet'
 import AppContext from 'store'
 import { observer } from 'mobx-react'
 import Resizer from './components/Resizer'
 import SubjectViewer from '../../components/SubjectViewer'
 import FilmstripViewer from '../../components/FilmstripViewer'
 import AggregatedTranscriptions from '../../components/AggregatedTranscriptions'
-import AggregationSettings from '../../components/AggregationSettings'
 
 const MIN_WIDTH = 33;
 
@@ -14,7 +13,6 @@ function Editor() {
   const editorBox = React.useRef(null)
   const store = React.useContext(AppContext)
   const direction = store.editor.layout
-  const showSettings = store.aggregations.showSettings
 
   const [viewerSize, setViewerSize] = React.useState(50)
   const [transcriberSize, setTranscriberSize] = React.useState(50)
@@ -57,12 +55,6 @@ function Editor() {
 
   return (
     <Box gap='small' margin={{ horizontal: 'medium'}}>
-      {showSettings && (
-        <Layer>
-          <AggregationSettings />
-        </Layer>
-      )}
-
       <Box
         direction={direction}
         height='large'
