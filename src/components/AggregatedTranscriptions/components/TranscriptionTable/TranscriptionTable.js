@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableRow,
-  Text
-} from 'grommet'
+import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faStar } from '@fortawesome/free-solid-svg-icons'
@@ -68,21 +60,19 @@ const dragItems = [
 
 function TranscriptionTable () {
   const [data, setData] = React.useState(dragItems)
-  const [dragID, setDragID] = React.useState(0)
+  const [dragID, setDragID] = React.useState(null)
 
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableCell scope="col" border="bottom">
-            ID
-          </TableCell>
-          <TableCell scope="col" border="bottom">
-            Name
-          </TableCell>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
+    <Box>
+      <Box direction='row' border='bottom' pad='xsmall'>
+        <Box basis='20%'>
+          <Text>ID</Text>
+        </Box>
+        <Box basis='80%'>
+          <Text>Name</Text>
+        </Box>
+      </Box>
+      <Box pad={{ bottom: 'xsmall' }}>
         {data.map((datum, i) => {
           return (
             <TranscriptionTableRow
@@ -90,13 +80,14 @@ function TranscriptionTable () {
               datum={datum}
               dragID={dragID}
               index={i}
+              key={`TRANSCRIPTION_ROW_${i}`}
               setData={setData}
               setDragID={setDragID}
             />
           )
         })}
-      </TableBody>
-    </Table>
+      </Box>
+    </Box>
   )
 }
 

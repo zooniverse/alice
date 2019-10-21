@@ -1,8 +1,11 @@
 import React from 'react'
-import { TableCell, TableRow } from 'grommet'
+import { Box } from 'grommet'
+import { Menu } from 'grommet-icons'
 
-function handleDragStart(e, dragID, setDragID) {
-   setDragID(dragID)
+function handleDragStart(e, dragID, setDragID, setHover) {
+  e.dataTransfer.setDragImage(new Image(), 0, 0)
+  setDragID(dragID)
+  setHover(false)
 }
 
 function allowDrop(e) {
@@ -19,15 +22,33 @@ function dragEnter(e, dropID, data, dragID, setData, setDragID) {
 }
 
 export default function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID }) {
+  const [isHover, setHover] = React.useState(false)
+  const isDragging = dragID === index
+  const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
+  const elevation = isHover || isDragging ? 'small' : 'none'
+  const round = isHover || isDragging ? 'xsmall' : 'none'
+
   return (
-    <TableRow
+    <Box
+      align='center'
+      border='bottom'
+      direction='row'
       draggable='true'
+      elevation={elevation}
+      gap='xsmall'
+      onDragEnd={() => { setDragID(null) }}
       onDragEnter={(e) => dragEnter(e, index, data, dragID, setData, setDragID)}
-      onDragStart={(e) => handleDragStart(e, index, setDragID)}
       onDragOver={allowDrop}
+      onDragStart={(e) => handleDragStart(e, index, setDragID, setHover)}
+      onMouseEnter={() => { setHover(true) }}
+      onMouseLeave={() => { setHover(false) }}
+      round={round}
     >
-      <TableCell scope='row'>{datum.id}</TableCell>
-      <TableCell>{datum.name}</TableCell>
-    </TableRow>
+      <Box pad='xsmall' width='0.1em'>
+        <Menu color={hamburgerColor} size='small' />
+      </Box>
+      <Box>{datum.id}</Box>
+      <Box>{datum.name}</Box>
+    </Box>
   )
 }
