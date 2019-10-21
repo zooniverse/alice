@@ -1,12 +1,19 @@
 import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faEllipsisH, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { func, string } from 'prop-types'
+import styled from 'styled-components'
 import ChooseReducer from './ChooseReducer'
 import OpticsReducer from './OpticsReducer'
 import DBScanReducer from './DBScanReducer'
 import { REDUCERS } from './AggregationSettingsContainer'
+
+const StyledBox = styled(Box)`
+  :hover {
+    cursor: move
+  }
+`
 
 export default function AggregationSettings({ currentScreen, selectReducer, selectedReducer, setScreen, submitDBScan, submitOptics, toggleSettings }) {
   return (
@@ -16,6 +23,9 @@ export default function AggregationSettings({ currentScreen, selectReducer, sele
       round='xsmall'
       width='28em'
     >
+      <StyledBox align='center' background='gray' className='handle' round={{ size: 'xsmall', corner: 'top' }} height='1em'>
+        <FontAwesomeIcon color='black' icon={faEllipsisH} />
+      </StyledBox>
       <Box
         border='bottom'
         direction='row'
