@@ -16,7 +16,7 @@ const DbScanBox = styled(Box)`
     '1px solid #979797' : '1px solid transparent'};
 `
 
-export default function ChooseReducer({ currentScreen, selectReducer, selectedReducer, setScreen }) {
+export default function ChooseReducer({ currentScreen, selectReducer, selectedReducer, setScreen, toggleSettings }) {
   return (
     <Box gap='xsmall'>
       <Text>
@@ -57,7 +57,11 @@ export default function ChooseReducer({ currentScreen, selectReducer, selectedRe
         justify='end'
         pad={{ top: 'xsmall' }}
       >
-        <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain/>
+        <Button
+          label={<Text size='small'>CLOSE AND CANCEL</Text>}
+          onClick={toggleSettings}
+          plain
+        />
         <Button
           disabled={selectedReducer === null}
           label={<Text size='small'>NEXT</Text>}

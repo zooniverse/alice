@@ -38,7 +38,7 @@ const StyledLabel = styled.label`
   font-size: 0.75em;
 `
 
-export default function OpticsReducer({ setScreen, submitOptics }) {
+export default function OpticsReducer({ setScreen, submitOptics, toggleSettings }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
@@ -143,7 +143,11 @@ export default function OpticsReducer({ setScreen, submitOptics }) {
                 plain
               />
               <Box direction='row' gap='small'>
-                <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain />
+                <Button
+                  label={<Text size='small'>CLOSE AND CANCEL</Text>}
+                  onClick={toggleSettings}
+                  plain
+                />
                 <Button
                   disabled={!isValid}
                   label={<Text size='small'>APPLY</Text>}

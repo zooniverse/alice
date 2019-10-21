@@ -1,4 +1,5 @@
 import React from 'react'
+import AppContext from 'store'
 import AggregationSettings from './AggregationSettings'
 
 const REDUCERS = {
@@ -8,6 +9,9 @@ const REDUCERS = {
 }
 
 function AggregationSettingsContainer() {
+  const store = React.useContext(AppContext)
+  const toggleSettings = store.aggregations.toggleSettings
+
   const [ selectedReducer, selectReducer ] = React.useState(null);
   const [ currentScreen, setScreen ] = React.useState(REDUCERS.CHOOSE);
   const submitOptics = () => { console.log('Submitting Optics Form')}
@@ -21,6 +25,7 @@ function AggregationSettingsContainer() {
       setScreen={setScreen}
       submitDBScan={submitDBScan}
       submitOptics={submitOptics}
+      toggleSettings={toggleSettings}
     />
   )
 }
