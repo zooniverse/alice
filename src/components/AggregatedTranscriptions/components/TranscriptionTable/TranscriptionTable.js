@@ -5,11 +5,14 @@ import TranscriptionTableRow from './TranscriptionTableRow'
 import withThemeContext from '../../../../helpers/withThemeContext'
 import theme from './theme'
 
-const CapitalText = styled('h6')`
+const StyledText = styled('h6')`
   font-weight: normal;
   line-height: 1.25em;
   margin: 0;
-  text-transform: uppercase;
+`
+
+const RightAlignText = styled(StyledText)`
+  text-align: end;
 `
 
 function TranscriptionTable ({ data }) {
@@ -19,14 +22,15 @@ function TranscriptionTable ({ data }) {
   return (
     <Box>
       <Box direction='row' border='bottom' pad='xsmall'>
+        <Box basis='4%' />
         <Box basis='80%'>
-          <CapitalText>Aggregated Transcription</CapitalText>
+          <StyledText>Aggregated Transcription</StyledText>
+        </Box>
+        <Box basis='6%'>
+          <StyledText>Flag</StyledText>
         </Box>
         <Box basis='10%'>
-          <CapitalText>Flag</CapitalText>
-        </Box>
-        <Box basis='10%'>
-          <CapitalText>Consensus Line</CapitalText>
+          <RightAlignText>Consensus Line</RightAlignText>
         </Box>
       </Box>
       <Box pad={{ bottom: 'xsmall' }}>

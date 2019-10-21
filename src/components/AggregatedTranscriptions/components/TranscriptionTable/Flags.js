@@ -10,10 +10,10 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 
 export default function Flags({ datum }) {
   return (
-    <Box direction='row'>
+    <Box direction='row' gap='xsmall'>
       <Box align='center' direction='row' justify='center' width='3em'>
-        {datum.reviewed && <StyledFontAwesomeIcon color='green' icon={faCircle} />}
-        {datum.flagged && <StyledFontAwesomeIcon color='tomato' icon={faCircle} />}
+        {datum.reviewed && <StyledFontAwesomeIcon color='green' icon={faCircle} size='xs' />}
+        {datum.flagged && <StyledFontAwesomeIcon color='tomato' icon={faCircle} size='xs' />}
       </Box>
       <Box width='1em'>
         {datum.goldStandard && <FontAwesomeIcon color='gold' icon={faStar} size='xs' />}

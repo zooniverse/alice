@@ -44,18 +44,20 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
       onDragStart={(e) => handleDragStart(e, index, setDragID, setHover)}
       onMouseEnter={() => { setHover(true) }}
       onMouseLeave={() => { setHover(false) }}
+      margin={{ right: '0.1em' }}
+      pad='0.2em'
       round={round}
     >
-      <Box basis='5%' pad='xsmall' width='0.1em'>
+      <Box pad='0.5em' width='0.1em'>
         <Menu color={hamburgerColor} size='small' />
       </Box>
-      <Box basis='75%' wrap>
+      <Box basis='80%' wrap>
         <Text>{datum.transcription}</Text>
       </Box>
-      <Box basis='10'>
+      <Box basis='5%'>
         <Flags datum={datum} />
       </Box>
-      <Box basis='10%'>
+      <Box align='end' basis='10%'>
         <Text>{datum.consensus}/{datum.counts}</Text>
       </Box>
     </Box>
