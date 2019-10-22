@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faEllipsisH, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { func, string } from 'prop-types'
 import ChooseReducer from './ChooseReducer'
 import OpticsReducer from './OpticsReducer'
@@ -16,6 +16,9 @@ export default function AggregationSettings({ currentScreen, selectReducer, sele
       round='xsmall'
       width='30em'
     >
+      <Box align='center' background='gray' height='1em' round={{ corner: 'top', size: 'xsmall' }}>
+        <FontAwesomeIcon icon={faEllipsisH} />
+      </Box>
       <Box
         border='bottom'
         direction='row'
