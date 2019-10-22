@@ -2,9 +2,13 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import Flags from './Flags'
+import styled from 'styled-components'
 
-function handleDragStart(e, dragID, setDragID, setHover) {
-  e.dataTransfer.setDragImage(new Image(), 0, 0)
+const QuietBox = styled(Box)`
+  pointer-events: none;
+`
+
+function handleDragStart(dragID, setDragID, setHover) {
   setDragID(dragID)
   setHover(false)
 }
@@ -13,7 +17,7 @@ function allowDrop(e) {
   e.preventDefault()
 }
 
-function dragEnter(e, dropID, data, dragID, setData, setDragID) {
+function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
   e.preventDefault()
   let copiedArray = data.slice()
   const itemToMove = copiedArray.splice(dragID, 1)[0]
@@ -39,27 +43,27 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
       flex={false}
       gap='xsmall'
       onDragEnd={() => { setDragID(null) }}
-      onDragEnter={(e) => dragEnter(e, index, data, dragID, setData, setDragID)}
+      onDragEnter={(e) => handleDragEnter(e, index, data, dragID, setData, setDragID)}
       onDragOver={allowDrop}
-      onDragStart={(e) => handleDragStart(e, index, setDragID, setHover)}
+      onDragStart={() => handleDragStart(index, setDragID, setHover)}
       onMouseEnter={() => { setHover(true) }}
       onMouseLeave={() => { setHover(false) }}
       margin={{ right: '0.1em' }}
       pad='0.2em'
       round={round}
     >
-      <Box pad='0.5em' width='0.1em'>
+      <QuietBox pad='0.5em' width='0.1em'>
         <Menu color={hamburgerColor} size='small' />
-      </Box>
-      <Box basis='80%' wrap>
+      </QuietBox>
+      <QuietBox basis='80%' wrap>
         <Text>{datum.transcription}</Text>
-      </Box>
-      <Box basis='5%'>
+      </QuietBox>
+      <QuietBox basis='5%'>
         <Flags datum={datum} />
-      </Box>
-      <Box align='end' basis='10%'>
+      </QuietBox>
+      <QuietBox align='end' basis='10%'>
         <Text>{datum.consensus}/{datum.counts}</Text>
-      </Box>
+      </QuietBox>
     </Box>
   )
 }
