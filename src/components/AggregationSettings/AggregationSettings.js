@@ -20,12 +20,12 @@ export default function AggregationSettings({ currentScreen, selectReducer, sele
         border='bottom'
         direction='row'
         justify='between'
-        pad='small'
+        pad={{ horizontal: 'small', vertical: 'xsmall' }}
       >
         <Text>Edit Aggregation Settings</Text>
         <FontAwesomeIcon icon={faTimesCircle} />
       </Box>
-      <Box pad='small'>
+      <Box>
         {currentScreen === REDUCERS.CHOOSE &&
           <ChooseReducer
             selectReducer={selectReducer}

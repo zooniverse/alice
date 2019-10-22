@@ -9,8 +9,8 @@ import { REDUCERS } from './AggregationSettingsContainer'
 const opticsSchema = Yup.object().shape({
   auto: Yup.boolean(),
   minSamples: Yup.number()
-  .min(2, 'Must be at least two')
-  .max(50, 'Too long'),
+    .min(2, 'Must be at least two')
+    .max(50, 'Too long'),
   xi: Yup.number()
     .min(0, 'Must be no less than 0')
     .max(1, 'Must not be greater than 1')
@@ -55,79 +55,81 @@ export default function OpticsReducer({ setScreen, submitOptics }) {
       >
         {({ errors, isValid }) => (
           <Box as='form' onSubmit={submitOptics} gap='small'>
-            <Text>OPTICS Reducer</Text>
+            <Box gap='xsmall' pad='small'>
+              <Text>OPTICS Reducer</Text>
 
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>min_samples</Text>
-                <Text>
-                  Increase if a single line of text is being identified multiple times,
-                  decrease if multiple lines are being clustered together.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minSamples}</Text>
-              </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='minSamples' type='number' min='2' />
-                <Box align='center' direction='row'>
-                  <Field id='auto' name='auto' type='checkbox' checked/>
-                  <StyledLabel htmlFor='auto'>auto</StyledLabel>
+              <Box direction='row' gap='xsmall'>
+                <Box basis='large'>
+                  <Text weight='bold'>min_samples</Text>
+                  <Text>
+                    Increase if a single line of text is being identified multiple times,
+                    decrease if multiple lines are being clustered together.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minSamples}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='minSamples' type='number' min='2' />
+                  <Box align='center' direction='row'>
+                    <Field id='auto' name='auto' type='checkbox' checked/>
+                    <StyledLabel htmlFor='auto'>auto</StyledLabel>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
 
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>xi</Text>
-                <Text>
-                  Increase if a single line of text is being identified multiple times,
-                  decrease if multiple lines are being clustered together.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.xi}</Text>
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>xi</Text>
+                  <Text>
+                    Increase if a single line of text is being identified multiple times,
+                    decrease if multiple lines are being clustered together.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.xi}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='xi' type='number' min='0' max='1' step='0.01' />
+                </Box>
               </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='xi' type='number' min='0' max='1' step='0.01' />
-              </Box>
-            </Box>
 
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>angle_eps</Text>
-                <Text>
-                  How close the angle of two lines need to be in order to be placed in
-                  the same angle cluster. Changes the reading order.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.angleEps}</Text>
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>angle_eps</Text>
+                  <Text>
+                    How close the angle of two lines need to be in order to be placed in
+                    the same angle cluster. Changes the reading order.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.angleEps}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='angleEps' type='number' min='0' max='180' step='0.1' />
+                </Box>
               </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='angleEps' type='number' min='0' max='180' step='0.1' />
-              </Box>
-            </Box>
 
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>gutter_eps</Text>
-                <Text>
-                  How close the 'x' position of thes tart of two lines need to be in
-                  order to be placed in the same column cluster. Changes the reading order.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.gutterEps}</Text>
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>gutter_eps</Text>
+                  <Text>
+                    How close the 'x' position of thes tart of two lines need to be in
+                    order to be placed in the same column cluster. Changes the reading order.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.gutterEps}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='gutterEps' type='number' min='0' step='0.1' />
+                </Box>
               </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='gutterEps' type='number' min='0' step='0.1' />
-              </Box>
-            </Box>
 
-            <Box direction='row' gap='small'>
-              <Box basis='large'>
-                <Text weight='bold'>min_line_length</Text>
-                <Text>
-                  Used to filter out short lines that were drawn but don't correspond
-                  with text in the image.
-                </Text>
-                <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minLineLength}</Text>
-              </Box>
-              <Box basis='xsmall'>
-                <StyledNumberInput name='minLineLength' type='number' min='0' step='0.1' />
+              <Box direction='row' gap='small'>
+                <Box basis='large'>
+                  <Text weight='bold'>min_line_length</Text>
+                  <Text>
+                    Used to filter out short lines that were drawn but don't correspond
+                    with text in the image.
+                  </Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minLineLength}</Text>
+                </Box>
+                <Box basis='xsmall'>
+                  <StyledNumberInput name='minLineLength' type='number' min='0' step='0.1' />
+                </Box>
               </Box>
             </Box>
             <Box
@@ -135,7 +137,7 @@ export default function OpticsReducer({ setScreen, submitOptics }) {
               direction='row'
               gap='small'
               justify='between'
-              pad={{ top: 'xsmall' }}
+              pad={{ horizontal: 'small', vertical: 'xsmall' }}
             >
               <Button
                 label={<Text size='small'>BACK TO ALGORITHM CHOICE</Text>}
