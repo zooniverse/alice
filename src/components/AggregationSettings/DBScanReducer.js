@@ -62,7 +62,7 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
                     Increase if too many angle clusters are found, decrease if
                     there are too few.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsSlope}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.epsSlope}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='epsSlope' type='number' min='0' max='180' step='1' />
@@ -77,7 +77,7 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
                     multiple times, decrease if multiple lines of text are being
                     clustered together.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsLine}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.epsLine}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='epsLine' type='number' min='0' step='1' />
@@ -91,7 +91,7 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
                     How close horizontally the end points of a line need to be in
                     order to be identified as a single point.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.epsWord}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.epsWord}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='epsWord' type='number' min='0' step='1' />
@@ -106,7 +106,7 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
                     being separated as multiple columns. This will only work if
                     there are no annotations that bridge the gap between the columns.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.gutterTol}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.gutterTol}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='gutterTol' type='number' min='0' step='0.1' />
@@ -122,7 +122,7 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
                     all annotations to be kept. Increase this value to remove outlier
                     annotations for the aggregation.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minSamples}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.minSamples}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='minSamples' type='number' min='1' step='1' />
@@ -136,7 +136,7 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
                     Increasing this number will only keep high consensus words in
                     the final text.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minWordCount}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.minWordCount}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='minWordCount' type='number' min='1' step='1' />

@@ -65,7 +65,7 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                     Increase if a single line of text is being identified multiple times,
                     decrease if multiple lines are being clustered together.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minSamples}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.minSamples}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='minSamples' type='number' min='2' />
@@ -83,7 +83,7 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                     Increase if a single line of text is being identified multiple times,
                     decrease if multiple lines are being clustered together.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.xi}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.xi}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='xi' type='number' min='0' max='1' step='0.01' />
@@ -97,7 +97,7 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                     How close the angle of two lines need to be in order to be placed in
                     the same angle cluster. Changes the reading order.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.angleEps}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.angleEps}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='angleEps' type='number' min='0' max='180' step='0.1' />
@@ -111,7 +111,7 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                     How close the 'x' position of thes tart of two lines need to be in
                     order to be placed in the same column cluster. Changes the reading order.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.gutterEps}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.gutterEps}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='gutterEps' type='number' min='0' step='0.1' />
@@ -125,7 +125,7 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                     Used to filter out short lines that were drawn but don't correspond
                     with text in the image.
                   </Text>
-                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors.minLineLength}</Text>
+                  <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.minLineLength}</Text>
                 </Box>
                 <Box basis='xsmall'>
                   <StyledNumberInput name='minLineLength' type='number' min='0' step='0.1' />
