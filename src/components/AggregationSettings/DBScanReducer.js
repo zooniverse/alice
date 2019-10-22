@@ -50,7 +50,7 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
         isInitialValid
         validationSchema={dbScanSchema}
       >
-        {({ errors, isValid }) => (
+        {({ errors, isValid, values }) => (
           <Box as='form' onSubmit={submitDBScan} gap='small'>
             <Box gap='xsmall' pad='small'>
               <Text>DBSCAN Reducer</Text>
@@ -162,7 +162,8 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
                   disabled={!isValid}
                   label={<Text size='small'>APPLY</Text>}
                   onClick={() => {
-                    setCallback(() => { return submitDBScan })
+                    const callBackWithValues = () => { submitDBScan(values) }
+                    setCallback(() => callBackWithValues)
                   }}
                   plain
                 />

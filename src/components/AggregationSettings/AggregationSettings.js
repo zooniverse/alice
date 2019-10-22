@@ -10,7 +10,6 @@ import DBScanReducer from './DBScanReducer'
 import { REDUCERS } from './AggregationSettingsContainer'
 
 export default function AggregationSettings(props) {
-  console.log(props.confirmationCallback);
   return (
     <Box
       background='white'
@@ -18,7 +17,7 @@ export default function AggregationSettings(props) {
       round='xsmall'
       width='30em'
     >
-      <Box align='center' background='gray' height='1em' round={{ corner: 'top', size: 'xsmall' }}>
+      <Box align='center' background='light-2' height='1em' round={{ corner: 'top', size: 'xsmall' }}>
         <FontAwesomeIcon icon={faEllipsisH} />
       </Box>
       <Stack>

@@ -19,7 +19,7 @@ export default function Confirmation({ callback, setCallback }) {
           <Button onClick={() => { setCallback(null) }} plain>
             <Text size='small'>GO BACK</Text>
           </Button>
-          <Button onClick={() => { callback() }} plain>
+          <Button onClick={callback} plain>
             <Text size='small'>YES, APPLY CHANGES</Text>
           </Button>
         </Box>

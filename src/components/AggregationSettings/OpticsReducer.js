@@ -53,7 +53,7 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
         isInitialValid
         validationSchema={opticsSchema}
       >
-        {({ errors, isValid }) => (
+        {({ errors, isValid, values }) => (
           <Box as='form' onSubmit={submitOptics} gap='small'>
             <Box gap='xsmall' pad='small'>
               <Text>OPTICS Reducer</Text>
@@ -150,7 +150,8 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                   disabled={!isValid}
                   label={<Text size='small'>APPLY</Text>}
                   onClick={() => {
-                    setCallback(() => { return submitOptics })
+                    const callBackWithValues = () => { submitOptics(values) }
+                    setCallback(() => callBackWithValues)
                   }}
                   plain
                 />
