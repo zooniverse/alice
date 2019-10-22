@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
-import Flags from './Flags'
+import { Flags } from './Flags'
 import styled from 'styled-components'
 
 const QuietBox = styled(Box)`
