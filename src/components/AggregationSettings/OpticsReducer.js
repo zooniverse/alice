@@ -38,7 +38,7 @@ const StyledLabel = styled.label`
   font-size: 0.75em;
 `
 
-export default function OpticsReducer({ setScreen, submitOptics }) {
+export default function OpticsReducer({ setCallback, setScreen, submitOptics }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
@@ -149,8 +149,10 @@ export default function OpticsReducer({ setScreen, submitOptics }) {
                 <Button
                   disabled={!isValid}
                   label={<Text size='small'>APPLY</Text>}
+                  onClick={() => {
+                    setCallback(() => { return submitOptics })
+                  }}
                   plain
-                  type='submit'
                 />
               </Box>
             </Box>

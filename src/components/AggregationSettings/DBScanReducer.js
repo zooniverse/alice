@@ -35,7 +35,7 @@ const dbScanSchema = Yup.object().shape({
     .required('Required')
 });
 
-export default function DBScanReducer({ setScreen, submitDBScan }) {
+export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
@@ -161,8 +161,10 @@ export default function DBScanReducer({ setScreen, submitDBScan }) {
                 <Button
                   disabled={!isValid}
                   label={<Text size='small'>APPLY</Text>}
+                  onClick={() => {
+                    setCallback(() => { return submitDBScan })
+                  }}
                   plain
-                  type='submit'
                 />
               </Box>
             </Box>
