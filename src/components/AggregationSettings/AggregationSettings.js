@@ -49,6 +49,7 @@ export default function AggregationSettings(props) {
 }
 
 ChooseReducer.defaultProps = {
+  confirmationCallback: null,
   currentScreen: null,
   selectReducer: () => {},
   selectedReducer: null,
@@ -58,6 +59,7 @@ ChooseReducer.defaultProps = {
 }
 
 ChooseReducer.propTypes = {
+  confirmationCallback: func,
   currentScreen: string,
   selectReducer: func,
   selectedReducer: string,

@@ -15,6 +15,7 @@
     "grommet": "^2.7.11",
     "grommet-icons": "^4.3.0",
     "frisbee": "^3.1.0",
+    "jest-styled-components": "^6.3.3",
     "mobx": "^5.13.0",
     "mobx-devtools-mst": "^0.9.21",
     "mobx-react": "^6.1.1",
