@@ -10,7 +10,7 @@ import DBScanReducer from './DBScanReducer'
 import { REDUCERS } from './AggregationSettingsContainer'
 
 export default function AggregationSettings(props) {
-  console.log(props.confirmationCallback && 'found something');
+  console.log(props.confirmationCallback);
   return (
     <Box
       background='white'
@@ -43,7 +43,7 @@ export default function AggregationSettings(props) {
             {props.currentScreen === REDUCERS.DBSCAN && <DBScanReducer setCallback={props.setCallback} setScreen={props.setScreen} submitDBScan={props.submitDBScan} />}
           </Box>
         </Box>
-        {props.confirmationCallback && <Confirmation callback={props.confirmationCallback} />}
+        {props.confirmationCallback && <Confirmation callback={props.confirmationCallback} setCallback={props.setCallback} />}
       </Stack>
     </Box>
   )
