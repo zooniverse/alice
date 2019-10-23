@@ -1,9 +1,8 @@
 import React from 'react'
 import { Box } from 'grommet'
 import styled from 'styled-components'
+import { arrayOf, shape } from 'prop-types'
 import TranscriptionTableRow from './TranscriptionTableRow'
-import withThemeContext from '../../../../helpers/withThemeContext'
-import theme from './theme'
 
 const StyledText = styled('h6')`
   font-weight: normal;
@@ -52,5 +51,12 @@ function TranscriptionTable ({ data }) {
   )
 }
 
+TranscriptionTable.propTypes = {
+  data: arrayOf(shape())
+}
 
-export default withThemeContext(TranscriptionTable, theme)
+TranscriptionTable.defaultProps = {
+  data: []
+}
+
+export default TranscriptionTable
