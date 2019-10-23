@@ -1,0 +1,3065 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots AggregatedTranscriptions Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 bdFdoP"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 bhblpF"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 ioxDdG"
+        >
+          <span
+            className="StyledText-sc-1sadyjn-0 bmpSIR"
+          >
+            Transcribed Text
+          </span>
+          <span
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-htpNat fdzvpi"
+          >
+            Add Line
+          </span>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 QKbEo sc-bxivhb Sgsuu"
+        >
+          <table
+            className="StyledTable-sc-1m3u5g-6 iDLTpY StyledDataTable-xrlyjm-0 tpKnu"
+          >
+            <thead
+              className="StyledTable__StyledTableHeader-sc-1m3u5g-4 dHaGyd StyledDataTable__StyledDataTableHeader-xrlyjm-3 gtdqEW"
+            >
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gVGhBh"
+                  scope="col"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cwLnDN"
+                  >
+                    <h6
+                      className="sc-bdVaJa hpGKVq"
+                      size="xsmall"
+                    >
+                      Aggregated Transcription
+                    </h6>
+                  </div>
+                </th>
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 PVTmA"
+                  scope="col"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cwLnDN"
+                  >
+                    <h6
+                      className="sc-bdVaJa hpGKVq"
+                      size="xsmall"
+                    >
+                      Flag
+                    </h6>
+                  </div>
+                </th>
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 PVTmA"
+                  scope="col"
+                >
+                  <h6
+                    className="sc-bdVaJa hpGKVq"
+                    size="xsmall"
+                  >
+                    Consensus Score
+                  </h6>
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              className="StyledTable__StyledTableBody-sc-1m3u5g-3 dwInxx StyledDataTable__StyledDataTableBody-xrlyjm-2 bFXxPv"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+            >
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sagittis arcu, sed
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    14
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      vulputate leo. Vivamus venenatis, massa ut placerat porttitor, tellus ex mattis ipsum, nec
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    4
+                    /
+                    4
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      sagittis sapien erat ac nisi. Curabitur nulla erat, blandit at elementum eget, lobortis ac magna.
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-circle fa-w-16 sc-bwzfXH eMjkqt"
+                        color="green"
+                        data-icon="circle"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    12
+                    /
+                    12
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      Praesent vel dolor tempus, posuere massa sit amet, imperdiet massa. Donec tortor sapien,
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                        color="gold"
+                        data-icon="star"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 576 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    14
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      cursus sagittis pulvinar non, tristique imperdiet orci. In consequat sed erat eleifend efficitur.
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    4
+                    /
+                    4
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      Integer odio sapien, fermentum ut elit ut, dapibus congue est. Etiam egestas quis nisi
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-circle fa-w-16 sc-bwzfXH eMjkqt"
+                        color="green"
+                        data-icon="circle"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-circle fa-w-16 sc-bwzfXH eMjkqt"
+                        color="tomato"
+                        data-icon="circle"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                        color="gold"
+                        data-icon="star"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 576 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    12
+                    /
+                    12
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      vehicula ultricies. Donec rhoncus ut nibh sit amet convallis. Morbi aliquet at lorem a
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    14
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      imperdiet. Proin lorem metus, tristique et pellentesque non, luctus sed urna.
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-circle fa-w-16 sc-bwzfXH eMjkqt"
+                        color="tomato"
+                        data-icon="circle"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    4
+                    /
+                    4
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    4
+                    /
+                    4
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      eu. Fusce vel leo massa. Integer porttitor rutrum lorem, non lobortis mauris tincidunt at. 
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                        color="gold"
+                        data-icon="star"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 576 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    14
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      Pellentesque maximus sodales urna vitae imperdiet. Quisque hendrerit porttitor leo ut
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    4
+                    /
+                    4
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      imperdiet. Ut ullamcorper ex vitae venenatis scelerisque. Vestibulum euismod, ex in sagittis
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                        color="gold"
+                        data-icon="star"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 576 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    14
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      cursus, augue erat pharetra diam, condimentum placerat risus risus nec risus. Etiam massa
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    4
+                    /
+                    1
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      quam, tincidunt eu tortor semper, pharetra luctus mi. Cras pretium velit non vestibulum
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-circle fa-w-16 sc-bwzfXH eMjkqt"
+                        color="tomato"
+                        data-icon="circle"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    12
+                    /
+                    12
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      finibus. Proin vitae ornare massa. Ut efficitur mattis consectetur.
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    14
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      Vestibulum vestibulum tempus risus sit amet varius. Phasellus quis ante rhoncus lectus
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    4
+                    /
+                    4
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      suscipit aliquam. Suspendisse luctus sapien eu magna condimentum mollis.
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    12
+                    /
+                    12
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sagittis arcu la erat,
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-circle fa-w-16 sc-bwzfXH eMjkqt"
+                        color="green"
+                        data-icon="circle"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    12
+                    /
+                    12
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      blandit at elementum eget, lobortis ac magna. Praesent vel dolor tempus, posuere massa sit
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="svg-inline--fa fa-circle fa-w-16 sc-bwzfXH eMjkqt"
+                        color="green"
+                        data-icon="circle"
+                        data-prefix="fas"
+                        focusable="false"
+                        role="img"
+                        style={Object {}}
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                          fill="currentColor"
+                          style={Object {}}
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    14
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      amet, imperdiet massa. Donec tortor sapien, cursus sagittis pulvinar non, tristique imperdiet
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    4
+                    /
+                    4
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      orci. In consequat sed erat eleifend efficitur. Integer odio sapien, fermentum ut elit ut,
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    12
+                    /
+                    12
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      dapibus congue est. Etiam egestas quis nisi vehicula ultricies. Donec rhoncus ut nibh sit amet 
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    3
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+              <tr
+                className="StyledTable__StyledTableRow-sc-1m3u5g-2 kXgizX StyledDataTable__StyledDataTableRow-xrlyjm-1 jriIGV"
+              >
+                <th
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 gyTanT"
+                  scope="row"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  >
+                    <span
+                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    >
+                      convallis. Morbi aliquet at lorem a imperdiet. Proin lorem metus, tristique et pellentesque non, luctus 
+                    </span>
+                  </div>
+                </th>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                    />
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 fALNzc"
+                    />
+                  </div>
+                </td>
+                <td
+                  className="StyledTable__StyledTableCell-sc-1m3u5g-0 DNmUx"
+                >
+                  <span
+                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                  >
+                    3
+                    /
+                    3
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots DownloadDataModal Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 fPaSPq"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 cGDWft"
+      >
+        <span
+          className="StyledText-sc-1sadyjn-0 dEfHdc"
+          size="large"
+        >
+          Download subject data
+        </span>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-times-circle fa-w-16 fa-xs "
+          data-icon="times-circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </div>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <span
+        className="StyledText-sc-1sadyjn-0 bmpSIR"
+      >
+        Download a .zip file containing:
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <div
+        className="StyledBox-sc-13pk1d4-0 fWrrBh"
+      >
+        <span
+          className="StyledText-sc-1sadyjn-0 bEMqcB"
+          size="small"
+        >
+          • Line by line transcription and metadata (.csv)
+        </span>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        />
+        <span
+          className="StyledText-sc-1sadyjn-0 bEMqcB"
+          size="small"
+        >
+          • Text-only file (.txt)
+        </span>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        />
+        <span
+          className="StyledText-sc-1sadyjn-0 bEMqcB"
+          size="small"
+        >
+          • Raw, unparsed transcription data (.json)
+        </span>
+      </div>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <div
+        className="StyledBox-sc-13pk1d4-0 jHMQGC"
+      >
+        <button
+          className="StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <span
+            className="StyledText-sc-1sadyjn-0 bEMqcB"
+            size="small"
+          >
+            CLOSE
+          </span>
+        </button>
+        <button
+          className="StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <span
+            className="StyledText-sc-1sadyjn-0 bEMqcB"
+            size="small"
+          >
+            DOWNLOAD
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FilmstripViewer Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 kFLDHg"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 cGDWft"
+      >
+        <span
+          className="StyledText-sc-1sadyjn-0 bmpSIR"
+        >
+          All pages
+        </span>
+        <button
+          className="StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 jHQJnz"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-iwsKbI dkUFrT"
+            >
+              Collapse
+               Filmstrip
+            </span>
+            <div
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+            />
+            <svg
+              aria-label="FormDown"
+              className="StyledIcon-ofa7kd-0 iOkQrb"
+              viewBox="0 0 24 24"
+            >
+              <polyline
+                fill="none"
+                points="18 9 12 15 6 9"
+                stroke="#000"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 hkNTdP"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 fSvjeI"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 cKVNoy"
+          >
+            <img
+              className="StyledImage-ey4zx9-0 fIJtXv"
+              src="page1.jpg"
+            />
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 cKVNoy"
+          >
+            <div
+              className="StyledBox-sc-13pk1d4-0 kEguYX sc-gzVnrw dKVYOB"
+            >
+              <span
+                className="StyledText-sc-1sadyjn-0 ANOJZ"
+                size="xlarge"
+              >
+                90
+                °
+              </span>
+            </div>
+            <img
+              className="StyledImage-ey4zx9-0 fIJtXv"
+              src="page2.jpg"
+            />
+          </div>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 ekjAwv"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 cKVNoy"
+          >
+            <img
+              className="StyledImage-ey4zx9-0 fIJtXv"
+              src="page3.jpg"
+            />
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 cKVNoy"
+          >
+            <img
+              className="StyledImage-ey4zx9-0 fIJtXv"
+              src="page4.jpg"
+            />
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 cKVNoy"
+          >
+            <img
+              className="StyledImage-ey4zx9-0 fIJtXv"
+              src="page5.jpg"
+            />
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 cKVNoy"
+          >
+            <img
+              className="StyledImage-ey4zx9-0 fIJtXv"
+              src="page6.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots HeaderButtons LayoutButton 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <button
+    className="StyledButton-sc-323bzc-0 jfbKsv"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    type="button"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 jHQJnz"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-ifAKCX iqcapW"
+      >
+        Layout
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+      />
+      <div
+        className="StyledBox-sc-13pk1d4-0 ekjAwv"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-pause fa-w-14 fa-xs "
+          color="#555555"
+          data-icon="pause"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+        <div
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hhQian"
+        />
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-pause fa-w-14 fa-xs fa-rotate-90 "
+          color="#CCCCCC"
+          data-icon="pause"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`Storyshots HeaderButtons MoreButton 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <button
+    className="StyledButton-sc-323bzc-0 jfbKsv"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    type="button"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 jHQJnz"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-ifAKCX iqcapW"
+      >
+        More
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+      />
+      <svg
+        aria-label="FormDown"
+        className="StyledIcon-ofa7kd-0 fcceJV"
+        viewBox="0 0 24 24"
+      >
+        <polyline
+          fill="none"
+          points="18 9 12 15 6 9"
+          stroke="#000"
+          strokeWidth="2"
+        />
+      </svg>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`Storyshots HeaderButtons SaveButton 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <button
+    className="StyledButton-sc-323bzc-0 jfbKsv"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    type="button"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 jHQJnz"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-ifAKCX iqcapW"
+      >
+        Save
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+      />
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-save fa-w-14 fa-xs "
+        color="#555555"
+        data-icon="save"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`Storyshots HeaderButtons UndoButton 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <button
+    className="StyledButton-sc-323bzc-0 jfbKsv"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    type="button"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 jHQJnz"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-ifAKCX iqcapW"
+      >
+        Undo
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+      />
+      <svg
+        aria-label="Refresh"
+        className="StyledIcon-ofa7kd-0 bJsvPT"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9"
+          fill="none"
+          stroke="#000"
+          strokeWidth="2"
+        />
+      </svg>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`Storyshots LineViewer Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 geOWeC"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 iOrQiu"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 cGDWft"
+        >
+          <span
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
+            size="xsmall"
+          >
+            Aggregated Transcription
+          </span>
+          <span
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
+            size="xsmall"
+          >
+            Consensus Score
+          </span>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 jXpciy"
+        >
+          <span
+            className="StyledText-sc-1sadyjn-0 kutFY"
+          >
+            Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+          </span>
+          <div
+            className="StyledBox-sc-13pk1d4-0 hfsUvK"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-circle fa-w-16 sc-VigVT jfKCJf"
+              color="tomato"
+              data-icon="circle"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-circle fa-w-16 sc-VigVT jfKCJf"
+              color="green"
+              data-icon="circle"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </div>
+          <span
+            className="StyledText-sc-1sadyjn-0 bmpSIR"
+          >
+            0
+            /
+            4
+          </span>
+        </div>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 vNCzY"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 csGKws"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 cGDWft"
+          >
+            <div
+              className="StyledBox-sc-13pk1d4-0 ekjAwv"
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 eshAPl"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 gycYtK"
+                >
+                  <label
+                    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                    >
+                      <input
+                        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                        onBlur={[Function]}
+                        onFocus={[Function]}
+                        type="checkbox"
+                      />
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                      />
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <span
+                className="StyledText-sc-1sadyjn-0 bPLMUM"
+              >
+                Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+              </span>
+            </div>
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 hIYVGv"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+            >
+              June 11, 2019
+            </span>
+            <span
+              className="StyledText-sc-1sadyjn-0 jcthf"
+            >
+              •
+            </span>
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+            >
+              username
+            </span>
+          </div>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 csGKws"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 cGDWft"
+          >
+            <div
+              className="StyledBox-sc-13pk1d4-0 ekjAwv"
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 fNcadG"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 gycYtK"
+                >
+                  <label
+                    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                    >
+                      <input
+                        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                        onBlur={[Function]}
+                        onFocus={[Function]}
+                        type="checkbox"
+                      />
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                      />
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <span
+                className="StyledText-sc-1sadyjn-0 bPLMUM"
+              >
+                Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+              </span>
+            </div>
+            <div
+              className="StyledBox-sc-13pk1d4-0 erdrxH"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                color="gold"
+                data-icon="star"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 576 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 hIYVGv"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+            >
+              June 11, 2019
+            </span>
+            <span
+              className="StyledText-sc-1sadyjn-0 jcthf"
+            >
+              •
+            </span>
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+            >
+              username
+            </span>
+            <div
+              className="StyledBox-sc-13pk1d4-0 ekjAwv"
+            >
+              <span
+                className="StyledText-sc-1sadyjn-0 jcthf"
+              >
+                •
+              </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+              >
+                Gold Standard
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 csGKws"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 cGDWft"
+          >
+            <div
+              className="StyledBox-sc-13pk1d4-0 ekjAwv"
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 kjmFLU"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 gycYtK"
+                >
+                  <label
+                    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                    >
+                      <input
+                        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                        onBlur={[Function]}
+                        onFocus={[Function]}
+                        type="checkbox"
+                      />
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 bfatAZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                      />
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <span
+                className="StyledText-sc-1sadyjn-0 bPLMUM"
+              >
+                Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+              </span>
+            </div>
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 hIYVGv"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+            >
+              June 11, 2019
+            </span>
+            <span
+              className="StyledText-sc-1sadyjn-0 jcthf"
+            >
+              •
+            </span>
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+            >
+              username
+            </span>
+          </div>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 csGKws"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 cGDWft"
+          >
+            <div
+              className="StyledBox-sc-13pk1d4-0 ekjAwv"
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 kLfltC"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 gycYtK"
+                >
+                  <label
+                    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                    onClick={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                    >
+                      <input
+                        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                        onBlur={[Function]}
+                        onFocus={[Function]}
+                        type="checkbox"
+                      />
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 bfatAZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                      />
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <span
+                className="StyledText-sc-1sadyjn-0 bPLMUM"
+              >
+                Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+              </span>
+            </div>
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 hIYVGv"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+            >
+              June 11, 2019
+            </span>
+            <span
+              className="StyledText-sc-1sadyjn-0 jcthf"
+            >
+              •
+            </span>
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi fYCSTw"
+            >
+              username
+            </span>
+          </div>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 OZhDq"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 kOiVhI"
+          >
+            <label
+              className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+              onClick={[Function]}
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+              >
+                <input
+                  className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 iNpqIU"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  type="checkbox"
+                />
+                <div
+                  className="StyledBox-sc-13pk1d4-0 vhhDm StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                />
+              </div>
+            </label>
+          </div>
+          <div
+            className="StyledBox-sc-13pk1d4-0 fQjftD"
+          >
+            <div
+              className="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 daBUnM"
+            >
+              <input
+                autoComplete="off"
+                className="StyledTextInput-sc-1x30a0s-0 eiTZNB"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Write new..."
+                size="small"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 iJWuMk"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 ekjAwv"
+        >
+          <button
+            className="StyledButton-sc-323bzc-0 XdIgp"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            type="button"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gqjmRU jppNnv"
+            >
+              Add Line Below
+            </span>
+          </button>
+          <button
+            className="StyledButton-sc-323bzc-0 jfbKsv"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            type="button"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gqjmRU jppNnv"
+            >
+              Delete Line
+            </span>
+          </button>
+        </div>
+        <div
+          className="StyledBox-sc-13pk1d4-0 ekjAwv"
+        >
+          <button
+            className="StyledButton-sc-323bzc-0 XdIgp"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            type="button"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gqjmRU jppNnv"
+            >
+              Replace With Selected
+            </span>
+          </button>
+          <button
+            className="StyledButton-sc-323bzc-0 jfbKsv"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            type="button"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gqjmRU jppNnv"
+            >
+              Close
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots MarkApproved Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <label
+    checked={false}
+    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+    onClick={[Function]}
+  >
+    <span
+      className="StyledText-sc-1sadyjn-0 gcASOG sc-EHOje dguojy"
+    >
+      Mark As Approved
+    </span>
+    <div
+      checked={false}
+      className="StyledBox-sc-13pk1d4-0 fdQGpV StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+    >
+      <input
+        checked={false}
+        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 rUrdy"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="checkbox"
+      />
+      <span
+        checked={false}
+        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 jSgNzH"
+      >
+        <span
+          checked={false}
+          className="StyledCheckBox__StyledCheckBoxKnob-sc-1dbk5ju-5 kGMNhu"
+        />
+      </span>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Storyshots MetadataButton Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 fALNzc"
+    >
+      <button
+        className="StyledButton-sc-323bzc-0 laBEqz"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-info-circle fa-w-16 "
+          data-icon="info-circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots SearchModalContainer Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 jLJOXa"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 juVmUb"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 hFIMGw"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 dEfHdc"
+              size="large"
+            >
+              Search or Filter
+            </span>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-times-circle fa-w-16 "
+              data-icon="times-circle"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </div>
+          <div
+            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+          />
+          <span
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-jzJRlG gfoXUu"
+          >
+            Find a specific subject
+          </span>
+          <div
+            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+          />
+          <form
+            className="StyledBox-sc-13pk1d4-0 fWrrBh"
+            onSubmit={[Function]}
+          >
+            <div
+              className="StyledBox-sc-13pk1d4-0 jbNAjJ"
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 iEMnku"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-cSHVUG eNTFVi"
+                >
+                  <label
+                    className="StyledText-sc-1sadyjn-0 cxYjCj"
+                    htmlFor="type"
+                  >
+                    ID Type
+                  </label>
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                  >
+                    <button
+                      aria-label="Open Drop"
+                      className="StyledButton-sc-323bzc-0 jfbKsv Select__StyledSelectDropButton-sc-17idtfo-1 cvpccN"
+                      id="type"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
+                      type="button"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 hFIMGw"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 hxmgAG"
+                        >
+                          <span
+                            className="StyledText-sc-1sadyjn-0 bmpSIR"
+                          >
+                            Select...
+                          </span>
+                        </div>
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 eWMcdv"
+                          style={
+                            Object {
+                              "minWidth": "auto",
+                            }
+                          }
+                        >
+                          <svg
+                            aria-label="FormDown"
+                            className="StyledIcon-ofa7kd-0 bgjyaD"
+                            viewBox="0 0 24 24"
+                          >
+                            <polyline
+                              fill="none"
+                              points="18 9 12 15 6 9"
+                              stroke="#000"
+                              strokeWidth="2"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+              />
+              <div
+                className="StyledBox-sc-13pk1d4-0 bgTRhM"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-cSHVUG eNTFVi"
+                >
+                  <label
+                    className="StyledText-sc-1sadyjn-0 cxYjCj"
+                    htmlFor="id"
+                  >
+                    Name
+                  </label>
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                  >
+                    <div
+                      className="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 kYQCpm"
+                    >
+                      <input
+                        autoComplete="off"
+                        className="StyledTextInput-sc-1x30a0s-0 kiJqqj"
+                        color="red"
+                        disabled={false}
+                        id="id"
+                        name="id"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        placeholder="eg. 58674"
+                        size="small"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+            />
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-jzJRlG gfoXUu"
+            >
+              Filter subject list by status
+            </span>
+            <div
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+            />
+            <div
+              className="StyledBox-sc-13pk1d4-0 cGDWft"
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 fWrrBh"
+              >
+                <span
+                  className="StyledText-sc-1sadyjn-0 kutFY"
+                >
+                  Approval Status
+                </span>
+                <div
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                />
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                  >
+                    <label
+                      checked={false}
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      disabled={false}
+                      htmlFor="unreviewed"
+                      onClick={[Function]}
+                    >
+                      <div
+                        checked={false}
+                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        disabled={false}
+                      >
+                        <input
+                          checked={false}
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          disabled={false}
+                          id="unreviewed"
+                          name="unreviewed"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          checked={false}
+                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          disabled={false}
+                        />
+                      </div>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        size="small"
+                      >
+                        UNREVIEWED
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                />
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                  >
+                    <label
+                      checked={false}
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      disabled={false}
+                      htmlFor="inProgress"
+                      onClick={[Function]}
+                    >
+                      <div
+                        checked={false}
+                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        disabled={false}
+                      >
+                        <input
+                          checked={false}
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          disabled={false}
+                          id="inProgress"
+                          name="inProgress"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          checked={false}
+                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          disabled={false}
+                        />
+                      </div>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        size="small"
+                      >
+                        IN PROGRESS
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                />
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                  >
+                    <label
+                      checked={false}
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      disabled={false}
+                      htmlFor="readyForReview"
+                      onClick={[Function]}
+                    >
+                      <div
+                        checked={false}
+                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        disabled={false}
+                      >
+                        <input
+                          checked={false}
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          disabled={false}
+                          id="readyForReview"
+                          name="readyForReview"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          checked={false}
+                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          disabled={false}
+                        />
+                      </div>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        size="small"
+                      >
+                        READY FOR REVIEW
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                />
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                  >
+                    <label
+                      checked={false}
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      disabled={false}
+                      htmlFor="approved"
+                      onClick={[Function]}
+                    >
+                      <div
+                        checked={false}
+                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        disabled={false}
+                      >
+                        <input
+                          checked={false}
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          disabled={false}
+                          id="approved"
+                          name="approved"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          checked={false}
+                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          disabled={false}
+                        />
+                      </div>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        size="small"
+                      >
+                        APPROVED
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="StyledBox-sc-13pk1d4-0 fWrrBh"
+              >
+                <span
+                  className="StyledText-sc-1sadyjn-0 kutFY"
+                >
+                  Additional Filters
+                </span>
+                <div
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                />
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                  >
+                    <label
+                      checked={false}
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      disabled={false}
+                      htmlFor="flagged"
+                      onClick={[Function]}
+                    >
+                      <div
+                        checked={false}
+                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        disabled={false}
+                      >
+                        <input
+                          checked={false}
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          disabled={false}
+                          id="flagged"
+                          name="flagged"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          checked={false}
+                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          disabled={false}
+                        />
+                      </div>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        size="small"
+                      >
+                        Flagged
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                />
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                  >
+                    <label
+                      checked={false}
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      disabled={false}
+                      htmlFor="lowConsensus"
+                      onClick={[Function]}
+                    >
+                      <div
+                        checked={false}
+                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        disabled={false}
+                      >
+                        <input
+                          checked={false}
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          disabled={false}
+                          id="lowConsensus"
+                          name="lowConsensus"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          checked={false}
+                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          disabled={false}
+                        />
+                      </div>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        size="small"
+                      >
+                        Low consensus score
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+            />
+            <div
+              className="StyledBox-sc-13pk1d4-0 jHMQGC"
+            >
+              <button
+                className="StyledButton-sc-323bzc-0 jfbKsv"
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                type="button"
+              >
+                <span
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-jzJRlG gfoXUu"
+                >
+                  Close
+                </span>
+              </button>
+              <button
+                className="StyledButton-sc-323bzc-0 jfbKsv"
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                type="submit"
+              >
+                <span
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-jzJRlG gfoXUu"
+                >
+                  Search
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots SubjectLockedModal Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 fPaSPq"
+    >
+      <span
+        className="StyledText-sc-1sadyjn-0 dEfHdc"
+        size="large"
+      >
+        Subject locked
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <span
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jTzLTM iAhJeH"
+      >
+        This subject cannot be accessed because 
+        <b>
+          Erin Green
+        </b>
+         is currently accessing it.
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <span
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jTzLTM iAhJeH"
+      >
+        For access, ask them to close their version.
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <button
+        className="StyledButton-sc-323bzc-0 jfbKsv"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        type="button"
+      >
+        <span
+          className="StyledText-sc-1sadyjn-0 bEMqcB"
+          size="small"
+        >
+          BACK TO SUBJECT SET INDEX
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots SubjectViewer Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 dwUWku"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 hHJqSn"
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 iGfFSe"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 cGDWft"
+        >
+          <span
+            className="StyledText-sc-1sadyjn-0 bmpSIR"
+          >
+            Original Subject
+          </span>
+          <div
+            className="StyledBox-sc-13pk1d4-0 ekjAwv"
+          >
+            <span
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kgoBCf hcfdKh"
+            >
+              View All Lines
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-kGXeez bqtLVu"
+      >
+        <div
+          className="StyledBox-sc-13pk1d4-0 hZAtOV sc-kpOJdX cLKsOq"
+        />
+        <svg
+          className="sc-kAzzGY fBMGDh"
+        >
+          <g
+            className="sc-chPdSV gHgvAx"
+            transform="scale(1) translate(0, 0) rotate(0)"
+          >
+            <image
+              height="100%"
+              width="100%"
+              xlinkHref="https://via.placeholder.com/150"
+            />
+            <rect
+              fill="transparent"
+              height="100%"
+              id="InteractionLayer"
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseMove={[Function]}
+              onMouseUp={[Function]}
+              width="100%"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots UnapproveModal Default 1`] = `
+<div
+  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+>
+  <div
+    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+  >
+    <div
+      className="StyledBox-sc-13pk1d4-0 fPaSPq"
+    >
+      <div
+        className="StyledBox-sc-13pk1d4-0 cGDWft"
+      >
+        <span
+          className="StyledText-sc-1sadyjn-0 dEfHdc"
+          size="large"
+        >
+          Unapprove subject data
+        </span>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-times-circle fa-w-16 fa-xs "
+          data-icon="times-circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </div>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <span
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-fjdhpX TWDTp"
+      >
+        By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <span
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-fjdhpX TWDTp"
+      >
+        This action can be reversed at any time.
+      </span>
+      <div
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+      />
+      <div
+        className="StyledBox-sc-13pk1d4-0 jHMQGC"
+      >
+        <button
+          className="StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <span
+            className="StyledText-sc-1sadyjn-0 bEMqcB"
+            size="small"
+          >
+            CLOSE AND CANCEL
+          </span>
+        </button>
+        <button
+          className="StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <span
+            className="StyledText-sc-1sadyjn-0 bEMqcB"
+            size="small"
+          >
+            YES, UNAPPROVE
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
