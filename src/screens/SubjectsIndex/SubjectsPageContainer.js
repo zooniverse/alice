@@ -1,13 +1,18 @@
 import React from 'react'
 import { Box } from 'grommet'
+import AppContext from 'store'
 import { generatePath, withRouter } from 'react-router-dom'
 import { EDIT_PATH } from 'paths'
 import ResourcesTable from '../../components/ResourcesTable'
 import { mockColumns, mockData } from './mock'
 
 function SubjectsPageContainer (props) {
-  const onSelection = (id) => {
-    const nextPath = generatePath(EDIT_PATH, { subject: id, ...props.match.params})
+  const store = React.useContext(AppContext)
+  const onSelection = (datum) => {
+    if (datum.locked) {
+      store.modal.toggleModal('locked')
+    }
+    const nextPath = generatePath(EDIT_PATH, { subject: datum.id, ...props.match.params})
     props.history.replace(nextPath)
   }
 

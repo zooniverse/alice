@@ -34,7 +34,7 @@ function App() {
         <main>
           <Grommet theme={mergedTheme}>
             <Route exact path="/" component={Home} />
-            <Route path="/projects" component={ModalManager} />
+            <Route path="/" component={ModalManager} />
             <Route path="/projects" component={Header}/>
             <Route exact path={PROJECTS_PATH} component={ProjectsIndex}/>
             <Route exact path={WORKFLOWS_PATH} component={WorkflowsIndex}/>

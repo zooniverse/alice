@@ -2,7 +2,6 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { Box, Layer } from 'grommet'
 import AppContext from 'store'
-import UnapproveModal from 'components/Modals/UnapproveModal'
 import { getModal } from 'store/ModalStore'
 
 function ModalManager() {

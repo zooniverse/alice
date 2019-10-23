@@ -1,14 +1,13 @@
 import React from 'react'
 import { Box, Button, Text } from 'grommet'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import { func } from 'prop-types'
 
 const StyledText = styled(Text)`
   line-height: 1.75em;
 `
 
-export default function SubjectLockedModal() {
+export default function SubjectLockedModal({ onBack }) {
   return (
     <Box
       background='white'
@@ -23,7 +22,19 @@ export default function SubjectLockedModal() {
         This subject cannot be accessed because <b>Erin Green</b> is currently accessing it.
       </StyledText>
       <StyledText>For access, ask them to close their version.</StyledText>
-      <Button label={<Text size='small'>BACK TO SUBJECT SET INDEX</Text>} plain />
+      <Button
+        label={<Text size='small'>BACK TO SUBJECT SET INDEX</Text>}
+        onClick={onBack}
+        plain
+      />
     </Box>
   )
+}
+
+SubjectLockedModal.propTypes = {
+  onBack: func
+}
+
+SubjectLockedModal.defaultProps = {
+  onBack: () => {}
 }
