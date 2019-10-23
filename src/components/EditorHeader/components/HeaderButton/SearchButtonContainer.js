@@ -1,12 +1,10 @@
 import React from 'react'
+import AppContext from 'store'
 import HeaderButton from './HeaderButton'
 
 export default function SearchButtonContainer() {
-  const onClick = e => { console.log('Search Button Pressed') }
-  return (
-    <HeaderButton
-      label={'Search'}
-      onClick={onClick}
-    />
-  )
+  const store = React.useContext(AppContext)
+  const onClick = e => store.modal.toggleModal('search')
+
+  return <HeaderButton label={'Search'} onClick={onClick} />
 }
