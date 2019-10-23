@@ -1,8 +1,9 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
-import { Flags } from './Flags'
 import styled from 'styled-components'
+import { arrayOf, func, number, shape } from 'prop-types'
+import { Flags } from './Flags'
 
 const QuietBox = styled(Box)`
   pointer-events: none;
@@ -66,4 +67,22 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
       </QuietBox>
     </Box>
   )
+}
+
+TranscriptionTableRow.propTypes = {
+  datum: shape(),
+  data: arrayOf(shape()),
+  dragID: number,
+  index: number,
+  setData: func,
+  setDragID: func
+}
+
+TranscriptionTableRow.defaultProps = {
+  datum: {},
+  data: [],
+  dragID: null,
+  index: null,
+  setData: () => {},
+  setDragID: () => {}
 }

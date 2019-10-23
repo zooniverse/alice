@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Box } from 'grommet'
 import mockData from './mockData'
 import TranscriptionTable from './TranscriptionTable'
 import TranscriptionTableRow from './TranscriptionTableRow'
