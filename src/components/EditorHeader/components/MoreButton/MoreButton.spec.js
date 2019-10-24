@@ -1,0 +1,43 @@
+import { shallow } from 'enzyme'
+import React from 'react'
+import MoreButton from './MoreButton'
+import { Box, Text } from 'grommet'
+import { FormDown } from 'grommet-icons'
+
+let wrapper
+let setOpenSpy = jest.fn()
+let toggleDownloadSpy = jest.fn()
+
+describe('Component > UndoButton', function () {
+  beforeEach(function() {
+    wrapper = shallow(<MoreButton setOpen={setOpenSpy} toggleDownload={toggleDownloadSpy} />);
+  })
+
+  it('should render without crashing', function () {
+    expect(wrapper).toBeDefined()
+  })
+
+  it('should call onDownload when download data clicked', function () {
+    const content = wrapper.props().dropContent;
+    const contentChildren = content.props.children
+    const downloadButton = shallow(contentChildren[0])
+    downloadButton.props().onClick()
+    expect(setOpenSpy).toHaveBeenCalledWith(false)
+  })
+
+  it('should call the setOpen function onClose', function() {
+    wrapper.props().onClose()
+    expect(setOpenSpy).toHaveBeenCalledWith(false)
+  })
+
+  it('should call the setOpen function onOpen', function() {
+    wrapper.props().onOpen()
+    expect(setOpenSpy).toHaveBeenCalledWith(true)
+  })
+
+  it('should set the icon to FormDown when open', function() {
+    wrapper = shallow(<MoreButton isOpen={true} />)
+    const html = wrapper.html()
+    expect(html).toContain('FormDown')
+  })
+})

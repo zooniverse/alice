@@ -36,10 +36,12 @@ export default function MoreButton({ isOpen, setOpen, toggleDownload }) {
 
 MoreButton.propTypes = {
   isOpen: bool,
-  setOpen: func
+  setOpen: func,
+  toggleDownload: func
 }
 
 MoreButton.defaultProps = {
   isOpen: false,
-  setOpen: () => {}
+  setOpen: () => {},
+  toggleDownload: () => {}
 }
