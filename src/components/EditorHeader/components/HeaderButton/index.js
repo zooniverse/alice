@@ -1,1 +1,1 @@
-export { default } from './UndoButton'
+export { default } from './HeaderButton'
