@@ -13,7 +13,7 @@ function SubjectsPageContainer (props) {
       store.modal.toggleModal('locked')
     }
     const nextPath = generatePath(EDIT_PATH, { subject: datum.id, ...props.match.params})
-    props.history.replace(nextPath)
+    props.history.push(nextPath)
   }
 
   return (

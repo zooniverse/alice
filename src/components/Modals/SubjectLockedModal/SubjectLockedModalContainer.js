@@ -10,7 +10,7 @@ function SubjectLockedModalContainer(props) {
     store.modal.toggleModal('')
     const matchProfile = matchPath(props.history.location.pathname, { path: SUBJECTS_PATH });
     const nextPath = generatePath(SUBJECTS_PATH, matchProfile.params)
-    props.history.replace(nextPath)
+    props.history.push(nextPath)
   }
 
   return <SubjectLockedModal onBack={onBack} />
