@@ -1,8 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import MoreButton from './MoreButton'
-import { Box, Text } from 'grommet'
-import { FormDown } from 'grommet-icons'
 
 let wrapper
 let setOpenSpy = jest.fn()
