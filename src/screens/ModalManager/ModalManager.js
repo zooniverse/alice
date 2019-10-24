@@ -6,7 +6,8 @@ import { getModal } from 'store/ModalStore'
 
 function ModalManager() {
   const store = React.useContext(AppContext)
-  const CurrentModal = getModal(store.modal.current)
+  const modal = store.modal && store.modal.current
+  const CurrentModal = getModal(modal)
 
   return (
     <Box>
