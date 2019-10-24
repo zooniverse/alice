@@ -2,8 +2,9 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { func } from 'prop-types'
 
-export default function DownloadDataModal() {
+export default function DownloadDataModal({ onClose }) {
   return (
     <Box
       background='white'
@@ -15,7 +16,11 @@ export default function DownloadDataModal() {
     >
       <Box direction='row' justify='between'>
         <Text size='large'>Download subject data</Text>
-        <FontAwesomeIcon icon={faTimesCircle} size='xs' />
+        <Button
+          icon={<FontAwesomeIcon icon={faTimesCircle} size='xs' />}
+          onClick={onClose}
+          plain
+        />
       </Box>
       <Text>Download a .zip file containing:</Text>
       <Box gap='xsmall'>
@@ -24,9 +29,17 @@ export default function DownloadDataModal() {
         <Text size='small'>&#8226; Raw, unparsed transcription data (.json)</Text>
       </Box>
       <Box direction='row' justify='between' margin={{ top: 'small' }}>
-        <Button label={<Text size='small'>CLOSE</Text>} plain />
+        <Button label={<Text size='small'>CLOSE</Text>} onClick={onClose} plain />
         <Button label={<Text size='small'>DOWNLOAD</Text>} plain />
       </Box>
     </Box>
   )
+}
+
+DownloadDataModal.propTypes = {
+  onClose: func
+}
+
+DownloadDataModal.defaultProps = {
+  onClose: () => {}
 }
