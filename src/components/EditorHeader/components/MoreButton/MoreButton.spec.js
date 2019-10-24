@@ -15,6 +15,10 @@ describe('Component > UndoButton', function () {
     expect(wrapper).toBeDefined()
   })
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should call onDownload when download data clicked', function () {
     const content = wrapper.props().dropContent;
     const contentChildren = content.props.children
