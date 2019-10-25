@@ -40,7 +40,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+    "coverage": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
   },
   "eslintConfig": {
     "extends": "react-app"
