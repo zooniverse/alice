@@ -23,4 +23,5 @@ function SubjectsPageContainer (props) {
   )
 }
 
+export { SubjectsPageContainer }
 export default withRouter(SubjectsPageContainer)
