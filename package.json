@@ -8,6 +8,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@zooniverse/grommet-theme": "^2.1.0",
     "babel-preset-react-app": "^7.0.0",
+    "coveralls": "^3.0.7",
     "formik": "^1.5.8",
     "grommet": "^2.7.4",
     "grommet-icons": "^4.3.0",
@@ -38,7 +39,8 @@
     "test": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
   },
   "eslintConfig": {
     "extends": "react-app"
