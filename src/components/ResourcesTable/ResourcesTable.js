@@ -99,3 +99,4 @@ ResourcesTable.propTypes = {
 }
 
 export default withRouter(ResourcesTable)
+export { ResourcesTable }
