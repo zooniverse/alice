@@ -50,7 +50,7 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
           />
         </Box>
         <CapitalText>Find a specific subject</CapitalText>
-        <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validateForm} validateOnChange={false}>
+        <Formik enableReinitialize initialValues={initialValues} onSubmit={onSubmit} validate={validateForm} validateOnChange={false}>
           {({
             errors,
             handleChange,
@@ -169,4 +169,5 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
   )
 }
 
+export { SearchModal }
 export default withThemeContext(SearchModal, theme)
