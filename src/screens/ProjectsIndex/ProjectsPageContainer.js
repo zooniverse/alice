@@ -1,9 +1,14 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
+import AppContext from 'store'
 import { personalProjects, collaborativeProjects } from './mockProjects'
 import ProjectCard from './components/ProjectCard'
 
 export default function ProjectPageContainer () {
+  const store = React.useContext(AppContext)
+  const projects = store.client.get('/projects')
+  console.log(projects);
+
   return (
     <Box
       background='white'

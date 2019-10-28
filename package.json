@@ -12,7 +12,12 @@
     "babel-preset-react-app": "^7.0.0",
     "coveralls": "^3.0.7",
     "formik": "^1.5.8",
+<<<<<<< HEAD
     "grommet": "^2.7.11",
+=======
+    "frisbee": "^3.1.0",
+    "grommet": "^2.7.4",
+>>>>>>> Set up ClientStore
     "grommet-icons": "^4.3.0",
     "mobx": "^5.13.0",
     "mobx-devtools-mst": "^0.9.21",

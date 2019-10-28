@@ -25,6 +25,7 @@ function App() {
   const store = React.useContext(AppContext)
   makeInspectable(store)
   store.auth.checkCurrent()
+  store.client.initialize()
 
   return (
     <Router history={history}>
