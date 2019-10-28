@@ -42,9 +42,11 @@ function SubjectViewerContainer() {
           {showTools && <ImageTools />}
         </AbsoluteBox>
         <SubjectViewer
+          error={store.subject.error}
           rotation={store.image.rotation}
           scale={store.image.scale}
           src={src}
+          subjectState={store.subject.asyncState}
           translateX={store.image.translateX}
           translateY={store.image.translateY}
         />

@@ -1,7 +1,7 @@
 const ASYNC_STATES = {
   IDLE: 'IDLE',
   READY: 'READY',
-  FETCHING: 'FETCHING',
+  LOADING: 'LOADING',
   ERROR: 'ERROR'
 }
 
