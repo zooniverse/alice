@@ -6,7 +6,10 @@ import FilmstripViewer from './FilmstripViewer'
 function FilmstripViewerContainer({ images }) {
   const [isOpen, setOpen] = React.useState(true)
   const store = React.useContext(AppContext)
-  const selectImage = (id) => { store.subject.changeIndex(id) }
+  const selectImage = (id) => {
+    store.image.reset()
+    store.subject.changeIndex(id)
+  }
 
   return  (
     <FilmstripViewer
