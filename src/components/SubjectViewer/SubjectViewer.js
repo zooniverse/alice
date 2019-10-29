@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { number, string } from 'prop-types'
+import ASYNC_STATES from 'helpers/asyncStates'
 import InteractionLayer from './components/InteractionLayer'
 
 const SVG = styled.svg`
@@ -10,27 +12,50 @@ const SVG = styled.svg`
 const G = styled.g`
   transform-origin: 50% 50%;
   :hover {
-    cursor: move;
+    cursor: ${props => props.disabled ? 'default' : 'move'};
   }
 `
 
-function SubjectViewer ({ ref, rotation, scale, translateX, translateY, url }) {
+export default function SubjectViewer ({ error, rotation, scale, src, subjectState, translateX, translateY }) {
   const transform = `scale(${scale}) translate(${translateX}, ${translateY}) rotate(${rotation})`
   const inputEl = React.useRef(null);
   const boundingBox = (inputEl && inputEl.current && inputEl.current.getBoundingClientRect());
+  const disableInteraction = subjectState !== ASYNC_STATES.READY
 
   return (
     <SVG ref={inputEl}>
-      <G transform={transform}>
+      <G disabled={disableInteraction} transform={transform}>
         <image
           height='100%'
           width='100%'
-          xlinkHref={'https://via.placeholder.com/150'}
+          xlinkHref={src}
         />
-        <InteractionLayer boundingBox={boundingBox} />
+        {subjectState === ASYNC_STATES.LOADING && (
+          <text x="50%" y="50%" textAnchor='middle'>Loading Subject...</text>
+        )}
+        {subjectState === ASYNC_STATES.ERROR && (
+          <text x="50%" y="50%" fill='red' textAnchor='middle'>{`Error: ${error}`}</text>
+        )}
+        <InteractionLayer boundingBox={boundingBox} disabled={disableInteraction} />
       </G>
     </SVG>
   )
 }
 
-export default SubjectViewer
+SubjectViewer.propTypes = {
+  error: string,
+  rotation: number,
+  scale: number,
+  src: string,
+  translateX: number,
+  translateY: number
+}
+
+SubjectViewer.defaultProps = {
+  error: '',
+  rotation: 0,
+  scale: 0,
+  src: '',
+  translateX: 0,
+  translateY: 0
+}

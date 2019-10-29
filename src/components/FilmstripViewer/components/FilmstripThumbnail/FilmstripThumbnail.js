@@ -1,28 +1,33 @@
 import React from 'react'
-import { Box, Image, Text } from 'grommet'
-import styled from 'styled-components'
+import { Box, Button, Image } from 'grommet'
+import { bool, func, number, string } from 'prop-types'
+import ThumbnailBorder from './ThumbnailBorder'
 
-const StyledBox = styled(Box)`
-  background-color: rgba(0, 95, 255, 0.14);
-  position: absolute;
-`
-
-function FilmstripThumbnail ({ rotationDegrees, src }) {
+export default function FilmstripThumbnail ({ index, isActive, rotationDegrees, selectImage, src }) {
   return (
-    <Box height='xsmall' margin='xsmall' width='xsmall'>
-      {rotationDegrees && (
-        <StyledBox
-          align='center'
-          border={{ color: 'blue', size: 'large' }}
-          height='xsmall'
-          justify='center'
-          width='xsmall'>
-          <Text color='white' size='xlarge'>{rotationDegrees}&deg;</Text>
-        </StyledBox>
-      )}
-      <Image fit='cover' src={src} />
-    </Box>
+      <Button margin='xsmall' onClick={() => selectImage(index)}>
+        <Box height='xsmall' width='xsmall'>
+          {isActive && (
+            <ThumbnailBorder rotationDegrees={rotationDegrees} />
+          )}
+          <Image fit='cover' src={src} />
+        </Box>
+      </Button>
   )
 }
 
-export default FilmstripThumbnail
+FilmstripThumbnail.propTypes = {
+  index: number,
+  isActive: bool,
+  rotationDegrees: number,
+  selectImage: func,
+  src: string
+}
+
+FilmstripThumbnail.defaultProps = {
+  index: 0,
+  isActive: false,
+  rotationDegrees: null,
+  selectImage: () => {},
+  src: ''
+}

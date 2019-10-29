@@ -26,5 +26,7 @@ function getHeaderTools(path) {
 
 export default function EditorHeaderContainer() {
   const buttons = getHeaderTools(window.location.pathname)
-  return <EditorHeader buttons={buttons} />
+  const showMetadata = routeMatcher(window.location.pathname, EDIT_PATH)
+
+  return <EditorHeader buttons={buttons} showMetadata={showMetadata} />
 }

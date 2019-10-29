@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import { Button } from 'grommet'
 import FilmstripViewer from './FilmstripViewer'
 import Page1 from '../../images/mockImages/page1.jpg'
 import Page2 from '../../images/mockImages/page2.jpg'
@@ -11,10 +12,16 @@ import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from './components/StepNavigation'
 
 let wrapper;
+let setOpen
 
 describe('Component > FilmstripViewer', function () {
   beforeEach(function() {
-    wrapper = shallow(<FilmstripViewer images={[Page1, Page2, Page3, Page4, Page5, Page6]}/>)
+    setOpen = jest.fn()
+    wrapper = shallow(
+      <FilmstripViewer
+        images={[Page1, Page2, Page3, Page4, Page5, Page6]}
+        setOpen={setOpen}
+      />)
   })
 
   it('renders without crashing', function () {})
@@ -30,5 +37,11 @@ describe('Component > FilmstripViewer', function () {
     expect(thumbnailLength).toEqual(0)
     const navigatorPresence = wrapper.find(StepNavigation).length
     expect(navigatorPresence).toEqual(1)
+  })
+
+  it('calls the setOpen function with close button press', function () {
+    const closeButton = wrapper.find(Button)
+    closeButton.simulate('click')
+    expect(setOpen).toHaveBeenCalled()
   })
 })

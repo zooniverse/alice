@@ -10,35 +10,41 @@ const Uppercase = styled(Text)`
   text-transform: uppercase;
 `
 
-function FilmstripViewer ({ images, isOpen, onToggle }) {
+function FilmstripViewer ({ selectImage, subjectIndex, images, isOpen, setOpen }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
 
   return (
     <Box background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
       <Box direction='row' justify='between'>
         <Text>All pages</Text>
-        {!isOpen && ( <StepNavigation steps={images} /> )}
+        {!isOpen && (
+          <StepNavigation
+            activeStep={subjectIndex}
+            setStep={selectImage}
+            steps={images}
+          /> )}
         <Button
           icon={isOpen ? <FormDown /> : <FormUp />}
           label={<Uppercase>{actionText} Filmstrip</Uppercase>}
           gap='xsmall'
-          onClick={onToggle}
+          onClick={() => { setOpen(!isOpen) }}
           plain
           reverse />
       </Box>
       {isOpen && (
-        <Box direction='row' margin={{ vertical: 'xsmall' }}>
-          <Box border={{ color: '#979797' }} direction='row'>
-            <FilmstripThumbnail src={images[0]}/>
-            <FilmstripThumbnail rotationDegrees={90} src={images[1]}/>
-          </Box>
           <Box direction='row'>
-            <FilmstripThumbnail src={images[2]}/>
-            <FilmstripThumbnail src={images[3]}/>
-            <FilmstripThumbnail src={images[4]}/>
-            <FilmstripThumbnail src={images[5]}/>
+            {images.map((image, i) => {
+              const isActive = i === subjectIndex
+              return (
+                <FilmstripThumbnail
+                  key={`THUMBNAIL_${i}`}
+                  index={i}
+                  isActive={isActive}
+                  selectImage={selectImage}
+                  src={image}
+                />)
+            })}
           </Box>
-        </Box>
       )}
     </Box>
   )
@@ -47,13 +53,17 @@ function FilmstripViewer ({ images, isOpen, onToggle }) {
 FilmstripViewer.defaultProps = {
   images: [],
   isOpen: true,
-  onToggle: () => {}
+  selectImage: () => {},
+  setOpen: () => {},
+  subjectIndex: 0
 }
 
 FilmstripViewer.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   isOpen: PropTypes.bool,
-  onToggle: PropTypes.func
+  selectImage: PropTypes.func,
+  setOpen: PropTypes.func,
+  subjectIndex: PropTypes.number
 }
 
 export default FilmstripViewer

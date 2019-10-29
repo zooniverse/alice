@@ -2,6 +2,7 @@ import React from 'react'
 import { Router, Route } from 'react-router-dom'
 import { Grommet } from 'grommet'
 import AppContext from 'store'
+import makeInspectable from 'mobx-devtools-mst'
 import history from './history'
 import './App.css'
 import Home from './screens/Home'
@@ -22,6 +23,7 @@ import {
 
 function App() {
   const store = React.useContext(AppContext)
+  makeInspectable(store)
   store.auth.checkCurrent()
 
   return (
