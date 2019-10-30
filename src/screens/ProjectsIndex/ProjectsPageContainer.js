@@ -2,12 +2,16 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import AppContext from 'store'
 import { observer } from 'mobx-react'
+import ASYNC_STATES from 'helpers/asyncStates'
 import { personalProjects, collaborativeProjects } from './mockProjects'
 import ProjectCard from './components/ProjectCard'
 
 function ProjectPageContainer () {
   const store = React.useContext(AppContext)
-  store.projects.getProjects()
+
+  if (store.auth.user && store.project.asyncState === ASYNC_STATES.IDLE) {
+    store.projects.getProjects()
+  }
   const projects = store.projects.index
 
   return (
