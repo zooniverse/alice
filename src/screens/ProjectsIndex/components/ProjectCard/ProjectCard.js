@@ -15,7 +15,7 @@ const StyledLink = styled(Link)`
 `
 
 export default function ProjectCard({ id, src, title }) {
-  const imageSrc = src.length ? src : SimplePattern
+  const imageSrc = src.length ? `//${src}` : SimplePattern
 
   return (
     <Box margin={{ bottom: 'small' }}>

@@ -1,13 +1,14 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import AppContext from 'store'
+import { observer } from 'mobx-react'
 import { personalProjects, collaborativeProjects } from './mockProjects'
 import ProjectCard from './components/ProjectCard'
 
-export default function ProjectPageContainer () {
+function ProjectPageContainer () {
   const store = React.useContext(AppContext)
-  const projects = store.client.get('/projects')
-  console.log(projects);
+  store.projects.getProjects()
+  const projects = store.projects.index
 
   return (
     <Box
@@ -20,13 +21,14 @@ export default function ProjectPageContainer () {
       <Box>
         <Text>Your Projects</Text>
         <Box direction='row' gap='small' margin={{ vertical: 'small' }} wrap>
-          {personalProjects.map((project, i) =>
+          {projects.map((project, i) =>
             <ProjectCard
-              key={`Personal_Project_${i}`}
-              id={project.id}
-              src={project.src}
-              title={project.title}
-            />)}
+            key={`Personal_Project_${i}`}
+            id={project.id}
+            src={project.avatar_src}
+            title={project.display_name}
+            />
+          )}
         </Box>
       </Box>
       <Box>
@@ -44,3 +46,5 @@ export default function ProjectPageContainer () {
     </Box>
   )
 }
+
+export default observer(ProjectPageContainer)
