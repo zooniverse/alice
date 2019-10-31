@@ -4,13 +4,19 @@ import ASYNC_STATES from 'helpers/asyncStates'
 
 const ProjectsStore = types.model('ProjectsStore', {
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
-  index: types.array(types.frozen({})),
+  collabIds: types.array(types.string),
+  collabProjects: types.array(types.frozen({})),
+  ownerProjects: types.array(types.frozen({})),
+  ownerIds: types.array(types.string),
 }).actions(self => ({
-  getRoles: flow(function * getRoles() {
+  getRoles: flow (function * getRoles() {
     const user = getRoot(self).auth.user
-    console.log(user);
-    // const roles = yield apiClient.type('project_roles').get({ user_id: user.id })
-    // console.log(roles);
+    const roles = yield apiClient.type('project_roles').get({ user_id: user.id, page_size: 50 })
+    const ownerRoles = roles.filter(role => role.roles.includes('owner'))
+    self.ownerIds = ownerRoles.map(role => role.links.project)
+
+    const collabRoles = roles.filter(role => !role.roles.includes('owner'))
+    self.collabIds = collabRoles.map(role => role.links.project)
   }),
 
   getProjects: flow (function * getProjects() {
@@ -21,7 +27,11 @@ const ProjectsStore = types.model('ProjectsStore', {
       const response = yield client.get('/projects')
       const resources = JSON.parse(response.body)
       const ids = resources.data.map(project => project.id)
-      self.index = yield apiClient.type('projects').get({ id: ids.toString(), cards: true })
+      const projects = yield apiClient.type('projects').get({ id: ids.toString(), cards: true })
+
+      self.collabProjects = projects.filter(project => self.collabIds.includes(project.id))
+      self.ownerProjects = projects.filter(project => self.ownerIds.includes(project.id))
+
       self.asyncState = ASYNC_STATES.READY
     } catch (error) {
       console.warn(error);
