@@ -18,4 +18,10 @@ describe('Component > ProjectCard', function () {
     const projectImage = wrapper.find(Image);
     expect(projectImage.first().props().src).toBe('simple-pattern.png')
   })
+
+  it('should format the project src correctly', function () {
+    const src = 'source.com'
+    wrapper = shallow(<ProjectCard src={src} />);
+    expect(wrapper.find(Image).first().props().src).toBe(`//${src}`)
+  })
 })
