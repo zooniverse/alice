@@ -1467,76 +1467,8 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
         </button>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 hkNTdP"
-      >
-        <div
-          className="StyledBox-sc-13pk1d4-0 fSvjeI"
-        >
-          <div
-            className="StyledBox-sc-13pk1d4-0 cKVNoy"
-          >
-            <img
-              className="StyledImage-ey4zx9-0 fIJtXv"
-              src="page1.jpg"
-            />
-          </div>
-          <div
-            className="StyledBox-sc-13pk1d4-0 cKVNoy"
-          >
-            <div
-              className="StyledBox-sc-13pk1d4-0 kEguYX sc-gzVnrw dKVYOB"
-            >
-              <span
-                className="StyledText-sc-1sadyjn-0 ANOJZ"
-                size="xlarge"
-              >
-                90
-                °
-              </span>
-            </div>
-            <img
-              className="StyledImage-ey4zx9-0 fIJtXv"
-              src="page2.jpg"
-            />
-          </div>
-        </div>
-        <div
-          className="StyledBox-sc-13pk1d4-0 ekjAwv"
-        >
-          <div
-            className="StyledBox-sc-13pk1d4-0 cKVNoy"
-          >
-            <img
-              className="StyledImage-ey4zx9-0 fIJtXv"
-              src="page3.jpg"
-            />
-          </div>
-          <div
-            className="StyledBox-sc-13pk1d4-0 cKVNoy"
-          >
-            <img
-              className="StyledImage-ey4zx9-0 fIJtXv"
-              src="page4.jpg"
-            />
-          </div>
-          <div
-            className="StyledBox-sc-13pk1d4-0 cKVNoy"
-          >
-            <img
-              className="StyledImage-ey4zx9-0 fIJtXv"
-              src="page5.jpg"
-            />
-          </div>
-          <div
-            className="StyledBox-sc-13pk1d4-0 cKVNoy"
-          >
-            <img
-              className="StyledImage-ey4zx9-0 fIJtXv"
-              src="page6.jpg"
-            />
-          </div>
-        </div>
-      </div>
+        className="StyledBox-sc-13pk1d4-0 ekjAwv"
+      />
     </div>
   </div>
 </div>
@@ -2943,13 +2875,14 @@ exports[`Storyshots SubjectViewer Default 1`] = `
           className="sc-kAzzGY fBMGDh"
         >
           <g
-            className="sc-chPdSV gHgvAx"
+            className="sc-chPdSV ktWDrr"
+            disabled={true}
             transform="scale(1) translate(0, 0) rotate(0)"
           >
             <image
               height="100%"
               width="100%"
-              xlinkHref="https://via.placeholder.com/150"
+              xlinkHref=""
             />
             <rect
               fill="transparent"
