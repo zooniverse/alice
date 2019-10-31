@@ -8,6 +8,7 @@ const ProjectsStore = types.model('ProjectsStore', {
   collabProjects: types.array(types.frozen({})),
   ownerProjects: types.array(types.frozen({})),
   ownerIds: types.array(types.string),
+  error: types.optional(types.string, '')
 }).actions(self => ({
   getRoles: flow (function * getRoles() {
     const user = getRoot(self).auth.user
@@ -33,8 +34,10 @@ const ProjectsStore = types.model('ProjectsStore', {
       self.ownerProjects = projects.filter(project => self.ownerIds.includes(project.id))
 
       self.asyncState = ASYNC_STATES.READY
+      self.error = ''
     } catch (error) {
       console.warn(error);
+      self.error = error.message
       self.asyncState = ASYNC_STATES.ERROR
     }
   })

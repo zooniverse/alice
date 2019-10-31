@@ -3,6 +3,8 @@ import { Box, Text } from 'grommet'
 import AppContext from 'store'
 import { observer } from 'mobx-react'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import ProjectCard from './components/ProjectCard'
 
 function ProjectPageContainer () {
@@ -13,6 +15,7 @@ function ProjectPageContainer () {
   }
   const ownerProjects = store.projects.ownerProjects
   const collabProjects = store.projects.collabProjects
+  const error = store.projects.error
 
   return (
     <Box
@@ -51,8 +54,19 @@ function ProjectPageContainer () {
           </Box>
         </Box>}
 
+      {store.projects.asyncState === ASYNC_STATES.LOADING &&
+        <Box justify='center' direction='row' gap='xsmall'>
+          <Text>Loading</Text>
+          <FontAwesomeIcon icon={faSpinner} spin />
+        </Box>}
+
+      {store.projects.asyncState === ASYNC_STATES.ERROR &&
+        <Text color='red' textAlign='center'>{error}</Text>}
+
       {ownerProjects.length === 0 && collabProjects.length === 0 && store.projects.asyncState === ASYNC_STATES.READY &&
-        <Text textAlign='center'>We couldn't find any transcription projects you participate in.</Text>}
+        <Text textAlign='center'>
+          We couldn't find any transcription projects you participate in.
+        </Text>}
     </Box>
   )
 }
