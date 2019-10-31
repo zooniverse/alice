@@ -13,8 +13,8 @@ function ProjectPageContainer () {
   if (store.auth.user && store.projects.asyncState === ASYNC_STATES.IDLE) {
     store.projects.getProjects()
   }
-  const ownerProjects = store.projects.ownerProjects
-  const collabProjects = store.projects.collabProjects
+  const ownerProjects = store.projects.ownerProjects || []
+  const collabProjects = store.projects.collabProjects || []
   const error = store.projects.error
 
   return (
@@ -31,11 +31,11 @@ function ProjectPageContainer () {
           <Box direction='row' gap='small' margin={{ vertical: 'small' }} wrap>
             {ownerProjects.map((project, i) =>
               <ProjectCard
-              key={`Personal_Project_${i}`}
-              id={project.id}
-              role={project.role}
-              src={project.avatar_src}
-              title={project.display_name}
+                key={`Personal_Project_${i}`}
+                id={project.id}
+                role={project.role}
+                src={project.avatar_src}
+                title={project.display_name}
               />
             )}
           </Box>
