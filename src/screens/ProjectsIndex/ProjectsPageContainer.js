@@ -33,6 +33,7 @@ function ProjectPageContainer () {
               <ProjectCard
               key={`Personal_Project_${i}`}
               id={project.id}
+              role={project.role}
               src={project.avatar_src}
               title={project.display_name}
               />
@@ -48,6 +49,7 @@ function ProjectPageContainer () {
               <ProjectCard
                 key={`Collaborative_Project_${i}`}
                 id={project.id}
+                role={project.role}
                 src={project.avatar_src}
                 title={project.display_name}
               />)}

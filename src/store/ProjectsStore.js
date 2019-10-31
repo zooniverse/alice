@@ -5,19 +5,22 @@ import ASYNC_STATES from 'helpers/asyncStates'
 const ProjectsStore = types.model('ProjectsStore', {
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   collabIds: types.array(types.string),
-  collabProjects: types.array(types.frozen({})),
-  ownerProjects: types.array(types.frozen({})),
+  collabProjects: types.array(types.frozen({}), null),
+  ownerProjects: types.array(types.frozen({}), null),
   ownerIds: types.array(types.string),
+  roles: types.optional(types.frozen({}), null),
   error: types.optional(types.string, '')
 }).actions(self => ({
   getRoles: flow (function * getRoles() {
     const user = getRoot(self).auth.user
     const roles = yield apiClient.type('project_roles').get({ user_id: user.id, page_size: 50 })
-    const ownerRoles = roles.filter(role => role.roles.includes('owner'))
-    self.ownerIds = ownerRoles.map(role => role.links.project)
-
-    const collabRoles = roles.filter(role => !role.roles.includes('owner'))
-    self.collabIds = collabRoles.map(role => role.links.project)
+    self.roles = roles.reduce((roles, role) => {
+      let title = 'Viewer'
+      if (role.roles.includes('owner')) { title = 'Project Owner' }
+      if (role.roles.includes('collaborator')) { title = 'Moderator' }
+      roles[role.links.project] = title
+      return roles
+    }, {})
   }),
 
   getProjects: flow (function * getProjects() {
@@ -30,9 +33,19 @@ const ProjectsStore = types.model('ProjectsStore', {
       const ids = resources.data.map(project => project.id)
       const projects = yield apiClient.type('projects').get({ id: ids.toString(), cards: true })
 
-      self.collabProjects = projects.filter(project => self.collabIds.includes(project.id))
-      self.ownerProjects = projects.filter(project => self.ownerIds.includes(project.id))
+      let collabProjects = []
+      let ownerProjects = []
 
+      projects.forEach((project) => {
+        const role = self.roles[project.id] || 'Viewer'
+        if (role === 'Project Owner') {
+          return ownerProjects.push({...project, role })
+        }
+        return collabProjects.push({...project, role })
+      })
+
+      self.collabProjects = collabProjects
+      self.ownerProjects = ownerProjects
       self.asyncState = ASYNC_STATES.READY
       self.error = ''
     } catch (error) {
