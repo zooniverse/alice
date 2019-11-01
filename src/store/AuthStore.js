@@ -35,7 +35,7 @@ const AuthStore = types.model('AuthStore', {
     try {
       yield auth.signOut()
     } catch (error) {
-      console.log(error);
+      console.warn(error);
     }
     history.push('/')
   })
