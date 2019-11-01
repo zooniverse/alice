@@ -3,6 +3,7 @@ import { Box } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import { func, string } from 'prop-types'
 
 const StyledBox = styled(Box)`
   :hover {
@@ -24,4 +25,14 @@ export default function Resizer({ direction, onMouseDown }) {
       <FontAwesomeIcon icon={ellipsis} />
     </StyledBox>
   )
+}
+
+Resizer.propTypes = {
+  direction: string,
+  onMouseDown: func
+}
+
+Resizer.defaultProps = {
+  direction: 'row',
+  onMouseDown: () => {}
 }
