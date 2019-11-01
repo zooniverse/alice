@@ -4,14 +4,30 @@ import { AppStore } from './AppStore'
 import ProjectFactory from './factories/project'
 
 let projectsStore
-let panoptesProject = ProjectFactory.build()
-let roles = { 1: 'Project Owner' }
+let ownedProject = ProjectFactory.build()
+let collabProject = ProjectFactory.build({ id: 2 })
+
+let ownerRole = {
+  links: {
+     project: '1'
+  },
+  roles: ['owner']
+}
+let collabRole = {
+  links: {
+     project: '2'
+  },
+  roles: ['collaborator']
+}
+let userRoles = [ownerRole, collabRole]
+
+let roles = { 1: 'Project Owner', 2: 'Moderator' }
 let toveStub = {
   get: () => Promise.resolve(
     {
       body: JSON.stringify(
         {
-          data: [panoptesProject]
+          data: [ownedProject, collabProject]
         })
     }
   )
@@ -25,13 +41,13 @@ const rootStore = AppStore.create({
   projects: { roles }
 })
 
-describe('Model > ProjectsStore', function () {
+describe('ProjectsStore', function () {
   beforeAll(function () {
     jest
       .spyOn(apiClient, 'type')
       .mockImplementation(() => {
         return {
-          get: () => Promise.resolve([panoptesProject])
+          get: () => Promise.resolve([ownedProject, collabProject])
         }
       } )
     projectsStore = rootStore.projects
@@ -43,27 +59,43 @@ describe('Model > ProjectsStore', function () {
 
   it('should fetch projects', async function () {
     await projectsStore.getProjects()
-    const mergedProject = { ...panoptesProject, role: roles[panoptesProject.id] }
-    expect(projectsStore.ownerProjects).toEqual([mergedProject])
-    expect(projectsStore.collabProjects.length).toBe(0)
+    const mergedOwnerProject = { ...ownedProject, role: roles[ownedProject.id] }
+    const mergedCollabProject = { ...collabProject, role: roles[collabProject.id] }
+    expect(projectsStore.ownerProjects).toEqual([mergedOwnerProject])
+    expect(projectsStore.collabProjects).toEqual([mergedCollabProject])
     expect(projectsStore.asyncState).toBe(ASYNC_STATES.READY)
     expect(projectsStore.error).toBe('')
   })
+})
 
-  describe('ProjectsStore error states', function () {
-    let error = { message: 'Failed to Return' }
-    it('should handle an error on project fetch', async function () {
-      jest
-        .spyOn(apiClient, 'type')
-        .mockImplementation(() => {
-          return {
-            get: () => Promise.reject(error)
-          }
-        } )
-      projectsStore = rootStore.projects
-      await projectsStore.getProjects()
-      expect(projectsStore.error).toBe(error.message)
-      expect(projectsStore.asyncState).toBe(ASYNC_STATES.ERROR)
-    })
+describe('ProjectsStore error states', function () {
+  let error = { message: 'Failed to Return' }
+  it('should handle an error on project fetch', async function () {
+    jest
+      .spyOn(apiClient, 'type')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.reject(error)
+        }
+      } )
+    projectsStore = rootStore.projects
+    await projectsStore.getProjects()
+    expect(projectsStore.error).toBe(error.message)
+    expect(projectsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+  })
+})
+
+describe('ProjectsStore getRoles', function () {
+  it('should set roles correctly', async function () {
+    jest
+      .spyOn(apiClient, 'type')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.resolve(userRoles)
+        }
+      } )
+    projectsStore = rootStore.projects
+    await projectsStore.getRoles()
+    expect(projectsStore.roles).toEqual({ 1: 'Project Owner', 2: 'Moderator' })
   })
 })
