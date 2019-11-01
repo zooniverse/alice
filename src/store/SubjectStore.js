@@ -34,8 +34,8 @@ const SubjectStore = types.model('SubjectStore', {
         })
         self.current = newSubject
         self.error = ''
-        self.asyncState = ASYNC_STATES.READY
       }
+      self.asyncState = ASYNC_STATES.READY
     } catch (error) {
       console.warn(error);
       self.error = error.message
