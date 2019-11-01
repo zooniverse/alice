@@ -4,7 +4,6 @@ import { AppStore } from './AppStore'
 import ProjectFactory from './factories/project'
 
 let projectsStore
-let rootStore
 let panoptesProject = ProjectFactory.build()
 let roles = { 1: 'Project Owner' }
 let toveStub = {
@@ -18,6 +17,14 @@ let toveStub = {
   )
 }
 
+const rootStore = AppStore.create({
+  auth: {
+    user: { id: '1' }
+  },
+  client: { tove: toveStub },
+  projects: { roles }
+})
+
 describe('Model > ProjectsStore', function () {
   beforeAll(function () {
     jest
@@ -27,17 +34,6 @@ describe('Model > ProjectsStore', function () {
           get: () => Promise.resolve([panoptesProject])
         }
       } )
-    rootStore = AppStore.create({
-      auth: {
-        user: {
-          id: '1'
-        }
-      },
-      client: {
-        tove: toveStub
-      },
-      projects: { roles }
-    })
     projectsStore = rootStore.projects
   })
 
@@ -52,5 +48,22 @@ describe('Model > ProjectsStore', function () {
     expect(projectsStore.collabProjects.length).toBe(0)
     expect(projectsStore.asyncState).toBe(ASYNC_STATES.READY)
     expect(projectsStore.error).toBe('')
+  })
+
+  describe('ProjectsStore error states', function () {
+    let error = { message: 'Failed to Return' }
+    it('should handle an error on project fetch', async function () {
+      jest
+        .spyOn(apiClient, 'type')
+        .mockImplementation(() => {
+          return {
+            get: () => Promise.reject(error)
+          }
+        } )
+      projectsStore = rootStore.projects
+      await projectsStore.getProjects()
+      expect(projectsStore.error).toBe(error.message)
+      expect(projectsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+    })
   })
 })
