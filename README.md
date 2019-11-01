@@ -1,6 +1,9 @@
 # Zooniverse Text Editor
 A front end tool allowing reviewing and editing of Zooniverse transcription data.
 
+[![Coverage Status](https://coveralls.io/repos/github/zooniverse/text-editor/badge.svg?branch=master)](https://coveralls.io/github/zooniverse/text-editor?branch=master)
+![](https://travis-ci.org/zooniverse/text-editor.svg?branch=master)
+
 ## Status
 This project is currently in development and projected to be completed February 2020.
 
