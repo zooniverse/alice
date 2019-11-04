@@ -1,6 +1,6 @@
 const path = require('path')
 
-module.exports = (baseConfig, env, config) => {
+module.exports = ({config}) => {
   config.resolve.modules = [
     ...(config.resolve.modules || []),
     path.resolve(__dirname, "../src")
