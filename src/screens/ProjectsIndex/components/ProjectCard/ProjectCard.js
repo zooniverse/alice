@@ -14,23 +14,20 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-export default function ProjectCard({ id, src, title }) {
-  const imageSrc = src.length ? src : SimplePattern
+export default function ProjectCard({ id, role, src, title }) {
+  const imageSrc = src.length ? `//${src}` : SimplePattern
 
   return (
     <Box margin={{ bottom: 'small' }}>
       <StyledLink to={`/projects/${id}/workflows`}>
-        <Box height='small' width='small'>
+        <Box height='small' width='12em'>
           <Image alt={`${title} Display Image`} fit='cover' src={imageSrc} />
         </Box>
-        <Box border height='3.5em' justify='center' width='small'>
-          <CapitalText
-            margin='small'
-            textAlign='center'
-            weight='bold'
-          >
+        <Box border height='5em' gap='xsmall' justify='center' pad='xsmall' width='12em'>
+          <CapitalText textAlign='center' weight='bold'>
             {title}
           </CapitalText>
+          <CapitalText color='light-5' textAlign='center'>{role}</CapitalText>
         </Box>
       </StyledLink>
     </Box>
@@ -39,12 +36,14 @@ export default function ProjectCard({ id, src, title }) {
 
 ProjectCard.defaultProps = {
   id: '',
+  role: 'Viewer',
   src: '',
   title: ''
 }
 
 ProjectCard.propTypes = {
   id: PropTypes.string,
+  role: PropTypes.string,
   src: PropTypes.string,
   title: PropTypes.string
 }

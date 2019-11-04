@@ -3,10 +3,18 @@ import { mount } from 'enzyme'
 import App from './App'
 
 let wrapper
+const contextValues = {
+  auth: {
+    checkCurrent: () => {},
+  },
+  client: {
+    initialize: () => {}
+  }
+}
 
 describe('App', function () {
   beforeAll(function () {
-    jest.spyOn(React, 'useContext').mockImplementation((context) => {  return { auth: { checkCurrent: () => {} } } })
+    jest.spyOn(React, 'useContext').mockImplementation((context) => contextValues)
     wrapper = mount(<App />);
   })
 

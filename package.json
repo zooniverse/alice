@@ -14,6 +14,7 @@
     "formik": "^1.5.8",
     "grommet": "^2.7.11",
     "grommet-icons": "^4.3.0",
+    "frisbee": "^3.1.0",
     "mobx": "^5.13.0",
     "mobx-devtools-mst": "^0.9.21",
     "mobx-react": "^6.1.1",
@@ -23,6 +24,7 @@
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.0",
     "react-scripts": "3.0.1",
+    "rosie": "^2.0.1",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
@@ -40,7 +42,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false",
+    "test": "react-scripts test --coverage --watchAll=false --silent",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
