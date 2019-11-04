@@ -1,7 +1,7 @@
 import { createContext } from 'react'
-import { AppStore } from './AppStore.js'
+import { AppStore } from './AppStore'
 
-const defaultContext = AppStore.create({})
+const defaultContext = AppStore && AppStore.create({})
 
 const AppContext = createContext(defaultContext)
 
