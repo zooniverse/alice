@@ -1,39 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Box, DataTable } from 'grommet'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
-class ResourcesTable extends Component {
-  constructor() {
-    super()
 
-    this.onClickRow = this.onClickRow.bind(this);
-  }
-
-  onClickRow(e) {
-    if (this.props.onSelection) {
-      this.props.onSelection(e.datum)
+function ResourcesTable({ columns, data, history, onSelection }) {
+  const onClickRow = (e) => {
+    if (onSelection) {
+      onSelection(e.datum.id)
     } else {
-      const newLocation = this.props.history.location.pathname + e.datum.link
-      this.props.history.push(newLocation);
+      const newLocation = history.location.pathname + e.datum.link
+      history.push(newLocation);
     }
   }
 
-  render() {
-    const { columns, data } = this.props;
-
-    return (
-      <Box background='white' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
-        <DataTable
-          columns={[...columns].map(col => ({ ...col }))}
-          data={data}
-          onClickRow={this.onClickRow}
-          pad='xsmall'
-          primaryKey="id"
-        />
-      </Box>
-    )
-  }
+  return (
+    <Box background='white' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
+      <DataTable
+        columns={[...columns].map(col => ({ ...col }))}
+        data={data}
+        onClickRow={onClickRow}
+        pad='xsmall'
+        primaryKey="id"
+      />
+    </Box>
+  )
 }
 
 ResourcesTable.defaultProps = {
