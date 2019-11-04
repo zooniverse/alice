@@ -69,7 +69,7 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                   <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.minSamples}</Text>
                 </Box>
                 <Box basis='xsmall'>
-                  <StyledNumberInput disabled={values.auto} name='minSamples' type='number' min='2' />
+                  <StyledNumberInput disabled={values && values.auto} name='minSamples' type='number' min='2' />
                   <Box align='center' direction='row'>
                     <Field id='auto' name='auto' type='checkbox'/>
                     <StyledLabel htmlFor='auto'>auto</StyledLabel>
