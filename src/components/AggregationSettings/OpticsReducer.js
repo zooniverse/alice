@@ -30,6 +30,7 @@ const opticsSchema = Yup.object().shape({
 const StyledNumberInput = styled(Field)`
   border: 1px solid #979797;
   border-radius: 0.25em;
+  color: ${props => props.disabled ? '#d3d3d3' : 'black'};
   height: 2em;
   text-align: center;
 `
@@ -68,9 +69,9 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                   <Text color='red' margin={{ top: 'xsmall' }} size='xsmall'>{errors && errors.minSamples}</Text>
                 </Box>
                 <Box basis='xsmall'>
-                  <StyledNumberInput name='minSamples' type='number' min='2' />
+                  <StyledNumberInput disabled={values.auto} name='minSamples' type='number' min='2' />
                   <Box align='center' direction='row'>
-                    <Field id='auto' name='auto' type='checkbox' checked/>
+                    <Field id='auto' name='auto' type='checkbox'/>
                     <StyledLabel htmlFor='auto'>auto</StyledLabel>
                   </Box>
                 </Box>
