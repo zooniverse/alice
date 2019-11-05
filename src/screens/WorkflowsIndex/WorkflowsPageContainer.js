@@ -19,7 +19,8 @@ function WorkflowPageContainer() {
       <ResourcesTable
         columns={COLUMNS}
         data={store.workflows.all}
-        error={store.workflow.error}
+        error={store.workflow && store.workflow.error}
+        resource='Workflows'
         status={store.workflows.asyncState}
       />
     </Box>

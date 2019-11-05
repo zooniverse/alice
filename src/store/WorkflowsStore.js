@@ -10,7 +10,7 @@ const WorkflowsStore = types.model('WorkflowsStore', {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
-      const response = yield client.get('/workflows')
+      const response = yield client.get(`/workflows?filter[project_id_eq]=${id}`)
       const resources = JSON.parse(response.body)
       self.all = resources.data
       self.asyncState = ASYNC_STATES.READY

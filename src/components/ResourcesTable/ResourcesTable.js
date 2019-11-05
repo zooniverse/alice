@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 
-function ResourcesTable({ columns, data, error, history, onSelection, status }) {
+function ResourcesTable({ columns, data, error, history, onSelection, resource, status }) {
   const onClickRow = (e) => {
     if (onSelection) {
       onSelection(e.datum)
@@ -36,6 +36,10 @@ function ResourcesTable({ columns, data, error, history, onSelection, status }) 
       )}
       {status === ASYNC_STATES.ERROR && (
         <Text color='red' textAlign='center'>{error}</Text>
+      )}
+
+      {data.length === 0 && ASYNC_STATES.READY && (
+        <Text textAlign='center'>Sorry, we couldn't find any {resource}</Text>
       )}
     </Box>
   )
