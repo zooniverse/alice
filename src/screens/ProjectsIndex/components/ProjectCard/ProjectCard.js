@@ -52,4 +52,5 @@ ProjectCard.propTypes = {
   })
 }
 
+export { ProjectCard }
 export default withRouter(ProjectCard)
