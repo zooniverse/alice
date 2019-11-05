@@ -9,6 +9,13 @@ const GroupsStore = types.model('GroupsStore', {
   all: types.array(Group),
   current: types.optional(Group, {}),
 }).actions(self => ({
+  selectGroup: function(group) {
+    self.current = Group.create({
+      display_name: group.display_name,
+      id: group.id
+    })
+  },
+
   setGroups: function(groups) {
     self.all = Object.keys(groups).map((key) => {
       return Group.create({

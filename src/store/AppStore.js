@@ -7,6 +7,7 @@ import { ImageStore } from './ImageStore'
 import { SubjectStore } from './SubjectStore'
 import { ProjectsStore } from './ProjectsStore'
 import { ModalStore } from './ModalStore'
+import { TranscriptionsStore } from './TranscriptionsStore'
 import { WorkflowsStore } from './WorkflowsStore'
 
 const AppStore = types.model('AppStore', {
@@ -19,6 +20,7 @@ const AppStore = types.model('AppStore', {
   initialised: types.optional(types.boolean, false),
   projects: types.optional(ProjectsStore, () => ProjectsStore.create({})),
   modal: types.optional(ModalStore, () => ModalStore.create({})),
+  transcriptions: types.optional(TranscriptionsStore, () => TranscriptionsStore.create({})),
   workflows: types.optional(WorkflowsStore, () => WorkflowsStore.create({})),
 })
 

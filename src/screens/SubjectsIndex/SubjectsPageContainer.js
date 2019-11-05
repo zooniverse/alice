@@ -2,13 +2,18 @@ import React from 'react'
 import { Box } from 'grommet'
 import AppContext from 'store'
 import { generatePath, withRouter } from 'react-router-dom'
+import { observer } from 'mobx-react'
 import { EDIT_PATH } from 'paths'
 import MODALS from 'helpers/modals'
+import ASYNC_STATES from 'helpers/asyncStates'
 import ResourcesTable from '../../components/ResourcesTable'
-import { mockColumns, mockData } from './mock'
+import { columns } from './table'
 
 function SubjectsPageContainer (props) {
   const store = React.useContext(AppContext)
+  if (store.transcriptions.asyncState === ASYNC_STATES.IDLE) {
+    store.transcriptions.fetchTranscriptions()
+  }
   const onSelection = (datum) => {
     if (datum.locked) {
       store.modal.toggleModal(MODALS.LOCKED)
@@ -19,10 +24,16 @@ function SubjectsPageContainer (props) {
 
   return (
     <Box margin='medium' fill='vertical'>
-      <ResourcesTable columns={mockColumns} data={mockData} onSelection={onSelection} />
+      <ResourcesTable
+        columns={columns}
+        data={store.transcriptions.all}
+        onSelection={onSelection}
+        resource='Subjects'
+        state={store.transcriptions.asyncState}
+      />
     </Box>
   )
 }
 
 export { SubjectsPageContainer }
-export default withRouter(SubjectsPageContainer)
+export default withRouter(observer(SubjectsPageContainer))

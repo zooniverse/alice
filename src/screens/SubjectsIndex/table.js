@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
+const CapitalText = styled(Text)`
+  text-transform: uppercase;
+`
+
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   height: 0.25em;
 `
@@ -305,13 +309,13 @@ const mockData = [
   }
 ];
 
-const mockColumns = [
+const columns = [
   {
-    property: "id",
+    property: "subject_id",
     header: "Zooniverse ID"
   },
   {
-    property: "extId",
+    property: "id",
     header: "External ID"
   },
   {
@@ -328,10 +332,11 @@ const mockColumns = [
   },
   {
     property: "status",
-    header: "Status"
+    header: "Status",
+    render: datum => <CapitalText>{datum.status}</CapitalText>
   },
   {
-    property: "flag",
+    property: "flagged",
     header: "Flag",
     render: datum => datum.flag ? <StyledFontAwesomeIcon color='tomato' icon={faCircle} /> : null
   },
@@ -340,7 +345,7 @@ const mockColumns = [
     header: "Consensus Score",
     render: datum => {
       const color = datum.consensusScore <= datum.classifications / 2 ? 'red' : 'black'
-      return <Text color={color}>{datum.consensusScore}/{datum.classifications}</Text>
+      return <Text color={color}>{datum.consensusScore || 0}/{datum.classifications || 0}</Text>
     }
   },
   {
@@ -353,4 +358,4 @@ const mockColumns = [
   },
 ];
 
-export { mockColumns, mockData }
+export { columns, mockData }
