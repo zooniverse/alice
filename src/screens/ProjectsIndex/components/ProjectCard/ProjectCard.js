@@ -4,6 +4,7 @@ import { Box, Button, Image, Text } from 'grommet'
 import styled from 'styled-components'
 import AppContext from 'store'
 import { withRouter } from 'react-router-dom'
+import ASYNC_STATES from 'helpers/asyncStates'
 import SimplePattern from '../../../../images/simple-pattern.png'
 
 const CapitalText = styled(Text)`
@@ -16,6 +17,7 @@ function ProjectCard({ history, project }) {
   const onClick = e => {
     history.push(`/projects/${project.id}/workflows`)
     store.projects.selectProject(project)
+    store.workflows.setState(ASYNC_STATES.IDLE)
   }
 
   return (
