@@ -4,6 +4,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 const Workflow = types
   .model('Workflow', {
     display_name: types.optional(types.string, ''),
+    groups: types.optional(types.frozen(), {}),
     id: types.optional(types.string, ''),
     project_id: types.optional(types.string, '')
   })
@@ -30,10 +31,12 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   }),
 
   selectWorkflow: function(workflow) {
+    getRoot(self).groups.setGroups(workflow.attributes.groups)
     self.current = Workflow.create({
       display_name: workflow.attributes.display_name,
       id: workflow.id,
-      project_id: workflow.relationships.project.data.id
+      project_id: workflow.relationships.project.data.id,
+      groups: workflow.attributes.groups
     })
   },
 

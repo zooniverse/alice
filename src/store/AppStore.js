@@ -2,6 +2,7 @@ import { types } from 'mobx-state-tree'
 import { AuthStore } from './AuthStore'
 import { ClientStore } from './ClientStore'
 import { EditorStore } from './EditorStore'
+import { GroupsStore } from './GroupsStore'
 import { ImageStore } from './ImageStore'
 import { SubjectStore } from './SubjectStore'
 import { ProjectsStore } from './ProjectsStore'
@@ -13,6 +14,7 @@ const AppStore = types.model('AppStore', {
   client: types.optional(ClientStore, () => ClientStore.create({})),
   editor: types.optional(EditorStore, () => EditorStore.create({})),
   image: types.optional(ImageStore, () => ImageStore.create({})),
+  groups: types.optional(GroupsStore, () => GroupsStore.create({})),
   subject: types.optional(SubjectStore, () => SubjectStore.create({})),
   initialised: types.optional(types.boolean, false),
   projects: types.optional(ProjectsStore, () => ProjectsStore.create({})),

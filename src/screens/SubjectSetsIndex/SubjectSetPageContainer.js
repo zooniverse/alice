@@ -1,14 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Box } from 'grommet'
+import AppContext from 'store'
+import { observer } from 'mobx-react'
 import ResourcesTable from '../../components/ResourcesTable'
-import { mockColumns, mockData } from './mock'
+import { columns } from './table'
 
-export default class SubjectSetPageContainer extends Component {
-  render() {
-    return (
-      <Box margin='medium' fill='vertical'>
-        <ResourcesTable columns={mockColumns} data={mockData} />
-      </Box>
-    )
-  }
+function SubjectSetPageContainer() {
+  const store = React.useContext(AppContext)
+
+  return (
+    <Box margin='medium' fill='vertical'>
+      <ResourcesTable columns={columns} data={store.groups.all} />
+    </Box>
+  )
 }
+
+export default observer(SubjectSetPageContainer)
