@@ -1,11 +1,15 @@
+import React from 'react'
+import { Text } from 'grommet'
+
 const columns = [
   {
     property: "name",
-    header: "Workflow Name"
+    header: "Workflow Name",
+    render: datum => <Text>{datum.attributes.display_name}</Text>
   },
   {
     property: "id",
-    header: "Workflow id",
+    header: "Workflow id"
   },
   {
     property: "sets",

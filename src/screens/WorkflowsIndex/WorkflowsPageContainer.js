@@ -1,15 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Box } from 'grommet'
+import AppContext from 'store'
+import ASYNC_STATES from 'helpers/asyncStates'
+import { useParams } from 'react-router-dom'
+import { observer } from 'mobx-react'
 import ResourcesTable from '../../components/ResourcesTable'
-import COLUMNS from './mockWorkflowColumns'
-import DATA from './mockWorkflowData'
+import COLUMNS from './workflowColumns'
 
-export default class WorkflowPageContainer extends Component {
-  render() {
-    return (
-      <Box margin='medium' fill='vertical'>
-        <ResourcesTable columns={COLUMNS} data={DATA} />
-      </Box>
-    )
+function WorkflowPageContainer() {
+  const store = React.useContext(AppContext)
+  const { project } = useParams();
+  if (store.workflows.asyncState === ASYNC_STATES.IDLE) {
+    store.workflows.fetchWorkflows(project)
   }
+
+  return (
+    <Box margin='medium' fill='vertical'>
+      <ResourcesTable columns={COLUMNS} data={store.workflows.all} />
+    </Box>
+  )
 }
+
+export default observer(WorkflowPageContainer)
