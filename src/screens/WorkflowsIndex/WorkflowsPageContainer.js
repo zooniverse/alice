@@ -16,7 +16,12 @@ function WorkflowPageContainer() {
 
   return (
     <Box margin='medium' fill='vertical'>
-      <ResourcesTable columns={COLUMNS} data={store.workflows.all} />
+      <ResourcesTable
+        columns={COLUMNS}
+        data={store.workflows.all}
+        error={store.workflow.error}
+        status={store.workflows.asyncState}
+      />
     </Box>
   )
 }
