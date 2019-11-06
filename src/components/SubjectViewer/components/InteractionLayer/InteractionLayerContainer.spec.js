@@ -91,3 +91,30 @@ describe('Component > InteractionLayerContainer', function () {
     })
   })
 })
+
+describe('Disabled InteractionLayerContainer', function () {
+  beforeEach(function() {
+    setState = jest.fn()
+    useStateSpy = jest.spyOn(React, 'useState')
+    useStateSpy.mockImplementation((init) => [true, setState])
+    wrapper = shallow(<InteractionLayerContainer disabled />);
+    interactionLayer = wrapper.find('InteractionLayer').first()
+  })
+
+  afterEach(() => jest.clearAllMocks())
+
+  it('should disable the mouse down function', function () {
+    interactionLayer.props().onMouseDown(mockEvent)
+    expect(setState).not.toHaveBeenCalled()
+  })
+
+  it('should disable the mouse move function', function () {
+    interactionLayer.props().onMouseMove(mockEvent)
+    expect(setState).not.toHaveBeenCalled()
+  })
+
+  it('should disable the mouse up function', function () {
+    interactionLayer.props().onMouseUp(mockEvent)
+    expect(setState).not.toHaveBeenCalled()
+  })
+})
