@@ -19,14 +19,11 @@ const initialValues = {
   lowConsensus: false,
 }
 
-function onSubmit(e) {
-  console.log(e);
-}
-
 function SearchModalContainer() {
   const [value, setValue] = React.useState('Select...');
   const store = React.useContext(AppContext)
   const onClose = () => store.modal.toggleModal('')
+  const onSubmit = e => console.log(e);
 
   return (
     <SearchModal
