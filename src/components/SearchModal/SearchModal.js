@@ -37,16 +37,20 @@ const validateForm = (values) => {
   return errors
 }
 
-function SearchModal({ onSubmit, initialValues, options, setValue, value }) {
+function SearchModal({ onClose, onSubmit, initialValues, options, setValue, value }) {
   return (
     <Box background='white' pad='small' round='xsmall'>
       <Box gap='small'>
         <Box align='center' direction='row' justify='between'>
           <Text size='large'>Search or Filter</Text>
-          <FontAwesomeIcon icon={faTimesCircle} />
+          <Button
+            icon={<FontAwesomeIcon icon={faTimesCircle} />}
+            plain
+            onClick={onClose}
+          />
         </Box>
         <CapitalText>Find a specific subject</CapitalText>
-        <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validateForm} validateOnChange={false}>
+        <Formik enableReinitialize initialValues={initialValues} onSubmit={onSubmit} validate={validateForm} validateOnChange={false}>
           {({
             errors,
             handleChange,
@@ -154,7 +158,7 @@ function SearchModal({ onSubmit, initialValues, options, setValue, value }) {
                 </Box>
               </Box>
               <Box direction='row' justify='between' margin={{ top: 'small' }}>
-                <Button plain><CapitalText>Close</CapitalText></Button>
+                <Button onClick={onClose} plain><CapitalText>Close</CapitalText></Button>
                 <Button plain type='submit'><CapitalText>Search</CapitalText></Button>
               </Box>
             </Box>
@@ -165,4 +169,5 @@ function SearchModal({ onSubmit, initialValues, options, setValue, value }) {
   )
 }
 
+export { SearchModal }
 export default withThemeContext(SearchModal, theme)

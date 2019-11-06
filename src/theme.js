@@ -56,6 +56,11 @@ const theme = {
       }
     `
   },
+  layer: {
+    border: {
+      radius: '10px'
+    }
+  },
   table: {
     extend: props => `
       tr:nth-child(even) {

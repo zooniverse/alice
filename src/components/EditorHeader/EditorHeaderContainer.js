@@ -7,7 +7,7 @@ import MarkApproved from './components/MarkApproved'
 import UndoButton from './components/HeaderButton/UndoButtonContainer'
 import SaveButton from './components/HeaderButton/SaveButtonContainer'
 import LayoutButton from './components/HeaderButton/LayoutButtonContainer'
-import MoreButton from './components/HeaderButton/MoreButtonContainer'
+import MoreButton from './components/MoreButton'
 import { SUBJECTS_PATH, EDIT_PATH } from 'paths'
 
 function routeMatcher(currentPath, route) {

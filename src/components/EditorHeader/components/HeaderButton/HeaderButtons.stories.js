@@ -4,7 +4,7 @@ import { Grommet } from 'grommet';
 import { mergedTheme } from '../../../../theme'
 import UndoButtonContainer from './UndoButtonContainer'
 import SaveButtonContainer from './SaveButtonContainer'
-import MoreButtonContainer from './MoreButtonContainer'
+import MoreButtonContainer from '../MoreButton'
 import LayoutButtonContainer from './LayoutButtonContainer'
 
 storiesOf('HeaderButtons', module)

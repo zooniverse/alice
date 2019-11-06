@@ -32,7 +32,7 @@ class ResourcesTable extends Component {
     if (e.target.type === 'checkbox') return;
 
     if (this.props.onSelection) {
-      this.props.onSelection(e.datum.id)
+      this.props.onSelection(e.datum)
     } else {
       const newLocation = this.props.history.location.pathname + e.datum.link
       this.props.history.push(newLocation);
@@ -99,3 +99,4 @@ ResourcesTable.propTypes = {
 }
 
 export default withRouter(ResourcesTable)
+export { ResourcesTable }

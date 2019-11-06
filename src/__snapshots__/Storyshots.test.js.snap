@@ -1519,23 +1519,33 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         >
           Download subject data
         </span>
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-times-circle fa-w-16 fa-xs "
-          data-icon="times-circle"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 512 512"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          className="StyledButton-sc-323bzc-0 laBEqz"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
         >
-          <path
-            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-            fill="currentColor"
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-times-circle fa-w-16 fa-xs "
+            data-icon="times-circle"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
             style={Object {}}
-          />
-        </svg>
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
       </div>
       <div
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
@@ -1585,6 +1595,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         <button
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOut={[Function]}
           onMouseOver={[Function]}
@@ -1649,7 +1660,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 jHQJnz"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-jzJRlG gfoXUu"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kgoBCf hcfdKh"
             >
               Collapse
                Filmstrip
@@ -1757,6 +1768,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <button
+    aria-label="Open Drop"
     className="StyledButton-sc-323bzc-0 jfbKsv"
     onBlur={[Function]}
     onClick={[Function]}
@@ -1766,19 +1778,16 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
     type="button"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 jHQJnz"
+      className="StyledBox-sc-13pk1d4-0 hfsUvK"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-iwsKbI dkUFrT"
+        className="StyledText-sc-1sadyjn-0 gcASOG"
       >
-        More
+        MORE
       </span>
-      <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-      />
       <svg
-        aria-label="FormDown"
-        className="StyledIcon-ofa7kd-0 fcceJV"
+        aria-label="FormUp"
+        className="StyledIcon-ofa7kd-0 iOkQrb"
         viewBox="0 0 24 24"
       >
         <polyline
@@ -1786,6 +1795,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
           points="18 9 12 15 6 9"
           stroke="#000"
           strokeWidth="2"
+          transform="matrix(1 0 0 -1 0 24)"
         />
       </svg>
     </div>
@@ -1898,13 +1908,13 @@ exports[`Storyshots LineViewer Default 1`] = `
           className="StyledBox-sc-13pk1d4-0 cGDWft"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 fNQaFh sc-kAzzGY gMUxmU"
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-kpOJdX mrGpr"
             size="xsmall"
           >
             Aggregated Transcription
           </span>
           <span
-            className="StyledText-sc-1sadyjn-0 fNQaFh sc-kAzzGY gMUxmU"
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-kpOJdX mrGpr"
             size="xsmall"
           >
             Consensus Score
@@ -1923,7 +1933,7 @@ exports[`Storyshots LineViewer Default 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-circle fa-w-16 sc-chPdSV hoYBIF"
+              className="svg-inline--fa fa-circle fa-w-16 sc-dxgOiQ bfOFEv"
               color="tomato"
               data-icon="circle"
               data-prefix="fas"
@@ -1941,7 +1951,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             </svg>
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-circle fa-w-16 sc-chPdSV hoYBIF"
+              className="svg-inline--fa fa-circle fa-w-16 sc-dxgOiQ bfOFEv"
               color="green"
               data-icon="circle"
               data-prefix="fas"
@@ -2016,7 +2026,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
             >
               June 11, 2019
             </span>
@@ -2026,7 +2036,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
             >
               username
             </span>
@@ -2100,7 +2110,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
             >
               June 11, 2019
             </span>
@@ -2110,7 +2120,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
             >
               username
             </span>
@@ -2123,7 +2133,7 @@ exports[`Storyshots LineViewer Default 1`] = `
                 •
               </span>
               <span
-                className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
               >
                 Gold Standard
               </span>
@@ -2176,7 +2186,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
             >
               June 11, 2019
             </span>
@@ -2186,7 +2196,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
             >
               username
             </span>
@@ -2238,7 +2248,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
             >
               June 11, 2019
             </span>
@@ -2248,7 +2258,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cSHVUG gYeOzm"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez kCmmIW"
             >
               username
             </span>
@@ -2314,7 +2324,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kAzzGY gMUxmU"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX mrGpr"
             >
               Add Line Below
             </span>
@@ -2328,7 +2338,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kAzzGY gMUxmU"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX mrGpr"
             >
               Delete Line
             </span>
@@ -2346,7 +2356,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kAzzGY gMUxmU"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX mrGpr"
             >
               Replace With Selected
             </span>
@@ -2360,7 +2370,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kAzzGY gMUxmU"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX mrGpr"
             >
               Close
             </span>
@@ -2382,7 +2392,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     onClick={[Function]}
   >
     <span
-      className="StyledText-sc-1sadyjn-0 gcASOG sc-gZMcBi gLUNyF"
+      className="StyledText-sc-1sadyjn-0 gcASOG sc-fjdhpX gQIZCg"
     >
       Mark As Approved
     </span>
@@ -2479,29 +2489,39 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             >
               Search or Filter
             </span>
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times-circle fa-w-16 "
-              data-icon="times-circle"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 512 512"
-              xmlns="http://www.w3.org/2000/svg"
+            <button
+              className="StyledButton-sc-323bzc-0 laBEqz"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
             >
-              <path
-                d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-                fill="currentColor"
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-times-circle fa-w-16 "
+                data-icon="times-circle"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
                 style={Object {}}
-              />
-            </svg>
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </button>
           </div>
           <div
             className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
           />
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX mrGpr"
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-VigVT cDzzLD"
           >
             Find a specific subject
           </span>
@@ -2519,7 +2539,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 iEMnku"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-dxgOiQ cZcRRk"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jTzLTM bDXLmG"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -2587,7 +2607,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 bgTRhM"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-dxgOiQ cZcRRk"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jTzLTM bDXLmG"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -2624,7 +2644,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX mrGpr"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-VigVT cDzzLD"
             >
               Filter subject list by status
             </span>
@@ -2944,13 +2964,14 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               <button
                 className="StyledButton-sc-323bzc-0 jfbKsv"
                 onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
                 onMouseOut={[Function]}
                 onMouseOver={[Function]}
                 type="button"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX mrGpr"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-VigVT cDzzLD"
                 >
                   Close
                 </span>
@@ -2964,7 +2985,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="submit"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX mrGpr"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-VigVT cDzzLD"
                 >
                   Search
                 </span>
@@ -2998,7 +3019,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kgoBCf ehxSSz"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-gqjmRU knRiJu"
       >
         This subject cannot be accessed because 
         <b>
@@ -3010,7 +3031,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kgoBCf ehxSSz"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-gqjmRU knRiJu"
       >
         For access, ask them to close their version.
       </span>
@@ -3020,6 +3041,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <button
         className="StyledButton-sc-323bzc-0 jfbKsv"
         onBlur={[Function]}
+        onClick={[Function]}
         onFocus={[Function]}
         onMouseOut={[Function]}
         onMouseOver={[Function]}
@@ -3127,29 +3149,39 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         >
           Unapprove subject data
         </span>
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-times-circle fa-w-16 fa-xs "
-          data-icon="times-circle"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 512 512"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          className="StyledButton-sc-323bzc-0 jfbKsv"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
         >
-          <path
-            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-            fill="currentColor"
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-times-circle fa-w-16 fa-xs "
+            data-icon="times-circle"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
             style={Object {}}
-          />
-        </svg>
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
       </div>
       <div
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez eBfQNf"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi ekfIiO"
       >
         By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
       </span>
@@ -3157,7 +3189,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez eBfQNf"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-gZMcBi ekfIiO"
       >
         This action can be reversed at any time.
       </span>
@@ -3170,6 +3202,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         <button
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOut={[Function]}
           onMouseOver={[Function]}
@@ -3185,6 +3218,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         <button
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOut={[Function]}
           onMouseOver={[Function]}

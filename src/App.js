@@ -12,6 +12,7 @@ import SubjectSetsIndex from './screens/SubjectSetsIndex'
 import WorkflowsIndex from './screens/WorkflowsIndex'
 import Editor from './screens/Editor'
 import Header from './screens/Header'
+import ModalManager from './screens/ModalManager'
 import { mergedTheme } from './theme'
 import {
   PROJECTS_PATH,
@@ -33,6 +34,7 @@ function App() {
         <main>
           <Grommet theme={mergedTheme}>
             <Route exact path="/" component={Home} />
+            <Route path="/" component={ModalManager} />
             <Route path="/projects" component={Header}/>
             <Route exact path={PROJECTS_PATH} component={ProjectsIndex}/>
             <Route exact path={WORKFLOWS_PATH} component={WorkflowsIndex}/>

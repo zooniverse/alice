@@ -3,12 +3,13 @@ import { Box, Button, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import { func } from 'prop-types'
 
 const StyledText = styled(Text)`
   line-height: 1.75em;
 `
 
-export default function UnapproveModal() {
+export default function UnapproveModal({ onClose }) {
   return (
     <Box
       background='white'
@@ -20,7 +21,11 @@ export default function UnapproveModal() {
     >
       <Box direction='row' justify='between'>
         <Text size='large'>Unapprove subject data</Text>
-        <FontAwesomeIcon icon={faTimesCircle} size='xs' />
+        <Button
+          label={<FontAwesomeIcon icon={faTimesCircle} size='xs' />}
+          onClick={onClose}
+          plain
+        />
       </Box>
       <StyledText>
         By unapproving this subject, the subject's data will be unavailable for
@@ -28,9 +33,17 @@ export default function UnapproveModal() {
       </StyledText>
       <StyledText>This action can be reversed at any time.</StyledText>
       <Box direction='row' justify='between' margin={{ top: 'small' }}>
-        <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain />
-        <Button label={<Text size='small'>YES, UNAPPROVE</Text>} plain />
+        <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} onClick={onClose} plain />
+        <Button label={<Text size='small'>YES, UNAPPROVE</Text>} onClick={onClose} plain />
       </Box>
     </Box>
   )
+}
+
+UnapproveModal.propTypes = {
+  onClose: func
+}
+
+UnapproveModal.defaultProps = {
+  onClose: () => {}
 }

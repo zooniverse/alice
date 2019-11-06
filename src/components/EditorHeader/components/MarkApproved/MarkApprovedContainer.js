@@ -1,22 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
+import AppContext from 'store'
+import MODALS from 'helpers/modals'
 import MarkApproved from './MarkApproved'
 
-class MarkApprovedContainer extends Component {
-  constructor (props) {
-    super(props)
-    this.onChange = this.onChange.bind(this);
-    this.state = {
-      checked: false
-    }
+function MarkApprovedContainer() {
+  const store = React.useContext(AppContext)
+  const [isChecked, setChecked] = React.useState(false)
+  const onChange = () => {
+    setChecked(!isChecked)
+    store.modal.toggleModal(MODALS.UNAPPROVED)
   }
 
-  onChange() {
-    this.setState({ checked: !this.state.checked })
-  }
-
-  render () {
-    return <MarkApproved checked={this.state.checked} onChange={this.onChange} />
-  }
+  return <MarkApproved checked={isChecked} onChange={onChange} />
 }
 
 export default MarkApprovedContainer
