@@ -1,0 +1,8 @@
+const MODALS = {
+  DOWNLOAD: 'DOWNLOAD',
+  LOCKED: 'LOCKED',
+  SEARCH: 'SEARCH',
+  UNAPPROVED: 'UNAPPROVED'
+}
+
+export default MODALS

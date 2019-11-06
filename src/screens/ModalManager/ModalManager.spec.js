@@ -1,12 +1,13 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Layer } from 'grommet'
+import MODALS from 'helpers/modals'
 import ModalManager from './ModalManager'
 
 let wrapper
 const contextValues = {
   modal: {
-    current: 'search',
+    current: MODALS.SEARCH,
   }
 }
 

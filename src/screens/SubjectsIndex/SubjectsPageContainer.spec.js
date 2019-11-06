@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import MODALS from 'helpers/modals'
 import { SubjectsPageContainer } from './SubjectsPageContainer'
 import ResourcesTable from '../../components/ResourcesTable'
 
@@ -50,7 +51,7 @@ describe('Component > SubjectsPageContainer', function () {
     const mockDatum = { locked: true }
     const table = wrapper.find(ResourcesTable).first()
     table.props().onSelection(mockDatum)
-    expect(toggleModalSpy).toHaveBeenCalledWith('locked')
+    expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
     expect(pushSpy).toHaveBeenCalled()
   })
 

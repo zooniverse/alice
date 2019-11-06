@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import MODALS from 'helpers/modals'
 import MarkApprovedContainer from './MarkApprovedContainer'
 
 let wrapper
@@ -28,7 +29,7 @@ describe('Component > MarkApprovedContainer', function () {
 
   it('should call the toggleModal method with child onClick', function() {
     wrapper.props().onChange()
-    expect(toggleModalSpy).toHaveBeenCalledWith('unapproved')
+    expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.UNAPPROVED)
     expect(setState).toHaveBeenCalled()
   })
 })

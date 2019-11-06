@@ -5,10 +5,10 @@ import SubjectLocked from 'components/Modals/SubjectLockedModal'
 import SearchModal from 'components/SearchModal'
 
 const modalTypes = {
-  unapproved: UnapproveModal,
-  download: DownloadData,
-  locked: SubjectLocked,
-  search: SearchModal
+  UNAPPROVED: UnapproveModal,
+  DOWNLOAD: DownloadData,
+  LOCKED: SubjectLocked,
+  SEARCH: SearchModal
 }
 
 function getModal(type) {

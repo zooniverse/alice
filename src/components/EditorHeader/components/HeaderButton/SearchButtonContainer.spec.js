@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import MODALS from 'helpers/modals'
 import SearchButtonContainer from './SearchButtonContainer'
 
 let wrapper
@@ -24,6 +25,6 @@ describe('Component > SearchButtonContainer', function () {
 
   it('should call toggleModal with child onClick', function () {
     wrapper.props().onClick()
-    expect(toggleModalSpy).toHaveBeenCalledWith('search')
+    expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.SEARCH)
   })
 })

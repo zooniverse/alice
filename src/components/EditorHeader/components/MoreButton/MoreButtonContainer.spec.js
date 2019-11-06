@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import MODALS from 'helpers/modals'
 import MoreButtonContainer from './MoreButtonContainer'
 
 let wrapper
@@ -24,6 +25,6 @@ describe('Component > UndoButton', function () {
 
   it('should call toggleModal on child toggleDownload', function() {
     wrapper.props().toggleDownload()
-    expect(toggleModalSpy).toHaveBeenCalledWith('download')
+    expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.DOWNLOAD)
   })
 })
