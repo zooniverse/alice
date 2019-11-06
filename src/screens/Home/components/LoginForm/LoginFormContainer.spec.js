@@ -5,11 +5,12 @@ import LoginForm from './LoginForm'
 
 let wrapper
 let loginForm
+let loginSpy = jest.fn()
 
 const contextValues = {
   auth: {
     error: 'Error!',
-    login: (e) => {},
+    login: loginSpy,
   }
 }
 
@@ -36,9 +37,9 @@ describe('Component > LoginFormContainer', function () {
     expect(typeof error).toBe('string')
   })
 
-  it('should pass the login prop', function () {
-    const login = loginForm.props().onSubmit
-    expect(login).toBeDefined()
-    expect(login).toBeInstanceOf(Function)
+  it('should call the login prop', function () {
+    const fakeEvent = { login: '', password: '' }
+    loginForm.props().onSubmit(fakeEvent, { setSubmitting: true })
+    expect(loginSpy).toHaveBeenCalled()
   })
 })
