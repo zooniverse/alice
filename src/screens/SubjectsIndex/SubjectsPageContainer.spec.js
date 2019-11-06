@@ -14,6 +14,7 @@ const contextValues = {
     toggleModal: toggleModalSpy
   },
   transcriptions: {
+    asyncState: ASYNC_STATES.IDLE,
     fetchTranscriptions: fetchTranscriptionsSpy
   }
 }
@@ -56,6 +57,22 @@ describe('Component > SubjectsPageContainer', function () {
     it('should fetch transcriptions when idle', function () {
       expect(fetchTranscriptionsSpy).toHaveBeenCalled()
     })
+
+    it('should toggleModal when subject locked', function() {
+      const mockDatum = { locked: true }
+      const table = wrapper.find(ResourcesTable).first()
+      table.props().onSelection(mockDatum)
+      expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
+      expect(pushSpy).toHaveBeenCalled()
+    })
+
+    it('should not toggleModal when subject unlocked', function() {
+      const mockDatum = { locked: false }
+      const table = wrapper.find(ResourcesTable).first()
+      table.props().onSelection(mockDatum)
+      expect(toggleModalSpy).not.toHaveBeenCalled()
+      expect(pushSpy).toHaveBeenCalled()
+    })
   })
 
   it('should not call fetchTranscriptions if already retrieved', function () {
@@ -65,21 +82,5 @@ describe('Component > SubjectsPageContainer', function () {
       .mockImplementation((context) => copiedContext)
     wrapper = shallow(<SubjectsPageContainer />);
     expect(fetchTranscriptionsSpy).not.toHaveBeenCalled()
-  })
-
-  it('should toggleModal when subject locked', function() {
-    const mockDatum = { locked: true }
-    const table = wrapper.find(ResourcesTable).first()
-    table.props().onSelection(mockDatum)
-    expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
-    expect(pushSpy).toHaveBeenCalled()
-  })
-
-  it('should not toggleModal when subject unlocked', function() {
-    const mockDatum = { locked: false }
-    const table = wrapper.find(ResourcesTable).first()
-    table.props().onSelection(mockDatum)
-    expect(toggleModalSpy).not.toHaveBeenCalled()
-    expect(pushSpy).toHaveBeenCalled()
   })
 })
