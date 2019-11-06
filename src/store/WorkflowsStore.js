@@ -45,4 +45,4 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   }
 }))
 
-export { WorkflowsStore }
+export { Workflow, WorkflowsStore }
