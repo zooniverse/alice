@@ -30,7 +30,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
           group_id: transcription.attributes.group_id,
           status: transcription.attributes.status,
           subject_id: transcription.attributes.subject_id,
-          text: transcription.text
+          text: transcription.attributes.text
         })
       })
       self.asyncState = ASYNC_STATES.READY
