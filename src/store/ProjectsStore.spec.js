@@ -2,6 +2,7 @@ import apiClient from 'panoptes-client/lib/api-client.js';
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
 import ProjectFactory from './factories/project'
+import { Project } from './ProjectsStore'
 
 let projectsStore
 let ownedProject = ProjectFactory.build()
@@ -65,6 +66,12 @@ describe('ProjectsStore', function () {
     expect(projectsStore.collabProjects).toEqual([mergedCollabProject])
     expect(projectsStore.asyncState).toBe(ASYNC_STATES.READY)
     expect(projectsStore.error).toBe('')
+  })
+
+  it('should select a project', function () {
+    const project = Project.create({ id: '1' })
+    projectsStore.selectProject(project)
+    expect(projectsStore.current).toEqual(project)
   })
 })
 

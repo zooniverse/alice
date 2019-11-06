@@ -67,4 +67,4 @@ const ProjectsStore = types.model('ProjectsStore', {
   }
 }))
 
-export { ProjectsStore }
+export { Project, ProjectsStore }
