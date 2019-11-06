@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { Box, Layer } from 'grommet'
 import AppContext from 'store'
-import { getModal } from 'store/ModalStore'
+import getModal from 'helpers/getModal'
 
 function ModalManager() {
   const store = React.useContext(AppContext)
