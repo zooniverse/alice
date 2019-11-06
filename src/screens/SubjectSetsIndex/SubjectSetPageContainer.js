@@ -29,4 +29,5 @@ function SubjectSetPageContainer({ history, match }) {
   )
 }
 
+export { SubjectSetPageContainer }
 export default withRouter(observer(SubjectSetPageContainer))
