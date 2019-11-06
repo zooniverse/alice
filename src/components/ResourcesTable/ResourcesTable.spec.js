@@ -2,7 +2,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import { DataTable } from 'grommet'
-import ResourcesTable, { ResourcesTable as UnwrappedTable } from './ResourcesTable'
+import { ResourcesTable } from './ResourcesTable'
 
 let wrapper;
 let html;
@@ -40,10 +40,7 @@ const DATA = [
 
 describe('Component > ResourcesTable', function () {
   beforeEach(function() {
-    wrapper = shallow(
-      <BrowserRouter>
-        <ResourcesTable columns={COLUMNS} data={DATA} />
-      </BrowserRouter>);
+    wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} />)
     html = wrapper.html()
   })
 
@@ -66,7 +63,7 @@ describe('Component > ResourcesTable', function () {
 
 describe('ResourcesTable functions', function () {
   beforeEach(function () {
-    wrapper = shallow(<UnwrappedTable columns={COLUMNS} data={DATA} history={history} />)
+    wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} history={history} />)
   })
 
   it('should push a link to the history object', function () {
@@ -78,48 +75,11 @@ describe('ResourcesTable functions', function () {
     table.onClickRow(mockEvent)
     expect(pushSpy).toHaveBeenCalledWith('/projects/123')
   })
-
-  it('should check all boxes with onCheckAll', function () {
-    const mockEvent = {
-      target: { checked: true }
-    }
-    const columns = wrapper.find(DataTable).props().columns[0];
-    const checkBox = columns.header.props.children.props
-    checkBox.onChange(mockEvent)
-    wrapper.update()
-    const checkedItems = wrapper.state().checked
-    expect(checkedItems).toEqual([DATA[0].id, DATA[1].id])
-  })
-
-  it('should check a single box with onCheck', function () {
-    const mockEvent = {
-      target: { checked: true }
-    }
-    const columns = wrapper.find(DataTable).props().columns[0]
-    const checkboxColumn = columns.render(DATA[0]);
-    const checkboxChild = checkboxColumn.props.children
-    checkboxChild.props.onChange(mockEvent);
-    wrapper.update()
-    expect(wrapper.state().checked).toStrictEqual([DATA[0].id])
-  })
-
-  it('should uncheck an item with onCheck', function () {
-    const mockEvent = {
-      target: { checked: false }
-    }
-    wrapper.setState({ checked: [DATA[0].id] })
-    const columns = wrapper.find(DataTable).props().columns[0]
-    const checkboxColumn = columns.render(DATA[0]);
-    const checkboxChild = checkboxColumn.props.children
-    checkboxChild.props.onChange(mockEvent);
-    wrapper.update()
-    expect(wrapper.state().checked.length).toBe(0)
-  })
 })
 
 describe('ResourcesTable onSelection prop', function () {
   beforeEach(function () {
-    wrapper = shallow(<UnwrappedTable columns={COLUMNS} data={DATA} onSelection={onSelectionSpy} />)
+    wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} onSelection={onSelectionSpy} />)
   })
 
   it('should call the onSelection prop', function () {

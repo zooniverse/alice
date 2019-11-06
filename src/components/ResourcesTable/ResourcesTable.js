@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom'
 function ResourcesTable({ columns, data, history, onSelection }) {
   const onClickRow = (e) => {
     if (onSelection) {
-      onSelection(e.datum.id)
+      onSelection(e.datum)
     } else {
       const newLocation = history.location.pathname + e.datum.link
       history.push(newLocation);
