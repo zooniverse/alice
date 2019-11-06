@@ -7,7 +7,7 @@ const Transcription = types.model('Transcription', {
   group_id: types.optional(types.string, ''),
   status: types.optional(types.string, ''),
   subject_id: types.optional(types.number, 0),
-  text: types.array(types.frozen(), {}),
+  text: types.optional(types.frozen(), {}),
 })
 
 const TranscriptionsStore = types.model('TranscriptionsStore', {

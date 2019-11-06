@@ -27,6 +27,7 @@ function SubjectsPageContainer (props) {
       <ResourcesTable
         columns={columns}
         data={store.transcriptions.all}
+        error={store.transcriptions.error}
         onSelection={onSelection}
         resource='Subjects'
         state={store.transcriptions.asyncState}

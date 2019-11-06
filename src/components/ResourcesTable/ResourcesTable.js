@@ -39,7 +39,7 @@ function ResourcesTable({ columns, data, error, history, onSelection, resource, 
       )}
 
       {data.length === 0 && status === ASYNC_STATES.READY && (
-        <Text textAlign='center'>Sorry, we couldn't find any {resource}</Text>
+        <Text textAlign='center'>{`Sorry, we couldn't find any ${resource}`}</Text>
       )}
     </Box>
   )
