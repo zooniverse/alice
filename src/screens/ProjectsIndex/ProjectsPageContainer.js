@@ -32,10 +32,7 @@ function ProjectPageContainer () {
             {ownerProjects.map((project, i) =>
               <ProjectCard
                 key={`Personal_Project_${i}`}
-                id={project.id}
-                role={project.role}
-                src={project.avatar_src}
-                title={project.display_name}
+                project={project}
               />
             )}
           </Box>
@@ -48,10 +45,7 @@ function ProjectPageContainer () {
             {collabProjects.map((project, i) =>
               <ProjectCard
                 key={`Collaborative_Project_${i}`}
-                id={project.id}
-                role={project.role}
-                src={project.avatar_src}
-                title={project.display_name}
+                project={project}
               />)}
           </Box>
         </Box>}

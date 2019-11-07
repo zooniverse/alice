@@ -2,12 +2,21 @@ import { flow, getRoot, types } from 'mobx-state-tree'
 import apiClient from 'panoptes-client/lib/api-client.js'
 import ASYNC_STATES from 'helpers/asyncStates'
 
+const Project = types
+  .model('Project', {
+    avatar_src: types.optional(types.string, ''),
+    id: types.optional(types.string, ''),
+    display_name: types.optional(types.string, ''),
+    role: types.optional(types.string, '')
+  })
+
 const ProjectsStore = types.model('ProjectsStore', {
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   collabProjects: types.array(types.frozen({}), null),
+  current: types.optional(Project, {}),
+  error: types.optional(types.string, ''),
   ownerProjects: types.array(types.frozen({}), null),
   roles: types.optional(types.frozen({}), null),
-  error: types.optional(types.string, '')
 }).actions(self => ({
   getRoles: flow (function * getRoles() {
     const user = getRoot(self).auth.user
@@ -51,7 +60,11 @@ const ProjectsStore = types.model('ProjectsStore', {
       self.error = error.message
       self.asyncState = ASYNC_STATES.ERROR
     }
-  })
+  }),
+
+  selectProject: function(project) {
+    self.current = project
+  }
 }))
 
-export { ProjectsStore }
+export { Project, ProjectsStore }

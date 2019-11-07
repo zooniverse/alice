@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom';
-import { DataTable } from 'grommet'
+import { DataTable, Text } from 'grommet'
+import ASYNC_STATES from 'helpers/asyncStates'
 import { ResourcesTable } from './ResourcesTable'
 
 let wrapper;
@@ -90,5 +90,21 @@ describe('ResourcesTable onSelection prop', function () {
     const table = wrapper.find(DataTable).first().props()
     table.onClickRow(mockEvent)
     expect(onSelectionSpy).toHaveBeenCalledWith(mockEvent.datum)
+  })
+
+  it('should show loading with appropriate state', function () {
+    wrapper = shallow(<ResourcesTable status={ASYNC_STATES.LOADING} />)
+    expect(wrapper.find(Text).first().props().children).toBe('Loading...')
+  })
+
+  it('should show error when available', function () {
+    const error = 'THERE IS AN ERROR!'
+    wrapper = shallow(<ResourcesTable error={error} status={ASYNC_STATES.ERROR} />)
+    expect(wrapper.find(Text).first().props().children).toBe(error)
+  })
+
+  it('should show when no data exists', function () {
+    wrapper = shallow(<ResourcesTable resource="Subjects" status={ASYNC_STATES.READY} />)
+    expect(wrapper.find(Text).first().props().children).toBe("Sorry, we couldn't find any Subjects")
   })
 })

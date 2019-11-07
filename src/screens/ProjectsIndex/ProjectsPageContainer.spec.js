@@ -60,12 +60,12 @@ describe('Component > ProjectsPageContainer', function () {
 
     it('should render owner projects', function () {
       const ownedCard = wrapper.find(ProjectCard).first()
-      expect(ownedCard.props().role).toBe(ownerProjects[0].role)
+      expect(ownedCard.props().project.role).toBe(ownerProjects[0].role)
     })
 
     it('should render collaborative projects', function () {
       const collabCard = wrapper.find(ProjectCard).last()
-      expect(collabCard.props().role).toBe(collabProjects[0].role)
+      expect(collabCard.props().project.role).toBe(collabProjects[0].role)
     })
   })
 

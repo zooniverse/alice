@@ -50,13 +50,13 @@ const mockData = [
   }
 ];
 
-const mockColumns = [
+const columns = [
   {
-    property: "subjectSet",
+    property: "display_name",
     header: "Subject Set"
   },
   {
-    property: "subjectSetId",
+    property: "id",
     header: "Subject Set ID"
   },
   {
@@ -69,4 +69,4 @@ const mockColumns = [
   }
 ];
 
-export { mockColumns, mockData }
+export { columns, mockData }
