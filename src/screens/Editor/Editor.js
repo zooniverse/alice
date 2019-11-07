@@ -97,4 +97,5 @@ function Editor ({ match }) {
   )
 }
 
+export { Editor, Resizer }
 export default withRouter(observer(Editor))
