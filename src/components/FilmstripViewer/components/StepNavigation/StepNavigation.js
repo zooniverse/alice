@@ -84,4 +84,5 @@ StepNavigation.propTypes = {
   steps: PropTypes.array
 }
 
+export { StyledButton, StyledRadioButtonGroup }
 export default StepNavigation
