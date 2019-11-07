@@ -44,4 +44,4 @@ const SubjectStore = types.model('SubjectStore', {
   })
 }))
 
-export { SubjectStore }
+export { Subject, SubjectStore }

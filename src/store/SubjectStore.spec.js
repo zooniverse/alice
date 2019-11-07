@@ -1,6 +1,6 @@
 import { subjects } from '@zooniverse/panoptes-js'
 import ASYNC_STATES from 'helpers/asyncStates'
-import { SubjectStore } from './SubjectStore'
+import { Subject, SubjectStore } from './SubjectStore'
 
 let subjectStore
 
@@ -12,6 +12,11 @@ const mockSubject = {
 const response = {
   body: {
     subjects: [mockSubject]
+  }
+}
+const emptyResponse = {
+  body: {
+    subjects: []
   }
 }
 
@@ -53,5 +58,17 @@ describe('SubjectStore error', function () {
     await subjectStore.fetchSubject('1')
     expect(subjectStore.error).toBe(error.message)
     expect(subjectStore.asyncState).toBe(ASYNC_STATES.ERROR)
+  })
+})
+
+describe('SubjectStore empty return when fetching subjects', function () {
+  it('should resolve the call without error', async function () {
+    jest
+      .spyOn(subjects, 'get')
+      .mockImplementation(() => Promise.resolve(emptyResponse))
+    subjectStore = SubjectStore.create()
+    await subjectStore.fetchSubject('1')
+    expect(subjectStore.current).toEqual(Subject.create())
+    expect(subjectStore.asyncState).toEqual(ASYNC_STATES.READY)
   })
 })
