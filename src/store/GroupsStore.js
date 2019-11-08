@@ -24,6 +24,10 @@ const GroupsStore = types.model('GroupsStore', {
       })
     })
   }
+})).views(self => ({
+  get title () {
+    return self.current.display_name
+  }
 }))
 
 export { GroupsStore }

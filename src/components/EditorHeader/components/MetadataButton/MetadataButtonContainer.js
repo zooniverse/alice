@@ -5,8 +5,8 @@ import MetadataButton from './MetadataButton'
 
 function MetadataButtonContainer() {
   const store = React.useContext(AppContext)
-  const metadata = store.subject.current && store.subject.current.metadata
-  const id = store.subject.current && store.subject.current.id
+  const metadata = store.subjects.current && store.subjects.current.metadata
+  const id = store.subjects.current && store.subjects.current.id
 
   return <MetadataButton id={id} metadata={metadata} />
 }

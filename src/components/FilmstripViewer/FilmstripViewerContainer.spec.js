@@ -7,7 +7,7 @@ const resetSpy = jest.fn()
 const changeIndexSpy = jest.fn()
 const contextValues = {
   image: { reset: resetSpy },
-  subject: { changeIndex: changeIndexSpy }
+  subjects: { changeIndex: changeIndexSpy }
 }
 
 describe('Component > FilmstripViewerContainer', function () {

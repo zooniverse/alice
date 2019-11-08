@@ -65,8 +65,7 @@ const ProjectsStore = types.model('ProjectsStore', {
   selectProject: function(project) {
     self.current = project || Project.create()
   }
-}))
-.views(self => ({
+})).views(self => ({
   get title () {
     return self.current.display_name.length ? self.current.display_name : 'Select Project'
   }

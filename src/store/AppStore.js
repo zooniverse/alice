@@ -16,7 +16,7 @@ const AppStore = types.model('AppStore', {
   editor: types.optional(EditorStore, () => EditorStore.create({})),
   image: types.optional(ImageStore, () => ImageStore.create({})),
   groups: types.optional(GroupsStore, () => GroupsStore.create({})),
-  subject: types.optional(SubjectStore, () => SubjectStore.create({})),
+  subjects: types.optional(SubjectStore, () => SubjectStore.create({})),
   initialised: types.optional(types.boolean, false),
   projects: types.optional(ProjectsStore, () => ProjectsStore.create({})),
   modal: types.optional(ModalStore, () => ModalStore.create({})),

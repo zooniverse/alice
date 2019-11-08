@@ -43,6 +43,10 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   setState: function(state) {
     self.asyncState = state
   }
+})).views(self => ({
+  get title () {
+    return self.current.display_name
+  }
 }))
 
 export { Workflow, WorkflowsStore }

@@ -42,6 +42,10 @@ const SubjectStore = types.model('SubjectStore', {
       self.asyncState = ASYNC_STATES.ERROR
     }
   })
+})).views(self => ({
+  get title () {
+    return self.current.display_name || ''
+  }
 }))
 
 export { Subject, SubjectStore }

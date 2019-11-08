@@ -8,7 +8,7 @@ function FilmstripViewerContainer({ images }) {
   const store = React.useContext(AppContext)
   const selectImage = (id) => {
     store.image.reset()
-    store.subject.changeIndex(id)
+    store.subjects.changeIndex(id)
   }
 
   return  (
@@ -17,7 +17,7 @@ function FilmstripViewerContainer({ images }) {
       isOpen={isOpen}
       selectImage={selectImage}
       setOpen={setOpen}
-      subjectIndex={store.subject.index}
+      subjectIndex={store.subjects.index}
     />
   )
 }
