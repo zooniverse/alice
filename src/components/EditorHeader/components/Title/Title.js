@@ -5,10 +5,11 @@ import AppContext from 'store'
 
 function Title() {
   const store = React.useContext(AppContext)
+  const project = store.projects.title
 
   return (
     <Box>
-      <Heading>Hello World</Heading>
+      <Heading>{project}</Heading>
     </Box>
   )
 }
