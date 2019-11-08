@@ -59,6 +59,18 @@ describe('SubjectStore error', function () {
     expect(subjectStore.error).toBe(error.message)
     expect(subjectStore.asyncState).toBe(ASYNC_STATES.ERROR)
   })
+
+  it('should select a subject', function () {
+    const subject = Subject.create({ id: '10' })
+    subjectStore.selectSubject(subject)
+    expect(subjectStore.current.id).toBe(subject.id)
+  })
+
+  it('should select a default subject if none provided', function () {
+    const defaultSubject = Subject.create()
+    subjectStore.selectSubject(null)
+    expect(subjectStore.current).toEqual(defaultSubject)
+  })
 })
 
 describe('SubjectStore empty return when fetching subjects', function () {
