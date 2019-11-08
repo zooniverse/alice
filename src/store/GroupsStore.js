@@ -11,8 +11,8 @@ const GroupsStore = types.model('GroupsStore', {
 }).actions(self => ({
   selectGroup: function(group) {
     self.current = Group.create({
-      display_name: group.display_name,
-      id: group.id
+      display_name: (group && group.display_name) || '',
+      id: (group && group.id) || 0
     })
   },
 

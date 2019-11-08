@@ -10,6 +10,11 @@ import { columns } from './table'
 
 function SubjectSetPageContainer({ history, match }) {
   const store = React.useContext(AppContext)
+
+  React.useEffect(() => {
+    store.groups.selectGroup(null)
+  }, [store])
+
   const onSelection = group => {
     store.groups.selectGroup(group)
     const nextPath = generatePath(SUBJECTS_PATH, { subjectSet: group.id, ...match.params})

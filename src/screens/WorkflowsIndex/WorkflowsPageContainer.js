@@ -10,6 +10,11 @@ import COLUMNS from './workflowColumns'
 
 function WorkflowsPageContainer({ history, match }) {
   const store = React.useContext(AppContext)
+
+  React.useEffect(() => {
+    store.workflows.selectWorkflow(null)
+  }, [store])
+
   if (store.workflows.asyncState === ASYNC_STATES.IDLE) {
     const projectId = match.params && match.params.project
     store.workflows.fetchWorkflows(projectId)
