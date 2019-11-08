@@ -34,7 +34,7 @@ const ProjectsStore = types.model('ProjectsStore', {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
-      if (!self.roles) self.getRoles()
+      if (!self.roles) yield self.getRoles()
       const response = yield client.get('/projects')
       const resources = JSON.parse(response.body)
       const ids = resources.data.map(project => project.id)
