@@ -7,6 +7,7 @@ import ProjectCard from './components/ProjectCard'
 
 let wrapper
 const getProjectsSpy = jest.fn()
+const selectProjectSpy = jest.fn()
 
 const collabProjects = [
   {
@@ -32,8 +33,9 @@ const contextValues = {
   projects: {
     asyncState: ASYNC_STATES.IDLE,
     getProjects: getProjectsSpy,
+    selectProject: selectProjectSpy,
     ownerProjects,
-    collabProjects
+    collabProjects,
   }
 }
 
@@ -134,6 +136,18 @@ describe('Component > ProjectsPageContainer', function () {
       wrapper = shallow(<ProjectsPageContainer />);
       expect(wrapper.find(Text).first().props().children).toBe(
         'We couldn\'t find any transcription projects you participate in.');
+    })
+  })
+
+  describe('useEffect hook', function () {
+    it('should clear the selected project', function () {
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => contextValues )
+      jest.spyOn(React, "useEffect")
+        .mockImplementation(f => f());
+      wrapper = shallow(<ProjectsPageContainer />);
+      expect(selectProjectSpy).toHaveBeenCalledTimes(1)
     })
   })
 })
