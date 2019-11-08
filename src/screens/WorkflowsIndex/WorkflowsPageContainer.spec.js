@@ -63,4 +63,16 @@ describe('Component > WorkflowsPageContainer', function () {
     wrapper = shallow(<WorkflowsPageContainer />);
     expect(fetchWorkflowsSpy).not.toHaveBeenCalled()
   })
+
+  describe('useEffect hook', function () {
+    it('should clear the selected project', function () {
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => contextValues )
+      jest.spyOn(React, "useEffect")
+        .mockImplementation(f => f());
+      wrapper = shallow(<WorkflowsPageContainer />);
+      expect(selectWorkflowSpy).toHaveBeenCalledTimes(1)
+    })
+  })
 })
