@@ -25,12 +25,15 @@ function Title({ onEditor }) {
     titles = [group]
     header = subject
   }
+  const subjectCount = header === group ?
+    `(${store.transcriptions.approvedCount}/${store.transcriptions.all.length} approved)` : ''
 
   return (
     <Box align='baseline' direction='row' gap='0.25em'>
       {titles.reverse().map((sub, i) =>
         sub.length > 0 && <CapitalText key={`SUB_HEADER_${i}`}>{`${sub} /`}</CapitalText>)}
       <Heading>{header}</Heading>
+      <CapitalText>{subjectCount}</CapitalText>
     </Box>
   )
 }
