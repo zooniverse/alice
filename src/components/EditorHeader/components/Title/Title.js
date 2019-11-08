@@ -33,7 +33,7 @@ function Title({ onEditor }) {
       {titles.reverse().map((sub, i) =>
         sub.length > 0 && <CapitalText key={`SUB_HEADER_${i}`}>{`${sub} /`}</CapitalText>)}
       <Heading>{header}</Heading>
-      <CapitalText>{subjectCount}</CapitalText>
+      {subjectCount.length > 0 && <CapitalText>{subjectCount}</CapitalText>}
     </Box>
   )
 }
@@ -45,5 +45,5 @@ Title.propTypes = {
 Title.defaultProps = {
   onEditer: false
 }
-
+ export { CapitalText }
 export default observer(Title)
