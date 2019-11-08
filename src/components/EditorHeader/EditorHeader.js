@@ -10,7 +10,7 @@ export default function EditorHeader ({ buttons, showMetadata }) {
     <Box as='header' direction='row' pad={{ bottom: 'small' }} border='bottom'>
       <Box direction='row' justify='between' border='right' fill='horizontal'>
         <Box align='center' direction='row' gap='xsmall'>
-          <Title />
+          <Title onEditor={showMetadata} />
           {showMetadata && <MetadataButton />}
         </Box>
         <Box align='center' direction='row' gap='small' pad={{ horizontal: 'medium' }} wrap>

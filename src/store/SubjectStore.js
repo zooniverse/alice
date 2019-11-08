@@ -44,7 +44,7 @@ const SubjectStore = types.model('SubjectStore', {
   })
 })).views(self => ({
   get title () {
-    return self.current.display_name || ''
+    return self.current.id || ''
   }
 }))
 
