@@ -15,7 +15,7 @@ const theme = {
     },
   },
   anchor: {
-    color: '#005FFF',
+    color: '#0043B8',
     textDecoration: 'underline'
   },
   checkBox: {
