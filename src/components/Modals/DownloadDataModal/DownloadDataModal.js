@@ -17,6 +17,7 @@ export default function DownloadDataModal({ onClose }) {
       <Box direction='row' justify='between'>
         <Text size='large'>Download subject data</Text>
         <Button
+          a11yTitle="Close Download Subject Data Modal"
           icon={<FontAwesomeIcon icon={faTimesCircle} size='xs' />}
           onClick={onClose}
           plain
@@ -29,8 +30,17 @@ export default function DownloadDataModal({ onClose }) {
         <Text size='small'>&#8226; Raw, unparsed transcription data (.json)</Text>
       </Box>
       <Box direction='row' justify='between' margin={{ top: 'small' }}>
-        <Button label={<Text size='small'>CLOSE</Text>} onClick={onClose} plain />
-        <Button label={<Text size='small'>DOWNLOAD</Text>} plain />
+        <Button
+          a11yTitle="Close Download Subject Data Modal"
+          label={<Text size='small'>CLOSE</Text>}
+          onClick={onClose}
+          plain
+        />
+        <Button
+          a11yTitle="Download Subject Data"
+          label={<Text size='small'>DOWNLOAD</Text>}
+          plain
+        />
       </Box>
     </Box>
   )
