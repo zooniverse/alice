@@ -52,7 +52,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       const resources = JSON.parse(response.body)
       const transcription = resources.data && resources.data[0]
       self.current = self.createTranscription(transcription)
-      console.log(self.current);
     } catch (error) {
       console.warn(error);
       self.error = error.message

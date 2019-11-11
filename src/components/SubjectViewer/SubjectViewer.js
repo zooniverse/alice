@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { bool, number, string } from 'prop-types'
 import ASYNC_STATES from 'helpers/asyncStates'
 import InteractionLayer from './components/InteractionLayer'
+import AnnotationsPane from './components/AnnotationsPane'
 
 const SVG = styled.svg`
   height: 100%;
@@ -37,6 +38,7 @@ export default function SubjectViewer ({ disabled, error, rotation, scale, src, 
           <text x="50%" y="50%" fill='red' textAnchor='middle'>{`Error: ${error}`}</text>
         )}
         <InteractionLayer boundingBox={boundingBox} disabled={disableInteraction} />
+        <AnnotationsPane />
       </G>
     </SVG>
   )
