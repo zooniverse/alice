@@ -52,4 +52,4 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 }))
 
-export { TranscriptionsStore }
+export { TranscriptionsStore, Transcription }

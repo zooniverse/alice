@@ -1,14 +1,16 @@
-import { types, flow } from 'mobx-state-tree'
+import { flow, getRoot, types } from 'mobx-state-tree'
 import { subjects } from '@zooniverse/panoptes-js'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { Transcription } from './TranscriptionsStore'
 
-const TEMPORARY_SUBJECT_ID = '72815'
+const TEMPORARY_SUBJECT_ID = '51843'
 
 const Subject = types
   .model('Subject', {
     id: types.optional(types.string, ''),
     locations: types.array(types.frozen({})),
     metadata: types.frozen({}),
+    transcriptions: types.array(Transcription)
   })
 
 const SubjectStore = types.model('SubjectStore', {
@@ -21,10 +23,11 @@ const SubjectStore = types.model('SubjectStore', {
     self.index = index
   },
 
-  fetchSubject: flow (function * fetchSubject (id) {
+  fetchSubject: flow (function * fetchSubject (id = TEMPORARY_SUBJECT_ID) {
     self.asyncState = ASYNC_STATES.LOADING
     try {
-      const response = yield subjects.get({ id: TEMPORARY_SUBJECT_ID })
+      yield self.fetchTranscriptionsForSubject(id)
+      const response = yield subjects.get({ id })
       if (response.body.subjects[0]) {
         const subject = response.body.subjects[0]
         const newSubject = Subject.create({
@@ -36,6 +39,28 @@ const SubjectStore = types.model('SubjectStore', {
         self.error = ''
       }
       self.asyncState = ASYNC_STATES.READY
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  }),
+
+  fetchTranscriptionsForSubject: flow (function * fetchTranscriptionsForSubject(id) {
+    const client = getRoot(self).client.tove
+    try {
+      const response = yield client.get(`/transcriptions?filter[subject_id_eq]=${id}`)
+      const resources = JSON.parse(response.body)
+      self.transcriptions = resources.data.map((transcription) => {
+        return Transcription.create({
+          id: transcription.id,
+          flagged: transcription.attributes.flagged,
+          group_id: transcription.attributes.group_id,
+          status: transcription.attributes.status,
+          subject_id: transcription.attributes.subject_id,
+          text: transcription.attributes.text
+        })
+      })
     } catch (error) {
       console.warn(error);
       self.error = error.message
