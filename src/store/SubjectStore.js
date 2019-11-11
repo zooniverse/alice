@@ -1,23 +1,21 @@
 import { flow, getRoot, types } from 'mobx-state-tree'
 import { subjects } from '@zooniverse/panoptes-js'
 import ASYNC_STATES from 'helpers/asyncStates'
-import { Transcription } from './TranscriptionsStore'
 
-const TEMPORARY_SUBJECT_ID = '51843'
+const TEMPORARY_SUBJECT_ID = '72815'
 
 const Subject = types
   .model('Subject', {
     id: types.optional(types.string, ''),
     locations: types.array(types.frozen({})),
     metadata: types.frozen({}),
-    transcriptions: types.array(Transcription)
   })
 
 const SubjectStore = types.model('SubjectStore', {
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.optional(Subject, {}),
   error: types.optional(types.string, ''),
-  index: types.optional(types.number, 0),
+  index: types.optional(types.number, 0)
 }).actions(self => ({
   changeIndex: (index) => {
     self.index = index
@@ -26,7 +24,7 @@ const SubjectStore = types.model('SubjectStore', {
   fetchSubject: flow (function * fetchSubject (id = TEMPORARY_SUBJECT_ID) {
     self.asyncState = ASYNC_STATES.LOADING
     try {
-      yield self.fetchTranscriptionsForSubject(id)
+      yield getRoot(self).transcriptions.fetchTranscriptionsForSubject(id)
       const response = yield subjects.get({ id })
       if (response.body.subjects[0]) {
         const subject = response.body.subjects[0]

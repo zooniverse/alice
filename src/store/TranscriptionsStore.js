@@ -16,6 +16,17 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   current: types.optional(Transcription, {}),
   error: types.optional(types.string, '')
 }).actions(self => ({
+  createTranscription: function createTranscription(transcription) {
+    return Transcription.create({
+      id: transcription.id,
+      flagged: transcription.attributes.flagged,
+      group_id: transcription.attributes.group_id,
+      status: transcription.attributes.status,
+      subject_id: transcription.attributes.subject_id,
+      text: transcription.attributes.text
+    })
+  },
+
   fetchTranscriptions: flow (function * fetchTranscriptions() {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
@@ -24,16 +35,24 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       const response = yield client.get(`/transcriptions?filter[group_id_eq]=${groupName}`)
       const resources = JSON.parse(response.body)
       self.all = resources.data.map((transcription) => {
-        return Transcription.create({
-          id: transcription.id,
-          flagged: transcription.attributes.flagged,
-          group_id: transcription.attributes.group_id,
-          status: transcription.attributes.status,
-          subject_id: transcription.attributes.subject_id,
-          text: transcription.attributes.text
-        })
+        return self.createTranscription(transcription)
       })
       self.asyncState = ASYNC_STATES.READY
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  }),
+
+  fetchTranscriptionsForSubject: flow (function * fetchTranscriptionsForSubject(id) {
+    const client = getRoot(self).client.tove
+    try {
+      const response = yield client.get(`/transcriptions?filter[subject_id_eq]=${id}`)
+      const resources = JSON.parse(response.body)
+      const transcription = resources.data && resources.data[0]
+      self.current = self.createTranscription(transcription)
+      console.log(self.current);
     } catch (error) {
       console.warn(error);
       self.error = error.message
