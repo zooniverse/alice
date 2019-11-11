@@ -16,6 +16,7 @@ export default function MetadataButton({ goldStandard, id, lines, metadata, page
   return (
     <Box width='1em'>
       <Button
+        a11yTitle="Open Metadata Information"
         icon={<FontAwesomeIcon icon={faInfoCircle} />}
         onClick={toggleDrop}
         plain
