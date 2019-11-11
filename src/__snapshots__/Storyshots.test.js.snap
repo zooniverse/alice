@@ -1520,6 +1520,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           Download subject data
         </span>
         <button
+          aria-label="Close Download Subject Data Modal"
           className="StyledButton-sc-323bzc-0 laBEqz"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1593,6 +1594,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         className="StyledBox-sc-13pk1d4-0 jHMQGC"
       >
         <button
+          aria-label="Close Download Subject Data Modal"
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
           onClick={[Function]}
@@ -1609,6 +1611,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           </span>
         </button>
         <button
+          aria-label="Download Subject Data"
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -2433,6 +2436,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 fALNzc"
     >
       <button
+        aria-label="Open Metadata Information"
         className="StyledButton-sc-323bzc-0 laBEqz"
         onBlur={[Function]}
         onClick={[Function]}
@@ -2490,6 +2494,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               Search or Filter
             </span>
             <button
+              aria-label="Close Subject Search Modal"
               className="StyledButton-sc-323bzc-0 laBEqz"
               onBlur={[Function]}
               onClick={[Function]}
@@ -2962,6 +2967,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox-sc-13pk1d4-0 jHMQGC"
             >
               <button
+                aria-label="Close Subject Search Modal"
                 className="StyledButton-sc-323bzc-0 jfbKsv"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -2977,6 +2983,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 </span>
               </button>
               <button
+                aria-label="Submit Subject Search Query"
                 className="StyledButton-sc-323bzc-0 jfbKsv"
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -3039,6 +3046,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <button
+        aria-label="Return to Subject Set Index Page"
         className="StyledButton-sc-323bzc-0 jfbKsv"
         onBlur={[Function]}
         onClick={[Function]}
@@ -3150,6 +3158,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
           Unapprove subject data
         </span>
         <button
+          aria-label="Close Unapprove Subject Modal"
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
           onClick={[Function]}
@@ -3200,6 +3209,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox-sc-13pk1d4-0 jHMQGC"
       >
         <button
+          aria-label="Close Unapprove Subject Modal"
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
           onClick={[Function]}
@@ -3216,6 +3226,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
           </span>
         </button>
         <button
+          aria-label="Confirm to Unapprove Subject"
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
           onClick={[Function]}
