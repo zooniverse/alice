@@ -59,6 +59,9 @@ const theme = {
   layer: {
     border: {
       radius: '10px'
+    },
+    overlay: {
+      background: 'rgba(225, 225, 225, 0.75)'
     }
   },
   table: {
