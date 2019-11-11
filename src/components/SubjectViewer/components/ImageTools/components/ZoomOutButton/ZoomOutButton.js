@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 function ZoomOutButton({ onClick }) {
   return (
     <Button
+      a11yTitle="Zoom out on Subject"
       label={
         <Box margin='xsmall'>
           <ZoomOutIcon color='#000000'/>

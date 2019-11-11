@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 function ResetButton({ onClick }) {
   return (
     <Button
+      a11yTitle="Reset Image Position"
       label={
         <Box margin='xsmall'>
           <Revert color='#000000' />

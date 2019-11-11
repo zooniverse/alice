@@ -3,9 +3,10 @@ import { Refresh } from 'grommet-icons'
 import { Box, Button } from 'grommet'
 import PropTypes from 'prop-types'
 
-function RefreshButton({ onClick }) {
+function RotateButton({ onClick }) {
   return (
     <Button
+      a11yTitle="Rotate Image 90 Degrees"
       label={
         <Box margin='xsmall'>
           <Refresh color='#000000' />
@@ -16,12 +17,12 @@ function RefreshButton({ onClick }) {
   )
 }
 
-RefreshButton.propTypes = {
+RotateButton.propTypes = {
   onClick: PropTypes.func
 }
 
-RefreshButton.defaultProps = {
+RotateButton.defaultProps = {
   onClick: () => {}
 }
 
-export default RefreshButton
+export default RotateButton
