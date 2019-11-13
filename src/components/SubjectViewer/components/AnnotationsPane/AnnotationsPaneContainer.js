@@ -2,17 +2,23 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import AnnotationsPane from './AnnotationsPane'
+import { constructCoordinates } from 'helpers/parseTranscriptionData'
 
 function AnnotationsPaneContainer() {
+  let parsedLines = []
   const store = React.useContext(AppContext)
-  console.log('This is the store', store);
-  const transcriptions = []
+  const index = store.subject.index
+  const transcription = store.transcriptions.current
+  const transcriptionFrame = transcription && transcription.text && transcription.text[`frame${index}`]
+  if (transcriptionFrame) {
+    parsedLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
+  }
   const offset = ``
 
   return (
     <AnnotationsPane
       offset={offset}
-      transcriptions={transcriptions}
+      lines={parsedLines}
     />
   )
 }
