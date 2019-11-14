@@ -1,9 +1,9 @@
 import React from 'react'
 import SVGImage from './SVGImage'
 
-function SVGImageContainer({ src }) {
+function SVGImageContainer({ disableInteraction, src, transform }) {
   const imageViewer = React.useRef(null)
-  const [img, setImg] = React.useState(null)
+  const [img, setImg] = React.useState(new Image())
 
   React.useEffect(() => {
     async function fetchImage() {
@@ -23,7 +23,6 @@ function SVGImageContainer({ src }) {
 
     async function getImageSize() {
       const image = await preLoad()
-      debugger
       const svg = imageViewer.current || {}
       return {
         clientHeight: svg.clientHeight,
@@ -40,9 +39,15 @@ function SVGImageContainer({ src }) {
     onLoad();
   }, [])
 
+  const { naturalHeight, naturalWidth } = img
+
   return (
     <SVGImage
+      disabled={disableInteraction}
       ref={imageViewer}
+      height={naturalHeight}
+      width={naturalWidth}
+      transform={transform}
       url={src}
     />
   )

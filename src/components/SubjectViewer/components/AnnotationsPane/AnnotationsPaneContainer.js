@@ -13,16 +13,8 @@ function AnnotationsPaneContainer() {
   if (transcriptionFrame) {
     parsedLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
   }
-  const width = 1336
-  const height = 707
-  const offset = `scale(1) translate(-${width / 2}, -${height / 2})`
 
-  return (
-    <AnnotationsPane
-      offset={offset}
-      lines={parsedLines}
-    />
-  )
+  return <AnnotationsPane lines={parsedLines} />
 }
 
 export default observer(AnnotationsPaneContainer)

@@ -2,12 +2,8 @@ import React from 'react'
 import { array, string } from 'prop-types'
 
 function AnnotationsPane({ lines, offset }) {
-  console.log(lines);
   return (
     <g transform={offset}>
-      <text x="500" y="127" fill="#fff">
-        Hi Everybody!
-      </text>
       {lines.map((line, i) => {
         const svgPoints = []
 

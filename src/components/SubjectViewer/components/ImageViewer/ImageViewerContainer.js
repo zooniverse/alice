@@ -35,8 +35,6 @@ function ImageViewerContainer({ boundingBox, url }) {
     handleSubject()
   }, [url])
   const { naturalWidth, naturalHeight } = dimensions
-  console.log(boundingBox.width, boundingBox.height);
-  console.log(dimensions);
 
   return (
     <ImageViewer

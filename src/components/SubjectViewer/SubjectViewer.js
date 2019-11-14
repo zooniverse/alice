@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { bool, number, string } from 'prop-types'
 import ASYNC_STATES from 'helpers/asyncStates'
-import AppContext from 'store'
 import { observer } from 'mobx-react'
 import InteractionLayer from './components/InteractionLayer'
 import AnnotationsPane from './components/AnnotationsPane'
@@ -20,16 +19,13 @@ const G = styled.g`
   }
 `
 
-function SubjectViewer ({ disabled, error, rotation, scale, src, subjectState, translateX, translateY }) {
-  const store = React.useContext(AppContext)
+function SubjectViewer ({ error, rotation, scale, src, subjectState, translateX, translateY }) {
   const transform = `scale(${scale}) translate(${translateX}, ${translateY}) rotate(${rotation})`
-  const svgEl = React.useRef(null);
-  const boundingBox = (svgEl && svgEl.current && svgEl.current.getBoundingClientRect());
   const disableInteraction = subjectState !== ASYNC_STATES.READY
 
   if (src.length === 0) return null;
 
-  return <SVGImage src={src} />
+  return <SVGImage src={src} disableInteraction={disableInteraction} transform={transform} />
 }
 
 SubjectViewer.propTypes = {
