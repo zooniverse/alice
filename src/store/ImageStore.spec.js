@@ -1,6 +1,6 @@
 import {
   ImageStore,
-  DEFAULT_STEP,
+  DEFAULT_SCALE,
   STEP,
   MAX_STEP,
   MIN_STEP
@@ -20,7 +20,7 @@ describe('Model > ImageStore', function () {
   describe('Actions > zoomIn', function () {
     it('should zoom in the image by the correct step', function() {
       imageStore.zoomIn()
-      expect(imageStore.scale).toBe(DEFAULT_STEP + STEP)
+      expect(imageStore.scale).toBe(DEFAULT_SCALE + STEP)
     })
 
     it('should not allow zooming past the max step', function() {
@@ -33,7 +33,7 @@ describe('Model > ImageStore', function () {
   describe('Actions > zoomOut', function () {
     it('should out the image by the correct step', function() {
       imageStore.zoomOut()
-      expect(imageStore.scale).toBe(DEFAULT_STEP - STEP)
+      expect(imageStore.scale).toBe(DEFAULT_SCALE - STEP)
     })
 
     it('should not allow zooming out below the min step', function() {
@@ -71,7 +71,7 @@ describe('Model > ImageStore', function () {
       imageStore.zoomIn()
       imageStore.reset()
       expect(imageStore.rotation).toBe(0)
-      expect(imageStore.scale).toBe(DEFAULT_STEP)
+      expect(imageStore.scale).toBe(DEFAULT_SCALE)
     })
   })
 })
