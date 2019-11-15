@@ -1,65 +1,62 @@
 import React from 'react'
-import { Box, DataTable, Text } from 'grommet'
+import { Box } from 'grommet'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faStar } from '@fortawesome/free-solid-svg-icons'
-import withThemeContext from '../../../../helpers/withThemeContext'
-import theme from './theme'
+import { arrayOf, shape } from 'prop-types'
+import TranscriptionTableRow from './TranscriptionTableRow'
 
-const CapitalText = styled('h6')`
+const StyledText = styled('h6')`
   font-weight: normal;
   line-height: 1.25em;
   margin: 0;
-  text-transform: uppercase;
 `
 
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  height: 0.5em;
+const RightAlignText = styled(StyledText)`
+  text-align: end;
 `
 
-function RenderFlags(datum) {
+function TranscriptionTable ({ data }) {
+  const [dataArray, setData] = React.useState(data)
+  const [dragID, setDragID] = React.useState(null)
+
   return (
-    <Box direction='row'>
-      <Box align='center' direction='row' justify='center' width='3em'>
-        {datum.reviewed && <StyledFontAwesomeIcon color='green' icon={faCircle} />}
-        {datum.flagged && <StyledFontAwesomeIcon color='tomato' icon={faCircle} />}
+    <Box>
+      <Box direction='row' border='bottom' pad='xsmall'>
+        <Box basis='4%' />
+        <Box basis='80%'>
+          <StyledText>Aggregated Transcription</StyledText>
+        </Box>
+        <Box basis='6%'>
+          <StyledText>Flag</StyledText>
+        </Box>
+        <Box basis='10%'>
+          <RightAlignText>Consensus Line</RightAlignText>
+        </Box>
       </Box>
-      <Box width='1em'>
-        {datum.goldStandard && <FontAwesomeIcon color='gold' icon={faStar} size='xs' />}
+      <Box pad={{ bottom: 'xsmall' }}>
+        {dataArray.map((datum, i) => {
+          return (
+            <TranscriptionTableRow
+              data={dataArray}
+              datum={datum}
+              dragID={dragID}
+              index={i}
+              key={`TRANSCRIPTION_ROW_${i}`}
+              setData={setData}
+              setDragID={setDragID}
+            />
+          )
+        })}
       </Box>
     </Box>
   )
 }
 
-const columns = [
-  {
-    property: 'transcription',
-    header: <Box justify='center' height='inherit'><CapitalText size='xsmall'>Aggregated Transcription</CapitalText></Box>,
-    render: datum => <Box><Text>{datum.transcription}</Text></Box>
-  },
-  {
-    property: 'flag',
-    header: <Box justify='center' height='inherit'><CapitalText textAlign='center' size='xsmall'>Flag</CapitalText></Box>,
-    align: 'center',
-    render: datum => RenderFlags(datum)
-  },
-  {
-    property: 'score',
-    header: <CapitalText textAlign='center' size='xsmall'>Consensus Score</CapitalText>,
-    align: 'center',
-    render: datum => <Text>{datum.consensus}/{datum.counts}</Text>
-  }
-];
-
-function TranscriptionTable ({ data }) {
-  return (
-    <DataTable
-      columns={columns}
-      data={data}
-      pad={{ header: { left: 'small', top: 'xsmall' }, body: { vertical: '0.25em', left: 'small' } }}
-    />
-  )
+TranscriptionTable.propTypes = {
+  data: arrayOf(shape())
 }
 
+TranscriptionTable.defaultProps = {
+  data: []
+}
 
-export default withThemeContext(TranscriptionTable, theme)
+export default TranscriptionTable

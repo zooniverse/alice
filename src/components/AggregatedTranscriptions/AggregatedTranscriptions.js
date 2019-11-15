@@ -11,7 +11,7 @@ const OverflowBox = styled(Box)`
   overflow: auto;
   &::-webkit-scrollbar-thumb {
     background-color: #BABABA;
-    border: 10px solid transparent;
+    border: 5px solid transparent;
     border-radius: 1em;
     background-clip: content-box;
   }
@@ -20,7 +20,7 @@ const OverflowBox = styled(Box)`
   }
   &::-webkit-scrollbar {
     background: white;
-    width: 1.5em;
+    width: 0.9em;
   }
 `
 
@@ -36,7 +36,7 @@ function AggregatedTranscriptions (props) {
         <Text>Transcribed Text</Text>
         <CapitalText>Add Line</CapitalText>
       </Box>
-      <OverflowBox margin={{ right: '0.25em' }}>
+      <OverflowBox>
         <TranscriptionTable />
       </OverflowBox>
     </Box>
