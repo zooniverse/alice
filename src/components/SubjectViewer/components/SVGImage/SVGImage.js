@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import AppContext from 'store'
 import AnnotationsPane from '../AnnotationsPane'
 import InteractionLayer from '../InteractionLayer'
+import AsyncMessages from '../AsyncMessages'
 
 const SVG = styled.svg`
   height: 100%;
@@ -15,14 +15,12 @@ const G = styled.g`
   }
 `
 
-const SVGImage = function SVGImage ({ disabled, height, url, transform, width}) {
+function SVGImage ({ disabled, error, height, url, subjectState, transform, width}) {
   const svgEl = React.useRef(null)
   const boundingBox = svgEl.current && svgEl.current.getBoundingClientRect()
   const viewerWidth = (boundingBox && boundingBox.width) || 0
   const viewerHeight = (boundingBox && boundingBox.height) || 0
   const viewBox = `${-viewerWidth/2 || 0} ${-viewerHeight/2 || 0} ${viewerWidth || 0} ${viewerHeight || 0}`
-  const adjustedHeight = height * -0.5
-  const adjustedWidth = width * -0.5
 
   return (
     <SVG ref={svgEl} viewBox={viewBox}>
@@ -31,12 +29,13 @@ const SVGImage = function SVGImage ({ disabled, height, url, transform, width}) 
           height={height}
           width={width}
           xlinkHref={url}
-          x={adjustedWidth + 'px'}
-          y={adjustedHeight + 'px'}
+          x={width * -0.5}
+          y={height * -0.5}
         />
-        <AnnotationsPane x={adjustedWidth} y={adjustedHeight} />
+        <AnnotationsPane x={width * -0.5} y={height * -0.5} />
         <InteractionLayer boundingBox={boundingBox} width={width} height={height} />
       </G>
+      <AsyncMessages error={error} subjectState={subjectState} />
     </SVG>
   )
 }

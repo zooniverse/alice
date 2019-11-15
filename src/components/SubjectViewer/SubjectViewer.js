@@ -1,36 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
-import { bool, number, string } from 'prop-types'
-import ASYNC_STATES from 'helpers/asyncStates'
+import { number, string } from 'prop-types'
 import { observer } from 'mobx-react'
-import InteractionLayer from './components/InteractionLayer'
-import AnnotationsPane from './components/AnnotationsPane'
 import SVGImage from './components/SVGImage'
-
-const SVG = styled.svg`
-  height: 100%;
-  width: 100%;
-`
-
-const G = styled.g`
-  transform-origin: 50% 50%;
-  :hover {
-    cursor: ${props => props.disabled ? 'default' : 'move'};
-  }
-`
 
 function SubjectViewer ({ error, rotation, scale, src, subjectState, translateX, translateY }) {
   const transform = `scale(${scale}) translate(${translateX}, ${translateY}) rotate(${rotation})`
-  const disableInteraction = subjectState !== ASYNC_STATES.READY
-  const svgEl = React.useRef(null)
 
-  if (src.length === 0) return null;
-
-  return <SVGImage ref={svgEl} src={src} disableInteraction={disableInteraction} transform={transform} />
+  return <SVGImage src={src} transform={transform} />
 }
 
 SubjectViewer.propTypes = {
-  disabled: bool,
   error: string,
   rotation: number,
   scale: number,
@@ -40,7 +19,6 @@ SubjectViewer.propTypes = {
 }
 
 SubjectViewer.defaultProps = {
-  disabled: false,
   error: '',
   rotation: 0,
   scale: 0,

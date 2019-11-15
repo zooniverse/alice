@@ -1,11 +1,9 @@
 import React from 'react'
 import { Box } from 'grommet'
 import styled from 'styled-components'
-import AppContext from 'store'
-import { observer } from 'mobx-react'
-import SubjectViewer from './SubjectViewer'
 import SubjectViewerHeader from './components/SubjectViewerHeader'
 import ImageTools from './components/ImageTools'
+import SVGImage from './components/SVGImage'
 
 const RelativeBox = styled(Box)`
   position: relative;
@@ -15,21 +13,13 @@ const AbsoluteBox = styled(Box)`
   position: absolute;
 `
 
-function findCurrentSrc(locations, index) {
-  if (!locations || locations.length === 0) return '';
-  const location = locations[index]
-  return Object.values(location)[0]
-}
-
 function SubjectViewerContainer() {
-  const store = React.useContext(AppContext)
   const [showTools, setTools] = React.useState(false)
   const onMouseOver = e => {
     if (store.aggregations.showModal) return null;
     setTools(true)
   }
   const onMouseLeave = e => setTools(false)
-  const src = findCurrentSrc(store.subjects.current.locations, store.subjects.index)
 
   return (
     <Box
@@ -44,19 +34,10 @@ function SubjectViewerContainer() {
         <AbsoluteBox margin='small'>
           {showTools && <ImageTools />}
         </AbsoluteBox>
-        <SubjectViewer
-          disabled={store.aggregations.showModal}
-          error={store.subjects.error}
-          rotation={store.image.rotation}
-          scale={store.image.scale}
-          src={src}
-          subjectState={store.subjects.asyncState}
-          translateX={store.image.translateX}
-          translateY={store.image.translateY}
-        />
+        <SVGImage />
       </RelativeBox>
     </Box>
   )
 }
 
-export default observer(SubjectViewerContainer)
+export default SubjectViewerContainer

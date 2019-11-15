@@ -44,28 +44,6 @@ const SubjectStore = types.model('SubjectStore', {
     }
   }),
 
-  fetchTranscriptionsForSubject: flow (function * fetchTranscriptionsForSubject(id) {
-    const client = getRoot(self).client.tove
-    try {
-      const response = yield client.get(`/transcriptions?filter[subject_id_eq]=${id}`)
-      const resources = JSON.parse(response.body)
-      self.transcriptions = resources.data.map((transcription) => {
-        return Transcription.create({
-          id: transcription.id,
-          flagged: transcription.attributes.flagged,
-          group_id: transcription.attributes.group_id,
-          status: transcription.attributes.status,
-          subject_id: transcription.attributes.subject_id,
-          text: transcription.attributes.text
-        })
-      })
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
-  }),
-
   selectSubject: function(subject) {
     if (!subject) subject = Subject.create()
     self.current = subject
