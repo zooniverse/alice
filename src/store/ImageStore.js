@@ -3,8 +3,8 @@ import { types } from 'mobx-state-tree'
 const ROTATION_STEP = 90;
 const DEFAULT_SCALE = 1
 const STEP = 0.1;
-const MAX_STEP = 2;
-const MIN_STEP = 0.1;
+const MAX_STEP = 1.5;
+const MIN_STEP = 0.2;
 
 const ImageStore = types.model('ImageStore', {
   imageScale: types.optional(types.number, DEFAULT_SCALE),

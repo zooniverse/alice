@@ -3,7 +3,7 @@ import { Box } from 'grommet'
 import styled from 'styled-components'
 import SubjectViewerHeader from './components/SubjectViewerHeader'
 import ImageTools from './components/ImageTools'
-import SVGImage from './components/SVGImage'
+import SVGView from './components/SVGView'
 
 const RelativeBox = styled(Box)`
   position: relative;
@@ -34,7 +34,7 @@ function SubjectViewerContainer() {
         <AbsoluteBox margin='small'>
           {showTools && <ImageTools />}
         </AbsoluteBox>
-        <SVGImage />
+        <SVGView />
       </RelativeBox>
     </Box>
   )

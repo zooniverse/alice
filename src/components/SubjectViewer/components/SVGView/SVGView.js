@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { bool, string, number } from 'prop-types'
+import ASYNC_STATES from 'helpers/asyncStates'
 import AnnotationsPane from '../AnnotationsPane'
 import InteractionLayer from '../InteractionLayer'
 import AsyncMessages from '../AsyncMessages'
@@ -15,12 +17,12 @@ const G = styled.g`
   }
 `
 
-function SVGImage ({ disabled, error, height, url, subjectState, transform, width}) {
+function SVGView ({ disabled, error, height, url, subjectState, transform, width}) {
   const svgEl = React.useRef(null)
   const boundingBox = svgEl.current && svgEl.current.getBoundingClientRect()
   const viewerWidth = (boundingBox && boundingBox.width) || 0
   const viewerHeight = (boundingBox && boundingBox.height) || 0
-  const viewBox = `${-viewerWidth/2 || 0} ${-viewerHeight/2 || 0} ${viewerWidth || 0} ${viewerHeight || 0}`
+  const viewBox = `${-viewerWidth/2} ${-viewerHeight/2} ${viewerWidth || 0} ${viewerHeight || 0}`
 
   return (
     <SVG ref={svgEl} viewBox={viewBox}>
@@ -40,4 +42,24 @@ function SVGImage ({ disabled, error, height, url, subjectState, transform, widt
   )
 }
 
-export default SVGImage
+SVGView.propTypes = {
+  disabled: bool,
+  error: string,
+  height: number,
+  subjectState: string,
+  transform: string,
+  url: string,
+  width: number
+}
+
+SVGView.defaultProps = {
+  disabled: true,
+  error: '',
+  height: 0,
+  subjectState: ASYNC_STATES.IDLE,
+  transform: '',
+  url: '',
+  width: number
+}
+
+export default SVGView

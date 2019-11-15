@@ -3,7 +3,7 @@ import AppContext from 'store'
 import { Box } from 'grommet'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { observer } from 'mobx-react'
-import SVGImage from './SVGImage'
+import SVGView from './SVGView'
 
 function findCurrentSrc(locations, index) {
   if (!locations || locations.length === 0) return '';
@@ -11,7 +11,7 @@ function findCurrentSrc(locations, index) {
   return Object.values(location)[0]
 }
 
-function SVGImageContainer () {
+function SVGViewContainer () {
   const store = React.useContext(AppContext)
   const disableInteraction = store.subject.asyncState !== ASYNC_STATES.READY
   const svgEl = React.useRef(null)
@@ -59,7 +59,7 @@ function SVGImageContainer () {
 
   return (
     <Box ref={svgEl} fill>
-      <SVGImage
+      <SVGView
         disabled={disableInteraction}
         error={store.subject.error}
         height={naturalHeight}
@@ -72,4 +72,4 @@ function SVGImageContainer () {
   )
 }
 
-export default observer(SVGImageContainer)
+export default observer(SVGViewContainer)
