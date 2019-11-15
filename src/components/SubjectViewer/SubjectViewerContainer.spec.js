@@ -2,7 +2,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { Box } from 'grommet'
 import SubjectViewerContainer from './SubjectViewerContainer'
-import SubjectViewer from './SubjectViewer'
+import SVGView from './components/SVGView'
 import ImageTools from './components/ImageTools'
 
 let wrapper
@@ -34,7 +34,7 @@ describe('Component > SubjectViewerContainer', function () {
   })
 
   it('should return an empty string without locations', function() {
-    const viewer = wrapper.find(SubjectViewer).first()
+    const viewer = wrapper.find(SVGView).first()
     expect(viewer.props().src).toBe('')
   })
 
@@ -59,7 +59,7 @@ describe('Component > SubjectViewerContainer', function () {
     })
 
     it('should return a src url when one exists', function() {
-      const viewer = wrapper.find(SubjectViewer).first()
+      const viewer = wrapper.find(SVGView).first()
       expect(viewer.props().src).toBe('www.fakelocation.com')
     })
   })

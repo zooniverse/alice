@@ -1,6 +1,7 @@
 import { subjects } from '@zooniverse/panoptes-js'
 import ASYNC_STATES from 'helpers/asyncStates'
-import { Subject, SubjectStore } from './SubjectStore'
+import { AppStore } from './AppStore'
+import { Subject } from './SubjectStore'
 
 let subjectStore
 
@@ -25,7 +26,8 @@ describe('SubjectStore', function () {
     jest
       .spyOn(subjects, 'get')
       .mockImplementation(() => Promise.resolve(response))
-    subjectStore = SubjectStore.create()
+    const rootStore = AppStore.create({})
+    subjectStore = rootStore.subject
   })
 
   it('should exist', function () {
@@ -51,7 +53,8 @@ describe('SubjectStore error', function () {
     jest
       .spyOn(subjects, 'get')
       .mockImplementation(() => Promise.reject(error))
-    subjectStore = SubjectStore.create()
+    const rootStore = AppStore.create({})
+    subjectStore = rootStore.subject
   })
 
   it('should set the error state', async function () {
@@ -78,7 +81,8 @@ describe('SubjectStore empty return when fetching subjects', function () {
     jest
       .spyOn(subjects, 'get')
       .mockImplementation(() => Promise.resolve(emptyResponse))
-    subjectStore = SubjectStore.create()
+    const rootStore = AppStore.create({})
+    subjectStore = rootStore.subject
     await subjectStore.fetchSubject('1')
     expect(subjectStore.current).toEqual(Subject.create())
     expect(subjectStore.asyncState).toEqual(ASYNC_STATES.READY)

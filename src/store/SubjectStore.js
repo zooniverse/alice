@@ -21,7 +21,8 @@ const SubjectStore = types.model('SubjectStore', {
     self.index = index
   },
 
-  fetchSubject: flow (function * fetchSubject (id = TEMPORARY_SUBJECT_ID) {
+  fetchSubject: flow (function * fetchSubject (id) {
+    id = TEMPORARY_SUBJECT_ID
     self.asyncState = ASYNC_STATES.LOADING
     try {
       yield getRoot(self).transcriptions.fetchTranscriptionsForSubject(id)
