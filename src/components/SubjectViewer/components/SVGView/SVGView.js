@@ -62,4 +62,5 @@ SVGView.defaultProps = {
   width: number
 }
 
+export { G }
 export default SVGView
