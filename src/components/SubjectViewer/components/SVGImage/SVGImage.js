@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import AppContext from 'store'
 import AnnotationsPane from '../AnnotationsPane'
 import InteractionLayer from '../InteractionLayer'
 
@@ -14,23 +15,30 @@ const G = styled.g`
   }
 `
 
-const SVGImage = React.forwardRef(function SVGImage ({ disabled, height, url, transform, width}, ref) {
-  const boundingBox = ref.current && ref.current.getBoundingClientRect()
-  const viewBox = `0 0 ${width || 0} ${height || 0}`
+const SVGImage = function SVGImage ({ disabled, height, url, transform, width}) {
+  const svgEl = React.useRef(null)
+  const boundingBox = svgEl.current && svgEl.current.getBoundingClientRect()
+  const viewerWidth = (boundingBox && boundingBox.width) || 0
+  const viewerHeight = (boundingBox && boundingBox.height) || 0
+  const viewBox = `${-viewerWidth/2 || 0} ${-viewerHeight/2 || 0} ${viewerWidth || 0} ${viewerHeight || 0}`
+  const adjustedHeight = height * -0.5
+  const adjustedWidth = width * -0.5
 
   return (
-    <SVG ref={ref} viewBox={viewBox}>
+    <SVG ref={svgEl} viewBox={viewBox}>
       <G disabled={disabled} transform={transform}>
         <image
-          height='100%'
-          width='100%'
+          height={height}
+          width={width}
           xlinkHref={url}
+          x={adjustedWidth + 'px'}
+          y={adjustedHeight + 'px'}
         />
-        <AnnotationsPane />
-        <InteractionLayer boundingBox={boundingBox} />
+        <AnnotationsPane x={adjustedWidth} y={adjustedHeight} />
+        <InteractionLayer boundingBox={boundingBox} width={width} height={height} />
       </G>
     </SVG>
   )
-})
+}
 
 export default SVGImage

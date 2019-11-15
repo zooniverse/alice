@@ -4,7 +4,7 @@ import AppContext from 'store'
 import AnnotationsPane from './AnnotationsPane'
 import { constructCoordinates } from 'helpers/parseTranscriptionData'
 
-function AnnotationsPaneContainer() {
+function AnnotationsPaneContainer({ x, y }) {
   let parsedLines = []
   const store = React.useContext(AppContext)
   const index = store.subject.index
@@ -14,7 +14,7 @@ function AnnotationsPaneContainer() {
     parsedLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
   }
 
-  return <AnnotationsPane lines={parsedLines} />
+  return <AnnotationsPane x={x} y={y} lines={parsedLines} />
 }
 
 export default observer(AnnotationsPaneContainer)

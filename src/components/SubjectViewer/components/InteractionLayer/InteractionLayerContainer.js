@@ -2,7 +2,7 @@ import React from 'react'
 import AppContext from 'store'
 import InteractionLayer from './InteractionLayer'
 
-export default function InteractionLayerContainer({ boundingBox, disabled }) {
+export default function InteractionLayerContainer({ boundingBox, disabled, height, width }) {
   const store = React.useContext(AppContext)
   const [isMoving, setMove] = React.useState(false)
   const [currentPosition, setCurrentPosition] = React.useState({ x:0, y:0 })
@@ -32,6 +32,8 @@ export default function InteractionLayerContainer({ boundingBox, disabled }) {
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
+      height={height}
+      width={width}
     />
   )
 }

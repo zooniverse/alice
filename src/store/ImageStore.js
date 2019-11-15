@@ -21,6 +21,16 @@ const ImageStore = types.model('ImageStore', {
   rotate() {
     self.rotation = self.rotation === 360 ? 0 : self.rotation + ROTATION_STEP
   },
+  setScale({ clientHeight, clientWidth, naturalHeight, naturalWidth }) {
+    let bestFit = 1;
+    if (clientHeight && clientWidth && naturalHeight && naturalWidth) {
+      bestFit = Math.min(
+        clientWidth / naturalWidth,
+        clientHeight / naturalHeight
+      )
+    }
+    self.scale = bestFit
+  },
   setTranslate(pos) {
     self.translateX += pos.x
     self.translateY += pos.y

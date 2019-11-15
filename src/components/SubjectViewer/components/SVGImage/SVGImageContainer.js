@@ -1,8 +1,10 @@
 import React from 'react'
+import AppContext from 'store'
+import { Box } from 'grommet'
 import SVGImage from './SVGImage'
 
-function SVGImageContainer({ disableInteraction, src, transform }) {
-  const imageViewer = React.useRef(null)
+const SVGImageContainer = React.forwardRef(function SVGImageContainer({ disableInteraction, src, transform }, ref) {
+  const store = React.useContext(AppContext)
   const [img, setImg] = React.useState(new Image())
 
   React.useEffect(() => {
@@ -16,14 +18,14 @@ function SVGImageContainer({ disableInteraction, src, transform }) {
     }
 
     async function preLoad() {
-      const imgage = await fetchImage()
-      setImg(imgage)
-      return imgage
+      const image = await fetchImage()
+      setImg(image)
+      return image
     }
 
     async function getImageSize() {
       const image = await preLoad()
-      const svg = imageViewer.current || {}
+      const svg = ref.current || {}
       return {
         clientHeight: svg.clientHeight,
         clientWidth: svg.clientWidth,
@@ -33,8 +35,8 @@ function SVGImageContainer({ disableInteraction, src, transform }) {
     }
 
     async function onLoad() {
-      const { clientHeight, clientWidth, naturalHeight, naturalWidth } = await getImageSize()
-      console.log(clientHeight, clientWidth, naturalHeight, naturalWidth);
+      const target = await getImageSize()
+      store.image.setScale(target)
     };
     onLoad();
   }, [])
@@ -42,15 +44,16 @@ function SVGImageContainer({ disableInteraction, src, transform }) {
   const { naturalHeight, naturalWidth } = img
 
   return (
-    <SVGImage
-      disabled={disableInteraction}
-      ref={imageViewer}
-      height={naturalHeight}
-      width={naturalWidth}
-      transform={transform}
-      url={src}
-    />
+    <Box ref={ref} fill>
+      <SVGImage
+        disabled={disableInteraction}
+        height={naturalHeight}
+        width={naturalWidth}
+        transform={transform}
+        url={src}
+      />
+    </Box>
   )
-}
+})
 
 export default SVGImageContainer

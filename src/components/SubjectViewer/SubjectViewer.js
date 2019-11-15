@@ -22,10 +22,11 @@ const G = styled.g`
 function SubjectViewer ({ error, rotation, scale, src, subjectState, translateX, translateY }) {
   const transform = `scale(${scale}) translate(${translateX}, ${translateY}) rotate(${rotation})`
   const disableInteraction = subjectState !== ASYNC_STATES.READY
+  const svgEl = React.useRef(null)
 
   if (src.length === 0) return null;
 
-  return <SVGImage src={src} disableInteraction={disableInteraction} transform={transform} />
+  return <SVGImage ref={svgEl} src={src} disableInteraction={disableInteraction} transform={transform} />
 }
 
 SubjectViewer.propTypes = {

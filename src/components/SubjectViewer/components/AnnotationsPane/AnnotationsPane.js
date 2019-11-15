@@ -1,7 +1,9 @@
 import React from 'react'
 import { array, string } from 'prop-types'
 
-function AnnotationsPane({ lines, offset }) {
+function AnnotationsPane({ lines, x, y }) {
+  const offset = `translate(${x}, ${y})`
+
   return (
     <g transform={offset}>
       {lines.map((line, i) => {
