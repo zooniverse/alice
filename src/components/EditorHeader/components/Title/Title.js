@@ -42,16 +42,20 @@ function Title({ history, match, onEditor }) {
     titles = [{ title: group, path: SUBJECTS_PATH, to: 'Subjects Index Page' }]
     header = { title: subject }
   }
-  const subjectCount = header === group ?
+  const subjectCount = header.title === group ?
     `(${store.transcriptions.approvedCount}/${store.transcriptions.all.length} approved)` : ''
 
   return (
     <Box align='baseline' direction='row' gap='0.25em'>
       {titles.reverse().map((sub, i) =>
         sub.title.length > 0 && (
-          <Button key={`SUB_HEADER_${i}`} a11yTitle={sub.to} onClick={() => routeTo(sub.path)} plain>
-            <CapitalText key={`SUB_HEADER_${i}`}>{`${sub.title} /`}</CapitalText>
-          </Button>
+          <Button
+            key={`SUB_HEADER_${i}`}
+            a11yTitle={sub.to}
+            label={<CapitalText key={`SUB_HEADER_${i}`}>{`${sub.title} /`}</CapitalText>}
+            onClick={() => routeTo(sub.path)}
+            plain
+          />
         ))}
       <Heading>{header.title}</Heading>
       {subjectCount.length > 0 && <CapitalText>{subjectCount}</CapitalText>}
@@ -67,5 +71,5 @@ Title.defaultProps = {
   onEditer: false
 }
 
-export { CapitalText }
+export { CapitalText, Title }
 export default withRouter(observer(Title))

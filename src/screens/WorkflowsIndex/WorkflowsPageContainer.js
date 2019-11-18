@@ -12,6 +12,7 @@ function WorkflowsPageContainer({ history, match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
+    store.groups.selectGroup(null)
     store.workflows.selectWorkflow(null)
   }, [store])
 

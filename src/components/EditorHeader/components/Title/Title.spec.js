@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Heading } from 'grommet'
-import Title, { CapitalText } from './Title'
+import { Button, Heading } from 'grommet'
+import { CapitalText, Title } from './Title'
 
 let wrapper
 const editContext = {
@@ -42,7 +42,7 @@ describe('Component > UndoButton', function () {
     })
 
     it('Should display only the group subheader', function () {
-      expect(wrapper.find(CapitalText).length).toBe(1)
+      expect(wrapper.find(Button).length).toBe(1)
       expect(wrapper.find(Heading).props().children).toBe(editContext.subjects.title)
     })
   })
@@ -57,9 +57,9 @@ describe('Component > UndoButton', function () {
       wrapper = shallow(<Title />);
     })
 
-    it('should display three capital text components', function () {
+    it('should display two subheader buttons', function () {
       const approvedCount = wrapper.find(CapitalText).last().props()
-      expect(wrapper.find(CapitalText).length).toBe(3)
+      expect(wrapper.find(Button).length).toBe(2)
       expect(approvedCount.children).toBe('(0/0 approved)')
     })
   })
