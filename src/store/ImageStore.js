@@ -22,7 +22,8 @@ const ImageStore = types.model('ImageStore', {
   rotate() {
     self.rotation = self.rotation === 360 ? 0 : self.rotation + ROTATION_STEP
   },
-  setScale({ clientHeight, clientWidth, naturalHeight, naturalWidth }) {
+  setScale(args) {
+    const { clientHeight, clientWidth, naturalHeight, naturalWidth } = args || {}
     let bestFit = 1;
     if (clientHeight && clientWidth && naturalHeight && naturalWidth) {
       bestFit = Math.min(

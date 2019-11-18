@@ -8,6 +8,13 @@ import {
 
 let imageStore;
 
+const scaleValues = {
+  clientHeight: 200,
+  clientWidth: 100,
+  naturalHeight: 400,
+  naturalWidth: 200,
+}
+
 describe('Model > ImageStore', function () {
   beforeEach(function() {
     imageStore = ImageStore.create()
@@ -72,6 +79,21 @@ describe('Model > ImageStore', function () {
       imageStore.reset()
       expect(imageStore.rotation).toBe(0)
       expect(imageStore.scale).toBe(DEFAULT_SCALE)
+    })
+  })
+
+  describe('Actions > setScale', function () {
+    it('should correctly set the scale', function() {
+      imageStore.setScale(scaleValues)
+      expect(imageStore.imageScale).toBe(0.5)
+      expect(imageStore.scale).toBe(0.5)
+    })
+
+    it('should set the scale to best fit when given empty values', function() {
+      imageStore.setScale(scaleValues)
+      imageStore.setScale()
+      expect(imageStore.imageScale).toBe(1)
+      expect(imageStore.scale).toBe(1)
     })
   })
 })
