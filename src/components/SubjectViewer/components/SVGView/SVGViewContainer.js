@@ -13,10 +13,10 @@ function findCurrentSrc(locations, index) {
 
 function SVGViewContainer () {
   const store = React.useContext(AppContext)
-  const disableInteraction = store.subject.asyncState !== ASYNC_STATES.READY
+  const disableInteraction = store.subjects.asyncState !== ASYNC_STATES.READY
   const svgEl = React.useRef(null)
   const [img, setImg] = React.useState(new Image())
-  const src = findCurrentSrc(store.subject.current.locations, store.subject.index)
+  const src = findCurrentSrc(store.subjects.current.locations, store.subjects.index)
 
   React.useEffect(() => {
     async function fetchImage() {
@@ -59,9 +59,9 @@ function SVGViewContainer () {
     <Box ref={svgEl} fill>
       <SVGView
         disabled={disableInteraction}
-        error={store.subject.error}
+        error={store.subjects.error}
         height={naturalHeight}
-        subjectState={store.subject.asyncState}
+        subjectState={store.subjects.asyncState}
         transform={transform}
         url={src}
         width={naturalWidth}

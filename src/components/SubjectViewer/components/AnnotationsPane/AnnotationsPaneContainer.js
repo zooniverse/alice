@@ -7,7 +7,7 @@ import { constructCoordinates } from 'helpers/parseTranscriptionData'
 function AnnotationsPaneContainer({ x, y }) {
   let parsedLines = []
   const store = React.useContext(AppContext)
-  const index = store.subject.index
+  const index = store.subjects.index
   const transcription = store.transcriptions.current
   const transcriptionFrame = transcription && transcription.text && transcription.text[`frame${index}`]
   if (transcriptionFrame) {
