@@ -6,7 +6,6 @@ import { generatePath, matchPath, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { bool } from 'prop-types'
 import {
-  PROJECTS_PATH,
   SUBJECTS_PATH,
   SUBJECT_SETS_PATH,
   WORKFLOWS_PATH
@@ -19,10 +18,7 @@ const CapitalText = styled(Text)`
 function Title({ history, match, onEditor }) {
   const routeTo = (path) => {
     const matchProfile = matchPath(history.location.pathname, { path });
-    console.log(path);
-    console.log(matchProfile.params);
     const nextPath = generatePath(path, matchProfile.params)
-    console.log(nextPath);
     history.push(nextPath)
   }
 
@@ -43,7 +39,7 @@ function Title({ history, match, onEditor }) {
   titles.splice(headerIndex, 1)
 
   if (onEditor) {
-    titles = [{ title: group, path: SUBJECT_SETS_PATH, to: 'Subjects Index Page' }]
+    titles = [{ title: group, path: SUBJECTS_PATH, to: 'Subjects Index Page' }]
     header = { title: subject }
   }
   const subjectCount = header === group ?
