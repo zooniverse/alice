@@ -5,13 +5,14 @@ import TranscriptionFactory from './factories/transcription'
 
 let transcriptionsStore
 let rootStore
+let simpleTranscription = TranscriptionFactory.build({ status: 'approved' })
 
 let toveStub = {
   get: () => Promise.resolve(
     {
       body: JSON.stringify(
         {
-          data: [TranscriptionFactory.build({ status: 'approved' }), TranscriptionFactory.build()]
+          data: [simpleTranscription, TranscriptionFactory.build()]
         })
     }
   )
@@ -50,6 +51,12 @@ describe('TranscriptionsStore', function () {
         all: [TranscriptionFactory.build({ status: 'approved' }), TranscriptionFactory.build()]
       })
       expect(transcriptionsStore.approvedCount).toBe(1)
+    })
+
+    it('should fetch transcriptions for a subject', async function () {
+      await transcriptionsStore.fetchTranscriptionsForSubject(1)
+      const transcription = transcriptionsStore.createTranscription(simpleTranscription)
+      expect(transcriptionsStore.current).toEqual(transcription)
     })
   })
 
