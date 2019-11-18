@@ -44,6 +44,7 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
         <Box align='center' direction='row' justify='between'>
           <Text size='large'>Search or Filter</Text>
           <Button
+            a11yTitle="Close Subject Search Modal"
             icon={<FontAwesomeIcon icon={faTimesCircle} />}
             plain
             onClick={onClose}
@@ -158,8 +159,20 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                 </Box>
               </Box>
               <Box direction='row' justify='between' margin={{ top: 'small' }}>
-                <Button onClick={onClose} plain><CapitalText>Close</CapitalText></Button>
-                <Button plain type='submit'><CapitalText>Search</CapitalText></Button>
+                <Button
+                  a11yTitle="Close Subject Search Modal"
+                  onClick={onClose}
+                  plain
+                >
+                  <CapitalText>Close</CapitalText>
+                </Button>
+                <Button
+                  a11yTitle="Submit Subject Search Query"
+                  plain
+                  type='submit'
+                >
+                  <CapitalText>Search</CapitalText>
+                </Button>
               </Box>
             </Box>
           )}}

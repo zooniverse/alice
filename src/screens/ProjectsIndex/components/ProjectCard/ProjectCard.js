@@ -30,7 +30,7 @@ function ProjectCard({ history, project }) {
           <CapitalText textAlign='center' weight='bold'>
             {project.display_name}
           </CapitalText>
-          <CapitalText color='light-5' textAlign='center'>{project.role}</CapitalText>
+          <CapitalText color='#57585B' textAlign='center'>{project.role}</CapitalText>
         </Box>
       </Button>
     </Box>

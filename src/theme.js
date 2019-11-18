@@ -15,7 +15,7 @@ const theme = {
     },
   },
   anchor: {
-    color: '#005FFF',
+    color: '#0043B8',
     textDecoration: 'underline'
   },
   checkBox: {
@@ -59,6 +59,9 @@ const theme = {
   layer: {
     border: {
       radius: '10px'
+    },
+    overlay: {
+      background: 'rgba(225, 225, 225, 0.75)'
     }
   },
   table: {

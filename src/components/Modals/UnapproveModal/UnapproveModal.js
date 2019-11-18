@@ -22,6 +22,7 @@ export default function UnapproveModal({ onClose }) {
       <Box direction='row' justify='between'>
         <Text size='large'>Unapprove subject data</Text>
         <Button
+          a11yTitle="Close Unapprove Subject Modal"
           label={<FontAwesomeIcon icon={faTimesCircle} size='xs' />}
           onClick={onClose}
           plain
@@ -33,8 +34,18 @@ export default function UnapproveModal({ onClose }) {
       </StyledText>
       <StyledText>This action can be reversed at any time.</StyledText>
       <Box direction='row' justify='between' margin={{ top: 'small' }}>
-        <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} onClick={onClose} plain />
-        <Button label={<Text size='small'>YES, UNAPPROVE</Text>} onClick={onClose} plain />
+        <Button
+          a11yTitle="Close Unapprove Subject Modal"
+          label={<Text size='small'>CLOSE AND CANCEL</Text>}
+          onClick={onClose}
+          plain
+        />
+        <Button
+          a11yTitle="Confirm to Unapprove Subject"
+          label={<Text size='small'>YES, UNAPPROVE</Text>}
+          onClick={onClose}
+          plain
+        />
       </Box>
     </Box>
   )

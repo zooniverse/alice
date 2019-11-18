@@ -20,7 +20,7 @@ const CapitalText = styled(Text)`
 function Badge ({ name, role, signOut, src }) {
   return (
     <Box align='center' direction='row'>
-      <StyledAvatar fallback={DefaultAvatar} src={src} />
+      <StyledAvatar alt={`${name} Avatar`} fallback={DefaultAvatar} src={src} />
       <Box flex='grow'>
         <Text>{name}</Text>
         <CapitalText color='dark-5' size='xsmall'>{role}</CapitalText>

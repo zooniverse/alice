@@ -23,6 +23,7 @@ export default function SubjectLockedModal({ onBack }) {
       </StyledText>
       <StyledText>For access, ask them to close their version.</StyledText>
       <Button
+        a11yTitle="Return to Subject Set Index Page"
         label={<Text size='small'>BACK TO SUBJECT SET INDEX</Text>}
         onClick={onBack}
         plain

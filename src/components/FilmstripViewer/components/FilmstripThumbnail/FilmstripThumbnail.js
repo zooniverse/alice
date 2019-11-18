@@ -10,7 +10,7 @@ export default function FilmstripThumbnail ({ index, isActive, rotationDegrees, 
           {isActive && (
             <ThumbnailBorder rotationDegrees={rotationDegrees} />
           )}
-          <Image fit='cover' src={src} />
+          <Image alt={`Subject Page ${index + 1}`} fit='cover' src={src} />
         </Box>
       </Button>
   )
