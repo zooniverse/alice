@@ -53,7 +53,6 @@ function SVGViewContainer () {
 
   const { naturalHeight, naturalWidth } = img
   const transform = `scale(${store.image.scale}) translate(${store.image.translateX}, ${store.image.translateY}) rotate(${store.image.rotation})`
-  console.log('render svg container');
   if (src.length === 0) return null;
 
   return (
