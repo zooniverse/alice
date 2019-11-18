@@ -23,6 +23,15 @@ const editContext = {
   }
 }
 
+const pushSpy = jest.fn()
+
+const history = {
+  location: {
+    pathname: '/projects/123/workflows/123/subject-sets/4/subjects'
+  },
+  push: pushSpy
+}
+
 
 describe('Component > UndoButton', function () {
   beforeEach(function() {
@@ -47,20 +56,26 @@ describe('Component > UndoButton', function () {
     })
   })
 
-  describe('when on groups page', function () {
+  describe('when on subject page', function () {
     beforeEach(function() {
       let groupContext = Object.assign({}, editContext)
       groupContext.subjects.title = ''
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => groupContext )
-      wrapper = shallow(<Title />);
+      wrapper = shallow(<Title history={history} />);
     })
 
     it('should display two subheader buttons', function () {
       const approvedCount = wrapper.find(CapitalText).last().props()
       expect(wrapper.find(Button).length).toBe(2)
       expect(approvedCount.children).toBe('(0/0 approved)')
+    })
+
+    it('should route to the correct subheader location', function () {
+      const projectSub = wrapper.find(Button).first()
+      projectSub.props().onClick()
+      expect(pushSpy).toHaveBeenCalledWith('/projects/123/workflows')
     })
   })
 })
