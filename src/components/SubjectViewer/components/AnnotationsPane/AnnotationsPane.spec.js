@@ -19,6 +19,8 @@ describe('Component > AnnotationsPane', function () {
 
   it('should render the correct lines', function () {
     const circles = wrapper.find('circle')
+    const lines = wrapper.find('line')
     expect(circles.length).toBe(4)
+    expect(lines.length).toBe(2)
   })
 })
