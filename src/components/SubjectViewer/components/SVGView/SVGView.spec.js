@@ -11,7 +11,7 @@ const rect = {
 
 const refValue = {
   current: {
-    getBoundingClientRect: () => rect
+    getBoundingClientRect: () => { return rect }
   }
 }
 

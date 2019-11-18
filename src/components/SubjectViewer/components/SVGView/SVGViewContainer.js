@@ -21,10 +21,9 @@ function SVGViewContainer () {
   React.useEffect(() => {
     async function fetchImage() {
       return new Promise((resolve, reject) => {
-        const image = new Image()
-        image.onload = () => resolve(image)
-        image.src = src
-        return image
+        img.onload = () => resolve(img)
+        img.src = src
+        return img
       })
     }
 
@@ -50,11 +49,11 @@ function SVGViewContainer () {
       store.image.setScale(target)
     };
     onLoad();
-  }, [src, store.image])
+  }, [img, src, store.image])
 
   const { naturalHeight, naturalWidth } = img
   const transform = `scale(${store.image.scale}) translate(${store.image.translateX}, ${store.image.translateY}) rotate(${store.image.rotation})`
-
+  console.log('render svg container');
   if (src.length === 0) return null;
 
   return (
