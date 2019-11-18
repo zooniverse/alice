@@ -10,10 +10,6 @@ const EditorStore = types.model('EditorStore', {
 }).actions(self => ({
   toggleLayout() {
     self.layout = (self.layout === LAYOUT.ROW) ? LAYOUT.COLUMN : LAYOUT.ROW
-  },
-
-  updateViewerSize(width, height) {
-    console.log(width, height);
   }
 }))
 
