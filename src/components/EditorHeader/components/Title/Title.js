@@ -1,29 +1,50 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { Box, Heading, Text } from 'grommet'
+import { Box, Button, Heading, Text } from 'grommet'
 import AppContext from 'store'
+import { generatePath, matchPath, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { bool } from 'prop-types'
+import {
+  PROJECTS_PATH,
+  SUBJECTS_PATH,
+  SUBJECT_SETS_PATH,
+  WORKFLOWS_PATH
+} from 'paths'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function Title({ onEditor }) {
+function Title({ history, match, onEditor }) {
+  const routeTo = (path) => {
+    const matchProfile = matchPath(history.location.pathname, { path });
+    console.log(path);
+    console.log(matchProfile.params);
+    const nextPath = generatePath(path, matchProfile.params)
+    console.log(nextPath);
+    history.push(nextPath)
+  }
+
   const store = React.useContext(AppContext)
   const project = store.projects.title
   const workflow = store.workflows.title
   const group = store.groups.title
   const subject = store.subjects.title
-  let titles = [subject, group, workflow, project]
+  let titles = [
+    { title: subject },
+    { title: group, path: SUBJECTS_PATH, to: 'Subjects Index Page' },
+    { title: workflow, path: SUBJECT_SETS_PATH, to: 'Groups Index Page' },
+    { title: project, path: WORKFLOWS_PATH, to: 'Workflows Index Page' }
+  ]
 
-  const headerIndex = titles.findIndex(title => title.length > 0)
+  const headerIndex = titles.findIndex(header => header.title.length > 0)
   let header = titles[headerIndex]
   titles.splice(headerIndex, 1)
 
   if (onEditor) {
-    titles = [group]
-    header = subject
+    titles = [{ title: group, path: SUBJECT_SETS_PATH, to: 'Subjects Index Page' }]
+    header = { title: subject }
   }
   const subjectCount = header === group ?
     `(${store.transcriptions.approvedCount}/${store.transcriptions.all.length} approved)` : ''
@@ -31,8 +52,12 @@ function Title({ onEditor }) {
   return (
     <Box align='baseline' direction='row' gap='0.25em'>
       {titles.reverse().map((sub, i) =>
-        sub.length > 0 && <CapitalText key={`SUB_HEADER_${i}`}>{`${sub} /`}</CapitalText>)}
-      <Heading>{header}</Heading>
+        sub.title.length > 0 && (
+          <Button key={`SUB_HEADER_${i}`} a11yTitle={sub.to} onClick={() => routeTo(sub.path)} plain>
+            <CapitalText key={`SUB_HEADER_${i}`}>{`${sub.title} /`}</CapitalText>
+          </Button>
+        ))}
+      <Heading>{header.title}</Heading>
       {subjectCount.length > 0 && <CapitalText>{subjectCount}</CapitalText>}
     </Box>
   )
@@ -45,5 +70,6 @@ Title.propTypes = {
 Title.defaultProps = {
   onEditer: false
 }
- export { CapitalText }
-export default observer(Title)
+
+export { CapitalText }
+export default withRouter(observer(Title))
