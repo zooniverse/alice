@@ -11,15 +11,21 @@ import { columns } from './table'
 
 function SubjectsPageContainer (props) {
   const store = React.useContext(AppContext)
+
+  React.useEffect(() => {
+    store.subjects.selectSubject(null)
+  }, [store])
+
   if (store.transcriptions.asyncState === ASYNC_STATES.IDLE) {
     store.transcriptions.fetchTranscriptions()
   }
-  const onSelection = (datum) => {
-    if (datum.locked) {
+  const onSelection = (subject) => {
+    if (subject.locked) {
       store.modal.toggleModal(MODALS.LOCKED)
     }
-    const nextPath = generatePath(EDIT_PATH, { subject: datum.id, ...props.match.params})
+    const nextPath = generatePath(EDIT_PATH, { subject: subject.id, ...props.match.params})
     props.history.push(nextPath)
+    store.subjects.fetchSubject(subject.id)
   }
 
   return (

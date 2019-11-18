@@ -41,7 +41,16 @@ const SubjectStore = types.model('SubjectStore', {
       self.error = error.message
       self.asyncState = ASYNC_STATES.ERROR
     }
-  })
+  }),
+
+  selectSubject: function(subject) {
+    if (!subject) subject = Subject.create()
+    self.current = subject
+  }
+})).views(self => ({
+  get title () {
+    return self.current.id || ''
+  }
 }))
 
 export { Subject, SubjectStore }

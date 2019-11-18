@@ -1,4 +1,5 @@
 import ASYNC_STATES from 'helpers/asyncStates'
+import { TranscriptionsStore } from './TranscriptionsStore'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
 
@@ -10,7 +11,7 @@ let toveStub = {
     {
       body: JSON.stringify(
         {
-          data: [TranscriptionFactory.build(), TranscriptionFactory.build()]
+          data: [TranscriptionFactory.build({ status: 'approved' }), TranscriptionFactory.build()]
         })
     }
   )
@@ -42,6 +43,13 @@ describe('TranscriptionsStore', function () {
       await transcriptionsStore.fetchTranscriptions()
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.READY)
       expect(transcriptionsStore.all.length).toBe(2)
+    })
+
+    it('should count the number of approved', function () {
+      transcriptionsStore = TranscriptionsStore.create({
+        all: [TranscriptionFactory.build({ status: 'approved' }), TranscriptionFactory.build()]
+      })
+      expect(transcriptionsStore.approvedCount).toBe(1)
     })
   })
 

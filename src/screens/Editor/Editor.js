@@ -25,9 +25,9 @@ function Editor ({ match }) {
   const editorBox = React.useRef(null)
 
   const params = match.params
-  const subject = store.subject.current
-  if (subject.id !== params.subject && store.subject.asyncState === ASYNC_STATES.IDLE) {
-    store.subject.fetchSubject(params.subject)
+  const subject = store.subjects.current
+  if (subject.id !== params.subject && store.subjects.asyncState === ASYNC_STATES.IDLE) {
+    store.subjects.fetchSubject(params.subject)
   }
   const locations = findLocations(subject)
   const direction = store.editor.layout

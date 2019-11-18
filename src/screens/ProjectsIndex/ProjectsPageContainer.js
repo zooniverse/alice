@@ -10,6 +10,10 @@ import ProjectCard from './components/ProjectCard'
 function ProjectPageContainer () {
   const store = React.useContext(AppContext)
 
+  React.useEffect(() => {
+    store.projects.selectProject(null)
+  }, [store])
+
   if (store.auth.user && store.projects.asyncState === ASYNC_STATES.IDLE) {
     store.projects.getProjects()
   }

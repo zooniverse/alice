@@ -73,6 +73,18 @@ describe('ProjectsStore', function () {
     projectsStore.selectProject(project)
     expect(projectsStore.current).toEqual(project)
   })
+
+  it('should create a default project if none selected', function () {
+    const project = Project.create()
+    projectsStore.selectProject(null)
+    expect(projectsStore.current).toEqual(project)
+  })
+
+  it('should return a project title', function () {
+    const project = Project.create({ id: '1', display_name: 'Project' })
+    projectsStore.selectProject(project)
+    expect(projectsStore.title).toBe(project.display_name)
+  })
 })
 
 describe('ProjectsStore error states', function () {
@@ -104,5 +116,26 @@ describe('ProjectsStore getRoles', function () {
     projectsStore = rootStore.projects
     await projectsStore.getRoles()
     expect(projectsStore.roles).toEqual({ 1: 'Project Owner', 2: 'Moderator' })
+  })
+})
+
+describe('Default role', function () {
+  it('should be viewer', async function () {
+    jest
+      .spyOn(apiClient, 'type')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.resolve([collabProject])
+        }})
+    const rootStore = AppStore.create({
+      auth: {
+        user: { id: '1' }
+      },
+      client: { tove: toveStub },
+      projects: { roles: {} }
+    })
+    projectsStore = rootStore.projects
+    await projectsStore.getProjects()
+    expect(projectsStore.collabProjects[0].role).toEqual('Viewer')
   })
 })

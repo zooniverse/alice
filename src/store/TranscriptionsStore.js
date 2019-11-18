@@ -40,6 +40,16 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       self.asyncState = ASYNC_STATES.ERROR
     }
   })
+})).views(self => ({
+  get approvedCount () {
+    let count = 0;
+    self.all.forEach(transcription => {
+      if (transcription.status === 'approved') {
+        count ++
+      }
+    })
+    return count;
+  }
 }))
 
 export { TranscriptionsStore }

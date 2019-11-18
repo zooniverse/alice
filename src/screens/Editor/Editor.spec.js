@@ -34,7 +34,7 @@ const contextValues = {
   editor: {
     layout: 'row'
   },
-  subject: {
+  subjects: {
     asyncState: ASYNC_STATES.IDLE,
     current: SubjectFactory.build({
       locations: [{ 'image': 'site.com' }]

@@ -7,7 +7,7 @@ import ImageTools from './components/ImageTools'
 
 let wrapper
 const testContext = {
-  subject: {
+  subjects: {
     current: {
       locations: [{ image: 'www.fakelocation.com' }]
     },

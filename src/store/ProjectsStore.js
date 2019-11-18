@@ -34,7 +34,7 @@ const ProjectsStore = types.model('ProjectsStore', {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
-      if (!self.roles) self.getRoles()
+      if (!self.roles) yield self.getRoles()
       const response = yield client.get('/projects')
       const resources = JSON.parse(response.body)
       const ids = resources.data.map(project => project.id)
@@ -63,7 +63,11 @@ const ProjectsStore = types.model('ProjectsStore', {
   }),
 
   selectProject: function(project) {
-    self.current = project
+    self.current = project || Project.create()
+  }
+})).views(self => ({
+  get title () {
+    return self.current.display_name.length ? self.current.display_name : 'Select Project'
   }
 }))
 

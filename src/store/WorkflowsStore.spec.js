@@ -57,6 +57,12 @@ describe('TranscriptionsStore', function () {
       workflowsStore.setState(ASYNC_STATES.READY)
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
     })
+
+    it('should select a default workflow if none provided', function () {
+      const defaultWorkflow = Workflow.create()
+      workflowsStore.selectWorkflow(null)
+      expect(workflowsStore.current).toEqual(defaultWorkflow)
+    })
   })
 
   describe('failure state', function () {

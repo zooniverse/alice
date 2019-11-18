@@ -20,6 +20,15 @@ describe('GroupsStore', function () {
     expect(editorStore.current).toEqual(group)
   })
 
+  it('should set a default group if none provided', function () {
+    const emptyGroup = {
+      display_name: '',
+      id: 0
+    }
+    editorStore.selectGroup(null)
+    expect(editorStore.current).toEqual(emptyGroup)
+  })
+
   it('should set groups', function () {
     const input = {
       GROUP_1: 1,

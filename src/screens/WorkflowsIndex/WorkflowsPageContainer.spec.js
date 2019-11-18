@@ -7,8 +7,12 @@ import { WorkflowsPageContainer } from './WorkflowsPageContainer'
 let wrapper
 const fetchWorkflowsSpy = jest.fn()
 const pushSpy = jest.fn()
+const selectGroupSpy = jest.fn()
 const selectWorkflowSpy = jest.fn()
 const contextValues = {
+  groups: {
+    selectGroup: selectGroupSpy
+  },
   workflows: {
     asyncState: ASYNC_STATES.IDLE,
     error: 'THIS IS AN ERROR',
@@ -62,5 +66,18 @@ describe('Component > WorkflowsPageContainer', function () {
     copiedContext.workflows.asyncState = ASYNC_STATES.READY
     wrapper = shallow(<WorkflowsPageContainer />);
     expect(fetchWorkflowsSpy).not.toHaveBeenCalled()
+  })
+
+  describe('useEffect hook', function () {
+    it('should clear the selected project', function () {
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => contextValues )
+      jest.spyOn(React, "useEffect")
+        .mockImplementation(f => f());
+      wrapper = shallow(<WorkflowsPageContainer />);
+      expect(selectGroupSpy).toHaveBeenCalledTimes(1)
+      expect(selectWorkflowSpy).toHaveBeenCalledTimes(1)
+    })
   })
 })

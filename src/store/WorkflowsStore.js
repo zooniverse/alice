@@ -31,6 +31,11 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   }),
 
   selectWorkflow: function(workflow) {
+    if (!workflow) {
+      getRoot(self).groups.setGroups([])
+      self.current = Workflow.create()
+      return
+    }
     getRoot(self).groups.setGroups(workflow.attributes.groups)
     self.current = Workflow.create({
       display_name: workflow.attributes.display_name,
@@ -42,6 +47,10 @@ const WorkflowsStore = types.model('WorkflowsStore', {
 
   setState: function(state) {
     self.asyncState = state
+  }
+})).views(self => ({
+  get title () {
+    return self.current.display_name
   }
 }))
 

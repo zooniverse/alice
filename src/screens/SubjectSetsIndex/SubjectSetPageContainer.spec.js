@@ -26,6 +26,8 @@ describe('Component > SubjectSetPageContainer', function () {
     wrapper = shallow(<SubjectSetPageContainer history={history} match={match} />);
   })
 
+  afterEach(() => jest.clearAllMocks());
+
   it('should render without crashing', function () {
     expect(wrapper).toBeDefined()
   })
@@ -36,5 +38,17 @@ describe('Component > SubjectSetPageContainer', function () {
     table.props().onSelection(group);
     expect(selectGroupSpy).toHaveBeenCalled()
     expect(pushSpy).toHaveBeenCalled()
+  })
+
+  describe('useEffect hook', function () {
+    it('should clear the selected project', function () {
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => contextValues )
+      jest.spyOn(React, "useEffect")
+        .mockImplementation(f => f());
+      wrapper = shallow(<SubjectSetPageContainer />);
+      expect(selectGroupSpy).toHaveBeenCalledTimes(1)
+    })
   })
 })

@@ -26,7 +26,7 @@ function SubjectViewerContainer() {
   const [showTools, setTools] = React.useState(false)
   const onMouseOver = e => setTools(true)
   const onMouseLeave = e => setTools(false)
-  const src = findCurrentSrc(store.subject.current.locations, store.subject.index)
+  const src = findCurrentSrc(store.subjects.current.locations, store.subjects.index)
 
   return (
     <Box
@@ -42,11 +42,11 @@ function SubjectViewerContainer() {
           {showTools && <ImageTools />}
         </AbsoluteBox>
         <SubjectViewer
-          error={store.subject.error}
+          error={store.subjects.error}
           rotation={store.image.rotation}
           scale={store.image.scale}
           src={src}
-          subjectState={store.subject.asyncState}
+          subjectState={store.subjects.asyncState}
           translateX={store.image.translateX}
           translateY={store.image.translateY}
         />
