@@ -18,7 +18,7 @@ const contextValues = {
     translateX: 0,
     translateY: 0
   },
-  subject: {
+  subjects: {
     asyncState: ASYNC_STATES.IDLE,
     current: {
       locations: [{
@@ -61,7 +61,7 @@ describe('Component > SVGViewContainer', function () {
   })
 
   it('should find the image source', function () {
-    const src = contextValues.subject.current.locations[0].image
+    const src = contextValues.subjects.current.locations[0].image
     expect(svg.props().url).toBe(src)
   })
 

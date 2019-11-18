@@ -5,7 +5,7 @@ import AnnotationsPaneContainer from './AnnotationsPaneContainer'
 let wrapper
 
 const contextValues = {
-  subject: { index: 0 },
+  subjects: { index: 0 },
   transcriptions: {
     current: {
       text: {

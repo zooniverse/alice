@@ -27,7 +27,7 @@ describe('SubjectStore', function () {
       .spyOn(subjects, 'get')
       .mockImplementation(() => Promise.resolve(response))
     const rootStore = AppStore.create({})
-    subjectStore = rootStore.subject
+    subjectStore = rootStore.subjects
   })
 
   it('should exist', function () {
@@ -54,7 +54,7 @@ describe('SubjectStore error', function () {
       .spyOn(subjects, 'get')
       .mockImplementation(() => Promise.reject(error))
     const rootStore = AppStore.create({})
-    subjectStore = rootStore.subject
+    subjectStore = rootStore.subjects
   })
 
   it('should set the error state', async function () {
@@ -82,7 +82,7 @@ describe('SubjectStore empty return when fetching subjects', function () {
       .spyOn(subjects, 'get')
       .mockImplementation(() => Promise.resolve(emptyResponse))
     const rootStore = AppStore.create({})
-    subjectStore = rootStore.subject
+    subjectStore = rootStore.subjects
     await subjectStore.fetchSubject('1')
     expect(subjectStore.current).toEqual(Subject.create())
     expect(subjectStore.asyncState).toEqual(ASYNC_STATES.READY)
