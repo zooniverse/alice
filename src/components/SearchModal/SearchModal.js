@@ -99,13 +99,13 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
               <Box direction='row' justify='between'>
                 <Box gap='small'>
                   <Text weight='bold'>Approval Status</Text>
-                  <FormField htmlFor='unreviewed'>
+                  <FormField htmlFor='unseen'>
                     <SearchCheckBox
-                      checked={values.unreviewed}
+                      checked={values.unseen}
                       disabled={disableCheckbox}
-                      label='UNREVIEWED'
+                      label='UNSEEN'
                       onChange={handleChange}
-                      title='unreviewed'
+                      title='unseen'
                     />
                   </FormField>
                   <FormField htmlFor='inProgress'>
@@ -117,13 +117,13 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                       title='inProgress'
                     />
                   </FormField>
-                  <FormField htmlFor='readyForReview'>
+                  <FormField htmlFor='ready'>
                     <SearchCheckBox
-                      checked={values.readyForReview}
+                      checked={values.ready}
                       disabled={disableCheckbox}
                       label='READY FOR REVIEW'
                       onChange={handleChange}
-                      title='readyForReview'
+                      title='ready'
                     />
                   </FormField>
                   <FormField htmlFor='approved'>
@@ -147,13 +147,13 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                       title='flagged'
                     />
                   </FormField>
-                  <FormField htmlFor='lowConsensus'>
+                  <FormField htmlFor='low_consensus'>
                     <SearchCheckBox
-                      checked={values.lowConsensus}
+                      checked={values.low_consensus}
                       disabled={disableCheckbox}
                       label='Low consensus score'
                       onChange={handleChange}
-                      title='lowConsensus'
+                      title='low_consensus'
                     />
                   </FormField>
                 </Box>

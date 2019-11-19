@@ -3352,7 +3352,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       checked={false}
                       className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
                       disabled={false}
-                      htmlFor="unreviewed"
+                      htmlFor="unseen"
                       onClick={[Function]}
                     >
                       <div
@@ -3364,8 +3364,8 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                           checked={false}
                           className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
                           disabled={false}
-                          id="unreviewed"
-                          name="unreviewed"
+                          id="unseen"
+                          name="unseen"
                           onBlur={[Function]}
                           onChange={[Function]}
                           onFocus={[Function]}
@@ -3446,7 +3446,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       checked={false}
                       className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
                       disabled={false}
-                      htmlFor="readyForReview"
+                      htmlFor="ready"
                       onClick={[Function]}
                     >
                       <div
@@ -3458,8 +3458,8 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                           checked={false}
                           className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
                           disabled={false}
-                          id="readyForReview"
-                          name="readyForReview"
+                          id="ready"
+                          name="ready"
                           onBlur={[Function]}
                           onChange={[Function]}
                           onFocus={[Function]}
