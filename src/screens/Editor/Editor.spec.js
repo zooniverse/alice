@@ -31,6 +31,9 @@ const mockEvent = {
   preventDefault: preventDefaultSpy
 }
 const contextValues = {
+  aggregations: {
+    showModal: false
+  },
   editor: {
     layout: 'row'
   },
@@ -70,13 +73,13 @@ describe('Component > Editor', function () {
     })
 
     it('should execute onMouseLeave', function () {
-      const editorBox = wrapper.find(Box).at(1).props()
+      const editorBox = wrapper.find(Box).at(2).props()
       editorBox.onMouseLeave()
       expect(setState).toHaveBeenCalledWith(false)
     })
 
     it('should execute onMouseUp', function () {
-      const editorBox = wrapper.find(Box).at(1).props()
+      const editorBox = wrapper.find(Box).at(2).props()
       editorBox.onMouseUp()
       expect(setState).toHaveBeenCalledWith(false)
     })
@@ -93,7 +96,7 @@ describe('Component > Editor', function () {
       })
 
       it('should execute onMouseMove', function () {
-        const editorBox = wrapper.find(Box).at(1).props()
+        const editorBox = wrapper.find(Box).at(2).props()
         editorBox.onMouseMove(mockEvent)
         expect(preventDefaultSpy).toHaveBeenCalled()
         expect(setState).toHaveBeenCalled()
@@ -110,6 +113,30 @@ describe('Component > Editor', function () {
 
       it('should attempt to fetch a subject', function () {
         expect(fetchSubjectSpy).toHaveBeenCalledWith(2)
+      })
+    })
+
+    describe('with layout in column', function () {
+      beforeEach(function() {
+        const alteredContext = Object.assign({}, contextValues)
+        alteredContext.editor.layout = 'column'
+        jest
+          .spyOn(React, 'useRef')
+          .mockImplementation(() => refValue)
+        jest
+          .spyOn(React, 'useState')
+          .mockImplementation((val) => [true, setState])
+        jest
+          .spyOn(React, 'useContext')
+        .mockImplementation(() => alteredContext )
+        wrapper = shallow(<Editor match={match} />);
+      })
+
+      it('should execute onMouseMove', function () {
+        const editorBox = wrapper.find(Box).at(2).props()
+        editorBox.onMouseMove(mockEvent)
+        expect(preventDefaultSpy).toHaveBeenCalled()
+        expect(setState).toHaveBeenCalled()
       })
     })
   })
