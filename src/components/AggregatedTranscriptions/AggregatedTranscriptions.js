@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { bool } from 'prop-types'
+import Overlay from '../Overlay'
 import TranscriptionTable from './components/TranscriptionTable'
 
 const CapitalText = styled(Text)`
@@ -10,13 +11,6 @@ const CapitalText = styled(Text)`
 
 const StyledBox = styled(Box)`
   position: relative;
-`
-
-const StyledOverlay = styled(Box)`
-  top: 0;
-  left: 0;
-  position: absolute;
-  background: rgba(255, 255, 255, 0.5);
 `
 
 const OverflowBox = styled(Box)`
@@ -51,7 +45,7 @@ function AggregatedTranscriptions ({ showOverlay }) {
       <OverflowBox>
         <TranscriptionTable />
       </OverflowBox>
-      {showOverlay && <StyledOverlay fill round='xsmall'/>}
+      {showOverlay && <Overlay />}
     </StyledBox>
   )
 }

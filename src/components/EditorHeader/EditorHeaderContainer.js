@@ -1,5 +1,7 @@
 import React from 'react'
 import { matchPath } from "react-router-dom";
+import AppContext from 'store'
+import { observer } from 'mobx-react'
 import EditorHeader from './EditorHeader'
 import SearchButton from './components/HeaderButton/SearchButtonContainer'
 import DownloadSetData from './components/HeaderButton/DownloadSetDataContainer'
@@ -24,9 +26,18 @@ function getHeaderTools(path) {
   return []
 }
 
-export default function EditorHeaderContainer() {
+function EditorHeaderContainer() {
+  const store = React.useContext(AppContext)
   const buttons = getHeaderTools(window.location.pathname)
   const showMetadata = routeMatcher(window.location.pathname, EDIT_PATH)
 
-  return <EditorHeader buttons={buttons} showMetadata={showMetadata} />
+  return (
+    <EditorHeader
+      buttons={buttons}
+      showMetadata={showMetadata}
+      showOverlay={store.aggregations.showModal}
+    />
+  )
 }
+
+export default observer(EditorHeaderContainer)

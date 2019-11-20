@@ -8,7 +8,7 @@ const StyledAvatar = styled.img`
   border-radius: 100%;
   height: 2.5em;
   width: auto;
-  margin: 0 0.5em 0 1em;
+  margin: 0 0.75em;
   object-fit: cover;
 `
 
@@ -21,7 +21,7 @@ function Badge ({ name, role, signOut, src }) {
   return (
     <Box align='center' direction='row'>
       <StyledAvatar alt={`${name} Avatar`} fallback={DefaultAvatar} src={src} />
-      <Box flex='grow'>
+      <Box>
         <Text>{name}</Text>
         <CapitalText color='dark-5' size='xsmall'>{role}</CapitalText>
       </Box>
