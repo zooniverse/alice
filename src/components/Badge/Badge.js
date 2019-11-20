@@ -17,7 +17,7 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function Badge ({ name, role, signOut, src }) {
+function Badge ({ disabled, name, role, signOut, src }) {
   return (
     <Box align='center' direction='row'>
       <StyledAvatar alt={`${name} Avatar`} fallback={DefaultAvatar} src={src} />
@@ -26,6 +26,7 @@ function Badge ({ name, role, signOut, src }) {
         <CapitalText color='dark-5' size='xsmall'>{role}</CapitalText>
       </Box>
       <Menu
+        disabled={disabled}
         dropAlign={{ right: 'right', top: 'bottom' }}
         items={[{ label: 'Log Out', onClick: signOut }]}
       />
@@ -34,6 +35,7 @@ function Badge ({ name, role, signOut, src }) {
 }
 
 Badge.defaultProps = {
+  disabled: false,
   name: '',
   role: '',
   signOut: () => {},
@@ -41,6 +43,7 @@ Badge.defaultProps = {
 }
 
 Badge.propTypes = {
+  disabled: PropTypes.bool,
   name: PropTypes.string,
   role: PropTypes.string,
   signOut: PropTypes.func,

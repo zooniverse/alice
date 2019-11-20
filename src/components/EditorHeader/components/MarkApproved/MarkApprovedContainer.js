@@ -3,7 +3,7 @@ import AppContext from 'store'
 import MODALS from 'helpers/modals'
 import MarkApproved from './MarkApproved'
 
-function MarkApprovedContainer() {
+function MarkApprovedContainer({ disabled }) {
   const store = React.useContext(AppContext)
   const [isChecked, setChecked] = React.useState(false)
   const onChange = () => {
@@ -11,7 +11,7 @@ function MarkApprovedContainer() {
     store.modal.toggleModal(MODALS.UNAPPROVED)
   }
 
-  return <MarkApproved checked={isChecked} onChange={onChange} />
+  return <MarkApproved checked={isChecked} disabled={disabled} onChange={onChange} />
 }
 
 export default MarkApprovedContainer

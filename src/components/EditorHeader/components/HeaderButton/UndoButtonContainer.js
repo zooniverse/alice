@@ -1,24 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import HeaderButton from './HeaderButton'
 import { Refresh } from 'grommet-icons'
 
-class UndoButtonContainer extends Component {
-  constructor (props) {
-    super(props)
-    this.onClick = this.onClick.bind(this);
-  }
+function UndoButtonContainer({ disabled }) {
+  const onClick = () => console.log('Undo Button Clicked');
 
-  onClick() {}
-
-  render () {
-    return (
-      <HeaderButton
-        icon={<Refresh color='#555555' size='small'/>}
-        label={'Undo'}
-        onClick={this.onClick}
-      />
-    )
-  }
+  return (
+    <HeaderButton
+      disabled={disabled}
+      icon={<Refresh color='#555555' size='small'/>}
+      label={'Undo'}
+      onClick={onClick}
+    />
+  )
 }
 
 export default UndoButtonContainer

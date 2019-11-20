@@ -1,25 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import HeaderButton from './HeaderButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from '@fortawesome/free-solid-svg-icons'
 
-class SaveButtonContainer extends Component {
-  constructor (props) {
-    super(props)
-    this.onClick = this.onClick.bind(this);
-  }
+function SaveButtonContainer({ disabled }) {
+  const onClick = () => console.log('Save Button Clicked');
 
-  onClick() {}
-
-  render () {
-    return (
-      <HeaderButton
-        icon={<FontAwesomeIcon color='#555555' icon={faSave} size='xs' />}
-        label={'Save'}
-        onClick={this.onClick}
-      />
-    )
-  }
+  return (
+    <HeaderButton
+      disabled={disabled}
+      icon={<FontAwesomeIcon color='#555555' icon={faSave} size='xs' />}
+      label={'Save'}
+      onClick={onClick}
+    />
+  )
 }
 
 export default SaveButtonContainer

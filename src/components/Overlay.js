@@ -6,7 +6,8 @@ const StyledOverlay = styled(Box)`
   top: 0;
   left: 0;
   position: absolute;
-  background: rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
+  background: inherit;
 `
 
 export default function Overlay() {

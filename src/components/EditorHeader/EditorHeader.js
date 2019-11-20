@@ -18,11 +18,11 @@ export default function EditorHeader ({ buttons, showMetadata, showOverlay }) {
         <Title onEditor={showMetadata} />
         {showMetadata && <MetadataButton />}
       </Box>
-      <StyledBox align='center' direction='row'>
+      <StyledBox align='center' background='light-2' direction='row'>
         <Box direction='row' border='right' fill='vertical' gap='small' pad='small' wrap>
-          {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} />)}
+          {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} disabled={showOverlay} />)}
         </Box>
-        <Badge />
+        <Badge disabled={showOverlay} />
         {showOverlay && <Overlay />}
       </StyledBox>
     </Box>
