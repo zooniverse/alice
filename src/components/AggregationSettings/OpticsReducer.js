@@ -39,7 +39,7 @@ const StyledLabel = styled.label`
   font-size: 0.75em;
 `
 
-export default function OpticsReducer({ closeContainer, setCallback, setScreen, submitOptics }) {
+function OpticsReducer({ closeContainer, setCallback, setScreen, submitOptics }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
@@ -179,3 +179,5 @@ OpticsReducer.propTypes = {
   closeContainer: func,
   setScreen: func
 }
+
+export default OpticsReducer
