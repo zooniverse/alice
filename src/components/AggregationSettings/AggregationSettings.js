@@ -3,23 +3,30 @@ import { Box, Button, Stack, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { func, string } from 'prop-types'
+import styled from 'styled-components'
 import Confirmation from './Confirmation'
 import ChooseReducer from './ChooseReducer'
 import OpticsReducer from './OpticsReducer'
 import DBScanReducer from './DBScanReducer'
 import { REDUCERS } from './AggregationSettingsContainer'
 
+const StyledBox = styled(Box)`
+  :hover {
+    cursor: move
+  }
+`
+
 export default function AggregationSettings(props) {
   return (
     <Box
       background='white'
-      elevation='small'
+      elevation='medium'
       round='xsmall'
       width='30em'
     >
-      <Box align='center' background='light-2' height='1em' round={{ corner: 'top', size: 'xsmall' }}>
+      <StyledBox align='center' background='light-2' className={props.dragHandle} height='1em' round={{ corner: 'top', size: 'xsmall' }}>
         <FontAwesomeIcon icon={faEllipsisH} />
-      </Box>
+      </StyledBox>
       <Stack>
         <Box>
           <Box
