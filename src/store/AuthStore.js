@@ -12,7 +12,7 @@ const AuthStore = types.model('AuthStore', {
       if (user) {
         self.user = user
       } else if (history.location.pathname !== '/') {
-        history.push('/')
+        // history.push('/')
       }
     } catch (error) {
       console.log(error);

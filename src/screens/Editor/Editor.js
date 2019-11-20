@@ -96,7 +96,7 @@ function Editor ({ match }) {
         </Box>
         <FilmstripViewer images={locations} />
       </Box>
-      {store.aggregations.showModal && <AggregationModal />}
+      {store.aggregations.showModal && <AggregationModal ref={editorBox} />}
     </Box>
   )
 }
