@@ -5,9 +5,29 @@ import { Formik } from 'formik'
 import { REDUCERS } from './AggregationSettingsContainer'
 import DBScanReducer from './DBScanReducer'
 
+let form
 let wrapper
 let setCallbackSpy = jest.fn()
 let setScreenSpy = jest.fn()
+const error = 'This is an error'
+
+const initialValues = {
+  epsSlope: 25,
+  epsLine: 40,
+  epsWord: 40,
+  gutterTol: 0,
+  minSamples: 1,
+  minWordCount: 1
+}
+
+const errors = {
+  epsSlope: error,
+  epsLine: error,
+  epsWord: error,
+  gutterTol: error,
+  minSamples: error,
+  minWordCount: error
+}
 
 describe('Component > DBScanReducer', function () {
   beforeEach(function() {
@@ -19,10 +39,9 @@ describe('Component > DBScanReducer', function () {
   })
 
   describe('form children', function () {
-    let form
     beforeEach(function() {
       const Form = wrapper.find(Formik).first().props().children
-      form = shallow(<Form />)
+      form = shallow(<Form values={initialValues} />)
     })
 
     it('should return on back button press', function () {
@@ -35,6 +54,14 @@ describe('Component > DBScanReducer', function () {
       const applyButton = form.find(Button).last()
       applyButton.simulate('click')
       expect(setCallbackSpy).toHaveBeenCalled()
+    })
+  })
+
+  describe('form children with errors', function () {
+    it('should render without crashing', function () {
+      const Form = wrapper.find(Formik).first().props().children
+      form = shallow(<Form errors={errors} values={initialValues} />)
+      expect(form).toBeDefined()
     })
   })
 })
