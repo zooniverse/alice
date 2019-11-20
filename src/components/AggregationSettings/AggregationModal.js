@@ -5,8 +5,8 @@ import { AggregationSettingsContainer } from './AggregationSettingsContainer'
 
 const AggregationModal = React.forwardRef(function (props, ref) {
   const dragHandle = "dragHandle"
-  const modalEl = React.useRef(null)
   const rndEl = React.useRef(null)
+  const modalEl = React.useRef(null)
 
   React.useEffect(() => {
     const containerSize = ref.current && ref.current.getBoundingClientRect()
