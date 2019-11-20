@@ -1,10 +1,22 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
+import { bool } from 'prop-types'
 import TranscriptionTable from './components/TranscriptionTable'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
+`
+
+const StyledBox = styled(Box)`
+  position: relative;
+`
+
+const StyledOverlay = styled(Box)`
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
 `
 
 const OverflowBox = styled(Box)`
@@ -24,9 +36,9 @@ const OverflowBox = styled(Box)`
   }
 `
 
-function AggregatedTranscriptions (props) {
+function AggregatedTranscriptions ({ showOverlay }) {
   return (
-    <Box background='white' height='large' round='xsmall'>
+    <StyledBox background='white' height='large' round='xsmall'>
       <Box
         border={{ color: 'light-5', side: 'bottom' }}
         direction='row'
@@ -39,9 +51,17 @@ function AggregatedTranscriptions (props) {
       <OverflowBox>
         <TranscriptionTable />
       </OverflowBox>
-    </Box>
+      {showOverlay && <StyledOverlay fill round='xsmall'/>}
+    </StyledBox>
   )
 }
 
+AggregatedTranscriptions.propTypes = {
+  showOverlay: bool
+}
+
+AggregatedTranscriptions.defaultProps = {
+  showOverlay: false
+}
 
 export default AggregatedTranscriptions
