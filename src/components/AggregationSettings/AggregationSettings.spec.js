@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import { Button } from 'grommet'
 import AggregationSettings from './AggregationSettings'
 import { REDUCERS } from './AggregationSettingsContainer'
 import DBScanReducer from './DBScanReducer'
@@ -8,11 +9,18 @@ import ChooseReducer from './ChooseReducer'
 import Confirmation from './Confirmation'
 
 let wrapper
+let closeContainerSpy = jest.fn()
 
 describe('Component > AggregationSettings', function () {
   beforeEach(function() {
-    wrapper = shallow(<AggregationSettings currentScreen={REDUCERS.CHOOSE} />);
+    wrapper = shallow(
+      <AggregationSettings
+        closeContainer={closeContainerSpy}
+        currentScreen={REDUCERS.CHOOSE}
+      />);
   })
+
+  afterEach(() => jest.clearAllMocks());
 
   it('should render without crashing', function () {
     expect(wrapper).toBeDefined()
@@ -38,6 +46,14 @@ describe('Component > AggregationSettings', function () {
     it('should show the Confirmation overlay with valid function', function () {
       wrapper = shallow(<AggregationSettings confirmationCallback={() => {}} />)
       expect(wrapper.find(Confirmation).length).toBe(1)
+    })
+  })
+
+  describe('close button', function() {
+    it('should execute the closeContainer prop function', function () {
+      const closeButton = wrapper.find(Button).first()
+      closeButton.props().onClick()
+      expect(closeContainerSpy).toHaveBeenCalledTimes(1)
     })
   })
 })
