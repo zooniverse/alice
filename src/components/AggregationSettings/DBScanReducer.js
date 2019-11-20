@@ -35,7 +35,7 @@ const dbScanSchema = Yup.object().shape({
     .required('Required')
 });
 
-export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) {
+export default function DBScanReducer({ closeContainer, setCallback, setScreen, submitDBScan }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
@@ -157,7 +157,12 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
                 plain
               />
               <Box direction='row' gap='small'>
-                <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain />
+                <Button
+                  a11yTitle="Close Aggregation Settings"
+                  label={<Text size='small'>CLOSE AND CANCEL</Text>}
+                  onClick={closeContainer}
+                  plain
+                />
                 <Button
                   disabled={!isValid}
                   label={<Text size='small'>APPLY</Text>}
@@ -177,9 +182,11 @@ export default function DBScanReducer({ setCallback, setScreen, submitDBScan }) 
 }
 
 DBScanReducer.defaultProps = {
+  closeContainer: () => {},
   setScreen: () => {}
 }
 
 DBScanReducer.propTypes = {
+  closeContainer: func,
   setScreen: func
 }

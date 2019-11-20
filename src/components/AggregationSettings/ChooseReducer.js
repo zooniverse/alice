@@ -16,7 +16,7 @@ const DbScanBox = styled(Box)`
     '1px solid #979797' : '1px solid transparent'};
 `
 
-export default function ChooseReducer({ currentScreen, selectReducer, selectedReducer, setScreen }) {
+export default function ChooseReducer({ closeContainer, currentScreen, selectReducer, selectedReducer, setScreen }) {
   return (
     <Box gap='xsmall'>
       <Box gap='xsmall' pad='small'>
@@ -59,7 +59,12 @@ export default function ChooseReducer({ currentScreen, selectReducer, selectedRe
         justify='end'
         pad={{ horizontal: 'small', vertical: 'xsmall' }}
       >
-        <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain/>
+        <Button
+          a11yTitle="Close Aggregation Settings"
+          label={<Text size='small'>CLOSE AND CANCEL</Text>}
+          onClick={closeContainer}
+          plain
+        />
         <Button
           disabled={selectedReducer === null}
           label={<Text size='small'>NEXT</Text>}
@@ -72,6 +77,7 @@ export default function ChooseReducer({ currentScreen, selectReducer, selectedRe
 }
 
 ChooseReducer.defaultProps = {
+  closeContainer:  () => {},
   currentScreen: null,
   disableNext: true,
   selectReducer: () => {},
@@ -79,6 +85,7 @@ ChooseReducer.defaultProps = {
 }
 
 ChooseReducer.propTypes = {
+  closeContainer: func,
   currentScreen: string,
   disableNext: bool,
   selectReducer: func,

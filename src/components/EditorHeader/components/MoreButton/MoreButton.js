@@ -2,10 +2,13 @@ import React from 'react'
 import { Box, DropButton, Text } from 'grommet'
 import { FormDown, FormUp } from 'grommet-icons'
 import { bool, func } from 'prop-types'
+import AppContext from 'store'
 import HeaderButton from '../HeaderButton'
 
 export default function MoreButton({ isOpen, setOpen, toggleDownload }) {
+  const store = React.useContext(AppContext)
   const Icon = isOpen ? FormDown : FormUp
+  const onEditSettings = () => store.aggregations.toggleModal()
   const onDownload = () => {
     setOpen(false)
     toggleDownload()
@@ -23,7 +26,7 @@ export default function MoreButton({ isOpen, setOpen, toggleDownload }) {
       dropContent={
         <Box background='white' gap='small' pad='small'>
           <HeaderButton label='Download Subject Data' onClick={onDownload} />
-          <HeaderButton label='Edit Aggregation Settings' />
+          <HeaderButton label='Edit Aggregation Settings' onClick={onEditSettings} />
         </Box>
       }
       onClose={() => setOpen(false)}
