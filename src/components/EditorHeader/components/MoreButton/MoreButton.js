@@ -8,7 +8,10 @@ import HeaderButton from '../HeaderButton'
 export default function MoreButton({ isOpen, setOpen, toggleDownload }) {
   const store = React.useContext(AppContext)
   const Icon = isOpen ? FormDown : FormUp
-  const onEditSettings = () => store.aggregations.toggleModal()
+  const onEditSettings = () => {
+    setOpen(false)
+    store.aggregations.toggleModal()
+  }
   const onDownload = () => {
     setOpen(false)
     toggleDownload()
