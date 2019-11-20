@@ -11,7 +11,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 bdFdoP"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 bhblpF"
+        className="StyledBox-sc-13pk1d4-0 bhblpF sc-bZQynM iMWVsx"
       >
         <div
           className="StyledBox-sc-13pk1d4-0 ioxDdG"
@@ -22,13 +22,13 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
             Transcribed Text
           </span>
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-ifAKCX iqcapW"
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-EHOje bSRqmI"
           >
             Add Line
           </span>
         </div>
         <div
-          className="StyledBox-sc-13pk1d4-0 fWrrBh sc-EHOje bLekEe"
+          className="StyledBox-sc-13pk1d4-0 fWrrBh sc-gzVnrw kTeZIl"
         >
           <div
             className="StyledBox-sc-13pk1d4-0 fWrrBh"
@@ -43,7 +43,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 iYFxCu"
               >
                 <h6
-                  className="sc-htpNat boKWng"
+                  className="sc-bxivhb ftMCiD"
                 >
                   Aggregated Transcription
                 </h6>
@@ -52,7 +52,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 cximWD"
               >
                 <h6
-                  className="sc-htpNat boKWng"
+                  className="sc-bxivhb ftMCiD"
                 >
                   Flag
                 </h6>
@@ -61,7 +61,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 bKwAMl"
               >
                 <h6
-                  className="sc-htpNat sc-bxivhb bULiVX"
+                  className="sc-bxivhb sc-ifAKCX jkPlwj"
                 >
                   Consensus Line
                 </h6>
@@ -81,7 +81,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -100,7 +100,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -112,7 +112,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -132,7 +132,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -154,7 +154,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -173,7 +173,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -185,7 +185,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -205,7 +205,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -227,7 +227,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -246,7 +246,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -258,7 +258,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -268,7 +268,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bdVaJa jNxETC"
+                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
                         color="green"
                         data-icon="circle"
                         data-prefix="fas"
@@ -297,7 +297,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -319,7 +319,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -338,7 +338,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -350,7 +350,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -389,7 +389,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -411,7 +411,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -430,7 +430,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -442,7 +442,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -462,7 +462,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -484,7 +484,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -503,7 +503,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -515,7 +515,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -525,7 +525,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bdVaJa jNxETC"
+                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
                         color="green"
                         data-icon="circle"
                         data-prefix="fas"
@@ -543,7 +543,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                       </svg>
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bdVaJa jNxETC"
+                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
                         color="tomato"
                         data-icon="circle"
                         data-prefix="fas"
@@ -591,7 +591,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -613,7 +613,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -632,7 +632,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -644,7 +644,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -664,7 +664,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -686,7 +686,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -705,7 +705,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -717,7 +717,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -727,7 +727,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bdVaJa jNxETC"
+                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
                         color="tomato"
                         data-icon="circle"
                         data-prefix="fas"
@@ -756,7 +756,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -778,7 +778,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -797,7 +797,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -809,7 +809,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -829,7 +829,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -851,7 +851,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -870,7 +870,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -882,7 +882,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -921,7 +921,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -943,7 +943,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -962,7 +962,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -974,7 +974,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -994,7 +994,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1016,7 +1016,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1035,7 +1035,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1047,7 +1047,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1086,7 +1086,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1108,7 +1108,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1127,7 +1127,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1139,7 +1139,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1159,7 +1159,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1181,7 +1181,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1200,7 +1200,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1212,7 +1212,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1222,7 +1222,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bdVaJa jNxETC"
+                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
                         color="tomato"
                         data-icon="circle"
                         data-prefix="fas"
@@ -1251,7 +1251,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1273,7 +1273,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1292,7 +1292,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1304,7 +1304,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1324,7 +1324,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1346,7 +1346,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1365,7 +1365,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1377,7 +1377,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1397,7 +1397,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1419,7 +1419,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1438,7 +1438,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1450,7 +1450,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1470,7 +1470,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1492,7 +1492,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1511,7 +1511,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1523,7 +1523,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1533,7 +1533,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bdVaJa jNxETC"
+                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
                         color="green"
                         data-icon="circle"
                         data-prefix="fas"
@@ -1562,7 +1562,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1584,7 +1584,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1603,7 +1603,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1615,7 +1615,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1625,7 +1625,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bdVaJa jNxETC"
+                        className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
                         color="green"
                         data-icon="circle"
                         data-prefix="fas"
@@ -1654,7 +1654,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1676,7 +1676,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1695,7 +1695,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1707,7 +1707,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1727,7 +1727,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1749,7 +1749,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1768,7 +1768,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1780,7 +1780,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1800,7 +1800,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1822,7 +1822,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1841,7 +1841,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1853,7 +1853,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1873,7 +1873,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1895,7 +1895,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 onMouseLeave={[Function]}
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 kovLM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 kovLM sc-htpNat hMfRfu"
                 >
                   <svg
                     aria-label="Menu"
@@ -1914,7 +1914,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1926,7 +1926,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
                 >
                   <div
                     className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1946,7 +1946,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-bwzfXH djNYRB"
+                  className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1974,10 +1974,10 @@ exports[`Storyshots AggregationSettings Default 1`] = `
     className="StyledBox-sc-13pk1d4-0 iNPZuM"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 iaRLEM"
+      className="StyledBox-sc-13pk1d4-0 jxCWxi"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dMvAxT"
+        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-jTzLTM eYHgzp"
       >
         <svg
           aria-hidden="true"
@@ -2014,23 +2014,34 @@ exports[`Storyshots AggregationSettings Default 1`] = `
               >
                 Edit Aggregation Settings
               </span>
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-times-circle fa-w-16 "
-                data-icon="times-circle"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 512 512"
-                xmlns="http://www.w3.org/2000/svg"
+              <button
+                aria-label="Close Aggregation Settings"
+                className="StyledButton-sc-323bzc-0 jfbKsv"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                type="button"
               >
-                <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-                  fill="currentColor"
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-times-circle fa-w-16 "
+                  data-icon="times-circle"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
                   style={Object {}}
-                />
-              </svg>
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </button>
             </div>
             <div
               className="StyledBox-sc-13pk1d4-0 fWrrBh"
@@ -2062,7 +2073,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-gzVnrw dHCrKR"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-dnqmqq eunjEB"
                       >
                         <div
                           className="StyledBox-sc-13pk1d4-0 bDTvWa"
@@ -2095,7 +2106,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-htoDjs fZMrwi"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-iwsKbI duKoLX"
                       >
                         <div
                           className="StyledBox-sc-13pk1d4-0 bDTvWa"
@@ -2127,8 +2138,10 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 jjeUtd"
                 >
                   <button
+                    aria-label="Close Aggregation Settings"
                     className="StyledButton-sc-323bzc-0 jfbKsv"
                     onBlur={[Function]}
+                    onClick={[Function]}
                     onFocus={[Function]}
                     onMouseOut={[Function]}
                     onMouseOver={[Function]}
@@ -2335,7 +2348,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 jHQJnz"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kAzzGY gMUxmU"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kGXeez fInQer"
             >
               Collapse
                Filmstrip
@@ -2372,6 +2385,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
 >
   <button
     className="StyledButton-sc-323bzc-0 jfbKsv"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -2383,7 +2397,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-gqjmRU jppNnv"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-fjdhpX jMSAXb"
       >
         Layout
       </span>
@@ -2445,6 +2459,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
   <button
     aria-label="Open Drop"
     className="StyledButton-sc-323bzc-0 jfbKsv"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -2484,6 +2499,7 @@ exports[`Storyshots HeaderButtons SaveButton 1`] = `
 >
   <button
     className="StyledButton-sc-323bzc-0 jfbKsv"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -2495,7 +2511,7 @@ exports[`Storyshots HeaderButtons SaveButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-gqjmRU jppNnv"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-fjdhpX jMSAXb"
       >
         Save
       </span>
@@ -2531,6 +2547,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
 >
   <button
     className="StyledButton-sc-323bzc-0 jfbKsv"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -2542,7 +2559,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-gqjmRU jppNnv"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-fjdhpX jMSAXb"
       >
         Undo
       </span>
@@ -2583,13 +2600,13 @@ exports[`Storyshots LineViewer Default 1`] = `
           className="StyledBox-sc-13pk1d4-0 cGDWft"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 fNQaFh sc-kgoBCf hcfdKh"
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-dxgOiQ flnUXj"
             size="xsmall"
           >
             Aggregated Transcription
           </span>
           <span
-            className="StyledText-sc-1sadyjn-0 fNQaFh sc-kgoBCf hcfdKh"
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-dxgOiQ flnUXj"
             size="xsmall"
           >
             Consensus Score
@@ -2608,7 +2625,7 @@ exports[`Storyshots LineViewer Default 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-circle fa-w-16 sc-kGXeez haPfER"
+              className="svg-inline--fa fa-circle fa-w-16 sc-ckVGcZ btnmPl"
               color="tomato"
               data-icon="circle"
               data-prefix="fas"
@@ -2626,7 +2643,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             </svg>
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-circle fa-w-16 sc-kGXeez haPfER"
+              className="svg-inline--fa fa-circle fa-w-16 sc-ckVGcZ btnmPl"
               color="green"
               data-icon="circle"
               data-prefix="fas"
@@ -2701,7 +2718,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
             >
               June 11, 2019
             </span>
@@ -2711,7 +2728,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
             >
               username
             </span>
@@ -2785,7 +2802,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
             >
               June 11, 2019
             </span>
@@ -2795,7 +2812,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
             >
               username
             </span>
@@ -2808,7 +2825,7 @@ exports[`Storyshots LineViewer Default 1`] = `
                 •
               </span>
               <span
-                className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
               >
                 Gold Standard
               </span>
@@ -2861,7 +2878,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
             >
               June 11, 2019
             </span>
@@ -2871,7 +2888,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
             >
               username
             </span>
@@ -2923,7 +2940,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
             >
               June 11, 2019
             </span>
@@ -2933,7 +2950,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-chPdSV lcACZG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
             >
               username
             </span>
@@ -2999,7 +3016,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kgoBCf hcfdKh"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ flnUXj"
             >
               Add Line Below
             </span>
@@ -3013,7 +3030,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kgoBCf hcfdKh"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ flnUXj"
             >
               Delete Line
             </span>
@@ -3031,7 +3048,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kgoBCf hcfdKh"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ flnUXj"
             >
               Replace With Selected
             </span>
@@ -3045,7 +3062,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kgoBCf hcfdKh"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ flnUXj"
             >
               Close
             </span>
@@ -3067,7 +3084,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     onClick={[Function]}
   >
     <span
-      className="StyledText-sc-1sadyjn-0 gcASOG sc-VigVT iVCscj"
+      className="StyledText-sc-1sadyjn-0 gcASOG sc-jzJRlG jJgkXK"
     >
       Mark As Approved
     </span>
@@ -3198,7 +3215,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
           />
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-ckVGcZ cTIBXo"
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
           >
             Find a specific subject
           </span>
@@ -3216,7 +3233,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 iEMnku"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jKJlTe jRUNwe"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-kEYyzF lmbzRe"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -3284,7 +3301,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 bgTRhM"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jKJlTe jRUNwe"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-kEYyzF lmbzRe"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -3321,7 +3338,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-ckVGcZ cTIBXo"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
             >
               Filter subject list by status
             </span>
@@ -3649,7 +3666,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="button"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-ckVGcZ cTIBXo"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
                 >
                   Close
                 </span>
@@ -3664,7 +3681,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="submit"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-ckVGcZ cTIBXo"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
                 >
                   Search
                 </span>
@@ -3698,7 +3715,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX dPakcX"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jKJlTe iwUYDD"
       >
         This subject cannot be accessed because 
         <b>
@@ -3710,7 +3727,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX dPakcX"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jKJlTe iwUYDD"
       >
         For access, ask them to close their version.
       </span>
@@ -3766,7 +3783,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kEYyzF eJZPaM"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-hSdWYo fTcbhG"
             >
               View All Lines
             </span>
@@ -3774,16 +3791,16 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-kkGfuU hPxXlr"
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-eHgmQL dpAtYH"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 hZAtOV sc-iAyFgw dTzAyq"
+          className="StyledBox-sc-13pk1d4-0 hZAtOV sc-cvbbAY bVANRe"
         />
         <svg
-          className="sc-eNQAEJ jNCczr"
+          className="sc-kkGfuU lggXyX"
         >
           <g
-            className="sc-hMqMXs fqjEzY"
+            className="sc-iAyFgw eUTvda"
             disabled={true}
             transform="scale(1) translate(0, 0) rotate(0)"
           >
@@ -3862,7 +3879,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ jlANVC"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-eNQAEJ kHPneq"
       >
         By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
       </span>
@@ -3870,7 +3887,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ jlANVC"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-eNQAEJ kHPneq"
       >
         This action can be reversed at any time.
       </span>
