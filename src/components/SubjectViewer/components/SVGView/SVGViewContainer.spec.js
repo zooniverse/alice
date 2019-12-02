@@ -38,6 +38,7 @@ class ValidImage {
     this.naturalWidth = 100
   }
 }
+
 const image = new ValidImage()
 
 describe('Component > SVGViewContainer', function () {

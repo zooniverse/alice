@@ -875,7 +875,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
                   >
-                    eu. Fusce vel leo massa. Integer porttitor rutrum lorem, non lobortis mauris tincidunt at. 
+                    eu. Fusce vel leo massa. Integer porttitor rutrum lorem, non lobortis mauris tincidunt at.
                   </span>
                 </div>
                 <div
@@ -1846,7 +1846,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
                   >
-                    dapibus congue est. Etiam egestas quis nisi vehicula ultricies. Donec rhoncus ut nibh sit amet 
+                    dapibus congue est. Etiam egestas quis nisi vehicula ultricies. Donec rhoncus ut nibh sit amet
                   </span>
                 </div>
                 <div
@@ -1919,7 +1919,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
                   >
-                    convallis. Morbi aliquet at lorem a imperdiet. Proin lorem metus, tristique et pellentesque non, luctus 
+                    convallis. Morbi aliquet at lorem a imperdiet. Proin lorem metus, tristique et pellentesque non, luctus
                   </span>
                 </div>
                 <div
@@ -3719,7 +3719,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-eNQAEJ kHPneq"
       >
-        This subject cannot be accessed because 
+        This subject cannot be accessed because
         <b>
           Erin Green
         </b>
@@ -3793,11 +3793,18 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-cvbbAY cDfiQI"
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-iAyFgw llDHeC"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 hZAtOV sc-jWBwVP hYbxVP"
-        />
+          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-hSdWYo yteBr"
+        >
+          <div
+            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-kkGfuU cQIrHC"
+          />
+          <div
+            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-hSdWYo sc-eHgmQL bsWTzF"
+          />
+        </div>
       </div>
     </div>
   </div>
