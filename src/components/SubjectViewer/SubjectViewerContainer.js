@@ -12,7 +12,12 @@ const RelativeBox = styled(Box)`
 `
 
 const AbsoluteBox = styled(Box)`
+  pointer-events: none;
   position: absolute;
+`
+
+const ToolsBox = styled(AbsoluteBox)`
+  pointer-events: all;
 `
 
 function SubjectViewerContainer() {
@@ -36,9 +41,9 @@ function SubjectViewerContainer() {
       <RelativeBox fill>
         <AbsoluteBox fill>
           <AsyncMessages error={store.subjects.error} subjectState={store.subjects.asyncState} />
-          <AbsoluteBox>
+          <ToolsBox>
             {showTools && <ImageTools />}
-          </AbsoluteBox>
+          </ToolsBox>
         </AbsoluteBox>
         <SVGView />
       </RelativeBox>
