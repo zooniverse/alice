@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { bool, string, number } from 'prop-types'
-import ASYNC_STATES from 'helpers/asyncStates'
 import AnnotationsPane from '../AnnotationsPane'
 import InteractionLayer from '../InteractionLayer'
-import AsyncMessages from '../AsyncMessages'
 
 const SVG = styled.svg`
   height: 100%;
@@ -17,7 +15,7 @@ const G = styled.g`
   }
 `
 
-function SVGView ({ disabled, error, height, url, subjectState, transform, width}) {
+function SVGView ({ disabled, height, url, transform, width}) {
   const svgEl = React.useRef(null)
   const boundingBox = svgEl.current && svgEl.current.getBoundingClientRect()
   const viewerWidth = (boundingBox && boundingBox.width) || 0
@@ -37,16 +35,13 @@ function SVGView ({ disabled, error, height, url, subjectState, transform, width
         <AnnotationsPane x={width * -0.5} y={height * -0.5} />
         <InteractionLayer boundingBox={boundingBox} width={width} height={height} />
       </G>
-      <AsyncMessages error={error} subjectState={subjectState} />
     </SVG>
   )
 }
 
 SVGView.propTypes = {
   disabled: bool,
-  error: string,
   height: number,
-  subjectState: string,
   transform: string,
   url: string,
   width: number
@@ -54,9 +49,7 @@ SVGView.propTypes = {
 
 SVGView.defaultProps = {
   disabled: true,
-  error: '',
   height: 0,
-  subjectState: ASYNC_STATES.IDLE,
   transform: '',
   url: '',
   width: number

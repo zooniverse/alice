@@ -8,7 +8,13 @@ import ResetButtonContainer from './components/ResetButton'
 function ImageTools() {
   const borderStyle = { side: 'right', color: '#979797' }
   return (
-    <Box background='#A6A7A9' direction='row' elevation='large' round='xxsmall'>
+    <Box
+      background='#A6A7A9'
+      direction='row'
+      elevation='large'
+      margin='small'
+      round='xxsmall'
+    >
       <Box border={borderStyle}>
         <ZoomInButtonContainer />
       </Box>

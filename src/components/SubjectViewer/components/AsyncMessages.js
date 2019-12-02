@@ -1,17 +1,23 @@
 import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { Box, Text } from 'grommet'
+import styled from 'styled-components'
 import { string } from 'prop-types'
+
+const AbsoluteBox = styled(Box)`
+  position: absolute;
+`
 
 function AsyncMessages({ error, subjectState }) {
   return (
-    <g>
+    <AbsoluteBox align='center' fill justify='center' pad='small'>
       {subjectState === ASYNC_STATES.LOADING && (
-        <text textAnchor='middle'>Loading Subject...</text>
+        <Text color='black' size='large'>Loading Subject...</Text>
       )}
       {subjectState === ASYNC_STATES.ERROR && (
-        <text fill='red' textAnchor='middle'>{`Error: ${error}`}</text>
+        <Text color='red' size='large'>{`Error: ${error}`}</Text>
       )}
-    </g>
+    </AbsoluteBox>
   )
 }
 

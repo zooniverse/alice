@@ -59,9 +59,7 @@ function SVGViewContainer () {
     <Box ref={svgEl} fill>
       <SVGView
         disabled={disableInteraction}
-        error={store.subjects.error}
         height={naturalHeight}
-        subjectState={store.subjects.asyncState}
         transform={transform}
         url={src}
         width={naturalWidth}
