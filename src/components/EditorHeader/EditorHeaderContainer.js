@@ -29,7 +29,7 @@ function getHeaderTools(path) {
 function EditorHeaderContainer({ history }) {
   const store = React.useContext(AppContext)
   const buttons = getHeaderTools(history.location.pathname)
-  const showMetadata = routeMatcher(window.location.pathname, EDIT_PATH)
+  const showMetadata = routeMatcher(history.location.pathname, EDIT_PATH)
 
   return (
     <EditorHeader
@@ -40,4 +40,5 @@ function EditorHeaderContainer({ history }) {
   )
 }
 
+export { EditorHeaderContainer }
 export default withRouter(observer(EditorHeaderContainer))

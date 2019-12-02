@@ -2325,7 +2325,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
     className="StyledBox-sc-13pk1d4-0 iNPZuM"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 kFLDHg"
+      className="StyledBox-sc-13pk1d4-0 kFLDHg sc-kpOJdX dEeRhR"
     >
       <div
         className="StyledBox-sc-13pk1d4-0 cGDWft"
@@ -2337,6 +2337,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
         </span>
         <button
           className="StyledButton-sc-323bzc-0 jfbKsv"
+          disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -2600,13 +2601,13 @@ exports[`Storyshots LineViewer Default 1`] = `
           className="StyledBox-sc-13pk1d4-0 cGDWft"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 fNQaFh sc-dxgOiQ flnUXj"
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-ckVGcZ cTIBXo"
             size="xsmall"
           >
             Aggregated Transcription
           </span>
           <span
-            className="StyledText-sc-1sadyjn-0 fNQaFh sc-dxgOiQ flnUXj"
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-ckVGcZ cTIBXo"
             size="xsmall"
           >
             Consensus Score
@@ -2625,7 +2626,7 @@ exports[`Storyshots LineViewer Default 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-circle fa-w-16 sc-ckVGcZ btnmPl"
+              className="svg-inline--fa fa-circle fa-w-16 sc-jKJlTe eHhZij"
               color="tomato"
               data-icon="circle"
               data-prefix="fas"
@@ -2643,7 +2644,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             </svg>
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-circle fa-w-16 sc-ckVGcZ btnmPl"
+              className="svg-inline--fa fa-circle fa-w-16 sc-jKJlTe eHhZij"
               color="green"
               data-icon="circle"
               data-prefix="fas"
@@ -2718,7 +2719,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
             >
               June 11, 2019
             </span>
@@ -2728,7 +2729,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
             >
               username
             </span>
@@ -2802,7 +2803,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
             >
               June 11, 2019
             </span>
@@ -2812,7 +2813,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
             >
               username
             </span>
@@ -2825,7 +2826,7 @@ exports[`Storyshots LineViewer Default 1`] = `
                 •
               </span>
               <span
-                className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
               >
                 Gold Standard
               </span>
@@ -2878,7 +2879,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
             >
               June 11, 2019
             </span>
@@ -2888,7 +2889,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
             >
               username
             </span>
@@ -2940,7 +2941,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hIYVGv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
             >
               June 11, 2019
             </span>
@@ -2950,7 +2951,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               •
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kpOJdX iZjSYi"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ fBzKeb"
             >
               username
             </span>
@@ -3016,7 +3017,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ flnUXj"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-ckVGcZ cTIBXo"
             >
               Add Line Below
             </span>
@@ -3030,7 +3031,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ flnUXj"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-ckVGcZ cTIBXo"
             >
               Delete Line
             </span>
@@ -3048,7 +3049,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ flnUXj"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-ckVGcZ cTIBXo"
             >
               Replace With Selected
             </span>
@@ -3062,7 +3063,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dxgOiQ flnUXj"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-ckVGcZ cTIBXo"
             >
               Close
             </span>
@@ -3127,6 +3128,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
       <button
         aria-label="Open Metadata Information"
         className="StyledButton-sc-323bzc-0 laBEqz"
+        disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -3215,7 +3217,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
           />
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-kEYyzF eJZPaM"
           >
             Find a specific subject
           </span>
@@ -3233,7 +3235,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 iEMnku"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-kEYyzF lmbzRe"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-kkGfuU cTTQOm"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -3301,7 +3303,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 bgTRhM"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-kEYyzF lmbzRe"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-kkGfuU cTTQOm"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -3338,7 +3340,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-kEYyzF eJZPaM"
             >
               Filter subject list by status
             </span>
@@ -3666,7 +3668,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="button"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-kEYyzF eJZPaM"
                 >
                   Close
                 </span>
@@ -3681,7 +3683,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="submit"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-kEYyzF eJZPaM"
                 >
                   Search
                 </span>
@@ -3715,7 +3717,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jKJlTe iwUYDD"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-eNQAEJ kHPneq"
       >
         This subject cannot be accessed because 
         <b>
@@ -3727,7 +3729,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jKJlTe iwUYDD"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-eNQAEJ kHPneq"
       >
         For access, ask them to close their version.
       </span>
@@ -3783,7 +3785,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-hSdWYo fTcbhG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-eHgmQL keiOXo"
             >
               View All Lines
             </span>
@@ -3791,16 +3793,16 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-eHgmQL dpAtYH"
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-cvbbAY cDfiQI"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 hZAtOV sc-cvbbAY bVANRe"
+          className="StyledBox-sc-13pk1d4-0 hZAtOV sc-jWBwVP hYbxVP"
         />
         <svg
-          className="sc-kkGfuU lggXyX"
+          className="sc-iAyFgw cslqwv"
         >
           <g
-            className="sc-iAyFgw eUTvda"
+            className="sc-hSdWYo guXsGa"
             disabled={true}
             transform="scale(1) translate(0, 0) rotate(0)"
           >
@@ -3879,7 +3881,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-eNQAEJ kHPneq"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hifiaZ"
       >
         By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
       </span>
@@ -3887,7 +3889,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-eNQAEJ kHPneq"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hifiaZ"
       >
         This action can be reversed at any time.
       </span>
