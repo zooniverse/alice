@@ -31,6 +31,7 @@ function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen,
             steps={images}
           /> )}
         <Button
+          disabled={disabled}
           icon={isOpen ? <FormDown /> : <FormUp />}
           label={<Uppercase>{actionText} Filmstrip</Uppercase>}
           gap='xsmall'
