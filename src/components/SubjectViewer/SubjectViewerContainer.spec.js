@@ -7,6 +7,9 @@ import ImageTools from './components/ImageTools'
 
 let wrapper
 const testContext = {
+  aggregations: {
+    showModal: false
+  },
   subjects: {
     current: {
       locations: [{ image: 'www.fakelocation.com' }]
@@ -81,6 +84,28 @@ describe('Component > SubjectViewerContainer', function () {
       const box = wrapper.find(Box).first()
       box.simulate('mouseleave')
       expect(setState).toHaveBeenCalledWith(false)
+    })
+  })
+
+  describe('SubjectViewerContainer when disabled', function() {
+    let setState;
+
+    beforeEach(function() {
+      const revisedContext = Object.assign({}, testContext)
+      revisedContext.aggregations.showModal = true;
+      setState = jest.fn();
+      jest
+        .spyOn(React, 'useState')
+        .mockImplementation((value) => [value, setState])
+      jest.spyOn(React, 'useContext')
+        .mockImplementation((context) => {  return revisedContext })
+      wrapper = shallow(<SubjectViewerContainer />);
+    })
+
+    it('should set tools to true on mouse over', function() {
+      const box = wrapper.find(Box).first()
+      box.simulate('mouseover')
+      expect(setState).not.toHaveBeenCalled()
     })
   })
 })

@@ -25,7 +25,8 @@ describe('Component > EditorHeaderContainer', function () {
   })
 
   it('should render without crashing', function () {
-    wrapper = shallow(<EditorHeaderContainer />);
+    const history = { location: {} }
+    wrapper = shallow(<EditorHeaderContainer history={history} />);
     expect(wrapper).toBeDefined()
   })
 
