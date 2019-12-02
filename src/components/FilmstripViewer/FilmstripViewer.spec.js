@@ -10,6 +10,7 @@ import Page5 from '../../images/mockImages/page5.jpg'
 import Page6 from '../../images/mockImages/page6.jpg'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from './components/StepNavigation'
+import Overlay from '../Overlay'
 
 let wrapper;
 let setOpen
@@ -43,5 +44,10 @@ describe('Component > FilmstripViewer', function () {
     const closeButton = wrapper.find(Button)
     closeButton.simulate('click')
     expect(setOpen).toHaveBeenCalled()
+  })
+
+  it('should show an overlay when disabled', function () {
+    wrapper = shallow(<FilmstripViewer disabled />)
+    expect(wrapper.find(Overlay).length).toBe(1)
   })
 })
