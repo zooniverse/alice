@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { number, string } from 'prop-types'
+import { bool, number, string } from 'prop-types'
 import ASYNC_STATES from 'helpers/asyncStates'
 import InteractionLayer from './components/InteractionLayer'
 
@@ -16,11 +16,11 @@ const G = styled.g`
   }
 `
 
-export default function SubjectViewer ({ error, rotation, scale, src, subjectState, translateX, translateY }) {
+export default function SubjectViewer ({ disabled, error, rotation, scale, src, subjectState, translateX, translateY }) {
   const transform = `scale(${scale}) translate(${translateX}, ${translateY}) rotate(${rotation})`
   const inputEl = React.useRef(null);
   const boundingBox = (inputEl && inputEl.current && inputEl.current.getBoundingClientRect());
-  const disableInteraction = subjectState !== ASYNC_STATES.READY
+  const disableInteraction = subjectState !== ASYNC_STATES.READY || disabled
 
   return (
     <SVG ref={inputEl}>
@@ -43,6 +43,7 @@ export default function SubjectViewer ({ error, rotation, scale, src, subjectSta
 }
 
 SubjectViewer.propTypes = {
+  disabled: bool,
   error: string,
   rotation: number,
   scale: number,
@@ -52,6 +53,7 @@ SubjectViewer.propTypes = {
 }
 
 SubjectViewer.defaultProps = {
+  disabled: false,
   error: '',
   rotation: 0,
   scale: 0,
