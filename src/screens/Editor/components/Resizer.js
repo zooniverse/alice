@@ -15,7 +15,7 @@ const StyledBox = styled(Box)`
   }
 `
 
-export default function Resizer({ direction, disabled, onMouseDown }) {
+function Resizer({ direction, disabled, onMouseDown }) {
   const ellipsis = direction === 'row' ? faEllipsisV : faEllipsisH
   const iconColor = disabled ? 'gray' : 'black'
 
@@ -44,3 +44,6 @@ Resizer.defaultProps = {
   disabled: false,
   onMouseDown: () => {}
 }
+
+export { StyledBox }
+export default Resizer
