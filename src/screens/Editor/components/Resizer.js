@@ -9,7 +9,7 @@ const StyledBox = styled(Box)`
   :hover {
     cursor: ${props => {
       let icon = props.direction === 'row' ? 'col-resize' : 'row-resize'
-      if (props.disabled) icon = 'not-allowed'
+      if (props.disabled) icon = 'default'
       return icon
     }};
   }
