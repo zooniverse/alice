@@ -39,7 +39,8 @@ function Editor ({ match }) {
   const [currentPos, setPos] = React.useState()
 
   const onMouseDown = e => {
-    setMove(true)
+    if (store.aggregations.showModal) return null;
+    setMove(true);
     setNewPosition(e);
   }
   const setNewPosition = e => {
@@ -88,6 +89,7 @@ function Editor ({ match }) {
           </Box>
           <Resizer
             direction={direction}
+            disabled={store.aggregations.showModal}
             onMouseDown={onMouseDown}
           />
           <Box basis={`${transcriberSize}%`}>
