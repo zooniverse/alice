@@ -15,13 +15,28 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   current: types.optional(Workflow, {}),
   error: types.optional(types.string, '')
 }).actions(self => ({
-  fetchWorkflows: flow (function * fetchWorkflows(id) {
+  fetchWorkflows: flow (function * fetchWorkflows(projectId) {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
-      const response = yield client.get(`/workflows?filter[project_id_eq]=${id}`)
+      const response = yield client.get(`/workflows?filter[project_id_eq]=${projectId}`)
       const resources = JSON.parse(response.body)
       self.all = resources.data
+      self.asyncState = ASYNC_STATES.READY
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  }),
+
+  fetchWorkflow: flow (function * fetchWorkflow(id) {
+    self.asyncState = ASYNC_STATES.LOADING
+    const client = getRoot(self).client.tove
+    try {
+      const response = yield client.get(`/workflows/${id}`)
+      const resources = JSON.parse(response.body)
+      self.selectWorkflow(resources.data)
       self.asyncState = ASYNC_STATES.READY
     } catch (error) {
       console.warn(error);
@@ -49,6 +64,10 @@ const WorkflowsStore = types.model('WorkflowsStore', {
     self.asyncState = state
   }
 })).views(self => ({
+  get id () {
+    return self.current.id
+  },
+
   get title () {
     return self.current.display_name
   }

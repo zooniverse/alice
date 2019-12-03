@@ -19,11 +19,17 @@ const AppStore = types.model('AppStore', {
   image: types.optional(ImageStore, () => ImageStore.create({})),
   groups: types.optional(GroupsStore, () => GroupsStore.create({})),
   subjects: types.optional(SubjectStore, () => SubjectStore.create({})),
-  initialised: types.optional(types.boolean, false),
+  initialized: types.optional(types.boolean, false),
   projects: types.optional(ProjectsStore, () => ProjectsStore.create({})),
   modal: types.optional(ModalStore, () => ModalStore.create({})),
   transcriptions: types.optional(TranscriptionsStore, () => TranscriptionsStore.create({})),
   workflows: types.optional(WorkflowsStore, () => WorkflowsStore.create({})),
-})
+}).actions(self => ({
+  initialize: () => {
+    self.client.initialize()
+    self.auth.checkCurrent()
+    self.initialized = true;
+  }
+}))
 
 export { AppStore }
