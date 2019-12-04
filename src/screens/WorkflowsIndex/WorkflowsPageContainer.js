@@ -11,25 +11,23 @@ function WorkflowsPageContainer({ history, match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
+    store.projects.selectProject(match.params.project)
+    store.workflows.fetchWorkflows(match.params.project)
     store.groups.selectGroup(null)
     store.workflows.selectWorkflow(null)
-    if (match.params.project !== store.projects.id) {
-      store.projects.selectProject(match.params.project)
-    }
-    store.workflows.fetchWorkflows(match.params.project)
   }, [match, store])
 
   const onSelection = workflow => {
-    store.workflows.selectWorkflow(workflow)
     const nextPath = generatePath(SUBJECT_SETS_PATH, { workflow: workflow.id, ...match.params})
     history.push(nextPath)
   }
+  const workflows = Array.from(store.workflows.all.values())
 
   return (
     <Box margin='medium' fill='vertical'>
       <ResourcesTable
         columns={COLUMNS}
-        data={store.workflows.all}
+        data={workflows}
         error={store.workflows.error}
         onSelection={onSelection}
         resource='Workflows'

@@ -5,7 +5,7 @@ const columns = [
   {
     property: "name",
     header: "Workflow Name",
-    render: datum => <Text>{datum.attributes.display_name}</Text>
+    render: datum => <Text>{datum.display_name}</Text>
   },
   {
     property: "id",

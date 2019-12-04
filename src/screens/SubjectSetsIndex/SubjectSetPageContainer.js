@@ -12,8 +12,10 @@ function SubjectSetPageContainer({ history, match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
+    store.projects.selectProject(match.params.project)
+    store.workflows.selectWorkflow(match.params.workflow)
     store.groups.selectGroup(null)
-  }, [store])
+  }, [match, store])
 
   const onSelection = group => {
     store.groups.selectGroup(group)

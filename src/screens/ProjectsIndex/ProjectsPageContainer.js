@@ -12,13 +12,11 @@ function ProjectPageContainer () {
 
   React.useEffect(() => {
     store.projects.selectProject(null)
+    store.projects.getProjects()
   }, [store])
 
-  if (store.auth.user && store.projects.asyncState === ASYNC_STATES.IDLE) {
-    store.projects.getProjects()
-  }
-  const ownerProjects = store.projects.ownerProjects || []
-  const collabProjects = store.projects.collabProjects || []
+  const ownerProjects = store.projects.ownerProjects
+  const collabProjects = store.projects.collabProjects
   const error = store.projects.error
 
   return (

@@ -5,54 +5,18 @@ const Workflow = types
   .model('Workflow', {
     display_name: types.optional(types.string, ''),
     groups: types.optional(types.frozen(), {}),
-    id: types.optional(types.string, ''),
+    id: types.identifier,
     project_id: types.optional(types.string, '')
   })
 
 const WorkflowsStore = types.model('WorkflowsStore', {
-  all: types.array(types.frozen({})),
+  all: types.map(Workflow),
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
-  current: types.optional(Workflow, {}),
+  current: types.safeReference(Workflow),
   error: types.optional(types.string, '')
 }).actions(self => ({
-  fetchWorkflows: flow (function * fetchWorkflows(projectId) {
-    self.asyncState = ASYNC_STATES.LOADING
-    const client = getRoot(self).client.tove
-    try {
-      const response = yield client.get(`/workflows?filter[project_id_eq]=${projectId}`)
-      const resources = JSON.parse(response.body)
-      self.all = resources.data
-      self.asyncState = ASYNC_STATES.READY
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
-  }),
-
-  fetchWorkflow: flow (function * fetchWorkflow(id) {
-    self.asyncState = ASYNC_STATES.LOADING
-    const client = getRoot(self).client.tove
-    try {
-      const response = yield client.get(`/workflows/${id}`)
-      const resources = JSON.parse(response.body)
-      self.selectWorkflow(resources.data)
-      self.asyncState = ASYNC_STATES.READY
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
-  }),
-
-  selectWorkflow: function(workflow) {
-    if (!workflow) {
-      getRoot(self).groups.setGroups([])
-      self.current = Workflow.create()
-      return
-    }
-    getRoot(self).groups.setGroups(workflow.attributes.groups)
-    self.current = Workflow.create({
+  createWorkflow: (workflow) => {
+    return Workflow.create({
       display_name: workflow.attributes.display_name,
       id: workflow.id,
       project_id: workflow.relationships.project.data.id,
@@ -60,8 +24,63 @@ const WorkflowsStore = types.model('WorkflowsStore', {
     })
   },
 
+  fetchWorkflows: flow (function * fetchWorkflows(projectId) {
+    self.asyncState = ASYNC_STATES.LOADING
+    const client = getRoot(self).client.tove
+    try {
+      const response = yield client.get(`/workflows?filter[project_id_eq]=${projectId}`)
+      const workflows = JSON.parse(response.body)
+      workflows.data.forEach(workflow => self.all.put(self.createWorkflow(workflow)))
+      self.asyncState = ASYNC_STATES.READY
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  }),
+
+  getWorkflow: flow (function * getWorkflow(id) {
+    self.asyncState = ASYNC_STATES.LOADING
+    const client = getRoot(self).client.tove
+    try {
+      const response = yield client.get(`/workflows/${id}`)
+      const resources = JSON.parse(response.body)
+      self.asyncState = ASYNC_STATES.READY
+      return self.createWorkflow(resources.data)
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  }),
+
+  selectWorkflow: flow (function * selectWorkflow(id = null) {
+    if (!id) {
+      getRoot(self).groups.setGroups([])
+      self.all.clear()
+      return self.current = undefined
+    }
+    const active = self.all.get(id)
+    if (!active) {
+      const workflow = yield self.getWorkflow(id)
+      getRoot(self).groups.setGroups(workflow.groups)
+      self.setWorkflow(workflow)
+    }
+    self.current = id
+  }),
+
   setState: function(state) {
     self.asyncState = state
+  },
+
+  setWorkflow: (workflow) => {
+    if (workflow) {
+      try {
+        self.all.put(workflow)
+      } catch (error) {
+        console.error(error)
+      }
+    }
   }
 })).views(self => ({
   get id () {
@@ -69,7 +88,7 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   },
 
   get title () {
-    return self.current.display_name
+    return (self.current && self.current.display_name) || ''
   }
 }))
 
