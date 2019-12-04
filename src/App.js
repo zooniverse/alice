@@ -3,6 +3,7 @@ import { Router, Route } from 'react-router-dom'
 import { Grommet } from 'grommet'
 import AppContext from 'store'
 import makeInspectable from 'mobx-devtools-mst'
+import { observer } from 'mobx-react'
 import history from './history'
 import './App.css'
 import Home from './screens/Home'
@@ -27,6 +28,8 @@ function App() {
   makeInspectable(store)
   store.initialize()
 
+  if (!store.initialized) return null;
+
   return (
     <Router history={history}>
       <>
@@ -47,4 +50,4 @@ function App() {
   );
 }
 
-export default App
+export default observer(App)

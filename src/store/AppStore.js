@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree'
+import { flow, types } from 'mobx-state-tree'
 import { AggregationsStore } from './AggregationsStore'
 import { AuthStore } from './AuthStore'
 import { ClientStore } from './ClientStore'
@@ -25,11 +25,11 @@ const AppStore = types.model('AppStore', {
   transcriptions: types.optional(TranscriptionsStore, () => TranscriptionsStore.create({})),
   workflows: types.optional(WorkflowsStore, () => WorkflowsStore.create({})),
 }).actions(self => ({
-  initialize: () => {
+  initialize: flow (function * initialize() {
     self.client.initialize()
-    self.auth.checkCurrent()
+    yield self.auth.checkCurrent()
     self.initialized = true;
-  }
+  })
 }))
 
 export { AppStore }

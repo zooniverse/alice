@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box } from 'grommet'
 import AppContext from 'store'
-import ASYNC_STATES from 'helpers/asyncStates'
 import { generatePath, withRouter } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import { SUBJECT_SETS_PATH } from 'paths'
@@ -14,12 +13,12 @@ function WorkflowsPageContainer({ history, match }) {
   React.useEffect(() => {
     store.groups.selectGroup(null)
     store.workflows.selectWorkflow(null)
-  }, [store])
+    if (match.params.project !== store.projects.id) {
+      store.projects.selectProject(match.params.project)
+    }
+    store.workflows.fetchWorkflows(match.params.project)
+  }, [match, store])
 
-  if (store.workflows.asyncState === ASYNC_STATES.IDLE) {
-    const projectId = match.params && match.params.project
-    store.workflows.fetchWorkflows(projectId)
-  }
   const onSelection = workflow => {
     store.workflows.selectWorkflow(workflow)
     const nextPath = generatePath(SUBJECT_SETS_PATH, { workflow: workflow.id, ...match.params})
