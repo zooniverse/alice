@@ -22,12 +22,13 @@ function SubjectSetPageContainer({ history, match }) {
     const nextPath = generatePath(SUBJECTS_PATH, { group: group.id, ...match.params})
     history.push(nextPath)
   }
+  const groups = Array.from(store.groups.all.values())
 
   return (
     <Box margin='medium' fill='vertical'>
       <ResourcesTable
         columns={columns}
-        data={store.groups.all}
+        data={groups}
         resource='groups'
         onSelection={onSelection}
         status={ASYNC_STATES.READY}

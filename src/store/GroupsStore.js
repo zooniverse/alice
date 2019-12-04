@@ -2,31 +2,28 @@ import { types } from 'mobx-state-tree'
 
 const Group = types.model('Group', {
   display_name: types.optional(types.string, ''),
-  id: types.optional(types.number, 0)
+  id: types.identifier
 })
 
 const GroupsStore = types.model('GroupsStore', {
-  all: types.array(Group),
-  current: types.optional(Group, {}),
+  all: types.map(Group),
+  current: types.safeReference(Group),
 }).actions(self => ({
   selectGroup: function(group) {
-    self.current = Group.create({
-      display_name: (group && group.display_name) || '',
-      id: (group && group.id) || 0
-    })
+    self.current = (group && group.id) || undefined
   },
 
   setGroups: function(groups) {
-    self.all = Object.keys(groups).map((key) => {
-      return Group.create({
+    Object.keys(groups).forEach((key) => {
+      self.all.put(Group.create({
         display_name: key,
-        id: groups[key]
-      })
+        id: groups[key].toString()
+      }))
     })
   }
 })).views(self => ({
   get title () {
-    return self.current.display_name
+    return (self.current && self.current.display_name) || ''
   }
 }))
 

@@ -30,7 +30,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   fetchTranscriptions: flow (function * fetchTranscriptions() {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
-    const groupName = getRoot(self).groups.current.display_name
+    const groupName = getRoot(self).groups.title
     try {
       const response = yield client.get(`/transcriptions?filter[group_id_eq]=${groupName}`)
       const resources = JSON.parse(response.body)
