@@ -30,7 +30,7 @@ const pushSpy = jest.fn()
 
 const history = {
   location: {
-    pathname: '/projects/123/workflows/123/subject-sets/4/subjects'
+    pathname: '/projects/123/workflows/123/groups/4/subjects'
   },
   push: pushSpy
 }

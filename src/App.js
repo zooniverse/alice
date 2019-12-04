@@ -18,7 +18,7 @@ import { mergedTheme } from './theme'
 import {
   PROJECTS_PATH,
   WORKFLOWS_PATH,
-  SUBJECT_SETS_PATH,
+  GROUPS_PATH,
   SUBJECTS_PATH,
   EDIT_PATH
 } from 'paths'
@@ -40,7 +40,7 @@ function App() {
             <Route path="/projects" component={Header}/>
             <Route exact path={PROJECTS_PATH} component={ProjectsIndex}/>
             <Route exact path={WORKFLOWS_PATH} component={WorkflowsIndex}/>
-            <Route exact path={SUBJECT_SETS_PATH} component={SubjectSetsIndex}/>
+            <Route exact path={GROUPS_PATH} component={SubjectSetsIndex}/>
             <Route exact path={SUBJECTS_PATH} component={SubjectsIndex}/>
             <Route exact path={EDIT_PATH} component={Editor}/>
           </Grommet>

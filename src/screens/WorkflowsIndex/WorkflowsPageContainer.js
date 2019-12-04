@@ -3,7 +3,7 @@ import { Box } from 'grommet'
 import AppContext from 'store'
 import { generatePath, withRouter } from 'react-router-dom'
 import { observer } from 'mobx-react'
-import { SUBJECT_SETS_PATH } from 'paths'
+import { GROUPS_PATH } from 'paths'
 import ResourcesTable from '../../components/ResourcesTable'
 import COLUMNS from './workflowColumns'
 
@@ -18,7 +18,7 @@ function WorkflowsPageContainer({ history, match }) {
   }, [match, store])
 
   const onSelection = workflow => {
-    const nextPath = generatePath(SUBJECT_SETS_PATH, { workflow: workflow.id, ...match.params})
+    const nextPath = generatePath(GROUPS_PATH, { workflow: workflow.id, ...match.params})
     history.push(nextPath)
   }
   const workflows = Array.from(store.workflows.all.values())

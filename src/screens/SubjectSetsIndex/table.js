@@ -1,49 +1,49 @@
 const mockData = [
   {
-    subjectSet: "Subject Set Name",
-    subjectSetId: 6859,
+    group: "Group Name",
+    groupId: 6859,
     lastEdit: "May 17, 2019",
     lastEditor: "Erin Green",
     link: "/123/subjects"
   },
   {
-    subjectSet: "Subject Set 2",
-    subjectSetId: 2928,
+    group: "Group 2",
+    groupId: 2928,
     lastEdit: "Jun 11, 2019",
     lastEditor: "Erin Green",
     link: "/123/subjects"
   },
   {
-    subjectSet: "Subject Set 3",
-    subjectSetId: 29,
+    group: "Group 3",
+    groupId: 29,
     lastEdit: "Jun 12, 2019",
     lastEditor: "Erin Green",
     link: "/123/subjects"
   },
   {
-    subjectSet: "Subject Set 4",
-    subjectSetId: '0583',
+    group: "Group 4",
+    groupId: '0583',
     lastEdit: "April 15, 2019",
     lastEditor: "Charles Davies",
     link: "/123/subjects"
   },
   {
-    subjectSet: "Subject Set 5",
-    subjectSetId: 123,
+    group: "Group 5",
+    groupId: 123,
     lastEdit: "Aug 31, 2019",
     lastEditor: "Laura Sofía Ureña",
     link: "/123/subjects"
   },
   {
-    subjectSet: "Subject Set 6",
-    subjectSetId: 1234,
+    group: "Group 6",
+    groupId: 1234,
     lastEdit: "May 17, 2019",
     lastEditor: "Monica Böttger",
     link: "/123/subjects"
   },
   {
-    subjectSet: "Subject Set 7",
-    subjectSetId: 12345,
+    group: "Group 7",
+    groupId: 12345,
     lastEdit: "Jun 11, 2019",
     lastEditor: "Harmen Porter",
     link: "/123/subjects"
@@ -53,11 +53,11 @@ const mockData = [
 const columns = [
   {
     property: "display_name",
-    header: "Subject Set"
+    header: "Group"
   },
   {
     property: "id",
-    header: "Subject Set ID"
+    header: "Group ID"
   },
   {
     property: "lastEdit",

@@ -26,7 +26,7 @@ const contextValues = {
 }
 const history = {
   location: {
-    pathname: '/projects/123/workflows/123/subject-sets/123/subjects/123/edit'
+    pathname: '/projects/123/workflows/123/groups/123/subjects/123/edit'
   },
   push: pushSpy
 }
@@ -34,7 +34,7 @@ const match = {
   params: {
     project: '123',
     workflow: '123',
-    subjectSet: '123',
+    group: '123',
     subject: '123'
   }
 }

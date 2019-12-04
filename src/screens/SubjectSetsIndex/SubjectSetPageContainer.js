@@ -19,7 +19,7 @@ function SubjectSetPageContainer({ history, match }) {
 
   const onSelection = group => {
     store.groups.selectGroup(group)
-    const nextPath = generatePath(SUBJECTS_PATH, { subjectSet: group.id, ...match.params})
+    const nextPath = generatePath(SUBJECTS_PATH, { group: group.id, ...match.params})
     history.push(nextPath)
   }
 
@@ -28,7 +28,7 @@ function SubjectSetPageContainer({ history, match }) {
       <ResourcesTable
         columns={columns}
         data={store.groups.all}
-        resource='Subject Sets'
+        resource='groups'
         onSelection={onSelection}
         status={ASYNC_STATES.READY}
       />

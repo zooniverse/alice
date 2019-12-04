@@ -7,7 +7,7 @@ const toggleModalSpy = jest.fn()
 const pushSpy = jest.fn()
 let history = {
   location: {
-    pathname: '/projects/123/workflows/123/subject-sets/123/subjects/123/edit'
+    pathname: '/projects/123/workflows/123/groups/123/subjects/123/edit'
   },
   push: pushSpy
 }

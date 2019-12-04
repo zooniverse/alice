@@ -13,7 +13,7 @@ const columns = [
   },
   {
     property: "sets",
-    header: "Subject Sets"
+    header: "Groups"
   },
   {
     property: "subjects",

@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { bool } from 'prop-types'
 import {
   SUBJECTS_PATH,
-  SUBJECT_SETS_PATH,
+  GROUPS_PATH,
   WORKFLOWS_PATH
 } from 'paths'
 
@@ -30,7 +30,7 @@ function Title({ history, match, onEditor }) {
   let titles = [
     { title: subject },
     { title: group, path: SUBJECTS_PATH, to: 'Subjects Index Page' },
-    { title: workflow, path: SUBJECT_SETS_PATH, to: 'Groups Index Page' },
+    { title: workflow, path: GROUPS_PATH, to: 'Groups Index Page' },
     { title: project, path: WORKFLOWS_PATH, to: 'Workflows Index Page' }
   ]
 
