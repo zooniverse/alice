@@ -9,8 +9,8 @@ const GroupsStore = types.model('GroupsStore', {
   all: types.map(Group),
   current: types.safeReference(Group),
 }).actions(self => ({
-  selectGroup: function(group) {
-    self.current = (group && group.id) || undefined
+  selectGroup: function(id) {
+    self.current = id || undefined
   },
 
   setGroups: function(groups) {

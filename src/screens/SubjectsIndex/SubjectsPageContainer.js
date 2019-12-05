@@ -5,26 +5,29 @@ import { generatePath, withRouter } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import { EDIT_PATH } from 'paths'
 import MODALS from 'helpers/modals'
-import ASYNC_STATES from 'helpers/asyncStates'
 import ResourcesTable from '../../components/ResourcesTable'
 import { columns } from './table'
 
-function SubjectsPageContainer (props) {
+function SubjectsPageContainer ({ history, match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
-    store.subjects.selectSubject(null)
-  }, [store])
+    const loadResources = async () => {
+      await store.projects.selectProject(match.params.project)
+      await store.workflows.selectWorkflow(match.params.workflow)
+      await store.groups.selectGroup(match.params.group)
+      await store.transcriptions.fetchTranscriptions()
+      await store.subjects.selectSubject(null)
+    }
+    loadResources()
+  }, [match, store])
 
-  if (store.transcriptions.asyncState === ASYNC_STATES.IDLE) {
-    store.transcriptions.fetchTranscriptions()
-  }
   const onSelection = (subject) => {
     if (subject.locked) {
       store.modal.toggleModal(MODALS.LOCKED)
     }
-    const nextPath = generatePath(EDIT_PATH, { subject: subject.id, ...props.match.params})
-    props.history.push(nextPath)
+    const nextPath = generatePath(EDIT_PATH, { subject: subject.id, ...match.params})
+    history.push(nextPath)
     store.subjects.fetchSubject(subject.id)
   }
 
