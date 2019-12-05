@@ -44,9 +44,9 @@ const WorkflowsStore = types.model('WorkflowsStore', {
     const client = getRoot(self).client.tove
     try {
       const response = yield client.get(`/workflows/${id}`)
-      const resources = JSON.parse(response.body)
+      const resource = JSON.parse(response.body)
       self.asyncState = ASYNC_STATES.READY
-      return self.createWorkflow(resources.data)
+      return self.createWorkflow(resource.data)
     } catch (error) {
       console.warn(error);
       self.error = error.message

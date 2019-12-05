@@ -31,11 +31,13 @@ function SubjectsPageContainer ({ history, match }) {
     store.subjects.fetchSubject(subject.id)
   }
 
+  const transcriptions = Array.from(store.transcriptions.all.values())
+
   return (
     <Box margin='medium' fill='vertical'>
       <ResourcesTable
         columns={columns}
-        data={store.transcriptions.all}
+        data={transcriptions}
         error={store.transcriptions.error}
         onSelection={onSelection}
         resource='Subjects'
