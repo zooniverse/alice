@@ -18,7 +18,6 @@ function SubjectSetPageContainer({ history, match }) {
   }, [match, store])
 
   const onSelection = group => {
-    store.groups.selectGroup(group)
     const nextPath = generatePath(SUBJECTS_PATH, { group: group.id, ...match.params})
     history.push(nextPath)
   }

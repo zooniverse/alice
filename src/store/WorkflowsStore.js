@@ -55,17 +55,16 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   }),
 
   selectWorkflow: flow (function * selectWorkflow(id = null) {
+    let workflow;
     if (!id) {
       getRoot(self).groups.setGroups([])
       self.all.clear()
       return self.current = undefined
     }
-    const active = self.all.get(id)
-    if (!active) {
-      const workflow = yield self.getWorkflow(id)
-      getRoot(self).groups.setGroups(workflow.groups)
-      self.setWorkflow(workflow)
-    }
+    workflow = self.all.get(id)
+    if (!workflow) workflow = yield self.getWorkflow(id)
+    getRoot(self).groups.setGroups(workflow.groups)
+    self.setWorkflow(workflow)
     self.current = id
   }),
 
