@@ -25,11 +25,15 @@ function Editor ({ match }) {
   const store = React.useContext(AppContext)
   const editorBox = React.useRef(null)
 
-  const params = match.params
+  React.useEffect(() => {
+    const setResources = async () => {
+      await store.getResources(match.params)
+      await store.subjects.fetchSubject(match.params.subject)
+    }
+    setResources()
+  }, [match, store])
+
   const subject = store.subjects.current
-  if (subject.id !== params.subject && store.subjects.asyncState === ASYNC_STATES.IDLE) {
-    store.subjects.fetchSubject(params.subject)
-  }
   const locations = findLocations(subject)
   const direction = store.editor.layout
 

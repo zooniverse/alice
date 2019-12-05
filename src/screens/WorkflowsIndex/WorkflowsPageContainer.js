@@ -11,10 +11,11 @@ function WorkflowsPageContainer({ history, match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
-    store.projects.selectProject(match.params.project)
-    store.workflows.fetchWorkflows(match.params.project)
-    store.groups.selectGroup(null)
-    store.workflows.selectWorkflow(null)
+    const setResources = async () => {
+      await store.getResources(match.params)
+      await store.workflows.fetchWorkflows(match.params.project)
+    }
+    setResources()
   }, [match, store])
 
   const onSelection = workflow => {

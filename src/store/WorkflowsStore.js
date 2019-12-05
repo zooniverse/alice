@@ -83,7 +83,7 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   }
 })).views(self => ({
   get id () {
-    return self.current.id
+    return self.current && self.current.id
   },
 
   get title () {

@@ -25,6 +25,29 @@ const AppStore = types.model('AppStore', {
   transcriptions: types.optional(TranscriptionsStore, () => TranscriptionsStore.create({})),
   workflows: types.optional(WorkflowsStore, () => WorkflowsStore.create({})),
 }).actions(self => ({
+  getResources: flow (function * getResources(params) {
+    if (!!params.project && params.project !== self.projects.id) {
+      yield self.projects.selectProject(params.project)
+    } else if (!params.project) {
+      self.projects.selectProject(null)
+    }
+    if (!!params.workflow && params.workflow !== self.workflows.id) {
+      yield self.workflows.selectWorkflow(params.workflow)
+    } else if (!params.workflow) {
+      self.workflows.selectWorkflow(null)
+    }
+    if (!!params.group && params.group !== self.groups.id) {
+      self.groups.selectGroup(params.group)
+    } else if (!params.group) {
+      self.groups.selectGroup(null)
+    }
+    if (!!params.transcription && params.transcription !== self.transcriptions.id) {
+      yield self.transcriptions.selectTranscription(params.transcription)
+    } else if (!params.transcription) {
+      self.transcriptions.selectTranscription(null)
+    }
+  }),
+
   initialize: flow (function * initialize() {
     self.client.initialize()
     yield self.auth.checkCurrent()

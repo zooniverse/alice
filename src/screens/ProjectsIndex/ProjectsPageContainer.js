@@ -5,15 +5,19 @@ import { observer } from 'mobx-react'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { withRouter } from 'react-router-dom'
 import ProjectCard from './components/ProjectCard'
 
-function ProjectPageContainer () {
+function ProjectPageContainer ({ match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
-    store.projects.selectProject(null)
-    store.projects.getProjects()
-  }, [store])
+    const setResources = async () => {
+      await store.getResources(match.params)
+      await store.projects.getProjects()
+    }
+    setResources()
+  }, [match, store])
 
   const ownerProjects = store.projects.ownerProjects
   const collabProjects = store.projects.collabProjects
@@ -69,4 +73,5 @@ function ProjectPageContainer () {
   )
 }
 
-export default observer(ProjectPageContainer)
+export { ProjectPageContainer }
+export default withRouter(observer(ProjectPageContainer))

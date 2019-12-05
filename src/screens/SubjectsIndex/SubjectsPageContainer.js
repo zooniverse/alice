@@ -12,14 +12,11 @@ function SubjectsPageContainer ({ history, match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
-    const loadResources = async () => {
-      await store.projects.selectProject(match.params.project)
-      await store.workflows.selectWorkflow(match.params.workflow)
-      await store.groups.selectGroup(match.params.group)
+    const setResources = async () => {
+      await store.getResources(match.params)
       await store.transcriptions.fetchTranscriptions()
-      await store.subjects.selectSubject(null)
     }
-    loadResources()
+    setResources()
   }, [match, store])
 
   const onSelection = (subject) => {
