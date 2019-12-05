@@ -6,8 +6,9 @@ import { generatePath, matchPath, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { bool } from 'prop-types'
 import {
-  SUBJECTS_PATH,
   GROUPS_PATH,
+  PROJECTS_PATH,
+  SUBJECTS_PATH,
   WORKFLOWS_PATH
 } from 'paths'
 
@@ -31,8 +32,11 @@ function Title({ history, match, onEditor }) {
     { title: subject },
     { title: group, path: SUBJECTS_PATH, to: 'Subjects Index Page' },
     { title: workflow, path: GROUPS_PATH, to: 'Groups Index Page' },
-    { title: project, path: WORKFLOWS_PATH, to: 'Workflows Index Page' }
+    { title: project, path: WORKFLOWS_PATH, to: 'Workflows Index Page' },
+    { title: 'Projects', path: PROJECTS_PATH, to: 'Projects Index Page' }
   ]
+
+  if (project === 'Select Project' || onEditor) titles.pop()
 
   const headerIndex = titles.findIndex(header => header.title.length > 0)
   let header = titles[headerIndex]
