@@ -2,11 +2,11 @@ import { flow, getRoot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 
 const Transcription = types.model('Transcription', {
-  id: types.identifier,
+  id: types.optional(types.string, ''),
   flaggedid: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
   status: types.optional(types.string, ''),
-  subject_id: types.optional(types.number, 0),
+  subject_id: types.identifier,
   text: types.optional(types.frozen(), {}),
 })
 
@@ -22,7 +22,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       flagged: transcription.attributes.flagged,
       group_id: transcription.attributes.group_id,
       status: transcription.attributes.status,
-      subject_id: transcription.attributes.subject_id,
+      subject_id: transcription.attributes.subject_id.toString(),
       text: transcription.attributes.text
     })
   },
@@ -32,10 +32,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
-      const response = yield client.get(`/transcriptions/${id}`)
+      const response = yield client.get(`/transcriptions?filter[subject_id_eq]=${id}`)
       const resource = JSON.parse(response.body)
       self.asyncState = ASYNC_STATES.READY
-      return self.createTranscription(resource.data)
+      console.log(resource.data[0]);
+      return self.createTranscription(resource.data[0])
     } catch (error) {
       console.warn(error);
       self.error = error.message
@@ -101,6 +102,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }
     })
     return count;
+  },
+
+  get title () {
+    return (self.current && self.current.subject_id) || ''
   }
 }))
 

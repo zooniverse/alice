@@ -26,7 +26,7 @@ function Title({ history, match, onEditor }) {
   const project = store.projects.title
   const workflow = store.workflows.title
   const group = store.groups.title
-  const subject = store.subjects.title
+  const subject = store.transcriptions.title
   let titles = [
     { title: subject },
     { title: group, path: SUBJECTS_PATH, to: 'Subjects Index Page' },

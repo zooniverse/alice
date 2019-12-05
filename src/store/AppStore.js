@@ -41,9 +41,9 @@ const AppStore = types.model('AppStore', {
     } else if (!params.group) {
       self.groups.selectGroup(null)
     }
-    if (!!params.transcription && params.transcription !== self.transcriptions.id) {
-      yield self.transcriptions.selectTranscription(params.transcription)
-    } else if (!params.transcription) {
+    if (!!params.subject && params.subject !== self.transcriptions.id) {
+      yield self.transcriptions.selectTranscription(params.subject)
+    } else if (!params.subject) {
       self.transcriptions.selectTranscription(null)
     }
   }),
