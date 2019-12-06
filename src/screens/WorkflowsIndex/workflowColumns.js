@@ -12,8 +12,9 @@ const columns = [
     header: "Workflow id"
   },
   {
-    property: "sets",
-    header: "Groups"
+    property: "groups",
+    header: "Groups",
+    render: datum => <Text>{Object.keys(datum.groups).length}</Text>
   },
   {
     property: "subjects",
