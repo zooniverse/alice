@@ -75,6 +75,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }),
 
+  reset: () => {
+    self.selectTranscription(null)
+    self.all.clear()
+  },
+
   selectTranscription: flow(function * selectTranscription(id = null) {
     let transcription = self.all.get(id)
     if (!transcription) transcription = yield self.fetchTranscription(id)

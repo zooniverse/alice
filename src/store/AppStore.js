@@ -29,22 +29,22 @@ const AppStore = types.model('AppStore', {
     if (!!params.project && params.project !== self.projects.id) {
       yield self.projects.selectProject(params.project)
     } else if (!params.project) {
-      self.projects.selectProject(null)
+      self.projects.reset()
     }
     if (!!params.workflow && params.workflow !== self.workflows.id) {
       yield self.workflows.selectWorkflow(params.workflow)
     } else if (!params.workflow) {
-      self.workflows.selectWorkflow(null)
+      self.workflows.reset()
     }
     if (!!params.group && params.group !== self.groups.id) {
       self.groups.selectGroup(params.group)
     } else if (!params.group) {
-      self.groups.selectGroup(null)
+      self.groups.reset()
     }
     if (!!params.subject && params.subject !== self.transcriptions.title) {
       yield self.transcriptions.selectTranscription(params.subject)
     } else if (!params.subject) {
-      self.transcriptions.selectTranscription(null)
+      self.transcriptions.reset()
     }
   }),
 

@@ -55,6 +55,11 @@ const WorkflowsStore = types.model('WorkflowsStore', {
     }
   }),
 
+  reset: () => {
+    self.selectWorkflow(null)
+    self.all.clear()
+  },
+
   selectWorkflow: flow (function * selectWorkflow(id = null) {
     let workflow = self.all.get(id)
     if (!workflow) workflow = yield self.getWorkflow(id)

@@ -9,11 +9,16 @@ const GroupsStore = types.model('GroupsStore', {
   all: types.map(Group),
   current: types.safeReference(Group),
 }).actions(self => ({
+  reset: () => {
+    self.selectGroup(null)
+  },
+
   selectGroup: function(id) {
     self.current = id || undefined
   },
 
   setGroups: function(groups) {
+    self.all.clear()
     Object.keys(groups).forEach((key) => {
       self.all.put(Group.create({
         display_name: key,

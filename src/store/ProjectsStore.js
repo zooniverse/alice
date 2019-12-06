@@ -79,6 +79,11 @@ const ProjectsStore = types.model('ProjectsStore', {
     }
   }),
 
+  reset: () => {
+    self.selectProject(null)
+    self.all.clear()
+  },
+
   selectProject: flow(function * selectProject(id = null) {
     let project = self.all.get(id)
     if (!project) project = yield self.getProject(id)
