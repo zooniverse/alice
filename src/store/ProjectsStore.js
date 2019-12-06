@@ -68,8 +68,10 @@ const ProjectsStore = types.model('ProjectsStore', {
     try {
       if (!self.roles) yield self.getRoles()
       const response = yield apiClient.type('projects').get({ id, cards: true })
+      const project = response[0]
+      const role = self.roles[project.id] || 'Viewer'
       self.asyncState = ASYNC_STATES.READY
-      return self.createProject(response[0])
+      return self.createProject(project, role)
     } catch (error) {
       console.warn(error);
       self.error = error.message
@@ -78,11 +80,9 @@ const ProjectsStore = types.model('ProjectsStore', {
   }),
 
   selectProject: flow(function * selectProject(id = null) {
-    const active = self.all.get(id)
-    if (!active) {
-      const project = yield self.getProject(id)
-      self.setProject(project)
-    }
+    let project = self.all.get(id)
+    if (!project) project = yield self.getProject(id)
+    self.setProject(project)
     self.current = id || undefined
   }),
 

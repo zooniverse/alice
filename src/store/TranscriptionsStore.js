@@ -35,7 +35,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       const response = yield client.get(`/transcriptions?filter[subject_id_eq]=${id}`)
       const resource = JSON.parse(response.body)
       self.asyncState = ASYNC_STATES.READY
-      console.log(resource.data[0]);
+      // TODO: Line below will have to change to resource.data when Tove begins delivering a single transcription
       return self.createTranscription(resource.data[0])
     } catch (error) {
       console.warn(error);
@@ -77,9 +77,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   selectTranscription: flow(function * selectTranscription(id = null) {
     let transcription = self.all.get(id)
-    if (!transcription) {
-      transcription = yield self.fetchTranscription(id)
-    }
+    if (!transcription) transcription = yield self.fetchTranscription(id)
     self.setTranscription(transcription)
     self.current = id || undefined
   }),

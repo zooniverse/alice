@@ -40,6 +40,7 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   }),
 
   getWorkflow: flow (function * getWorkflow(id) {
+    if (!id) return undefined
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
@@ -55,17 +56,12 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   }),
 
   selectWorkflow: flow (function * selectWorkflow(id = null) {
-    let workflow;
-    if (!id) {
-      getRoot(self).groups.setGroups([])
-      self.all.clear()
-      return self.current = undefined
-    }
-    workflow = self.all.get(id)
+    let workflow = self.all.get(id)
     if (!workflow) workflow = yield self.getWorkflow(id)
-    getRoot(self).groups.setGroups(workflow.groups)
+    const groups = (workflow && workflow.groups) || []
+    getRoot(self).groups.setGroups(groups)
     self.setWorkflow(workflow)
-    self.current = id
+    self.current = id || undefined
   }),
 
   setState: function(state) {
