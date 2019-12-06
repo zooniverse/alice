@@ -1,22 +1,18 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Button, Image } from 'grommet'
-import ASYNC_STATES from 'helpers/asyncStates'
 import { ProjectCard } from './ProjectCard'
 
 let wrapper
 const project = {
   avatar_src: 'source.com'
 }
-const selectProjectSpy = jest.fn()
+const pushSpy = jest.fn()
 const setStateSpy = jest.fn()
 const history = {
-  push: () => {}
+  push: pushSpy
 }
 const contextValues = {
-  projects: {
-    selectProject: selectProjectSpy,
-  },
   workflows: {
     setState: setStateSpy
   }
@@ -48,7 +44,6 @@ describe('Component > ProjectCard', function () {
     wrapper = shallow(<ProjectCard history={history} project={project} />);
     const button = wrapper.find(Button).first()
     button.simulate('click')
-    expect(selectProjectSpy).toHaveBeenCalledWith(project)
-    expect(setStateSpy).toHaveBeenCalledWith(ASYNC_STATES.IDLE)
+    expect(pushSpy).toHaveBeenCalled()
   })
 })

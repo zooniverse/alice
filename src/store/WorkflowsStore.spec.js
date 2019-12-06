@@ -1,17 +1,17 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
-import { Workflow } from './WorkflowsStore'
 import WorkflowFactory from './factories/workflow'
 
 let workflowsStore
 let rootStore
+const workflowTwo = WorkflowFactory.build({ id: 2 })
 
 let toveStub = {
   get: () => Promise.resolve(
     {
       body: JSON.stringify(
         {
-          data: [WorkflowFactory.build(), WorkflowFactory.build()]
+          data: [WorkflowFactory.build(), workflowTwo]
         })
     }
   )
@@ -21,7 +21,7 @@ let failedToveStub = {
   get: () => Promise.reject(error)
 }
 
-describe('TranscriptionsStore', function () {
+describe('WorkflowsStore', function () {
   describe('success state', function () {
     beforeEach(function () {
       rootStore = AppStore.create({
@@ -40,16 +40,10 @@ describe('TranscriptionsStore', function () {
       expect(workflowsStore.all.length).toBe(2)
     })
 
-    it('should select a workflow', function () {
-      const workflow = WorkflowFactory.build()
-      const outcome = Workflow.create({
-        display_name: workflow.attributes.display_name,
-        id: workflow.id,
-        project_id: workflow.relationships.project.data.id,
-        groups: workflow.attributes.groups
-      })
-      workflowsStore.selectWorkflow(workflow)
-      expect(workflowsStore.current).toEqual(outcome)
+    it('should select a workflow', async function () {
+      await workflowsStore.fetchWorkflows()
+      workflowsStore.selectWorkflow('2')
+      expect(workflowsStore.current).toEqual(workflowTwo)
     })
 
     it('should set the asyncState', function () {
@@ -58,10 +52,9 @@ describe('TranscriptionsStore', function () {
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
     })
 
-    it('should select a default workflow if none provided', function () {
-      const defaultWorkflow = Workflow.create()
+    it('should select a workflow to undefined if none provided', function () {
       workflowsStore.selectWorkflow(null)
-      expect(workflowsStore.current).toEqual(defaultWorkflow)
+      expect(workflowsStore.current).toEqual(undefined)
     })
   })
 

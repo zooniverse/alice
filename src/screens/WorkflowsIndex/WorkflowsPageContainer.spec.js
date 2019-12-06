@@ -14,6 +14,7 @@ const contextValues = {
     selectGroup: selectGroupSpy
   },
   workflows: {
+    all: [],
     asyncState: ASYNC_STATES.IDLE,
     error: 'THIS IS AN ERROR',
     fetchWorkflows: fetchWorkflowsSpy,

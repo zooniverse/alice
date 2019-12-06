@@ -1,5 +1,4 @@
 import ASYNC_STATES from 'helpers/asyncStates'
-import { TranscriptionsStore } from './TranscriptionsStore'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
 
@@ -12,7 +11,11 @@ let toveStub = {
     {
       body: JSON.stringify(
         {
+<<<<<<< HEAD
           data: [simpleTranscription, TranscriptionFactory.build()]
+=======
+          data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: 'approved', subject_id: '2' }})]
+>>>>>>> Begin Rewriting Tests for to Account for Identifiers
         })
     }
   )
@@ -28,9 +31,8 @@ describe('TranscriptionsStore', function () {
       rootStore = AppStore.create({
         client: { tove: toveStub },
         groups: {
-          current: {
-            display_name: 'GROUP_1'
-          }
+          all: { GROUP_1: { display_name: 'GROUP_1' } },
+          current: 'GROUP_1'
         }
       })
       transcriptionsStore = rootStore.transcriptions
@@ -43,13 +45,11 @@ describe('TranscriptionsStore', function () {
     it('should fetch transcriptions', async function () {
       await transcriptionsStore.fetchTranscriptions()
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.READY)
-      expect(transcriptionsStore.all.length).toBe(2)
+      expect(transcriptionsStore.all.size).toBe(2)
     })
 
-    it('should count the number of approved', function () {
-      transcriptionsStore = TranscriptionsStore.create({
-        all: [TranscriptionFactory.build({ status: 'approved' }), TranscriptionFactory.build()]
-      })
+    it('should count the number of approved', async function () {
+      await transcriptionsStore.fetchTranscriptions()
       expect(transcriptionsStore.approvedCount).toBe(1)
     })
 
@@ -65,13 +65,11 @@ describe('TranscriptionsStore', function () {
       rootStore = AppStore.create({
         client: { tove: failedToveStub },
         groups: {
-          current: {
-            display_name: 'GROUP_1'
-          }
+          current: 'GROUP_1'
         }
       })
       transcriptionsStore = rootStore.transcriptions
-      await transcriptionsStore.fetchTranscriptions()
+      await transcriptionsStore.selectTranscription(1)
       expect(transcriptionsStore.error).toBe(error.message)
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
     })
