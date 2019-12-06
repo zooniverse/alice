@@ -2,7 +2,7 @@ import { types } from 'mobx-state-tree'
 
 const Group = types.model('Group', {
   display_name: types.identifier,
-  subjects: types.optional(types.string, '')
+  subjects: types.optional(types.number, 0)
 })
 
 const GroupsStore = types.model('GroupsStore', {
@@ -22,7 +22,7 @@ const GroupsStore = types.model('GroupsStore', {
     Object.keys(groups).forEach((key) => {
       self.all.put(Group.create({
         display_name: key,
-        subjects: groups[key].toString()
+        subjects: groups[key]
       }))
     })
   }
