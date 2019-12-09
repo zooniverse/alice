@@ -68,12 +68,13 @@ describe('ProjectsStore', function () {
   })
 
   it('should select a project', function () {
+    console.log(projectsStore.current);
     projectsStore.selectProject(ownedProject.id)
     expect(projectsStore.current.id).toEqual(ownedProject.id)
   })
 
-  it('should mark a project undefined if none selected', function () {
-    projectsStore.selectProject(null)
+  it('should mark a project undefined if none selected', async function () {
+    await projectsStore.selectProject(null)
     expect(projectsStore.current).toEqual(undefined)
   })
 

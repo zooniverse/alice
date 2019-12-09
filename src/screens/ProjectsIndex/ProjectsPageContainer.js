@@ -19,8 +19,8 @@ function ProjectPageContainer ({ match }) {
     setResources()
   }, [match, store])
 
-  const ownerProjects = store.projects.ownerProjects
-  const collabProjects = store.projects.collabProjects
+  const ownerProjects = store.projects.ownerProjects || []
+  const collabProjects = store.projects.collabProjects || []
   const error = store.projects.error
 
   return (

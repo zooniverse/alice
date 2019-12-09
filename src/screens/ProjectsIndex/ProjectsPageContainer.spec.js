@@ -2,7 +2,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { Text } from 'grommet'
-import { ProjectsPageContainer } from './ProjectsPageContainer'
+import { ProjectPageContainer } from './ProjectsPageContainer'
 import ProjectCard from './components/ProjectCard'
 
 let wrapper
@@ -32,8 +32,10 @@ const contextValues = {
   },
   projects: {
     asyncState: ASYNC_STATES.IDLE,
+    collabProjects,
     getProjects: getProjectsSpy,
-    selectProject: selectProjectSpy
+    selectProject: selectProjectSpy,
+    ownerProjects
   }
 }
 
@@ -41,13 +43,13 @@ const match = {
   params: {}
 }
 
-describe('Component > ProjectsPageContainer', function () {
+describe('Component > ProjectPageContainer', function () {
   describe('with props', function () {
     beforeEach(function() {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => contextValues )
-      wrapper = shallow(<ProjectsPageContainer match={match} />);
+      wrapper = shallow(<ProjectPageContainer match={match} />);
     })
 
     afterEach(() => {
@@ -78,7 +80,7 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => newContext )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer />);
     })
 
     it('should not call for projects without a user', function () {
@@ -102,7 +104,7 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => context )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer />);
       expect(wrapper.find(Text).first().props().children).toBe('Loading');
     })
 
@@ -117,7 +119,7 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => context )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer />);
       expect(wrapper.find(Text).first().props().children).toBe(context.projects.error);
     })
 
@@ -131,21 +133,9 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => context )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer />);
       expect(wrapper.find(Text).first().props().children).toBe(
         'We couldn\'t find any transcription projects you participate in.');
-    })
-  })
-
-  describe('useEffect hook', function () {
-    it('should clear the selected project', function () {
-      jest
-        .spyOn(React, 'useContext')
-        .mockImplementation(() => contextValues )
-      jest.spyOn(React, "useEffect")
-        .mockImplementation(f => f());
-      wrapper = shallow(<ProjectsPageContainer />);
-      expect(selectProjectSpy).toHaveBeenCalledTimes(1)
     })
   })
 })

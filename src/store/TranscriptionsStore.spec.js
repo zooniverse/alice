@@ -11,11 +11,7 @@ let toveStub = {
     {
       body: JSON.stringify(
         {
-<<<<<<< HEAD
-          data: [simpleTranscription, TranscriptionFactory.build()]
-=======
           data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: 'approved', subject_id: '2' }})]
->>>>>>> Begin Rewriting Tests for to Account for Identifiers
         })
     }
   )

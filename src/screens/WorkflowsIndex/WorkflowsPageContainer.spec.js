@@ -1,7 +1,6 @@
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
-import { act } from 'react-dom/test-utils';
 import ResourcesTable from '../../components/ResourcesTable'
 import { WorkflowsPageContainer } from './WorkflowsPageContainer'
 
@@ -61,19 +60,5 @@ describe('Component > WorkflowsPageContainer', function () {
     copiedContext.workflows.asyncState = ASYNC_STATES.READY
     wrapper = shallow(<WorkflowsPageContainer />);
     expect(fetchWorkflowsSpy).not.toHaveBeenCalled()
-  })
-
-  describe('useEffect hook', function () {
-    it('should fetch resources', async function () {
-      jest
-        .spyOn(React, 'useContext')
-        .mockImplementation(() => contextValues )
-      wrapper = mount(<WorkflowsPageContainer history={history} match={match} />);
-      await act(async() => {
-        wrapper.update()
-      })
-      expect(getResourcesSpy).toHaveBeenCalledTimes(1)
-      expect(fetchWorkflowsSpy).toHaveBeenCalledTimes(1)
-    })
   })
 })

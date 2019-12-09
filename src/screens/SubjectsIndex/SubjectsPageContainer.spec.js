@@ -17,7 +17,6 @@ const contextValues = {
   },
   subjects: {
     fetchSubject: fetchSubjectSpy,
-    selectSubject: selectSubjectSpy
   },
   transcriptions: {
     all: { values: () => [] },
@@ -50,10 +49,6 @@ describe('Component > SubjectsPageContainer', function () {
 
     afterEach(() => jest.clearAllMocks())
 
-    it('should should clear the selected subject on load', function () {
-      expect(selectSubjectSpy).toHaveBeenCalledTimes(1)
-    })
-
     it('should render without crashing', function () {
       expect(wrapper).toBeDefined()
     })
@@ -64,10 +59,6 @@ describe('Component > SubjectsPageContainer', function () {
       table.props().onSelection(subject)
       expect(pushSpy).toHaveBeenCalled()
       expect(fetchSubjectSpy).toHaveBeenCalledWith(subject.id)
-    })
-
-    it('should fetch transcriptions when idle', function () {
-      expect(fetchTranscriptionsSpy).toHaveBeenCalled()
     })
 
     it('should toggleModal when subject locked', function() {

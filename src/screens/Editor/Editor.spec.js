@@ -6,8 +6,8 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import { Editor, Resizer } from './Editor'
 
 let wrapper
-const setState = jest.fn()
 const fetchSubjectSpy = jest.fn()
+const setState = jest.fn()
 const preventDefaultSpy = jest.fn()
 const match = {
   params: {

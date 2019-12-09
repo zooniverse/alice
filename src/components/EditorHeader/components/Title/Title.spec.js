@@ -17,12 +17,10 @@ const editContext = {
   groups: {
     title: 'Group'
   },
-  subjects: {
-    title: 'Subject'
-  },
   transcriptions: {
     approvedCount: 0,
-    all: []
+    all: { size: 0 },
+    title: 'Subject'
   }
 }
 
@@ -55,14 +53,15 @@ describe('Component > Title', function () {
 
     it('Should display only the group subheader', function () {
       expect(wrapper.find(Button).length).toBe(1)
-      expect(wrapper.find(Heading).props().children).toBe(editContext.subjects.title)
+      expect(wrapper.find(Heading).length).toBe(1)
+      expect(wrapper.find(Heading).props().children).toBe(editContext.transcriptions.title)
     })
   })
 
   describe('when on subject page', function () {
     beforeEach(function() {
       let groupContext = Object.assign({}, editContext)
-      groupContext.subjects.title = ''
+      groupContext.transcriptions.title = ''
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => groupContext )
