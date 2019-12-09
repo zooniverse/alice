@@ -36,7 +36,7 @@ const history = {
 }
 
 
-describe('Component > UndoButton', function () {
+describe('Component > Title', function () {
   beforeEach(function() {
     wrapper = shallow(<Title />);
   })
@@ -69,14 +69,14 @@ describe('Component > UndoButton', function () {
       wrapper = shallow(<Title history={history} />);
     })
 
-    it('should display two subheader buttons', function () {
+    it('should display three subheader buttons', function () {
       const approvedCount = wrapper.find(CapitalText).last().props()
-      expect(wrapper.find(Button).length).toBe(2)
+      expect(wrapper.find(Button).length).toBe(3)
       expect(approvedCount.children).toBe('(0/0 approved)')
     })
 
     it('should route to the correct subheader location', function () {
-      const projectSub = wrapper.find(Button).first()
+      const projectSub = wrapper.find(Button).at(1)
       projectSub.props().onClick()
       expect(pushSpy).toHaveBeenCalledWith('/projects/123/workflows')
     })

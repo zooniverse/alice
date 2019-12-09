@@ -24,10 +24,10 @@ function Title({ history, match, onEditor }) {
   }
 
   const store = React.useContext(AppContext)
-  const project = store.projects.title
-  const workflow = store.workflows.title
-  const group = store.groups.title
-  const subject = store.transcriptions.title
+  const project = store.projects.title || ''
+  const workflow = store.workflows.title || ''
+  const group = store.groups.title || ''
+  const subject = store.transcriptions.title || ''
   let titles = [
     { title: subject },
     { title: group, path: SUBJECTS_PATH, to: 'Subjects Index Page' },

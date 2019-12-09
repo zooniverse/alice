@@ -32,4 +32,4 @@ const GroupsStore = types.model('GroupsStore', {
   }
 }))
 
-export { GroupsStore }
+export { Group, GroupsStore }

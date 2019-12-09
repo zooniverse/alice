@@ -2,11 +2,10 @@ import apiClient from 'panoptes-client/lib/api-client.js';
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
 import ProjectFactory from './factories/project'
-import { Project } from './ProjectsStore'
 
 let projectsStore
 let ownedProject = ProjectFactory.build()
-let collabProject = ProjectFactory.build({ id: 2 })
+let collabProject = ProjectFactory.build({ id: '2', display_name: 'Second Project' })
 
 let ownerRole = {
   links: {
@@ -69,21 +68,18 @@ describe('ProjectsStore', function () {
   })
 
   it('should select a project', function () {
-    const project = Project.create({ id: '1' })
-    projectsStore.selectProject(project)
-    expect(projectsStore.current).toEqual(project)
+    projectsStore.selectProject(ownedProject.id)
+    expect(projectsStore.current.id).toEqual(ownedProject.id)
   })
 
-  it('should create a default project if none selected', function () {
-    const project = Project.create()
+  it('should mark a project undefined if none selected', function () {
     projectsStore.selectProject(null)
-    expect(projectsStore.current).toEqual(project)
+    expect(projectsStore.current).toEqual(undefined)
   })
 
   it('should return a project title', function () {
-    const project = Project.create({ id: '1', display_name: 'Project' })
-    projectsStore.selectProject(project)
-    expect(projectsStore.title).toBe(project.display_name)
+    projectsStore.selectProject('2')
+    expect(projectsStore.title).toBe(collabProject.display_name)
   })
 })
 

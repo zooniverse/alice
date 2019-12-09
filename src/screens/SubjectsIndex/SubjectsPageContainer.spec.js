@@ -20,6 +20,7 @@ const contextValues = {
     selectSubject: selectSubjectSpy
   },
   transcriptions: {
+    all: { values: () => [] },
     asyncState: ASYNC_STATES.IDLE,
     fetchTranscriptions: fetchTranscriptionsSpy
   }
@@ -44,8 +45,6 @@ describe('Component > SubjectsPageContainer', function () {
     beforeEach(function() {
       jest.spyOn(React, 'useContext')
         .mockImplementation((context) => contextValues)
-      jest.spyOn(React, "useEffect")
-        .mockImplementation(f => f());
       wrapper = shallow(<SubjectsPageContainer history={history} match={match} />);
     })
 

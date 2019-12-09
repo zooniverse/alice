@@ -4,7 +4,7 @@ import WorkflowFactory from './factories/workflow'
 
 let workflowsStore
 let rootStore
-const workflowTwo = WorkflowFactory.build({ id: 2 })
+const workflowTwo = WorkflowFactory.build({ id: '2' })
 
 let toveStub = {
   get: () => Promise.resolve(
@@ -37,13 +37,13 @@ describe('WorkflowsStore', function () {
     it('should fetch transcriptions', async function () {
       await workflowsStore.fetchWorkflows()
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
-      expect(workflowsStore.all.length).toBe(2)
+      expect(workflowsStore.all.size).toBe(2)
     })
 
     it('should select a workflow', async function () {
       await workflowsStore.fetchWorkflows()
       workflowsStore.selectWorkflow('2')
-      expect(workflowsStore.current).toEqual(workflowTwo)
+      expect(workflowsStore.current.id).toBe(workflowTwo.id)
     })
 
     it('should set the asyncState', function () {

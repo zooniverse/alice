@@ -2,7 +2,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { Text } from 'grommet'
-import ProjectsPageContainer from './ProjectsPageContainer'
+import { ProjectsPageContainer } from './ProjectsPageContainer'
 import ProjectCard from './components/ProjectCard'
 
 let wrapper
@@ -33,10 +33,12 @@ const contextValues = {
   projects: {
     asyncState: ASYNC_STATES.IDLE,
     getProjects: getProjectsSpy,
-    selectProject: selectProjectSpy,
-    ownerProjects,
-    collabProjects,
+    selectProject: selectProjectSpy
   }
+}
+
+const match = {
+  params: {}
 }
 
 describe('Component > ProjectsPageContainer', function () {
@@ -45,7 +47,7 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => contextValues )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectsPageContainer match={match} />);
     })
 
     afterEach(() => {
@@ -54,10 +56,6 @@ describe('Component > ProjectsPageContainer', function () {
 
     it('should render without crashing', function () {
       expect(wrapper).toBeDefined()
-    })
-
-    it('should request projects when user and idle state', function () {
-      expect(getProjectsSpy).toHaveBeenCalled()
     })
 
     it('should render owner projects', function () {

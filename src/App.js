@@ -50,4 +50,5 @@ function App() {
   );
 }
 
+export { App }
 export default observer(App)

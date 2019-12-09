@@ -1,21 +1,17 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import App from './App'
+import { shallow } from 'enzyme'
+import { App } from './App'
 
 let wrapper
 const contextValues = {
-  auth: {
-    checkCurrent: () => {},
-  },
-  client: {
-    initialize: () => {}
-  }
+  initialize: () => {},
+  initialized: true
 }
 
 describe('App', function () {
   beforeAll(function () {
     jest.spyOn(React, 'useContext').mockImplementation((context) => contextValues)
-    wrapper = mount(<App />);
+    wrapper = shallow(<App />);
   })
 
   it('should render without crashing', function () {
