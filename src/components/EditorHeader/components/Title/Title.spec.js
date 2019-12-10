@@ -5,6 +5,9 @@ import { CapitalText, Title } from './Title'
 
 let wrapper
 const editContext = {
+  aggregations: {
+    showModal: false
+  },
   projects: {
     title: 'Project'
   },
