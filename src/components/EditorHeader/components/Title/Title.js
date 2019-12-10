@@ -52,6 +52,7 @@ function Title({ history, match, onEditor }) {
           <Button
             key={`SUB_HEADER_${i}`}
             a11yTitle={sub.to}
+            disabled={store.aggregations.showModal}
             label={<CapitalText key={`SUB_HEADER_${i}`}>{`${sub.title} /`}</CapitalText>}
             onClick={() => routeTo(sub.path)}
             plain

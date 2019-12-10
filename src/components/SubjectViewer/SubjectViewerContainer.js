@@ -2,24 +2,23 @@ import React from 'react'
 import { Box } from 'grommet'
 import styled from 'styled-components'
 import AppContext from 'store'
-import { observer } from 'mobx-react'
-import SubjectViewer from './SubjectViewer'
 import SubjectViewerHeader from './components/SubjectViewerHeader'
 import ImageTools from './components/ImageTools'
+import SVGView from './components/SVGView'
+import AsyncMessages from './components/AsyncMessages'
 
 const RelativeBox = styled(Box)`
   position: relative;
 `
 
 const AbsoluteBox = styled(Box)`
+  pointer-events: none;
   position: absolute;
 `
 
-function findCurrentSrc(locations, index) {
-  if (!locations || locations.length === 0) return '';
-  const location = locations[index]
-  return Object.values(location)[0]
-}
+const ToolsBox = styled(AbsoluteBox)`
+  pointer-events: all;
+`
 
 function SubjectViewerContainer() {
   const store = React.useContext(AppContext)
@@ -29,7 +28,6 @@ function SubjectViewerContainer() {
     setTools(true)
   }
   const onMouseLeave = e => setTools(false)
-  const src = findCurrentSrc(store.subjects.current.locations, store.subjects.index)
 
   return (
     <Box
@@ -41,22 +39,16 @@ function SubjectViewerContainer() {
     >
       <SubjectViewerHeader />
       <RelativeBox fill>
-        <AbsoluteBox margin='small'>
-          {showTools && <ImageTools />}
+        <AbsoluteBox fill>
+          <AsyncMessages error={store.subjects.error} subjectState={store.subjects.asyncState} />
+          <ToolsBox>
+            {showTools && <ImageTools />}
+          </ToolsBox>
         </AbsoluteBox>
-        <SubjectViewer
-          disabled={store.aggregations.showModal}
-          error={store.subjects.error}
-          rotation={store.image.rotation}
-          scale={store.image.scale}
-          src={src}
-          subjectState={store.subjects.asyncState}
-          translateX={store.image.translateX}
-          translateY={store.image.translateY}
-        />
+        <SVGView />
       </RelativeBox>
     </Box>
   )
 }
 
-export default observer(SubjectViewerContainer)
+export default SubjectViewerContainer

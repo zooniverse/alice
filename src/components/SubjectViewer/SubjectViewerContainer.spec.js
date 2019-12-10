@@ -2,7 +2,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { Box } from 'grommet'
 import SubjectViewerContainer from './SubjectViewerContainer'
-import SubjectViewer from './SubjectViewer'
+import SVGView from './components/SVGView'
 import ImageTools from './components/ImageTools'
 
 let wrapper
@@ -33,11 +33,6 @@ describe('Component > SubjectViewerContainer', function () {
     expect(wrapper).toBeDefined()
   })
 
-  it('should return an empty string without locations', function() {
-    const viewer = wrapper.find(SubjectViewer).first()
-    expect(viewer.props().src).toBe('')
-  })
-
   describe('SubjectViewerContainer with showTools true', function() {
     beforeEach(function() {
       const useStateSpy = jest.spyOn(React, 'useState')
@@ -56,11 +51,6 @@ describe('Component > SubjectViewerContainer', function () {
       jest.spyOn(React, 'useContext')
         .mockImplementation((context) => {  return testContext })
       wrapper = shallow(<SubjectViewerContainer />);
-    })
-
-    it('should return a src url when one exists', function() {
-      const viewer = wrapper.find(SubjectViewer).first()
-      expect(viewer.props().src).toBe('www.fakelocation.com')
     })
   })
 

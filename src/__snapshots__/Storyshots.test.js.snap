@@ -3785,7 +3785,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-eHgmQL keiOXo"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-iAyFgw jwVsBt"
             >
               View All Lines
             </span>
@@ -3793,36 +3793,18 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-cvbbAY cDfiQI"
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-jWBwVP gkntHJ"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 hZAtOV sc-jWBwVP hYbxVP"
-        />
-        <svg
-          className="sc-iAyFgw cslqwv"
+          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-brqgnP bCEvgC"
         >
-          <g
-            className="sc-hSdWYo guXsGa"
-            disabled={true}
-            transform="scale(1) translate(0, 0) rotate(0)"
-          >
-            <image
-              height="100%"
-              width="100%"
-              xlinkHref=""
-            />
-            <rect
-              fill="transparent"
-              height="100%"
-              id="InteractionLayer"
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseMove={[Function]}
-              onMouseUp={[Function]}
-              width="100%"
-            />
-          </g>
-        </svg>
+          <div
+            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-cvbbAY bVANRe"
+          />
+          <div
+            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-brqgnP sc-cMljjf jWMTnp"
+          />
+        </div>
       </div>
     </div>
   </div>
