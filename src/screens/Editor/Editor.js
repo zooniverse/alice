@@ -12,7 +12,6 @@ import AggregatedTranscriptions from '../../components/AggregatedTranscriptions'
 const MIN_WIDTH = 33;
 
 function findLocations(subject) {
-  console.log(subject);
   if (!subject || !subject.locations) return []
 
   return subject.locations.map(location => {

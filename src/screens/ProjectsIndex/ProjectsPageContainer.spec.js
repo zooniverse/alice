@@ -1,11 +1,13 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { Text } from 'grommet'
+import { act } from 'react-dom/test-utils'
 import { ProjectPageContainer } from './ProjectsPageContainer'
 import ProjectCard from './components/ProjectCard'
 
 let wrapper
+const getResourcesSpy = jest.fn()
 const getProjectsSpy = jest.fn()
 const selectProjectSpy = jest.fn()
 
@@ -30,6 +32,7 @@ const contextValues = {
   auth: {
     user: fakeUser
   },
+  getResources: getResourcesSpy,
   projects: {
     asyncState: ASYNC_STATES.IDLE,
     collabProjects,
@@ -136,6 +139,24 @@ describe('Component > ProjectPageContainer', function () {
       wrapper = shallow(<ProjectPageContainer />);
       expect(wrapper.find(Text).first().props().children).toBe(
         'We couldn\'t find any transcription projects you participate in.');
+    })
+  })
+
+  describe('useEffect hook', function () {
+    it('should fetch resources', async function () {
+      console.log(contextValues.projects.collabProjects);
+      const revisedContext = Object.assign({}, contextValues)
+      revisedContext.projects.collabProjects = []
+      revisedContext.projects.ownerProjects = []
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => revisedContext )
+      wrapper = mount(<ProjectPageContainer match={match} />);
+      await act(async () => {
+        wrapper.update();
+      });
+      expect(getResourcesSpy).toHaveBeenCalled()
+      expect(getProjectsSpy).toHaveBeenCalled()
     })
   })
 })
