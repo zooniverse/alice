@@ -61,20 +61,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }),
 
-  fetchTranscriptionsForSubject: flow (function * fetchTranscriptionsForSubject(id) {
-    const client = getRoot(self).client.tove
-    try {
-      const response = yield client.get(`/transcriptions?filter[subject_id_eq]=${id}`)
-      const resources = JSON.parse(response.body)
-      const transcription = resources.data && resources.data[0]
-      self.current = self.createTranscription(transcription)
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
-  }),
-
   reset: () => {
     self.selectTranscription(null)
     self.all.clear()

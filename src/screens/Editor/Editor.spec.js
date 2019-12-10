@@ -110,10 +110,6 @@ describe('Component > Editor', function () {
         .mockImplementation(() => contextValues )
         wrapper = shallow(<Editor match={match} />);
       })
-
-      it('should attempt to fetch a subject', function () {
-        expect(fetchSubjectSpy).toHaveBeenCalledWith(2)
-      })
     })
 
     describe('with layout in column', function () {

@@ -50,7 +50,8 @@ describe('TranscriptionsStore', function () {
     })
 
     it('should fetch transcriptions for a subject', async function () {
-      await transcriptionsStore.fetchTranscriptionsForSubject(1)
+      await transcriptionsStore.fetchTranscriptions()
+      await transcriptionsStore.selectTranscription(1)
       const transcription = transcriptionsStore.createTranscription(simpleTranscription)
       expect(transcriptionsStore.current).toEqual(transcription)
     })
