@@ -6,7 +6,7 @@ import { faPause } from '@fortawesome/free-solid-svg-icons'
 import AppContext from 'store'
 import HeaderButton from './HeaderButton'
 
-function LayoutButtonContainer() {
+function LayoutButtonContainer({ disabled }) {
   const store = React.useContext(AppContext)
   const onClick = e => { store.editor.toggleLayout() }
   const rowShade = store.editor.layout === 'row' ? '#555555' : '#CCCCCC'
@@ -14,6 +14,7 @@ function LayoutButtonContainer() {
 
   return (
     <HeaderButton
+      disabled={disabled}
       icon={
         <Box direction='row' gap='xxsmall'>
           <FontAwesomeIcon color={rowShade} icon={faPause} size='xs' />

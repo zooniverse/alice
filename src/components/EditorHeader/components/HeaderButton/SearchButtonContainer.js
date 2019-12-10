@@ -3,9 +3,9 @@ import AppContext from 'store'
 import HeaderButton from './HeaderButton'
 import MODALS from 'helpers/modals'
 
-export default function SearchButtonContainer() {
+export default function SearchButtonContainer({ disabled }) {
   const store = React.useContext(AppContext)
   const onClick = e => store.modal.toggleModal(MODALS.SEARCH)
 
-  return <HeaderButton label={'Search'} onClick={onClick} />
+  return <HeaderButton disabled={disabled} label={'Search'} onClick={onClick} />
 }

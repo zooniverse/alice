@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import AppContext from 'store'
 import ASYNC_STATES from 'helpers/asyncStates'
 import Resizer from './components/Resizer'
+import AggregationModal from '../../components/AggregationSettings/AggregationModal'
 import SubjectViewer from '../../components/SubjectViewer'
 import FilmstripViewer from '../../components/FilmstripViewer'
 import AggregatedTranscriptions from '../../components/AggregatedTranscriptions'
@@ -38,7 +39,8 @@ function Editor ({ match }) {
   const [currentPos, setPos] = React.useState()
 
   const onMouseDown = e => {
-    setMove(true)
+    if (store.aggregations.showModal) return null;
+    setMove(true);
     setNewPosition(e);
   }
   const setNewPosition = e => {
@@ -72,27 +74,31 @@ function Editor ({ match }) {
   }
 
   return (
-    <Box gap='small' margin={{ horizontal: 'medium'}}>
-      <Box
-        direction={direction}
-        height='large'
-        onMouseLeave={() => { setMove(false) }}
-        onMouseMove={onMouseMove}
-        onMouseUp={() => { setMove(false) }}
-        ref={editorBox}
-      >
-        <Box basis={`${viewerSize}%`}>
-          <SubjectViewer />
-        </Box>
-        <Resizer
+    <Box>
+      <Box gap='small' margin={{ horizontal: 'medium'}}>
+        <Box
           direction={direction}
-          onMouseDown={onMouseDown}
-        />
-        <Box basis={`${transcriberSize}%`}>
-          <AggregatedTranscriptions />
+          height='large'
+          onMouseLeave={() => { setMove(false) }}
+          onMouseMove={onMouseMove}
+          onMouseUp={() => { setMove(false) }}
+          ref={editorBox}
+        >
+          <Box basis={`${viewerSize}%`}>
+            <SubjectViewer />
+          </Box>
+          <Resizer
+            direction={direction}
+            disabled={store.aggregations.showModal}
+            onMouseDown={onMouseDown}
+          />
+          <Box basis={`${transcriberSize}%`}>
+            <AggregatedTranscriptions />
+          </Box>
         </Box>
+        <FilmstripViewer images={locations} />
       </Box>
-      <FilmstripViewer images={locations} />
+      {store.aggregations.showModal && <AggregationModal ref={editorBox} />}
     </Box>
   )
 }

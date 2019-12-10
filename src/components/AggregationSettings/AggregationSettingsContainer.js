@@ -1,4 +1,5 @@
 import React from 'react'
+import AppContext from 'store'
 import AggregationSettings from './AggregationSettings'
 
 const REDUCERS = {
@@ -7,7 +8,9 @@ const REDUCERS = {
   DBSCAN: 'DBSCAN_REDUCER'
 }
 
-function AggregationSettingsContainer() {
+function AggregationSettingsContainer({ dragHandle }) {
+  const store = React.useContext(AppContext)
+  const closeContainer = () => store.aggregations.toggleModal()
   const [ selectedReducer, selectReducer ] = React.useState(null);
   const [ currentScreen, setScreen ] = React.useState(REDUCERS.CHOOSE);
   const [ confirmationCallback, setCallback ] = React.useState(null)
@@ -16,8 +19,10 @@ function AggregationSettingsContainer() {
 
   return (
     <AggregationSettings
+      closeContainer={closeContainer}
       confirmationCallback={confirmationCallback}
       currentScreen={currentScreen}
+      dragHandle={dragHandle}
       selectReducer={selectReducer}
       selectedReducer={selectedReducer}
       setCallback={setCallback}

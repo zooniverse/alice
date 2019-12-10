@@ -55,12 +55,14 @@ describe('Component > ChooseReducer', function () {
   })
 
   describe('props > onClick functions', function () {
+    const closeContainerSpy = jest.fn()
     const selectReducerSpy = jest.fn()
     const setScreenSpy = jest.fn()
 
     beforeEach(function() {
       wrapper = shallow(
         <ChooseReducer
+          closeContainer={closeContainerSpy}
           selectReducer={selectReducerSpy}
           setScreen={setScreenSpy}
         />)
@@ -82,6 +84,12 @@ describe('Component > ChooseReducer', function () {
       const nextButton = wrapper.find(Button).last()
       nextButton.simulate('click')
       expect(setScreenSpy).toHaveBeenCalled()
+    })
+
+    it('should close the container', function () {
+      const closeButton = wrapper.find(Button).at(2)
+      closeButton.simulate('click')
+      expect(closeContainerSpy).toHaveBeenCalled()
     })
   })
 })

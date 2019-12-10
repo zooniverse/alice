@@ -2,28 +2,36 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { FormDown, FormUp } from 'grommet-icons'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from './components/StepNavigation'
-import { FormDown, FormUp } from 'grommet-icons'
+import Overlay from '../Overlay'
 
 const Uppercase = styled(Text)`
   text-transform: uppercase;
 `
 
-function FilmstripViewer ({ selectImage, subjectIndex, images, isOpen, setOpen }) {
+const RelativeBox = styled(Box)`
+  position: relative;
+`
+
+function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen, setOpen }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
 
   return (
-    <Box background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
+    <RelativeBox background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
+      {disabled && <Overlay />}
       <Box direction='row' justify='between'>
         <Text>All pages</Text>
         {!isOpen && (
           <StepNavigation
             activeStep={subjectIndex}
+            disabled={disabled}
             setStep={selectImage}
             steps={images}
           /> )}
         <Button
+          disabled={disabled}
           icon={isOpen ? <FormDown /> : <FormUp />}
           label={<Uppercase>{actionText} Filmstrip</Uppercase>}
           gap='xsmall'
@@ -38,6 +46,7 @@ function FilmstripViewer ({ selectImage, subjectIndex, images, isOpen, setOpen }
               return (
                 <FilmstripThumbnail
                   key={`THUMBNAIL_${i}`}
+                  disabled={disabled}
                   index={i}
                   isActive={isActive}
                   selectImage={selectImage}
@@ -46,11 +55,12 @@ function FilmstripViewer ({ selectImage, subjectIndex, images, isOpen, setOpen }
             })}
           </Box>
       )}
-    </Box>
+    </RelativeBox>
   )
 }
 
 FilmstripViewer.defaultProps = {
+  disabled: false,
   images: [],
   isOpen: true,
   selectImage: () => {},
@@ -59,6 +69,7 @@ FilmstripViewer.defaultProps = {
 }
 
 FilmstripViewer.propTypes = {
+  disabled: PropTypes.bool,
   images: PropTypes.arrayOf(PropTypes.string),
   isOpen: PropTypes.bool,
   selectImage: PropTypes.func,

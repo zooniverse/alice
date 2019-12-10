@@ -2,14 +2,14 @@ import React from 'react'
 import { Box, Button, Drop, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { number, shape, string } from 'prop-types'
+import { bool, number, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-export default function MetadataButton({ goldStandard, id, lines, metadata, pages, score, transcribers }) {
+export default function MetadataButton({ disabled, goldStandard, id, lines, metadata, pages, score, transcribers }) {
   const targetEl = React.useRef(null)
   const [isOpen, toggleDrop] = React.useState(false)
 
@@ -17,6 +17,7 @@ export default function MetadataButton({ goldStandard, id, lines, metadata, page
     <Box width='1em'>
       <Button
         a11yTitle="Open Metadata Information"
+        disabled={disabled}
         icon={<FontAwesomeIcon icon={faInfoCircle} />}
         onClick={toggleDrop}
         plain
@@ -62,6 +63,7 @@ export default function MetadataButton({ goldStandard, id, lines, metadata, page
 }
 
 MetadataButton.defaultProps = {
+  disabled: false,
   goldStandard: 0,
   id: '',
   lines: 0,
@@ -72,6 +74,7 @@ MetadataButton.defaultProps = {
 }
 
 MetadataButton.propTypes = {
+  disabled: bool,
   goldStandard: number,
   id: string,
   lines: number,

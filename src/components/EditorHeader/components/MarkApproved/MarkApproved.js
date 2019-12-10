@@ -7,10 +7,11 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function MarkApproved ({ checked, onChange }) {
+function MarkApproved ({ checked, disabled, onChange }) {
   return (
     <CheckBox
       checked={checked}
+      disabled={disabled}
       label={<CapitalText color='#5C5C5C'>Mark As Approved</CapitalText>}
       onChange={onChange}
       reverse

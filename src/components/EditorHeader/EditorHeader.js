@@ -1,33 +1,42 @@
 import React from 'react'
 import { Box } from 'grommet'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import Overlay from '../Overlay'
 import Title from './components/Title'
 import MetadataButton from './components/MetadataButton'
 import Badge from '../Badge'
 
-export default function EditorHeader ({ buttons, showMetadata }) {
+const StyledBox = styled(Box)`
+  position: relative;
+`
+
+export default function EditorHeader ({ buttons, showMetadata, showOverlay }) {
   return (
-    <Box as='header' direction='row' pad={{ bottom: 'small' }} border='bottom'>
-      <Box direction='row' justify='between' border='right' fill='horizontal'>
-        <Box align='center' direction='row' gap='xsmall'>
-          <Title onEditor={showMetadata} />
-          {showMetadata && <MetadataButton />}
-        </Box>
-        <Box align='center' direction='row' gap='small' pad={{ horizontal: 'medium' }} wrap>
-          {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} />)}
-        </Box>
+    <Box as='header' border='bottom' direction='row' pad={{ bottom: 'small' }} justify='between'>
+      <Box align='center' direction='row' gap='xsmall' wrap>
+        <Title onEditor={showMetadata} />
+        {showMetadata && <MetadataButton />}
       </Box>
-      <Badge />
+      <StyledBox align='center' background='light-2' direction='row'>
+        <Box direction='row' border='right' fill='vertical' gap='small' pad='small' wrap>
+          {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} disabled={showOverlay} />)}
+        </Box>
+        <Badge disabled={showOverlay} />
+        {showOverlay && <Overlay />}
+      </StyledBox>
     </Box>
   )
 }
 
 EditorHeader.propTypes = {
   buttons: PropTypes.array,
-  showMetadata: PropTypes.bool
+  showMetadata: PropTypes.bool,
+  showOverlay: PropTypes.bool
 }
 
 EditorHeader.defaultProps = {
   buttons: [],
-  showMetadata: false
+  showMetadata: false,
+  showOverlay: false
 }

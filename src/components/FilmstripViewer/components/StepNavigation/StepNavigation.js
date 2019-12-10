@@ -28,7 +28,7 @@ class StepNavigation extends React.Component {
   }
 
   render () {
-    const { activeStep, setStep, steps } = this.props
+    const { activeStep, disabled, setStep, steps } = this.props
     if (steps && steps.length > 1) {
       const nextStep = activeStep + 1
       const prevStep = activeStep - 1
@@ -37,6 +37,7 @@ class StepNavigation extends React.Component {
         // because Grommet is using indexes internally as keys and this will error with a duplicate key
         const value = `step-${index}`
         return {
+          disabled,
           id: value,
           value
         }
@@ -74,12 +75,14 @@ class StepNavigation extends React.Component {
 
 StepNavigation.defaultProps = {
   activeStep: 0,
+  disabled: false,
   setStep: () => {},
   steps: []
 }
 
 StepNavigation.propTypes = {
   activeStep: PropTypes.number,
+  disabled: PropTypes.bool,
   setStep: PropTypes.func,
   steps: PropTypes.array
 }

@@ -39,7 +39,7 @@ const StyledLabel = styled.label`
   font-size: 0.75em;
 `
 
-export default function OpticsReducer({ setCallback, setScreen, submitOptics }) {
+function OpticsReducer({ closeContainer, setCallback, setScreen, submitOptics }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
@@ -146,7 +146,12 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
                 plain
               />
               <Box direction='row' gap='small'>
-                <Button label={<Text size='small'>CLOSE AND CANCEL</Text>} plain />
+                <Button
+                  a11yTitle="Close Aggregation Settings"
+                  label={<Text size='small'>CLOSE AND CANCEL</Text>}
+                  onClick={closeContainer}
+                  plain
+                />
                 <Button
                   disabled={!isValid}
                   label={<Text size='small'>APPLY</Text>}
@@ -166,9 +171,13 @@ export default function OpticsReducer({ setCallback, setScreen, submitOptics }) 
 }
 
 OpticsReducer.defaultProps = {
+  closeContainer: () => {},
   setScreen: () => {}
 }
 
 OpticsReducer.propTypes = {
+  closeContainer: func,
   setScreen: func
 }
+
+export default OpticsReducer

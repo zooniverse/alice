@@ -1,4 +1,5 @@
 import { types } from 'mobx-state-tree'
+import { AggregationsStore } from './AggregationsStore'
 import { AuthStore } from './AuthStore'
 import { ClientStore } from './ClientStore'
 import { EditorStore } from './EditorStore'
@@ -11,6 +12,7 @@ import { TranscriptionsStore } from './TranscriptionsStore'
 import { WorkflowsStore } from './WorkflowsStore'
 
 const AppStore = types.model('AppStore', {
+  aggregations: types.optional(AggregationsStore, () => AggregationsStore.create({})),
   auth: types.optional(AuthStore, () => AuthStore.create({})),
   client: types.optional(ClientStore, () => ClientStore.create({})),
   editor: types.optional(EditorStore, () => EditorStore.create({})),

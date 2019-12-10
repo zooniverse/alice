@@ -3,9 +3,9 @@ import { Box, Button, Image } from 'grommet'
 import { bool, func, number, string } from 'prop-types'
 import ThumbnailBorder from './ThumbnailBorder'
 
-export default function FilmstripThumbnail ({ index, isActive, rotationDegrees, selectImage, src }) {
+export default function FilmstripThumbnail ({ disabled, index, isActive, rotationDegrees, selectImage, src }) {
   return (
-      <Button margin='xsmall' onClick={() => selectImage(index)}>
+      <Button disabled={disabled} margin='xsmall' onClick={() => selectImage(index)}>
         <Box height='xsmall' width='xsmall'>
           {isActive && (
             <ThumbnailBorder rotationDegrees={rotationDegrees} />
@@ -17,6 +17,7 @@ export default function FilmstripThumbnail ({ index, isActive, rotationDegrees, 
 }
 
 FilmstripThumbnail.propTypes = {
+  disabled: bool,
   index: number,
   isActive: bool,
   rotationDegrees: number,
@@ -25,6 +26,7 @@ FilmstripThumbnail.propTypes = {
 }
 
 FilmstripThumbnail.defaultProps = {
+  disabled: false,
   index: 0,
   isActive: false,
   rotationDegrees: null,

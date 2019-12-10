@@ -8,7 +8,7 @@ const StyledAvatar = styled.img`
   border-radius: 100%;
   height: 2.5em;
   width: auto;
-  margin: 0 0.5em 0 1em;
+  margin: 0 0.75em;
   object-fit: cover;
 `
 
@@ -17,15 +17,16 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function Badge ({ name, role, signOut, src }) {
+function Badge ({ disabled, name, role, signOut, src }) {
   return (
     <Box align='center' direction='row'>
       <StyledAvatar alt={`${name} Avatar`} fallback={DefaultAvatar} src={src} />
-      <Box flex='grow'>
+      <Box>
         <Text>{name}</Text>
         <CapitalText color='dark-5' size='xsmall'>{role}</CapitalText>
       </Box>
       <Menu
+        disabled={disabled}
         dropAlign={{ right: 'right', top: 'bottom' }}
         items={[{ label: 'Log Out', onClick: signOut }]}
       />
@@ -34,6 +35,7 @@ function Badge ({ name, role, signOut, src }) {
 }
 
 Badge.defaultProps = {
+  disabled: false,
   name: '',
   role: '',
   signOut: () => {},
@@ -41,6 +43,7 @@ Badge.defaultProps = {
 }
 
 Badge.propTypes = {
+  disabled: PropTypes.bool,
   name: PropTypes.string,
   role: PropTypes.string,
   signOut: PropTypes.func,

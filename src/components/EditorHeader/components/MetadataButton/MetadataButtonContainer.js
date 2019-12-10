@@ -8,7 +8,13 @@ function MetadataButtonContainer() {
   const metadata = store.subjects.current && store.subjects.current.metadata
   const id = store.subjects.current && store.subjects.current.id
 
-  return <MetadataButton id={id} metadata={metadata} />
+  return (
+    <MetadataButton
+      disabled={store.aggregations.showModal}
+      id={id}
+      metadata={metadata}
+    />
+  )
 }
 
 export default observer(MetadataButtonContainer)

@@ -6,6 +6,7 @@ let wrapper
 const resetSpy = jest.fn()
 const changeIndexSpy = jest.fn()
 const contextValues = {
+  aggregations: { showModal: false },
   image: { reset: resetSpy },
   subjects: { changeIndex: changeIndexSpy }
 }

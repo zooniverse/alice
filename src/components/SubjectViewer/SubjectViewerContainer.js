@@ -24,7 +24,10 @@ function findCurrentSrc(locations, index) {
 function SubjectViewerContainer() {
   const store = React.useContext(AppContext)
   const [showTools, setTools] = React.useState(false)
-  const onMouseOver = e => setTools(true)
+  const onMouseOver = e => {
+    if (store.aggregations.showModal) return null;
+    setTools(true)
+  }
   const onMouseLeave = e => setTools(false)
   const src = findCurrentSrc(store.subjects.current.locations, store.subjects.index)
 
@@ -42,6 +45,7 @@ function SubjectViewerContainer() {
           {showTools && <ImageTools />}
         </AbsoluteBox>
         <SubjectViewer
+          disabled={store.aggregations.showModal}
           error={store.subjects.error}
           rotation={store.image.rotation}
           scale={store.image.scale}

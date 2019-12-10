@@ -1,25 +1,32 @@
 import React from 'react'
-import { Box, Stack, Text } from 'grommet'
+import { Box, Button, Stack, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { func, string } from 'prop-types'
+import styled from 'styled-components'
 import Confirmation from './Confirmation'
 import ChooseReducer from './ChooseReducer'
 import OpticsReducer from './OpticsReducer'
 import DBScanReducer from './DBScanReducer'
 import { REDUCERS } from './AggregationSettingsContainer'
 
+const StyledBox = styled(Box)`
+  :hover {
+    cursor: move
+  }
+`
+
 export default function AggregationSettings(props) {
   return (
     <Box
       background='white'
-      elevation='small'
+      elevation='medium'
       round='xsmall'
       width='30em'
     >
-      <Box align='center' background='light-2' height='1em' round={{ corner: 'top', size: 'xsmall' }}>
+      <StyledBox align='center' background='light-2' className={props.dragHandle} height='1em' round={{ corner: 'top', size: 'xsmall' }}>
         <FontAwesomeIcon icon={faEllipsisH} />
-      </Box>
+      </StyledBox>
       <Stack>
         <Box>
           <Box
@@ -29,17 +36,23 @@ export default function AggregationSettings(props) {
             pad={{ horizontal: 'small', vertical: 'xsmall' }}
           >
             <Text>Edit Aggregation Settings</Text>
-            <FontAwesomeIcon icon={faTimesCircle} />
+            <Button
+              a11yTitle="Close Aggregation Settings"
+              label={<FontAwesomeIcon icon={faTimesCircle} />}
+              onClick={props.closeContainer}
+              plain
+            />
           </Box>
           <Box>
             {props.currentScreen === REDUCERS.CHOOSE &&
               <ChooseReducer
+                closeContainer={props.closeContainer}
                 selectReducer={props.selectReducer}
                 selectedReducer={props.selectedReducer}
                 setScreen={props.setScreen}
               />}
-            {props.currentScreen === REDUCERS.OPTICS && <OpticsReducer setCallback={props.setCallback} setScreen={props.setScreen} submitOptics={props.submitOptics} />}
-            {props.currentScreen === REDUCERS.DBSCAN && <DBScanReducer setCallback={props.setCallback} setScreen={props.setScreen} submitDBScan={props.submitDBScan} />}
+            {props.currentScreen === REDUCERS.OPTICS && <OpticsReducer closeContainer={props.closeContainer} setCallback={props.setCallback} setScreen={props.setScreen} submitOptics={props.submitOptics} />}
+            {props.currentScreen === REDUCERS.DBSCAN && <DBScanReducer closeContainer={props.closeContainer} setCallback={props.setCallback} setScreen={props.setScreen} submitDBScan={props.submitDBScan} />}
           </Box>
         </Box>
         {props.confirmationCallback && <Confirmation callback={props.confirmationCallback} setCallback={props.setCallback} />}
@@ -49,6 +62,7 @@ export default function AggregationSettings(props) {
 }
 
 ChooseReducer.defaultProps = {
+  closeContainer: () => {},
   confirmationCallback: null,
   currentScreen: null,
   selectReducer: () => {},
@@ -59,6 +73,7 @@ ChooseReducer.defaultProps = {
 }
 
 ChooseReducer.propTypes = {
+  closeContainer: func,
   confirmationCallback: func,
   currentScreen: string,
   selectReducer: func,
