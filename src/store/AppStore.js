@@ -32,6 +32,7 @@ const AppStore = types.model('AppStore', {
       self.projects.reset()
     }
     if (!!params.workflow && params.workflow !== self.workflows.id) {
+      console.log('runs once');
       yield self.workflows.selectWorkflow(params.workflow)
     } else if (!params.workflow) {
       self.workflows.reset()
