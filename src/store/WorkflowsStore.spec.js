@@ -6,7 +6,7 @@ let workflowsStore
 let rootStore
 const workflowTwo = WorkflowFactory.build({ id: '2' })
 
-let toveStub = {
+let toveStubArray = {
   get: () => Promise.resolve(
     {
       body: JSON.stringify(
@@ -16,6 +16,18 @@ let toveStub = {
     }
   )
 }
+
+let toveStub = {
+  get: () => Promise.resolve(
+    {
+      body: JSON.stringify(
+        {
+          data: workflowTwo
+        })
+    }
+  )
+}
+
 const error = { message: 'Failed to Return' }
 let failedToveStub = {
   get: () => Promise.reject(error)
@@ -25,7 +37,7 @@ describe('WorkflowsStore', function () {
   describe('success state', function () {
     beforeEach(function () {
       rootStore = AppStore.create({
-        client: { tove: toveStub }
+        client: { tove: toveStubArray }
       })
       workflowsStore = rootStore.workflows
     })
@@ -56,13 +68,30 @@ describe('WorkflowsStore', function () {
       workflowsStore.selectWorkflow(null)
       expect(workflowsStore.current).toEqual(undefined)
     })
+
+    it('should fetch a single workflow', async function () {
+      rootStore = AppStore.create({ client: { tove: toveStub }})
+      workflowsStore = rootStore.workflows
+      const returnValue = await workflowsStore.getWorkflow('1')
+      expect(returnValue).toBeDefined()
+      expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
+    })
   })
 
   describe('failure state', function () {
-    it('should handle an error when fetching transcriptions', async function () {
+    beforeEach(function () {
       rootStore = AppStore.create({ client: { tove: failedToveStub }})
       workflowsStore = rootStore.workflows
+    })
+
+    it('should handle an error when fetching workflows', async function () {
       await workflowsStore.fetchWorkflows()
+      expect(workflowsStore.error).toBe(error.message)
+      expect(workflowsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+    })
+
+    it('should handle an error when fetching a single workflow', async function () {
+      await workflowsStore.getWorkflow('1')
       expect(workflowsStore.error).toBe(error.message)
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.ERROR)
     })
