@@ -1,5 +1,6 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
+import { Group } from './GroupsStore'
 import TranscriptionFactory from './factories/transcription'
 
 let transcriptionsStore
@@ -55,18 +56,28 @@ describe('TranscriptionsStore', function () {
       const transcription = transcriptionsStore.createTranscription(simpleTranscription)
       expect(transcriptionsStore.current).toEqual(transcription)
     })
+
+    it('should fetch a single transcription', async function () {
+      const returnValue = await transcriptionsStore.fetchTranscription('1')
+      expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.READY)
+      expect(returnValue).toBeDefined()
+    })
   })
 
   describe('failure state', function () {
-    it('should handle an error when fetching transcriptions', async function () {
+    beforeEach(function() {
       rootStore = AppStore.create({
         client: { tove: failedToveStub },
         groups: {
+          all: { GROUP_1: { display_name: 'GROUP_1' } },
           current: 'GROUP_1'
         }
       })
+    })
+
+    it('should handle an error when fetching transcriptions', async function () {
       transcriptionsStore = rootStore.transcriptions
-      await transcriptionsStore.selectTranscription(1)
+      await transcriptionsStore.fetchTranscriptions()
       expect(transcriptionsStore.error).toBe(error.message)
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
     })
