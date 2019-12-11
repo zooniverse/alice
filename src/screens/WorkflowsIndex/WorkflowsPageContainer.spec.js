@@ -1,6 +1,8 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { act } from 'react-dom/test-utils'
+import { BrowserRouter as Router } from 'react-router-dom';
 import ResourcesTable from '../../components/ResourcesTable'
 import { WorkflowsPageContainer } from './WorkflowsPageContainer'
 
@@ -60,5 +62,22 @@ describe('Component > WorkflowsPageContainer', function () {
     copiedContext.workflows.asyncState = ASYNC_STATES.READY
     wrapper = shallow(<WorkflowsPageContainer />);
     expect(fetchWorkflowsSpy).not.toHaveBeenCalled()
+  })
+
+  describe('useEffect hook', function () {
+    it('should fetch resources', async function () {
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => contextValues )
+      wrapper = mount(
+        <Router>
+          <WorkflowsPageContainer match={match} />
+        </Router>);
+      await act(async () => {
+        wrapper.update();
+      });
+      expect(getResourcesSpy).toHaveBeenCalled()
+      expect(fetchWorkflowsSpy).toHaveBeenCalled()
+    })
   })
 })
