@@ -45,6 +45,18 @@ describe('SubjectStore', function () {
     expect(subjectStore.error).toBe('')
     expect(subjectStore.asyncState).toBe(ASYNC_STATES.READY)
   })
+
+  describe('Title view', function () {
+    it('should return a default title', function () {
+      expect(subjectStore.title).toBe('')
+    })
+
+    it('should set the subject title', function () {
+      const subject = Subject.create({ id: '10' })
+      subjectStore.selectSubject(subject)
+      expect(subjectStore.title).toBe(subject.id)
+    })
+  })
 })
 
 describe('SubjectStore error', function () {
