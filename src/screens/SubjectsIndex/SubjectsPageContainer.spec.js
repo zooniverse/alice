@@ -1,17 +1,20 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import MODALS from 'helpers/modals'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { act } from 'react-dom/test-utils'
+import { BrowserRouter as Router } from 'react-router-dom';
 import { SubjectsPageContainer } from './SubjectsPageContainer'
 import ResourcesTable from '../../components/ResourcesTable'
 
 let wrapper
+const getResourcesSpy = jest.fn()
 const fetchSubjectSpy = jest.fn()
 const fetchTranscriptionsSpy = jest.fn()
 const pushSpy = jest.fn()
-const selectSubjectSpy = jest.fn()
 const toggleModalSpy = jest.fn()
 const contextValues = {
+  getResources: getResourcesSpy,
   modal: {
     toggleModal: toggleModalSpy
   },
@@ -87,5 +90,22 @@ describe('Component > SubjectsPageContainer', function () {
       .mockImplementation((context) => copiedContext)
     wrapper = shallow(<SubjectsPageContainer />);
     expect(fetchTranscriptionsSpy).not.toHaveBeenCalled()
+  })
+
+  describe('useEffect hook', function () {
+    it('should fetch resources', async function () {
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => contextValues )
+      wrapper = mount(
+        <Router>
+          <SubjectsPageContainer match={match} />
+        </Router>);
+      await act(async () => {
+        wrapper.update();
+      });
+      expect(getResourcesSpy).toHaveBeenCalled()
+      expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    })
   })
 })
