@@ -3,32 +3,17 @@ import {
   Anchor,
   Box,
   Grid,
-  Heading,
   Image,
   Text,
 } from 'grommet'
 import styled from 'styled-components'
+import Alice from '../../images/alice.png'
 import Adler from '../../images/adler.png'
 import NEH from '../../images/neh.png'
 import Oxford from '../../images/oxford.png'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 import LoginForm from './components/LoginForm'
-
-const StyledHeader = styled(Heading)`
-  font-size: 6em;
-  font-weight: 300;
-  letter-spacing: -6.16px;
-  line-height: 0.9em;
-
-  @media (max-width: 1060px) {
-    font-size: 4em;
-  }
-
-  @media (max-width: 725px) {
-    font-size: 2em;
-  }
-`
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -83,9 +68,10 @@ export default function Home () {
           <Box height='2em' width='12em'>
             <Image alt="Powered by Zooniverse" fit='contain' src={Zooniverse} />
           </Box>
-          <StyledHeader >
-            Transcription viewer/editor
-          </StyledHeader>
+          <Box width='50%'>
+            <Image fit='contain' src={Alice} />
+          </Box>
+          <Text color="#5C5C5C" size='large'>Aggregate Line Inspector / Collaborative Editor</Text>
         </Box>
         <Box
           border='bottom'
