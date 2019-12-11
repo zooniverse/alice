@@ -1,9 +1,9 @@
 import React from 'react'
-import { Box, DropButton, Text } from 'grommet'
+import { Box, Button, DropButton, Text } from 'grommet'
+import { Link } from 'react-router-dom'
 import { FormDown, FormUp } from 'grommet-icons'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import HeaderButton from '../EditorHeader/components/HeaderButton'
 import DefaultAvatar from '../../images/simple-avatar.png'
 
 const StyledAvatar = styled.img`
@@ -17,6 +17,20 @@ const StyledAvatar = styled.img`
 const CapitalText = styled(Text)`
   line-height: 10px;
   text-transform: uppercase;
+`
+
+const DropItem = styled(Button)`
+  :hover {
+    background: #D8D8D8;
+  }
+`
+
+const DropLink = styled(Link)`
+  text-decoration: none;
+
+  :hover {
+    background: #D8D8D8;
+  }
 `
 
 function Badge ({ disabled, isOpen, name, role, setOpen, signOut, src }) {
@@ -35,8 +49,14 @@ function Badge ({ disabled, isOpen, name, role, setOpen, signOut, src }) {
         dropAlign={{ right: 'right', top: 'bottom' }}
         label={<Box><Icon/></Box>}
         dropContent={
-          <Box background='white' width='5em'>
-            <HeaderButton label='Log Out' onClick={signOut} />
+          <Box background='white' width='5em' pad={{ vertical: 'xxsmall' }}>
+            <DropLink margin='1em' to='/about'>
+              <CapitalText color='#5C5C5C' margin='1em'>Help</CapitalText>
+            </DropLink>
+            <DropLink margin='1em' to='/projects'>
+              <CapitalText color='#5C5C5C' margin='1em'>Viewer</CapitalText>
+            </DropLink>
+            <DropItem label={<CapitalText margin='1em'>Log out</CapitalText>} onClick={signOut} plain />
           </Box>
         }
         onClose={() => setOpen(false)}
