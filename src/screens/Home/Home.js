@@ -7,27 +7,25 @@ import {
   Text,
 } from 'grommet'
 import styled from 'styled-components'
-import Alice from '../../images/alice.png'
-import Adler from '../../images/adler.png'
-import NEH from '../../images/neh.png'
-import Oxford from '../../images/oxford.png'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 import LoginForm from './components/LoginForm'
+import Footer from './components/Footer'
 
-const CapitalText = styled(Text)`
-  text-transform: uppercase;
+const StyledHeader = styled(Heading)`
+  font-size: 6em;
+  font-weight: 300;
+  letter-spacing: -6.16px;
+  line-height: 0.9em;
+
+  @media (max-width: 1060px) {
+    font-size: 4em;
+  }
+
+  @media (max-width: 725px) {
+    font-size: 2em;
+  }
 `
-
-const images = [{
-    logo: NEH, title: 'National Endowment for the Humanities'
-  }, {
-    logo: Zooniverse, title: 'Zooniverse'
-  }, {
-    logo: Adler, title: 'Adler Planetarium'
-  }, {
-    logo: Oxford, title: 'Oxford University'
-}];
 
 const content = [
   {
@@ -80,24 +78,7 @@ export default function Home () {
           pad={{ bottom: 'xlarge' }}>
           {content.map((item, i) => <InfoText key={`INFO_${i}`} index={i} item={item}/> )}
         </Box>
-        <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='medium'>
-          {images.map((image) =>
-            <Box key={image.title} height='3em' width='xsmall'>
-              <Image alt={`${image.title} Logo`} fit='contain' src={image.logo}/>
-            </Box>
-          )}
-        </Box>
-        <Box>
-          <CapitalText size='xsmall'>
-            This material is based upon work supported by the national endowment
-            for the humanities under award HAA-263825-19. The Zooniverse is a
-            collaboration between the Adler Planetarium, the University of Oxford,
-            the University of Minnesota, and the broader Citizen Science Alliance.
-          </CapitalText>
-        </Box>
-        <Anchor href="https://www.zooniverse.org" margin={{ vertical: 'small' }} target="_blank" rel="noopener noreferrer">
-          <CapitalText>zooniverse.org</CapitalText>
-        </Anchor>
+        <Footer />
       </Box>
       <Box gridArea='login'>
         <LoginForm />
