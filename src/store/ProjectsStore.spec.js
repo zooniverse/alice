@@ -6,6 +6,7 @@ import ProjectFactory from './factories/project'
 let projectsStore
 let ownedProject = ProjectFactory.build()
 let collabProject = ProjectFactory.build({ id: '2', display_name: 'Second Project' })
+let error = { message: 'Failed to Return' }
 
 let ownerRole = {
   links: {
@@ -49,7 +50,7 @@ describe('ProjectsStore', function () {
         return {
           get: () => Promise.resolve([ownedProject, collabProject])
         }
-      } )
+      })
     projectsStore = rootStore.projects
   })
 
@@ -84,18 +85,40 @@ describe('ProjectsStore', function () {
   })
 })
 
+describe('ProjectsStore getProject', function () {
+  it('returns undefined if no id passed', async function () {
+    const returnValue = await projectsStore.getProject(null)
+    expect(returnValue).toBe(undefined)
+  })
+
+  it('should return a new project', async function () {
+    const returnValue = await projectsStore.getProject('1')
+    expect(returnValue).toBeDefined()
+    expect(projectsStore.asyncState).toBe(ASYNC_STATES.READY)
+  })
+})
+
 describe('ProjectsStore error states', function () {
-  let error = { message: 'Failed to Return' }
-  it('should handle an error on project fetch', async function () {
+  beforeAll(function() {
     jest
       .spyOn(apiClient, 'type')
       .mockImplementation(() => {
         return {
           get: () => Promise.reject(error)
         }
-      } )
+      })
+  })
+
+  it('getProjects should handle an error on project fetch', async function () {
     projectsStore = rootStore.projects
     await projectsStore.getProjects()
+    expect(projectsStore.error).toBe(error.message)
+    expect(projectsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+  })
+
+  it('getProject should handle a failure', async function () {
+    const returnValue = await projectsStore.getProject('1')
+    expect(returnValue).toBe(undefined)
     expect(projectsStore.error).toBe(error.message)
     expect(projectsStore.asyncState).toBe(ASYNC_STATES.ERROR)
   })
@@ -109,7 +132,7 @@ describe('ProjectsStore getRoles', function () {
         return {
           get: () => Promise.resolve(userRoles)
         }
-      } )
+      })
     projectsStore = rootStore.projects
     await projectsStore.getRoles()
     expect(projectsStore.roles).toEqual({ 1: 'Project Owner', 2: 'Moderator' })
