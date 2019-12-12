@@ -1,6 +1,6 @@
 import React from 'react'
-import { Box, Image, Text } from 'grommet'
-import { string } from 'prop-types'
+import { Box, Button, Image, Text } from 'grommet'
+import { func, string } from 'prop-types'
 import styled from 'styled-components'
 
 const BodyText = styled(Text)`
@@ -15,20 +15,22 @@ const ResponsiveImage = styled(Image)`
   max-width: 100%;
 `
 
-export default function AboutContent({ caption, image, text, title }) {
+export default function AboutContent(props) {
   return (
     <Box gap='small'>
-      {title.length > 0 && <Text id={title} size='large'>{title}</Text>}
+      {props.title.length > 0 && <Text id={props.title} size='large'>{props.title}</Text>}
       <Box direction='row' gap='medium'>
         <Box basis='2/3'>
           <BodyText color='black'>
-            {text}
+            {props.text}
           </BodyText>
         </Box>
         <Box basis='1/3'>
           <Box>
-            <ResponsiveImage alignSelf='start' fit='contain' src={image} />
-            <CapitalText>{caption}</CapitalText>
+            <Button onClick={() => props.setModal(props)} plain>
+              <ResponsiveImage alignSelf='start' fit='contain' src={props.image} />
+            </Button>
+            <CapitalText>{props.caption}</CapitalText>
           </Box>
         </Box>
       </Box>
@@ -39,6 +41,7 @@ export default function AboutContent({ caption, image, text, title }) {
 AboutContent.propTypes = {
   caption: string,
   image: string,
+  setModal: func,
   text: string,
   title: string
 }
@@ -46,6 +49,7 @@ AboutContent.propTypes = {
 AboutContent.defaultProps = {
   caption: '',
   image: '',
+  setModal: () => {},
   text: '',
   title: ''
 }
