@@ -92,4 +92,5 @@ Badge.propTypes = {
   src: PropTypes.string
 }
 
+export { DropLink }
 export default Badge
