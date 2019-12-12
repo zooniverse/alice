@@ -26,6 +26,8 @@ const DropItem = styled(Button)`
 `
 
 const DropLink = styled(Link)`
+  background: ${props => props.disabled ? '#D8D8D8' : 'inherit'}
+  pointer-events: ${props => props.disabled ? 'none' : 'all'}
   text-decoration: none;
 
   :hover {
@@ -33,7 +35,7 @@ const DropLink = styled(Link)`
   }
 `
 
-function Badge ({ disabled, isOpen, name, role, setOpen, signOut, src }) {
+function Badge ({ disabled, isOpen, name, onAbout, role, setOpen, signOut, src }) {
   const Icon = isOpen ? FormDown : FormUp
 
   return (
@@ -50,10 +52,10 @@ function Badge ({ disabled, isOpen, name, role, setOpen, signOut, src }) {
         label={<Box><Icon/></Box>}
         dropContent={
           <Box background='white' width='5em' pad={{ vertical: 'xxsmall' }}>
-            <DropLink margin='1em' to='/about'>
+            <DropLink disabled={onAbout} margin='1em' to='/about' tabIndex={onAbout && -1}>
               <CapitalText color='#5C5C5C' margin='1em'>Help</CapitalText>
             </DropLink>
-            <DropLink margin='1em' to='/projects'>
+            <DropLink disabled={!onAbout} margin='1em' to='/projects' tabIndex={!onAbout && -1}>
               <CapitalText color='#5C5C5C' margin='1em'>Viewer</CapitalText>
             </DropLink>
             <DropItem label={<CapitalText margin='1em'>Log out</CapitalText>} onClick={signOut} plain />
@@ -72,6 +74,7 @@ Badge.defaultProps = {
   disabled: false,
   isOpen: false,
   name: '',
+  onAbout: false,
   role: '',
   setOpen: () => {},
   signOut: () => {},
@@ -82,6 +85,7 @@ Badge.propTypes = {
   disabled: PropTypes.bool,
   isOpen: PropTypes.bool,
   name: PropTypes.string,
+  onAbout: PropTypes.bool,
   role: PropTypes.string,
   setOpen: () => {},
   signOut: PropTypes.func,

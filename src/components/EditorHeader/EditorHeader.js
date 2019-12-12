@@ -27,7 +27,7 @@ export default function EditorHeader ({ buttons, onAbout, showMetadata, showOver
         <Box direction='row' border='right' fill='vertical' gap='small' pad='small' wrap>
           {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} disabled={showOverlay} />)}
         </Box>
-        <Badge disabled={showOverlay} />
+        <Badge disabled={showOverlay} onAbout={onAbout} />
         {showOverlay && <Overlay />}
       </StyledBox>
     </Box>

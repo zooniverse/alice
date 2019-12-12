@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import AppContext from 'store'
 import Badge from './Badge'
 
-function BadgeContainer ({ disabled }) {
+function BadgeContainer ({ disabled, onAbout }) {
   const store = React.useContext(AppContext)
   const [isOpen, setOpen] = React.useState(false)
   const user = store.auth.user
@@ -17,6 +17,7 @@ function BadgeContainer ({ disabled }) {
       disabled={disabled}
       isOpen={isOpen}
       name={name}
+      onAbout={onAbout}
       setOpen={setOpen}
       signOut={signOut}
       src={src}
