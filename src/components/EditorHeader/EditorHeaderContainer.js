@@ -10,7 +10,7 @@ import UndoButton from './components/HeaderButton/UndoButtonContainer'
 import SaveButton from './components/HeaderButton/SaveButtonContainer'
 import LayoutButton from './components/HeaderButton/LayoutButtonContainer'
 import MoreButton from './components/MoreButton'
-import { SUBJECTS_PATH, EDIT_PATH } from 'paths'
+import { ABOUT_PATH, SUBJECTS_PATH, EDIT_PATH } from 'paths'
 
 function routeMatcher(currentPath, route) {
   const matchProfile = matchPath(currentPath, { path: route });
@@ -30,10 +30,12 @@ function EditorHeaderContainer({ history }) {
   const store = React.useContext(AppContext)
   const buttons = getHeaderTools(history.location.pathname)
   const showMetadata = routeMatcher(history.location.pathname, EDIT_PATH)
+  const onAbout = routeMatcher(history.location.pathname, ABOUT_PATH)
 
   return (
     <EditorHeader
       buttons={buttons}
+      onAbout={onAbout}
       showMetadata={showMetadata}
       showOverlay={store.aggregations.showModal}
     />
