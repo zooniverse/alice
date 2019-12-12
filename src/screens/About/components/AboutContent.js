@@ -11,6 +11,10 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
+const ResponsiveImage = styled(Image)`
+  max-width: 100%;
+`
+
 export default function AboutContent({ caption, image, text, title }) {
   return (
     <Box gap='small'>
@@ -23,7 +27,7 @@ export default function AboutContent({ caption, image, text, title }) {
         </Box>
         <Box basis='1/3'>
           <Box>
-            <Image alignSelf='start' fit='contain' src={image} />
+            <ResponsiveImage alignSelf='start' fit='contain' src={image} />
             <CapitalText>{caption}</CapitalText>
           </Box>
         </Box>
