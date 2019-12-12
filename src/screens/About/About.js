@@ -48,7 +48,7 @@ export default function About () {
           {content.map((item, i) => {
             return (
               <PlainAnchor key={`ABOUT_NAV_${i}`} href={`#${item.title}`}>
-                <CapitalText color='#005D69' weight='300'>{item.title}</CapitalText>
+                <CapitalText color='#005D69' weight={300}>{item.title}</CapitalText>
               </PlainAnchor>
             )
           })}
