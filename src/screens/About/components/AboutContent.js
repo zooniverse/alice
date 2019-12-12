@@ -14,7 +14,7 @@ const CapitalText = styled(Text)`
 export default function AboutContent({ caption, image, text, title }) {
   return (
     <Box gap='small'>
-      {title.length > 0 && <Text size='large'>{title}</Text>}
+      {title.length > 0 && <Text id={title} size='large'>{title}</Text>}
       <Box direction='row' gap='medium'>
         <Box basis='2/3'>
           <BodyText color='black'>

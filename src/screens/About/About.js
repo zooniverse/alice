@@ -1,9 +1,13 @@
 import React from 'react'
-import { Box, Image, Text } from 'grommet'
+import { Anchor, Box, Image, Text } from 'grommet'
 import Zooniverse from 'images/zooniverse.png'
 import styled from 'styled-components'
 import content from './content'
 import AboutContent from './components/AboutContent'
+
+const PlainAnchor = styled(Anchor)`
+  text-decoration: none;
+`
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -33,13 +37,13 @@ export default function About () {
         </Box>
         <Box gap='xsmall' margin={{ top: 'large' }}>
           <CapitalText weight='bold'>Contents</CapitalText>
-          <CapitalText color='#005D69'>Intro</CapitalText>
-          <CapitalText color='#005D69'>Another Topic</CapitalText>
-          <CapitalText color='#005D69'>Something Else</CapitalText>
-          <CapitalText color='#005D69'>These Are All Links</CapitalText>
-          <CapitalText color='#005D69'>So Much Content</CapitalText>
-          <CapitalText color='#005D69'>This Should Be Sticky</CapitalText>
-          <CapitalText color='#005D69'>Only the White Part Scrolls</CapitalText>
+          {content.map((item, i) => {
+            return (
+              <PlainAnchor href={`#${item.title}`}>
+                <CapitalText color='#005D69'>{item.title}</CapitalText>
+              </PlainAnchor>
+            )
+          })}
         </Box>
       </StickyBox>
       <Box background='white' basis='80%' gap='small' pad='large' round='xsmall'>
