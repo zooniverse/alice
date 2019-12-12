@@ -2,10 +2,8 @@ import React from 'react'
 import { Box, Image, Text } from 'grommet'
 import Zooniverse from 'images/zooniverse.png'
 import styled from 'styled-components'
-
-const BodyText = styled(Text)`
-  line-height: 1.75em;
-`
+import content from './content'
+import AboutContent from './components/AboutContent'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -46,31 +44,17 @@ export default function About () {
       </StickyBox>
       <Box background='white' basis='80%' gap='small' pad='large' round='xsmall'>
         <Text color='black' size='xlarge'>How to Use this Tool</Text>
-        <Box direction='row' gap='medium'>
-          <Box basis='2/3'>
-            <BodyText color='black'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-              ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
-              amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor
-            </BodyText>
-          </Box>
-          <Box basis='1/3'>
-            <Box background='yellow' height='small' width='medium'>
-            </Box>
-          </Box>
-        </Box>
+        {content.map((item, i) => {
+          return (
+            <AboutContent
+              key={`CONTENT_${i}`}
+              caption={item.caption}
+              image={item.image}
+              text={item.text}
+              title={item.title}
+            />
+          )
+        })}
       </Box>
     </Box>
   )
