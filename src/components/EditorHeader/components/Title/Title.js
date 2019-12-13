@@ -46,20 +46,28 @@ function Title({ history, match, onEditor }) {
     `(${store.transcriptions.approvedCount}/${store.transcriptions.all.length} approved)` : ''
 
   return (
-    <Box align='baseline' direction='row' gap='0.25em'>
-      {titles.reverse().map((sub, i) =>
-        sub.title.length > 0 && (
-          <Button
-            key={`SUB_HEADER_${i}`}
-            a11yTitle={sub.to}
-            disabled={store.aggregations.showModal}
-            label={<CapitalText key={`SUB_HEADER_${i}`}>{`${sub.title} /`}</CapitalText>}
-            onClick={() => routeTo(sub.path)}
-            plain
-          />
-        ))}
-      <Heading>{header.title}</Heading>
-      {subjectCount.length > 0 && <CapitalText>{subjectCount}</CapitalText>}
+    <Box align='baseline'>
+      <Box direction='row'>
+        {titles.reverse().map((sub, i) => {
+          const nextSub = titles[i+1]
+          const removeSlash = i === titles.length - 1 || nextSub.title.length === 0
+          return (
+            sub.title.length > 0 && (
+              <Button
+                key={`SUB_HEADER_${i}`}
+                a11yTitle={sub.to}
+                disabled={store.aggregations.showModal}
+                label={<CapitalText key={`SUB_HEADER_${i}`} color='#5C5C5C'>{`${sub.title} ${removeSlash ? '' : '/'}`}</CapitalText>}
+                onClick={() => routeTo(sub.path)}
+                plain
+              />
+          )
+        )})}
+      </Box>
+      <Box align='baseline' direction='row' gap='0.5em'>
+        <Heading margin='0em'>{header.title}</Heading>
+        {subjectCount.length > 0 && <CapitalText color='#5C5C5C'>{subjectCount}</CapitalText>}
+      </Box>
     </Box>
   )
 }
