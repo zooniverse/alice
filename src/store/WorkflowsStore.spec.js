@@ -22,7 +22,10 @@ let toveStub = {
     {
       body: JSON.stringify(
         {
-          data: workflowTwo
+          data: workflowTwo,
+          meta: {
+            pagination: { last: 1 }
+          }
         })
     }
   )

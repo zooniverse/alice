@@ -5,11 +5,13 @@ import { GroupsPageContainer } from './GroupsPageContainer'
 
 let wrapper
 const getResourcesSpy = jest.fn()
+const selectGroupSpy = jest.fn()
 const pushSpy = jest.fn()
 const contextValues = {
   getResources: getResourcesSpy,
   groups: {
-    all: { values: () => [] }
+    all: [],
+    selectGroup: selectGroupSpy
   }
 }
 const history = { push: pushSpy }

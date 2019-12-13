@@ -29,8 +29,8 @@ describe('GroupsStore', function () {
       GROUP_2: 2
     }
     const outcome = [
-      { display_name: 'GROUP_1', subjects: 1 },
-      { display_name: 'GROUP_2', subjects: 2 }
+      { display_name: 'GROUP_1', id: 1, subjects: 1 },
+      { display_name: 'GROUP_2', id: 2, subjects: 2 }
     ]
     editorStore.setGroups(input)
     expect(Array.from(editorStore.all.values())).toEqual(outcome)
