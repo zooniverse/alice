@@ -8,6 +8,8 @@ const Group = types.model('Group', {
 const GroupsStore = types.model('GroupsStore', {
   all: types.map(Group),
   current: types.safeReference(Group),
+  page: types.optional(types.number, 0),
+  totalPages: types.optional(types.number, 1)
 }).actions(self => ({
   reset: () => {
     self.selectGroup(null)

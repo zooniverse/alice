@@ -6,7 +6,6 @@ import { observer } from 'mobx-react'
 import { EDIT_PATH } from 'paths'
 import MODALS from 'helpers/modals'
 import ResourcesTable from '../../components/ResourcesTable'
-import StepNavigation from '../../components/StepNavigation'
 import { columns } from './table'
 
 function SubjectsPageContainer ({ history, match }) {
@@ -38,16 +37,14 @@ function SubjectsPageContainer ({ history, match }) {
   return (
     <Box margin='medium' fill='vertical'>
       <ResourcesTable
+        activeStep={store.transcriptions.page}
         columns={columns}
         data={transcriptions}
         error={store.transcriptions.error}
         onSelection={onSelection}
         resource='Subjects'
-        state={store.transcriptions.asyncState}
-      />
-      <StepNavigation
-        activeStep={store.transcriptions.page}
         setStep={onSetPage}
+        state={store.transcriptions.asyncState}
         steps={steps}
       />
     </Box>
