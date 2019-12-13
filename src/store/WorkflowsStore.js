@@ -40,16 +40,13 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   }),
 
   getWorkflow: flow (function * getWorkflow(id) {
-    console.log('LOOK');
     if (!id) return undefined
-    console.log('TWICE');
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
       const response = yield client.get(`/workflows/${id}`)
       const resource = JSON.parse(response.body)
       self.asyncState = ASYNC_STATES.READY
-      console.log('resource', resource);
       return self.createWorkflow(resource.data)
     } catch (error) {
       console.warn(error);

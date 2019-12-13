@@ -69,7 +69,6 @@ describe('ProjectsStore', function () {
   })
 
   it('should select a project', function () {
-    console.log(projectsStore.current);
     projectsStore.selectProject(ownedProject.id)
     expect(projectsStore.current.id).toEqual(ownedProject.id)
   })

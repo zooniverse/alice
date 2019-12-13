@@ -144,7 +144,6 @@ describe('Component > ProjectPageContainer', function () {
 
   describe('useEffect hook', function () {
     it('should fetch resources', async function () {
-      console.log(contextValues.projects.collabProjects);
       const revisedContext = Object.assign({}, contextValues)
       revisedContext.projects.collabProjects = []
       revisedContext.projects.ownerProjects = []
