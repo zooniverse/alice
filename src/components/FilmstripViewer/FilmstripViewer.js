@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { FormDown, FormUp } from 'grommet-icons'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
-import StepNavigation from './components/StepNavigation'
+import StepNavigation from '../StepNavigation'
 import Overlay from '../Overlay'
 
 const Uppercase = styled(Text)`

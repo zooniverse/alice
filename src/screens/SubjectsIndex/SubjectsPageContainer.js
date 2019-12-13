@@ -6,6 +6,7 @@ import { observer } from 'mobx-react'
 import { EDIT_PATH } from 'paths'
 import MODALS from 'helpers/modals'
 import ResourcesTable from '../../components/ResourcesTable'
+import StepNavigation from '../../components/StepNavigation'
 import { columns } from './table'
 
 function SubjectsPageContainer ({ history, match }) {
@@ -28,6 +29,10 @@ function SubjectsPageContainer ({ history, match }) {
     store.subjects.fetchSubject(subject.id)
   }
 
+  const onSetPage = (page) => {
+    store.transcriptions.fetchTranscriptions(page)
+  }
+  const steps = Array.from(Array(store.transcriptions.totalPages).keys())
   const transcriptions = Array.from(store.transcriptions.all.values())
 
   return (
@@ -39,6 +44,11 @@ function SubjectsPageContainer ({ history, match }) {
         onSelection={onSelection}
         resource='Subjects'
         state={store.transcriptions.asyncState}
+      />
+      <StepNavigation
+        activeStep={store.transcriptions.page}
+        setStep={onSetPage}
+        steps={steps}
       />
     </Box>
   )
