@@ -9,7 +9,7 @@ import './App.css'
 import Home from './screens/Home'
 import ProjectsIndex from './screens/ProjectsIndex'
 import SubjectsIndex from './screens/SubjectsIndex'
-import SubjectSetsIndex from './screens/SubjectSetsIndex'
+import GroupsIndex from './screens/GroupsIndex'
 import WorkflowsIndex from './screens/WorkflowsIndex'
 import Editor from './screens/Editor'
 import Header from './screens/Header'
@@ -40,7 +40,7 @@ function App() {
             <Route path="/projects" component={Header}/>
             <Route exact path={PROJECTS_PATH} component={ProjectsIndex}/>
             <Route exact path={WORKFLOWS_PATH} component={WorkflowsIndex}/>
-            <Route exact path={GROUPS_PATH} component={SubjectSetsIndex}/>
+            <Route exact path={GROUPS_PATH} component={GroupsIndex}/>
             <Route exact path={SUBJECTS_PATH} component={SubjectsIndex}/>
             <Route exact path={EDIT_PATH} component={Editor}/>
           </Grommet>

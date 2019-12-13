@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import ResourcesTable from '../../components/ResourcesTable'
-import { SubjectSetPageContainer } from './SubjectSetPageContainer'
+import { GroupsPageContainer } from './GroupsPageContainer'
 
 let wrapper
 const getResourcesSpy = jest.fn()
@@ -21,11 +21,11 @@ const match = {
   }
 }
 
-describe('Component > SubjectSetPageContainer', function () {
+describe('Component > GroupsPageContainer', function () {
   beforeEach(function() {
     jest.spyOn(React, 'useContext')
       .mockImplementation(() => contextValues )
-    wrapper = shallow(<SubjectSetPageContainer history={history} match={match} />);
+    wrapper = shallow(<GroupsPageContainer history={history} match={match} />);
   })
 
   afterEach(() => jest.clearAllMocks());
@@ -48,7 +48,7 @@ describe('Component > SubjectSetPageContainer', function () {
         .mockImplementation(() => contextValues )
       jest.spyOn(React, "useEffect")
         .mockImplementation(f => f());
-      wrapper = shallow(<SubjectSetPageContainer match={match} />);
+      wrapper = shallow(<GroupsPageContainer match={match} />);
       expect(getResourcesSpy).toHaveBeenCalledTimes(1)
     })
   })

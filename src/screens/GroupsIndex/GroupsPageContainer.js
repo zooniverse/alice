@@ -8,7 +8,7 @@ import { SUBJECTS_PATH } from 'paths'
 import ResourcesTable from '../../components/ResourcesTable'
 import { columns } from './table'
 
-function SubjectSetPageContainer({ history, match }) {
+function GroupsPageContainer({ history, match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
@@ -34,5 +34,5 @@ function SubjectSetPageContainer({ history, match }) {
   )
 }
 
-export { SubjectSetPageContainer }
-export default withRouter(observer(SubjectSetPageContainer))
+export { GroupsPageContainer }
+export default withRouter(observer(GroupsPageContainer))
