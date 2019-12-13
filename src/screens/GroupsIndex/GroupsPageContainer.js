@@ -19,16 +19,23 @@ function GroupsPageContainer({ history, match }) {
     const nextPath = generatePath(SUBJECTS_PATH, { group: group.display_name, ...match.params})
     history.push(nextPath)
   }
-  const groups = Array.from(store.groups.all.values())
+  const onSetPage = (page) => {
+    store.groups.setPage(page)
+  }
+  const steps = Array.from(Array(store.groups.totalPages).keys())
+  const activeStep = store.groups.page
 
   return (
     <Box margin='medium' fill='vertical'>
       <ResourcesTable
+        activeStep={activeStep}
         columns={columns}
-        data={groups}
+        data={store.groups.all[activeStep]}
         resource='groups'
         onSelection={onSelection}
+        setStep={onSetPage}
         status={ASYNC_STATES.READY}
+        steps={steps}
       />
     </Box>
   )

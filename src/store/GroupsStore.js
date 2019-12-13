@@ -6,8 +6,8 @@ const Group = types.model('Group', {
 })
 
 const GroupsStore = types.model('GroupsStore', {
-  all: types.map(Group),
-  current: types.safeReference(Group),
+  all: types.array(types.array(Group)),
+  current: types.optional(Group, {}),
   page: types.optional(types.number, 0),
   totalPages: types.optional(types.number, 1)
 }).actions(self => ({
@@ -20,13 +20,25 @@ const GroupsStore = types.model('GroupsStore', {
   },
 
   setGroups: function(groups) {
-    self.all.clear()
-    Object.keys(groups).forEach((key) => {
-      self.all.put(Group.create({
+    const unchunkedArray = Object.keys(groups).map((key) => {
+      return Group.create({
         display_name: key,
         subjects: groups[key]
-      }))
+      })
     })
+
+    const chunkedArray = []
+    let totalPages = 0
+    while(unchunkedArray.length) {
+      chunkedArray.push(unchunkedArray.splice(0,30))
+      totalPages++
+    }
+    self.totalPages = totalPages
+    self.all = chunkedArray
+  },
+
+  setPage: function(page) {
+    self.page = page
   }
 })).views(self => ({
   get title () {
