@@ -64,6 +64,16 @@ describe('Component > SubjectsPageContainer', function () {
       expect(fetchSubjectSpy).toHaveBeenCalledWith(subject.id)
     })
 
+    it('should call the child setStep prop', function () {
+      const table = wrapper.find(ResourcesTable).first()
+      table.props().setStep(1)
+      expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    })
+
+    it('should fetch transcriptions when idle', function () {
+      expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    })
+
     it('should toggleModal when subject locked', function() {
       const subject = { id: 1, locked: true }
       const table = wrapper.find(ResourcesTable).first()
