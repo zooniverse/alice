@@ -35,4 +35,9 @@ describe('GroupsStore', function () {
     editorStore.setGroups(input)
     expect(Array.from(editorStore.all.values())).toEqual(outcome)
   })
+
+  it('should set the page', function () {
+    editorStore.setPage(2)
+    expect(editorStore.page).toBe(2)
+  })
 })
