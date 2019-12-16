@@ -11,6 +11,7 @@ const StyledText = styled('h6')`
 `
 
 const RightAlignText = styled(StyledText)`
+  margin-left: auto;
   text-align: end;
 `
 
@@ -20,15 +21,14 @@ function TranscriptionTable ({ data }) {
 
   return (
     <Box>
-      <Box direction='row' border='bottom' pad='xsmall'>
-        <Box basis='4%' />
-        <Box basis='80%'>
+      <Box direction='row' margin={{ horizontal: 'xsmall' }} pad={{ vertical: 'xsmall' }}>
+        <Box basis='80%' margin={{ left: 'small' }}>
           <StyledText>Aggregated Transcription</StyledText>
         </Box>
-        <Box basis='6%'>
+        <Box>
           <StyledText>Flag</StyledText>
         </Box>
-        <Box basis='10%'>
+        <Box>
           <RightAlignText>Consensus Line</RightAlignText>
         </Box>
       </Box>

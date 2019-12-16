@@ -37,7 +37,7 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
   return (
     <Box
       align='center'
-      border='bottom'
+      border={{ color: '#ECECEC', side: 'bottom' }}
       direction='row'
       draggable='true'
       elevation={elevation}
@@ -49,7 +49,7 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
       onDragStart={() => handleDragStart(index, setDragID, setHover)}
       onMouseEnter={() => { setHover(true) }}
       onMouseLeave={() => { setHover(false) }}
-      margin={{ right: '0.1em' }}
+      margin={{ right: '0.15em' }}
       pad='0.2em'
       round={round}
     >
