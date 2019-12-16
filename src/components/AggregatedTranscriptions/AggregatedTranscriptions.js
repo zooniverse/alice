@@ -16,6 +16,9 @@ const StyledBox = styled(Box)`
 
 const AbsoluteBox = styled(Box)`
   position: absolute;
+  left: 0;
+  right: 0;
+  width: auto;
 `
 
 const OverflowBox = styled(Box)`
@@ -51,7 +54,11 @@ function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
         <OverflowBox>
           <TranscriptionTable />
         </OverflowBox>
-        {showOverlay && <Overlay />}
+        {(showOverlay || showTranscription) && (
+          <AbsoluteBox background={{ color: 'white', opacity: 'medium' }} fill margin={margin} opacity='0.5' round='xsmall'>
+            <Overlay />
+          </AbsoluteBox>
+        )}
       </Box>
       {showTranscription && (
         <AbsoluteBox align='center' background='transparent' pad={{ right: 'small' }} fill justify='center'>
