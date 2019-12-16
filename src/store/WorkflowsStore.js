@@ -34,7 +34,7 @@ const WorkflowsStore = types.model('WorkflowsStore', {
       const response = yield client.get(`/workflows?filter[project_id_eq]=${id}&page[number]=${self.page+1}`)
       const resources = JSON.parse(response.body)
       self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
-      self.all = resources.data
+      resources.data.forEach(workflow => self.all.put(self.createWorkflow(workflow)))
       self.asyncState = ASYNC_STATES.READY
     } catch (error) {
       console.warn(error);

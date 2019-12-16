@@ -1,7 +1,7 @@
 import { types } from 'mobx-state-tree'
 
 const Group = types.model('Group', {
-  display_name: types.identifier,
+  display_name: types.optional(types.string, ''),
   subjects: types.optional(types.number, 0)
 })
 
@@ -15,8 +15,11 @@ const GroupsStore = types.model('GroupsStore', {
     self.selectGroup(null)
   },
 
-  selectGroup: function(name) {
-    self.current = name || undefined
+  selectGroup: function(group) {
+    self.current = Group.create({
+      display_name: (group && group.display_name) || '',
+      subjects: (group && group.subjects) || 0
+    })
   },
 
   setGroups: function(groups) {

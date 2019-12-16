@@ -24,6 +24,7 @@ function GroupsPageContainer({ history, match }) {
   }
   const steps = Array.from(Array(store.groups.totalPages).keys())
   const activeStep = store.groups.page
+  // const groups = Array.from(store.groups.all.values())
 
   return (
     <Box margin='medium' fill='vertical'>

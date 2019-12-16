@@ -1,6 +1,5 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
-import { Group } from './GroupsStore'
 import TranscriptionFactory from './factories/transcription'
 
 let transcriptionsStore
@@ -31,8 +30,9 @@ describe('TranscriptionsStore', function () {
       rootStore = AppStore.create({
         client: { tove: toveStub },
         groups: {
-          all: { GROUP_1: { display_name: 'GROUP_1' } },
-          current: 'GROUP_1'
+          current: {
+            display_name: 'GROUP_1'
+          }
         }
       })
       transcriptionsStore = rootStore.transcriptions
@@ -72,8 +72,9 @@ describe('TranscriptionsStore', function () {
       rootStore = AppStore.create({
         client: { tove: failedToveStub },
         groups: {
-          all: { GROUP_1: { display_name: 'GROUP_1' } },
-          current: 'GROUP_1'
+          current: {
+            display_name: 'GROUP_1'
+          }
         }
       })
     })

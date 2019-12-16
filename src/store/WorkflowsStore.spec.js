@@ -11,7 +11,10 @@ let toveStubArray = {
     {
       body: JSON.stringify(
         {
-          data: [WorkflowFactory.build(), workflowTwo]
+          data: [WorkflowFactory.build(), workflowTwo],
+          meta: {
+            pagination: { last: 1 }
+          }
         })
     }
   )
@@ -49,7 +52,7 @@ describe('WorkflowsStore', function () {
       expect(workflowsStore).toBeDefined()
     })
 
-    it('should fetch transcriptions', async function () {
+    it('should fetch workflows', async function () {
       await workflowsStore.fetchWorkflows()
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
       expect(workflowsStore.all.size).toBe(2)
