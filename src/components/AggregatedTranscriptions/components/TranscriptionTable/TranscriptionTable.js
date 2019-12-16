@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from 'grommet'
 import styled from 'styled-components'
-import { arrayOf, shape } from 'prop-types'
+import { arrayOf, shape, func } from 'prop-types'
 import TranscriptionTableRow from './TranscriptionTableRow'
 
 const StyledText = styled('h6')`
@@ -15,7 +15,7 @@ const RightAlignText = styled(StyledText)`
   text-align: end;
 `
 
-function TranscriptionTable ({ data }) {
+function TranscriptionTable ({ data, toggleTranscription }) {
   const [dataArray, setData] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
 
@@ -43,6 +43,7 @@ function TranscriptionTable ({ data }) {
               key={`TRANSCRIPTION_ROW_${i}`}
               setData={setData}
               setDragID={setDragID}
+              toggleTranscription={toggleTranscription}
             />
           )
         })}
@@ -52,11 +53,13 @@ function TranscriptionTable ({ data }) {
 }
 
 TranscriptionTable.propTypes = {
-  data: arrayOf(shape())
+  data: arrayOf(shape()),
+  toggleTranscription: func
 }
 
 TranscriptionTable.defaultProps = {
-  data: []
+  data: [],
+  toggleTranscription: () => {}
 }
 
 export default TranscriptionTable

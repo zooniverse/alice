@@ -26,7 +26,6 @@ function Resizer({ direction, disabled, onMouseDown }) {
       disabled={disabled}
       justify='center'
       onMouseDown={onMouseDown}
-      pad='xsmall'
     >
       <FontAwesomeIcon color={iconColor} icon={ellipsis} />
     </StyledBox>

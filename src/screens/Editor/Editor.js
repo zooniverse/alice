@@ -75,10 +75,12 @@ function Editor ({ match }) {
       e.preventDefault()
     }
   }
+  const viewerMargin = direction === 'row' ? { left: 'medium', right: 'xsmall' } : { horizontal: 'medium', bottom: 'xsmall' }
+  const transcriptionsMargin = direction === 'row' ? { right: 'medium', left: 'xsmall' } : { horizontal: 'medium', top: 'xsmall' }
 
   return (
     <Box>
-      <Box gap='small' margin={{ horizontal: 'medium'}}>
+      <Box gap='small'>
         <Box
           direction={direction}
           height='large'
@@ -87,7 +89,7 @@ function Editor ({ match }) {
           onMouseUp={() => { setMove(false) }}
           ref={editorBox}
         >
-          <Box basis={`${viewerSize}%`}>
+          <Box basis={`${viewerSize}%`} margin={viewerMargin}>
             <SubjectViewer />
           </Box>
           <Resizer
@@ -96,7 +98,7 @@ function Editor ({ match }) {
             onMouseDown={onMouseDown}
           />
           <Box basis={`${transcriberSize}%`}>
-            <AggregatedTranscriptions />
+            <AggregatedTranscriptions margin={transcriptionsMargin} />
           </Box>
         </Box>
         <FilmstripViewer images={locations} />

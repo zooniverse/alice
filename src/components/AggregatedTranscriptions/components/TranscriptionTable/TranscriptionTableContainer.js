@@ -1,17 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { observer } from 'mobx-react'
+import AppContext from 'store'
 import TranscriptionTable from './TranscriptionTable'
 import data from './mockData'
 
-class TranscriptionTableContainer extends Component {
-  constructor() {
-    super();
-
-    this.state = { data: null }
+function TranscriptionTableContainer() {
+  const store = React.useContext(AppContext)
+  const toggleTranscription = () => {
+    store.aggregations.toggleTranscription()
   }
 
-  render () {
-    return <TranscriptionTable data={data} />
-  }
+  return (
+    <TranscriptionTable
+      data={data}
+      toggleTranscription={toggleTranscription}
+    />
+  )
 }
 
-export default TranscriptionTableContainer
+export default observer(TranscriptionTableContainer)

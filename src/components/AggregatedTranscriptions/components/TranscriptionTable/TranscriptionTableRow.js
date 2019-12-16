@@ -32,7 +32,7 @@ function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
   setData(copiedArray)
 }
 
-export default function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID }) {
+export default function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID, toggleTranscription }) {
   const [isHover, setHover] = React.useState(false)
   const isDragging = dragID === index
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
@@ -48,12 +48,13 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
       elevation={elevation}
       flex={false}
       gap='xsmall'
-      onDragEnd={() => { setDragID(null) }}
+      onDragEnd={() => setDragID(null)}
       onDragEnter={(e) => handleDragEnter(e, index, data, dragID, setData, setDragID)}
       onDragOver={allowDrop}
       onDragStart={() => handleDragStart(index, setDragID, setHover)}
-      onMouseEnter={() => { setHover(true) }}
-      onMouseLeave={() => { setHover(false) }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onMouseUp={() => toggleTranscription()}
       margin={{ right: '0.15em' }}
       pad='0.2em'
       round={round}
@@ -86,7 +87,8 @@ TranscriptionTableRow.propTypes = {
   dragID: number,
   index: number,
   setData: func,
-  setDragID: func
+  setDragID: func,
+  toggleTranscription: func
 }
 
 TranscriptionTableRow.defaultProps = {
@@ -95,5 +97,6 @@ TranscriptionTableRow.defaultProps = {
   dragID: null,
   index: null,
   setData: () => {},
-  setDragID: () => {}
+  setDragID: () => {},
+  toggleTranscription: () => {}
 }
