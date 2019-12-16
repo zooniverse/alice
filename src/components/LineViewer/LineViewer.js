@@ -17,9 +17,9 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   opacity: 0.5;
 `
 
-function LineViewer ({ aggregatedText, classifications, consensusScore }) {
+function LineViewer ({ aggregatedText, classifications, consensusScore, toggleTranscription }) {
   return (
-    <Box background='white' round='xsmall' width='large'>
+    <Box background='white' elevation='small' round='xsmall' width='large'>
       <Box border='bottom' pad='xsmall'>
         <Box direction='row' justify='between'>
           <CapitalText size='xsmall'>Aggregated Transcription</CapitalText>
@@ -52,7 +52,7 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
         </Box>
         <Box direction='row'>
           <Button margin={{ right: 'small' }}><CapitalText>Replace With Selected</CapitalText></Button>
-          <Button><CapitalText>Close</CapitalText></Button>
+          <Button onClick={toggleTranscription}><CapitalText>Close</CapitalText></Button>
         </Box>
       </Box>
     </Box>
@@ -62,13 +62,15 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
 LineViewer.defaultProps = {
   aggregatedText: '',
   classifications: [],
-  consensusScore: 0
+  consensusScore: 0,
+  toggleTranscription: () => {}
 }
 
 LineViewer.propTypes = {
   aggregatedText: PropTypes.string,
   classifications: PropTypes.array,
-  consensusScore: PropTypes.number
+  consensusScore: PropTypes.number,
+  toggleTranscription: PropTypes.func
 }
 
 export default withThemeContext(LineViewer, theme)
