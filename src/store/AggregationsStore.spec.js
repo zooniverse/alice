@@ -11,8 +11,13 @@ describe('AggregationsStore', function () {
     expect(aggregationsStore).toBeDefined()
   })
 
-  it('should toggle layout', function () {
+  it('should toggle modal', function () {
     aggregationsStore.toggleModal()
     expect(aggregationsStore.showModal).toBe(true)
+  })
+
+  it('should toggle the transcription pane', function () {
+    aggregationsStore.toggleTranscription()
+    expect(aggregationsStore.showTranscription).toBe(true)
   })
 })
