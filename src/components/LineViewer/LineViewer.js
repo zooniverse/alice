@@ -27,11 +27,13 @@ function LineViewer ({ aggregatedText, classifications, consensusScore, toggleTr
         </Box>
         <Box direction='row' justify='between' pad={{ top: 'xsmall' }}>
           <Text weight='bold'>{aggregatedText}</Text>
-          <Box direction='row' align='center'>
-            <StyledFontAwesomeIcon color='tomato' icon={faCircle} />
-            <StyledFontAwesomeIcon color='green' icon={faCircle} />
+          <Box basis='10%' direction='row' align='center'>
+            <StyledFontAwesomeIcon color='tomato' icon={faCircle} size='xs' />
+            <StyledFontAwesomeIcon color='green' icon={faCircle} size='xs' />
           </Box>
-          <Text>{consensusScore}/{classifications.length}</Text>
+          <Box justify='center'>
+            <Text>{consensusScore}/{classifications.length}</Text>
+          </Box>
         </Box>
       </Box>
       <Box border='bottom' margin={{ top: 'xsmall' }}>

@@ -17,7 +17,7 @@ function TranscriptionLine ({ classification, index }) {
     <Box margin={{ vertical: '0.25em' }}>
       <Box direction='row' justify='between'>
         <Box direction='row'>
-          <Box align='end' background={indexToColor(index)} width='2.5em'>
+          <Box align='end' background={indexToColor(index)} height='fit-content' width='2.5em'>
             <Box pad='0.2em'>
               <CheckBox />
             </Box>
@@ -25,7 +25,6 @@ function TranscriptionLine ({ classification, index }) {
           <Text
             alignSelf='center'
             margin={{ horizontal: 'xsmall' }}
-            weight='bold'
           >
             {classification.text}
           </Text>
