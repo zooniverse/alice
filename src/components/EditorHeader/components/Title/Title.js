@@ -6,8 +6,9 @@ import { generatePath, matchPath, withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import { bool } from 'prop-types'
 import {
+  GROUPS_PATH,
+  PROJECTS_PATH,
   SUBJECTS_PATH,
-  SUBJECT_SETS_PATH,
   WORKFLOWS_PATH
 } from 'paths'
 
@@ -23,16 +24,19 @@ function Title({ history, match, onEditor }) {
   }
 
   const store = React.useContext(AppContext)
-  const project = store.projects.title
-  const workflow = store.workflows.title
-  const group = store.groups.title
-  const subject = store.subjects.title
+  const project = store.projects.title || ''
+  const workflow = store.workflows.title || ''
+  const group = store.groups.title || ''
+  const subject = store.transcriptions.title || ''
   let titles = [
     { title: subject },
     { title: group, path: SUBJECTS_PATH, to: 'Subjects Index Page' },
-    { title: workflow, path: SUBJECT_SETS_PATH, to: 'Groups Index Page' },
-    { title: project, path: WORKFLOWS_PATH, to: 'Workflows Index Page' }
+    { title: workflow, path: GROUPS_PATH, to: 'Groups Index Page' },
+    { title: project, path: WORKFLOWS_PATH, to: 'Workflows Index Page' },
+    { title: 'Projects', path: PROJECTS_PATH, to: 'Projects Index Page' }
   ]
+
+  if (project === 'Select Project' || onEditor) titles.pop()
 
   const headerIndex = titles.findIndex(header => header.title.length > 0)
   let header = titles[headerIndex]
@@ -43,7 +47,7 @@ function Title({ history, match, onEditor }) {
     header = { title: subject }
   }
   const subjectCount = header.title === group ?
-    `(${store.transcriptions.approvedCount}/${store.transcriptions.all.length} approved)` : ''
+    `(${store.transcriptions.approvedCount}/${store.transcriptions.all.size} approved)` : ''
 
   return (
     <Box align='baseline' direction='row' gap='0.25em'>

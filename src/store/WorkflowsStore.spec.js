@@ -1,31 +1,43 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
-import { Workflow } from './WorkflowsStore'
 import WorkflowFactory from './factories/workflow'
 
 let workflowsStore
 let rootStore
+const workflowTwo = WorkflowFactory.build({ id: '2' })
+
+let toveStubArray = {
+  get: () => Promise.resolve(
+    {
+      body: JSON.stringify(
+        {
+          data: [WorkflowFactory.build(), workflowTwo]
+        })
+    }
+  )
+}
 
 let toveStub = {
   get: () => Promise.resolve(
     {
       body: JSON.stringify(
         {
-          data: [WorkflowFactory.build(), WorkflowFactory.build()]
+          data: workflowTwo
         })
     }
   )
 }
+
 const error = { message: 'Failed to Return' }
 let failedToveStub = {
   get: () => Promise.reject(error)
 }
 
-describe('TranscriptionsStore', function () {
+describe('WorkflowsStore', function () {
   describe('success state', function () {
     beforeEach(function () {
       rootStore = AppStore.create({
-        client: { tove: toveStub }
+        client: { tove: toveStubArray }
       })
       workflowsStore = rootStore.workflows
     })
@@ -37,19 +49,13 @@ describe('TranscriptionsStore', function () {
     it('should fetch transcriptions', async function () {
       await workflowsStore.fetchWorkflows()
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
-      expect(workflowsStore.all.length).toBe(2)
+      expect(workflowsStore.all.size).toBe(2)
     })
 
-    it('should select a workflow', function () {
-      const workflow = WorkflowFactory.build()
-      const outcome = Workflow.create({
-        display_name: workflow.attributes.display_name,
-        id: workflow.id,
-        project_id: workflow.relationships.project.data.id,
-        groups: workflow.attributes.groups
-      })
-      workflowsStore.selectWorkflow(workflow)
-      expect(workflowsStore.current).toEqual(outcome)
+    it('should select a workflow', async function () {
+      await workflowsStore.fetchWorkflows()
+      workflowsStore.selectWorkflow('2')
+      expect(workflowsStore.current.id).toBe(workflowTwo.id)
     })
 
     it('should set the asyncState', function () {
@@ -58,18 +64,34 @@ describe('TranscriptionsStore', function () {
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
     })
 
-    it('should select a default workflow if none provided', function () {
-      const defaultWorkflow = Workflow.create()
+    it('should select a workflow to undefined if none provided', function () {
       workflowsStore.selectWorkflow(null)
-      expect(workflowsStore.current).toEqual(defaultWorkflow)
+      expect(workflowsStore.current).toEqual(undefined)
+    })
+
+    it('should fetch a single workflow', async function () {
+      rootStore = AppStore.create({ client: { tove: toveStub }})
+      workflowsStore = rootStore.workflows
+      const returnValue = await workflowsStore.getWorkflow('1')
+      expect(returnValue).toBeDefined()
+      expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
     })
   })
 
   describe('failure state', function () {
-    it('should handle an error when fetching transcriptions', async function () {
+    beforeEach(function () {
       rootStore = AppStore.create({ client: { tove: failedToveStub }})
       workflowsStore = rootStore.workflows
+    })
+
+    it('should handle an error when fetching workflows', async function () {
       await workflowsStore.fetchWorkflows()
+      expect(workflowsStore.error).toBe(error.message)
+      expect(workflowsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+    })
+
+    it('should handle an error when fetching a single workflow', async function () {
+      await workflowsStore.getWorkflow('1')
       expect(workflowsStore.error).toBe(error.message)
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.ERROR)
     })

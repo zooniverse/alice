@@ -17,12 +17,10 @@ const editContext = {
   groups: {
     title: 'Group'
   },
-  subjects: {
-    title: 'Subject'
-  },
   transcriptions: {
     approvedCount: 0,
-    all: []
+    all: { size: 0 },
+    title: 'Subject'
   }
 }
 
@@ -30,13 +28,13 @@ const pushSpy = jest.fn()
 
 const history = {
   location: {
-    pathname: '/projects/123/workflows/123/subject-sets/4/subjects'
+    pathname: '/projects/123/workflows/123/groups/4/subjects'
   },
   push: pushSpy
 }
 
 
-describe('Component > UndoButton', function () {
+describe('Component > Title', function () {
   beforeEach(function() {
     wrapper = shallow(<Title />);
   })
@@ -55,28 +53,29 @@ describe('Component > UndoButton', function () {
 
     it('Should display only the group subheader', function () {
       expect(wrapper.find(Button).length).toBe(1)
-      expect(wrapper.find(Heading).props().children).toBe(editContext.subjects.title)
+      expect(wrapper.find(Heading).length).toBe(1)
+      expect(wrapper.find(Heading).props().children).toBe(editContext.transcriptions.title)
     })
   })
 
   describe('when on subject page', function () {
     beforeEach(function() {
       let groupContext = Object.assign({}, editContext)
-      groupContext.subjects.title = ''
+      groupContext.transcriptions.title = ''
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => groupContext )
       wrapper = shallow(<Title history={history} />);
     })
 
-    it('should display two subheader buttons', function () {
+    it('should display three subheader buttons', function () {
       const approvedCount = wrapper.find(CapitalText).last().props()
-      expect(wrapper.find(Button).length).toBe(2)
+      expect(wrapper.find(Button).length).toBe(3)
       expect(approvedCount.children).toBe('(0/0 approved)')
     })
 
     it('should route to the correct subheader location', function () {
-      const projectSub = wrapper.find(Button).first()
+      const projectSub = wrapper.find(Button).at(1)
       projectSub.props().onClick()
       expect(pushSpy).toHaveBeenCalledWith('/projects/123/workflows')
     })

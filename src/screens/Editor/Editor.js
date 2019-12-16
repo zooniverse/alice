@@ -3,7 +3,6 @@ import { Box } from 'grommet'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import AppContext from 'store'
-import ASYNC_STATES from 'helpers/asyncStates'
 import Resizer from './components/Resizer'
 import AggregationModal from '../../components/AggregationSettings/AggregationModal'
 import SubjectViewer from '../../components/SubjectViewer'
@@ -13,7 +12,7 @@ import AggregatedTranscriptions from '../../components/AggregatedTranscriptions'
 const MIN_WIDTH = 33;
 
 function findLocations(subject) {
-  if (!subject || !subject.locations) return null
+  if (!subject || !subject.locations) return []
 
   return subject.locations.map(location => {
     const keys = Object.keys(location)
@@ -25,11 +24,15 @@ function Editor ({ match }) {
   const store = React.useContext(AppContext)
   const editorBox = React.useRef(null)
 
-  const params = match.params
+  React.useEffect(() => {
+    const setResources = async () => {
+      await store.getResources(match.params)
+      await store.subjects.fetchSubject(match.params.subject)
+    }
+    setResources()
+  }, [match, store])
+
   const subject = store.subjects.current
-  if (subject.id !== params.subject && store.subjects.asyncState === ASYNC_STATES.IDLE) {
-    store.subjects.fetchSubject(params.subject)
-  }
   const locations = findLocations(subject)
   const direction = store.editor.layout
 

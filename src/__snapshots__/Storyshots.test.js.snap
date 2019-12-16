@@ -3737,7 +3737,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <button
-        aria-label="Return to Subject Set Index Page"
+        aria-label="Return to Group Index Page"
         className="StyledButton-sc-323bzc-0 jfbKsv"
         onBlur={[Function]}
         onClick={[Function]}
@@ -3750,7 +3750,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
           className="StyledText-sc-1sadyjn-0 bEMqcB"
           size="small"
         >
-          BACK TO SUBJECT SET INDEX
+          BACK TO GROUP INDEX
         </span>
       </button>
     </div>

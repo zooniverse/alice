@@ -1,29 +1,31 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import ResourcesTable from '../../components/ResourcesTable'
-import { SubjectSetPageContainer } from './SubjectSetPageContainer'
+import { GroupsPageContainer } from './GroupsPageContainer'
 
 let wrapper
-const selectGroupSpy = jest.fn()
+const getResourcesSpy = jest.fn()
 const pushSpy = jest.fn()
 const contextValues = {
+  getResources: getResourcesSpy,
   groups: {
-    selectGroup: selectGroupSpy
+    all: { values: () => [] }
   }
 }
 const history = { push: pushSpy }
 const match = {
   params: {
+    group: 1,
     project: 1,
     workflow: 1
   }
 }
 
-describe('Component > SubjectSetPageContainer', function () {
+describe('Component > GroupsPageContainer', function () {
   beforeEach(function() {
     jest.spyOn(React, 'useContext')
       .mockImplementation(() => contextValues )
-    wrapper = shallow(<SubjectSetPageContainer history={history} match={match} />);
+    wrapper = shallow(<GroupsPageContainer history={history} match={match} />);
   })
 
   afterEach(() => jest.clearAllMocks());
@@ -36,7 +38,6 @@ describe('Component > SubjectSetPageContainer', function () {
     const table = wrapper.find(ResourcesTable).first()
     const group = { id: 1 }
     table.props().onSelection(group);
-    expect(selectGroupSpy).toHaveBeenCalled()
     expect(pushSpy).toHaveBeenCalled()
   })
 
@@ -47,8 +48,8 @@ describe('Component > SubjectSetPageContainer', function () {
         .mockImplementation(() => contextValues )
       jest.spyOn(React, "useEffect")
         .mockImplementation(f => f());
-      wrapper = shallow(<SubjectSetPageContainer />);
-      expect(selectGroupSpy).toHaveBeenCalledTimes(1)
+      wrapper = shallow(<GroupsPageContainer match={match} />);
+      expect(getResourcesSpy).toHaveBeenCalledTimes(1)
     })
   })
 })

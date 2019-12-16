@@ -5,19 +5,27 @@ import ASYNC_STATES from 'helpers/asyncStates'
 const Project = types
   .model('Project', {
     avatar_src: types.optional(types.string, ''),
-    id: types.optional(types.string, ''),
+    id: types.identifier,
     display_name: types.optional(types.string, ''),
     role: types.optional(types.string, '')
   })
 
 const ProjectsStore = types.model('ProjectsStore', {
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
-  collabProjects: types.array(types.frozen({}), null),
-  current: types.optional(Project, {}),
+  all: types.map(Project),
+  current: types.safeReference(Project),
   error: types.optional(types.string, ''),
-  ownerProjects: types.array(types.frozen({}), null),
   roles: types.optional(types.frozen({}), null),
 }).actions(self => ({
+  createProject: (project, role) => {
+    return Project.create({
+      avatar_src: project.avatar_src,
+      id: project.id,
+      display_name: project.display_name,
+      role
+    })
+  },
+
   getRoles: flow (function * getRoles() {
     const user = getRoot(self).auth.user
     const roles = yield apiClient.type('project_roles').get({ user_id: user.id, page_size: 50 })
@@ -40,19 +48,11 @@ const ProjectsStore = types.model('ProjectsStore', {
       const ids = resources.data.map(project => project.id)
       const projects = yield apiClient.type('projects').get({ id: ids.toString(), cards: true })
 
-      let collabProjects = []
-      let ownerProjects = []
-
       projects.forEach((project) => {
         const role = self.roles[project.id] || 'Viewer'
-        if (role === 'Project Owner') {
-          return ownerProjects.push({...project, role })
-        }
-        return collabProjects.push({...project, role })
+        self.all.put(self.createProject(project, role))
       })
 
-      self.collabProjects = collabProjects
-      self.ownerProjects = ownerProjects
       self.asyncState = ASYNC_STATES.READY
       self.error = ''
     } catch (error) {
@@ -62,12 +62,59 @@ const ProjectsStore = types.model('ProjectsStore', {
     }
   }),
 
-  selectProject: function(project) {
-    self.current = project || Project.create()
+  getProject: flow (function * getProject(id) {
+    if (!id) return undefined
+    self.asyncState = ASYNC_STATES.LOADING
+    try {
+      if (!self.roles) yield self.getRoles()
+      const response = yield apiClient.type('projects').get({ id, cards: true })
+      const project = response[0]
+      const role = self.roles[project.id] || 'Viewer'
+      self.asyncState = ASYNC_STATES.READY
+      return self.createProject(project, role)
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  }),
+
+  reset: () => {
+    self.selectProject(null)
+    self.all.clear()
+  },
+
+  selectProject: flow(function * selectProject(id = null) {
+    let project = self.all.get(id)
+    if (!project) project = yield self.getProject(id)
+    self.setProject(project)
+    self.current = id || undefined
+  }),
+
+  setProject: (project) => {
+    if (project) {
+      try {
+        self.all.put(project)
+      } catch (error) {
+        console.error(error)
+      }
+    }
   }
 })).views(self => ({
+  get id () {
+    return self.current && self.current.id
+  },
+
   get title () {
-    return self.current.display_name.length ? self.current.display_name : 'Select Project'
+    return self.current && self.current.display_name.length ? self.current.display_name : 'Select Project'
+  },
+
+  get collabProjects () {
+    return Array.from(self.all.values()).filter(project => project.role !== 'Project Owner')
+  },
+
+  get ownerProjects () {
+    return Array.from(self.all.values()).filter(project => project.role === 'Project Owner')
   }
 }))
 

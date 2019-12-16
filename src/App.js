@@ -3,12 +3,13 @@ import { Router, Route } from 'react-router-dom'
 import { Grommet } from 'grommet'
 import AppContext from 'store'
 import makeInspectable from 'mobx-devtools-mst'
+import { observer } from 'mobx-react'
 import history from './history'
 import './App.css'
 import Home from './screens/Home'
 import ProjectsIndex from './screens/ProjectsIndex'
 import SubjectsIndex from './screens/SubjectsIndex'
-import SubjectSetsIndex from './screens/SubjectSetsIndex'
+import GroupsIndex from './screens/GroupsIndex'
 import WorkflowsIndex from './screens/WorkflowsIndex'
 import Editor from './screens/Editor'
 import Header from './screens/Header'
@@ -17,7 +18,7 @@ import { mergedTheme } from './theme'
 import {
   PROJECTS_PATH,
   WORKFLOWS_PATH,
-  SUBJECT_SETS_PATH,
+  GROUPS_PATH,
   SUBJECTS_PATH,
   EDIT_PATH
 } from 'paths'
@@ -25,8 +26,9 @@ import {
 function App() {
   const store = React.useContext(AppContext)
   makeInspectable(store)
-  store.auth.checkCurrent()
-  store.client.initialize()
+  store.initialize()
+
+  if (!store.initialized) return null;
 
   return (
     <Router history={history}>
@@ -38,7 +40,7 @@ function App() {
             <Route path="/projects" component={Header}/>
             <Route exact path={PROJECTS_PATH} component={ProjectsIndex}/>
             <Route exact path={WORKFLOWS_PATH} component={WorkflowsIndex}/>
-            <Route exact path={SUBJECT_SETS_PATH} component={SubjectSetsIndex}/>
+            <Route exact path={GROUPS_PATH} component={GroupsIndex}/>
             <Route exact path={SUBJECTS_PATH} component={SubjectsIndex}/>
             <Route exact path={EDIT_PATH} component={Editor}/>
           </Grommet>
@@ -48,4 +50,5 @@ function App() {
   );
 }
 
-export default App
+export { App }
+export default observer(App)

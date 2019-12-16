@@ -8,25 +8,25 @@ import { SUBJECTS_PATH } from 'paths'
 import ResourcesTable from '../../components/ResourcesTable'
 import { columns } from './table'
 
-function SubjectSetPageContainer({ history, match }) {
+function GroupsPageContainer({ history, match }) {
   const store = React.useContext(AppContext)
 
   React.useEffect(() => {
-    store.groups.selectGroup(null)
-  }, [store])
+    store.getResources(match.params)
+  }, [match, store])
 
   const onSelection = group => {
-    store.groups.selectGroup(group)
-    const nextPath = generatePath(SUBJECTS_PATH, { subjectSet: group.id, ...match.params})
+    const nextPath = generatePath(SUBJECTS_PATH, { group: group.display_name, ...match.params})
     history.push(nextPath)
   }
+  const groups = Array.from(store.groups.all.values())
 
   return (
     <Box margin='medium' fill='vertical'>
       <ResourcesTable
         columns={columns}
-        data={store.groups.all}
-        resource='Subject Sets'
+        data={groups}
+        resource='groups'
         onSelection={onSelection}
         status={ASYNC_STATES.READY}
       />
@@ -34,5 +34,5 @@ function SubjectSetPageContainer({ history, match }) {
   )
 }
 
-export { SubjectSetPageContainer }
-export default withRouter(observer(SubjectSetPageContainer))
+export { GroupsPageContainer }
+export default withRouter(observer(GroupsPageContainer))

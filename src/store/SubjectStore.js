@@ -25,7 +25,7 @@ const SubjectStore = types.model('SubjectStore', {
     id = TEMPORARY_SUBJECT_ID
     self.asyncState = ASYNC_STATES.LOADING
     try {
-      yield getRoot(self).transcriptions.fetchTranscriptionsForSubject(id)
+      yield getRoot(self).transcriptions.selectTranscription(id)
       const response = yield subjects.get({ id })
       if (response.body.subjects[0]) {
         const subject = response.body.subjects[0]

@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree'
+import { flow, types } from 'mobx-state-tree'
 import { AggregationsStore } from './AggregationsStore'
 import { AuthStore } from './AuthStore'
 import { ClientStore } from './ClientStore'
@@ -19,11 +19,40 @@ const AppStore = types.model('AppStore', {
   image: types.optional(ImageStore, () => ImageStore.create({})),
   groups: types.optional(GroupsStore, () => GroupsStore.create({})),
   subjects: types.optional(SubjectStore, () => SubjectStore.create({})),
-  initialised: types.optional(types.boolean, false),
+  initialized: types.optional(types.boolean, false),
   projects: types.optional(ProjectsStore, () => ProjectsStore.create({})),
   modal: types.optional(ModalStore, () => ModalStore.create({})),
   transcriptions: types.optional(TranscriptionsStore, () => TranscriptionsStore.create({})),
   workflows: types.optional(WorkflowsStore, () => WorkflowsStore.create({})),
-})
+}).actions(self => ({
+  getResources: flow (function * getResources(params) {
+    if (!!params.project && params.project !== self.projects.id) {
+      yield self.projects.selectProject(params.project)
+    } else if (!params.project) {
+      self.projects.reset()
+    }
+    if (!!params.workflow && params.workflow !== self.workflows.id) {
+      yield self.workflows.selectWorkflow(params.workflow)
+    } else if (!params.workflow) {
+      self.workflows.reset()
+    }
+    if (!!params.group && params.group !== self.groups.id) {
+      self.groups.selectGroup(params.group)
+    } else if (!params.group) {
+      self.groups.reset()
+    }
+    if (!!params.subject && params.subject !== self.transcriptions.title) {
+      yield self.transcriptions.selectTranscription(params.subject)
+    } else if (!params.subject) {
+      self.transcriptions.reset()
+    }
+  }),
+
+  initialize: flow (function * initialize() {
+    self.client.initialize()
+    yield self.auth.checkCurrent()
+    self.initialized = true;
+  })
+}))
 
 export { AppStore }

@@ -1,19 +1,20 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { act } from 'react-dom/test-utils'
+import { BrowserRouter as Router } from 'react-router-dom';
 import ResourcesTable from '../../components/ResourcesTable'
 import { WorkflowsPageContainer } from './WorkflowsPageContainer'
 
 let wrapper
 const fetchWorkflowsSpy = jest.fn()
 const pushSpy = jest.fn()
-const selectGroupSpy = jest.fn()
+const getResourcesSpy = jest.fn()
 const selectWorkflowSpy = jest.fn()
 const contextValues = {
-  groups: {
-    selectGroup: selectGroupSpy
-  },
+  getResources: getResourcesSpy,
   workflows: {
+    all: [],
     asyncState: ASYNC_STATES.IDLE,
     error: 'THIS IS AN ERROR',
     fetchWorkflows: fetchWorkflowsSpy,
@@ -43,16 +44,11 @@ describe('Component > WorkflowsPageContainer', function () {
       expect(wrapper).toBeDefined()
     })
 
-    it('should fetch workflows', function () {
-      expect(fetchWorkflowsSpy).toHaveBeenCalled()
-    })
-
     it('should call the child onSelection function', function () {
       const workflow = { id: 1 }
       const table = wrapper.find(ResourcesTable).first()
       table.props().onSelection(workflow)
       expect(pushSpy).toHaveBeenCalled()
-      expect(selectWorkflowSpy).toHaveBeenCalled()
     })
 
     it('should pass the error prop', function () {
@@ -69,15 +65,19 @@ describe('Component > WorkflowsPageContainer', function () {
   })
 
   describe('useEffect hook', function () {
-    it('should clear the selected project', function () {
+    it('should fetch resources', async function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => contextValues )
-      jest.spyOn(React, "useEffect")
-        .mockImplementation(f => f());
-      wrapper = shallow(<WorkflowsPageContainer />);
-      expect(selectGroupSpy).toHaveBeenCalledTimes(1)
-      expect(selectWorkflowSpy).toHaveBeenCalledTimes(1)
+      wrapper = mount(
+        <Router>
+          <WorkflowsPageContainer match={match} />
+        </Router>);
+      await act(async () => {
+        wrapper.update();
+      });
+      expect(getResourcesSpy).toHaveBeenCalled()
+      expect(fetchWorkflowsSpy).toHaveBeenCalled()
     })
   })
 })

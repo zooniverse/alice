@@ -2,9 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Button, Image, Text } from 'grommet'
 import styled from 'styled-components'
-import AppContext from 'store'
 import { withRouter } from 'react-router-dom'
-import ASYNC_STATES from 'helpers/asyncStates'
 import SimplePattern from '../../../../images/simple-pattern.png'
 
 const CapitalText = styled(Text)`
@@ -13,11 +11,8 @@ const CapitalText = styled(Text)`
 
 function ProjectCard({ history, project }) {
   const imageSrc = project.avatar_src && project.avatar_src.length ? `//${project.avatar_src}` : SimplePattern
-  const store = React.useContext(AppContext)
   const onClick = e => {
     history.push(`/projects/${project.id}/workflows`)
-    store.projects.selectProject(project)
-    store.workflows.setState(ASYNC_STATES.IDLE)
   }
 
   return (

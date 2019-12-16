@@ -5,15 +5,16 @@ const columns = [
   {
     property: "name",
     header: "Workflow Name",
-    render: datum => <Text>{datum.attributes.display_name}</Text>
+    render: datum => <Text>{datum.display_name}</Text>
   },
   {
     property: "id",
     header: "Workflow id"
   },
   {
-    property: "sets",
-    header: "Subject Sets"
+    property: "groups",
+    header: "Groups",
+    render: datum => <Text>{Object.keys(datum.groups).length}</Text>
   },
   {
     property: "subjects",

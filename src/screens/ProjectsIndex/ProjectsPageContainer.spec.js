@@ -1,11 +1,13 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { Text } from 'grommet'
-import ProjectsPageContainer from './ProjectsPageContainer'
+import { act } from 'react-dom/test-utils'
+import { ProjectPageContainer } from './ProjectsPageContainer'
 import ProjectCard from './components/ProjectCard'
 
 let wrapper
+const getResourcesSpy = jest.fn()
 const getProjectsSpy = jest.fn()
 const selectProjectSpy = jest.fn()
 
@@ -30,22 +32,27 @@ const contextValues = {
   auth: {
     user: fakeUser
   },
+  getResources: getResourcesSpy,
   projects: {
     asyncState: ASYNC_STATES.IDLE,
+    collabProjects,
     getProjects: getProjectsSpy,
     selectProject: selectProjectSpy,
-    ownerProjects,
-    collabProjects,
+    ownerProjects
   }
 }
 
-describe('Component > ProjectsPageContainer', function () {
+const match = {
+  params: {}
+}
+
+describe('Component > ProjectPageContainer', function () {
   describe('with props', function () {
     beforeEach(function() {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => contextValues )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer match={match} />);
     })
 
     afterEach(() => {
@@ -54,10 +61,6 @@ describe('Component > ProjectsPageContainer', function () {
 
     it('should render without crashing', function () {
       expect(wrapper).toBeDefined()
-    })
-
-    it('should request projects when user and idle state', function () {
-      expect(getProjectsSpy).toHaveBeenCalled()
     })
 
     it('should render owner projects', function () {
@@ -80,7 +83,7 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => newContext )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer />);
     })
 
     it('should not call for projects without a user', function () {
@@ -104,7 +107,7 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => context )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer />);
       expect(wrapper.find(Text).first().props().children).toBe('Loading');
     })
 
@@ -119,7 +122,7 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => context )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer />);
       expect(wrapper.find(Text).first().props().children).toBe(context.projects.error);
     })
 
@@ -133,21 +136,26 @@ describe('Component > ProjectsPageContainer', function () {
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => context )
-      wrapper = shallow(<ProjectsPageContainer />);
+      wrapper = shallow(<ProjectPageContainer />);
       expect(wrapper.find(Text).first().props().children).toBe(
         'We couldn\'t find any transcription projects you participate in.');
     })
   })
 
   describe('useEffect hook', function () {
-    it('should clear the selected project', function () {
+    it('should fetch resources', async function () {
+      const revisedContext = Object.assign({}, contextValues)
+      revisedContext.projects.collabProjects = []
+      revisedContext.projects.ownerProjects = []
       jest
         .spyOn(React, 'useContext')
-        .mockImplementation(() => contextValues )
-      jest.spyOn(React, "useEffect")
-        .mockImplementation(f => f());
-      wrapper = shallow(<ProjectsPageContainer />);
-      expect(selectProjectSpy).toHaveBeenCalledTimes(1)
+        .mockImplementation(() => revisedContext )
+      wrapper = mount(<ProjectPageContainer match={match} />);
+      await act(async () => {
+        wrapper.update();
+      });
+      expect(getResourcesSpy).toHaveBeenCalled()
+      expect(getProjectsSpy).toHaveBeenCalled()
     })
   })
 })

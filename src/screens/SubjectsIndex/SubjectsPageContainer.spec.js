@@ -1,32 +1,35 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import MODALS from 'helpers/modals'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { act } from 'react-dom/test-utils'
+import { BrowserRouter as Router } from 'react-router-dom';
 import { SubjectsPageContainer } from './SubjectsPageContainer'
 import ResourcesTable from '../../components/ResourcesTable'
 
 let wrapper
+const getResourcesSpy = jest.fn()
 const fetchSubjectSpy = jest.fn()
 const fetchTranscriptionsSpy = jest.fn()
 const pushSpy = jest.fn()
-const selectSubjectSpy = jest.fn()
 const toggleModalSpy = jest.fn()
 const contextValues = {
+  getResources: getResourcesSpy,
   modal: {
     toggleModal: toggleModalSpy
   },
   subjects: {
     fetchSubject: fetchSubjectSpy,
-    selectSubject: selectSubjectSpy
   },
   transcriptions: {
+    all: { values: () => [] },
     asyncState: ASYNC_STATES.IDLE,
     fetchTranscriptions: fetchTranscriptionsSpy
   }
 }
 const history = {
   location: {
-    pathname: '/projects/123/workflows/123/subject-sets/123/subjects/123/edit'
+    pathname: '/projects/123/workflows/123/groups/123/subjects/123/edit'
   },
   push: pushSpy
 }
@@ -34,7 +37,7 @@ const match = {
   params: {
     project: '123',
     workflow: '123',
-    subjectSet: '123',
+    group: '123',
     subject: '123'
   }
 }
@@ -44,16 +47,10 @@ describe('Component > SubjectsPageContainer', function () {
     beforeEach(function() {
       jest.spyOn(React, 'useContext')
         .mockImplementation((context) => contextValues)
-      jest.spyOn(React, "useEffect")
-        .mockImplementation(f => f());
       wrapper = shallow(<SubjectsPageContainer history={history} match={match} />);
     })
 
     afterEach(() => jest.clearAllMocks())
-
-    it('should should clear the selected subject on load', function () {
-      expect(selectSubjectSpy).toHaveBeenCalledTimes(1)
-    })
 
     it('should render without crashing', function () {
       expect(wrapper).toBeDefined()
@@ -65,10 +62,6 @@ describe('Component > SubjectsPageContainer', function () {
       table.props().onSelection(subject)
       expect(pushSpy).toHaveBeenCalled()
       expect(fetchSubjectSpy).toHaveBeenCalledWith(subject.id)
-    })
-
-    it('should fetch transcriptions when idle', function () {
-      expect(fetchTranscriptionsSpy).toHaveBeenCalled()
     })
 
     it('should toggleModal when subject locked', function() {
@@ -97,5 +90,22 @@ describe('Component > SubjectsPageContainer', function () {
       .mockImplementation((context) => copiedContext)
     wrapper = shallow(<SubjectsPageContainer />);
     expect(fetchTranscriptionsSpy).not.toHaveBeenCalled()
+  })
+
+  describe('useEffect hook', function () {
+    it('should fetch resources', async function () {
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => contextValues )
+      wrapper = mount(
+        <Router>
+          <SubjectsPageContainer match={match} />
+        </Router>);
+      await act(async () => {
+        wrapper.update();
+      });
+      expect(getResourcesSpy).toHaveBeenCalled()
+      expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    })
   })
 })

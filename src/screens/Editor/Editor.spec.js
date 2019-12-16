@@ -1,13 +1,14 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { Box } from 'grommet'
-import SubjectFactory from 'store/factories/subject'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { act } from 'react-dom/test-utils'
 import { Editor, Resizer } from './Editor'
 
 let wrapper
-const setState = jest.fn()
 const fetchSubjectSpy = jest.fn()
+const getResourcesSpy = jest.fn()
+const setState = jest.fn()
 const preventDefaultSpy = jest.fn()
 const match = {
   params: {
@@ -37,12 +38,19 @@ const contextValues = {
   editor: {
     layout: 'row'
   },
+  getResources: getResourcesSpy,
+  image: {
+    zoomIn: () => {}
+  },
   subjects: {
+    all: { '1': { locations: [{ 'image': 'site.com' }] } },
     asyncState: ASYNC_STATES.IDLE,
-    current: SubjectFactory.build({
-      locations: [{ 'image': 'site.com' }]
-    }),
-    fetchSubject: fetchSubjectSpy
+    current: { locations: [{ 'image': 'site.com' }] },
+    fetchSubject: fetchSubjectSpy,
+    index: 0
+  },
+  transcriptions: {
+    current: undefined
   }
 }
 
@@ -50,6 +58,20 @@ describe('Component > Editor', function () {
   it('should render without crashing', function () {
     wrapper = shallow(<Editor match={match} />);
     expect(wrapper).toBeDefined()
+  })
+
+  describe('UseEffect', function() {
+    it('should load resources', async function () {
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => Object.assign({}, contextValues))
+      wrapper = mount(<Editor match={match} />);
+      await act(async () => {
+        wrapper.update()
+      });
+      expect(getResourcesSpy).toHaveBeenCalled()
+      expect(fetchSubjectSpy).toHaveBeenCalled()
+    })
   })
 
   describe('Functions', function () {
@@ -109,10 +131,6 @@ describe('Component > Editor', function () {
           .spyOn(React, 'useContext')
         .mockImplementation(() => contextValues )
         wrapper = shallow(<Editor match={match} />);
-      })
-
-      it('should attempt to fetch a subject', function () {
-        expect(fetchSubjectSpy).toHaveBeenCalledWith(2)
       })
     })
 
