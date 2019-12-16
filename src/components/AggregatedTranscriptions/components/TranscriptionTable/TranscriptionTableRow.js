@@ -32,7 +32,7 @@ function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
   setData(copiedArray)
 }
 
-export default function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID, toggleTranscription }) {
+function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID, toggleTranscription }) {
   const [isHover, setHover] = React.useState(false)
   const isDragging = dragID === index
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
@@ -100,3 +100,6 @@ TranscriptionTableRow.defaultProps = {
   setDragID: () => {},
   toggleTranscription: () => {}
 }
+
+export { MoveBox }
+export default TranscriptionTableRow

@@ -1,14 +1,17 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Menu } from 'grommet-icons'
-import TranscriptionTableRow from './TranscriptionTableRow'
+import TranscriptionTableRow, { MoveBox } from './TranscriptionTableRow'
 import mockData from './mockData'
+import renderer from 'react-test-renderer'
+import 'jest-styled-components'
 
 let wrapper;
 let useStateSpy;
 let setDragIDSpy = jest.fn();
 let setDataSpy = jest.fn();
 let setState = jest.fn();
+let toggleTranscriptionSpy = jest.fn();
 const preventDefaultSpy = jest.fn()
 const mockEvent = { preventDefault: preventDefaultSpy }
 
@@ -23,6 +26,7 @@ describe('Component > TranscriptionTable', function () {
         index={0}
         setData={setDataSpy}
         setDragID={setDragIDSpy}
+        toggleTranscription={toggleTranscriptionSpy}
       />);
   })
 
@@ -63,14 +67,32 @@ describe('Component > TranscriptionTable', function () {
     expect(preventDefaultSpy).toHaveBeenCalled()
   })
 
-  it('should correctly style components on hover', function () {
-    jest.spyOn(React, 'useState')
-      .mockImplementation((init) => [true, setState])
-    wrapper = shallow(<TranscriptionTableRow />);
-    expect(wrapper.props().elevation).toBe('small')
-    expect(wrapper.props().round).toBe('xsmall')
+  it('should call toggleTranscription on mouseUp', function () {
+    wrapper.simulate('mouseUp', mockEvent)
+    expect(toggleTranscriptionSpy).toHaveBeenCalled()
+  })
 
-    const hamburger = wrapper.find(Menu).first()
-    expect(hamburger.props().color).toBe('black')
+  describe('should correctly style components on hover', function () {
+    beforeEach(function () {
+      jest
+        .spyOn(React, 'useState')
+        .mockImplementation((init) => [true, setState])
+      wrapper = shallow(<TranscriptionTableRow />);
+    })
+
+    it('should style the component props', function () {
+      expect(wrapper.props().elevation).toBe('small')
+      expect(wrapper.props().round).toBe('xsmall')
+
+      const hamburger = wrapper.find(Menu).first()
+      expect(hamburger.props().color).toBe('black')
+    })
+
+    it('should use a hover icon', function () {
+      const MoveableBox = wrapper.find(MoveBox).first();
+      const tree = renderer.create(MoveableBox).toJSON()
+      expect(tree).toHaveStyleRule('cursor', 'move')
+      expect(tree).toHaveStyleRule('pointer-events', 'all')
+    })
   })
 })
