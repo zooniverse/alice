@@ -9,6 +9,11 @@ const QuietBox = styled(Box)`
   pointer-events: none;
 `
 
+const MoveBox = styled(Box)`
+  cursor: ${props => props.hover ? 'move' : 'default'};
+  pointer-events: ${props => props.hover ? 'all' : 'none'};
+`
+
 function handleDragStart(dragID, setDragID, setHover) {
   setDragID(dragID)
   setHover(false)
@@ -53,9 +58,15 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
       pad='0.2em'
       round={round}
     >
-      <QuietBox pad='0.5em' width='0.1em'>
-        <Menu color={hamburgerColor} size='small' />
-      </QuietBox>
+      <MoveBox
+        hover={isHover}
+        pad='0.5em'
+        width='0.1em'
+      >
+        <QuietBox>
+          <Menu color={hamburgerColor} size='small' />
+        </QuietBox>
+      </MoveBox>
       <QuietBox basis='80%' wrap>
         <Text>{datum.transcription}</Text>
       </QuietBox>
