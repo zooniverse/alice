@@ -14,7 +14,7 @@ describe('GroupsStore', function () {
   it('should select a group', function () {
     const group = { display_name: 'A_GROUP', subjects: 1 }
     editorStore.setGroups({ A_GROUP: 1 })
-    editorStore.selectGroup(group)
+    editorStore.selectGroup(group.display_name)
     expect(editorStore.current).toEqual(group)
   })
 
