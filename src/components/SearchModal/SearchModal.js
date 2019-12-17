@@ -39,7 +39,7 @@ const validateForm = (values) => {
 
 function SearchModal({ onClose, onSubmit, initialValues, options, setValue, value }) {
   return (
-    <Box background='white' pad='small' round='xsmall'>
+    <Box background='white' elevation='medium' pad='small' round='xsmall' width='25em'>
       <Box gap='small'>
         <Box align='center' direction='row' justify='between'>
           <Text size='large'>Search or Filter</Text>
@@ -65,7 +65,7 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
             <Box as='form' onSubmit={handleSubmit} gap='small'>
               <Box direction='row' gap='xsmall' margin={{ bottom: 'xsmall' }}>
                 <Box basis='1/3'>
-                  <ReverseFormField htmlFor='type' label='ID Type' error={errors && errors.type}>
+                  <ReverseFormField htmlFor='type' label='ID TYPE' error={errors && errors.type}>
                     <Select
                       disabled={disableInput}
                       dropAlign={{ top: 'top' }}
@@ -82,7 +82,7 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                   </ReverseFormField>
                 </Box>
                 <Box basis='2/3'>
-                  <ReverseFormField htmlFor='id' label='Name' error={errors && errors.id}>
+                  <ReverseFormField htmlFor='id' label='NAME' error={errors && errors.id}>
                     <TextInput
                       color='red'
                       disabled={disableInput}
