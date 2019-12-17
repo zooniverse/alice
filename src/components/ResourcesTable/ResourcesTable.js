@@ -20,6 +20,8 @@ function ResourcesTable(props) {
 
   return (
     <Box align='center' background='white' fill='horizontal' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
+      {props.searching && <Text>Actively Searching</Text>}
+
       {props.data.length > 0 &&
         <DataTable
           columns={[...props.columns].map(col => ({ ...col }))}
@@ -61,6 +63,7 @@ ResourcesTable.defaultProps = {
   error: '',
   onSelection: null,
   resource: null,
+  searching: false,
   setStep: () => {},
   status: ASYNC_STATES.IDLE,
   steps: []
@@ -73,6 +76,7 @@ ResourcesTable.propTypes = {
   error: PropTypes.string,
   onSelection: PropTypes.func,
   resource: PropTypes.string,
+  searching: PropTypes.bool,
   setStep: PropTypes.func,
   steps: PropTypes.array,
   status: PropTypes.string

@@ -13,7 +13,12 @@ const STATUS = {
 }
 
 const SearchStore = types.model('SearchStore', {
-  current: types.optional(types.string, ''),
+  approved: types.optional(types.boolean, false),
+  flagged: types.optional(types.boolean, false),
+  in_progress: types.optional(types.boolean, false),
+  low_consensus: types.optional(types.boolean, false),
+  ready: types.optional(types.boolean, false),
+  unseen: types.optional(types.boolean, false),
 }).actions(self => ({
   fetchTranscriptionsByFilter: flow(function * fetchTranscriptionsByFilter(args, group) {
     const transcriptions = getRoot(self).transcriptions
@@ -28,6 +33,9 @@ const SearchStore = types.model('SearchStore', {
       if (args[key]) {
         if (approvalFilters.includes(key)) activeApprovalFilters.push(key)
         if (additionalFilters.includes(key)) activeAdditionalFilters.push(key)
+      }
+      if (self[key] !== undefined) {
+        self[key] = args[key]
       }
     })
 
@@ -51,6 +59,15 @@ const SearchStore = types.model('SearchStore', {
     yield transcriptions.retrieveTranscriptions(`/transcriptions?filter[${type}_eq]=${value}&filter[group_id_eq]=${group}`)
   }),
 
+  reset: function reset() {
+    self.approved = false
+    self.flagged = false
+    self.in_progress = false
+    self.low_consensus = false
+    self.ready = false
+    self.unseen = false
+  },
+
   searchTranscriptions: function searchTranscriptions(args) {
     const group = getRoot(self).groups.title
     const idType = args.type === IDS.ZOONIVERSE || args.type === IDS.INTERNAL
@@ -62,6 +79,11 @@ const SearchStore = types.model('SearchStore', {
     }
     getRoot(self).modal.toggleModal('')
   },
+})).views(self => ({
+  get active() {
+    return self.approved || self.flagged || self.in_progress
+    || self.low_consensus || self.ready || self.unseen
+  }
 }))
 
 export { SearchStore }

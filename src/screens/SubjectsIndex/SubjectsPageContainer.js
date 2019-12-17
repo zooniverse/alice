@@ -15,6 +15,7 @@ function SubjectsPageContainer ({ history, match }) {
     const setResources = async () => {
       await store.getResources(match.params)
       await store.transcriptions.fetchTranscriptions()
+      store.search.reset()
     }
     setResources()
   }, [match, store])
@@ -43,7 +44,9 @@ function SubjectsPageContainer ({ history, match }) {
         error={store.transcriptions.error}
         onSelection={onSelection}
         resource='Subjects'
+        searching={store.search.active}
         setStep={onSetPage}
+        status={store.transcriptions.asyncState}
         state={store.transcriptions.asyncState}
         steps={steps}
       />
