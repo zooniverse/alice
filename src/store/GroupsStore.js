@@ -15,10 +15,12 @@ const GroupsStore = types.model('GroupsStore', {
     self.selectGroup(null)
   },
 
-  selectGroup: function(group) {
+  selectGroup: function(name) {
+    const mergedPages = [].concat(...self.all.slice())
+    const selectedGroup = mergedPages.find(group => group.display_name === name)
     self.current = Group.create({
-      display_name: (group && group.display_name) || '',
-      subjects: (group && group.subjects) || 0
+      display_name: (selectedGroup && selectedGroup.display_name) || '',
+      subjects: (selectedGroup && selectedGroup.subjects) || 0
     })
   },
 
