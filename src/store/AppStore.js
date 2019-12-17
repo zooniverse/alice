@@ -5,6 +5,7 @@ import { ClientStore } from './ClientStore'
 import { EditorStore } from './EditorStore'
 import { GroupsStore } from './GroupsStore'
 import { ImageStore } from './ImageStore'
+import { SearchStore } from './SearchStore'
 import { SubjectStore } from './SubjectStore'
 import { ProjectsStore } from './ProjectsStore'
 import { ModalStore } from './ModalStore'
@@ -18,6 +19,7 @@ const AppStore = types.model('AppStore', {
   editor: types.optional(EditorStore, () => EditorStore.create({})),
   image: types.optional(ImageStore, () => ImageStore.create({})),
   groups: types.optional(GroupsStore, () => GroupsStore.create({})),
+  search: types.optional(SearchStore, () => SearchStore.create({})),
   subjects: types.optional(SubjectStore, () => SubjectStore.create({})),
   initialized: types.optional(types.boolean, false),
   projects: types.optional(ProjectsStore, () => ProjectsStore.create({})),

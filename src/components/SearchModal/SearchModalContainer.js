@@ -23,7 +23,7 @@ function SearchModalContainer() {
   const [value, setValue] = React.useState('Select...');
   const store = React.useContext(AppContext)
   const onClose = () => store.modal.toggleModal('')
-  const onSubmit = args => store.transcriptions.searchTranscriptions(args);
+  const onSubmit = args => store.search.searchTranscriptions(args);
 
   return (
     <SearchModal
