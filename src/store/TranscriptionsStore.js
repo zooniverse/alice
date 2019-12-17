@@ -1,6 +1,11 @@
 import { flow, getRoot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 
+const IDS = {
+  ZOONIVERSE: 'ZOONIVERSE ID',
+  EXTERNAL: 'EXTERNAL ID'
+}
+
 const Transcription = types.model('Transcription', {
   id: types.identifier,
   flaggedid: types.optional(types.boolean, false),

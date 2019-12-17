@@ -12,9 +12,9 @@ let setValueSpy = jest.fn()
 const initialValues = {
   id: null,
   type: '',
-  unreviewed: false,
+  unseen: false,
   inProgress: false,
-  readyForReview: false,
+  ready: false,
   approved: false,
   flagged: false,
   lowConsensus: false,

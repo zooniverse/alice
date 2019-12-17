@@ -11,19 +11,19 @@ const TYPES = {
 const initialValues = {
   id: null,
   type: '',
-  unreviewed: false,
+  unseen: false,
   inProgress: false,
-  readyForReview: false,
+  ready: false,
   approved: false,
   flagged: false,
-  lowConsensus: false,
+  low_consensus: false,
 }
 
 function SearchModalContainer() {
   const [value, setValue] = React.useState('Select...');
   const store = React.useContext(AppContext)
   const onClose = () => store.modal.toggleModal('')
-  const onSubmit = e => console.log(e);
+  const onSubmit = args => store.transcriptions.searchTranscriptions(args);
 
   return (
     <SearchModal
