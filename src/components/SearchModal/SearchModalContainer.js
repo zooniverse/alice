@@ -12,7 +12,7 @@ const initialValues = {
   id: null,
   type: '',
   unseen: false,
-  inProgress: false,
+  in_progress: false,
   ready: false,
   approved: false,
   flagged: false,

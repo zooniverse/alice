@@ -108,13 +108,13 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                       title='unseen'
                     />
                   </FormField>
-                  <FormField htmlFor='inProgress'>
+                  <FormField htmlFor='in_progress'>
                     <SearchCheckBox
-                      checked={values.inProgress}
+                      checked={values.in_progress}
                       disabled={disableCheckbox}
                       label='IN PROGRESS'
                       onChange={handleChange}
-                      title='inProgress'
+                      title='in_progress'
                     />
                   </FormField>
                   <FormField htmlFor='ready'>
