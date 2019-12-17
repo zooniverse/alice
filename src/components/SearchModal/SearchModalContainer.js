@@ -5,7 +5,7 @@ import SearchModal from './SearchModal'
 
 const TYPES = {
   ZOONIVERSE: 'ZOONIVERSE ID',
-  EXTERNAL: 'EXTERNAL ID'
+  INTERNAL: 'INTERNAL ID'
 }
 
 const initialValues = {
@@ -30,7 +30,7 @@ function SearchModalContainer() {
       initialValues={initialValues}
       onClose={onClose}
       onSubmit={onSubmit}
-      options={[ TYPES.ZOONIVERSE, TYPES.EXTERNAL ]}
+      options={[ TYPES.ZOONIVERSE, TYPES.INTERNAL ]}
       setValue={setValue}
       types={TYPES}
       value={value}

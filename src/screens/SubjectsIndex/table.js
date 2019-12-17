@@ -316,7 +316,7 @@ const columns = [
   },
   {
     property: "id",
-    header: "External ID"
+    header: "Internal ID"
   },
   {
     property: "lastEdit",

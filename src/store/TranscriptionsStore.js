@@ -3,7 +3,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 
 const IDS = {
   ZOONIVERSE: 'ZOONIVERSE ID',
-  EXTERNAL: 'EXTERNAL ID'
+  INTERNAL: 'INTERNAL ID'
 }
 
 const STATUS = {
@@ -117,7 +117,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   searchTranscriptions: function searchTranscriptions(args) {
     const group = getRoot(self).groups.title
-    const idType = args.type === IDS.ZOONIVERSE || args.type === IDS.EXTERNAL
+    const idType = args.type === IDS.ZOONIVERSE || args.type === IDS.INTERNAL
     const idValue = args.id && args.id.length > 0
     if (idType && idValue) {
       self.reset()
