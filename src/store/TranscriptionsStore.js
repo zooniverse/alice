@@ -39,6 +39,21 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   },
 
+  retrieveTranscriptions: flow(function * retrieveTranscriptions(query) {
+    const client = getRoot(self).client.tove
+    self.asyncState = ASYNC_STATES.LOADING
+    try {
+      const response = yield client.get(query)
+      const resources = JSON.parse(response.body)
+      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
+      self.asyncState = ASYNC_STATES.READY
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  }),
+
   fetchTranscription: flow(function * fetchTranscription(id) {
     if (!id) return undefined
     self.asyncState = ASYNC_STATES.LOADING
@@ -55,23 +70,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }),
 
-  fetchTranscriptions: flow (function * fetchTranscriptions(page = 0) {
-    self.page = page
-    const client = getRoot(self).client.tove
+  fetchTranscriptions: flow (function * fetchTranscriptions() {
     const groupName = getRoot(self).groups.title
     if (!groupName) return
-    self.asyncState = ASYNC_STATES.LOADING
-    try {
-      const response = yield client.get(`/transcriptions?filter[group_id_eq]=${groupName}&page[number]=${self.page + 1}`)
-      const resources = JSON.parse(response.body)
-      self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
-      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
-      self.asyncState = ASYNC_STATES.READY
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
+    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}`)
   }),
 
   fetchTranscriptionsByFilter: flow(function * fetchTranscriptionsByFilter(args, group) {
@@ -98,36 +100,14 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       activeAdditionalFilters.forEach(filter => query += `filter[${filter}_eq]=true&`)
     }
 
-    const client = getRoot(self).client.tove
-    const modal = getRoot(self).modal
-    try {
-      const response = yield client.get(`/transcriptions?filter[group_id_eq]=${group}&${query}`)
-      const resources = JSON.parse(response.body)
-      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
-      self.asyncState = ASYNC_STATES.READY
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
-    modal.toggleModal('')
+    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${group}&${query}`)
+    getRoot(self).modal.toggleModal('')
   }),
 
   fetchTranscriptionsById: flow(function * fetchTranscriptionsById(type, value, group) {
     type = type === IDS.ZOONIVERSE ? 'subject_id' : 'internal_id'
-    const client = getRoot(self).client.tove
-    const modal = getRoot(self).modal
-    try {
-      const response = yield client.get(`/transcriptions?filter[${type}_eq]=${value}&filter[group_id_eq]=${group}`)
-      const resources = JSON.parse(response.body)
-      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
-      self.asyncState = ASYNC_STATES.READY
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
-    modal.toggleModal('')
+    yield self.retrieveTranscriptions(`/transcriptions?filter[${type}_eq]=${value}&filter[group_id_eq]=${group}`)
+    getRoot(self).modal.toggleModal('')
   }),
 
   reset: () => {
