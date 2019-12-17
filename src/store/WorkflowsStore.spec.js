@@ -101,5 +101,11 @@ describe('WorkflowsStore', function () {
       expect(workflowsStore.error).toBe(error.message)
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.ERROR)
     })
+
+    it('should not set a workflow if give the wrong info', function () {
+      expect(workflowsStore.all.size).toBe(0)
+      workflowsStore.setWorkflow(1)
+      expect(workflowsStore.all.size).toBe(0)
+    })
   })
 })

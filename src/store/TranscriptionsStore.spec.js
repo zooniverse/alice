@@ -79,6 +79,13 @@ describe('TranscriptionsStore', function () {
       })
     })
 
+    it('should not set a workflow if give the wrong info', function () {
+      transcriptionsStore = rootStore.transcriptions
+      expect(transcriptionsStore.all.size).toBe(0)
+      transcriptionsStore.setTranscription(1)
+      expect(transcriptionsStore.all.size).toBe(0)
+    })
+
     it('should handle an error when fetching transcriptions', async function () {
       transcriptionsStore = rootStore.transcriptions
       await transcriptionsStore.fetchTranscriptions()
