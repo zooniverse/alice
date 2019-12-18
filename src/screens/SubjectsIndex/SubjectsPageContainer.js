@@ -18,6 +18,7 @@ function SubjectsPageContainer ({ history, match }) {
       store.search.reset()
     }
     setResources()
+    return () => store.modal.toggleModal('')
   }, [match, store])
 
   const onSelection = (subject) => {
