@@ -22,7 +22,6 @@ function SearchTagContainer() {
         )
       })}
       {idTag && <SearchTag clearTag={store.search.clearIdTags} tag={store.search.type} value={store.search.id} />}
-
     </Box>
   )
 }
