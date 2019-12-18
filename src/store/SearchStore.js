@@ -22,6 +22,10 @@ const SearchStore = types.model('SearchStore', {
   subject_id: types.optional(types.string, ''),
   unseen: types.optional(types.boolean, false),
 }).actions(self => ({
+  clearTag: function(tag) {
+    console.log(tag);
+  },
+
   fetchTranscriptionsByFilter: flow(function * fetchTranscriptionsByFilter(args, group) {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()

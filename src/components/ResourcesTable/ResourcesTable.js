@@ -6,7 +6,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import StepNavigation from '../StepNavigation'
-
+import SearchTags from './components/SearchTags'
 
 function ResourcesTable(props) {
   const onClickRow = (e) => {
@@ -20,7 +20,7 @@ function ResourcesTable(props) {
 
   return (
     <Box align='center' background='white' fill='horizontal' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
-      {props.searching && <Text>Actively Searching</Text>}
+      {props.searching && <SearchTags />}
 
       {props.data.length > 0 &&
         <DataTable
