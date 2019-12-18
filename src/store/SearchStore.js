@@ -26,9 +26,10 @@ const SearchStore = types.model('SearchStore', {
     const type = typeof self[tag];
     if (type === 'string') self[tag] = ''
     if (type === 'boolean') self[tag] = false
+    self.searchByArgs()
   },
 
-  fetchTranscriptionsByFilter: flow(function * fetchTranscriptionsByFilter(args, group) {
+  fetchTranscriptionsByFilter: flow(function * fetchTranscriptionsByFilter(group) {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
     let query = ''
@@ -37,8 +38,8 @@ const SearchStore = types.model('SearchStore', {
     const activeApprovalFilters = []
     const activeAdditionalFilters = []
 
-    Object.keys(args).forEach(key => {
-      if (args[key]) {
+    Object.keys(self.args).forEach(key => {
+      if (self.args[key]) {
         if (approvalFilters.includes(key)) activeApprovalFilters.push(key)
         if (additionalFilters.includes(key)) activeAdditionalFilters.push(key)
       }
@@ -57,15 +58,13 @@ const SearchStore = types.model('SearchStore', {
     yield transcriptions.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${group}&${query}`)
   }),
 
-  fetchTranscriptionsById: flow(function * fetchTranscriptionsById(type, value, group) {
+  fetchTranscriptionsById: flow(function * fetchTranscriptionsById(group) {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
-    type = type === IDS.ZOONIVERSE ? 'subject_id' : 'internal_id'
-    self[type] = value
-    yield transcriptions.retrieveTranscriptions(`/transcriptions?filter[${type}_eq]=${value}&filter[group_id_eq]=${group}`)
+    yield transcriptions.retrieveTranscriptions(`/transcriptions?filter[${self.idQuery.type}_eq]=${self.idQuery.id}&filter[group_id_eq]=${group}`)
   }),
 
-  mapArgs: function mapArgs(args) {
+  setArgs: function setArgs(args) {
     Object.keys(args).forEach(key => {
       if (self[key] !== undefined) {
         self[key] = args[key]
@@ -85,22 +84,47 @@ const SearchStore = types.model('SearchStore', {
   },
 
   searchTranscriptions: function searchTranscriptions(args) {
+    const typeExists = args.type === IDS.ZOONIVERSE || args.type === IDS.INTERNAL
+    if (typeExists) {
+      const type = args.type === IDS.ZOONIVERSE ? 'subject_id' : 'internal_id'
+      args[type] = args.id
+    }
+    self.setArgs(args)
+    self.searchByArgs()
+  },
+
+  searchByArgs: function() {
     const group = getRoot(self).groups.title
-    const idType = args.type === IDS.ZOONIVERSE || args.type === IDS.INTERNAL
-    const idValue = args.id && args.id.length > 0
-    self.mapArgs(args)
-    if (idType && idValue) {
-      self.fetchTranscriptionsById(args.type, args.id, group)
+    if (self.idQuery.id) {
+      self.fetchTranscriptionsById(group)
     } else {
-      self.fetchTranscriptionsByFilter(args, group)
+      self.fetchTranscriptionsByFilter(group)
     }
     getRoot(self).modal.toggleModal('')
-  },
+  }
 })).views(self => ({
   get active() {
     return self.approved || self.flagged || self.in_progress
     || self.low_consensus || self.ready || self.unseen
     || self.internal_id.length > 0 || self.subject_id.length > 0
+  },
+
+  get args() {
+    const args = {}
+    Object.keys(self).forEach(key => args[key] = self[key])
+    return args
+  },
+
+  get idQuery() {
+    const query = {}
+    Object.keys(self).forEach(key => {
+      const value = self[key]
+      if (typeof value === 'string' && value.length > 0) {
+        query.id = value
+        query.type = key
+      }
+    })
+    return query
   }
 }))
 
