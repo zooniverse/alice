@@ -38,8 +38,8 @@ const SearchStore = types.model('SearchStore', {
     const activeApprovalFilters = []
     const activeAdditionalFilters = []
 
-    Object.keys(self.args).forEach(key => {
-      if (self.args[key]) {
+    Object.keys(self).forEach(key => {
+      if (self[key]) {
         if (approvalFilters.includes(key)) activeApprovalFilters.push(key)
         if (additionalFilters.includes(key)) activeAdditionalFilters.push(key)
       }
@@ -73,14 +73,11 @@ const SearchStore = types.model('SearchStore', {
   },
 
   reset: function reset() {
-    self.approved = false
-    self.flagged = false
-    self.in_progress = false
-    self.internal_id = ''
-    self.low_consensus = false
-    self.ready = false
-    self.subject_id = ''
-    self.unseen = false
+    Object.keys(self).forEach(key => {
+      const type = typeof self[key]
+      if (type === 'string') self[key] = ''
+      if (type === 'boolean') self[key] = false
+    })
   },
 
   searchTranscriptions: function searchTranscriptions(args) {
@@ -107,12 +104,6 @@ const SearchStore = types.model('SearchStore', {
     return self.approved || self.flagged || self.in_progress
     || self.low_consensus || self.ready || self.unseen
     || self.internal_id.length > 0 || self.subject_id.length > 0
-  },
-
-  get args() {
-    const args = {}
-    Object.keys(self).forEach(key => args[key] = self[key])
-    return args
   },
 
   get idQuery() {
