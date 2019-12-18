@@ -7,7 +7,7 @@ import { Formik } from 'formik'
 import withThemeContext from '../../helpers/withThemeContext'
 import theme from './theme'
 import SearchCheckBox from './components/SearchCheckBox'
-import { TYPES } from './SearchModalContainer'
+import { TYPES } from 'store/SearchStore'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -77,7 +77,7 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                         setValue(option)
                       }}
                       plain
-                      value={<Text>{value}</Text>}
+                      value={<Text>{values.type || value}</Text>}
                     />
                   </ReverseFormField>
                 </Box>
@@ -91,6 +91,7 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                       onChange={handleChange}
                       placeholder='eg. 58674'
                       size='small'
+                      value={values.id}
                     />
                   </ReverseFormField>
                 </Box>

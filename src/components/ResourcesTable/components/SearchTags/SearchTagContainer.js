@@ -5,12 +5,13 @@ import SearchTag from './SearchTag'
 
 function SearchTagContainer() {
   const store = React.useContext(AppContext)
-  const activeTags = Object.keys(store.search).filter(key => store.search[key] || store.search[key].length > 0);
+  const booleanTags = Object.keys(store.search).filter(key => store.search[key] === true);
+  const idTag = store.search.id.length > 0 && store.search.type.length > 0
 
   return (
     <Box align='baseline' direction='row' gap='small'>
       <Text size='large'>Search Results</Text>
-      {activeTags.map(tag => {
+      {booleanTags.map(tag => {
         return (
           <SearchTag
             key={`SEARCH_TAG_${tag}`}
@@ -20,6 +21,8 @@ function SearchTagContainer() {
           />
         )
       })}
+      {idTag && <SearchTag clearTag={store.search.clearIdTags} tag={store.search.type} value={store.search.id} />}
+
     </Box>
   )
 }

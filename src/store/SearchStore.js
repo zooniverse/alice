@@ -1,6 +1,6 @@
 import { flow, getRoot, types } from 'mobx-state-tree'
 
-const IDS = {
+const TYPES = {
   ZOONIVERSE: 'ZOONIVERSE ID',
   INTERNAL: 'INTERNAL ID'
 }
@@ -15,17 +15,21 @@ const STATUS = {
 const SearchStore = types.model('SearchStore', {
   approved: types.optional(types.boolean, false),
   flagged: types.optional(types.boolean, false),
+  id: types.optional(types.string, ''),
   in_progress: types.optional(types.boolean, false),
-  internal_id: types.optional(types.string, ''),
   low_consensus: types.optional(types.boolean, false),
   ready: types.optional(types.boolean, false),
-  subject_id: types.optional(types.string, ''),
+  type: types.optional(types.string, ''),
   unseen: types.optional(types.boolean, false),
 }).actions(self => ({
+  clearIdTags: function() {
+    self.id = ''
+    self.type = ''
+    self.searchByArgs()
+  },
+
   clearTag: function(tag) {
-    const type = typeof self[tag];
-    if (type === 'string') self[tag] = ''
-    if (type === 'boolean') self[tag] = false
+    self[tag] = false
     self.searchByArgs()
   },
 
@@ -61,7 +65,8 @@ const SearchStore = types.model('SearchStore', {
   fetchTranscriptionsById: flow(function * fetchTranscriptionsById(group) {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
-    yield transcriptions.retrieveTranscriptions(`/transcriptions?filter[${self.idQuery.type}_eq]=${self.idQuery.id}&filter[group_id_eq]=${group}`)
+    const searchType = self.type === TYPES.ZOONIVERSE ? 'subject_id' : 'internal_id'
+    yield transcriptions.retrieveTranscriptions(`/transcriptions?filter[${searchType}_eq]=${self.id}&filter[group_id_eq]=${group}`)
   }),
 
   setArgs: function setArgs(args) {
@@ -81,18 +86,13 @@ const SearchStore = types.model('SearchStore', {
   },
 
   searchTranscriptions: function searchTranscriptions(args) {
-    const typeExists = args.type === IDS.ZOONIVERSE || args.type === IDS.INTERNAL
-    if (typeExists) {
-      const type = args.type === IDS.ZOONIVERSE ? 'subject_id' : 'internal_id'
-      args[type] = args.id
-    }
     self.setArgs(args)
     self.searchByArgs()
   },
 
   searchByArgs: function() {
     const group = getRoot(self).groups.title
-    if (self.idQuery.id) {
+    if (self.id.length > 0 && self.type.length > 0) {
       self.fetchTranscriptionsById(group)
     } else {
       self.fetchTranscriptionsByFilter(group)
@@ -103,20 +103,8 @@ const SearchStore = types.model('SearchStore', {
   get active() {
     return self.approved || self.flagged || self.in_progress
     || self.low_consensus || self.ready || self.unseen
-    || self.internal_id.length > 0 || self.subject_id.length > 0
-  },
-
-  get idQuery() {
-    const query = {}
-    Object.keys(self).forEach(key => {
-      const value = self[key]
-      if (typeof value === 'string' && value.length > 0) {
-        query.id = value
-        query.type = key
-      }
-    })
-    return query
+    || self.id.length > 0 || self.type.length > 0
   }
 }))
 
-export { SearchStore }
+export { TYPES, SearchStore }

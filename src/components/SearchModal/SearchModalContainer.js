@@ -2,22 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import SearchModal from './SearchModal'
-
-const TYPES = {
-  ZOONIVERSE: 'ZOONIVERSE ID',
-  INTERNAL: 'INTERNAL ID'
-}
-
-const initialValues = {
-  id: null,
-  type: '',
-  unseen: false,
-  in_progress: false,
-  ready: false,
-  approved: false,
-  flagged: false,
-  low_consensus: false,
-}
+import { TYPES } from 'store/SearchStore'
 
 function SearchModalContainer() {
   const [value, setValue] = React.useState('Select...');
@@ -27,7 +12,7 @@ function SearchModalContainer() {
 
   return (
     <SearchModal
-      initialValues={initialValues}
+      initialValues={store.search}
       onClose={onClose}
       onSubmit={onSubmit}
       options={[ TYPES.ZOONIVERSE, TYPES.INTERNAL ]}
@@ -38,5 +23,4 @@ function SearchModalContainer() {
   )
 }
 
-export { TYPES }
 export default observer(SearchModalContainer)
