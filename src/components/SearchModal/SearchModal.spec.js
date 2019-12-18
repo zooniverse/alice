@@ -51,4 +51,38 @@ describe('Component > SearchModal', function () {
       expect(setValueSpy).toBeCalledWith(option)
     })
   })
+
+  describe('form validations', function () {
+    let formValidation
+
+    beforeEach(function () {
+      formValidation = wrapper.find(Formik).first().props().validate
+    })
+
+    it('should require a type', function () {
+      const outcome = formValidation(initialValues)
+      expect(outcome).toEqual({
+        type: 'Type is required'
+      })
+    })
+
+    it('should require an ID', function () {
+      const copiedValues = Object.assign({}, initialValues)
+      copiedValues.type = 'ZOONIVERSE ID'
+      const outcome = formValidation(copiedValues)
+      expect(outcome).toEqual({
+        id: 'You must enter an ID'
+      })
+    })
+
+    it('should require Zooniverse ID to be a number', function () {
+      const copiedValues = Object.assign({}, initialValues)
+      copiedValues.type = 'ZOONIVERSE ID'
+      copiedValues.id = 'some id'
+      const outcome = formValidation(copiedValues)
+      expect(outcome).toEqual({
+        id: 'Zooniverse ID must be a number'
+      })
+    })
+  })
 })
