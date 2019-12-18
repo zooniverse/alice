@@ -23,7 +23,9 @@ const SearchStore = types.model('SearchStore', {
   unseen: types.optional(types.boolean, false),
 }).actions(self => ({
   clearTag: function(tag) {
-    console.log(tag);
+    const type = typeof self[tag];
+    if (type === 'string') self[tag] = ''
+    if (type === 'boolean') self[tag] = false
   },
 
   fetchTranscriptionsByFilter: flow(function * fetchTranscriptionsByFilter(args, group) {

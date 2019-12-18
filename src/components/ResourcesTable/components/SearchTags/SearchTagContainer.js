@@ -8,9 +8,18 @@ function SearchTagContainer() {
   const activeTags = Object.keys(store.search).filter(key => store.search[key] || store.search[key].length > 0);
 
   return (
-    <Box>
-      <Text>Search Results</Text>
-      {activeTags.map(tag => <SearchTag key={`SEARCH_TAG_${tag}`} clearTag={store.search.clearTag} tag={tag}/>)}
+    <Box align='baseline' direction='row' gap='small'>
+      <Text size='large'>Search Results</Text>
+      {activeTags.map(tag => {
+        return (
+          <SearchTag
+            key={`SEARCH_TAG_${tag}`}
+            clearTag={store.search.clearTag}
+            tag={tag}
+            value={store.search[tag].toString()}
+          />
+        )
+      })}
     </Box>
   )
 }
