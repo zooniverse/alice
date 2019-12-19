@@ -1,6 +1,8 @@
 import React from 'react'
 import { CheckBox, Text } from 'grommet'
 import styled from 'styled-components'
+import withThemeContext from 'helpers/withThemeContext'
+import theme from './theme'
 
 const CapitalText = styled(Text)`
   text-align: end;
@@ -21,4 +23,4 @@ function MarkApproved ({ checked, disabled, onChange }) {
 }
 
 
-export default MarkApproved
+export default withThemeContext(MarkApproved, theme)
