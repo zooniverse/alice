@@ -105,6 +105,10 @@ const ProjectsStore = types.model('ProjectsStore', {
     return self.current && self.current.id
   },
 
+  get role () {
+    return self.current && self.current.role
+  },
+
   get title () {
     return self.current && self.current.display_name.length ? self.current.display_name : 'Select Project'
   },

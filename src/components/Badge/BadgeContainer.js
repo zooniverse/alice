@@ -18,6 +18,7 @@ function BadgeContainer ({ disabled, onAbout }) {
       isOpen={isOpen}
       name={name}
       onAbout={onAbout}
+      role={store.projects.role}
       setOpen={setOpen}
       signOut={signOut}
       src={src}
