@@ -88,7 +88,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   updateApproval: flow(function * updateApproval(isChecked) {
     const client = getRoot(self).client.tove
     const query = JSON.stringify({ data: { type: 'transcriptions', attributes: { status: 'approved' } }})
-    yield client.patch(`/transcriptions/1`)
+    yield client.patch(`/transcriptions/1`, { body: query })
   })
 })).views(self => ({
   get approved () {
