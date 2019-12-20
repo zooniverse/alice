@@ -11,7 +11,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 bdFdoP"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-iwsKbI fzPyAB"
+        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-gZMcBi irilpd"
       >
         <div
           className="StyledBox-sc-13pk1d4-0 dsfZld"
@@ -25,13 +25,13 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
               Transcribed Text
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-dnqmqq jzvNCD"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-iwsKbI dkUFrT"
             >
               Add Line
             </span>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-gqjmRU jWuIw"
+            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-VigVT fkRZBk"
           >
             <div
               className="StyledBox-sc-13pk1d4-0 fWrrBh"
@@ -43,7 +43,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 ryHeX"
                 >
                   <h6
-                    className="sc-ifAKCX fLgHXI"
+                    className="sc-EHOje hcjIRS"
                   >
                     Aggregated Transcription
                   </h6>
@@ -52,7 +52,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 fWrrBh"
                 >
                   <h6
-                    className="sc-ifAKCX fLgHXI"
+                    className="sc-EHOje hcjIRS"
                   >
                     Flag
                   </h6>
@@ -61,7 +61,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 fWrrBh"
                 >
                   <h6
-                    className="sc-ifAKCX sc-EHOje fSNpxL"
+                    className="sc-EHOje sc-bZQynM iFTUgP"
                   >
                     Consensus Line
                   </h6>
@@ -71,7 +71,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 kLQRpX"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -79,736 +79,141 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sagittis arcu, sed
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      14
-                      /
-                      3
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      vulputate leo. Vivamus venenatis, massa ut placerat porttitor, tellus ex mattis ipsum, nec
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      4
-                      /
-                      4
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      sagittis sapien erat ac nisi. Curabitur nulla erat, blandit at elementum eget, lobortis ac magna.
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
                         <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
-                          color="green"
-                          data-icon="circle"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 512 512"
-                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
-                            fill="currentColor"
-                            style={Object {}}
-                          />
-                        </svg>
-                      </div>
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      12
-                      /
-                      12
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      Praesent vel dolor tempus, posuere massa sit amet, imperdiet massa. Donec tortor sapien,
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-star fa-w-18 fa-xs "
-                          color="gold"
-                          data-icon="star"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 576 512"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                            fill="currentColor"
-                            style={Object {}}
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
                           />
                         </svg>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      14
-                      /
-                      3
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
                       >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sagittis arcu, sed
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
                         />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      cursus sagittis pulvinar non, tristique imperdiet orci. In consequat sed erat eleifend efficitur.
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      4
-                      /
-                      4
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
                         />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      Integer odio sapien, fermentum ut elit ut, dapibus congue est. Etiam egestas quis nisi
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
-                          color="green"
-                          data-icon="circle"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 512 512"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
-                            fill="currentColor"
-                            style={Object {}}
-                          />
-                        </svg>
-                        <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
-                          color="tomato"
-                          data-icon="circle"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 512 512"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
-                            fill="currentColor"
-                            style={Object {}}
-                          />
-                        </svg>
                       </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        14
+                        /
+                        3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
                       <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
                         <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-star fa-w-18 fa-xs "
-                          color="gold"
-                          data-icon="star"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 576 512"
-                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                            fill="currentColor"
-                            style={Object {}}
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
                           />
                         </svg>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      12
-                      /
-                      12
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
                       >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
+                        vulputate leo. Vivamus venenatis, massa ut placerat porttitor, tellus ex mattis ipsum, nec
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
                         />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      vehicula ultricies. Donec rhoncus ut nibh sit amet convallis. Morbi aliquet at lorem a
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      14
-                      /
-                      3
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
                         />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      imperdiet. Proin lorem metus, tristique et pellentesque non, luctus sed urna.
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
-                          color="tomato"
-                          data-icon="circle"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 512 512"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
-                            fill="currentColor"
-                            style={Object {}}
-                          />
-                        </svg>
                       </div>
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
                     >
-                      4
-                      /
-                      4
-                    </span>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        4
+                        /
+                        4
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -816,174 +221,89 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      4
-                      /
-                      4
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      eu. Fusce vel leo massa. Integer porttitor rutrum lorem, non lobortis mauris tincidunt at. 
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
                         <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-star fa-w-18 fa-xs "
-                          color="gold"
-                          data-icon="star"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 576 512"
-                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                            fill="currentColor"
-                            style={Object {}}
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
                           />
                         </svg>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      14
-                      /
-                      3
-                    </span>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        sagittis sapien erat ac nisi. Curabitur nulla erat, blandit at elementum eget, lobortis ac magna.
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
+                            color="green"
+                            data-icon="circle"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        12
+                        /
+                        12
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -991,174 +311,89 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      Pellentesque maximus sodales urna vitae imperdiet. Quisque hendrerit porttitor leo ut
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      4
-                      /
-                      4
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      imperdiet. Ut ullamcorper ex vitae venenatis scelerisque. Vestibulum euismod, ex in sagittis
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
                         <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-star fa-w-18 fa-xs "
-                          color="gold"
-                          data-icon="star"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 576 512"
-                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                            fill="currentColor"
-                            style={Object {}}
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
                           />
                         </svg>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      14
-                      /
-                      3
-                    </span>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        Praesent vel dolor tempus, posuere massa sit amet, imperdiet massa. Donec tortor sapien,
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                            color="gold"
+                            data-icon="star"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 576 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        14
+                        /
+                        3
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -1166,174 +401,70 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      cursus, augue erat pharetra diam, condimentum placerat risus risus nec risus. Etiam massa
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      4
-                      /
-                      1
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      quam, tincidunt eu tortor semper, pharetra luctus mi. Cras pretium velit non vestibulum
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
                         <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
-                          color="tomato"
-                          data-icon="circle"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 512 512"
-                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
-                            fill="currentColor"
-                            style={Object {}}
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
                           />
                         </svg>
                       </div>
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      12
-                      /
-                      12
-                    </span>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        cursus sagittis pulvinar non, tristique imperdiet orci. In consequat sed erat eleifend efficitur.
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        4
+                        /
+                        4
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -1341,330 +472,126 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      finibus. Proin vitae ornare massa. Ut efficitur mattis consectetur.
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      14
-                      /
-                      3
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      Vestibulum vestibulum tempus risus sit amet varius. Phasellus quis ante rhoncus lectus
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      4
-                      /
-                      4
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      suscipit aliquam. Suspendisse luctus sapien eu magna condimentum mollis.
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      12
-                      /
-                      12
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
-                  draggable="true"
-                  onDragEnd={[Function]}
-                  onDragEnter={[Function]}
-                  onDragOver={[Function]}
-                  onDragStart={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sagittis arcu la erat,
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
-                    >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
                         <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
-                          color="green"
-                          data-icon="circle"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 512 512"
-                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
-                            fill="currentColor"
-                            style={Object {}}
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
                           />
                         </svg>
                       </div>
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      12
-                      /
-                      12
-                    </span>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        Integer odio sapien, fermentum ut elit ut, dapibus congue est. Etiam egestas quis nisi
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
+                            color="green"
+                            data-icon="circle"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
+                            color="tomato"
+                            data-icon="circle"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                            color="gold"
+                            data-icon="star"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 576 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        12
+                        /
+                        12
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -1672,96 +599,70 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
-                    >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      blandit at elementum eget, lobortis ac magna. Praesent vel dolor tempus, posuere massa sit
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
                         <svg
-                          aria-hidden="true"
-                          className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
-                          color="green"
-                          data-icon="circle"
-                          data-prefix="fas"
-                          focusable="false"
-                          role="img"
-                          style={Object {}}
-                          viewBox="0 0 512 512"
-                          xmlns="http://www.w3.org/2000/svg"
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
                         >
                           <path
-                            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
-                            fill="currentColor"
-                            style={Object {}}
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
                           />
                         </svg>
                       </div>
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      14
-                      /
-                      3
-                    </span>
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        vehicula ultricies. Donec rhoncus ut nibh sit amet convallis. Morbi aliquet at lorem a
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        14
+                        /
+                        3
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -1769,77 +670,89 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      amet, imperdiet massa. Donec tortor sapien, cursus sagittis pulvinar non, tristique imperdiet
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        imperdiet. Proin lorem metus, tristique et pellentesque non, luctus sed urna.
+                      </span>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
                     >
-                      4
-                      /
-                      4
-                    </span>
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
+                            color="tomato"
+                            data-icon="circle"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        4
+                        /
+                        4
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -1847,77 +760,70 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      orci. In consequat sed erat eleifend efficitur. Integer odio sapien, fermentum ut elit ut,
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia
+                      </span>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
                     >
-                      12
-                      /
-                      12
-                    </span>
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        4
+                        /
+                        4
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -1925,77 +831,89 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
-                        />
-                      </svg>
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      dapibus congue est. Etiam egestas quis nisi vehicula ultricies. Donec rhoncus ut nibh sit amet 
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
-                  >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
                     >
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
-                      <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        eu. Fusce vel leo massa. Integer porttitor rutrum lorem, non lobortis mauris tincidunt at. 
+                      </span>
                     </div>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
                     >
-                      3
-                      /
-                      3
-                    </span>
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                            color="gold"
+                            data-icon="star"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 576 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        14
+                        /
+                        3
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iURRNx"
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
                   draggable="true"
                   onDragEnd={[Function]}
                   onDragEnter={[Function]}
@@ -2003,73 +921,994 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   onDragStart={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 kovLM sc-bxivhb hJitPL"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
-                      <svg
-                        aria-label="Menu"
-                        className="StyledIcon-ofa7kd-0 krJtWS"
-                        viewBox="0 0 24 24"
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
                       >
-                        <path
-                          d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
-                          fill="none"
-                          stroke="#000"
-                          strokeWidth="2"
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        Pellentesque maximus sodales urna vitae imperdiet. Quisque hendrerit porttitor leo ut
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
                         />
-                      </svg>
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        4
+                        /
+                        4
+                      </span>
                     </div>
                   </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
                   <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 eEijIk sc-htpNat hMfRfu"
-                  >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
-                    >
-                      convallis. Morbi aliquet at lorem a imperdiet. Proin lorem metus, tristique et pellentesque non, luctus 
-                    </span>
-                  </div>
-                  <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 fkxiHB sc-htpNat hMfRfu"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
                     <div
-                      className="StyledBox-sc-13pk1d4-0 ekjAwv"
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 iRuMsB"
-                      />
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        imperdiet. Ut ullamcorper ex vitae venenatis scelerisque. Vestibulum euismod, ex in sagittis
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
                       <div
-                        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 fALNzc"
-                      />
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                            color="gold"
+                            data-icon="star"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 576 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        14
+                        /
+                        3
+                      </span>
                     </div>
                   </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
                   <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-                  />
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
                   >
-                    <span
-                      className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
                     >
-                      3
-                      /
-                      3
-                    </span>
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        cursus, augue erat pharetra diam, condimentum placerat risus risus nec risus. Etiam massa
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        4
+                        /
+                        1
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        quam, tincidunt eu tortor semper, pharetra luctus mi. Cras pretium velit non vestibulum
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
+                            color="tomato"
+                            data-icon="circle"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        12
+                        /
+                        12
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        finibus. Proin vitae ornare massa. Ut efficitur mattis consectetur.
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        14
+                        /
+                        3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        Vestibulum vestibulum tempus risus sit amet varius. Phasellus quis ante rhoncus lectus
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        4
+                        /
+                        4
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        suscipit aliquam. Suspendisse luctus sapien eu magna condimentum mollis.
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        12
+                        /
+                        12
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sagittis arcu la erat,
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
+                            color="green"
+                            data-icon="circle"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        12
+                        /
+                        12
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        blandit at elementum eget, lobortis ac magna. Praesent vel dolor tempus, posuere massa sit
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-bwzfXH eMjkqt"
+                            color="green"
+                            data-icon="circle"
+                            data-prefix="fas"
+                            focusable="false"
+                            role="img"
+                            style={Object {}}
+                            viewBox="0 0 512 512"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
+                              fill="currentColor"
+                              style={Object {}}
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        14
+                        /
+                        3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        amet, imperdiet massa. Donec tortor sapien, cursus sagittis pulvinar non, tristique imperdiet
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        4
+                        /
+                        4
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        orci. In consequat sed erat eleifend efficitur. Integer odio sapien, fermentum ut elit ut,
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        12
+                        /
+                        12
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        dapibus congue est. Etiam egestas quis nisi vehicula ultricies. Donec rhoncus ut nibh sit amet 
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        3
+                        /
+                        3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="StyledBox-sc-13pk1d4-0 bOnLze"
+                  draggable="true"
+                  onDragEnd={[Function]}
+                  onDragEnter={[Function]}
+                  onDragOver={[Function]}
+                  onDragStart={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 hfsUvK sc-ifAKCX dhFyyC"
+                    onMouseUp={[Function]}
+                  >
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 jIJCru sc-bxivhb hJitPL"
+                      onMouseUp={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 fWrrBh sc-htpNat hMfRfu"
+                      >
+                        <svg
+                          aria-label="Menu"
+                          className="StyledIcon-ofa7kd-0 krJtWS"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M2,19 L22,19 M2,5 L22,5 M2,12 L22,12"
+                            fill="none"
+                            stroke="#000"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 dmsFuJ sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        convallis. Morbi aliquet at lorem a imperdiet. Proin lorem metus, tristique et pellentesque non, luctus 
+                      </span>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 bKwAMl sc-htpNat hMfRfu"
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 cGqxky"
+                      >
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jHQJnz"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className="StyledBox-sc-13pk1d4-0 cdAZYM sc-htpNat hMfRfu"
+                    >
+                      <span
+                        className="StyledText-sc-1sadyjn-0 bmpSIR"
+                      >
+                        3
+                        /
+                        3
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2093,7 +1932,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 jxCWxi"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-chPdSV cMIdmH"
+        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-kgoBCf hHHRDK"
       >
         <svg
           aria-hidden="true"
@@ -2189,7 +2028,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-jTzLTM jhodN"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-fjdhpX jZeeuE"
                       >
                         <div
                           className="StyledBox-sc-13pk1d4-0 bDTvWa"
@@ -2222,7 +2061,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-fjdhpX jZeeuE"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-jzJRlG cwQPRZ"
                       >
                         <div
                           className="StyledBox-sc-13pk1d4-0 bDTvWa"
@@ -2441,7 +2280,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
     className="StyledBox-sc-13pk1d4-0 iNPZuM"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 kFLDHg sc-hMqMXs hsVPJJ"
+      className="StyledBox-sc-13pk1d4-0 kFLDHg sc-kEYyzF kkFIwK"
     >
       <div
         className="StyledBox-sc-13pk1d4-0 cGDWft"
@@ -2465,7 +2304,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 jHQJnz"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-eNQAEJ jtFbJk"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-hMqMXs hCtDtz"
             >
               Collapse
                Filmstrip
@@ -2514,7 +2353,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-kgoBCf hcfdKh"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-kGXeez fInQer"
       >
         Layout
       </span>
@@ -2628,7 +2467,7 @@ exports[`Storyshots HeaderButtons SaveButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-kgoBCf hcfdKh"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-kGXeez fInQer"
       >
         Save
       </span>
@@ -2676,7 +2515,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-kgoBCf hcfdKh"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-kGXeez fInQer"
       >
         Undo
       </span>
@@ -2717,13 +2556,13 @@ exports[`Storyshots LineViewer Default 1`] = `
           className="StyledBox-sc-13pk1d4-0 cGDWft"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 fNQaFh sc-gzVnrw cuwvDn"
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-htoDjs fxKiIM"
             size="xsmall"
           >
             Aggregated Transcription
           </span>
           <span
-            className="StyledText-sc-1sadyjn-0 fNQaFh sc-gzVnrw cuwvDn"
+            className="StyledText-sc-1sadyjn-0 fNQaFh sc-htoDjs fxKiIM"
             size="xsmall"
           >
             Consensus Score
@@ -2742,7 +2581,7 @@ exports[`Storyshots LineViewer Default 1`] = `
           >
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-htoDjs gztjNx"
+              className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-dnqmqq iDYarN"
               color="tomato"
               data-icon="circle"
               data-prefix="fas"
@@ -2760,7 +2599,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             </svg>
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-htoDjs gztjNx"
+              className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-dnqmqq iDYarN"
               color="green"
               data-icon="circle"
               data-prefix="fas"
@@ -2794,287 +2633,291 @@ exports[`Storyshots LineViewer Default 1`] = `
         className="StyledBox-sc-13pk1d4-0 vNCzY"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 csGKws"
+          className="StyledBox-sc-13pk1d4-0 cwrzZU"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 cGDWft"
+            className="StyledBox-sc-13pk1d4-0 eNFVyg"
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 ekjAwv"
+              className="StyledBox-sc-13pk1d4-0 cGDWft"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 iQXlmM"
+                className="StyledBox-sc-13pk1d4-0 ekjAwv"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 gycYtK"
+                  className="StyledBox-sc-13pk1d4-0 iQXlmM"
                 >
-                  <label
-                    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
-                    onClick={[Function]}
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 gycYtK"
                   >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                    <label
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                      onClick={[Function]}
                     >
-                      <input
-                        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                        type="checkbox"
-                      />
                       <div
-                        className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
-                      />
-                    </div>
-                  </label>
+                        className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                      >
+                        <input
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                        />
+                      </div>
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <span
-                className="StyledText-sc-1sadyjn-0 cvCUKP"
-              >
-                Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
-              </span>
-            </div>
-          </div>
-          <div
-            className="StyledBox-sc-13pk1d4-0 hIYVGv"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
-            >
-              June 11, 2019
-            </span>
-            <span
-              className="StyledText-sc-1sadyjn-0 jcthf"
-            >
-              •
-            </span>
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
-            >
-              username
-            </span>
-          </div>
-        </div>
-        <div
-          className="StyledBox-sc-13pk1d4-0 csGKws"
-        >
-          <div
-            className="StyledBox-sc-13pk1d4-0 cGDWft"
-          >
-            <div
-              className="StyledBox-sc-13pk1d4-0 ekjAwv"
-            >
-              <div
-                className="StyledBox-sc-13pk1d4-0 dzYypa"
-              >
-                <div
-                  className="StyledBox-sc-13pk1d4-0 gycYtK"
+                <span
+                  className="StyledText-sc-1sadyjn-0 cvCUKP"
                 >
-                  <label
-                    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
-                    onClick={[Function]}
-                  >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
-                    >
-                      <input
-                        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                        type="checkbox"
-                      />
-                      <div
-                        className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
-                      />
-                    </div>
-                  </label>
-                </div>
+                  Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                </span>
               </div>
+            </div>
+            <div
+              className="StyledBox-sc-13pk1d4-0 hIYVGv"
+            >
               <span
-                className="StyledText-sc-1sadyjn-0 cvCUKP"
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
               >
-                Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                June 11, 2019
               </span>
-            </div>
-            <div
-              className="StyledBox-sc-13pk1d4-0 erdrxH"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-star fa-w-18 fa-xs "
-                color="gold"
-                data-icon="star"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 576 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </div>
-          </div>
-          <div
-            className="StyledBox-sc-13pk1d4-0 hIYVGv"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
-            >
-              June 11, 2019
-            </span>
-            <span
-              className="StyledText-sc-1sadyjn-0 jcthf"
-            >
-              •
-            </span>
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
-            >
-              username
-            </span>
-            <div
-              className="StyledBox-sc-13pk1d4-0 ekjAwv"
-            >
               <span
                 className="StyledText-sc-1sadyjn-0 jcthf"
               >
                 •
               </span>
               <span
-                className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
               >
-                Gold Standard
+                username
               </span>
             </div>
           </div>
-        </div>
-        <div
-          className="StyledBox-sc-13pk1d4-0 csGKws"
-        >
           <div
-            className="StyledBox-sc-13pk1d4-0 cGDWft"
+            className="StyledBox-sc-13pk1d4-0 eNFVyg"
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 ekjAwv"
+              className="StyledBox-sc-13pk1d4-0 cGDWft"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 kJguUU"
+                className="StyledBox-sc-13pk1d4-0 ekjAwv"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 gycYtK"
+                  className="StyledBox-sc-13pk1d4-0 dzYypa"
                 >
-                  <label
-                    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
-                    onClick={[Function]}
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 gycYtK"
                   >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                    <label
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                      onClick={[Function]}
                     >
-                      <input
-                        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                        type="checkbox"
-                      />
                       <div
-                        className="StyledBox-sc-13pk1d4-0 bfatAZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
-                      />
-                    </div>
-                  </label>
+                        className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                      >
+                        <input
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                        />
+                      </div>
+                    </label>
+                  </div>
                 </div>
+                <span
+                  className="StyledText-sc-1sadyjn-0 cvCUKP"
+                >
+                  Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                </span>
               </div>
-              <span
-                className="StyledText-sc-1sadyjn-0 cvCUKP"
+              <div
+                className="StyledBox-sc-13pk1d4-0 erdrxH"
               >
-                Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-star fa-w-18 fa-xs "
+                  color="gold"
+                  data-icon="star"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 576 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              className="StyledBox-sc-13pk1d4-0 hIYVGv"
+            >
+              <span
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
+              >
+                June 11, 2019
               </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 jcthf"
+              >
+                •
+              </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
+              >
+                username
+              </span>
+              <div
+                className="StyledBox-sc-13pk1d4-0 ekjAwv"
+              >
+                <span
+                  className="StyledText-sc-1sadyjn-0 jcthf"
+                >
+                  •
+                </span>
+                <span
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
+                >
+                  Gold Standard
+                </span>
+              </div>
             </div>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 hIYVGv"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
-            >
-              June 11, 2019
-            </span>
-            <span
-              className="StyledText-sc-1sadyjn-0 jcthf"
-            >
-              •
-            </span>
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
-            >
-              username
-            </span>
-          </div>
-        </div>
-        <div
-          className="StyledBox-sc-13pk1d4-0 csGKws"
-        >
-          <div
-            className="StyledBox-sc-13pk1d4-0 cGDWft"
+            className="StyledBox-sc-13pk1d4-0 eNFVyg"
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 ekjAwv"
+              className="StyledBox-sc-13pk1d4-0 cGDWft"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 giejyA"
+                className="StyledBox-sc-13pk1d4-0 ekjAwv"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 gycYtK"
+                  className="StyledBox-sc-13pk1d4-0 kJguUU"
                 >
-                  <label
-                    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
-                    onClick={[Function]}
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 gycYtK"
                   >
-                    <div
-                      className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                    <label
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                      onClick={[Function]}
                     >
-                      <input
-                        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                        type="checkbox"
-                      />
                       <div
-                        className="StyledBox-sc-13pk1d4-0 bfatAZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
-                      />
-                    </div>
-                  </label>
+                        className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                      >
+                        <input
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 bfatAZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                        />
+                      </div>
+                    </label>
+                  </div>
                 </div>
+                <span
+                  className="StyledText-sc-1sadyjn-0 cvCUKP"
+                >
+                  Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                </span>
               </div>
+            </div>
+            <div
+              className="StyledBox-sc-13pk1d4-0 hIYVGv"
+            >
               <span
-                className="StyledText-sc-1sadyjn-0 cvCUKP"
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
               >
-                Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                June 11, 2019
+              </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 jcthf"
+              >
+                •
+              </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
+              >
+                username
               </span>
             </div>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 hIYVGv"
+            className="StyledBox-sc-13pk1d4-0 eNFVyg"
           >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
+            <div
+              className="StyledBox-sc-13pk1d4-0 cGDWft"
             >
-              June 11, 2019
-            </span>
-            <span
-              className="StyledText-sc-1sadyjn-0 jcthf"
+              <div
+                className="StyledBox-sc-13pk1d4-0 ekjAwv"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 giejyA"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 gycYtK"
+                  >
+                    <label
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                      >
+                        <input
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 bfatAZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <span
+                  className="StyledText-sc-1sadyjn-0 cvCUKP"
+                >
+                  Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                </span>
+              </div>
+            </div>
+            <div
+              className="StyledBox-sc-13pk1d4-0 hIYVGv"
             >
-              •
-            </span>
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-bZQynM oraNJ"
-            >
-              username
-            </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
+              >
+                June 11, 2019
+              </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 jcthf"
+              >
+                •
+              </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw SKFnt"
+              >
+                username
+              </span>
+            </div>
           </div>
         </div>
         <div
@@ -3137,7 +2980,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw cuwvDn"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-htoDjs fxKiIM"
             >
               Add Line Below
             </span>
@@ -3151,7 +2994,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw cuwvDn"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-htoDjs fxKiIM"
             >
               Delete Line
             </span>
@@ -3169,7 +3012,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw cuwvDn"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-htoDjs fxKiIM"
             >
               Replace With Selected
             </span>
@@ -3184,7 +3027,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-gzVnrw cuwvDn"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-htoDjs fxKiIM"
             >
               Close
             </span>
@@ -3206,7 +3049,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     onClick={[Function]}
   >
     <span
-      className="StyledText-sc-1sadyjn-0 gcASOG sc-kGXeez duoncy"
+      className="StyledText-sc-1sadyjn-0 gcASOG sc-kpOJdX gJaRTc"
     >
       Mark As Approved
     </span>
@@ -3338,7 +3181,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
           />
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-iAyFgw jwVsBt"
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-hSdWYo fTcbhG"
           >
             Find a specific subject
           </span>
@@ -3356,7 +3199,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 iEMnku"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-hSdWYo cMtPcy"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-eHgmQL gyyYmL"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -3424,7 +3267,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 bgTRhM"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-hSdWYo cMtPcy"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-eHgmQL gyyYmL"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -3461,7 +3304,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-iAyFgw jwVsBt"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-hSdWYo fTcbhG"
             >
               Filter subject list by status
             </span>
@@ -3789,7 +3632,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="button"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-iAyFgw jwVsBt"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-hSdWYo fTcbhG"
                 >
                   Close
                 </span>
@@ -3804,7 +3647,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="submit"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-iAyFgw jwVsBt"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-hSdWYo fTcbhG"
                 >
                   Search
                 </span>
@@ -3838,7 +3681,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kEYyzF bxCqqD"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kkGfuU gEssd"
       >
         This subject cannot be accessed because 
         <b>
@@ -3850,7 +3693,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kEYyzF bxCqqD"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kkGfuU gEssd"
       >
         For access, ask them to close their version.
       </span>
@@ -3906,7 +3749,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-eHgmQL keiOXo"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cvbbAY bWJQPb"
             >
               View All Lines
             </span>
@@ -3914,16 +3757,16 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-cMljjf hwFcyK"
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-jAaTju lEldS"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-jAaTju hoRiVH"
+          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-jDwBTQ bFWfEB"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-brqgnP bMdeLo"
+            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-cMljjf kvAdmU"
           />
           <div
-            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-jAaTju sc-jDwBTQ bdAzJu"
+            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-jDwBTQ sc-gPEVay hluEar"
           />
         </div>
       </div>
@@ -3984,7 +3827,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kkGfuU gEssd"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-iAyFgw gjYsoK"
       >
         By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
       </span>
@@ -3992,7 +3835,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-kkGfuU gEssd"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-iAyFgw gjYsoK"
       >
         This action can be reversed at any time.
       </span>

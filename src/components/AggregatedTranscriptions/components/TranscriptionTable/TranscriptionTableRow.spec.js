@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Menu } from 'grommet-icons'
-import TranscriptionTableRow, { MoveBox } from './TranscriptionTableRow'
+import TranscriptionTableRow, { PointerBox, MoveBox } from './TranscriptionTableRow'
 import mockData from './mockData'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
@@ -13,7 +13,8 @@ let setDataSpy = jest.fn();
 let setState = jest.fn();
 let toggleTranscriptionSpy = jest.fn();
 const preventDefaultSpy = jest.fn()
-const mockEvent = { preventDefault: preventDefaultSpy }
+const stopPropagationSpy = jest.fn()
+const mockEvent = { preventDefault: preventDefaultSpy, stopPropagation: stopPropagationSpy }
 
 describe('Component > TranscriptionTable', function () {
   beforeEach(function() {
@@ -62,14 +63,23 @@ describe('Component > TranscriptionTable', function () {
     expect(setDataSpy).toHaveBeenCalled()
   })
 
-  it('should call allowDrop on dragOver', function () {
+  it('should call stopEvent on dragOver', function () {
     wrapper.simulate('dragover', mockEvent)
     expect(preventDefaultSpy).toHaveBeenCalled()
+    expect(stopPropagationSpy).toHaveBeenCalled()
   })
 
   it('should call toggleTranscription on mouseUp', function () {
-    wrapper.simulate('mouseUp', mockEvent)
+    const toggleBox = wrapper.find(PointerBox).first()
+    toggleBox.simulate('mouseUp', mockEvent)
     expect(toggleTranscriptionSpy).toHaveBeenCalled()
+  })
+
+  it('should call stopEvent on child mouseUp', function () {
+    const moveBox = wrapper.find(MoveBox).first()
+    moveBox.simulate('mouseUp', mockEvent)
+    expect(preventDefaultSpy).toHaveBeenCalled()
+    expect(stopPropagationSpy).toHaveBeenCalled()
   })
 
   describe('should correctly style components on hover', function () {

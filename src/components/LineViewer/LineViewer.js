@@ -37,7 +37,9 @@ function LineViewer ({ aggregatedText, classifications, consensusScore, toggleTr
         </Box>
       </Box>
       <Box border='bottom' margin={{ top: 'xsmall' }}>
-        {classifications.map((classification, index) => <TranscriptionLine classification={classification} index={index} key={`LINE_${index}`} />)}
+        <Box overflow='auto'>
+          {classifications.map((classification, index) => <TranscriptionLine classification={classification} index={index} key={`LINE_${index}`} />)}
+        </Box>
         <Box direction='row' margin='xsmall'>
           <Box justify='center' margin={{ left: 'xsmall' }}>
             <CheckBox />

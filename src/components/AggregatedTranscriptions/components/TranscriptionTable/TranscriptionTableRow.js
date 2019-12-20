@@ -77,7 +77,7 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
             <Menu color={hamburgerColor} size='small' />
           </QuietBox>
         </MoveBox>
-        <QuietBox basis='70%'>
+        <QuietBox basis='75%'>
           <Text>{datum.transcription}</Text>
         </QuietBox>
         <QuietBox basis='10%'>
@@ -111,5 +111,5 @@ TranscriptionTableRow.defaultProps = {
   toggleTranscription: () => {}
 }
 
-export { MoveBox }
+export { PointerBox, MoveBox }
 export default TranscriptionTableRow

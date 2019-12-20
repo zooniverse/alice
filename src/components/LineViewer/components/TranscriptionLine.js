@@ -14,7 +14,7 @@ const ItalicText = styled(Text)`
 
 function TranscriptionLine ({ classification, index }) {
   return (
-    <Box margin={{ vertical: '0.25em' }}>
+    <Box height={{ min: '3em' }} margin={{ vertical: '0.25em' }}>
       <Box direction='row' justify='between'>
         <Box direction='row'>
           <Box align='end' background={indexToColor(index)} height='fit-content' width='2.5em'>
