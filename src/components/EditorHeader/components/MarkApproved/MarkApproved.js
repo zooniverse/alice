@@ -10,6 +10,7 @@ const CapitalText = styled(Text)`
 `
 
 function MarkApproved ({ checked, disabled, onChange }) {
+  console.log(checked);
   return (
     <CheckBox
       checked={checked}

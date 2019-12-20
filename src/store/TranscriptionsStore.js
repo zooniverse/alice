@@ -34,6 +34,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     try {
       const response = yield client.get(`/transcriptions/${id}`)
       const resource = JSON.parse(response.body)
+      console.log(resource);
       self.asyncState = ASYNC_STATES.READY
       return self.createTranscription(resource.data)
     } catch (error) {
@@ -82,8 +83,18 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         console.error(error)
       }
     }
-  }
+  },
+
+  updateApproval: flow(function * updateApproval(isChecked) {
+    const client = getRoot(self).client.tove
+    const query = JSON.stringify({ data: { type: 'transcriptions', attributes: { status: 'approved' } }})
+    yield client.patch(`/transcriptions/1`)
+  })
 })).views(self => ({
+  get approved () {
+    return !!(self.current && self.current.status === 'approved')
+  },
+
   get approvedCount () {
     let count = 0;
     self.all.forEach(transcription => {
@@ -92,6 +103,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }
     })
     return count;
+  },
+
+  get readyForReview () {
+    return !!(self.current && self.current.status === 'ready')
   },
 
   get title () {

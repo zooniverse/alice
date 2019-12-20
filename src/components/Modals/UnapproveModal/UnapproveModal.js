@@ -3,13 +3,14 @@ import { Box, Button, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
-import { func } from 'prop-types'
+import { func, string } from 'prop-types'
+import { ROLES } from 'store/ProjectsStore'
 
 const StyledText = styled(Text)`
   line-height: 1.75em;
 `
 
-export default function UnapproveModal({ onClose }) {
+export default function UnapproveModal({ onClose, role }) {
   return (
     <Box
       background='white'
@@ -52,9 +53,11 @@ export default function UnapproveModal({ onClose }) {
 }
 
 UnapproveModal.propTypes = {
-  onClose: func
+  onClose: func,
+  role: string
 }
 
 UnapproveModal.defaultProps = {
-  onClose: () => {}
+  onClose: () => {},
+  role: ''
 }
