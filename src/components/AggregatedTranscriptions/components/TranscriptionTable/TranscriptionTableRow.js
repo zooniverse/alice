@@ -14,13 +14,19 @@ const MoveBox = styled(Box)`
   pointer-events: ${props => props.hover ? 'all' : 'none'};
 `
 
+const PointerBox = styled(Box)`
+  cursor: ${props => props.hover ? 'pointer' : 'default'};
+  pointer-events: ${props => props.hover ? 'all' : 'none'};
+`
+
 function handleDragStart(dragID, setDragID, setHover) {
   setDragID(dragID)
   setHover(false)
 }
 
-function allowDrop(e) {
+function stopEvents(e) {
   e.preventDefault()
+  e.stopPropagation()
 }
 
 function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
@@ -41,42 +47,46 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
 
   return (
     <Box
-      align='center'
       border={{ color: '#ECECEC', side: 'bottom' }}
-      direction='row'
       draggable='true'
       elevation={elevation}
       flex={false}
       gap='xsmall'
       onDragEnd={() => setDragID(null)}
       onDragEnter={(e) => handleDragEnter(e, index, data, dragID, setData, setDragID)}
-      onDragOver={allowDrop}
+      onDragOver={stopEvents}
       onDragStart={() => handleDragStart(index, setDragID, setHover)}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onMouseUp={() => toggleTranscription()}
       margin={{ right: '0.15em' }}
       pad='0.2em'
       round={round}
     >
-      <MoveBox
+      <PointerBox
+        align='center'
+        direction='row'
         hover={isHover}
-        pad='0.5em'
-        width='0.1em'
-      >
-        <QuietBox>
-          <Menu color={hamburgerColor} size='small' />
+        onMouseUp={() => toggleTranscription()}>
+        <MoveBox
+          onMouseUp={(e) => stopEvents(e)}
+          hover={isHover}
+          pad='0.25em'
+          basis='5%'
+        >
+          <QuietBox>
+            <Menu color={hamburgerColor} size='small' />
+          </QuietBox>
+        </MoveBox>
+        <QuietBox basis='70%'>
+          <Text>{datum.transcription}</Text>
         </QuietBox>
-      </MoveBox>
-      <QuietBox basis='80%' wrap>
-        <Text>{datum.transcription}</Text>
-      </QuietBox>
-      <QuietBox basis='5%'>
-        <Flags datum={datum} />
-      </QuietBox>
-      <QuietBox align='end' basis='10%'>
-        <Text>{datum.consensus}/{datum.counts}</Text>
-      </QuietBox>
+        <QuietBox basis='10%'>
+          <Flags datum={datum} />
+        </QuietBox>
+        <QuietBox align='end' basis='10%'>
+          <Text>{datum.consensus}/{datum.counts}</Text>
+        </QuietBox>
+      </PointerBox>
     </Box>
   )
 }

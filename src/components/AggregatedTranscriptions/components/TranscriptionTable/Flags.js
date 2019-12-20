@@ -11,12 +11,12 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 
 function Flags({ datum }) {
   return (
-    <Box direction='row' gap='xsmall'>
-      <Box align='center' direction='row' justify='center' width='3em'>
+    <Box justify='center' direction='row' wrap>
+      <Box align='center' direction='row' justify='center'>
         {datum.reviewed && <StyledFontAwesomeIcon color='green' icon={faCircle} size='xs' />}
         {datum.flagged && <StyledFontAwesomeIcon color='tomato' icon={faCircle} size='xs' />}
       </Box>
-      <Box width='1em'>
+      <Box>
         {datum.goldStandard && <FontAwesomeIcon color='gold' icon={faStar} size='xs' />}
       </Box>
     </Box>
