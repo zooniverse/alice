@@ -7,6 +7,7 @@ import {
   Text,
 } from 'grommet'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 import LoginForm from './components/LoginForm'
@@ -49,7 +50,9 @@ const content = [
           Documentation has been created to help research teams set up
           and optimally use this tool.
         </Text>
-        <Anchor href='#' margin={{ vertical: 'xsmall' }} size='xsmall'>Link to Documentation</Anchor>
+        <Text margin={{ vertical: 'xsmall' }} size='xsmall'>
+          <Link to='/about'>Link to Documentation</Link>
+        </Text>
       </Box>
   }
 ]

@@ -38,6 +38,7 @@ function EditorHeaderContainer({ history }) {
       onAbout={onAbout}
       showMetadata={showMetadata}
       showOverlay={store.aggregations.showModal}
+      user={store.auth.user}
     />
   )
 }

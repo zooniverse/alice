@@ -52,10 +52,10 @@ function Badge ({ disabled, isOpen, name, onAbout, role, setOpen, signOut, src }
         label={<Box><Icon/></Box>}
         dropContent={
           <Box background='white' width='5em' pad={{ vertical: 'xxsmall' }}>
-            <DropLink disabled={onAbout} margin='1em' to='/about' tabIndex={onAbout && -1}>
+            <DropLink disabled={onAbout} margin='1em' to='/about' tabIndex={onAbout ? -1 : undefined}>
               <CapitalText color='#5C5C5C' margin='1em'>Help</CapitalText>
             </DropLink>
-            <DropLink disabled={!onAbout} margin='1em' to='/projects' tabIndex={!onAbout && -1}>
+            <DropLink disabled={!onAbout} margin='1em' to='/projects' tabIndex={!onAbout ? -1 : undefined}>
               <CapitalText color='#5C5C5C' margin='1em'>Viewer</CapitalText>
             </DropLink>
             <DropItem label={<CapitalText margin='1em'>Log out</CapitalText>} onClick={signOut} plain />

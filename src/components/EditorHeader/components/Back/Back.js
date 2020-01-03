@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Text } from 'grommet'
+import AppContext from 'store'
 import styled from 'styled-components'
 
 const StyledLink = styled(Link)`
@@ -12,8 +13,11 @@ const CapitalText = styled(Text)`
 `
 
 export default function Back() {
+  const store = React.useContext(AppContext)
+  const link = store.auth.user ? '/projects' : '/'
+
   return (
-    <StyledLink to='/projects'>
+    <StyledLink to={link}>
       <CapitalText color='#5C5C5C'>Back to Viewer/Editor</CapitalText>
     </StyledLink>
   )
