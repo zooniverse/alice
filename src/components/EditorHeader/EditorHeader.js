@@ -20,7 +20,7 @@ export default function EditorHeader ({ buttons, onAbout, showMetadata, showOver
   return (
     <Box as='header' border='bottom' direction='row' pad={{ bottom: 'small' }} justify='between'>
       <HeaderBox align='center' direction='row' gap='xsmall' wrap>
-        {onAbout ? <Back /> : <Title onEditor={showMetadata} />}
+        {onAbout ? <Back user={user} /> : <Title onEditor={showMetadata} />}
         {showMetadata && <MetadataButton />}
       </HeaderBox>
       {!!user && (
@@ -29,9 +29,9 @@ export default function EditorHeader ({ buttons, onAbout, showMetadata, showOver
               {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} disabled={showOverlay} />)}
             </Box>
             <Badge disabled={showOverlay} onAbout={onAbout} />
-          {showOverlay && <Overlay />}
         </StyledBox>
       )}
+      {showOverlay && <Overlay />}
     </Box>
   )
 }

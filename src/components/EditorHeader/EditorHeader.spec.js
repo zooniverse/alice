@@ -7,6 +7,7 @@ import MarkApproved from './components/MarkApproved'
 import Overlay from '../Overlay'
 
 let wrapper
+const user = { id: '1' }
 
 describe('Component > EditorHeader', function () {
   it('should render without crashing', function () {
@@ -15,7 +16,7 @@ describe('Component > EditorHeader', function () {
   })
 
   it('should render buttons with received props', function () {
-    wrapper = shallow(<EditorHeader buttons={[MarkApproved]}/>)
+    wrapper = shallow(<EditorHeader buttons={[MarkApproved]} user={user} />)
     expect(wrapper.find(MarkApproved).length).toBe(1)
   })
 
