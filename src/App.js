@@ -4,6 +4,7 @@ import { Grommet } from 'grommet'
 import AppContext from 'store'
 import makeInspectable from 'mobx-devtools-mst'
 import { observer } from 'mobx-react'
+import ScrollToTop from 'helpers/scrollToTop'
 import history from './history'
 import './App.css'
 import Home from './screens/Home'
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <Router history={history}>
+      <ScrollToTop />
       <>
         <main>
           <Grommet theme={mergedTheme}>
