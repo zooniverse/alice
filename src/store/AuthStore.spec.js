@@ -47,16 +47,18 @@ describe('AuthStore', function () {
 
   describe('logout function success', function () {
     let signOutSpy
+    const user = { id: '1' }
 
     beforeAll(function () {
       signOutSpy = jest
         .spyOn(auth, 'signOut')
         .mockImplementation(() => Promise.resolve())
-      authStore = AuthStore.create()
+      authStore = AuthStore.create({ user })
     })
 
     it('should call the sign out function', async function () {
       await authStore.logout()
+      expect(authStore.user).toBe(null)
       expect(signOutSpy).toHaveBeenCalled()
     })
   })
