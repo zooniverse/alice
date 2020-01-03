@@ -24,14 +24,14 @@ function GroupsPageContainer({ history, match }) {
   }
   const steps = Array.from(Array(store.groups.totalPages).keys())
   const activeStep = store.groups.page
-  // const groups = Array.from(store.groups.all.values())
+  const data = store.groups.all.length > 0 ? store.groups.all[activeStep] : []
 
   return (
     <Box margin='medium' fill='vertical'>
       <ResourcesTable
         activeStep={activeStep}
         columns={columns}
-        data={store.groups.all[activeStep]}
+        data={data}
         resource='groups'
         onSelection={onSelection}
         setStep={onSetPage}
