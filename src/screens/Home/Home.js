@@ -69,7 +69,7 @@ export default function Home () {
             <Image alt="Powered by Zooniverse" fit='contain' src={Zooniverse} />
           </Box>
           <Box width='50%'>
-            <Image fit='contain' src={Alice} />
+            <Image alt='ALICE Logo' fit='contain' src={Alice} />
           </Box>
           <Text color="#5C5C5C" size='large'>Aggregate Line Inspector / Collaborative Editor</Text>
         </Box>
