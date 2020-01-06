@@ -14,6 +14,9 @@ let wrapper
 const contextValues = {
   aggregations: {
     showModal: false
+  },
+  auth: {
+    user: { id: '1' }
   }
 }
 

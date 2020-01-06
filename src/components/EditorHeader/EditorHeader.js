@@ -4,39 +4,52 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Overlay from '../Overlay'
 import Title from './components/Title'
+import Back from './components/Back'
 import MetadataButton from './components/MetadataButton'
 import Badge from '../Badge'
+
+const HeaderBox = styled(Box)`
+  min-height: 3.25em;
+`
 
 const StyledBox = styled(Box)`
   position: relative;
 `
 
-export default function EditorHeader ({ buttons, showMetadata, showOverlay }) {
+export default function EditorHeader ({ buttons, onAbout, showMetadata, showOverlay, user }) {
   return (
     <Box as='header' border='bottom' direction='row' pad={{ bottom: 'small' }} justify='between'>
-      <Box align='center' direction='row' gap='xsmall' wrap>
-        <Title onEditor={showMetadata} />
+      <HeaderBox align='center' direction='row' gap='xsmall' wrap>
+        {onAbout ? <Back user={user} /> : <Title onEditor={showMetadata} />}
         {showMetadata && <MetadataButton />}
-      </Box>
-      <StyledBox align='center' background='light-2' direction='row'>
-        <Box direction='row' border='right' fill='vertical' gap='small' pad='small' wrap>
-          {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} disabled={showOverlay} />)}
-        </Box>
-        <Badge disabled={showOverlay} />
-        {showOverlay && <Overlay />}
-      </StyledBox>
+      </HeaderBox>
+      {!!user && (
+        <StyledBox align='center' background='light-2' direction='row'>
+            <Box direction='row' border='right' fill='vertical' gap='small' pad='small' wrap>
+              {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} disabled={showOverlay} />)}
+            </Box>
+            <Badge disabled={showOverlay} onAbout={onAbout} />
+        </StyledBox>
+      )}
+      {showOverlay && <Overlay />}
     </Box>
   )
 }
 
 EditorHeader.propTypes = {
   buttons: PropTypes.array,
+  onAbout: PropTypes.bool,
   showMetadata: PropTypes.bool,
-  showOverlay: PropTypes.bool
+  showOverlay: PropTypes.bool,
+  user: PropTypes.shape({
+    id: PropTypes.string
+  })
 }
 
 EditorHeader.defaultProps = {
   buttons: [],
+  onAbout: false,
   showMetadata: false,
-  showOverlay: false
+  showOverlay: false,
+  user: null
 }
