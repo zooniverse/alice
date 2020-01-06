@@ -6,27 +6,12 @@ import {
   Image,
   Text,
 } from 'grommet'
-import styled from 'styled-components'
+import Alice from '../../images/alice.png'
 import { Link } from 'react-router-dom'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 import LoginForm from './components/LoginForm'
 import Footer from './components/Footer'
-
-const StyledHeader = styled(Heading)`
-  font-size: 6em;
-  font-weight: 300;
-  letter-spacing: -6.16px;
-  line-height: 0.9em;
-
-  @media (max-width: 1060px) {
-    font-size: 4em;
-  }
-
-  @media (max-width: 725px) {
-    font-size: 2em;
-  }
-`
 
 const content = [
   {
