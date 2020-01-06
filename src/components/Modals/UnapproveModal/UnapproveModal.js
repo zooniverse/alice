@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import { func, string } from 'prop-types'
-import { ROLES } from 'store/ProjectsStore'
 
 const StyledText = styled(Text)`
   line-height: 1.75em;
 `
 
-export default function UnapproveModal({ onClose, role }) {
+export default function UnapproveModal({ onClose, onUnapprove, role }) {
   return (
     <Box
       background='white'
@@ -44,7 +43,7 @@ export default function UnapproveModal({ onClose, role }) {
         <Button
           a11yTitle="Confirm to Unapprove Subject"
           label={<Text size='small'>YES, UNAPPROVE</Text>}
-          onClick={onClose}
+          onClick={onUnapprove}
           plain
         />
       </Box>
@@ -54,10 +53,12 @@ export default function UnapproveModal({ onClose, role }) {
 
 UnapproveModal.propTypes = {
   onClose: func,
+  onUnapprove: func,
   role: string
 }
 
 UnapproveModal.defaultProps = {
   onClose: () => {},
+  onUnapprove: () => {},
   role: ''
 }

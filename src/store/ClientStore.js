@@ -10,7 +10,7 @@ const ClientStore = types.model('ClientStore', {
       baseURI: 'https://tove-staging.zooniverse.org',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/vnd.api+json',
+        'Content-Type': 'application/json',
       },
       mode: 'cors'
     })

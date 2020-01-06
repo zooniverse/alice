@@ -111,6 +111,10 @@ const ProjectsStore = types.model('ProjectsStore', {
     return self.current && self.current.id
   },
 
+  get isOwner () {
+    return (self.current && self.current.role === ROLES.OWNER) || false
+  },
+
   get role () {
     return self.current && self.current.role
   },

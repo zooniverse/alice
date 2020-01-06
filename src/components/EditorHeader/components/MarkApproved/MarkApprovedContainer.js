@@ -8,8 +8,10 @@ function MarkApprovedContainer({ disabled }) {
   const store = React.useContext(AppContext)
   const isChecked = store.transcriptions.approved
   const onChange = () => {
-    store.transcriptions.updateApproval(!isChecked)
-    if (isChecked) {
+    console.log(isChecked);
+    if (!isChecked) {
+      store.transcriptions.updateApproval(isChecked)
+    } else {
       store.modal.toggleModal(MODALS.UNAPPROVED)
     }
   }
