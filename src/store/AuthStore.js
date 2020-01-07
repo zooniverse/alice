@@ -37,6 +37,7 @@ const AuthStore = types.model('AuthStore', {
     } catch (error) {
       console.warn(error);
     }
+    self.user = null
     history.push('/')
   })
 }))
