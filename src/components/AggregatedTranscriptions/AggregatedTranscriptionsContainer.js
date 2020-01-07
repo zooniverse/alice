@@ -3,11 +3,18 @@ import AppContext from 'store'
 import { observer } from 'mobx-react'
 import AggregatedTranscriptions from './AggregatedTranscriptions'
 
-function AggregatedTranscriptionsContainer() {
+function AggregatedTranscriptionsContainer({ margin }) {
   const store = React.useContext(AppContext)
   const showOverlay = store.aggregations.showModal
+  const showTranscription = store.aggregations.showTranscription
 
-  return <AggregatedTranscriptions showOverlay={showOverlay} />
+  return (
+    <AggregatedTranscriptions
+      margin={margin}
+      showOverlay={showOverlay}
+      showTranscription={showTranscription}
+    />
+  )
 }
 
 export default observer(AggregatedTranscriptionsContainer)

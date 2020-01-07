@@ -17,9 +17,9 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   opacity: 0.5;
 `
 
-function LineViewer ({ aggregatedText, classifications, consensusScore }) {
+function LineViewer ({ aggregatedText, classifications, consensusScore, toggleTranscription }) {
   return (
-    <Box background='white' round='xsmall' width='large'>
+    <Box background='white' elevation='small' round='xsmall' width='large'>
       <Box border='bottom' pad='xsmall'>
         <Box direction='row' justify='between'>
           <CapitalText size='xsmall'>Aggregated Transcription</CapitalText>
@@ -27,15 +27,19 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
         </Box>
         <Box direction='row' justify='between' pad={{ top: 'xsmall' }}>
           <Text weight='bold'>{aggregatedText}</Text>
-          <Box direction='row' align='center'>
-            <StyledFontAwesomeIcon color='tomato' icon={faCircle} />
-            <StyledFontAwesomeIcon color='green' icon={faCircle} />
+          <Box basis='10%' direction='row' align='center'>
+            <StyledFontAwesomeIcon color='tomato' icon={faCircle} size='xs' />
+            <StyledFontAwesomeIcon color='green' icon={faCircle} size='xs' />
           </Box>
-          <Text>{consensusScore}/{classifications.length}</Text>
+          <Box justify='center'>
+            <Text>{consensusScore}/{classifications.length}</Text>
+          </Box>
         </Box>
       </Box>
       <Box border='bottom' margin={{ top: 'xsmall' }}>
-        {classifications.map((classification, index) => <TranscriptionLine classification={classification} index={index} key={`LINE_${index}`} />)}
+        <Box overflow='auto'>
+          {classifications.map((classification, index) => <TranscriptionLine classification={classification} index={index} key={`LINE_${index}`} />)}
+        </Box>
         <Box direction='row' margin='xsmall'>
           <Box justify='center' margin={{ left: 'xsmall' }}>
             <CheckBox />
@@ -52,7 +56,7 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
         </Box>
         <Box direction='row'>
           <Button margin={{ right: 'small' }}><CapitalText>Replace With Selected</CapitalText></Button>
-          <Button><CapitalText>Close</CapitalText></Button>
+          <Button onClick={toggleTranscription}><CapitalText>Close</CapitalText></Button>
         </Box>
       </Box>
     </Box>
@@ -62,13 +66,15 @@ function LineViewer ({ aggregatedText, classifications, consensusScore }) {
 LineViewer.defaultProps = {
   aggregatedText: '',
   classifications: [],
-  consensusScore: 0
+  consensusScore: 0,
+  toggleTranscription: () => {}
 }
 
 LineViewer.propTypes = {
   aggregatedText: PropTypes.string,
   classifications: PropTypes.array,
-  consensusScore: PropTypes.number
+  consensusScore: PropTypes.number,
+  toggleTranscription: PropTypes.func
 }
 
 export default withThemeContext(LineViewer, theme)

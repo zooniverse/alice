@@ -9,13 +9,24 @@ const QuietBox = styled(Box)`
   pointer-events: none;
 `
 
+const MoveBox = styled(Box)`
+  cursor: ${props => props.hover ? 'move' : 'default'};
+  pointer-events: ${props => props.hover ? 'all' : 'none'};
+`
+
+const PointerBox = styled(Box)`
+  cursor: ${props => props.hover ? 'pointer' : 'default'};
+  pointer-events: ${props => props.hover ? 'all' : 'none'};
+`
+
 function handleDragStart(dragID, setDragID, setHover) {
   setDragID(dragID)
   setHover(false)
 }
 
-function allowDrop(e) {
+function stopEvents(e) {
   e.preventDefault()
+  e.stopPropagation()
 }
 
 function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
@@ -27,7 +38,7 @@ function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
   setData(copiedArray)
 }
 
-export default function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID }) {
+function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID, toggleTranscription }) {
   const [isHover, setHover] = React.useState(false)
   const isDragging = dragID === index
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
@@ -36,35 +47,46 @@ export default function TranscriptionTableRow({ datum, index, data, setData, set
 
   return (
     <Box
-      align='center'
-      border='bottom'
-      direction='row'
+      border={{ color: '#ECECEC', side: 'bottom' }}
       draggable='true'
       elevation={elevation}
       flex={false}
       gap='xsmall'
-      onDragEnd={() => { setDragID(null) }}
+      onDragEnd={() => setDragID(null)}
       onDragEnter={(e) => handleDragEnter(e, index, data, dragID, setData, setDragID)}
-      onDragOver={allowDrop}
+      onDragOver={stopEvents}
       onDragStart={() => handleDragStart(index, setDragID, setHover)}
-      onMouseEnter={() => { setHover(true) }}
-      onMouseLeave={() => { setHover(false) }}
-      margin={{ right: '0.1em' }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      margin={{ right: '0.15em' }}
       pad='0.2em'
       round={round}
     >
-      <QuietBox pad='0.5em' width='0.1em'>
-        <Menu color={hamburgerColor} size='small' />
-      </QuietBox>
-      <QuietBox basis='80%' wrap>
-        <Text>{datum.transcription}</Text>
-      </QuietBox>
-      <QuietBox basis='5%'>
-        <Flags datum={datum} />
-      </QuietBox>
-      <QuietBox align='end' basis='10%'>
-        <Text>{datum.consensus}/{datum.counts}</Text>
-      </QuietBox>
+      <PointerBox
+        align='center'
+        direction='row'
+        hover={isHover}
+        onMouseUp={() => toggleTranscription()}>
+        <MoveBox
+          onMouseUp={(e) => stopEvents(e)}
+          hover={isHover}
+          pad='0.25em'
+          basis='5%'
+        >
+          <QuietBox>
+            <Menu color={hamburgerColor} size='small' />
+          </QuietBox>
+        </MoveBox>
+        <QuietBox basis='75%'>
+          <Text>{datum.transcription}</Text>
+        </QuietBox>
+        <QuietBox basis='10%'>
+          <Flags datum={datum} />
+        </QuietBox>
+        <QuietBox align='end' basis='10%'>
+          <Text>{datum.consensus}/{datum.counts}</Text>
+        </QuietBox>
+      </PointerBox>
     </Box>
   )
 }
@@ -75,7 +97,8 @@ TranscriptionTableRow.propTypes = {
   dragID: number,
   index: number,
   setData: func,
-  setDragID: func
+  setDragID: func,
+  toggleTranscription: func
 }
 
 TranscriptionTableRow.defaultProps = {
@@ -84,5 +107,9 @@ TranscriptionTableRow.defaultProps = {
   dragID: null,
   index: null,
   setData: () => {},
-  setDragID: () => {}
+  setDragID: () => {},
+  toggleTranscription: () => {}
 }
+
+export { PointerBox, MoveBox }
+export default TranscriptionTableRow
