@@ -34,7 +34,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     try {
       const response = yield client.get(`/transcriptions/${id}`)
       const resource = JSON.parse(response.body)
-      console.log(resource);
       self.asyncState = ASYNC_STATES.READY
       return self.createTranscription(resource.data)
     } catch (error) {
@@ -92,6 +91,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       const newStatus = isOwner ? 'approved' : 'ready'
       query.data.attributes.status = newStatus
     }
+    self.current.status = query.data.attributes.status
     const client = getRoot(self).client.tove
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
   })
