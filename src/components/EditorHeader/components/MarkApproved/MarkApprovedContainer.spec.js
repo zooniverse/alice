@@ -4,12 +4,18 @@ import MODALS from 'helpers/modals'
 import MarkApprovedContainer from './MarkApprovedContainer'
 
 let wrapper
-let useStateSpy
-const setState = jest.fn()
 const toggleModalSpy = jest.fn()
+const updateApprovalSpy = jest.fn()
 const contextValues = {
   modal: {
     toggleModal: toggleModalSpy
+  },
+  projects: {
+    isOwner: false
+  },
+  transcriptions: {
+    approved: true,
+    readyForReview: false
   }
 }
 
@@ -18,8 +24,6 @@ describe('Component > MarkApprovedContainer', function () {
     jest
       .spyOn(React, 'useContext')
       .mockImplementation(() => contextValues )
-    useStateSpy = jest.spyOn(React, 'useState')
-    useStateSpy.mockImplementation((init) => [false, setState])
     wrapper = shallow(<MarkApprovedContainer />);
   })
 
@@ -30,6 +34,17 @@ describe('Component > MarkApprovedContainer', function () {
   it('should call the toggleModal method with child onClick', function() {
     wrapper.props().onChange()
     expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.UNAPPROVED)
-    expect(setState).toHaveBeenCalled()
+  })
+
+  it('should updateApproval if the box is not checked', function() {
+    const updatedContext = Object.assign({}, contextValues)
+    updatedContext.projects.isOwner = false
+    updatedContext.transcriptions.approved = false
+    jest
+      .spyOn(React, 'useContext')
+      .mockImplementation(() => updatedContext )
+    wrapper = shallow(<MarkApprovedContainer />);
+    wrapper.props().onChange()
+    expect(updateApprovalSpy).toHaveBeenCalledWith(false)
   })
 })
