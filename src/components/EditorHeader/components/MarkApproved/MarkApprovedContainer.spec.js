@@ -15,7 +15,8 @@ const contextValues = {
   },
   transcriptions: {
     approved: true,
-    readyForReview: false
+    readyForReview: false,
+    updateApproval: updateApprovalSpy
   }
 }
 

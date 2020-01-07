@@ -39,4 +39,5 @@ MarkApproved.defaultProps = {
   onChange: () => {}
 }
 
+export { MarkApproved }
 export default withThemeContext(MarkApproved, theme)

@@ -88,6 +88,11 @@ describe('ProjectsStore', function () {
     projectsStore.selectProject('2')
     expect(projectsStore.title).toBe(collabProject.display_name)
   })
+
+  it('should get the current role', function () {
+    projectsStore.selectProject('1')
+    expect(projectsStore.role).toBe('Project Owner')
+  })
 })
 
 describe('ProjectsStore getProject', function () {
