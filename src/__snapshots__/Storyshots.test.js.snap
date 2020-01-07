@@ -3046,20 +3046,23 @@ exports[`Storyshots MarkApproved Default 1`] = `
   <label
     checked={false}
     className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+    disabled={false}
     onClick={[Function]}
   >
     <span
       className="StyledText-sc-1sadyjn-0 gcASOG sc-kpOJdX gJaRTc"
     >
-      Mark As Approved
+      Ready For Review
     </span>
     <div
       checked={false}
       className="StyledBox-sc-13pk1d4-0 fdQGpV StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+      disabled={false}
     >
       <input
         checked={false}
-        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 rUrdy"
+        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dmrmuV"
+        disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -3067,11 +3070,13 @@ exports[`Storyshots MarkApproved Default 1`] = `
       />
       <span
         checked={false}
-        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 jSgNzH"
+        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 hjGuWS"
+        disabled={false}
       >
         <span
           checked={false}
           className="StyledCheckBox__StyledCheckBoxKnob-sc-1dbk5ju-5 kGMNhu"
+          disabled={false}
         />
       </span>
     </div>
