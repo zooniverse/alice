@@ -3,6 +3,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { toJS } from 'mobx'
 import Reduction from './Reduction'
+import { request } from 'graphql-request'
 
 let Frame = types.array(Reduction)
 const Extension = types.refinement(types.map(Frame), snapshot => {
@@ -72,11 +73,26 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }),
 
+  fetchExtracts: flow(function * fetchExtracts(id) {
+    const query = `{
+      workflow(id: 3085) {
+        extracts(subjectId: 72815) {
+          data
+        }
+      }
+    }`
+    console.log('FETCHING EXTRACTS');
+    yield request('https://caesar-staging.zooniverse.org/graphql', query).then((data) => {
+      console.log(data);
+    })
+  }),
+
   fetchTranscription: flow(function * fetchTranscription(id) {
     if (!id) return undefined
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
+      yield self.fetchExtracts(id)
       const response = yield client.get(`/transcriptions/${id}`)
       const resource = JSON.parse(response.body)
       self.asyncState = ASYNC_STATES.READY
