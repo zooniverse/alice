@@ -13,7 +13,10 @@ const contextValues = {
       avatar_src: 'source.jpg',
       display_name: 'Test_User',
     }
-  }
+  },
+  projects: {
+    role: 'Project Owner'
+  },
 }
 
 describe('Component > BadgeContainer', function () {
