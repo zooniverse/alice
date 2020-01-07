@@ -78,7 +78,7 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
           </QuietBox>
         </MoveBox>
         <QuietBox basis='75%'>
-          <Text>{datum.transcription}</Text>
+          <Text>{datum.text[0]}</Text>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />

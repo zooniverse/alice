@@ -33,7 +33,7 @@ function TranscriptionTable ({ data, toggleTranscription }) {
         </Box>
       </Box>
       <Box pad={{ bottom: 'xsmall' }}>
-        {dataArray.map((datum, i) => {
+        {data.map((datum, i) => {
           return (
             <TranscriptionTableRow
               data={dataArray}
