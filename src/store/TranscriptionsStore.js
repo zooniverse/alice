@@ -28,7 +28,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   current: types.safeReference(Transcription),
   error: types.optional(types.string, ''),
   page: types.optional(types.number, 0),
-  totalPages: types.optional(types.number, 1)
+  totalPages: types.optional(types.number, 1),
+  extracts: types.array(types.frozen())
 }).actions(self => ({
   checkForFlagUpdate: () => {
     let containsLineFlag = false
@@ -76,15 +77,17 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   fetchExtracts: flow(function * fetchExtracts(id) {
     const query = `{
       workflow(id: 3085) {
-        extracts(subjectId: 72815) {
+        extracts(subjectId: ${id}, extractorKey: "ext-17") {
           data
         }
       }
     }`
-    console.log('FETCHING EXTRACTS');
+    let validExtracts = []
     yield request('https://caesar-staging.zooniverse.org/graphql', query).then((data) => {
-      console.log(data);
+      const index = getRoot(self).subjects.index
+      validExtracts = data.workflow.extracts.filter(extract => extract.data[`frame${index}`])
     })
+    self.extracts = validExtracts
   }),
 
   fetchTranscription: flow(function * fetchTranscription(id) {

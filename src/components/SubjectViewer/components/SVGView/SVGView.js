@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { bool, string, number } from 'prop-types'
 import AnnotationsPane from '../AnnotationsPane'
+import ExtractsPaneContainer from '../AnnotationsPane/ExtractsPaneContainer'
 import InteractionLayer from '../InteractionLayer'
 
 const SVG = styled.svg`
@@ -34,6 +35,7 @@ function SVGView ({ disabled, height, url, transform, width}) {
         />
         <InteractionLayer boundingBox={boundingBox} width={width} height={height} />
         <AnnotationsPane x={width * -0.5} y={height * -0.5} />
+        <ExtractsPaneContainer x={width * -0.5} y={height * -0.5} />
       </G>
     </SVG>
   )
