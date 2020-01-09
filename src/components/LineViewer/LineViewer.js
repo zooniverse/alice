@@ -19,9 +19,16 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 `
 
 function LineViewer ({ reduction, aggregatedText, classifications, closeModal, consensusScore }) {
-  const text = constructText(reduction)
-  console.log(text);
-  console.log(reduction);
+  const textArray = constructText(reduction)
+  const transcriptionArray = textArray.map((text, i) => {
+    return {
+      date: '',
+      goldStandard: (reduction.gold_standard && reduction.gold_standard[i]) || false,
+      userName: 'Anonymous',
+      text
+    }
+  })
+  console.log(transcriptionArray);
 
   return (
     <Box background='white' elevation='small' round='xsmall' width='large'>
@@ -43,7 +50,7 @@ function LineViewer ({ reduction, aggregatedText, classifications, closeModal, c
       </Box>
       <Box border='bottom' margin={{ top: 'xsmall' }}>
         <Box overflow='auto'>
-          {classifications.map((classification, index) => <TranscriptionLine classification={classification} index={index} key={`LINE_${index}`} />)}
+          {transcriptionArray.map((transcription, index) => <TranscriptionLine transcription={transcription} index={index} key={`LINE_${index}`} />)}
         </Box>
         <Box direction='row' margin='xsmall'>
           <Box justify='center' margin={{ left: 'xsmall' }}>

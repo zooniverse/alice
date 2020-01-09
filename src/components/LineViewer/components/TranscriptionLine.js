@@ -12,7 +12,7 @@ const ItalicText = styled(Text)`
   font-style: italic;
 `
 
-function TranscriptionLine ({ classification, index }) {
+function TranscriptionLine ({ transcription, index }) {
   return (
     <Box height={{ min: '3em' }} margin={{ vertical: '0.25em' }}>
       <Box direction='row' justify='between'>
@@ -26,20 +26,20 @@ function TranscriptionLine ({ classification, index }) {
             alignSelf='center'
             margin={{ horizontal: 'xsmall' }}
           >
-            {classification.text}
+            {transcription.text}
           </Text>
         </Box>
-        {classification.goldStandard && (
+        {transcription.goldStandard && (
           <Box alignSelf='center' margin={{ horizontal: 'xsmall' }}>
             <FontAwesomeIcon color='gold' icon={faStar} size='xs' />
           </Box>
         )}
       </Box>
       <Box direction='row' margin={{ left: '4em' }}>
-        <ItalicText>{classification.date}</ItalicText>
+        <ItalicText>{transcription.date}</ItalicText>
         <Text margin={{ horizontal: 'xsmall' }}>&#8226;</Text>
-        <ItalicText>{classification.userName}</ItalicText>
-        {classification.goldStandard && (
+        <ItalicText>{transcription.userName}</ItalicText>
+        {transcription.goldStandard && (
           <Box direction='row'>
             <Text margin={{ horizontal: 'xsmall' }}>&#8226;</Text>
             <ItalicText>Gold Standard</ItalicText>
@@ -51,12 +51,12 @@ function TranscriptionLine ({ classification, index }) {
 }
 
 TranscriptionLine.defaultProps = {
-  classification: null,
+  transcription: null,
   index: 0
 }
 
 TranscriptionLine.propTypes = {
-  classification: PropTypes.shape({
+  transcription: PropTypes.shape({
     date: PropTypes.string,
     goldStandard: PropTypes.bool,
     text: PropTypes.string,
