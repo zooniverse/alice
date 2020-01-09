@@ -15,7 +15,7 @@ const RightAlignText = styled(StyledText)`
   text-align: end;
 `
 
-function TranscriptionTable ({ data, toggleTranscription }) {
+function TranscriptionTable ({ data, setActiveTranscription }) {
   const [dataArray, setData] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
 
@@ -33,7 +33,7 @@ function TranscriptionTable ({ data, toggleTranscription }) {
         </Box>
       </Box>
       <Box pad={{ bottom: 'xsmall' }}>
-        {data.map((datum, i) => {
+        {dataArray.map((datum, i) => {
           return (
             <TranscriptionTableRow
               data={dataArray}
@@ -43,7 +43,7 @@ function TranscriptionTable ({ data, toggleTranscription }) {
               key={`TRANSCRIPTION_ROW_${i}`}
               setData={setData}
               setDragID={setDragID}
-              toggleTranscription={toggleTranscription}
+              setActiveTranscription={setActiveTranscription}
             />
           )
         })}
@@ -54,12 +54,12 @@ function TranscriptionTable ({ data, toggleTranscription }) {
 
 TranscriptionTable.propTypes = {
   data: arrayOf(shape()),
-  toggleTranscription: func
+  setActiveTranscription: func
 }
 
 TranscriptionTable.defaultProps = {
   data: [],
-  toggleTranscription: () => {}
+  setActiveTranscription: () => {}
 }
 
 export default TranscriptionTable

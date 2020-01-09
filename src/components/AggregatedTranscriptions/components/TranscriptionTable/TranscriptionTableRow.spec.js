@@ -11,7 +11,7 @@ let useStateSpy;
 let setDragIDSpy = jest.fn();
 let setDataSpy = jest.fn();
 let setState = jest.fn();
-let toggleTranscriptionSpy = jest.fn();
+let setActiveTranscriptionSpy = jest.fn();
 const preventDefaultSpy = jest.fn()
 const stopPropagationSpy = jest.fn()
 const mockEvent = { preventDefault: preventDefaultSpy, stopPropagation: stopPropagationSpy }
@@ -27,7 +27,7 @@ describe('Component > TranscriptionTable', function () {
         index={0}
         setData={setDataSpy}
         setDragID={setDragIDSpy}
-        toggleTranscription={toggleTranscriptionSpy}
+        setActiveTranscription={setActiveTranscriptionSpy}
       />);
   })
 
@@ -69,10 +69,10 @@ describe('Component > TranscriptionTable', function () {
     expect(stopPropagationSpy).toHaveBeenCalled()
   })
 
-  it('should call toggleTranscription on mouseUp', function () {
+  it('should call setActiveTranscription on mouseUp', function () {
     const toggleBox = wrapper.find(PointerBox).first()
     toggleBox.simulate('mouseUp', mockEvent)
-    expect(toggleTranscriptionSpy).toHaveBeenCalled()
+    expect(setActiveTranscriptionSpy).toHaveBeenCalled()
   })
 
   it('should call stopEvent on child mouseUp', function () {

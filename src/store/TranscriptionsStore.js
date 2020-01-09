@@ -13,6 +13,7 @@ const Transcription = types.model('Transcription', {
 })
 
 const TranscriptionsStore = types.model('TranscriptionsStore', {
+  activeTranscription: types.maybe(types.integer),
   all: types.map(Transcription),
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.safeReference(Transcription),
@@ -109,7 +110,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.current.status = query.data.attributes.status
     const client = getRoot(self).client.tove
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
-  })
+  }),
+
+  setActiveTranscription: function(id) {
+    self.activeTranscription = id
+  }
 })).views(self => ({
   get approved () {
     return !!(self.current && self.current.status === 'approved')

@@ -7,12 +7,13 @@ const mockAggregatedText = 'Mauris elementum pulvinar lacinia. Donec tincidunt p
 
 function LineViewerContainer() {
   const store = React.useContext(AppContext)
+  const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
 
   return (
     <LineViewer
       aggregatedText={mockAggregatedText}
       classifications={mockLines}
-      toggleTranscription={store.aggregations.toggleTranscription}
+      closeModal={closeModal}
     />
   )
 }

@@ -17,7 +17,7 @@ describe('AggregationsStore', function () {
   })
 
   it('should toggle the transcription pane', function () {
-    aggregationsStore.toggleTranscription()
+    aggregationsStore.setActiveTranscription()
     expect(aggregationsStore.showTranscription).toBe(true)
   })
 })

@@ -38,7 +38,7 @@ function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
   setData(copiedArray)
 }
 
-function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID, toggleTranscription }) {
+function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID, setActiveTranscription }) {
   const [isHover, setHover] = React.useState(false)
   const isDragging = dragID === index
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
@@ -54,7 +54,7 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
       gap='xsmall'
       onDragEnd={() => setDragID(null)}
       onDragEnter={(e) => handleDragEnter(e, index, data, dragID, setData, setDragID)}
-      onDragOver={stopEvents}
+      onDragOver={(e) => stopEvents(e)}
       onDragStart={() => handleDragStart(index, setDragID, setHover)}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -66,7 +66,7 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
         align='center'
         direction='row'
         hover={isHover}
-        onMouseUp={() => toggleTranscription()}>
+        onMouseUp={() => setActiveTranscription(index)}>
         <MoveBox
           onMouseUp={(e) => stopEvents(e)}
           hover={isHover}
@@ -98,7 +98,7 @@ TranscriptionTableRow.propTypes = {
   index: number,
   setData: func,
   setDragID: func,
-  toggleTranscription: func
+  setActiveTranscription: func
 }
 
 TranscriptionTableRow.defaultProps = {
@@ -108,7 +108,7 @@ TranscriptionTableRow.defaultProps = {
   index: null,
   setData: () => {},
   setDragID: () => {},
-  toggleTranscription: () => {}
+  setActiveTranscription: () => {}
 }
 
 export { PointerBox, MoveBox }

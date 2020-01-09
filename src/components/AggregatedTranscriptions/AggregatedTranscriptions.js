@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
-import { bool, shape} from 'prop-types'
+import { bool, number, shape} from 'prop-types'
 import Overlay from '../Overlay'
 import TranscriptionTable from './components/TranscriptionTable'
 import LineViewer from '../LineViewer'
@@ -38,7 +38,7 @@ const OverflowBox = styled(Box)`
   }
 `
 
-function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
+function AggregatedTranscriptions ({ activeTranscription, margin, showOverlay }) {
   return (
     <StyledBox height='large'>
       <Box background='white' margin={margin} round='xsmall'>
@@ -54,13 +54,13 @@ function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
         <OverflowBox>
           <TranscriptionTable />
         </OverflowBox>
-        {(showOverlay || showTranscription) && (
+        {(showOverlay || activeTranscription) && (
           <AbsoluteBox background={{ color: 'white', opacity: 'medium' }} fill margin={margin} opacity='0.5' round='xsmall'>
             <Overlay />
           </AbsoluteBox>
         )}
       </Box>
-      {showTranscription && (
+      {activeTranscription && (
         <AbsoluteBox align='center' background='transparent' pad={{ right: 'small' }} fill justify='center'>
           <LineViewer />
         </AbsoluteBox>
@@ -70,15 +70,15 @@ function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
 }
 
 AggregatedTranscriptions.propTypes = {
+  activeTranscription: number,
   margin: shape(),
   showOverlay: bool,
-  showTranscription: bool
 }
 
 AggregatedTranscriptions.defaultProps = {
+  activeTranscription: undefined,
   margin: {},
   showOverlay: false,
-  showTranscription: false
 }
 
 export default AggregatedTranscriptions
