@@ -13,7 +13,7 @@ const Transcription = types.model('Transcription', {
 })
 
 const TranscriptionsStore = types.model('TranscriptionsStore', {
-  activeTranscription: types.maybe(types.integer),
+  activeTranscriptionIndex: types.maybe(types.integer),
   all: types.map(Transcription),
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.safeReference(Transcription),
@@ -113,7 +113,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }),
 
   setActiveTranscription: function(id) {
-    self.activeTranscription = id
+    self.activeTranscriptionIndex = id
   }
 })).views(self => ({
   get approved () {

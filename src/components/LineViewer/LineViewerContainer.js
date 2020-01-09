@@ -8,12 +8,18 @@ const mockAggregatedText = 'Mauris elementum pulvinar lacinia. Donec tincidunt p
 function LineViewerContainer() {
   const store = React.useContext(AppContext)
   const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
+  const subjectIndex = store.subjects.index
+  const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
+  const reduction = store.transcriptions.current &&
+    store.transcriptions.current.text &&
+    store.transcriptions.current.text[`frame${subjectIndex}`][transcriptionIndex]
 
   return (
     <LineViewer
       aggregatedText={mockAggregatedText}
       classifications={mockLines}
       closeModal={closeModal}
+      reduction={reduction}
     />
   )
 }

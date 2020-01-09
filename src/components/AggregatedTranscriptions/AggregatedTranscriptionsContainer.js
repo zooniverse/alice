@@ -6,14 +6,13 @@ import AggregatedTranscriptions from './AggregatedTranscriptions'
 function AggregatedTranscriptionsContainer({ margin }) {
   const store = React.useContext(AppContext)
   const showOverlay = store.aggregations.showModal || store.transcriptions.approved
-  const showTranscription = store.aggregations.showTranscription
-  const activeTranscription = store.transcriptions.activeTranscription
+  const showTranscription = store.transcriptions.activeTranscriptionIndex !== undefined
 
   return (
     <AggregatedTranscriptions
-      activeTranscription={activeTranscription}
       margin={margin}
       showOverlay={showOverlay}
+      showTranscription={showTranscription}
     />
   )
 }

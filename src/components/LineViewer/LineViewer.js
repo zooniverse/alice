@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { constructText } from 'helpers/parseTranscriptionData'
 import TranscriptionLine from './components/TranscriptionLine'
 import withThemeContext from '../../helpers/withThemeContext'
 import theme from './theme'
@@ -17,7 +18,11 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   opacity: 0.5;
 `
 
-function LineViewer ({ aggregatedText, classifications, closeModal, consensusScore }) {
+function LineViewer ({ reduction, aggregatedText, classifications, closeModal, consensusScore }) {
+  const text = constructText(reduction)
+  console.log(text);
+  console.log(reduction);
+
   return (
     <Box background='white' elevation='small' round='xsmall' width='large'>
       <Box border='bottom' pad='xsmall'>
@@ -32,7 +37,7 @@ function LineViewer ({ aggregatedText, classifications, closeModal, consensusSco
             <StyledFontAwesomeIcon color='green' icon={faCircle} size='xs' />
           </Box>
           <Box justify='center'>
-            <Text>{consensusScore}/{classifications.length}</Text>
+            <Text>{reduction.consensus_score}/{reduction.number_views}</Text>
           </Box>
         </Box>
       </Box>

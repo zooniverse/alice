@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
-import constructText from 'helpers/constructText'
+import { constructText } from 'helpers/parseTranscriptionData'
 import TranscriptionTable from './TranscriptionTable'
 
 function TranscriptionTableContainer() {
