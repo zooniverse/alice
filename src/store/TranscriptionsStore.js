@@ -75,10 +75,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }),
 
   fetchExtracts: flow(function * fetchExtracts(id) {
+    const workflowId = getRoot(self).workflows.current.id
     const query = `{
-      workflow(id: 3085) {
+      workflow(id: ${workflowId}) {
         extracts(subjectId: ${id}, extractorKey: "ext-17") {
-          data
+          data, userId
         }
       }
     }`

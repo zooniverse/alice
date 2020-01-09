@@ -1,12 +1,13 @@
 import React from 'react'
 import { array, string } from 'prop-types'
+import indexToRainbow from 'helpers/indexToRainbow'
 
-function AnnotationsPane({ lines, x, y }) {
+function AnnotationsPane({ color, lines, x, y }) {
   const offset = `translate(${x}, ${y})`
 
   return (
     <g transform={offset}>
-      {lines.map((line, i) => {
+      {lines.map((line, index) => {
         const svgPoints = []
         const svgLines = []
 
@@ -15,7 +16,7 @@ function AnnotationsPane({ lines, x, y }) {
           svgPoints.push(
             <circle
               key={`SVG_DOT_${i}`}
-              cx={point.x} cy={point.y} r={10} fill="#FF0000"
+              cx={point.x} cy={point.y} r={10} fill={color}
             />
           )
           if (i > 0) {
@@ -25,14 +26,14 @@ function AnnotationsPane({ lines, x, y }) {
                 key={`SVG_LINE_${i}`}
                 x1={prevPoint.x} y1={prevPoint.y}
                 x2={point.x} y2={point.y}
-                stroke="#FF0000" strokeWidth="2"
+                stroke={color} strokeWidth="2"
               />
             )
           }
         }
 
         return (
-          <g key={`TRANSCRIPTION_${i}`}>
+          <g key={`TRANSCRIPTION_${index}`}>
             {svgLines}
             {svgPoints}
           </g>
@@ -43,11 +44,13 @@ function AnnotationsPane({ lines, x, y }) {
 }
 
 AnnotationsPane.propTypes = {
+  color: string,
   lines: array,
   offset: string
 }
 
 AnnotationsPane.defaultProps = {
+  color: '#FF0000',
   lines: [],
   offset: ''
 }
