@@ -3,7 +3,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 
 const Transcription = types.model('Transcription', {
   id: types.identifier,
-  flaggedid: types.optional(types.boolean, false),
+  flagged: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
   status: types.optional(types.string, ''),
   text: types.optional(types.frozen(), {}),

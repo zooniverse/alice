@@ -19,7 +19,7 @@ function ResourcesTable(props) {
   }
 
   return (
-    <Box align='center' background='white' fill='horizontal' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
+    <Box background='white' fill='horizontal' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
       {props.searching && <SearchTags />}
 
       {props.data.length > 0 &&
