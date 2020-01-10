@@ -3,6 +3,7 @@ import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import styled from 'styled-components'
 import { arrayOf, func, number, shape } from 'prop-types'
+import { constructText } from 'helpers/parseTranscriptionData'
 import { Flags } from './Flags'
 
 const QuietBox = styled(Box)`
@@ -29,21 +30,31 @@ function stopEvents(e) {
   e.stopPropagation()
 }
 
-function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
+function handleDragEnter(e, dropID, data, dragID, moveData, setDragID) {
   e.preventDefault()
   let copiedArray = data.slice()
   const itemToMove = copiedArray.splice(dragID, 1)[0]
   copiedArray.splice(dropID,0,itemToMove)
   setDragID(dropID)
-  setData(copiedArray)
+  moveData(copiedArray)
 }
 
-function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID, setActiveTranscription }) {
+function TranscriptionTableRow({
+  data,
+  datum,
+  dragID,
+  index,
+  moveData,
+  setActiveTranscription,
+  setDragID,
+  setTextObject
+}) {
   const [isHover, setHover] = React.useState(false)
   const isDragging = dragID === index
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
   const elevation = isHover || isDragging ? 'small' : 'none'
   const round = isHover || isDragging ? 'xsmall' : 'none'
+  const text = constructText(datum)
 
   return (
     <Box
@@ -52,8 +63,11 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
       elevation={elevation}
       flex={false}
       gap='xsmall'
-      onDragEnd={() => setDragID(null)}
-      onDragEnter={(e) => handleDragEnter(e, index, data, dragID, setData, setDragID)}
+      onDragEnd={() => {
+        setTextObject(data);
+        setDragID(null)
+      }}
+      onDragEnter={(e) => handleDragEnter(e, index, data, dragID, moveData, setDragID)}
       onDragOver={(e) => stopEvents(e)}
       onDragStart={() => handleDragStart(index, setDragID, setHover)}
       onMouseEnter={() => setHover(true)}
@@ -78,7 +92,7 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
           </QuietBox>
         </MoveBox>
         <QuietBox basis='75%'>
-          <Text>{datum.text[0]}</Text>
+          <Text>{text[0]}</Text>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />
@@ -96,7 +110,7 @@ TranscriptionTableRow.propTypes = {
   data: arrayOf(shape()),
   dragID: number,
   index: number,
-  setData: func,
+  moveData: func,
   setDragID: func,
   setActiveTranscription: func
 }
@@ -106,7 +120,7 @@ TranscriptionTableRow.defaultProps = {
   data: [],
   dragID: null,
   index: null,
-  setData: () => {},
+  moveData: () => {},
   setDragID: () => {},
   setActiveTranscription: () => {}
 }

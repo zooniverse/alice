@@ -21,6 +21,7 @@
     "mobx-react": "^6.1.1",
     "mobx-state-tree": "^3.14.1",
     "panoptes-client": "3.0.0-rc.0",
+    "ramda": "^0.26.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-rnd": "^10.1.1",

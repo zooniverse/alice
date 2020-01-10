@@ -15,8 +15,8 @@ const RightAlignText = styled(StyledText)`
   text-align: end;
 `
 
-function TranscriptionTable ({ data, setActiveTranscription }) {
-  const [dataArray, setData] = React.useState(data)
+function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
+  const [dataArray, moveData] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
 
   return (
@@ -41,9 +41,10 @@ function TranscriptionTable ({ data, setActiveTranscription }) {
               dragID={dragID}
               index={i}
               key={`TRANSCRIPTION_ROW_${i}`}
-              setData={setData}
-              setDragID={setDragID}
+              moveData={moveData}
               setActiveTranscription={setActiveTranscription}
+              setDragID={setDragID}
+              setTextObject={setTextObject}
             />
           )
         })}

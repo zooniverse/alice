@@ -1,5 +1,26 @@
 import { flow, getRoot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
+import * as Ramda from 'ramda'
+
+const Reduction = types.model('Reduction', {
+  clusters_x: types.array(types.number),
+  clusters_y: types.array(types.number),
+  clusters_text: types.array(types.array(types.string)),
+  consensus_score: types.number,
+  line_slope: types.number,
+  number_views: types.integer,
+  user_ids: types.array(types.integer),
+  extract_index: types.array(types.integer),
+  gold_standard: types.array(types.boolean),
+  slope_label: types.integer,
+  gutter_label: types.integer,
+  low_consensus: types.optional(types.boolean, false)
+})
+
+let Frame = types.array(Reduction)
+const Extension = types.refinement(types.map(Frame), snapshot => {
+  return Ramda.all(Ramda.startsWith('frame'), Ramda.keys(snapshot))
+})
 
 const Transcription = types.model('Transcription', {
   id: types.identifier,
@@ -8,8 +29,8 @@ const Transcription = types.model('Transcription', {
   low_consensus_lines: types.optional(types.integer, 0),
   pages: types.optional(types.integer, 0),
   status: types.optional(types.string, ''),
-  text: types.optional(types.frozen(), {}),
-  transcribed_lines: types.optional(types.integer, 0)
+  transcribed_lines: types.optional(types.integer, 0),
+  text: Extension
 })
 
 const TranscriptionsStore = types.model('TranscriptionsStore', {
@@ -24,6 +45,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   createTranscription: (transcription) => {
     const text = transcription.attributes.text
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
+    const textObject = transcription.attributes.text
+    delete textObject.aggregation_version
     return Transcription.create({
       id: transcription.id,
       flagged: transcription.attributes.flagged,
@@ -31,7 +54,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       low_consensus_lines: text.low_consensus_lines,
       pages,
       status: transcription.attributes.status,
-      text,
+      text: textObject,
       transcribed_lines: text.transcribed_lines
     })
   },
@@ -89,6 +112,13 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.setTranscription(transcription)
     self.current = id || undefined
   }),
+
+  setTextObject: (text) => {
+    console.log('hey there', text);
+    const index = getRoot(self).subjects.index
+    console.log(self.current.text.set(`frame${index}`, text));
+    self.current.text[`frame${index}`] = text
+  },
 
   setTranscription: (transcription) => {
     if (transcription) {

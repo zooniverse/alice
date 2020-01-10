@@ -9,7 +9,7 @@ function AnnotationsPaneContainer({ x, y }) {
   const store = React.useContext(AppContext)
   const index = store.subjects.index
   const transcription = store.transcriptions.current
-  const transcriptionFrame = transcription && transcription.text && transcription.text[`frame${index}`]
+  const transcriptionFrame = transcription && transcription.text && transcription.text.get(`frame${index}`)
   if (transcriptionFrame) {
     parsedLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
   }
