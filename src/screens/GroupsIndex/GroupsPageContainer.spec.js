@@ -5,11 +5,15 @@ import { GroupsPageContainer } from './GroupsPageContainer'
 
 let wrapper
 const getResourcesSpy = jest.fn()
+const selectGroupSpy = jest.fn()
+const setPageSpy = jest.fn()
 const pushSpy = jest.fn()
 const contextValues = {
   getResources: getResourcesSpy,
   groups: {
-    all: { values: () => [] }
+    all: [],
+    selectGroup: selectGroupSpy,
+    setPage: setPageSpy
   }
 }
 const history = { push: pushSpy }
@@ -39,6 +43,12 @@ describe('Component > GroupsPageContainer', function () {
     const group = { id: 1 }
     table.props().onSelection(group);
     expect(pushSpy).toHaveBeenCalled()
+  })
+
+  it('child should call setPage', function () {
+    const table = wrapper.find(ResourcesTable).first()
+    table.props().setStep(1);
+    expect(setPageSpy).toHaveBeenCalled()
   })
 
   describe('useEffect hook', function () {

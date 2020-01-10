@@ -11,7 +11,10 @@ let toveStubArray = {
     {
       body: JSON.stringify(
         {
-          data: [WorkflowFactory.build(), workflowTwo]
+          data: [WorkflowFactory.build(), workflowTwo],
+          meta: {
+            pagination: { last: 1 }
+          }
         })
     }
   )
@@ -22,7 +25,10 @@ let toveStub = {
     {
       body: JSON.stringify(
         {
-          data: workflowTwo
+          data: workflowTwo,
+          meta: {
+            pagination: { last: 1 }
+          }
         })
     }
   )
@@ -46,7 +52,7 @@ describe('WorkflowsStore', function () {
       expect(workflowsStore).toBeDefined()
     })
 
-    it('should fetch transcriptions', async function () {
+    it('should fetch workflows', async function () {
       await workflowsStore.fetchWorkflows()
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.READY)
       expect(workflowsStore.all.size).toBe(2)
@@ -94,6 +100,12 @@ describe('WorkflowsStore', function () {
       await workflowsStore.getWorkflow('1')
       expect(workflowsStore.error).toBe(error.message)
       expect(workflowsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+    })
+
+    it('should not set a workflow if give the wrong info', function () {
+      expect(workflowsStore.all.size).toBe(0)
+      workflowsStore.setWorkflow(1)
+      expect(workflowsStore.all.size).toBe(0)
     })
   })
 })

@@ -43,7 +43,7 @@ class StepNavigation extends React.Component {
         }
       })
       return (
-        <Box direction='row'>
+        <Box direction='row' margin={{ top: 'small' }}>
           <StyledButton
             data-index={prevStep}
             disabled={activeStep === 0}

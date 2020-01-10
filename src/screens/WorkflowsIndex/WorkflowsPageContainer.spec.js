@@ -51,6 +51,12 @@ describe('Component > WorkflowsPageContainer', function () {
       expect(pushSpy).toHaveBeenCalled()
     })
 
+    it('should call the child setStep function', function () {
+      const table = wrapper.find(ResourcesTable).first()
+      table.props().setStep(1)
+      expect(fetchWorkflowsSpy).toHaveBeenCalled()
+    })
+
     it('should pass the error prop', function () {
       const table = wrapper.find(ResourcesTable).first()
       expect(table.props().error).toBe(contextValues.workflows.error)

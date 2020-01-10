@@ -13,7 +13,9 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   all: types.map(Workflow),
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.safeReference(Workflow),
-  error: types.optional(types.string, '')
+  error: types.optional(types.string, ''),
+  page: types.optional(types.number, 0),
+  totalPages: types.optional(types.number, 1)
 }).actions(self => ({
   createWorkflow: (workflow) => {
     return Workflow.create({
@@ -24,13 +26,15 @@ const WorkflowsStore = types.model('WorkflowsStore', {
     })
   },
 
-  fetchWorkflows: flow (function * fetchWorkflows(projectId) {
+  fetchWorkflows: flow (function * fetchWorkflows(id, page = 0) {
+    self.page = page
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
-      const response = yield client.get(`/workflows?filter[project_id_eq]=${projectId}`)
-      const workflows = JSON.parse(response.body)
-      workflows.data.forEach(workflow => self.all.put(self.createWorkflow(workflow)))
+      const response = yield client.get(`/workflows?filter[project_id_eq]=${id}&page[number]=${self.page+1}`)
+      const resources = JSON.parse(response.body)
+      self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
+      resources.data.forEach(workflow => self.all.put(self.createWorkflow(workflow)))
       self.asyncState = ASYNC_STATES.READY
     } catch (error) {
       console.warn(error);

@@ -14,7 +14,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   all: types.map(Transcription),
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.safeReference(Transcription),
-  error: types.optional(types.string, '')
+  error: types.optional(types.string, ''),
+  page: types.optional(types.number, 0),
+  totalPages: types.optional(types.number, 1)
 }).actions(self => ({
   createTranscription: (transcription) => {
     return Transcription.create({
@@ -44,14 +46,16 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }),
 
-  fetchTranscriptions: flow (function * fetchTranscriptions() {
+  fetchTranscriptions: flow (function * fetchTranscriptions(page = 0) {
+    self.page = page
     const client = getRoot(self).client.tove
     const groupName = getRoot(self).groups.title
     if (!groupName) return
     self.asyncState = ASYNC_STATES.LOADING
     try {
-      const response = yield client.get(`/transcriptions?filter[group_id_eq]=${groupName}`)
+      const response = yield client.get(`/transcriptions?filter[group_id_eq]=${groupName}&page[number]=${self.page + 1}`)
       const resources = JSON.parse(response.body)
+      self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
       resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
       self.asyncState = ASYNC_STATES.READY
     } catch (error) {

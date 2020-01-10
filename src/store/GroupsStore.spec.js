@@ -18,9 +18,13 @@ describe('GroupsStore', function () {
     expect(editorStore.current).toEqual(group)
   })
 
-  it('should set to undefined if no group provided', function () {
+  it('should set a default group if none provided', function () {
+    const emptyGroup = {
+      display_name: '',
+      subjects: 0
+    }
     editorStore.selectGroup(null)
-    expect(editorStore.current).toEqual(undefined)
+    expect(editorStore.current).toEqual(emptyGroup)
   })
 
   it('should set groups', function () {
@@ -29,10 +33,17 @@ describe('GroupsStore', function () {
       GROUP_2: 2
     }
     const outcome = [
-      { display_name: 'GROUP_1', subjects: 1 },
-      { display_name: 'GROUP_2', subjects: 2 }
+      [
+        { display_name: 'GROUP_1', subjects: 1 },
+        { display_name: 'GROUP_2', subjects: 2 }
+      ]
     ]
     editorStore.setGroups(input)
-    expect(Array.from(editorStore.all.values())).toEqual(outcome)
+    expect(editorStore.all).toEqual(outcome)
+  })
+
+  it('should set the page', function () {
+    editorStore.setPage(2)
+    expect(editorStore.page).toBe(2)
   })
 })

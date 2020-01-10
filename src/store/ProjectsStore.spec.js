@@ -58,6 +58,12 @@ describe('ProjectsStore', function () {
     expect(projectsStore).toBeDefined()
   })
 
+  it('should not set a workflow if give the wrong info', function () {
+    expect(projectsStore.all.size).toBe(0)
+    projectsStore.setProject(1)
+    expect(projectsStore.all.size).toBe(0)
+  })
+
   it('should fetch projects', async function () {
     await projectsStore.getProjects()
     const mergedOwnerProject = { ...ownedProject, role: roles[ownedProject.id] }

@@ -24,15 +24,24 @@ function WorkflowsPageContainer({ history, match }) {
   }
   const workflows = Array.from(store.workflows.all.values())
 
+  const onSetPage = (page) => {
+    const projectId = match.params && match.params.project
+    store.workflows.fetchWorkflows(projectId, page)
+  }
+  const steps = Array.from(Array(store.workflows.totalPages).keys())
+
   return (
     <Box margin='medium' fill='vertical'>
       <ResourcesTable
+        activeStep={store.workflows.page}
         columns={COLUMNS}
         data={workflows}
         error={store.workflows.error}
         onSelection={onSelection}
         resource='Workflows'
+        setStep={onSetPage}
         status={store.workflows.asyncState}
+        steps={steps}
       />
     </Box>
   )

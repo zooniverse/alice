@@ -9,7 +9,7 @@ import Page4 from '../../images/mockImages/page4.jpg'
 import Page5 from '../../images/mockImages/page5.jpg'
 import Page6 from '../../images/mockImages/page6.jpg'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
-import StepNavigation from './components/StepNavigation'
+import StepNavigation from '../StepNavigation'
 import Overlay from '../Overlay'
 
 let wrapper;

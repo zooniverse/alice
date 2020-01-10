@@ -1,6 +1,5 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
-import { Group } from './GroupsStore'
 import TranscriptionFactory from './factories/transcription'
 
 let transcriptionsStore
@@ -12,7 +11,10 @@ let toveStub = {
     {
       body: JSON.stringify(
         {
-          data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: 'approved', subject_id: '2' }})]
+          data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: 'approved', subject_id: '2' }})],
+          meta: {
+            pagination: { last: 1 }
+          }
         })
     }
   )
@@ -28,8 +30,9 @@ describe('TranscriptionsStore', function () {
       rootStore = AppStore.create({
         client: { tove: toveStub },
         groups: {
-          all: { GROUP_1: { display_name: 'GROUP_1' } },
-          current: 'GROUP_1'
+          current: {
+            display_name: 'GROUP_1'
+          }
         }
       })
       transcriptionsStore = rootStore.transcriptions
@@ -69,10 +72,18 @@ describe('TranscriptionsStore', function () {
       rootStore = AppStore.create({
         client: { tove: failedToveStub },
         groups: {
-          all: { GROUP_1: { display_name: 'GROUP_1' } },
-          current: 'GROUP_1'
+          current: {
+            display_name: 'GROUP_1'
+          }
         }
       })
+    })
+
+    it('should not set a workflow if give the wrong info', function () {
+      transcriptionsStore = rootStore.transcriptions
+      expect(transcriptionsStore.all.size).toBe(0)
+      transcriptionsStore.setTranscription(1)
+      expect(transcriptionsStore.all.size).toBe(0)
     })
 
     it('should handle an error when fetching transcriptions', async function () {
