@@ -1,4 +1,4 @@
-import { flow, getRoot, types } from 'mobx-state-tree'
+import { getRoot, types } from 'mobx-state-tree'
 
 const TYPES = {
   ZOONIVERSE: 'ZOONIVERSE ID',
@@ -25,18 +25,18 @@ const SearchStore = types.model('SearchStore', {
   clearIdTags: function() {
     self.id = ''
     self.type = ''
-    self.searchByArgs()
+    getRoot(self).transcriptions.fetchTranscriptions()
   },
 
   clearTag: function(tag) {
     self[tag] = false
-    self.searchByArgs()
+    getRoot(self).transcriptions.fetchTranscriptions()
   },
 
-  fetchTranscriptionsByFilter: flow(function * fetchTranscriptionsByFilter(group) {
+  fetchTranscriptionsByFilter: function fetchTranscriptionsByFilter() {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
-    let query = ''
+    let queries = []
     const approvalFilters = ['unseen', 'in_progress', 'ready', 'approved']
     const additionalFilters = ['flagged', 'low_consensus']
     const activeApprovalFilters = []
@@ -50,24 +50,23 @@ const SearchStore = types.model('SearchStore', {
     })
 
     if (activeApprovalFilters.length > 0) {
-      query += 'filter[status_in]='
-      activeApprovalFilters.forEach(filter => query += `${STATUS[filter]},`)
+      const filters = activeApprovalFilters.map(filter => STATUS[filter]).join(',')
+      queries.push(`filter[status_in]=${filters}`)
     }
 
     if (activeAdditionalFilters.length > 0) {
-      if (query.length > 0) query += '&'
-      activeAdditionalFilters.forEach(filter => query += `filter[${filter}_eq]=true&`)
+      activeAdditionalFilters.forEach(filter => queries.push(`filter[${filter}_eq]=true`))
     }
 
-    yield transcriptions.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${group}&${query}`)
-  }),
+    return queries.join('&')
+  },
 
-  fetchTranscriptionsById: flow(function * fetchTranscriptionsById(group) {
+  fetchTranscriptionsById: function fetchTranscriptionsById() {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
     const searchType = self.type === TYPES.ZOONIVERSE ? 'subject_id' : 'internal_id'
-    yield transcriptions.retrieveTranscriptions(`/transcriptions?filter[${searchType}_eq]=${self.id}&filter[group_id_eq]=${group}`)
-  }),
+    return `filter[${searchType}_eq]=${self.id}`
+  },
 
   setArgs: function setArgs(args) {
     Object.keys(args).forEach(key => {
@@ -87,17 +86,18 @@ const SearchStore = types.model('SearchStore', {
 
   searchTranscriptions: function searchTranscriptions(args) {
     self.setArgs(args)
-    self.searchByArgs()
+    getRoot(self).transcriptions.fetchTranscriptions()
   },
 
-  searchByArgs: function() {
-    const group = getRoot(self).groups.title
+  getSearchQuery: function() {
+    let query = ''
     if (self.id.length > 0 && self.type.length > 0) {
-      self.fetchTranscriptionsById(group)
+      query = self.fetchTranscriptionsById()
     } else {
-      self.fetchTranscriptionsByFilter(group)
+      query = self.fetchTranscriptionsByFilter()
     }
     getRoot(self).modal.toggleModal('')
+    return query.length > 0 ? `&${query}` : query
   }
 })).views(self => ({
   get active() {

@@ -48,7 +48,6 @@ function SubjectsPageContainer ({ history, match }) {
         searching={store.search.active}
         setStep={onSetPage}
         status={store.transcriptions.asyncState}
-        state={store.transcriptions.asyncState}
         steps={steps}
       />
     </Box>
