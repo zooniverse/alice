@@ -98,7 +98,7 @@ function TranscriptionTableRow({
           <Flags datum={datum} />
         </QuietBox>
         <QuietBox align='end' basis='10%'>
-          <Text>{datum.consensus}/{datum.counts}</Text>
+          <Text>{datum.consensus_score}/{datum.number_views}</Text>
         </QuietBox>
       </PointerBox>
     </Box>

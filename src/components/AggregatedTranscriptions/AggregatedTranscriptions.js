@@ -51,7 +51,7 @@ function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
           <Text>Transcribed Text</Text>
           <CapitalText>Add Line</CapitalText>
         </Box>
-        <OverflowBox>
+        <OverflowBox fill='vertical'>
           <TranscriptionTable />
         </OverflowBox>
         {(showOverlay || showTranscription) && (

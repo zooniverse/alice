@@ -1,8 +1,12 @@
 import React from 'react'
-import { Box } from 'grommet'
+import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { arrayOf, shape, func } from 'prop-types'
 import TranscriptionTableRow from './TranscriptionTableRow'
+
+const OverflowBox = styled(Box)`
+  position: absolute;
+`
 
 const StyledText = styled('h6')`
   font-weight: normal;
@@ -18,9 +22,13 @@ const RightAlignText = styled(StyledText)`
 function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
   const [dataArray, moveData] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
+  const emptyData = data.length === 0 || data[0].clusters_text.length === 0
+
+  React.useEffect(() => moveData(data), [data])
+  const background = emptyData ? { color: 'light-2', opacity: 'strong' } : {}
 
   return (
-    <Box>
+    <Box round={{ size: 'xsmall', corner: 'bottom' }}>
       <Box direction='row' margin={{ horizontal: 'xsmall' }} pad={{ vertical: 'xsmall' }}>
         <Box basis='80%' margin={{ left: 'small' }}>
           <StyledText>Aggregated Transcription</StyledText>
@@ -49,6 +57,11 @@ function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
           )
         })}
       </Box>
+      {emptyData && (
+        <OverflowBox background={background} fill pad='medium'>
+          <Text size='xsmall'>This page does not contain transcription data.</Text>
+        </OverflowBox>
+      )}
     </Box>
   )
 }

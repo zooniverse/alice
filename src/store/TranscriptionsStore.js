@@ -114,9 +114,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }),
 
   setTextObject: (text) => {
-    console.log('hey there', text);
     const index = getRoot(self).subjects.index
-    console.log(self.current.text.set(`frame${index}`, text));
     self.current.text[`frame${index}`] = text
   },
 
