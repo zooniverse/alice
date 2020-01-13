@@ -54,7 +54,6 @@ function TranscriptionTableRow({
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
   const elevation = isHover || isDragging ? 'small' : 'none'
   const round = isHover || isDragging ? 'xsmall' : 'none'
-  const text = constructText(datum)
 
   return (
     <Box
@@ -92,7 +91,7 @@ function TranscriptionTableRow({
           </QuietBox>
         </MoveBox>
         <QuietBox basis='75%'>
-          <Text>{text[0]}</Text>
+          <Text>{datum.consensus_text}</Text>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />

@@ -6,6 +6,7 @@ const Reduction = types.model('Reduction', {
   clusters_x: types.array(types.number),
   clusters_y: types.array(types.number),
   clusters_text: types.array(types.array(types.string)),
+  consensus_text: types.optional(types.string, ''),
   consensus_score: types.number,
   line_slope: types.number,
   number_views: types.integer,

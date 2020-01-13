@@ -18,7 +18,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   opacity: 0.5;
 `
 
-function LineViewer ({ reduction, aggregatedText, classifications, closeModal, consensusScore }) {
+function LineViewer ({ reduction, classifications, closeModal, consensusScore }) {
   const textArray = constructText(reduction)
   const transcriptionArray = textArray.map((text, i) => {
     return {
@@ -37,12 +37,14 @@ function LineViewer ({ reduction, aggregatedText, classifications, closeModal, c
           <CapitalText size='xsmall'>Consensus Score</CapitalText>
         </Box>
         <Box direction='row' justify='between' pad={{ top: 'xsmall' }}>
-          <Text weight='bold'>{aggregatedText}</Text>
-          <Box basis='15%' direction='row' align='center'>
+          <Box fill='horizontal'>
+            <Text weight='bold'>{reduction.consensus_text}</Text>
+          </Box>
+          <Box align='center' direction='row' justify='center' margin='xsmall'>
             <StyledFontAwesomeIcon color='tomato' icon={faCircle} size='xs' />
             <StyledFontAwesomeIcon color='green' icon={faCircle} size='xs' />
           </Box>
-          <Box basis='15%' justify='center'>
+          <Box justify='center'>
             <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
           </Box>
         </Box>
@@ -75,14 +77,12 @@ function LineViewer ({ reduction, aggregatedText, classifications, closeModal, c
 }
 
 LineViewer.defaultProps = {
-  aggregatedText: '',
   classifications: [],
   closeModal: () => {},
   consensusScore: 0
 }
 
 LineViewer.propTypes = {
-  aggregatedText: PropTypes.string,
   classifications: PropTypes.array,
   closeModal: PropTypes.func,
   consensusScore: PropTypes.number
