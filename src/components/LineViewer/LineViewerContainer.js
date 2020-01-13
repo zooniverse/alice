@@ -12,7 +12,7 @@ function LineViewerContainer() {
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
   const reduction = store.transcriptions.current &&
     store.transcriptions.current.text &&
-    store.transcriptions.current.text[`frame${subjectIndex}`][transcriptionIndex]
+    store.transcriptions.current.text.get(`frame${subjectIndex}`)[transcriptionIndex]
 
   return (
     <LineViewer

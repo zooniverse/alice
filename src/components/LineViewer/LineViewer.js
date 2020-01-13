@@ -28,7 +28,6 @@ function LineViewer ({ reduction, aggregatedText, classifications, closeModal, c
       text
     }
   })
-  console.log(transcriptionArray);
 
   return (
     <Box background='white' elevation='small' round='xsmall' width='large'>
@@ -39,12 +38,12 @@ function LineViewer ({ reduction, aggregatedText, classifications, closeModal, c
         </Box>
         <Box direction='row' justify='between' pad={{ top: 'xsmall' }}>
           <Text weight='bold'>{aggregatedText}</Text>
-          <Box basis='10%' direction='row' align='center'>
+          <Box basis='15%' direction='row' align='center'>
             <StyledFontAwesomeIcon color='tomato' icon={faCircle} size='xs' />
             <StyledFontAwesomeIcon color='green' icon={faCircle} size='xs' />
           </Box>
-          <Box justify='center'>
-            <Text>{reduction.consensus_score}/{reduction.number_views}</Text>
+          <Box basis='15%' justify='center'>
+            <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
           </Box>
         </Box>
       </Box>
