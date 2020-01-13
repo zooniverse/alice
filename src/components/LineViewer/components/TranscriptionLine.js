@@ -4,22 +4,26 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import withThemeContext from '../../../helpers/withThemeContext'
-import theme from './theme'
 import indexToColor from '../../../helpers/indexToColor'
 
 const ItalicText = styled(Text)`
   font-style: italic;
 `
 
-function TranscriptionLine ({ transcription, index }) {
+function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
   return (
     <Box height={{ min: '3em' }} margin={{ vertical: '0.25em' }}>
       <Box direction='row' justify='between'>
         <Box direction='row'>
           <Box align='end' background={indexToColor(index)} height='fit-content' width='2.5em'>
             <Box pad='0.2em'>
-              <CheckBox />
+              <CheckBox
+                checked={selectedItem === index}
+                onChange={() => {
+                  const setTo = selectedItem === index ? null : index
+                  setItem(setTo)
+                }}
+              />
             </Box>
           </Box>
           <Text
@@ -51,11 +55,15 @@ function TranscriptionLine ({ transcription, index }) {
 }
 
 TranscriptionLine.defaultProps = {
+  selectedItem: null,
+  setItem: () => {},
   transcription: null,
   index: 0
 }
 
 TranscriptionLine.propTypes = {
+  selectedItem: PropTypes.number,
+  setItem: PropTypes.func,
   transcription: PropTypes.shape({
     date: PropTypes.string,
     goldStandard: PropTypes.bool,
@@ -65,4 +73,4 @@ TranscriptionLine.propTypes = {
   index: PropTypes.number
 }
 
-export default withThemeContext(TranscriptionLine, theme)
+export default TranscriptionLine

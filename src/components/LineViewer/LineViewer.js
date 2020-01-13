@@ -18,8 +18,9 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   opacity: 0.5;
 `
 
-function LineViewer ({ reduction, classifications, closeModal, consensusScore }) {
+function LineViewer ({ reduction, classifications, closeModal, consensusScore, selectedItem, setItem }) {
   const textArray = constructText(reduction)
+  const textOptions = textArray.slice()
   const transcriptionArray = textArray.map((text, i) => {
     return {
       date: '',
@@ -28,6 +29,7 @@ function LineViewer ({ reduction, classifications, closeModal, consensusScore })
       text
     }
   })
+  const textInputPos = transcriptionArray.length
 
   return (
     <Box background='white' elevation='small' round='xsmall' width='large'>
@@ -51,14 +53,31 @@ function LineViewer ({ reduction, classifications, closeModal, consensusScore })
       </Box>
       <Box border='bottom' margin={{ top: 'xsmall' }}>
         <Box overflow='auto'>
-          {transcriptionArray.map((transcription, index) => <TranscriptionLine transcription={transcription} index={index} key={`LINE_${index}`} />)}
+          {transcriptionArray.map((transcription, index) =>
+            <TranscriptionLine
+              transcription={transcription}
+              index={index}
+              key={`LINE_${index}`}
+              selectedItem={selectedItem}
+              setItem={setItem}
+            />)}
         </Box>
         <Box direction='row' margin='xsmall'>
           <Box justify='center' margin={{ left: 'xsmall' }}>
-            <CheckBox />
+            <CheckBox
+              checked={selectedItem === textInputPos}
+              onChange={() => {
+                const setTo = selectedItem === textInputPos ? null : textInputPos
+                setItem(setTo)
+              }}
+            />
           </Box>
           <Box fill='horizontal' margin='xsmall'>
-            <TextInput placeholder='Write new...' size='small' />
+            <TextInput
+              onChange={e => textOptions[textInputPos] = e.target.value}
+              placeholder='Write new...'
+              size='small'
+            />
           </Box>
         </Box>
       </Box>
@@ -79,13 +98,17 @@ function LineViewer ({ reduction, classifications, closeModal, consensusScore })
 LineViewer.defaultProps = {
   classifications: [],
   closeModal: () => {},
-  consensusScore: 0
+  consensusScore: 0,
+  selectedItem: null,
+  setItem: () => {}
 }
 
 LineViewer.propTypes = {
   classifications: PropTypes.array,
   closeModal: PropTypes.func,
-  consensusScore: PropTypes.number
+  consensusScore: PropTypes.number,
+  selectedItem: PropTypes.number,
+  setItem: PropTypes.func
 }
 
 export default withThemeContext(LineViewer, theme)

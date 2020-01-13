@@ -3,7 +3,6 @@ import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import styled from 'styled-components'
 import { arrayOf, func, number, shape } from 'prop-types'
-import { constructText } from 'helpers/parseTranscriptionData'
 import { Flags } from './Flags'
 
 const QuietBox = styled(Box)`

@@ -5,6 +5,7 @@ import mockLines from './mockLines'
 
 function LineViewerContainer() {
   const store = React.useContext(AppContext)
+  const [selectedItem, setItem] = React.useState()
   const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
   const subjectIndex = store.subjects.index
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
@@ -17,6 +18,8 @@ function LineViewerContainer() {
       classifications={mockLines}
       closeModal={closeModal}
       reduction={reduction}
+      selectedItem={selectedItem}
+      setItem={setItem}
     />
   )
 }
