@@ -1,29 +1,14 @@
 import { AppStore } from './AppStore'
 
 let searchStore
-const resetTranscriptionsSpy = jest.fn()
-const retrieveTranscriptionsSpy = jest.fn()
-const toggleModalSpy = jest.fn()
+const fetchTranscriptionsSpy = jest.fn()
 
 describe('SearchStore', function () {
   beforeEach(function () {
-    const rootStore = AppStore.create({
-      groups: {
-        all: { A_TITLE: { display_name: 'A_TITLE' } },
-        current: 'A_TITLE'
-      }
-    })
+    const rootStore = AppStore.create()
     Object.defineProperty(
-      rootStore.modal, 'toggleModal',
-      { writable: true, value: toggleModalSpy }
-    )
-    Object.defineProperty(
-      rootStore.transcriptions, 'reset',
-      { writable: true, value: resetTranscriptionsSpy }
-    )
-    Object.defineProperty(
-      rootStore.transcriptions, 'retrieveTranscriptions',
-      { writable: true, value: retrieveTranscriptionsSpy }
+      rootStore.transcriptions, 'fetchTranscriptions',
+      { writable: true, value: fetchTranscriptionsSpy }
     )
     searchStore = rootStore.search
   })
@@ -37,54 +22,39 @@ describe('SearchStore', function () {
   it('should searchTranscriptions and fetch by approved', function() {;
     searchStore.searchTranscriptions({ approved: true })
     expect(searchStore.approved).toBe(true)
-    expect(toggleModalSpy).toHaveBeenCalled()
-    expect(resetTranscriptionsSpy).toHaveBeenCalled()
-    expect(retrieveTranscriptionsSpy).toHaveBeenCalledWith(
-      `/transcriptions?filter[group_id_eq]=A_TITLE&filter[status_in]=2,`
-    )
+    expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    expect(searchStore.getSearchQuery()).toBe(`&filter[status_in]=2`)
   })
 
   it('should searchTranscriptions and fetch by flagged', function() {;
     searchStore.searchTranscriptions({ flagged: true })
     expect(searchStore.flagged).toBe(true)
-    expect(toggleModalSpy).toHaveBeenCalled()
-    expect(resetTranscriptionsSpy).toHaveBeenCalled()
-    expect(retrieveTranscriptionsSpy).toHaveBeenCalledWith(
-      `/transcriptions?filter[group_id_eq]=A_TITLE&filter[flagged_eq]=true&`
-    )
+    expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    expect(searchStore.getSearchQuery()).toBe(`&filter[flagged_eq]=true`)
   })
 
   it('should searchTranscriptions by an approval and additional filter', function () {
     searchStore.searchTranscriptions({ low_consensus: true, unseen: true })
     expect(searchStore.low_consensus).toBe(true)
     expect(searchStore.unseen).toBe(true)
-    expect(toggleModalSpy).toHaveBeenCalled()
-    expect(resetTranscriptionsSpy).toHaveBeenCalled()
-    expect(retrieveTranscriptionsSpy).toHaveBeenCalledWith(
-      `/transcriptions?filter[group_id_eq]=A_TITLE&filter[status_in]=0,&filter[low_consensus_eq]=true&`
-    )
+    expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    expect(searchStore.getSearchQuery()).toBe(`&filter[status_in]=0&filter[low_consensus_eq]=true`)
   })
 
   it('should searchTranscriptions and fetch by subject_id', function() {;
     searchStore.searchTranscriptions({ id: '1', type: 'ZOONIVERSE ID' })
     expect(searchStore.id).toBe('1')
     expect(searchStore.type).toBe('ZOONIVERSE ID')
-    expect(toggleModalSpy).toHaveBeenCalled()
-    expect(resetTranscriptionsSpy).toHaveBeenCalled()
-    expect(retrieveTranscriptionsSpy).toHaveBeenCalledWith(
-      `/transcriptions?filter[subject_id_eq]=1&filter[group_id_eq]=A_TITLE`
-    )
+    expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    expect(searchStore.getSearchQuery()).toBe(`&filter[subject_id_eq]=1`)
   })
 
   it('should searchTranscriptions and fetch by internal_id', function() {;
     searchStore.searchTranscriptions({ id: '1', type: 'INTERNAL ID' })
     expect(searchStore.id).toBe('1')
     expect(searchStore.type).toBe('INTERNAL ID')
-    expect(toggleModalSpy).toHaveBeenCalled()
-    expect(resetTranscriptionsSpy).toHaveBeenCalled()
-    expect(retrieveTranscriptionsSpy).toHaveBeenCalledWith(
-      `/transcriptions?filter[internal_id_eq]=1&filter[group_id_eq]=A_TITLE`
-    )
+    expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    expect(searchStore.getSearchQuery()).toBe(`&filter[internal_id_eq]=1`)
   })
 
   it('should reset args', function() {
