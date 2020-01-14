@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { bool, shape} from 'prop-types'
+import { observer } from 'mobx-react'
 import Overlay from '../Overlay'
 import TranscriptionTable from './components/TranscriptionTable'
 import LineViewer from '../LineViewer'
@@ -81,4 +82,4 @@ AggregatedTranscriptions.defaultProps = {
   showTranscription: false
 }
 
-export default AggregatedTranscriptions
+export default observer(AggregatedTranscriptions)

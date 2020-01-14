@@ -1,5 +1,6 @@
 import React from 'react'
 import AppContext from 'store'
+import { observer } from 'mobx-react'
 import LineViewer from './LineViewer'
 import mockLines from './mockLines'
 
@@ -12,11 +13,13 @@ function LineViewerContainer() {
   const reduction = store.transcriptions.current &&
     store.transcriptions.current.text &&
     store.transcriptions.current.text.get(`frame${subjectIndex}`)[transcriptionIndex]
+  const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
 
   return (
     <LineViewer
       classifications={mockLines}
       closeModal={closeModal}
+      consensusText={consensusText}
       reduction={reduction}
       selectedItem={selectedItem}
       setItem={setItem}
@@ -24,4 +27,4 @@ function LineViewerContainer() {
   )
 }
 
-export default LineViewerContainer
+export default observer(LineViewerContainer)

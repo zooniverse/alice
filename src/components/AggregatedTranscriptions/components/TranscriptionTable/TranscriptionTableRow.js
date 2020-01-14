@@ -3,6 +3,7 @@ import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import styled from 'styled-components'
 import { arrayOf, func, number, shape } from 'prop-types'
+import { observer } from 'mobx-react'
 import { Flags } from './Flags'
 
 const QuietBox = styled(Box)`
@@ -90,7 +91,7 @@ function TranscriptionTableRow({
           </QuietBox>
         </MoveBox>
         <QuietBox basis='75%'>
-          <Text>{datum.consensus_text}</Text>
+          <Text>{datum.edited_consensus_text || datum.consensus_text}</Text>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />
@@ -124,4 +125,4 @@ TranscriptionTableRow.defaultProps = {
 }
 
 export { PointerBox, MoveBox }
-export default TranscriptionTableRow
+export default observer(TranscriptionTableRow)

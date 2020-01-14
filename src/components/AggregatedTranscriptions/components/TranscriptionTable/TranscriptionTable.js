@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { arrayOf, shape, func } from 'prop-types'
+import { observer } from 'mobx-react'
 import TranscriptionTableRow from './TranscriptionTableRow'
 
 const OverflowBox = styled(Box)`
@@ -76,4 +77,4 @@ TranscriptionTable.defaultProps = {
   setActiveTranscription: () => {}
 }
 
-export default TranscriptionTable
+export default observer(TranscriptionTable)

@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, CheckBox, Text } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { observer } from 'mobx-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import indexToColor from '../../../helpers/indexToColor'
@@ -73,4 +74,4 @@ TranscriptionLine.propTypes = {
   index: PropTypes.number
 }
 
-export default TranscriptionLine
+export default observer(TranscriptionLine)

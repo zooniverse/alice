@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Button, CheckBox, Text, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { observer } from 'mobx-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import { constructText } from 'helpers/parseTranscriptionData'
@@ -18,7 +19,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   opacity: 0.5;
 `
 
-function LineViewer ({ reduction, classifications, closeModal, consensusScore, selectedItem, setItem }) {
+function LineViewer ({ consensusText, reduction, classifications, closeModal, consensusScore, selectedItem, setItem }) {
   const textArray = constructText(reduction)
   const textOptions = textArray.slice()
   const transcriptionArray = textArray.map((text, i) => {
@@ -30,6 +31,9 @@ function LineViewer ({ reduction, classifications, closeModal, consensusScore, s
     }
   })
   const textInputPos = transcriptionArray.length
+  const replaceWithSelected = () => {
+    reduction.setConsensusText(textOptions[selectedItem])
+  }
 
   return (
     <Box background='white' elevation='small' round='xsmall' width='large'>
@@ -40,7 +44,7 @@ function LineViewer ({ reduction, classifications, closeModal, consensusScore, s
         </Box>
         <Box direction='row' justify='between' pad={{ top: 'xsmall' }}>
           <Box fill='horizontal'>
-            <Text weight='bold'>{reduction.consensus_text}</Text>
+            <Text weight='bold'>{consensusText}</Text>
           </Box>
           <Box align='center' direction='row' justify='center' margin='xsmall'>
             <StyledFontAwesomeIcon color='tomato' icon={faCircle} size='xs' />
@@ -84,10 +88,14 @@ function LineViewer ({ reduction, classifications, closeModal, consensusScore, s
       <Box direction='row' justify='between' margin='xsmall'>
         <Box direction='row'>
           <Button margin={{ right: 'small' }}><CapitalText>Add Line Below</CapitalText></Button>
-          <Button><CapitalText>Delete Line</CapitalText></Button>
+          <Button onClick={() => test()}><CapitalText>Delete Line</CapitalText></Button>
         </Box>
-        <Box direction='row'>
-          <Button margin={{ right: 'small' }}><CapitalText>Replace With Selected</CapitalText></Button>
+        <Box direction='row' gap='small'>
+          {selectedItem === null ? (
+            <Button><CapitalText>Replace With Original</CapitalText></Button>
+          ) : (
+            <Button onClick={replaceWithSelected}><CapitalText>Replace With Selected</CapitalText></Button>
+          )}
           <Button onClick={closeModal}><CapitalText>Close</CapitalText></Button>
         </Box>
       </Box>
@@ -111,4 +119,4 @@ LineViewer.propTypes = {
   setItem: PropTypes.func
 }
 
-export default withThemeContext(LineViewer, theme)
+export default observer(withThemeContext(LineViewer, theme))

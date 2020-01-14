@@ -8,6 +8,7 @@ const Reduction = types.model('Reduction', {
   clusters_text: types.array(types.array(types.string)),
   consensus_text: types.optional(types.string, ''),
   consensus_score: types.number,
+  edited_consensus_text: types.optional(types.string, ''),
   line_slope: types.number,
   number_views: types.integer,
   user_ids: types.array(types.integer),
@@ -17,6 +18,11 @@ const Reduction = types.model('Reduction', {
   gutter_label: types.integer,
   low_consensus: types.optional(types.boolean, false)
 })
+.actions(self => ({
+  setConsensusText: (text) => {
+    self.edited_consensus_text = text
+  }
+}))
 
 let Frame = types.array(Reduction)
 const Extension = types.refinement(types.map(Frame), snapshot => {
