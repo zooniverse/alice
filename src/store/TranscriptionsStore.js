@@ -2,11 +2,10 @@ import { flow, getRoot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 
 const Transcription = types.model('Transcription', {
-  id: types.optional(types.string, ''),
+  id: types.identifier,
   flaggedid: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
   status: types.optional(types.string, ''),
-  subject_id: types.identifier,
   text: types.optional(types.frozen(), {}),
 })
 
@@ -24,7 +23,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       flagged: transcription.attributes.flagged,
       group_id: transcription.attributes.group_id,
       status: transcription.attributes.status,
-      subject_id: transcription.attributes.subject_id.toString(),
       text: transcription.attributes.text
     })
   },
@@ -34,11 +32,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
-      const response = yield client.get(`/transcriptions?filter[subject_id_eq]=${id}`)
+      const response = yield client.get(`/transcriptions/${id}`)
       const resource = JSON.parse(response.body)
       self.asyncState = ASYNC_STATES.READY
-      // TODO: Line below will have to change to resource.data when Tove begins delivering a single transcription
-      return self.createTranscription(resource.data[0])
+      return self.createTranscription(resource.data)
     } catch (error) {
       console.warn(error);
       self.error = error.message
@@ -98,7 +95,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   get title () {
-    return (self.current && self.current.subject_id) || ''
+    return (self.current && self.current.id) || ''
   }
 }))
 
