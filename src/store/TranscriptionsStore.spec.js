@@ -6,12 +6,26 @@ let transcriptionsStore
 let rootStore
 let simpleTranscription = TranscriptionFactory.build({ status: 'approved' })
 
-let toveStub = {
+let fetchTranscriptionsStub = {
   get: () => Promise.resolve(
     {
       body: JSON.stringify(
         {
           data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: 'approved', subject_id: '2' }})],
+          meta: {
+            pagination: { last: 1 }
+          }
+        })
+    }
+  )
+}
+
+let fetchTranscriptionStub = {
+  get: () => Promise.resolve(
+    {
+      body: JSON.stringify(
+        {
+          data: TranscriptionFactory.build(),
           meta: {
             pagination: { last: 1 }
           }
@@ -25,10 +39,10 @@ let failedToveStub = {
 }
 
 describe('TranscriptionsStore', function () {
-  describe('success state', function () {
+  describe('success state fetching multiple transcriptions', function () {
     beforeEach(function () {
       rootStore = AppStore.create({
-        client: { tove: toveStub },
+        client: { tove: fetchTranscriptionsStub },
         groups: {
           current: {
             display_name: 'GROUP_1'
@@ -60,7 +74,19 @@ describe('TranscriptionsStore', function () {
       expect(transcriptionsStore.current).toEqual(transcription)
     })
 
+  })
+
+  describe('success state fetching single transcription', function () {
     it('should fetch a single transcription', async function () {
+      rootStore = AppStore.create({
+        client: { tove: fetchTranscriptionStub },
+        groups: {
+          current: {
+            display_name: 'GROUP_1'
+          }
+        }
+      })
+      transcriptionsStore = rootStore.transcriptions
       const returnValue = await transcriptionsStore.fetchTranscription('1')
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.READY)
       expect(returnValue).toBeDefined()
