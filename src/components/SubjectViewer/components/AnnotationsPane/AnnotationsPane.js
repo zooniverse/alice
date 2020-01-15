@@ -2,12 +2,13 @@ import React from 'react'
 import { array, string } from 'prop-types'
 import indexToRainbow from 'helpers/indexToRainbow'
 
-function AnnotationsPane({ color, lines, x, y }) {
+function AnnotationsPane({ lines, x, y }) {
   const offset = `translate(${x}, ${y})`
 
   return (
     <g transform={offset}>
       {lines.map((line, index) => {
+        const color = indexToRainbow(index % 11) 
         const svgPoints = []
         const svgLines = []
 
@@ -44,13 +45,11 @@ function AnnotationsPane({ color, lines, x, y }) {
 }
 
 AnnotationsPane.propTypes = {
-  color: string,
   lines: array,
   offset: string
 }
 
 AnnotationsPane.defaultProps = {
-  color: '#FF0000',
   lines: [],
   offset: ''
 }
