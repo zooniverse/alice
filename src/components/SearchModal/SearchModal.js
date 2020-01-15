@@ -148,15 +148,6 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                       title='flagged'
                     />
                   </FormField>
-                  <FormField htmlFor='low_consensus'>
-                    <SearchCheckBox
-                      checked={values.low_consensus}
-                      disabled={disableCheckbox}
-                      label='LOW CONSENSUS SCORE'
-                      onChange={handleChange}
-                      title='low_consensus'
-                    />
-                  </FormField>
                 </Box>
               </Box>
               <Box direction='row' justify='between' margin={{ top: 'small' }}>

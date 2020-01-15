@@ -3567,53 +3567,6 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                     </label>
                   </div>
                 </div>
-                <div
-                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
-                />
-                <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
-                >
-                  <div
-                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
-                  >
-                    <label
-                      checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
-                      disabled={false}
-                      htmlFor="low_consensus"
-                      onClick={[Function]}
-                    >
-                      <div
-                        checked={false}
-                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
-                        disabled={false}
-                      >
-                        <input
-                          checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
-                          disabled={false}
-                          id="low_consensus"
-                          name="low_consensus"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onFocus={[Function]}
-                          type="checkbox"
-                        />
-                        <div
-                          checked={false}
-                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
-                          disabled={false}
-                        />
-                      </div>
-                      <span
-                        className="StyledText-sc-1sadyjn-0 bEMqcB"
-                        size="small"
-                      >
-                        LOW CONSENSUS SCORE
-                      </span>
-                    </label>
-                  </div>
-                </div>
               </div>
             </div>
             <div
