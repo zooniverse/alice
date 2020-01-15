@@ -43,7 +43,7 @@ function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
       <Box direction='row' margin={{ left: '4em' }}>
         <ItalicText>{transcription.date}</ItalicText>
         <Text margin={{ horizontal: 'xsmall' }}>&#8226;</Text>
-        <ItalicText>{transcription.userName}</ItalicText>
+        <ItalicText size='xsmall'>{transcription.userName}</ItalicText>
         {transcription.goldStandard && (
           <Box direction='row'>
             <Text margin={{ horizontal: 'xsmall' }}>&#8226;</Text>

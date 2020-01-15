@@ -14,6 +14,10 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
+const ItalicText = styled(Text)`
+  font-style: italic;
+`
+
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   height: 0.5em;
   opacity: 0.5;
@@ -30,9 +34,10 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
       text
     }
   })
-  const textInputPos = transcriptionArray.length
+  const textInputPos = transcriptionArray.length + 1
   const replaceWithSelected = () => {
-    reduction.setConsensusText(textOptions[selectedItem])
+    const isAlgorithmChoice = selectedItem === transcriptionArray.length
+    reduction.setConsensusText(textOptions[selectedItem], isAlgorithmChoice)
   }
 
   return (
@@ -60,8 +65,8 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
           </Box>
         </Box>
       </Box>
-      <Box border='bottom' margin={{ top: 'xsmall' }}>
-        <Box gap='xsmall' overflow='auto'>
+      <Box border='bottom'>
+        <Box gap='xsmall' margin={{ vertical: 'xsmall' }} overflow='auto'>
           {transcriptionArray.map((transcription, index) =>
             <TranscriptionLine
               transcription={transcription}
@@ -71,8 +76,21 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
               setItem={setItem}
             />)}
         </Box>
-        <Box direction='row' margin='xsmall'>
-          <Box justify='center' margin={{ left: 'xsmall' }}>
+        <Box border='top' gap='xsmall' margin={{ horizontal: 'small', bottom: 'xsmall' }} pad={{ top: 'xsmall' }}>
+          <Box>
+            <Box direction='row' gap='xsmall'>
+              <CheckBox
+                checked={selectedItem === transcriptionArray.length}
+                onChange={() => {
+                  const setTo = selectedItem === transcriptionArray.length ? null : transcriptionArray.length
+                  setItem(setTo)
+                }}
+              />
+              <Text>{reduction.consensus_text}</Text>
+            </Box>
+            <ItalicText margin={{ left: 'medium' }} size='xsmall'>aggregated transcription (via algorithm)</ItalicText>
+          </Box>
+          <Box direction='row' gap='xsmall'>
             <CheckBox
               checked={selectedItem === textInputPos}
               onChange={() => {
@@ -80,13 +98,13 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
                 setItem(setTo)
               }}
             />
-          </Box>
-          <Box fill='horizontal' margin='xsmall'>
-            <TextInput
-              onChange={e => textOptions[textInputPos] = e.target.value}
-              placeholder='Write new...'
-              size='small'
-            />
+            <Box fill='horizontal'>
+              <TextInput
+                onChange={e => textOptions[textInputPos] = e.target.value}
+                placeholder='Write new...'
+                size='xsmall'
+              />
+            </Box>
           </Box>
         </Box>
       </Box>

@@ -19,8 +19,8 @@ const Reduction = types.model('Reduction', {
   low_consensus: types.optional(types.boolean, false)
 })
 .actions(self => ({
-  setConsensusText: (text) => {
-    self.edited_consensus_text = text
+  setConsensusText: (text, isOriginalOption = false) => {
+    self.edited_consensus_text = isOriginalOption ? '' : text
   }
 }))
 

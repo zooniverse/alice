@@ -33,9 +33,9 @@ const theme = {
     container: {
       extend: props => `
         input {
-          background: #DEDEDE;
+          background: #EBEBEB;
           font-style: italic;
-          padding: 0.25em;
+          padding: 0.2em;
         }
       `
     }
