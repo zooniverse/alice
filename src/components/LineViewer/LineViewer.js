@@ -37,12 +37,17 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
 
   return (
     <Box background='white' elevation='small' round='xsmall' width='large'>
-      <Box border='bottom' pad='xsmall'>
-        <Box direction='row' justify='between'>
-          <CapitalText size='xsmall'>Aggregated Transcription</CapitalText>
-          <CapitalText size='xsmall'>Consensus Score</CapitalText>
+      <Box border='bottom' pad={{ top: 'xsmall', horizontal: 'xsmall' }}>
+        <Box align='center' direction='row' justify='between'>
+          <Box basis='80%'>
+            <CapitalText size='0.6em' weight='bold'>Selected Transcription</CapitalText>
+          </Box>
+          <Box align='center' basis='20%' direction='row' gap='xsmall'>
+            <CapitalText size='0.6em' weight='bold'>Flag</CapitalText>
+            <CapitalText textAlign='end' size='0.6em' weight='bold'>Consensus Score</CapitalText>
+          </Box>
         </Box>
-        <Box direction='row' justify='between' pad={{ top: 'xsmall' }}>
+        <Box align='center' direction='row' justify='between'>
           <Box fill='horizontal'>
             <Text weight='bold'>{consensusText}</Text>
           </Box>
@@ -56,7 +61,7 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
         </Box>
       </Box>
       <Box border='bottom' margin={{ top: 'xsmall' }}>
-        <Box overflow='auto'>
+        <Box gap='xsmall' overflow='auto'>
           {transcriptionArray.map((transcription, index) =>
             <TranscriptionLine
               transcription={transcription}
@@ -85,18 +90,18 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
           </Box>
         </Box>
       </Box>
-      <Box direction='row' justify='between' margin='xsmall'>
+      <Box direction='row' justify='between' margin={{ horizontal: 'xsmall', bottom: 'xsmall', top: '0.25em' }}>
         <Box direction='row'>
-          <Button margin={{ right: 'small' }}><CapitalText>Add Line Below</CapitalText></Button>
-          <Button onClick={() => test()}><CapitalText>Delete Line</CapitalText></Button>
+          <Button margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
+          <Button onClick={() => test()}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
         </Box>
         <Box direction='row' gap='small'>
           {selectedItem === null ? (
-            <Button><CapitalText>Replace With Original</CapitalText></Button>
+            <Button><CapitalText size='xsmall'>Replace With Original</CapitalText></Button>
           ) : (
-            <Button onClick={replaceWithSelected}><CapitalText>Replace With Selected</CapitalText></Button>
+            <Button onClick={replaceWithSelected}><CapitalText size='xsmall'>Replace With Selected</CapitalText></Button>
           )}
-          <Button onClick={closeModal}><CapitalText>Close</CapitalText></Button>
+          <Button onClick={closeModal}><CapitalText size='xsmall'>Close</CapitalText></Button>
         </Box>
       </Box>
     </Box>

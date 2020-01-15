@@ -17,11 +17,15 @@ const theme = {
         background: 'black',
       }
     },
-    size: '0.75em',
+    size: '0.5em',
     extend: props => `
       div {
+        border: none
+      }
+
+      > div {
         background: white;
-        border: 1px solid black;
+        border: 0.5px solid black;
       }
     `,
   },

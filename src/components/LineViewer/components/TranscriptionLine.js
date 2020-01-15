@@ -13,11 +13,11 @@ const ItalicText = styled(Text)`
 
 function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
   return (
-    <Box height={{ min: '3em' }} margin={{ vertical: '0.25em' }}>
+    <Box height={{ min: '2em' }}>
       <Box direction='row' justify='between'>
         <Box direction='row'>
-          <Box align='end' background={indexToColor(index)} height='fit-content' width='2.5em'>
-            <Box pad='0.2em'>
+          <Box align='end' background={indexToColor(index)} height='fit-content' width='1.75em'>
+            <Box pad='0.15em'>
               <CheckBox
                 checked={selectedItem === index}
                 onChange={() => {

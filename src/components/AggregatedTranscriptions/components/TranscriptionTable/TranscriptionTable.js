@@ -13,6 +13,7 @@ const StyledText = styled('h6')`
   font-weight: normal;
   line-height: 1.25em;
   margin: 0;
+  text-transform: uppercase;
 `
 
 const RightAlignText = styled(StyledText)`
@@ -30,15 +31,15 @@ function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
 
   return (
     <Box round={{ size: 'xsmall', corner: 'bottom' }}>
-      <Box direction='row' margin={{ horizontal: 'xsmall' }} pad={{ vertical: 'xsmall' }}>
-        <Box basis='80%' margin={{ left: 'small' }}>
+      <Box align='center' direction='row' margin={{ horizontal: 'xsmall' }} pad={{ vertical: 'xsmall' }}>
+        <Box basis='80%' margin={{ left: 'xsmall' }}>
           <StyledText>Aggregated Transcription</StyledText>
         </Box>
         <Box>
           <StyledText>Flag</StyledText>
         </Box>
         <Box>
-          <RightAlignText>Consensus Line</RightAlignText>
+          <RightAlignText>Consensus Score</RightAlignText>
         </Box>
       </Box>
       <Box pad={{ bottom: 'xsmall' }}>

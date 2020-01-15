@@ -83,20 +83,20 @@ function TranscriptionTableRow({
         <MoveBox
           onMouseUp={(e) => stopEvents(e)}
           hover={isHover}
-          pad='0.25em'
-          basis='5%'
+          pad='0.2em'
+          basis='4%'
         >
           <QuietBox>
-            <Menu color={hamburgerColor} size='small' />
+            <Menu color={hamburgerColor} size='xsmall' />
           </QuietBox>
         </MoveBox>
-        <QuietBox basis='75%'>
+        <QuietBox basis='76%'>
           <Text>{datum.edited_consensus_text || datum.consensus_text}</Text>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />
         </QuietBox>
-        <QuietBox align='end' basis='10%'>
+        <QuietBox align='end' basis='10%' pad={{ right: '0.25em' }}>
           <Text>{parseFloat(datum.consensus_score.toFixed(1))}/{datum.number_views}</Text>
         </QuietBox>
       </PointerBox>

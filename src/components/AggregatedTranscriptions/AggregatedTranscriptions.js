@@ -47,10 +47,10 @@ function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
           border={{ color: 'light-5', side: 'bottom' }}
           direction='row'
           justify='between'
-          pad={{ horizontal: 'small', bottom: 'small', top: 'xsmall' }}
+          pad={{ left: '1em', right: 'xsmall', bottom: 'xsmall', top: 'xsmall' }}
         >
           <Text>Transcribed Text</Text>
-          <CapitalText>Add Line</CapitalText>
+          <CapitalText size='xsmall'>Add Line</CapitalText>
         </Box>
         <OverflowBox fill='vertical'>
           <TranscriptionTable />
