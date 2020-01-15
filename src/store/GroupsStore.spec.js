@@ -13,7 +13,7 @@ describe('GroupsStore', function () {
 
   it('should select a group', function () {
     const group = { display_name: 'A_GROUP', subjects: 1 }
-    editorStore.setGroups({ A_GROUP: 1 })
+    editorStore.setGroups({ A_GROUP: { transcription_count: 1 } })
     editorStore.selectGroup(group.display_name)
     expect(editorStore.current).toEqual(group)
   })
@@ -29,8 +29,8 @@ describe('GroupsStore', function () {
 
   it('should set groups', function () {
     const input = {
-      GROUP_1: 1,
-      GROUP_2: 2
+      GROUP_1: { transcription_count: 1 },
+      GROUP_2: { transcription_count: 2 }
     }
     const outcome = [
       [

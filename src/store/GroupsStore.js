@@ -28,7 +28,7 @@ const GroupsStore = types.model('GroupsStore', {
     const unchunkedArray = Object.keys(groups).map((key) => {
       return Group.create({
         display_name: key,
-        subjects: groups[key]
+        subjects: groups[key].transcription_count
       })
     })
 
