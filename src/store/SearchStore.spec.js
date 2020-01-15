@@ -23,7 +23,7 @@ describe('SearchStore', function () {
     searchStore.searchTranscriptions({ approved: true })
     expect(searchStore.approved).toBe(true)
     expect(fetchTranscriptionsSpy).toHaveBeenCalled()
-    expect(searchStore.getSearchQuery()).toBe(`&filter[status_in]=2`)
+    expect(searchStore.getSearchQuery()).toBe(`&filter[status_in]=approved`)
   })
 
   it('should searchTranscriptions and fetch by flagged', function() {;
@@ -38,7 +38,7 @@ describe('SearchStore', function () {
     expect(searchStore.low_consensus).toBe(true)
     expect(searchStore.unseen).toBe(true)
     expect(fetchTranscriptionsSpy).toHaveBeenCalled()
-    expect(searchStore.getSearchQuery()).toBe(`&filter[status_in]=0&filter[low_consensus_eq]=true`)
+    expect(searchStore.getSearchQuery()).toBe(`&filter[status_in]=unseen&filter[low_consensus_eq]=true`)
   })
 
   it('should searchTranscriptions and fetch by subject_id', function() {;

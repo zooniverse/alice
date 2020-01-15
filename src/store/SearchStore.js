@@ -5,13 +5,6 @@ const TYPES = {
   INTERNAL: 'INTERNAL ID'
 }
 
-const STATUS = {
-  unseen: 0,
-  ready: 1,
-  approved: 2,
-  in_progress: 3
-}
-
 const SearchStore = types.model('SearchStore', {
   approved: types.optional(types.boolean, false),
   flagged: types.optional(types.boolean, false),
@@ -50,8 +43,7 @@ const SearchStore = types.model('SearchStore', {
     })
 
     if (activeApprovalFilters.length > 0) {
-      const filters = activeApprovalFilters.map(filter => STATUS[filter]).join(',')
-      queries.push(`filter[status_in]=${filters}`)
+      queries.push(`filter[status_in]=${activeApprovalFilters.join(',')}`)
     }
 
     if (activeAdditionalFilters.length > 0) {
