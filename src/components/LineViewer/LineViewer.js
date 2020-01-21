@@ -119,11 +119,7 @@ function LineViewer ({
           <Button onClick={() => test()}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
         </Box>
         <Box direction='row' gap='small'>
-          {selectedItem === null ? (
-            <Button><CapitalText size='xsmall'>Replace With Original</CapitalText></Button>
-          ) : (
-            <Button onClick={replaceWithSelected}><CapitalText size='xsmall'>Replace With Selected</CapitalText></Button>
-          )}
+          <Button disabled={!selectedItem} onClick={replaceWithSelected}><CapitalText size='xsmall'>Replace With Selected</CapitalText></Button>
           <Button onClick={closeModal}><CapitalText size='xsmall'>Close</CapitalText></Button>
         </Box>
       </Box>

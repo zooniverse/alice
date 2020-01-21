@@ -24,7 +24,7 @@ const RightAlignText = styled(StyledText)`
 function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
   const [dataArray, moveData] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
-  const emptyData = data.length === 0 || data[0].clusters_text.length === 0
+  const emptyData = data.length === 0
 
   React.useEffect(() => moveData(data), [data])
   const background = emptyData ? { color: 'light-2', opacity: 'strong' } : {}

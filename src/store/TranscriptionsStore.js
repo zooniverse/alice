@@ -1,6 +1,7 @@
 import { flow, getRoot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
+import { toJS } from 'mobx'
 
 const Reduction = types.model('Reduction', {
   clusters_x: types.array(types.number),
@@ -122,6 +123,18 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.selectTranscription(null)
     self.all.clear()
   },
+
+  saveTranscription: flow(function * saveTranscription() {
+    const textBlob = toJS(self.current.text)
+    const client = getRoot(self).client.tove
+    const lineCounts = {
+      low_consensus_lines: self.current.low_consensus_lines,
+      transcribed_lines: self.current.transcribed_lines
+    }
+    const updatedTranscription = Object.assign(lineCounts, textBlob)
+    const query = { data: { type: 'transcriptions', attributes: { text: updatedTranscription } } }
+    yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
+  }),
 
   selectTranscription: flow(function * selectTranscription(id = null) {
     let transcription = self.all.get(id)
