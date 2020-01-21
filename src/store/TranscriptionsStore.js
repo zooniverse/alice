@@ -132,6 +132,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       transcribed_lines: self.current.transcribed_lines
     }
     const updatedTranscription = Object.assign(lineCounts, textBlob)
+    console.log(updatedTranscription);
     const query = { data: { type: 'transcriptions', attributes: { text: updatedTranscription } } }
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
   }),
@@ -145,7 +146,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   setTextObject: (text) => {
     const index = getRoot(self).subjects.index
-    self.current.text[`frame${index}`] = text
+    self.current.text.set(`frame${index}`, text)
   },
 
   setTranscription: (transcription) => {
