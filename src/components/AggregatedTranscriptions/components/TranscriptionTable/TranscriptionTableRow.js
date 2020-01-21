@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import styled from 'styled-components'
-import { arrayOf, func, number, shape } from 'prop-types'
+import { arrayOf, func, number, shape, string } from 'prop-types'
 import { observer } from 'mobx-react'
 import { Flags } from './Flags'
 
@@ -97,7 +97,11 @@ function TranscriptionTableRow({
           <Flags datum={datum} />
         </QuietBox>
         <QuietBox align='end' basis='10%' pad={{ right: '0.25em' }}>
-          <Text>{parseFloat(datum.consensus_score.toFixed(1))}/{datum.number_views}</Text>
+          {datum.edited_consensus_text ? (
+            <Text>Edited</Text>
+          ) : (
+            <Text>{parseFloat(datum.consensus_score.toFixed(1))}/{datum.number_views}</Text>
+          )}
         </QuietBox>
       </PointerBox>
     </Box>
@@ -105,7 +109,12 @@ function TranscriptionTableRow({
 }
 
 TranscriptionTableRow.propTypes = {
-  datum: shape(),
+  datum: shape({
+    consensus_score: number,
+    consensus_text: string,
+    edited_consensus_text: string,
+    number_views: number
+  }),
   data: arrayOf(shape()),
   dragID: number,
   index: number,
@@ -115,7 +124,12 @@ TranscriptionTableRow.propTypes = {
 }
 
 TranscriptionTableRow.defaultProps = {
-  datum: {},
+  datum: {
+    consensus_score: 0,
+    consensus_text: '',
+    edited_consensus_text: '',
+    number_views: 0
+  },
   data: [],
   dragID: null,
   index: null,

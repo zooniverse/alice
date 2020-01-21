@@ -3,7 +3,6 @@ import { Box, Button, CheckBox, Text, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { observer } from 'mobx-react'
-import { constructText } from 'helpers/parseTranscriptionData'
 import TranscriptionLine from './components/TranscriptionLine'
 import withThemeContext from '../../helpers/withThemeContext'
 import FlagButtonContainer from './components/FlagButtons/FlagButtonContainer'
@@ -19,31 +18,19 @@ const ItalicText = styled(Text)`
 `
 
 function LineViewer ({
-  classifications,
   closeModal,
-  consensusScore,
   consensusText,
   flagged,
   reduction,
+  replaceWithSelected,
   selectedItem,
   seen,
-  setItem
+  setItem,
+  setTextOptions,
+  textOptions,
+  transcriptionOptions
 }) {
-  const textArray = constructText(reduction)
-  const textOptions = textArray.slice()
-  const transcriptionArray = textArray.map((text, i) => {
-    return {
-      date: '',
-      goldStandard: (reduction.gold_standard && reduction.gold_standard[i]) || false,
-      userName: 'Anonymous',
-      text
-    }
-  })
-  const textInputPos = transcriptionArray.length + 1
-  const replaceWithSelected = () => {
-    const isAlgorithmChoice = selectedItem === transcriptionArray.length
-    reduction.setConsensusText(textOptions[selectedItem], isAlgorithmChoice)
-  }
+  const textInputPos = transcriptionOptions.length + 1
 
   return (
     <Box background='white' elevation='small' round='xsmall' width='large'>
@@ -66,13 +53,17 @@ function LineViewer ({
             <FlagButtonContainer reduction={reduction} tag={flagged} />
           </Box>
           <Box>
-            <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
+            {reduction.edited_consensus_text ? (
+              <Text>Edited</Text>
+            ) : (
+              <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
+            )}
           </Box>
         </Box>
       </Box>
       <Box border='bottom'>
         <Box gap='xsmall' margin={{ vertical: 'xsmall' }} overflow='auto'>
-          {transcriptionArray.map((transcription, index) =>
+          {transcriptionOptions.map((transcription, index) =>
             <TranscriptionLine
               transcription={transcription}
               index={index}
@@ -85,13 +76,13 @@ function LineViewer ({
           <Box>
             <Box direction='row' gap='xsmall'>
               <CheckBox
-                checked={selectedItem === transcriptionArray.length}
+                checked={selectedItem === transcriptionOptions.length}
                 onChange={() => {
-                  const setTo = selectedItem === transcriptionArray.length ? null : transcriptionArray.length
+                  const setTo = selectedItem === transcriptionOptions.length ? null : transcriptionOptions.length
                   setItem(setTo)
                 }}
               />
-              <Text>{reduction.consensus_text}</Text>
+              <Text>{textOptions[transcriptionOptions.length]}</Text>
             </Box>
             <ItalicText margin={{ left: 'medium' }} size='xsmall'>aggregated transcription (via algorithm)</ItalicText>
           </Box>
@@ -105,7 +96,11 @@ function LineViewer ({
             />
             <Box fill='horizontal'>
               <TextInput
-                onChange={e => textOptions[textInputPos] = e.target.value}
+                onChange={e => {
+                  const textCopy = textOptions.slice()
+                  textCopy[textInputPos] = e.target.value
+                  setTextOptions(textCopy)
+                }}
                 placeholder='Write new...'
                 size='xsmall'
               />
@@ -119,7 +114,7 @@ function LineViewer ({
           <Button onClick={() => test()}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
         </Box>
         <Box direction='row' gap='small'>
-          <Button disabled={!selectedItem} onClick={replaceWithSelected}><CapitalText size='xsmall'>Replace With Selected</CapitalText></Button>
+          <Button disabled={selectedItem === null} onClick={replaceWithSelected}><CapitalText size='xsmall'>Replace With Selected</CapitalText></Button>
           <Button onClick={closeModal}><CapitalText size='xsmall'>Close</CapitalText></Button>
         </Box>
       </Box>
@@ -128,17 +123,23 @@ function LineViewer ({
 }
 
 LineViewer.defaultProps = {
-  classifications: [],
   closeModal: () => {},
-  consensusScore: 0,
+  consensusText: '',
+  flagged: false,
+  reduction: {},
+  replaceWithSelected: () => {},
+  seen: false,
   selectedItem: null,
   setItem: () => {}
 }
 
 LineViewer.propTypes = {
-  classifications: PropTypes.array,
   closeModal: PropTypes.func,
-  consensusScore: PropTypes.number,
+  consensusText: PropTypes.string,
+  flagged: PropTypes.bool,
+  reduction: PropTypes.shape(),
+  replaceWithSelected: PropTypes.func,
+  seen: PropTypes.bool,
   selectedItem: PropTypes.number,
   setItem: PropTypes.func
 }
