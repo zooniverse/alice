@@ -7,10 +7,10 @@ import { faCircle, faFlag } from '@fortawesome/free-solid-svg-icons'
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   height: 0.5em;
-  opacity: ${props => props.dim ? 0.5 : 1};
+  opacity: ${props => props.dim ? 0.25 : 1};
 `
 
-function FlagButton({ onShowFlag, setFlag, showFlag, seenButton }) {
+function FlagButton({ onShowFlag, setFlag, showFlag, seenButton, tag }) {
   const flagBtn = React.useRef(null)
   const color = seenButton ? 'green' : 'tomato'
   const icon = seenButton ? faCircle : faFlag
@@ -27,7 +27,7 @@ function FlagButton({ onShowFlag, setFlag, showFlag, seenButton }) {
       >
         <StyledFontAwesomeIcon
           color={color}
-          dim='true'
+          dim={!tag ? 1 : 0}
           icon={icon}
           size='xs'
         />
@@ -61,14 +61,16 @@ FlagButton.propTypes = {
   onShowFlag: func,
   seenButton: bool,
   setFlag: func,
-  showFlag: bool
+  showFlag: bool,
+  tag: bool
 }
 
 FlagButton.defaultProps = {
   onShowFlag: () => {},
   seenButton: false,
   setFlag: () => {},
-  showFlag: false
+  showFlag: false,
+  tag: false
 }
 
 export default FlagButton

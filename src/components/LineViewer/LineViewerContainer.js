@@ -20,7 +20,9 @@ function LineViewerContainer() {
       classifications={mockLines}
       closeModal={closeModal}
       consensusText={consensusText}
+      flagged={reduction && reduction.flagged}
       reduction={reduction}
+      seen={reduction && reduction.seen}
       selectedItem={selectedItem}
       setItem={setItem}
     />

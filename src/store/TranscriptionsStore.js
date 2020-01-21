@@ -23,6 +23,14 @@ const Reduction = types.model('Reduction', {
 .actions(self => ({
   setConsensusText: (text, isOriginalOption = false) => {
     self.edited_consensus_text = isOriginalOption ? '' : text
+  },
+
+  toggleCurrentFlag: function() {
+    self.flagged = !self.flagged
+  },
+
+  toggleCurrentSeen: function() {
+    self.seen = !self.seen
   }
 }))
 
@@ -151,19 +159,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   setActiveTranscription: function(id) {
     self.activeTranscriptionIndex = id
-  },
-
-  toggleCurrentFlag: function() {
-    const index = getRoot(self).subjects.index
-    console.log('toggle flag', self.activeTranscriptionIndex);
-    console.log(self.current.text)
-
-  },
-
-  toggleCurrentSeen: function() {
-    const index = getRoot(self).subjects.index
-    console.log('toggle seen', self.activeTranscriptionIndex);
-    console.log(self.current.text)
   }
 })).views(self => ({
   get approved () {

@@ -18,7 +18,17 @@ const ItalicText = styled(Text)`
   font-style: italic;
 `
 
-function LineViewer ({ consensusText, reduction, classifications, closeModal, consensusScore, selectedItem, setItem }) {
+function LineViewer ({
+  classifications,
+  closeModal,
+  consensusScore,
+  consensusText,
+  flagged,
+  reduction,
+  selectedItem,
+  seen,
+  setItem
+}) {
   const textArray = constructText(reduction)
   const textOptions = textArray.slice()
   const transcriptionArray = textArray.map((text, i) => {
@@ -52,8 +62,8 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
             <Text weight='bold'>{consensusText}</Text>
           </Box>
           <Box direction='row' margin={{ bottom: '0.5em' }}>
-            <SeenButtonContainer />
-            <FlagButtonContainer />
+            <SeenButtonContainer reduction={reduction} tag={seen} />
+            <FlagButtonContainer reduction={reduction} tag={flagged} />
           </Box>
           <Box>
             <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>

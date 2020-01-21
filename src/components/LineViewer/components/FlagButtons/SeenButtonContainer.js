@@ -1,11 +1,9 @@
 import React from 'react'
 import FlagButton from './FlagButton'
-import AppContext from 'store'
 
-export default function SeenButtonContainer() {
-  const store = React.useContext(AppContext)
+export default function SeenButtonContainer({ reduction, tag }) {
   const [showFlag, onShowFlag] = React.useState(false)
-  const setFlag = () => store.transcriptions.toggleCurrentSeen()
+  const setFlag = () => reduction.toggleCurrentSeen()
 
   return (
     <FlagButton
@@ -13,6 +11,7 @@ export default function SeenButtonContainer() {
       onShowFlag={onShowFlag}
       setFlag={setFlag}
       showFlag={showFlag}
+      tag={tag}
     />
   )
 }
