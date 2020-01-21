@@ -3,11 +3,11 @@ import { Box, Button, CheckBox, Text, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { observer } from 'mobx-react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import { constructText } from 'helpers/parseTranscriptionData'
 import TranscriptionLine from './components/TranscriptionLine'
 import withThemeContext from '../../helpers/withThemeContext'
+import FlagButtonContainer from './components/FlagButtons/FlagButtonContainer'
+import SeenButtonContainer from './components/FlagButtons/SeenButtonContainer'
 import theme from './theme'
 
 const CapitalText = styled(Text)`
@@ -16,11 +16,6 @@ const CapitalText = styled(Text)`
 
 const ItalicText = styled(Text)`
   font-style: italic;
-`
-
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  height: 0.5em;
-  opacity: 0.5;
 `
 
 function LineViewer ({ consensusText, reduction, classifications, closeModal, consensusScore, selectedItem, setItem }) {
@@ -52,15 +47,15 @@ function LineViewer ({ consensusText, reduction, classifications, closeModal, co
             <CapitalText textAlign='end' size='0.6em' weight='bold'>Consensus Score</CapitalText>
           </Box>
         </Box>
-        <Box align='center' direction='row' justify='between'>
+        <Box align='center' direction='row' gap='xsmall' justify='between'>
           <Box fill='horizontal'>
             <Text weight='bold'>{consensusText}</Text>
           </Box>
-          <Box align='center' direction='row' justify='center' margin='xsmall'>
-            <StyledFontAwesomeIcon color='tomato' icon={faCircle} size='xs' />
-            <StyledFontAwesomeIcon color='green' icon={faCircle} size='xs' />
+          <Box direction='row' margin={{ bottom: '0.5em' }}>
+            <SeenButtonContainer />
+            <FlagButtonContainer />
           </Box>
-          <Box justify='center'>
+          <Box>
             <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
           </Box>
         </Box>

@@ -9,14 +9,16 @@ const Reduction = types.model('Reduction', {
   consensus_text: types.optional(types.string, ''),
   consensus_score: types.number,
   edited_consensus_text: types.optional(types.string, ''),
-  line_slope: types.number,
-  number_views: types.integer,
-  user_ids: types.array(types.integer),
   extract_index: types.array(types.integer),
+  flagged: types.optional(types.boolean, false),
   gold_standard: types.array(types.boolean),
-  slope_label: types.integer,
   gutter_label: types.integer,
-  low_consensus: types.optional(types.boolean, false)
+  line_slope: types.number,
+  low_consensus: types.optional(types.boolean, false),
+  number_views: types.integer,
+  seen: types.optional(types.boolean, false),
+  slope_label: types.integer,
+  user_ids: types.array(types.integer)
 })
 .actions(self => ({
   setConsensusText: (text, isOriginalOption = false) => {
@@ -149,6 +151,19 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   setActiveTranscription: function(id) {
     self.activeTranscriptionIndex = id
+  },
+
+  toggleCurrentFlag: function() {
+    const index = getRoot(self).subjects.index
+    console.log('toggle flag', self.activeTranscriptionIndex);
+    console.log(self.current.text)
+
+  },
+
+  toggleCurrentSeen: function() {
+    const index = getRoot(self).subjects.index
+    console.log('toggle seen', self.activeTranscriptionIndex);
+    console.log(self.current.text)
   }
 })).views(self => ({
   get approved () {
