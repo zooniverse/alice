@@ -22,15 +22,27 @@ function LineViewer ({
   consensusText,
   flagged,
   reduction,
-  replaceWithSelected,
   selectedItem,
   seen,
   setItem,
-  setTextOptions,
-  textOptions,
   transcriptionOptions
 }) {
-  const textInputPos = transcriptionOptions.length + 1
+  const ALGORITHM_CHOICE = transcriptionOptions.length
+  const TYPED_CHOICE = transcriptionOptions.length + 1
+  const inputBox = React.useRef(null)
+
+  const replaceWithSelected = () => {
+    let textOption = ''
+    if (selectedItem === ALGORITHM_CHOICE) {
+      textOption = reduction.consensus_text
+    } else if (selectedItem === TYPED_CHOICE) {
+      textOption = inputBox.current.value
+    } else {
+      textOption = transcriptionOptions[selectedItem].text
+    }
+    const isAlgorithmChoice = selectedItem === ALGORITHM_CHOICE
+    reduction.setConsensusText(textOption, isAlgorithmChoice)
+  }
 
   return (
     <Box background='white' elevation='small' round='xsmall' width='large'>
@@ -76,32 +88,28 @@ function LineViewer ({
           <Box>
             <Box direction='row' gap='xsmall'>
               <CheckBox
-                checked={selectedItem === transcriptionOptions.length}
+                checked={selectedItem === ALGORITHM_CHOICE}
                 onChange={() => {
-                  const setTo = selectedItem === transcriptionOptions.length ? null : transcriptionOptions.length
+                  const setTo = selectedItem === ALGORITHM_CHOICE ? null : ALGORITHM_CHOICE
                   setItem(setTo)
                 }}
               />
-              <Text>{textOptions[transcriptionOptions.length]}</Text>
+              <Text>{reduction.consensus_text}</Text>
             </Box>
             <ItalicText margin={{ left: 'medium' }} size='xsmall'>aggregated transcription (via algorithm)</ItalicText>
           </Box>
           <Box direction='row' gap='xsmall'>
             <CheckBox
-              checked={selectedItem === textInputPos}
+              checked={selectedItem === TYPED_CHOICE}
               onChange={() => {
-                const setTo = selectedItem === textInputPos ? null : textInputPos
+                const setTo = selectedItem === TYPED_CHOICE ? null : TYPED_CHOICE
                 setItem(setTo)
               }}
             />
             <Box fill='horizontal'>
               <TextInput
-                onChange={e => {
-                  const textCopy = textOptions.slice()
-                  textCopy[textInputPos] = e.target.value
-                  setTextOptions(textCopy)
-                }}
                 placeholder='Write new...'
+                ref={inputBox}
                 size='xsmall'
               />
             </Box>

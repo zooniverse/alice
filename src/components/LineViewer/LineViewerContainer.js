@@ -15,12 +15,10 @@ function LineViewerContainer() {
     store.transcriptions.current.text.get(`frame${subjectIndex}`)[transcriptionIndex]
   const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
 
-  const [textOptions, setTextOptions] = React.useState([])
   const [transcriptionOptions, setTranscriptionOptions] = React.useState([])
 
   React.useEffect(() => {
-    const textOptions = constructText(reduction)
-    const transcriptionArray = textOptions.map((text, i) => {
+    const transcriptionArray = constructText(reduction).map((text, i) => {
       return {
         date: '',
         goldStandard: (reduction.gold_standard && reduction.gold_standard[i]) || false,
@@ -29,15 +27,7 @@ function LineViewerContainer() {
       }
     })
     setTranscriptionOptions(transcriptionArray)
-    textOptions.push(reduction.consensus_text)
-    textOptions.push('')
-    setTextOptions(textOptions)
   }, [reduction])
-
-  const replaceWithSelected = () => {
-    const isAlgorithmChoice = selectedItem === transcriptionOptions.length
-    reduction.setConsensusText(textOptions[selectedItem], isAlgorithmChoice)
-  }
 
   return (
     <LineViewer
@@ -45,12 +35,9 @@ function LineViewerContainer() {
       consensusText={consensusText}
       flagged={reduction && reduction.flagged}
       reduction={reduction}
-      replaceWithSelected={replaceWithSelected}
       seen={reduction && reduction.seen}
       selectedItem={selectedItem}
       setItem={setItem}
-      setTextOptions={setTextOptions}
-      textOptions={textOptions}
       transcriptionOptions={transcriptionOptions}
     />
   )
