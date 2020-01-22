@@ -2,38 +2,7 @@ import { flow, getRoot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { toJS } from 'mobx'
-
-const Reduction = types.model('Reduction', {
-  clusters_x: types.array(types.number),
-  clusters_y: types.array(types.number),
-  clusters_text: types.array(types.array(types.string)),
-  consensus_text: types.optional(types.string, ''),
-  consensus_score: types.number,
-  edited_consensus_text: types.optional(types.string, ''),
-  extract_index: types.array(types.integer),
-  flagged: types.optional(types.boolean, false),
-  gold_standard: types.array(types.boolean),
-  gutter_label: types.integer,
-  line_slope: types.number,
-  low_consensus: types.optional(types.boolean, false),
-  number_views: types.integer,
-  seen: types.optional(types.boolean, false),
-  slope_label: types.integer,
-  user_ids: types.array(types.integer)
-})
-.actions(self => ({
-  setConsensusText: (text, isOriginalOption = false) => {
-    self.edited_consensus_text = isOriginalOption ? '' : text
-  },
-
-  toggleCurrentFlag: function() {
-    self.flagged = !self.flagged
-  },
-
-  toggleCurrentSeen: function() {
-    self.seen = !self.seen
-  }
-}))
+import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
 const Extension = types.refinement(types.map(Frame), snapshot => {
