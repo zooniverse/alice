@@ -58,7 +58,12 @@ function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
 TranscriptionLine.defaultProps = {
   selectedItem: null,
   setItem: () => {},
-  transcription: null,
+  transcription: {
+    date: '',
+    goldStandard: false,
+    text: '',
+    userName: ''
+  },
   index: 0
 }
 
