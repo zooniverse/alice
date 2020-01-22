@@ -5,7 +5,13 @@ import TranscriptionTableContainer from './TranscriptionTableContainer'
 let wrapper
 const setActiveTranscriptionSpy = jest.fn()
 const contextValues = {
-  aggregations: {
+  subjects: {
+    index: 0
+  },
+  transcriptions: {
+    current: {
+      text: new Map()
+    },
     setActiveTranscription: setActiveTranscriptionSpy
   }
 }
