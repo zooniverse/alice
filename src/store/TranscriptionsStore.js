@@ -132,7 +132,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       transcribed_lines: self.current.transcribed_lines
     }
     const updatedTranscription = Object.assign(lineCounts, textBlob)
-    console.log(updatedTranscription);
     const query = { data: { type: 'transcriptions', attributes: { text: updatedTranscription } } }
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
   }),
