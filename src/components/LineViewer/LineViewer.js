@@ -119,7 +119,7 @@ function LineViewer ({
       <Box direction='row' justify='between' margin={{ horizontal: 'xsmall', bottom: 'xsmall', top: '0.25em' }}>
         <Box direction='row'>
           <Button margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
-          <Button onClick={() => test()}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
+          <Button><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
         </Box>
         <Box direction='row' gap='small'>
           <Button disabled={selectedItem === null} onClick={replaceWithSelected}><CapitalText size='xsmall'>Replace With Selected</CapitalText></Button>
@@ -134,7 +134,9 @@ LineViewer.defaultProps = {
   closeModal: () => {},
   consensusText: '',
   flagged: false,
-  reduction: {},
+  reduction: {
+    consensus_score: 0
+  },
   replaceWithSelected: () => {},
   seen: false,
   selectedItem: null,
@@ -152,4 +154,5 @@ LineViewer.propTypes = {
   setItem: PropTypes.func
 }
 
+export { LineViewer }
 export default observer(withThemeContext(LineViewer, theme))
