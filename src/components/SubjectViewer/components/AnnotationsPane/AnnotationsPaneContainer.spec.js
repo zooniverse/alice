@@ -8,12 +8,12 @@ const contextValues = {
   subjects: { index: 0 },
   transcriptions: {
     current: {
-      text: {
-        frame0: [{
+      text: new Map([
+        [ 'frame0', [{
           clusters_x: [],
           clusters_y: []
-        }]
-      }
+        }] ]
+      ])
     }
   }
 }
