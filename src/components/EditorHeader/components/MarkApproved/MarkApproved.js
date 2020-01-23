@@ -10,8 +10,8 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function MarkApproved ({ checked, disabled, isOwner, onChange }) {
-  const innerText = isOwner ? 'Mark As Approved' : 'Ready For Review'
+function MarkApproved ({ checked, disabled, isResearcher, onChange }) {
+  const innerText = isResearcher ? 'Mark As Approved' : 'Ready For Review'
 
   return (
     <CheckBox
@@ -28,14 +28,14 @@ function MarkApproved ({ checked, disabled, isOwner, onChange }) {
 MarkApproved.propTypes = {
   checked: bool,
   disabled: bool,
-  isOwner: bool,
+  isResearcher: bool,
   onChange: func
 }
 
 MarkApproved.defaultProps = {
   checked: false,
   disabled: false,
-  isOwner: false,
+  isResearcher: false,
   onChange: () => {}
 }
 

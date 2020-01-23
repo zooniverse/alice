@@ -15,7 +15,7 @@ const contextValues = {
     }
   },
   projects: {
-    role: 'Project Owner'
+    role: 'Researcher'
   },
 }
 

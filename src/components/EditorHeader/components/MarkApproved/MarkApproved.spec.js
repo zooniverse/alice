@@ -6,7 +6,7 @@ let wrapper
 
 describe('Component > MarkApproved', function () {
   beforeEach(function() {
-    wrapper = shallow(<MarkApproved isOwner />);
+    wrapper = shallow(<MarkApproved isResearcher />);
   })
 
   it('should render without crashing', function () {

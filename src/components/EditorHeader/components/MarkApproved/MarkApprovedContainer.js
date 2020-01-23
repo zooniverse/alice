@@ -6,8 +6,8 @@ import MarkApproved from './MarkApproved'
 
 function MarkApprovedContainer({ disabled }) {
   const store = React.useContext(AppContext)
-  const isOwner = store.projects.isOwner
-  const isChecked = isOwner ? store.transcriptions.approved : (store.transcriptions.approved || store.transcriptions.readyForReview)
+  const isResearcher = store.projects.isResearcher
+  const isChecked = isResearcher ? store.transcriptions.approved : (store.transcriptions.approved || store.transcriptions.readyForReview)
   const onChange = () => {
     if (!isChecked) {
       store.transcriptions.updateApproval(isChecked)
@@ -19,7 +19,7 @@ function MarkApprovedContainer({ disabled }) {
     <MarkApproved
       checked={isChecked}
       disabled={disabled}
-      isOwner={store.projects.isOwner}
+      isResearcher={store.projects.isResearcher}
       onChange={onChange}
     />
   )

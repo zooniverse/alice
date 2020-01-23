@@ -11,7 +11,7 @@ const contextValues = {
     toggleModal: toggleModalSpy
   },
   projects: {
-    isOwner: false
+    isResearcher: false
   },
   transcriptions: {
     approved: true,
@@ -39,7 +39,7 @@ describe('Component > MarkApprovedContainer', function () {
 
   it('should updateApproval if the box is not checked', function() {
     const updatedContext = Object.assign({}, contextValues)
-    updatedContext.projects.isOwner = false
+    updatedContext.projects.isResearcher = false
     updatedContext.transcriptions.approved = false
     jest
       .spyOn(React, 'useContext')

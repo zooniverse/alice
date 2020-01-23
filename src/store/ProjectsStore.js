@@ -3,10 +3,13 @@ import apiClient from 'panoptes-client/lib/api-client.js'
 import ASYNC_STATES from 'helpers/asyncStates'
 
 const ROLES = {
-  OWNER: 'Project Owner',
-  MODERATOR: 'Moderator',
+  RESEARCHER: 'Researcher',
+  VOLUNTEER: 'Volunteer',
   VIEWER: 'Viewer'
 }
+
+const researcherRoles = ['owner', 'collaborator']
+const volunteerRoles = ['expert', 'researcher', 'moderator']
 
 const Project = types
   .model('Project', {
@@ -37,8 +40,8 @@ const ProjectsStore = types.model('ProjectsStore', {
     const roles = yield apiClient.type('project_roles').get({ user_id: user.id, page_size: 50 })
     self.roles = roles.reduce((roles, role) => {
       let title = ROLES.VIEWER
-      if (role.roles.includes('owner')) { title = ROLES.OWNER }
-      if (role.roles.includes('collaborator')) { title = ROLES.MODERATOR }
+      if (role.roles.some(role => volunteerRoles.includes(role))) { title = ROLES.VOLUNTEER }
+      if (role.roles.some(role => researcherRoles.includes(role))) { title = ROLES.RESEARCHER }
       roles[role.links.project] = title
       return roles
     }, {})
@@ -111,8 +114,8 @@ const ProjectsStore = types.model('ProjectsStore', {
     return self.current && self.current.id
   },
 
-  get isOwner () {
-    return (self.current && self.current.role === ROLES.OWNER) || false
+  get isResearcher () {
+    return (self.current && self.current.role === ROLES.RESEARCHER) || false
   },
 
   get role () {
@@ -124,11 +127,11 @@ const ProjectsStore = types.model('ProjectsStore', {
   },
 
   get collabProjects () {
-    return Array.from(self.all.values()).filter(project => project.role !== ROLES.OWNER)
+    return Array.from(self.all.values()).filter(project => project.role !== ROLES.RESEARCHER)
   },
 
   get ownerProjects () {
-    return Array.from(self.all.values()).filter(project => project.role === ROLES.OWNER)
+    return Array.from(self.all.values()).filter(project => project.role === ROLES.RESEARCHER)
   }
 }))
 

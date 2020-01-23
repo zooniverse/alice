@@ -10,7 +10,7 @@ const contextValues = {
     toggleModal: toggleModalSpy,
   },
   projects: {
-    role: 'Project Owner'
+    role: 'Researcher'
   },
   transcriptions: {
     updateApproval: updateApprovalSpy
