@@ -7,14 +7,19 @@ import MarkApproved from './MarkApproved'
 function MarkApprovedContainer({ disabled }) {
   const store = React.useContext(AppContext)
   const isResearcher = store.projects.isResearcher
-  const isChecked = isResearcher ? store.transcriptions.approved : (store.transcriptions.approved || store.transcriptions.readyForReview)
-  const onChange = () => {
+  const isChecked = isResearcher ?
+    store.transcriptions.approved :
+    (store.transcriptions.approved || store.transcriptions.readyForReview)
+  const onChangeAsResearcher = () => {
     if (!isChecked) {
       store.transcriptions.updateApproval(isChecked)
     } else {
       store.modal.toggleModal(MODALS.UNAPPROVED)
     }
   }
+  const onChangeAsVolunteer = () => store.transcriptions.updateApproval(isChecked)
+  const onChange = isResearcher ? onChangeAsResearcher : onChangeAsVolunteer
+
   return (
     <MarkApproved
       checked={isChecked}

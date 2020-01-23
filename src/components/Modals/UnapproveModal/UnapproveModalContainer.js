@@ -5,7 +5,6 @@ import UnapproveModal from './UnapproveModal'
 export default function UnapproveModalContainer() {
   const store = React.useContext(AppContext)
   const onClose = () => store.modal.toggleModal('')
-  const role = store.projects.role
   const onUnapprove = () => {
     store.transcriptions.updateApproval(true)
     onClose()
@@ -15,7 +14,6 @@ export default function UnapproveModalContainer() {
     <UnapproveModal
       onClose={onClose}
       onUnapprove={onUnapprove}
-      role={role}
     />
   )
 }
