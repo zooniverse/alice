@@ -17,6 +17,7 @@ let mockReduction = {
   flagged: false,
   gold_standard: [],
   gutter_label: 0,
+  line_editor: '',
   line_slope: 0,
   low_consensus: false,
   number_views: 0,

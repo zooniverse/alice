@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree'
+import { getRoot, types } from 'mobx-state-tree'
 
 const Reduction = types.model('Reduction', {
   clusters_x: types.array(types.number),
@@ -11,6 +11,7 @@ const Reduction = types.model('Reduction', {
   flagged: types.optional(types.boolean, false),
   gold_standard: types.array(types.boolean),
   gutter_label: types.optional(types.integer, 0),
+  line_editor: types.optional(types.string, ''),
   line_slope: types.optional(types.number, 0),
   low_consensus: types.optional(types.boolean, false),
   number_views: types.optional(types.integer, 0),
@@ -20,6 +21,7 @@ const Reduction = types.model('Reduction', {
 })
 .actions(self => ({
   setConsensusText: (text, isOriginalOption = false) => {
+    self.line_editor = isOriginalOption ? '' : getRoot(self).auth.user.display_name
     self.edited_consensus_text = isOriginalOption ? '' : text
   },
 
