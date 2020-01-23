@@ -4,7 +4,7 @@ import MODALS from 'helpers/modals'
 import { observer } from 'mobx-react'
 import MarkApproved from './MarkApproved'
 
-function MarkApprovedContainer({ disabled }) {
+function MarkApprovedContainer() {
   const store = React.useContext(AppContext)
   const isResearcher = store.projects.isResearcher
   const isChecked = isResearcher ?
@@ -23,7 +23,6 @@ function MarkApprovedContainer({ disabled }) {
   return (
     <MarkApproved
       checked={isChecked}
-      disabled={disabled}
       isResearcher={store.projects.isResearcher}
       onChange={onChange}
     />

@@ -10,13 +10,12 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function MarkApproved ({ checked, disabled, isResearcher, onChange }) {
+function MarkApproved ({ checked, isResearcher, onChange }) {
   const innerText = isResearcher ? 'Mark As Approved' : 'Ready For Review'
 
   return (
     <CheckBox
       checked={checked}
-      disabled={disabled}
       label={<CapitalText color='#5C5C5C'>{innerText}</CapitalText>}
       onChange={onChange}
       reverse
@@ -27,14 +26,12 @@ function MarkApproved ({ checked, disabled, isResearcher, onChange }) {
 
 MarkApproved.propTypes = {
   checked: bool,
-  disabled: bool,
   isResearcher: bool,
   onChange: func
 }
 
 MarkApproved.defaultProps = {
   checked: false,
-  disabled: false,
   isResearcher: false,
   onChange: () => {}
 }
