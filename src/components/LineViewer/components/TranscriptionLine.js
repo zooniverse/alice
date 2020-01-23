@@ -79,4 +79,5 @@ TranscriptionLine.propTypes = {
   index: PropTypes.number
 }
 
+export { ItalicText }
 export default observer(TranscriptionLine)
