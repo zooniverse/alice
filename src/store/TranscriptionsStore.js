@@ -63,6 +63,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }),
 
   reset: () => {
+    getRoot(self).aggregations.setModal(false)
     self.selectTranscription(null)
     self.all.clear()
   },
