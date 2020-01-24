@@ -311,11 +311,11 @@ const mockData = [
 
 const columns = [
   {
-    property: "subject_id",
+    property: "id",
     header: "Zooniverse ID"
   },
   {
-    property: "id",
+    property: "internal_id",
     header: "Internal ID"
   },
   {
@@ -345,11 +345,11 @@ const columns = [
     header: "Consensus Score",
     render: datum => {
       const color = datum.consensusScore <= datum.classifications / 2 ? 'red' : 'black'
-      return <Text color={color}>{datum.consensusScore || 0}/{datum.classifications || 0}</Text>
+      return <Text color={color}>{datum.low_consensus_lines}/{datum.transcribed_lines}</Text>
     }
   },
   {
-    property: "lines",
+    property: "transcribed_lines",
     header: "Transcribed Lines"
   },
   {
