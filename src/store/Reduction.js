@@ -27,10 +27,16 @@ const Reduction = types.model('Reduction', {
 
   toggleCurrentFlag: function() {
     self.flagged = !self.flagged
+
+    const transcription = getRoot(self).transcriptions
+    transcription.checkForFlagUpdate()
   },
 
   toggleCurrentSeen: function() {
     self.seen = !self.seen
+
+    const transcription = getRoot(self).transcriptions
+    transcription.saveTranscription()
   }
 }))
 

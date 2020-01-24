@@ -29,6 +29,16 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   page: types.optional(types.number, 0),
   totalPages: types.optional(types.number, 1)
 }).actions(self => ({
+  checkForFlagUpdate: () => {
+    let containsLineFlag = false
+    self.current.text.forEach(t => {
+      const flaggedItem = t.find(t => t.flagged)
+      if (flaggedItem) containsLineFlag = true
+    })
+    self.current.flagged = containsLineFlag
+    self.saveTranscription()
+  },
+
   createTranscription: (transcription) => {
     const text = transcription.attributes.text
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
@@ -101,7 +111,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       transcribed_lines: self.current.transcribed_lines
     }
     const updatedTranscription = Object.assign(lineCounts, textBlob)
-    const query = { data: { type: 'transcriptions', attributes: { text: updatedTranscription } } }
+    const query = {
+      data: {
+        type: 'transcriptions',
+        attributes: {
+          flagged: self.current.flagged,
+          text: updatedTranscription
+        }
+      }
+    }
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
   }),
 
