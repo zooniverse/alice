@@ -6,7 +6,8 @@ const Workflow = types
     display_name: types.optional(types.string, ''),
     groups: types.optional(types.frozen(), {}),
     id: types.identifier,
-    project_id: types.optional(types.string, '')
+    project_id: types.optional(types.string, ''),
+    total_transcriptions: types.optional(types.number, 0)
   })
 
 const WorkflowsStore = types.model('WorkflowsStore', {
@@ -20,9 +21,10 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   createWorkflow: (workflow) => {
     return Workflow.create({
       display_name: workflow.attributes.display_name,
+      groups: workflow.attributes.groups,
       id: workflow.id,
       project_id: workflow.relationships.project.data.id,
-      groups: workflow.attributes.groups
+      total_transcriptions: workflow.attributes.total_transcriptions
     })
   },
 
