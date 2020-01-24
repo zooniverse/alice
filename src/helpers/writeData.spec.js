@@ -2,7 +2,7 @@ import writeDate from './writeDate'
 
 describe('Helper > writeDate', function () {
   it('should return the correct date format', function () {
-    const result = writeDate('Tue Jan 16 2020 19:00:00 GMT-0500')
+    const result = writeDate('Tue Jan 16 2020 19:00:00')
     expect(result).toBe('January 16, 2020')
   })
 
