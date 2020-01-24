@@ -11,7 +11,7 @@ let fetchTranscriptionsStub = {
     {
       body: JSON.stringify(
         {
-          data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: 'approved', subject_id: '2' }})],
+          data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: 'approved', subject_id: '2', text: {} }})],
           meta: {
             pagination: { last: 1 }
           }

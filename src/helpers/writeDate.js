@@ -14,6 +14,7 @@ const MONTHS = [
 ]
 
 export default function writeDate(date) {
+  if (!date || !date.length) return ''
   const dateObject = new Date(date)
   const month = MONTHS[dateObject.getMonth()]
   const day = dateObject.getDate()
