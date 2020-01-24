@@ -93,6 +93,16 @@ describe('ProjectsStore', function () {
     projectsStore.selectProject('1')
     expect(projectsStore.role).toBe('Researcher')
   })
+
+  it('should state if the current role is researcher', function () {
+    projectsStore.selectProject('1')
+    expect(projectsStore.isResearcher).toBe(true)
+  })
+
+  it('should get the current project id', function () {
+    projectsStore.selectProject('1')
+    expect(projectsStore.id).toBe('1')
+  })
 })
 
 describe('ProjectsStore getProject', function () {
