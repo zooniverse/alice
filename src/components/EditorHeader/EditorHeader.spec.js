@@ -4,7 +4,6 @@ import MetadataButton from './components/MetadataButton'
 import EditorHeader from './EditorHeader'
 import Back from './components/Back'
 import MarkApproved from './components/MarkApproved'
-import Overlay from '../Overlay'
 
 let wrapper
 const user = { id: '1' }
