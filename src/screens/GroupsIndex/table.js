@@ -60,11 +60,11 @@ const columns = [
     header: "Subjects"
   },
   {
-    property: "lastEdit",
+    property: "last_edit",
     header: "Last Edit"
   },
   {
-    property: "lastEditor",
+    property: "last_editor",
     header: "Last Editor"
   }
 ];
