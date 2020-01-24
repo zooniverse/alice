@@ -28,24 +28,41 @@ describe('Component > MarkApprovedContainer', function () {
     wrapper = shallow(<MarkApprovedContainer />);
   })
 
+  afterEach(() => jest.clearAllMocks());
+
   it('should render without crashing', function () {
     expect(wrapper).toBeDefined()
   })
 
-  it('should call the toggleModal method with child onClick', function() {
+  it('should call the updateApproval method with child onClick', function() {
     wrapper.props().onChange()
-    expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.UNAPPROVED)
+    expect(updateApprovalSpy).toHaveBeenCalled()
   })
 
-  it('should updateApproval if the box is not checked', function() {
-    const updatedContext = Object.assign({}, contextValues)
-    updatedContext.projects.isResearcher = false
-    updatedContext.transcriptions.approved = false
-    jest
-      .spyOn(React, 'useContext')
-      .mockImplementation(() => updatedContext )
-    wrapper = shallow(<MarkApprovedContainer />);
-    wrapper.props().onChange()
-    expect(updateApprovalSpy).toHaveBeenCalledWith(false)
+  describe('as researcher with approved transcription', function () {
+    it('should toggle off the approval', function () {
+      const updatedContext = Object.assign({}, contextValues)
+      updatedContext.projects.isResearcher = true
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => updatedContext )
+      wrapper = shallow(<MarkApprovedContainer />);
+      wrapper.props().onChange()
+      expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.UNAPPROVED)
+    })
+  })
+
+  describe('as researcher with unapproved transcription', function () {
+    it('should toggle off the approval', function () {
+      const updatedContext = Object.assign({}, contextValues)
+      updatedContext.projects.isResearcher = true
+      updatedContext.transcriptions.approved = false
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => updatedContext )
+      wrapper = shallow(<MarkApprovedContainer />);
+      wrapper.props().onChange()
+      expect(updateApprovalSpy).toHaveBeenCalledWith(false)
+    })
   })
 })
