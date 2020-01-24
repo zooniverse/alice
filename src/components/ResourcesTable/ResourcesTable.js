@@ -42,11 +42,13 @@ function ResourcesTable(props) {
       {props.data.length === 0 && props.status === ASYNC_STATES.READY && (
         <Text textAlign='center'>{`Sorry, we couldn't find any ${props.resource}`}</Text>
       )}
-      <StepNavigation
-        activeStep={props.activeStep}
-        setStep={props.setStep}
-        steps={props.steps}
-      />
+      <Box margin={{ top: 'small' }}>
+        <StepNavigation
+          activeStep={props.activeStep}
+          setStep={props.setStep}
+          steps={props.steps}
+        />
+      </Box>
     </Box>
   )
 }

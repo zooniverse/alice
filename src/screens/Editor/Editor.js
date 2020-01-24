@@ -101,7 +101,9 @@ function Editor ({ match }) {
             <AggregatedTranscriptions margin={transcriptionsMargin} />
           </Box>
         </Box>
-        <FilmstripViewer images={locations} />
+        <Box margin={{ horizontal: 'medium' }}>
+          <FilmstripViewer images={locations} />
+        </Box>
       </Box>
       {store.aggregations.showModal && <AggregationModal ref={editorBox} />}
     </Box>
