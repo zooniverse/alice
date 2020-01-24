@@ -73,6 +73,11 @@ describe('TranscriptionsStore', function () {
       expect(transcriptionsStore.current).toEqual(transcription)
     })
 
+    it('should return the current transcription state', async function () {
+      await transcriptionsStore.selectTranscription(1)
+      expect(transcriptionsStore.approved).toBe(false)
+      expect(transcriptionsStore.title).toBe("1")
+    })
   })
 
   describe('success state fetching single transcription', function () {
