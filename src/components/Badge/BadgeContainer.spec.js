@@ -7,6 +7,9 @@ let wrapper
 let badgeComponent
 
 const contextValues = {
+  aggregations: {
+    showModal: false
+  },
   auth: {
     logout: () => {},
     user: {
