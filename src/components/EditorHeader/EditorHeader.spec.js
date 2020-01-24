@@ -25,11 +25,6 @@ describe('Component > EditorHeader', function () {
     expect(wrapper.find(MetadataButton).length).toBe(1)
   })
 
-  it('should show an overlay', function () {
-    wrapper = shallow(<EditorHeader showOverlay />)
-    expect(wrapper.find(Overlay).length).toBe(1)
-  })
-
   describe('onAbout', function () {
     wrapper = shallow(<EditorHeader onAbout />)
     expect(wrapper.find(Back).length).toBe(1)
