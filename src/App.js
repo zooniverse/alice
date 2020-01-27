@@ -28,7 +28,11 @@ import {
 function App() {
   const store = React.useContext(AppContext)
   makeInspectable(store)
-  store.initialize()
+
+  React.useEffect(() => {
+    store.initialize()
+  }, [store])
+
 
   if (!store.initialized) return null;
 

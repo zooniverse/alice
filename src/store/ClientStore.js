@@ -17,7 +17,7 @@ const ClientStore = types.model('ClientStore', {
   },
 
   setBearerToken: (token) => {
-    self.bearerToken = token
+    self.tove.jwt(token)
   }
 }))
 

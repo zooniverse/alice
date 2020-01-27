@@ -11,6 +11,7 @@ const AuthStore = types.model('AuthStore', {
       const user = yield auth.checkCurrent()
       if (user) {
         self.user = user
+        yield auth.checkBearerToken().then(token => getRoot(self).client.setBearerToken(token));
       } else if (history.location.pathname !== '/') {
         history.push('/')
       }
