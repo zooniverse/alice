@@ -1,6 +1,7 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
+import Reduction from './Reduction'
 
 let transcriptionsStore
 let rootStore
@@ -14,7 +15,7 @@ let mockReduction = {
   consensus_text: 'Text',
   edited_consensus_text: '',
   extract_index: [],
-  flagged: false,
+  flagged: true,
   gold_standard: [],
   gutter_label: 0,
   line_editor: '',
@@ -105,19 +106,34 @@ describe('TranscriptionsStore', function () {
       expect(transcriptionsStore.activeTranscriptionIndex).toBe(5)
     })
 
-    it('should set the text object', async function () {
-      await transcriptionsStore.fetchTranscriptions()
-      await transcriptionsStore.selectTranscription(1)
-      const textObject = [mockReduction]
-      transcriptionsStore.setTextObject(textObject)
-      expect(transcriptionsStore.current.text.get('frame0')).toEqual(textObject)
-    })
+    describe('after selecting a transcription', function () {
+      beforeEach(async function () {
+        await transcriptionsStore.selectTranscription(1)
+      })
 
-    it('should save a transcription', async function () {
-      await transcriptionsStore.fetchTranscriptions()
-      await transcriptionsStore.selectTranscription(1)
-      await transcriptionsStore.saveTranscription()
-      expect(patchToveSpy).toHaveBeenCalled()
+      it('should select the correct transcription', async function () {
+        const transcription = transcriptionsStore.createTranscription(simpleTranscription)
+        expect(transcriptionsStore.current).toEqual(transcription)
+      })
+
+      it('should edit the text object', async function () {
+        const textObject = [mockReduction]
+        transcriptionsStore.setTextObject([mockReduction])
+        expect(transcriptionsStore.current.text.get('frame0')).toEqual(textObject)
+      })
+
+      it('should save a transcription', async function () {
+        await transcriptionsStore.saveTranscription()
+        expect(patchToveSpy).toHaveBeenCalled()
+      })
+
+      it('should update the flagged attribute', function () {
+        expect(transcriptionsStore.current.flagged).toBe(false)
+        transcriptionsStore.setTextObject([mockReduction])
+        transcriptionsStore.checkForFlagUpdate()
+        expect(patchToveSpy).toHaveBeenCalled()
+        expect(transcriptionsStore.current.flagged).toBe(true)
+      })
     })
   })
 

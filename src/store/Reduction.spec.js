@@ -2,10 +2,17 @@ import Reduction from './Reduction'
 import * as mobX from 'mobx-state-tree'
 
 let reduction
+const checkForFlagUpdateSpy = jest.fn()
+const saveTranscriptionsSpy = jest.fn()
+
 const consensusText = 'Consensus Text'
 const contextValues = {
   auth: {
     user: { display_name: 'User' }
+  },
+  transcriptions: {
+    checkForFlagUpdate: checkForFlagUpdateSpy,
+    saveTranscription: saveTranscriptionsSpy
   }
 }
 
@@ -18,6 +25,8 @@ describe('Reduction', function () {
       consensus_text: consensusText
     })
   })
+
+  afterEach(() => jest.clearAllMocks());
 
   it('should exist', function () {
     expect(reduction).toBeDefined()
@@ -41,11 +50,13 @@ describe('Reduction', function () {
 
   it('should toggle the current flag', function () {
     reduction.toggleCurrentFlag()
+    expect(checkForFlagUpdateSpy).toHaveBeenCalled()
     expect(reduction.flagged).toBe(true)
   })
 
   it('should toggle the current seen', function () {
     reduction.toggleCurrentSeen()
+    expect(saveTranscriptionsSpy).toHaveBeenCalled()
     expect(reduction.seen).toBe(true)
   })
 })
