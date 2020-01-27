@@ -31,7 +31,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 }).actions(self => ({
   checkForFlagUpdate: () => {
     let containsLineFlag = false
-    console.log('whoop', self.current.text.get('frame0')[0].flagged)
     self.current.text.forEach(t => {
       const flaggedItem = t.find(t => t.flagged)
       if (flaggedItem) containsLineFlag = true
