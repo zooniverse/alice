@@ -1,4 +1,4 @@
-import { types, flow } from 'mobx-state-tree'
+import { flow, getRoot, types } from 'mobx-state-tree'
 import auth from 'panoptes-client/lib/auth'
 import history from '../history'
 
@@ -11,6 +11,7 @@ const AuthStore = types.model('AuthStore', {
       const user = yield auth.checkCurrent()
       if (user) {
         self.user = user
+        yield auth.checkBearerToken().then(token => getRoot(self).client.setBearerToken(token));
       } else if (history.location.pathname !== '/') {
         history.push('/')
       }
@@ -22,6 +23,7 @@ const AuthStore = types.model('AuthStore', {
   login: flow(function* login (login, password, setSubmitting) {
     try {
       const user = yield auth.signIn({ login, password })
+      yield auth.checkBearerToken().then(token => getRoot(self).client.setBearerToken(token));
       if (user) { self.user = user }
       setSubmitting(false)
       history.push('/projects')
@@ -37,6 +39,7 @@ const AuthStore = types.model('AuthStore', {
     } catch (error) {
       console.warn(error);
     }
+    getRoot(self).client.setBearerToken(null)
     self.user = null
     history.push('/')
   })
