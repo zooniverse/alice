@@ -39,6 +39,7 @@ const AuthStore = types.model('AuthStore', {
     } catch (error) {
       console.warn(error);
     }
+    getRoot(self).client.setBearerToken(null)
     self.user = null
     history.push('/')
   })
