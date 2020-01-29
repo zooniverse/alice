@@ -39,7 +39,7 @@ function AnnotationsPane({ lines, isExtract, x, y }) {
             svgLines.push(
               <line
                 key={`SVG_LINE_${i}`}
-                x1={x1} y1={prevPoint.y}
+                x1={prevPoint.x} y1={prevPoint.y}
                 x2={x2} y2={point.y}
                 stroke={color} strokeWidth="2"
                 strokeDasharray={dashArray}

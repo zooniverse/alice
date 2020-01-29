@@ -34,7 +34,6 @@ function SVGView ({ disabled, height, url, transform, width}) {
           y={height * -0.5}
         />
         <InteractionLayer boundingBox={boundingBox} width={width} height={height} />
-        <ExtractsPaneContainer x={width * -0.5} y={height * -0.5} />
         <AnnotationsPane x={width * -0.5} y={height * -0.5} />
       </G>
     </SVG>

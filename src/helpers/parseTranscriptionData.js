@@ -8,9 +8,8 @@ function constructCoordinates(line) {
   return points;
 };
 
-function constructCoordinatesFromExtract(line) {
+function constructCoordinatesFromExtract(line, user) {
   const points = [];
-  // console.log('extract', line);
   if (line.points && line.points.x && line.points.y) {
     line.points.x.forEach((point, i) => {
       const coords = []
@@ -19,7 +18,7 @@ function constructCoordinatesFromExtract(line) {
       points.push(coords)
     })
   }
-  return points;
+  return { points, user };
 };
 
 function constructText(line) {

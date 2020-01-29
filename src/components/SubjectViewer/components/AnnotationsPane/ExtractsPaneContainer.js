@@ -11,9 +11,14 @@ function ExtractsPaneContainer({ x, y }) {
   const index = store.subjects.index
   const extracts = store.transcriptions.extracts
   const validExtracts = extracts.filter(extract => extract.data[`frame${index}`])
-  parsedLines = validExtracts.map(transcription => constructCoordinatesFromExtract(transcription.data[`frame${index}`]))
-  console.log('extracts', parsedLines);
-  console.log('reductions', store.transcriptions.current.text.frame0);
+  parsedLines = validExtracts.map(transcription => constructCoordinatesFromExtract(transcription.data[`frame${index}`], transcription.userId))
+  const reductions = store.transcriptions.current.text && store.transcriptions.current.text[`frame${index}`]
+  console.log('parsed lines', parsedLines);
+  console.log('reductions', reductions);
+  const test = reductions.map(reduction => {
+    console.log(reduction);
+  })
+  console.log('test', test);
 
   return parsedLines.map((line, i) => {
     return (
@@ -22,7 +27,7 @@ function ExtractsPaneContainer({ x, y }) {
         isExtract
         x={x}
         y={y}
-        lines={line}
+        lines={line.points}
       />
     )
   })
