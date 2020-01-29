@@ -19,18 +19,21 @@ function indexToRaindow(index) {
       // blue
       return '#4A90E2';
     case 6:
+      // purple
+      return '#9013FE'
+    case 7:
       // pink
       return '#BD10E0';
-    case 7:
+    case 8:
       // cyan
       return '#50E3C2';
-    case 8:
+    case 9:
       // avocado
       return '#B8E986';
-    case 9:
+    case 10:
       // coral
       return '#D06F7B';
-    case 10:
+    case 11:
       // brown
       return '#795315';
     default:

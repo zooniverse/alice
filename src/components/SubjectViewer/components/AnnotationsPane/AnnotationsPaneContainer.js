@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import AnnotationsPane from './AnnotationsPane'
-import { constructCoordinates, constructCoordinates2, constructText } from 'helpers/parseTranscriptionData'
+import { constructCoordinates, constructText } from 'helpers/parseTranscriptionData'
 
 function AnnotationsPaneContainer({ x, y }) {
   let [ extractLines, reductionLines ] = [[], []]
@@ -21,8 +21,7 @@ function AnnotationsPaneContainer({ x, y }) {
   const transcriptionFrame = transcription && transcription.text && transcription.text[`frame${index}`]
 
   if (transcriptionFrame) {
-    // reductionLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
-    reductionLines = transcriptionFrame.map(transcription => constructCoordinates2(transcription))
+    reductionLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
     const reductionText = transcriptionFrame.map(transcription => constructText(transcription))
     transcriptionFrame.forEach((reduction, reductionIndex) => {
       extractLines.push([])

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { bool, string, number } from 'prop-types'
 import AnnotationsPane from '../AnnotationsPane'
-import ExtractsPaneContainer from '../AnnotationsPane/ExtractsPaneContainer'
 import InteractionLayer from '../InteractionLayer'
 
 const SVG = styled.svg`

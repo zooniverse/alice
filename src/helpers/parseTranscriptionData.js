@@ -1,15 +1,5 @@
 function constructCoordinates(line) {
   const points = [];
-  if (line && line.clusters_x && line.clusters_y) {
-    line.clusters_x.forEach((point, i) => {
-      points.push({ x: line.clusters_x[i], y: line.clusters_y[i] });
-    })
-  }
-  return points;
-};
-
-function constructCoordinates2(line) {
-  const points = [];
 
   if (line && line.clusters_x && line.clusters_y) {
     points.push({
@@ -48,4 +38,4 @@ function constructText(line) {
   return sentences.map(value => value.join(' '));
 }
 
-export { constructCoordinates, constructCoordinates2, constructCoordinatesFromExtract, constructText };
+export { constructCoordinates, constructCoordinatesFromExtract, constructText };
