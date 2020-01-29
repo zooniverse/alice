@@ -8,6 +8,20 @@ function constructCoordinates(line) {
   return points;
 };
 
+function constructCoordinates2(line) {
+  const points = [];
+
+  if (line && line.clusters_x && line.clusters_y) {
+    points.push({
+      x1: line.clusters_x[0],
+      x2: line.clusters_x[1],
+      y1: line.clusters_y[0],
+      y2: line.clusters_y[1]
+    })
+  }
+  return points;
+};
+
 function constructCoordinatesFromExtract(line, user) {
   const points = [];
   if (line.points && line.points.x && line.points.y) {
@@ -34,4 +48,4 @@ function constructText(line) {
   return sentences.map(value => value.join(' '));
 }
 
-export { constructCoordinates, constructCoordinatesFromExtract, constructText };
+export { constructCoordinates, constructCoordinates2, constructCoordinatesFromExtract, constructText };

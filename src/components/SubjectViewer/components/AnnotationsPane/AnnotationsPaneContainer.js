@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import AnnotationsPane from './AnnotationsPane'
-import { constructCoordinates, constructText } from 'helpers/parseTranscriptionData'
+import { constructCoordinates, constructCoordinates2, constructText } from 'helpers/parseTranscriptionData'
 
 function AnnotationsPaneContainer({ x, y }) {
   let [ extractLines, reductionLines ] = [[], []]
@@ -21,7 +21,8 @@ function AnnotationsPaneContainer({ x, y }) {
   const transcriptionFrame = transcription && transcription.text && transcription.text[`frame${index}`]
 
   if (transcriptionFrame) {
-    reductionLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
+    // reductionLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
+    reductionLines = transcriptionFrame.map(transcription => constructCoordinates2(transcription))
     const reductionText = transcriptionFrame.map(transcription => constructText(transcription))
     transcriptionFrame.forEach((reduction, reductionIndex) => {
       extractLines.push([])
@@ -32,8 +33,10 @@ function AnnotationsPaneContainer({ x, y }) {
             if (extractLocation && extractLocation[0] === reductionText[reductionIndex][userIdIndex]) {
               const annotationIndexToExtract = reduction.extract_index[userIdIndex]
               extractLines[reductionIndex].push({
-                x: extract[`frame${index}`].points.x[annotationIndexToExtract],
-                y: extract[`frame${index}`].points.y[annotationIndexToExtract]
+                x1: extract[`frame${index}`].points.x[annotationIndexToExtract][0],
+                x2: extract[`frame${index}`].points.x[annotationIndexToExtract][1],
+                y1: extract[`frame${index}`].points.y[annotationIndexToExtract][0],
+                y2: extract[`frame${index}`].points.y[annotationIndexToExtract][1]
               })
             }
           }
@@ -41,7 +44,6 @@ function AnnotationsPaneContainer({ x, y }) {
       })
     })
   }
-  console.log(extractLines, reductionLines);
 
   const lines = { extractLines, reductionLines }
 
@@ -49,7 +51,8 @@ function AnnotationsPaneContainer({ x, y }) {
     <AnnotationsPane
       x={x}
       y={y}
-      lines={lines.reductionLines}
+      extractLines={lines.extractLines}
+      reductionLines={lines.reductionLines}
     />
   )
 }

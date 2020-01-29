@@ -1,0 +1,73 @@
+import React from 'react'
+import { array, string } from 'prop-types'
+import indexToRainbow from 'helpers/indexToRainbow'
+
+const CIRCLE_WIDTH = 10
+
+function SVGLines({ lines, isExtract, reductionIndex }) {
+  const dashArray = isExtract ? '5' : '0'
+
+  return (
+    <g>
+      {lines.map((line, index) => {
+        const color = indexToRainbow(reductionIndex % 11)
+        const svgPoints = []
+        const svgLines = []
+        const isLeftToRight = line.x1 < line.x2
+        const endLinePos = isLeftToRight ? line.x2 - CIRCLE_WIDTH : line.x2 + CIRCLE_WIDTH
+
+        svgPoints.push(
+          <circle
+            key={`SVG_DOT_${index}_1`}
+            cx={line.x1}
+            cy={line.y1}
+            r={CIRCLE_WIDTH}
+            fill={color}
+            stroke={color}
+            strokeWidth='2'
+          />
+        )
+        svgPoints.push(
+          <circle
+            key={`SVG_DOT_${index}_2`}
+            cx={line.x2}
+            cy={line.y2}
+            r={CIRCLE_WIDTH}
+            fill='transparent'
+            stroke={color}
+            strokeWidth='2'
+          />
+        )
+
+        svgLines.push(
+          <line
+            key={`SVG_LINE_${index}`}
+            x1={line.x1} y1={line.y1}
+            x2={endLinePos} y2={line.y2}
+            stroke={color} strokeWidth="2"
+            strokeDasharray={dashArray}
+          />
+        )
+
+        return (
+          <g key={`TRANSCRIPTION_${index}`}>
+            {svgLines}
+            {svgPoints}
+          </g>
+        )
+      })}
+    </g>
+  )
+}
+
+SVGLines.propTypes = {
+  lines: array,
+  offset: string
+}
+
+SVGLines.defaultProps = {
+  lines: [],
+  offset: ''
+}
+
+export default SVGLines
