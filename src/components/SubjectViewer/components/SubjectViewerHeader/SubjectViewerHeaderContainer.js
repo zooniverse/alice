@@ -6,11 +6,10 @@ import SubjectViewerHeader from './SubjectViewerHeader'
 function SubjectViewerHeaderContainer() {
   const store = React.useContext(AppContext)
   const toggleLineVisibility = () => store.editor.toggleLineVisibility()
-  const linesVisible = store.editor.linesVisible
 
   return (
     <SubjectViewerHeader
-      linesVisible={linesVisible}
+      linesVisible={store.editor.linesVisible}
       toggleLineVisibility={toggleLineVisibility}
     />
   )

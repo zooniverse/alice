@@ -1,8 +1,8 @@
 import React from 'react'
-import { array, string } from 'prop-types'
+import { array, bool, number } from 'prop-types'
 import indexToRainbow from 'helpers/indexToRainbow'
 
-function SVGLines({ lines, isExtract, reductionIndex }) {
+export default function SVGLines({ lines, isExtract, reductionIndex }) {
   const circleWidth = isExtract ? 4 : 10
   const dashArray = isExtract ? '4' : '0'
   const strokeWidth = isExtract ? '0.5' : '3'
@@ -12,7 +12,6 @@ function SVGLines({ lines, isExtract, reductionIndex }) {
       {lines.map((line, index) => {
         const color = indexToRainbow(reductionIndex % 12)
         const svgPoints = []
-        const svgLines = []
         const isLeftToRight = line.x1 < line.x2
         const endLinePos = isLeftToRight ? line.x2 - circleWidth : line.x2 + circleWidth
 
@@ -39,7 +38,7 @@ function SVGLines({ lines, isExtract, reductionIndex }) {
           />
         )
 
-        svgLines.push(
+        const svgLines = (
           <line
             key={`SVG_LINE_${index}`}
             x1={line.x1} y1={line.y1}
@@ -61,13 +60,13 @@ function SVGLines({ lines, isExtract, reductionIndex }) {
 }
 
 SVGLines.propTypes = {
+  isExtract: bool,
   lines: array,
-  offset: string
+  reductionIndex: number
 }
 
 SVGLines.defaultProps = {
+  isExtract: false,
   lines: [],
-  offset: ''
+  reductionIndex: 0
 }
-
-export default SVGLines

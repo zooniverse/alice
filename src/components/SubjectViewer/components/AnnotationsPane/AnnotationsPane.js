@@ -2,7 +2,7 @@ import React from 'react'
 import { array, bool, number } from 'prop-types'
 import SVGLines from './SVGLines'
 
-function AnnotationsPane({
+export default function AnnotationsPane({
   extractLines,
   linesVisible,
   reductionLines,
@@ -49,5 +49,3 @@ AnnotationsPane.defaultProps = {
   x: 0,
   y: 0
 }
-
-export default AnnotationsPane
