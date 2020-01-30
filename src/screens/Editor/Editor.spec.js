@@ -50,7 +50,8 @@ const contextValues = {
     index: 0
   },
   transcriptions: {
-    current: undefined
+    current: undefined,
+    extracts: []
   }
 }
 

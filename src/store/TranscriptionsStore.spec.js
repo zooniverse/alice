@@ -1,10 +1,20 @@
 import ASYNC_STATES from 'helpers/asyncStates'
+import * as graphQl from 'graphql-request'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
 
 let transcriptionsStore
 let rootStore
 let patchToveSpy = jest.fn().mockResolvedValue(true)
+const extracts = {
+  workflow: {
+    extracts: [{
+      data: {
+        frame0: {}
+      }
+    }]
+  }
+}
 let simpleTranscription = TranscriptionFactory.build({ status: 'approved' })
 let mockReduction = {
   clusters_text: [],
@@ -138,12 +148,24 @@ describe('TranscriptionsStore', function () {
 
   describe('success state fetching single transcription', function () {
     it('should fetch a single transcription', async function () {
+      jest
+        .spyOn(graphQl, 'request')
+        .mockImplementation(() => {
+          return Promise.resolve(extracts)
+        })
       rootStore = AppStore.create({
         client: { tove: singleTranscriptionStub },
         groups: {
           current: {
             display_name: 'GROUP_1'
           }
+        },
+        subject: {
+          index: 0
+        },
+        workflows: {
+          all: { 1: { id: '1' } },
+          current: '1'
         }
       })
       transcriptionsStore = rootStore.transcriptions
