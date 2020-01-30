@@ -76,6 +76,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   fetchExtracts: flow(function * fetchExtracts(id) {
     const workflowId = getRoot(self).workflows.current.id
+    // TODO: The extractor key below will need to change eventually. This is just
+    // to test the code with ASM staging data. In the future, this will change to
+    // 'alice' once current extractors have been backfilled with duplicate extractors
+    // with the correct 'alice' key.
     const query = `{
       workflow(id: ${workflowId}) {
         extracts(subjectId: ${id}, extractorKey: "ext-17") {
