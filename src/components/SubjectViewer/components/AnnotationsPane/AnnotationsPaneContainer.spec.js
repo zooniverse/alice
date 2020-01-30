@@ -4,7 +4,13 @@ import AnnotationsPaneContainer from './AnnotationsPaneContainer'
 
 let wrapper
 
+const extract = {
+  data: { frame0: {} }
+}
 const contextValues = {
+  editor: {
+    linesVisible: true
+  },
   subjects: { index: 0 },
   transcriptions: {
     current: {
@@ -14,7 +20,8 @@ const contextValues = {
           clusters_y: []
         }] ]
       ])
-    }
+    },
+    extracts: [extract]
   }
 }
 
