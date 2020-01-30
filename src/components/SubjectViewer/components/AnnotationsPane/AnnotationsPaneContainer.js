@@ -20,6 +20,7 @@ function AnnotationsPaneContainer({ x, y }) {
   const transcriptionFrame = transcription && transcription.text && transcription.text[`frame${index}`]
 
   if (transcriptionFrame) {
+    console.log(extractsByUser);
     reductionLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
     const reductionText = transcriptionFrame.map(transcription => constructText(transcription))
     transcriptionFrame.forEach((reduction, reductionIndex) => {

@@ -12,19 +12,6 @@ function constructCoordinates(line) {
   return points;
 };
 
-function constructCoordinatesFromExtract(line, user) {
-  const points = [];
-  if (line.points && line.points.x && line.points.y) {
-    line.points.x.forEach((point, i) => {
-      const coords = []
-      coords.push({ x: line.points.x[i][0], y: line.points.y[i][0] });
-      coords.push({ x: line.points.x[i][1], y: line.points.y[i][1] });
-      points.push(coords)
-    })
-  }
-  return { points, user };
-};
-
 function constructText(line) {
   const sentences = [];
   if (line && line.clusters_text) {
@@ -47,7 +34,7 @@ function mapExtractsToReductions(
 ) {
   const result = []
 
-  reduction.user_ids.forEach((id, userIdIndex) => {
+  reduction.user_ids && reduction.user_ids.forEach((id, userIdIndex) => {
     extractsByUser[id] && extractsByUser[id].forEach(extract => {
       if (extract[`frame${subjectIndex}`]) {
         const extractLocation = extract[`frame${subjectIndex}`].text[reduction.extract_index[userIdIndex]]
@@ -69,7 +56,6 @@ function mapExtractsToReductions(
 
 export {
   constructCoordinates,
-  constructCoordinatesFromExtract,
   constructText,
   mapExtractsToReductions
 };
