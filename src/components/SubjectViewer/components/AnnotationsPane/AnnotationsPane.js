@@ -1,9 +1,17 @@
 import React from 'react'
-import { array, string } from 'prop-types'
+import { array, bool, number } from 'prop-types'
 import SVGLines from './SVGLines'
 
-function AnnotationsPane({ extractLines, reductionLines, isExtract, x, y }) {
+function AnnotationsPane({
+  extractLines,
+  linesVisible,
+  reductionLines,
+  x,
+  y
+}) {
   const offset = `translate(${x}, ${y})`
+
+  if (!linesVisible) return null
 
   return (
     <g transform={offset}>
@@ -27,13 +35,19 @@ function AnnotationsPane({ extractLines, reductionLines, isExtract, x, y }) {
 }
 
 AnnotationsPane.propTypes = {
-  lines: array,
-  offset: string
+  extractLines: array,
+  linesVisible: bool,
+  reductionLines: array,
+  x: number,
+  y: number
 }
 
 AnnotationsPane.defaultProps = {
-  lines: [],
-  offset: ''
+  extractLines: [],
+  linesVisible: true,
+  reductionLines: [],
+  x: 0,
+  y: 0
 }
 
 export default AnnotationsPane

@@ -50,6 +50,7 @@ function AnnotationsPaneContainer({ x, y }) {
     <AnnotationsPane
       x={x}
       y={y}
+      linesVisible={store.editor.linesVisible}
       extractLines={lines.extractLines}
       reductionLines={lines.reductionLines}
     />
