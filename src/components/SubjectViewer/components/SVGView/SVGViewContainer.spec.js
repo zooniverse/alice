@@ -11,6 +11,9 @@ const setScaleSpy = jest.fn()
 const setStateSpy = jest.fn()
 
 const contextValues = {
+  editor: {
+    linesVisible: true
+  },
   image: {
     rotation: 0,
     scale: 1,
@@ -28,7 +31,8 @@ const contextValues = {
     index: 0
   },
   transcriptions: {
-    current: null
+    current: null,
+    extracts: []
   }
 }
 
