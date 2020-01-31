@@ -2,6 +2,7 @@ import { flow, getRoot, types } from 'mobx-state-tree'
 import Frisbee from 'frisbee'
 import { config } from 'config'
 import download from 'downloadjs'
+import auth from 'panoptes-client/lib/auth';
 
 const ClientStore = types.model('ClientStore', {
   aggregator: types.optional(types.frozen({}), null),
@@ -57,12 +58,18 @@ const ClientStore = types.model('ClientStore', {
   }),
 
   get: flow(function* get (request) {
-    return yield self.tove.get(request)
+    return yield auth.checkBearerToken().then((token) => {
+      self.setBearerToken(token)
+      return self.tove.get(request)
+    })
   }),
 
   setBearerToken: (token) => {
-    self.tove.jwt(token)
-    self.toveZip.jwt(token)
+    if (token !== self.bearerToken) {
+      self.bearerToken = token
+      self.tove.jwt(token)
+      self.toveZip.jwt(token)
+    }
   }
 }))
 
