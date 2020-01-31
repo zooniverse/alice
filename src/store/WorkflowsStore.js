@@ -31,7 +31,7 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   fetchWorkflows: flow (function * fetchWorkflows(id, page = 0) {
     self.page = page
     self.asyncState = ASYNC_STATES.LOADING
-    const client = getRoot(self).client.tove
+    const client = getRoot(self).client
     try {
       const response = yield client.get(`/workflows?filter[project_id_eq]=${id}&page[number]=${self.page+1}`)
       const resources = JSON.parse(response.body)
@@ -48,7 +48,7 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   getWorkflow: flow (function * getWorkflow(id) {
     if (!id) return undefined
     self.asyncState = ASYNC_STATES.LOADING
-    const client = getRoot(self).client.tove
+    const client = getRoot(self).client
     try {
       const response = yield client.get(`/workflows/${id}`)
       const resource = JSON.parse(response.body)

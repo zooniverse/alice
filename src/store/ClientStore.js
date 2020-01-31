@@ -56,6 +56,10 @@ const ClientStore = types.model('ClientStore', {
       }
   }),
 
+  get: flow(function* get (request) {
+    return yield self.tove.get(request)
+  }),
+
   setBearerToken: (token) => {
     self.tove.jwt(token)
     self.toveZip.jwt(token)
