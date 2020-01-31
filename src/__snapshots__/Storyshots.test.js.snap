@@ -760,8 +760,47 @@ exports[`Storyshots LineViewer Default 1`] = `
           <div
             className="StyledBox-sc-13pk1d4-0 jUNXut"
           >
-            <span
-              className="StyledText-sc-1sadyjn-0 kutFY"
+            <div
+              className="StyledBox-sc-13pk1d4-0 cGDWft"
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 ekjAwv"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 hpKMsN"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 gycYtK"
+                  >
+                    <label
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                      >
+                        <input
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 bfatAZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <span
+                  className="StyledText-sc-1sadyjn-0 cvCUKP"
+                >
+                  Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                </span>
+              </div>
+            </div>
+            <div
+              className="StyledBox-sc-13pk1d4-0 hIYVGv"
             >
 
             </span>
@@ -775,14 +814,43 @@ exports[`Storyshots LineViewer Default 1`] = `
             <div
               className="StyledBox-sc-13pk1d4-0 fWrrBh"
             >
-              <button
-                className="StyledButton-sc-323bzc-0 jfbKsv"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onMouseOut={[Function]}
-                onMouseOver={[Function]}
-                type="button"
+              <div
+                className="StyledBox-sc-13pk1d4-0 ekjAwv"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 rFQkP"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 gycYtK"
+                  >
+                    <label
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                      >
+                        <input
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <span
+                  className="StyledText-sc-1sadyjn-0 cvCUKP"
+                >
+                  Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                </span>
+              </div>
+              <div
+                className="StyledBox-sc-13pk1d4-0 erdrxH"
               >
                 <svg
                   aria-hidden="true"
@@ -845,8 +913,47 @@ exports[`Storyshots LineViewer Default 1`] = `
           <div
             className="StyledBox-sc-13pk1d4-0 fWrrBh"
           >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR"
+            <div
+              className="StyledBox-sc-13pk1d4-0 cGDWft"
+            >
+              <div
+                className="StyledBox-sc-13pk1d4-0 ekjAwv"
+              >
+                <div
+                  className="StyledBox-sc-13pk1d4-0 klwuiV"
+                >
+                  <div
+                    className="StyledBox-sc-13pk1d4-0 gycYtK"
+                  >
+                    <label
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                      >
+                        <input
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <span
+                  className="StyledText-sc-1sadyjn-0 cvCUKP"
+                >
+                  Mauris elementum pulvinar lacinia. Donec tincidunt pretium quam, at condimentum ex lacinia eu.
+                </span>
+              </div>
+            </div>
+            <div
+              className="StyledBox-sc-13pk1d4-0 hIYVGv"
             >
               0
               /
@@ -875,8 +982,7 @@ exports[`Storyshots LineViewer Default 1`] = `
                 onClick={[Function]}
               >
                 <div
-                  checked={false}
-                  className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                  className="StyledBox-sc-13pk1d4-0 dEpJhW"
                 >
                   <input
                     checked={false}
@@ -887,9 +993,27 @@ exports[`Storyshots LineViewer Default 1`] = `
                     type="checkbox"
                   />
                   <div
-                    checked={false}
-                    className="StyledBox-sc-13pk1d4-0 bbcswH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
-                  />
+                    className="StyledBox-sc-13pk1d4-0 gycYtK"
+                  >
+                    <label
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iXoYah"
+                      onClick={[Function]}
+                    >
+                      <div
+                        className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                      >
+                        <input
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 ehXCKu"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                          type="checkbox"
+                        />
+                        <div
+                          className="StyledBox-sc-13pk1d4-0 jMTeWg StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                        />
+                      </div>
+                    </label>
+                  </div>
                 </div>
               </label>
               <div

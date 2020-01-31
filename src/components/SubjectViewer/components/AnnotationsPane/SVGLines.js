@@ -1,6 +1,6 @@
 import React from 'react'
 import { array, bool, number } from 'prop-types'
-import indexToRainbow from 'helpers/indexToRainbow'
+import indexToColor from 'helpers/indexToColor'
 
 export default function SVGLines({ lines, isExtract, reductionIndex }) {
   const circleWidth = isExtract ? 4 : 10
@@ -10,7 +10,7 @@ export default function SVGLines({ lines, isExtract, reductionIndex }) {
   return (
     <g>
       {lines.map((line, index) => {
-        const color = indexToRainbow(reductionIndex % 12)
+        const color = indexToColor(reductionIndex % 12)
         const svgPoints = []
         const isLeftToRight = line.x1 < line.x2
         const endLinePos = isLeftToRight ? line.x2 - circleWidth : line.x2 + circleWidth
