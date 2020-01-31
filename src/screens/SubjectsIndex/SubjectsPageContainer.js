@@ -27,7 +27,6 @@ function SubjectsPageContainer ({ history, match }) {
     }
     const nextPath = generatePath(EDIT_PATH, { subject: subject.id, ...match.params})
     history.push(nextPath)
-    store.subjects.fetchSubject(subject.id)
   }
 
   const onSetPage = (page) => {

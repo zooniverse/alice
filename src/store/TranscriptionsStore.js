@@ -100,7 +100,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.asyncState = ASYNC_STATES.LOADING
     const client = getRoot(self).client.tove
     try {
-      yield self.fetchExtracts(id)
       const response = yield client.get(`/transcriptions/${id}`)
       const resource = JSON.parse(response.body)
       self.asyncState = ASYNC_STATES.READY
@@ -150,6 +149,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   selectTranscription: flow(function * selectTranscription(id = null) {
     let transcription = self.all.get(id)
     if (!transcription) transcription = yield self.fetchTranscription(id)
+    if (id) yield self.fetchExtracts(id)
     self.setTranscription(transcription)
     self.current = id || undefined
   }),

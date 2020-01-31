@@ -73,12 +73,21 @@ let failedToveStub = {
 describe('TranscriptionsStore', function () {
   describe('success state fetching multiple transcriptions', function () {
     beforeEach(async function () {
+      jest
+        .spyOn(graphQl, 'request')
+        .mockImplementation(() => {
+          return Promise.resolve(extracts)
+        })
       rootStore = AppStore.create({
         client: { tove: successfulToveStub },
         groups: {
           current: {
             display_name: 'GROUP_1'
           }
+        },
+        workflows: {
+          all: { 1: { id: '1' } },
+          current: '1'
         }
       })
       transcriptionsStore = rootStore.transcriptions
@@ -148,11 +157,6 @@ describe('TranscriptionsStore', function () {
 
   describe('success state fetching single transcription', function () {
     it('should fetch a single transcription', async function () {
-      jest
-        .spyOn(graphQl, 'request')
-        .mockImplementation(() => {
-          return Promise.resolve(extracts)
-        })
       rootStore = AppStore.create({
         client: { tove: singleTranscriptionStub },
         groups: {
@@ -162,10 +166,6 @@ describe('TranscriptionsStore', function () {
         },
         subject: {
           index: 0
-        },
-        workflows: {
-          all: { 1: { id: '1' } },
-          current: '1'
         }
       })
       transcriptionsStore = rootStore.transcriptions
@@ -203,6 +203,13 @@ describe('TranscriptionsStore', function () {
     it('should handle an error when fetching transcriptions', async function () {
       transcriptionsStore = rootStore.transcriptions
       await transcriptionsStore.fetchTranscriptions()
+      expect(transcriptionsStore.error).toBe(error.message)
+      expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+    })
+
+    it('should handle an error when fetching a transcription', async function () {
+      transcriptionsStore = rootStore.transcriptions
+      await transcriptionsStore.fetchTranscription('1')
       expect(transcriptionsStore.error).toBe(error.message)
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
     })

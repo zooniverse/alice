@@ -9,7 +9,6 @@ import ResourcesTable from '../../components/ResourcesTable'
 
 let wrapper
 const getResourcesSpy = jest.fn()
-const fetchSubjectSpy = jest.fn()
 const fetchTranscriptionsSpy = jest.fn()
 const pushSpy = jest.fn()
 const resetSpy = jest.fn()
@@ -22,9 +21,6 @@ const contextValues = {
   search: {
     active: false,
     reset: resetSpy
-  },
-  subjects: {
-    fetchSubject: fetchSubjectSpy,
   },
   transcriptions: {
     all: { values: () => [] },
@@ -66,7 +62,6 @@ describe('Component > SubjectsPageContainer', function () {
       const subject = { id: 1 }
       table.props().onSelection(subject)
       expect(pushSpy).toHaveBeenCalled()
-      expect(fetchSubjectSpy).toHaveBeenCalledWith(subject.id)
     })
 
     it('should call the child setStep prop', function () {
@@ -81,7 +76,6 @@ describe('Component > SubjectsPageContainer', function () {
       table.props().onSelection(subject)
       expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
       expect(pushSpy).toHaveBeenCalled()
-      expect(fetchSubjectSpy).toHaveBeenCalledWith(subject.id)
     })
 
     it('should not toggleModal when subject unlocked', function() {
@@ -90,7 +84,6 @@ describe('Component > SubjectsPageContainer', function () {
       table.props().onSelection(subject)
       expect(toggleModalSpy).not.toHaveBeenCalled()
       expect(pushSpy).toHaveBeenCalled()
-      expect(fetchSubjectSpy).toHaveBeenCalledWith(subject.id)
     })
   })
 
