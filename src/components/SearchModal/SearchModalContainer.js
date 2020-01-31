@@ -2,35 +2,20 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import SearchModal from './SearchModal'
-
-const TYPES = {
-  ZOONIVERSE: 'ZOONIVERSE ID',
-  EXTERNAL: 'EXTERNAL ID'
-}
-
-const initialValues = {
-  id: null,
-  type: '',
-  unreviewed: false,
-  inProgress: false,
-  readyForReview: false,
-  approved: false,
-  flagged: false,
-  lowConsensus: false,
-}
+import { TYPES } from 'store/SearchStore'
 
 function SearchModalContainer() {
   const [value, setValue] = React.useState('Select...');
   const store = React.useContext(AppContext)
   const onClose = () => store.modal.toggleModal('')
-  const onSubmit = e => console.log(e);
+  const onSubmit = args => store.search.searchTranscriptions(args);
 
   return (
     <SearchModal
-      initialValues={initialValues}
+      initialValues={store.search}
       onClose={onClose}
       onSubmit={onSubmit}
-      options={[ TYPES.ZOONIVERSE, TYPES.EXTERNAL ]}
+      options={[ TYPES.ZOONIVERSE, TYPES.INTERNAL ]}
       setValue={setValue}
       types={TYPES}
       value={value}
@@ -38,5 +23,4 @@ function SearchModalContainer() {
   )
 }
 
-export { TYPES }
 export default observer(SearchModalContainer)

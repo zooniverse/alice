@@ -15,8 +15,10 @@ function SubjectsPageContainer ({ history, match }) {
     const setResources = async () => {
       await store.getResources(match.params)
       await store.transcriptions.fetchTranscriptions()
+      store.search.reset()
     }
     setResources()
+    return () => store.modal.toggleModal('')
   }, [match, store])
 
   const onSelection = (subject) => {
@@ -43,8 +45,9 @@ function SubjectsPageContainer ({ history, match }) {
         error={store.transcriptions.error}
         onSelection={onSelection}
         resource='Subjects'
+        searching={store.search.active}
         setStep={onSetPage}
-        state={store.transcriptions.asyncState}
+        status={store.transcriptions.asyncState}
         steps={steps}
       />
     </Box>

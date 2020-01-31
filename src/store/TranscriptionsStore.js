@@ -3,7 +3,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 
 const Transcription = types.model('Transcription', {
   id: types.identifier,
-  flaggedid: types.optional(types.boolean, false),
+  flagged: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
   status: types.optional(types.string, ''),
   text: types.optional(types.frozen(), {}),
@@ -27,6 +27,22 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   },
 
+  retrieveTranscriptions: flow(function * retrieveTranscriptions(query) {
+    const client = getRoot(self).client.tove
+    self.asyncState = ASYNC_STATES.LOADING
+    try {
+      const response = yield client.get(query)
+      const resources = JSON.parse(response.body)
+      self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
+      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
+      self.asyncState = ASYNC_STATES.READY
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  }),
+
   fetchTranscription: flow(function * fetchTranscription(id) {
     if (!id) return undefined
     self.asyncState = ASYNC_STATES.LOADING
@@ -44,22 +60,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }),
 
   fetchTranscriptions: flow (function * fetchTranscriptions(page = 0) {
+    self.reset()
     self.page = page
-    const client = getRoot(self).client.tove
     const groupName = getRoot(self).groups.title
     if (!groupName) return
-    self.asyncState = ASYNC_STATES.LOADING
-    try {
-      const response = yield client.get(`/transcriptions?filter[group_id_eq]=${groupName}&page[number]=${self.page + 1}`)
-      const resources = JSON.parse(response.body)
-      self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
-      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
-      self.asyncState = ASYNC_STATES.READY
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
+    const searchQuery = getRoot(self).search.getSearchQuery()
+    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&page[number]=${self.page + 1}${searchQuery}`)
   }),
 
   reset: () => {

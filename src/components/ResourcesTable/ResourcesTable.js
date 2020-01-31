@@ -6,7 +6,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import StepNavigation from '../StepNavigation'
-
+import SearchTags from './components/SearchTags'
 
 function ResourcesTable(props) {
   const onClickRow = (e) => {
@@ -19,7 +19,9 @@ function ResourcesTable(props) {
   }
 
   return (
-    <Box align='center' background='white' fill='horizontal' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
+    <Box background='white' fill='horizontal' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
+      {props.searching && <SearchTags />}
+
       {props.data.length > 0 &&
         <DataTable
           columns={[...props.columns].map(col => ({ ...col }))}
@@ -42,7 +44,7 @@ function ResourcesTable(props) {
       {props.data.length === 0 && props.status === ASYNC_STATES.READY && (
         <Text textAlign='center'>{`Sorry, we couldn't find any ${props.resource}`}</Text>
       )}
-      <Box margin={{ top: 'small' }}>
+      <Box align='center' margin={{ top: 'small' }}>
         <StepNavigation
           activeStep={props.activeStep}
           setStep={props.setStep}
@@ -61,6 +63,7 @@ ResourcesTable.defaultProps = {
   error: '',
   onSelection: null,
   resource: null,
+  searching: false,
   setStep: () => {},
   status: ASYNC_STATES.IDLE,
   steps: []
@@ -73,6 +76,7 @@ ResourcesTable.propTypes = {
   error: PropTypes.string,
   onSelection: PropTypes.func,
   resource: PropTypes.string,
+  searching: PropTypes.bool,
   setStep: PropTypes.func,
   steps: PropTypes.array,
   status: PropTypes.string

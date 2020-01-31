@@ -3,6 +3,7 @@ import React from 'react'
 import { DataTable, Text } from 'grommet'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { ResourcesTable } from './ResourcesTable'
+import SearchTags from './components/SearchTags'
 
 let wrapper;
 let html;
@@ -58,6 +59,11 @@ describe('Component > ResourcesTable', function () {
     expect(html).toContain(DATA[0].secondColumn);
     expect(html).toContain(DATA[1].firstColumn);
     expect(html).toContain(DATA[1].secondColumn);
+  })
+
+  it('should render the SearchTags component', function () {
+    wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} searching />)
+    expect(wrapper.find(SearchTags).length).toBe(1)
   })
 })
 

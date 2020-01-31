@@ -12,9 +12,9 @@ let setValueSpy = jest.fn()
 const initialValues = {
   id: null,
   type: '',
-  unreviewed: false,
-  inProgress: false,
-  readyForReview: false,
+  unseen: false,
+  in_progress: false,
+  ready: false,
   approved: false,
   flagged: false,
   lowConsensus: false,
@@ -49,6 +49,40 @@ describe('Component > SearchModal', function () {
       const select = innerForm.find(Select).first()
       select.simulate('change', { option })
       expect(setValueSpy).toBeCalledWith(option)
+    })
+  })
+
+  describe('form validations', function () {
+    let formValidation
+
+    beforeEach(function () {
+      formValidation = wrapper.find(Formik).first().props().validate
+    })
+
+    it('should require a type', function () {
+      const outcome = formValidation(initialValues)
+      expect(outcome).toEqual({
+        type: 'Type is required'
+      })
+    })
+
+    it('should require an ID', function () {
+      const copiedValues = Object.assign({}, initialValues)
+      copiedValues.type = 'ZOONIVERSE ID'
+      const outcome = formValidation(copiedValues)
+      expect(outcome).toEqual({
+        id: 'You must enter an ID'
+      })
+    })
+
+    it('should require Zooniverse ID to be a number', function () {
+      const copiedValues = Object.assign({}, initialValues)
+      copiedValues.type = 'ZOONIVERSE ID'
+      copiedValues.id = 'some id'
+      const outcome = formValidation(copiedValues)
+      expect(outcome).toEqual({
+        id: 'Zooniverse ID must be a number'
+      })
     })
   })
 })

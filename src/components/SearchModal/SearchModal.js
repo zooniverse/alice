@@ -7,7 +7,7 @@ import { Formik } from 'formik'
 import withThemeContext from '../../helpers/withThemeContext'
 import theme from './theme'
 import SearchCheckBox from './components/SearchCheckBox'
-import { TYPES } from './SearchModalContainer'
+import { FILTERS, TYPES } from 'store/SearchStore'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -39,7 +39,7 @@ const validateForm = (values) => {
 
 function SearchModal({ onClose, onSubmit, initialValues, options, setValue, value }) {
   return (
-    <Box background='white' pad='small' round='xsmall'>
+    <Box background='white' elevation='medium' pad='small' round='xsmall' width='25em'>
       <Box gap='small'>
         <Box align='center' direction='row' justify='between'>
           <Text size='large'>Search or Filter</Text>
@@ -65,7 +65,7 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
             <Box as='form' onSubmit={handleSubmit} gap='small'>
               <Box direction='row' gap='xsmall' margin={{ bottom: 'xsmall' }}>
                 <Box basis='1/3'>
-                  <ReverseFormField htmlFor='type' label='ID Type' error={errors && errors.type}>
+                  <ReverseFormField htmlFor='type' label='ID TYPE' error={errors && errors.type}>
                     <Select
                       disabled={disableInput}
                       dropAlign={{ top: 'top' }}
@@ -77,12 +77,12 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                         setValue(option)
                       }}
                       plain
-                      value={<Text>{value}</Text>}
+                      value={<Text>{values.type || value}</Text>}
                     />
                   </ReverseFormField>
                 </Box>
                 <Box basis='2/3'>
-                  <ReverseFormField htmlFor='id' label='Name' error={errors && errors.id}>
+                  <ReverseFormField htmlFor='id' label='NAME' error={errors && errors.id}>
                     <TextInput
                       color='red'
                       disabled={disableInput}
@@ -91,6 +91,7 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
                       onChange={handleChange}
                       placeholder='eg. 58674'
                       size='small'
+                      value={values.id}
                     />
                   </ReverseFormField>
                 </Box>
@@ -99,61 +100,52 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
               <Box direction='row' justify='between'>
                 <Box gap='small'>
                   <Text weight='bold'>Approval Status</Text>
-                  <FormField htmlFor='unreviewed'>
+                  <FormField htmlFor={FILTERS.UNSEEN}>
                     <SearchCheckBox
-                      checked={values.unreviewed}
+                      checked={values.unseen}
                       disabled={disableCheckbox}
-                      label='UNREVIEWED'
+                      label='UNSEEN'
                       onChange={handleChange}
-                      title='unreviewed'
+                      title={FILTERS.UNSEEN}
                     />
                   </FormField>
-                  <FormField htmlFor='inProgress'>
+                  <FormField htmlFor={FILTERS.IN_PROGRESS}>
                     <SearchCheckBox
-                      checked={values.inProgress}
+                      checked={values.in_progress}
                       disabled={disableCheckbox}
                       label='IN PROGRESS'
                       onChange={handleChange}
-                      title='inProgress'
+                      title={FILTERS.IN_PROGRESS}
                     />
                   </FormField>
-                  <FormField htmlFor='readyForReview'>
+                  <FormField htmlFor={FILTERS.READY}>
                     <SearchCheckBox
-                      checked={values.readyForReview}
+                      checked={values.ready}
                       disabled={disableCheckbox}
                       label='READY FOR REVIEW'
                       onChange={handleChange}
-                      title='readyForReview'
+                      title={FILTERS.READY}
                     />
                   </FormField>
-                  <FormField htmlFor='approved'>
+                  <FormField htmlFor={FILTERS.APPROVED}>
                     <SearchCheckBox
                       checked={values.approved}
                       disabled={disableCheckbox}
                       label='APPROVED'
                       onChange={handleChange}
-                      title='approved'
+                      title={FILTERS.APPROVED}
                     />
                   </FormField>
                 </Box>
                 <Box gap='small'>
                   <Text weight='bold'>Additional Filters</Text>
-                  <FormField htmlFor='flagged'>
+                  <FormField htmlFor={FILTERS.FLAGGED}>
                     <SearchCheckBox
                       checked={values.flagged}
                       disabled={disableCheckbox}
-                      label='Flagged'
+                      label='FLAGGED'
                       onChange={handleChange}
-                      title='flagged'
-                    />
-                  </FormField>
-                  <FormField htmlFor='lowConsensus'>
-                    <SearchCheckBox
-                      checked={values.lowConsensus}
-                      disabled={disableCheckbox}
-                      label='Low consensus score'
-                      onChange={handleChange}
-                      title='lowConsensus'
+                      title={FILTERS.FLAGGED}
                     />
                   </FormField>
                 </Box>

@@ -316,7 +316,7 @@ const columns = [
   },
   {
     property: "id",
-    header: "External ID"
+    header: "Internal ID"
   },
   {
     property: "lastEdit",
@@ -338,7 +338,7 @@ const columns = [
   {
     property: "flagged",
     header: "Flag",
-    render: datum => datum.flag ? <StyledFontAwesomeIcon color='tomato' icon={faCircle} /> : null
+    render: datum => datum.flagged ? <StyledFontAwesomeIcon color='tomato' icon={faCircle} /> : null
   },
   {
     property: "consensusScore",

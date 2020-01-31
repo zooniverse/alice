@@ -12,11 +12,16 @@ const getResourcesSpy = jest.fn()
 const fetchSubjectSpy = jest.fn()
 const fetchTranscriptionsSpy = jest.fn()
 const pushSpy = jest.fn()
+const resetSpy = jest.fn()
 const toggleModalSpy = jest.fn()
 const contextValues = {
   getResources: getResourcesSpy,
   modal: {
     toggleModal: toggleModalSpy
+  },
+  search: {
+    active: false,
+    reset: resetSpy
   },
   subjects: {
     fetchSubject: fetchSubjectSpy,
