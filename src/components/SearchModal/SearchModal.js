@@ -7,7 +7,7 @@ import { Formik } from 'formik'
 import withThemeContext from '../../helpers/withThemeContext'
 import theme from './theme'
 import SearchCheckBox from './components/SearchCheckBox'
-import { TYPES } from 'store/SearchStore'
+import { FILTERS, TYPES } from 'store/SearchStore'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -100,52 +100,52 @@ function SearchModal({ onClose, onSubmit, initialValues, options, setValue, valu
               <Box direction='row' justify='between'>
                 <Box gap='small'>
                   <Text weight='bold'>Approval Status</Text>
-                  <FormField htmlFor='unseen'>
+                  <FormField htmlFor={FILTERS.UNSEEN}>
                     <SearchCheckBox
                       checked={values.unseen}
                       disabled={disableCheckbox}
                       label='UNSEEN'
                       onChange={handleChange}
-                      title='unseen'
+                      title={FILTERS.UNSEEN}
                     />
                   </FormField>
-                  <FormField htmlFor='in_progress'>
+                  <FormField htmlFor={FILTERS.IN_PROGRESS}>
                     <SearchCheckBox
                       checked={values.in_progress}
                       disabled={disableCheckbox}
                       label='IN PROGRESS'
                       onChange={handleChange}
-                      title='in_progress'
+                      title={FILTERS.IN_PROGRESS}
                     />
                   </FormField>
-                  <FormField htmlFor='ready'>
+                  <FormField htmlFor={FILTERS.READY}>
                     <SearchCheckBox
                       checked={values.ready}
                       disabled={disableCheckbox}
                       label='READY FOR REVIEW'
                       onChange={handleChange}
-                      title='ready'
+                      title={FILTERS.READY}
                     />
                   </FormField>
-                  <FormField htmlFor='approved'>
+                  <FormField htmlFor={FILTERS.APPROVED}>
                     <SearchCheckBox
                       checked={values.approved}
                       disabled={disableCheckbox}
                       label='APPROVED'
                       onChange={handleChange}
-                      title='approved'
+                      title={FILTERS.APPROVED}
                     />
                   </FormField>
                 </Box>
                 <Box gap='small'>
                   <Text weight='bold'>Additional Filters</Text>
-                  <FormField htmlFor='flagged'>
+                  <FormField htmlFor={FILTERS.FLAGGED}>
                     <SearchCheckBox
                       checked={values.flagged}
                       disabled={disableCheckbox}
                       label='FLAGGED'
                       onChange={handleChange}
-                      title='flagged'
+                      title={FILTERS.FLAGGED}
                     />
                   </FormField>
                 </Box>

@@ -5,6 +5,15 @@ const TYPES = {
   INTERNAL: 'INTERNAL ID'
 }
 
+const FILTERS = {
+  APPROVED: 'approved',
+  FLAGGED: 'flagged',
+  IN_PROGRESS: 'in_progress',
+  LOW_CONSENSUS: 'low_consensus',
+  READY: 'ready',
+  UNSEEN: 'unseen'
+}
+
 const SearchStore = types.model('SearchStore', {
   approved: types.optional(types.boolean, false),
   flagged: types.optional(types.boolean, false),
@@ -30,8 +39,8 @@ const SearchStore = types.model('SearchStore', {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
     let queries = []
-    const approvalFilters = ['unseen', 'in_progress', 'ready', 'approved']
-    const additionalFilters = ['flagged', 'low_consensus']
+    const approvalFilters = [FILTERS.UNSEEN, FILTERS.IN_PROGRESS, FILTERS.READY, FILTERS.APPROVED]
+    const additionalFilters = [FILTERS.FLAGGED, FILTERS.LOW_CONSENSUS]
     const activeApprovalFilters = []
     const activeAdditionalFilters = []
 
@@ -99,4 +108,4 @@ const SearchStore = types.model('SearchStore', {
   }
 }))
 
-export { TYPES, SearchStore }
+export { FILTERS, SearchStore, TYPES }
