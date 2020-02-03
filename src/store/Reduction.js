@@ -17,7 +17,7 @@ const Reduction = types.model('Reduction', {
   number_views: types.optional(types.integer, 0),
   seen: types.optional(types.boolean, false),
   slope_label: types.optional(types.integer, 0),
-  user_ids: types.array(types.integer)
+  user_ids: types.array(types.maybeNull(types.integer))
 })
 .actions(self => ({
   setConsensusText: (text, isOriginalOption = false) => {

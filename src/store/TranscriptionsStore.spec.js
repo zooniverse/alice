@@ -1,7 +1,6 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
-import Reduction from './Reduction'
 
 let transcriptionsStore
 let rootStore
