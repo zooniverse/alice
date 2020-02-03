@@ -17,8 +17,8 @@ const columns = [
     render: datum => <Text>{Object.keys(datum.groups).length}</Text>
   },
   {
-    property: "subjects",
-    header: "Approved Subjects",
+    property: "total_transcriptions",
+    header: "Total Subjects",
   },
   {
     property: "lastEdit",

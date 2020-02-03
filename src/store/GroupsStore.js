@@ -1,7 +1,10 @@
 import { types } from 'mobx-state-tree'
+import writeDate from 'helpers/writeDate'
 
 const Group = types.model('Group', {
   display_name: types.optional(types.string, ''),
+  last_edit: types.optional(types.string, ''),
+  last_editor: types.optional(types.string, ''),
   subjects: types.optional(types.number, 0)
 })
 
@@ -28,6 +31,8 @@ const GroupsStore = types.model('GroupsStore', {
     const unchunkedArray = Object.keys(groups).map((key) => {
       return Group.create({
         display_name: key,
+        last_edit: writeDate(groups[key].updated_at),
+        last_editor: groups[key].updated_by || '',
         subjects: groups[key].transcription_count
       })
     })

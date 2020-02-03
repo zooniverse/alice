@@ -5,8 +5,11 @@ const Transcription = types.model('Transcription', {
   id: types.identifier,
   flagged: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
+  low_consensus_lines: types.optional(types.integer, 0),
+  pages: types.optional(types.integer, 0),
   status: types.optional(types.string, ''),
   text: types.optional(types.frozen(), {}),
+  transcribed_lines: types.optional(types.integer, 0)
 })
 
 const TranscriptionsStore = types.model('TranscriptionsStore', {
@@ -18,12 +21,17 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   totalPages: types.optional(types.number, 1)
 }).actions(self => ({
   createTranscription: (transcription) => {
+    const text = transcription.attributes.text
+    const pages = Object.keys(text).filter(key => key.includes('frame')).length
     return Transcription.create({
       id: transcription.id,
       flagged: transcription.attributes.flagged,
       group_id: transcription.attributes.group_id,
+      low_consensus_lines: text.low_consensus_lines,
+      pages,
       status: transcription.attributes.status,
-      text: transcription.attributes.text
+      text,
+      transcribed_lines: text.transcribed_lines
     })
   },
 
