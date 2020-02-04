@@ -1,8 +1,12 @@
 import React from 'react'
+import MODALS from 'helpers/modals'
+import AppContext from 'store'
 import HeaderButton from './HeaderButton'
 
 export default function DownloadSetDataContainer({ disabled }) {
-  const onClick = e => { console.log('Download Subject Set Button Pressed') }
+  const store = React.useContext(AppContext)
+  const onClick = () => store.modal.toggleModal(MODALS.DOWNLOAD_GROUP)
+
   return (
     <HeaderButton
       disabled={disabled}

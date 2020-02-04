@@ -31,6 +31,6 @@ describe('Component > UndoButton', function () {
 
   it('should call toggleModal on child toggleDownload', function() {
     wrapper.props().toggleDownload()
-    expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.DOWNLOAD)
+    expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.DOWNLOAD_SUBJECT)
   })
 })
