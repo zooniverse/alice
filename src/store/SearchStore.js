@@ -83,6 +83,10 @@ const SearchStore = types.model('SearchStore', {
   },
 
   sort: function sort(property) {
+    SORT_VALUES.forEach((value) => {
+      if (property !== value) self[`sort_${value}`] = 0
+    })
+
     self[`sort_${property}`] = (self[`sort_${property}`] + 1) % 3
     getRoot(self).transcriptions.fetchTranscriptions()
   },
@@ -112,22 +116,20 @@ const SearchStore = types.model('SearchStore', {
   },
 
   getSortQuery: function () {
-    const activeSort = []
+    let query = ''
     SORT_VALUES.forEach(value => {
       switch (self[`sort_${value}`]) {
         case 1:
-          activeSort.push(value)
+          query = `&sort=${value}`
           break;
         case 2:
-          activeSort.push(`-${value}`)
+          query = `&sort=-${value}`
           break;
         default:
           break
       }
     })
-    const query = `&sort=${activeSort.join(',')}`
-    console.log(query);
-    return activeSort.length ? query : ''
+    return query
   }
 })).views(self => ({
   get active() {
