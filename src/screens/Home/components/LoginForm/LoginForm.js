@@ -70,7 +70,7 @@ function LoginForm ({ error, initialValues, onSubmit }) {
                 type='password'
                 value={values.password}/>
             </StyledFormField>
-            <Box height='3em'>
+            <Box>
               <Text color='red'>{error}</Text>
             </Box>
             <Button
@@ -79,6 +79,7 @@ function LoginForm ({ error, initialValues, onSubmit }) {
               gap='xxsmall'
               icon={<FormNextLink size='small'/>}
               label={<CapitalText size='small'>Sign In</CapitalText>}
+              margin={{ vertical: 'xsmall' }}
               onClick={() => validateForm().then(() => onSubmit)}
               plain
               reverse
