@@ -14,6 +14,14 @@ const FILTERS = {
   UNSEEN: 'unseen'
 }
 
+const SORT_OPTIONS = {
+  0: undefined,
+  1: 'asc',
+  2: 'desc'
+}
+
+const SORT_VALUES = ['id', 'flagged', 'status']
+
 const SearchStore = types.model('SearchStore', {
   approved: types.optional(types.boolean, false),
   flagged: types.optional(types.boolean, false),
@@ -21,6 +29,9 @@ const SearchStore = types.model('SearchStore', {
   in_progress: types.optional(types.boolean, false),
   low_consensus: types.optional(types.boolean, false),
   ready: types.optional(types.boolean, false),
+  sort_id: types.optional(types.number, 0),
+  sort_flagged: types.optional(types.number, 0),
+  sort_status: types.optional(types.number, 0),
   type: types.optional(types.string, ''),
   unseen: types.optional(types.boolean, false),
 }).actions(self => ({
@@ -77,6 +88,11 @@ const SearchStore = types.model('SearchStore', {
     })
   },
 
+  sort: function sort(property) {
+    self[`sort_${property}`] = (self[`sort_${property}`] + 1) % Object.keys(SORT_OPTIONS).length
+    getRoot(self).transcriptions.fetchTranscriptions()
+  },
+
   reset: function reset() {
     Object.keys(self).forEach(key => {
       const type = typeof self[key]
@@ -99,6 +115,24 @@ const SearchStore = types.model('SearchStore', {
     }
     getRoot(self).modal.toggleModal('')
     return query.length > 0 ? `&${query}` : query
+  },
+
+  getSortQuery: function () {
+    const activeSort = []
+    SORT_VALUES.forEach(value => {
+      switch (self[`sort_${value}`]) {
+        case 1:
+          activeSort.push(value)
+          break;
+        case 2:
+          activeSort.push(`-${value}`)
+          break;
+        default:
+          break
+      }
+    })
+    const query = `&sort=${activeSort.join(',')}`
+    return activeSort.length ? query : ''
   }
 })).views(self => ({
   get active() {

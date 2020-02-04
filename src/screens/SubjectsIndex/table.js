@@ -3,6 +3,7 @@ import { Box, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import HeaderButton from './HeaderButton'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -15,7 +16,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 const columns = [
   {
     property: "id",
-    header: "Zooniverse ID"
+    header: <HeaderButton property='id' title='ZOONIVERSE ID' />,
   },
   {
     property: "internal_id",
@@ -23,7 +24,11 @@ const columns = [
   },
   {
     property: "lastEdit",
-    header: "Last Edit",
+    header: (
+      <Button onClick={() => console.log('last edit click')} plain>
+        <CapitalText>Last Edit</CapitalText>
+      </Button>
+    ),
     render: datum => {
       const color = datum.locked ? 'red' : 'black'
       return <Text color={color}>{datum.locked ? 'LOCKED' : datum.lastEdit}</Text>
@@ -35,7 +40,7 @@ const columns = [
   },
   {
     property: "status",
-    header: "Status",
+    header: <HeaderButton property='status' title='STATUS' />,
     render: datum => <CapitalText>{datum.status}</CapitalText>
   },
   {

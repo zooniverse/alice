@@ -130,7 +130,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const workflow = getRoot(self).workflows.current.id
     if (!groupName || !workflow) return
     const searchQuery = getRoot(self).search.getSearchQuery()
-    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}`)
+    const sortQuery = getRoot(self).search.getSortQuery()
+    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}${sortQuery}`)
   }
 
   function getLastModified(response) {
