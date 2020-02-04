@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { bool, func } from 'prop-types'
+import { bool, func, number } from 'prop-types'
 
 export default function DownloadDataModal({
   approved,
@@ -28,7 +28,7 @@ export default function DownloadDataModal({
           plain
         />
       </Box>
-      {entireGroup && <Text>{approved}/{transcriptionCount} SUBJECTS APPROVED</Text>}
+      {entireGroup && <Text>{`${approved}/${transcriptionCount} SUBJECTS APPROVED`}</Text>}
       <Text margin={{ top: 'xsmall' }}>Download a .zip file containing:</Text>
       <Box gap='xsmall'>
         <Text size='small'>&#8226; Line by line transcription and metadata (.csv)</Text>
@@ -53,11 +53,15 @@ export default function DownloadDataModal({
 }
 
 DownloadDataModal.propTypes = {
+  approved: number,
   entireGroup: bool,
-  onClose: func
+  onClose: func,
+  transcriptionCount: number
 }
 
 DownloadDataModal.defaultProps = {
+  approved: number,
   entireGroup: false,
-  onClose: () => {}
+  onClose: () => {},
+  transcriptionCount: 0
 }

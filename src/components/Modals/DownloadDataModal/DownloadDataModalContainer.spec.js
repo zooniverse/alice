@@ -7,6 +7,10 @@ const toggleModalSpy = jest.fn()
 const contextValues = {
   modal: {
     toggleModal: toggleModalSpy
+  },
+  transcriptions: {
+    approvedCount: 0,
+    all: new Map()
   }
 }
 
