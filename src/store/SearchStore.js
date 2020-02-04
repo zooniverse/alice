@@ -14,12 +14,6 @@ const FILTERS = {
   UNSEEN: 'unseen'
 }
 
-const SORT_OPTIONS = {
-  0: undefined,
-  1: 'asc',
-  2: 'desc'
-}
-
 const SORT_VALUES = ['id', 'flagged', 'status']
 
 const SearchStore = types.model('SearchStore', {
@@ -89,7 +83,7 @@ const SearchStore = types.model('SearchStore', {
   },
 
   sort: function sort(property) {
-    self[`sort_${property}`] = (self[`sort_${property}`] + 1) % Object.keys(SORT_OPTIONS).length
+    self[`sort_${property}`] = (self[`sort_${property}`] + 1) % 3
     getRoot(self).transcriptions.fetchTranscriptions()
   },
 
@@ -132,6 +126,7 @@ const SearchStore = types.model('SearchStore', {
       }
     })
     const query = `&sort=${activeSort.join(',')}`
+    console.log(query);
     return activeSort.length ? query : ''
   }
 })).views(self => ({

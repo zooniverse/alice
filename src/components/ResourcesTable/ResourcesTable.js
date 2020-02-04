@@ -10,7 +10,6 @@ import SearchTags from './components/SearchTags'
 
 function ResourcesTable(props) {
   const onClickRow = (e) => {
-    console.log('clicked row');
     if (props.onSelection) {
       props.onSelection(e.datum)
     } else {
