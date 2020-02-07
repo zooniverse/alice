@@ -17,7 +17,7 @@ function AnnotationsPaneContainer({ x, y }) {
     return list
   }, {})
 
-  const transcriptionFrame = transcription && transcription.text && transcription.text[`frame${index}`]
+  const transcriptionFrame = transcription && transcription.text && transcription.text.get(`frame${index}`)
 
   if (transcriptionFrame) {
     reductionLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
