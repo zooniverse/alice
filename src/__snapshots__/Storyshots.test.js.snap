@@ -3051,7 +3051,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     <span
       className="StyledText-sc-1sadyjn-0 gcASOG sc-kpOJdX gJaRTc"
     >
-      Mark As Approved
+      Ready For Review
     </span>
     <div
       checked={false}
@@ -3059,7 +3059,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     >
       <input
         checked={false}
-        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 rUrdy"
+        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dmrmuV"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -3067,7 +3067,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
       />
       <span
         checked={false}
-        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 jSgNzH"
+        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 hjGuWS"
       >
         <span
           checked={false}

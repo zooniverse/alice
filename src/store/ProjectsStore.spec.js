@@ -18,11 +18,11 @@ let collabRole = {
   links: {
      project: '2'
   },
-  roles: ['collaborator']
+  roles: ['expert']
 }
 let userRoles = [ownerRole, collabRole]
 
-let roles = { 1: 'Project Owner', 2: 'Moderator' }
+let roles = { 1: 'Researcher', 2: 'Volunteer' }
 let toveStub = {
   get: () => Promise.resolve(
     {
@@ -88,6 +88,21 @@ describe('ProjectsStore', function () {
     projectsStore.selectProject('2')
     expect(projectsStore.title).toBe(collabProject.display_name)
   })
+
+  it('should get the current role', function () {
+    projectsStore.selectProject('1')
+    expect(projectsStore.role).toBe('Researcher')
+  })
+
+  it('should state if the current role is researcher', function () {
+    projectsStore.selectProject('1')
+    expect(projectsStore.isResearcher).toBe(true)
+  })
+
+  it('should get the current project id', function () {
+    projectsStore.selectProject('1')
+    expect(projectsStore.id).toBe('1')
+  })
 })
 
 describe('ProjectsStore getProject', function () {
@@ -140,7 +155,7 @@ describe('ProjectsStore getRoles', function () {
       })
     projectsStore = rootStore.projects
     await projectsStore.getRoles()
-    expect(projectsStore.roles).toEqual({ 1: 'Project Owner', 2: 'Moderator' })
+    expect(projectsStore.roles).toEqual({ 1: 'Researcher', 2: 'Volunteer' })
   })
 })
 

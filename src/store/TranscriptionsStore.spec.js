@@ -31,7 +31,8 @@ let fetchTranscriptionStub = {
           }
         })
     }
-  )
+  ),
+  patch: () => Promise.resolve()
 }
 const error = { message: 'Failed to Return' }
 let failedToveStub = {
@@ -40,7 +41,7 @@ let failedToveStub = {
 
 describe('TranscriptionsStore', function () {
   describe('success state fetching multiple transcriptions', function () {
-    beforeEach(function () {
+    beforeEach(async function () {
       rootStore = AppStore.create({
         client: { tove: fetchTranscriptionsStub },
         groups: {
@@ -50,6 +51,7 @@ describe('TranscriptionsStore', function () {
         }
       })
       transcriptionsStore = rootStore.transcriptions
+      await transcriptionsStore.fetchTranscriptions()
     })
 
     it('should exist', function () {
@@ -57,23 +59,25 @@ describe('TranscriptionsStore', function () {
     })
 
     it('should fetch transcriptions', async function () {
-      await transcriptionsStore.fetchTranscriptions()
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.READY)
       expect(transcriptionsStore.all.size).toBe(2)
     })
 
     it('should count the number of approved', async function () {
-      await transcriptionsStore.fetchTranscriptions()
       expect(transcriptionsStore.approvedCount).toBe(1)
     })
 
     it('should fetch transcriptions for a subject', async function () {
-      await transcriptionsStore.fetchTranscriptions()
       await transcriptionsStore.selectTranscription(1)
       const transcription = transcriptionsStore.createTranscription(simpleTranscription)
       expect(transcriptionsStore.current).toEqual(transcription)
     })
 
+    it('should return the current transcription state', async function () {
+      await transcriptionsStore.selectTranscription(1)
+      expect(transcriptionsStore.approved).toBe(false)
+      expect(transcriptionsStore.title).toBe("1")
+    })
   })
 
   describe('success state fetching single transcription', function () {
@@ -90,6 +94,12 @@ describe('TranscriptionsStore', function () {
       const returnValue = await transcriptionsStore.fetchTranscription('1')
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.READY)
       expect(returnValue).toBeDefined()
+    })
+
+    it('should be able to update an approval state', async function () {
+      await transcriptionsStore.selectTranscription(1)
+      await transcriptionsStore.updateApproval(false)
+      expect(transcriptionsStore.readyForReview).toBe(true)
     })
   })
 

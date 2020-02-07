@@ -77,6 +77,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }),
 
   reset: () => {
+    getRoot(self).aggregations.setModal(false)
     self.selectTranscription(null)
     self.all.clear()
   },
@@ -96,8 +97,24 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         console.error(error)
       }
     }
-  }
+  },
+
+  updateApproval: flow(function * updateApproval(isChecked) {
+    const isResearcher = getRoot(self).projects.isResearcher
+    const query = { data: { type: 'transcriptions', attributes: { status: 'in_progress' } }}
+    if (!isChecked) {
+      const newStatus = isResearcher ? 'approved' : 'ready'
+      query.data.attributes.status = newStatus
+    }
+    self.current.status = query.data.attributes.status
+    const client = getRoot(self).client.tove
+    yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
+  })
 })).views(self => ({
+  get approved () {
+    return !!(self.current && self.current.status === 'approved')
+  },
+
   get approvedCount () {
     let count = 0;
     self.all.forEach(transcription => {
@@ -106,6 +123,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }
     })
     return count;
+  },
+
+  get readyForReview () {
+    return !!(self.current && self.current.status === 'ready')
   },
 
   get title () {

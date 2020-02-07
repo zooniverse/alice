@@ -5,7 +5,13 @@ import { bool, func } from 'prop-types'
 import AppContext from 'store'
 import HeaderButton from '../HeaderButton'
 
-export default function MoreButton({ disabled, isOpen, setOpen, toggleDownload }) {
+export default function MoreButton({
+  disabled,
+  disableEditingAggregations,
+  isOpen,
+  setOpen,
+  toggleDownload
+}) {
   const store = React.useContext(AppContext)
   const Icon = isOpen ? FormDown : FormUp
   const onEditSettings = () => {
@@ -29,8 +35,8 @@ export default function MoreButton({ disabled, isOpen, setOpen, toggleDownload }
       dropAlign={{ top: 'bottom', right: 'right' }}
       dropContent={
         <Box background='white' gap='small' pad='small'>
-          <HeaderButton label='Download Subject Data' onClick={onDownload} />
-          <HeaderButton label='Edit Aggregation Settings' onClick={onEditSettings} />
+          <HeaderButton disabled={!disableEditingAggregations} label='Download Subject Data' onClick={onDownload} />
+          <HeaderButton disabled={disableEditingAggregations} label='Edit Aggregation Settings' onClick={onEditSettings} />
         </Box>
       }
       onClose={() => setOpen(false)}
@@ -43,6 +49,7 @@ export default function MoreButton({ disabled, isOpen, setOpen, toggleDownload }
 
 MoreButton.propTypes = {
   disabled: bool,
+  disableEditingAggregations: bool,
   isOpen: bool,
   setOpen: func,
   toggleDownload: func
@@ -50,6 +57,7 @@ MoreButton.propTypes = {
 
 MoreButton.defaultProps = {
   disabled: false,
+  disableEditingAggregations: false,
   isOpen: false,
   setOpen: () => {},
   toggleDownload: () => {}

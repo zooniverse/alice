@@ -9,7 +9,7 @@ const StyledText = styled(Text)`
   line-height: 1.75em;
 `
 
-export default function UnapproveModal({ onClose }) {
+export default function UnapproveModal({ onClose, onUnapprove }) {
   return (
     <Box
       background='white'
@@ -43,7 +43,7 @@ export default function UnapproveModal({ onClose }) {
         <Button
           a11yTitle="Confirm to Unapprove Subject"
           label={<Text size='small'>YES, UNAPPROVE</Text>}
-          onClick={onClose}
+          onClick={onUnapprove}
           plain
         />
       </Box>
@@ -52,9 +52,11 @@ export default function UnapproveModal({ onClose }) {
 }
 
 UnapproveModal.propTypes = {
-  onClose: func
+  onClose: func,
+  onUnapprove: func
 }
 
 UnapproveModal.defaultProps = {
-  onClose: () => {}
+  onClose: () => {},
+  onUnapprove: () => {}
 }

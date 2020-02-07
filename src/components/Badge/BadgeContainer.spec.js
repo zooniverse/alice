@@ -7,13 +7,19 @@ let wrapper
 let badgeComponent
 
 const contextValues = {
+  aggregations: {
+    showModal: false
+  },
   auth: {
     logout: () => {},
     user: {
       avatar_src: 'source.jpg',
       display_name: 'Test_User',
     }
-  }
+  },
+  projects: {
+    role: 'Researcher'
+  },
 }
 
 describe('Component > BadgeContainer', function () {

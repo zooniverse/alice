@@ -5,10 +5,11 @@ import UnapproveModal from './UnapproveModal'
 
 let wrapper
 let onCloseSpy = jest.fn()
+let onUnapproveSpy = jest.fn()
 
 describe('Component > UnapproveModal', function () {
   beforeAll(function () {
-    wrapper = shallow(<UnapproveModal onClose={onCloseSpy} />);
+    wrapper = shallow(<UnapproveModal onClose={onCloseSpy} onUnapprove={onUnapproveSpy} />);
   })
 
   afterEach(() => {
@@ -31,9 +32,9 @@ describe('Component > UnapproveModal', function () {
     expect(onCloseSpy).toHaveBeenCalled()
   })
 
-  it('should call onClose when unapprove button pressed', function () {
+  it('should call onUnapprove when unapprove button pressed', function () {
     const unapproveButton = wrapper.find(Button).at(2)
     unapproveButton.simulate('click')
-    expect(onCloseSpy).toHaveBeenCalled()
+    expect(onUnapproveSpy).toHaveBeenCalled()
   })
 })

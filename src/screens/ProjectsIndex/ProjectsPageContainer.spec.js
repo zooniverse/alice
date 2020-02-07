@@ -14,7 +14,7 @@ const selectProjectSpy = jest.fn()
 const collabProjects = [
   {
     id: '1',
-    role: 'Moderator',
+    role: 'Volunteer',
     avatar_src: 'www.image.com',
     display_name: 'Fake Project'
   }
@@ -22,7 +22,7 @@ const collabProjects = [
 const ownerProjects = [
   {
     id: '2',
-    role: 'Project Owner',
+    role: 'Researcher',
     avatar_src: 'www.image.com',
     display_name: 'Fake Project'
   }

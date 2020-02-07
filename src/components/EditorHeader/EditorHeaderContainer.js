@@ -29,15 +29,16 @@ function getHeaderTools(path) {
 function EditorHeaderContainer({ history }) {
   const store = React.useContext(AppContext)
   const buttons = getHeaderTools(history.location.pathname)
-  const showMetadata = routeMatcher(history.location.pathname, EDIT_PATH)
+  const disabled = store.aggregations.showModal || store.transcriptions.approved
   const onAbout = routeMatcher(history.location.pathname, ABOUT_PATH)
+  const showMetadata = routeMatcher(history.location.pathname, EDIT_PATH)
 
   return (
     <EditorHeader
       buttons={buttons}
+      disabled={disabled}
       onAbout={onAbout}
       showMetadata={showMetadata}
-      showOverlay={store.aggregations.showModal}
       user={store.auth.user}
     />
   )

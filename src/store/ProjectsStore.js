@@ -2,6 +2,15 @@ import { flow, getRoot, types } from 'mobx-state-tree'
 import apiClient from 'panoptes-client/lib/api-client.js'
 import ASYNC_STATES from 'helpers/asyncStates'
 
+const ROLES = {
+  RESEARCHER: 'Researcher',
+  VOLUNTEER: 'Volunteer',
+  VIEWER: 'Viewer'
+}
+
+const researcherRoles = ['owner', 'collaborator']
+const volunteerRoles = ['expert', 'researcher', 'moderator']
+
 const Project = types
   .model('Project', {
     avatar_src: types.optional(types.string, ''),
@@ -30,9 +39,9 @@ const ProjectsStore = types.model('ProjectsStore', {
     const user = getRoot(self).auth.user
     const roles = yield apiClient.type('project_roles').get({ user_id: user.id, page_size: 50 })
     self.roles = roles.reduce((roles, role) => {
-      let title = 'Viewer'
-      if (role.roles.includes('owner')) { title = 'Project Owner' }
-      if (role.roles.includes('collaborator')) { title = 'Moderator' }
+      let title = ROLES.VIEWER
+      if (role.roles.some(role => volunteerRoles.includes(role))) { title = ROLES.VOLUNTEER }
+      if (role.roles.some(role => researcherRoles.includes(role))) { title = ROLES.RESEARCHER }
       roles[role.links.project] = title
       return roles
     }, {})
@@ -49,7 +58,7 @@ const ProjectsStore = types.model('ProjectsStore', {
       const projects = yield apiClient.type('projects').get({ id: ids.toString(), cards: true })
 
       projects.forEach((project) => {
-        const role = self.roles[project.id] || 'Viewer'
+        const role = self.roles[project.id] || ROLES.VIEWER
         self.all.put(self.createProject(project, role))
       })
 
@@ -69,7 +78,7 @@ const ProjectsStore = types.model('ProjectsStore', {
       if (!self.roles) yield self.getRoles()
       const response = yield apiClient.type('projects').get({ id, cards: true })
       const project = response[0]
-      const role = self.roles[project.id] || 'Viewer'
+      const role = self.roles[project.id] || ROLES.VIEWER
       self.asyncState = ASYNC_STATES.READY
       return self.createProject(project, role)
     } catch (error) {
@@ -105,17 +114,25 @@ const ProjectsStore = types.model('ProjectsStore', {
     return self.current && self.current.id
   },
 
+  get isResearcher () {
+    return (self.current && self.current.role === ROLES.RESEARCHER) || false
+  },
+
+  get role () {
+    return self.current && self.current.role
+  },
+
   get title () {
     return self.current && self.current.display_name.length ? self.current.display_name : 'Select Project'
   },
 
   get collabProjects () {
-    return Array.from(self.all.values()).filter(project => project.role !== 'Project Owner')
+    return Array.from(self.all.values()).filter(project => project.role !== ROLES.RESEARCHER)
   },
 
   get ownerProjects () {
-    return Array.from(self.all.values()).filter(project => project.role === 'Project Owner')
+    return Array.from(self.all.values()).filter(project => project.role === ROLES.RESEARCHER)
   }
 }))
 
-export { Project, ProjectsStore }
+export { Project, ProjectsStore, ROLES }

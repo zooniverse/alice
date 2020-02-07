@@ -2,7 +2,6 @@ import React from 'react'
 import { Box } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Overlay from '../Overlay'
 import Title from './components/Title'
 import Back from './components/Back'
 import MetadataButton from './components/MetadataButton'
@@ -16,7 +15,7 @@ const StyledBox = styled(Box)`
   position: relative;
 `
 
-export default function EditorHeader ({ buttons, onAbout, showMetadata, showOverlay, user }) {
+export default function EditorHeader ({ buttons, disabled, onAbout, showMetadata, user }) {
   return (
     <Box as='header' border='bottom' direction='row' pad={{ bottom: 'small' }} justify='between'>
       <HeaderBox align='center' direction='row' gap='xsmall' wrap>
@@ -26,12 +25,11 @@ export default function EditorHeader ({ buttons, onAbout, showMetadata, showOver
       {!!user && (
         <StyledBox align='center' background='light-2' direction='row'>
             <Box direction='row' border='right' fill='vertical' gap='small' pad='small' wrap>
-              {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} disabled={showOverlay} />)}
+              {buttons.map((HeaderButton, i) => <HeaderButton key={`HEADER_BUTTON_${i}`} disabled={disabled} />)}
             </Box>
-            <Badge disabled={showOverlay} onAbout={onAbout} />
+            <Badge onAbout={onAbout} />
         </StyledBox>
       )}
-      {showOverlay && <Overlay />}
     </Box>
   )
 }

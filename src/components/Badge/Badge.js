@@ -42,8 +42,8 @@ function Badge ({ disabled, isOpen, name, onAbout, role, setOpen, signOut, src }
     <Box align='center' direction='row' gap='xsmall'>
       <StyledAvatar alt={`${name} Avatar`} fallback={DefaultAvatar} src={src} />
       <Box>
-        <Text>{name}</Text>
-        <CapitalText color='dark-5' size='xsmall'>{role}</CapitalText>
+        <Text weight='bold'>{name}</Text>
+        <CapitalText color='dark-5' size='small'>{role}</CapitalText>
       </Box>
       <DropButton
         alignSelf='center'

@@ -32,6 +32,7 @@ function Editor ({ match }) {
     setResources()
   }, [match, store])
 
+  const disabled = store.aggregations.showModal || store.transcriptions.approved
   const subject = store.subjects.current
   const locations = findLocations(subject)
   const direction = store.editor.layout
@@ -42,7 +43,7 @@ function Editor ({ match }) {
   const [currentPos, setPos] = React.useState()
 
   const onMouseDown = e => {
-    if (store.aggregations.showModal) return null;
+    if (disabled) return null;
     setMove(true);
     setNewPosition(e);
   }
@@ -94,7 +95,7 @@ function Editor ({ match }) {
           </Box>
           <Resizer
             direction={direction}
-            disabled={store.aggregations.showModal}
+            disabled={disabled}
             onMouseDown={onMouseDown}
           />
           <Box basis={`${transcriberSize}%`}>

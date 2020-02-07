@@ -17,6 +17,9 @@ const contextValues = {
   },
   auth: {
     user: { id: '1' }
+  },
+  transcriptions: {
+    approved: false
   }
 }
 

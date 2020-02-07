@@ -9,7 +9,17 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-export default function MetadataButton({ disabled, goldStandard, id, lines, metadata, pages, score, transcribers }) {
+export default function MetadataButton({
+  disabled,
+  goldStandard,
+  id,
+  lines,
+  metadata,
+  pages,
+  score,
+  status,
+  transcribers
+}) {
   const targetEl = React.useRef(null)
   const [isOpen, toggleDrop] = React.useState(false)
 
@@ -38,7 +48,7 @@ export default function MetadataButton({ disabled, goldStandard, id, lines, meta
             </Box>
             <Box direction='row'>
               <CapitalText size='xsmall'>
-                {pages} pages &#8226; {transcribers}/{goldStandard} transcribers/gold standard &#8226; {lines} transcribed lines &#8226; {score}/{transcribers} average consensus
+                {pages} pages &#8226; {transcribers}/{goldStandard} transcribers/gold standard &#8226; {lines} transcribed lines &#8226; {score}/{transcribers} average consensus &#8226; {status}
               </CapitalText>
             </Box>
             <Box gap='xsmall'>
