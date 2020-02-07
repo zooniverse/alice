@@ -2,11 +2,12 @@ function constructCoordinates(line) {
   const points = [];
 
   if (line && line.clusters_x && line.clusters_y) {
+    const lastPoint = line.clusters_x.length - 1
     points.push({
       x1: line.clusters_x[0],
-      x2: line.clusters_x[1],
+      x2: line.clusters_x[lastPoint],
       y1: line.clusters_y[0],
-      y2: line.clusters_y[1]
+      y2: line.clusters_y[lastPoint]
     })
   }
   return points;
@@ -40,11 +41,13 @@ function mapExtractsToReductions(
         const extractLocation = extract[`frame${subjectIndex}`].text[reduction.extract_index[userIdIndex]]
         if (extractLocation && extractLocation[0] === reductionText[reductionIndex][userIdIndex]) {
           const annotationIndexToExtract = reduction.extract_index[userIdIndex]
+          const points = extract[`frame${subjectIndex}`].points
+          const lastIndex = points.x[annotationIndexToExtract].length - 1
           result.push({
-            x1: extract[`frame${subjectIndex}`].points.x[annotationIndexToExtract][0],
-            x2: extract[`frame${subjectIndex}`].points.x[annotationIndexToExtract][1],
-            y1: extract[`frame${subjectIndex}`].points.y[annotationIndexToExtract][0],
-            y2: extract[`frame${subjectIndex}`].points.y[annotationIndexToExtract][1]
+            x1: points.x[annotationIndexToExtract][0],
+            x2: points.x[annotationIndexToExtract][lastIndex],
+            y1: points.y[annotationIndexToExtract][0],
+            y2: points.y[annotationIndexToExtract][lastIndex]
           })
         }
       }
