@@ -20,15 +20,14 @@ const reduction = {
   setConsensusText: setConsensusTextSpy
 }
 
-jest
-  .spyOn(React, 'useRef')
-  .mockImplementation(() => { return { current: { value: 'Input Field' } }})
-
 const wrapper = shallow(
   <LineViewer
+    algorithmChoice={transcriptionOptions.length}
+    inputText='Input Field'
     reduction={reduction}
     setItem={setItemSpy}
     transcriptionOptions={transcriptionOptions}
+    typedChoice={transcriptionOptions.length + 1}
   />
 )
 
