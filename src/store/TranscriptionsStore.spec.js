@@ -166,6 +166,10 @@ describe('TranscriptionsStore', function () {
         },
         subject: {
           index: 0
+        },
+        workflows: {
+          all: { 1: { id: '1' } },
+          current: '1'
         }
       })
       transcriptionsStore = rootStore.transcriptions
