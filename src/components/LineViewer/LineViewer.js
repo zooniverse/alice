@@ -18,29 +18,29 @@ const ItalicText = styled(Text)`
 `
 
 function LineViewer ({
+  algorithmChoice,
   closeModal,
   consensusText,
   flagged,
+  inputText,
   reduction,
   selectedItem,
   seen,
+  setInputText,
   setItem,
-  transcriptionOptions
+  transcriptionOptions,
+  typedChoice
 }) {
-  const ALGORITHM_CHOICE = transcriptionOptions.length
-  const TYPED_CHOICE = transcriptionOptions.length + 1
-  const inputBox = React.useRef(null)
-
   const replaceWithSelected = () => {
     let textOption = ''
-    if (selectedItem === ALGORITHM_CHOICE) {
+    if (selectedItem === algorithmChoice) {
       textOption = reduction.consensus_text
-    } else if (selectedItem === TYPED_CHOICE) {
-      textOption = inputBox.current.value
+    } else if (selectedItem === typedChoice) {
+      textOption = inputText
     } else {
       textOption = transcriptionOptions[selectedItem].text
     }
-    const isAlgorithmChoice = selectedItem === ALGORITHM_CHOICE
+    const isAlgorithmChoice = selectedItem === algorithmChoice
     reduction.setConsensusText(textOption, isAlgorithmChoice)
   }
 
@@ -88,9 +88,9 @@ function LineViewer ({
           <Box>
             <Box direction='row' gap='xsmall'>
               <CheckBox
-                checked={selectedItem === ALGORITHM_CHOICE}
+                checked={selectedItem === algorithmChoice}
                 onChange={() => {
-                  const setTo = selectedItem === ALGORITHM_CHOICE ? null : ALGORITHM_CHOICE
+                  const setTo = selectedItem === algorithmChoice ? null : algorithmChoice
                   setItem(setTo)
                 }}
               />
@@ -100,17 +100,23 @@ function LineViewer ({
           </Box>
           <Box direction='row' gap='xsmall'>
             <CheckBox
-              checked={selectedItem === TYPED_CHOICE}
+              checked={selectedItem === typedChoice}
               onChange={() => {
-                const setTo = selectedItem === TYPED_CHOICE ? null : TYPED_CHOICE
+                const setTo = selectedItem === typedChoice ? null : typedChoice
                 setItem(setTo)
               }}
             />
             <Box fill='horizontal'>
               <TextInput
+                onChange={(e) => {
+                  setInputText(e.target.value)
+                  if (e.target.value.length && selectedItem !== typedChoice) {
+                    setItem(typedChoice)
+                  } else if (!e.target.value.length) { setItem(null) }
+                }}
                 placeholder='Write new...'
-                ref={inputBox}
                 size='xsmall'
+                value={inputText}
               />
             </Box>
           </Box>
