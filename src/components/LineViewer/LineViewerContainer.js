@@ -9,14 +9,12 @@ function LineViewerContainer() {
   const [inputText, setInputText] = React.useState('')
   const [selectedItem, setItem] = React.useState()
   const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
-  const subjectIndex = store.subjects.index
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
   const reduction = store.transcriptions.current &&
     store.transcriptions.current.text &&
-    store.transcriptions.current.text.get(`frame${subjectIndex}`)[transcriptionIndex]
+    store.transcriptions.current.text.get(`frame${store.subjects.index}`)[transcriptionIndex]
   const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
   const [transcriptionOptions, setTranscriptionOptions] = React.useState([])
-  const algorithmChoice = transcriptionOptions.length
   const typedChoice = transcriptionOptions.length + 1
   const onSetItem = (item) => {
     if (item !== typedChoice && inputText.length) {
@@ -39,7 +37,7 @@ function LineViewerContainer() {
 
   return (
     <LineViewer
-      algorithmChoice={algorithmChoice}
+      algorithmChoice={transcriptionOptions.length}
       closeModal={closeModal}
       consensusText={consensusText}
       flagged={reduction && reduction.flagged}
