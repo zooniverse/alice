@@ -23,6 +23,9 @@ const Reduction = types.model('Reduction', {
   setConsensusText: (text, isOriginalOption = false) => {
     self.line_editor = isOriginalOption ? '' : getRoot(self).auth.user.display_name
     self.edited_consensus_text = isOriginalOption ? '' : text
+    
+    const transcription = getRoot(self).transcriptions
+    transcription.saveTranscription()
   },
 
   toggleCurrentFlag: function() {
