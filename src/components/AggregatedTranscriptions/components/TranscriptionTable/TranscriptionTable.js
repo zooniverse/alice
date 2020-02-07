@@ -1,13 +1,19 @@
 import React from 'react'
-import { Box } from 'grommet'
+import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { arrayOf, shape, func } from 'prop-types'
+import { observer } from 'mobx-react'
 import TranscriptionTableRow from './TranscriptionTableRow'
+
+const OverflowBox = styled(Box)`
+  position: absolute;
+`
 
 const StyledText = styled('h6')`
   font-weight: normal;
   line-height: 1.25em;
   margin: 0;
+  text-transform: uppercase;
 `
 
 const RightAlignText = styled(StyledText)`
@@ -15,21 +21,25 @@ const RightAlignText = styled(StyledText)`
   text-align: end;
 `
 
-function TranscriptionTable ({ data, toggleTranscription }) {
-  const [dataArray, setData] = React.useState(data)
+function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
+  const [dataArray, moveData] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
+  const emptyData = data.length === 0
+
+  React.useEffect(() => moveData(data), [data])
+  const background = emptyData ? { color: 'light-2', opacity: 'strong' } : {}
 
   return (
-    <Box>
-      <Box direction='row' margin={{ horizontal: 'xsmall' }} pad={{ vertical: 'xsmall' }}>
-        <Box basis='80%' margin={{ left: 'small' }}>
+    <Box round={{ size: 'xsmall', corner: 'bottom' }}>
+      <Box align='center' direction='row' margin={{ horizontal: 'xsmall' }} pad={{ vertical: 'xsmall' }}>
+        <Box basis='80%' margin={{ left: 'xsmall' }}>
           <StyledText>Aggregated Transcription</StyledText>
         </Box>
         <Box>
           <StyledText>Flag</StyledText>
         </Box>
         <Box>
-          <RightAlignText>Consensus Line</RightAlignText>
+          <RightAlignText>Consensus Score</RightAlignText>
         </Box>
       </Box>
       <Box pad={{ bottom: 'xsmall' }}>
@@ -41,25 +51,31 @@ function TranscriptionTable ({ data, toggleTranscription }) {
               dragID={dragID}
               index={i}
               key={`TRANSCRIPTION_ROW_${i}`}
-              setData={setData}
+              moveData={moveData}
+              setActiveTranscription={setActiveTranscription}
               setDragID={setDragID}
-              toggleTranscription={toggleTranscription}
+              setTextObject={setTextObject}
             />
           )
         })}
       </Box>
+      {emptyData && (
+        <OverflowBox background={background} fill pad='medium'>
+          <Text size='xsmall'>This page does not contain transcription data.</Text>
+        </OverflowBox>
+      )}
     </Box>
   )
 }
 
 TranscriptionTable.propTypes = {
   data: arrayOf(shape()),
-  toggleTranscription: func
+  setActiveTranscription: func
 }
 
 TranscriptionTable.defaultProps = {
   data: [],
-  toggleTranscription: () => {}
+  setActiveTranscription: () => {}
 }
 
-export default TranscriptionTable
+export default observer(TranscriptionTable)

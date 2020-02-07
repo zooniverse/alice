@@ -3,10 +3,16 @@ import React from 'react'
 import TranscriptionTableContainer from './TranscriptionTableContainer'
 
 let wrapper
-const toggleTranscriptionSpy = jest.fn()
+const setActiveTranscriptionSpy = jest.fn()
 const contextValues = {
-  aggregations: {
-    toggleTranscription: toggleTranscriptionSpy
+  subjects: {
+    index: 0
+  },
+  transcriptions: {
+    current: {
+      text: new Map()
+    },
+    setActiveTranscription: setActiveTranscriptionSpy
   }
 }
 
@@ -22,8 +28,8 @@ describe('Component > TranscriptionTableContainer', function () {
     expect(wrapper).toBeDefined()
   })
 
-  it('should call the toggleTranscription function', function () {
-    wrapper.props().toggleTranscription()
-    expect(toggleTranscriptionSpy).toHaveBeenCalled()
+  it('should call the setActiveTranscription function', function () {
+    wrapper.props().setActiveTranscription()
+    expect(setActiveTranscriptionSpy).toHaveBeenCalled()
   })
 })

@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import { Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import TranscriptionTableRow, { PointerBox, MoveBox } from './TranscriptionTableRow'
 import mockData from './mockData'
@@ -8,12 +9,15 @@ import 'jest-styled-components'
 
 let wrapper;
 let useStateSpy;
+
+const preventDefaultSpy = jest.fn();
+let setActiveTranscriptionSpy = jest.fn();
 let setDragIDSpy = jest.fn();
-let setDataSpy = jest.fn();
+let moveDataSpy = jest.fn();
 let setState = jest.fn();
-let toggleTranscriptionSpy = jest.fn();
-const preventDefaultSpy = jest.fn()
-const stopPropagationSpy = jest.fn()
+let setTextObjectSpy = jest.fn();
+const stopPropagationSpy = jest.fn();
+
 const mockEvent = { preventDefault: preventDefaultSpy, stopPropagation: stopPropagationSpy }
 
 describe('Component > TranscriptionTable', function () {
@@ -25,9 +29,10 @@ describe('Component > TranscriptionTable', function () {
         data={mockData}
         dragID={1}
         index={0}
-        setData={setDataSpy}
+        setActiveTranscription={setActiveTranscriptionSpy}
+        moveData={moveDataSpy}
         setDragID={setDragIDSpy}
-        toggleTranscription={toggleTranscriptionSpy}
+        setTextObject={setTextObjectSpy}
       />);
   })
 
@@ -37,6 +42,7 @@ describe('Component > TranscriptionTable', function () {
 
   it('should call setDragID on drag end', function () {
     wrapper.simulate('dragend')
+    expect(setTextObjectSpy).toHaveBeenCalledWith(mockData)
     expect(setDragIDSpy).toHaveBeenCalledWith(null)
   })
 
@@ -60,7 +66,7 @@ describe('Component > TranscriptionTable', function () {
     wrapper.simulate('dragenter', mockEvent)
     expect(preventDefaultSpy).toHaveBeenCalled()
     expect(setDragIDSpy).toHaveBeenCalledWith(0)
-    expect(setDataSpy).toHaveBeenCalled()
+    expect(moveDataSpy).toHaveBeenCalled()
   })
 
   it('should call stopEvent on dragOver', function () {
@@ -69,10 +75,10 @@ describe('Component > TranscriptionTable', function () {
     expect(stopPropagationSpy).toHaveBeenCalled()
   })
 
-  it('should call toggleTranscription on mouseUp', function () {
+  it('should call setActiveTranscription on mouseUp', function () {
     const toggleBox = wrapper.find(PointerBox).first()
     toggleBox.simulate('mouseUp', mockEvent)
-    expect(toggleTranscriptionSpy).toHaveBeenCalled()
+    expect(setActiveTranscriptionSpy).toHaveBeenCalled()
   })
 
   it('should call stopEvent on child mouseUp', function () {
@@ -80,6 +86,13 @@ describe('Component > TranscriptionTable', function () {
     moveBox.simulate('mouseUp', mockEvent)
     expect(preventDefaultSpy).toHaveBeenCalled()
     expect(stopPropagationSpy).toHaveBeenCalled()
+  })
+
+  it('should display the correct PointerBox', function () {
+    const Pointer = wrapper.find(PointerBox).first()
+    const group = renderer.create(Pointer).toJSON()
+    expect(group).toHaveStyleRule('cursor', 'default')
+    expect(group).toHaveStyleRule('pointer-events', 'none')
   })
 
   describe('should correctly style components on hover', function () {
@@ -103,6 +116,22 @@ describe('Component > TranscriptionTable', function () {
       const tree = renderer.create(MoveableBox).toJSON()
       expect(tree).toHaveStyleRule('cursor', 'move')
       expect(tree).toHaveStyleRule('pointer-events', 'all')
+    })
+
+    it('should display the correct PointerBox when hovered', function () {
+      const Pointer = wrapper.find(PointerBox).first()
+      const group = renderer.create(Pointer).toJSON()
+      expect(group).toHaveStyleRule('cursor', 'pointer')
+      expect(group).toHaveStyleRule('pointer-events', 'all')
+    })
+  })
+
+  describe('Final Text component', function () {
+    it('should display Edited with edited consensus text', function () {
+      const datum = { edited_consensus_text: 'New Text' }
+      const wrapper = shallow(<TranscriptionTableRow datum={datum}/>)
+      const textBox = wrapper.find(Text).last()
+      expect(textBox.props().children).toBe('Edited')
     })
   })
 })

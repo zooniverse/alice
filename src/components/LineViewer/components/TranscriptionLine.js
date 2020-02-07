@@ -2,44 +2,49 @@ import React from 'react'
 import { Box, CheckBox, Text } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { observer } from 'mobx-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import withThemeContext from '../../../helpers/withThemeContext'
-import theme from './theme'
 import indexToColor from '../../../helpers/indexToColor'
 
 const ItalicText = styled(Text)`
   font-style: italic;
 `
 
-function TranscriptionLine ({ classification, index }) {
+function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
   return (
-    <Box height={{ min: '3em' }} margin={{ vertical: '0.25em' }}>
+    <Box height={{ min: '2em' }}>
       <Box direction='row' justify='between'>
         <Box direction='row'>
-          <Box align='end' background={indexToColor(index)} height='fit-content' width='2.5em'>
-            <Box pad='0.2em'>
-              <CheckBox />
+          <Box align='end' background={indexToColor(index)} height='fit-content' width='1.75em'>
+            <Box pad='0.15em'>
+              <CheckBox
+                checked={selectedItem === index}
+                onChange={() => {
+                  const setTo = selectedItem === index ? null : index
+                  setItem(setTo)
+                }}
+              />
             </Box>
           </Box>
           <Text
             alignSelf='center'
             margin={{ horizontal: 'xsmall' }}
           >
-            {classification.text}
+            {transcription.text}
           </Text>
         </Box>
-        {classification.goldStandard && (
+        {transcription.goldStandard && (
           <Box alignSelf='center' margin={{ horizontal: 'xsmall' }}>
             <FontAwesomeIcon color='gold' icon={faStar} size='xs' />
           </Box>
         )}
       </Box>
       <Box direction='row' margin={{ left: '4em' }}>
-        <ItalicText>{classification.date}</ItalicText>
+        <ItalicText>{transcription.date}</ItalicText>
         <Text margin={{ horizontal: 'xsmall' }}>&#8226;</Text>
-        <ItalicText>{classification.userName}</ItalicText>
-        {classification.goldStandard && (
+        <ItalicText size='xsmall'>{transcription.userName}</ItalicText>
+        {transcription.goldStandard && (
           <Box direction='row'>
             <Text margin={{ horizontal: 'xsmall' }}>&#8226;</Text>
             <ItalicText>Gold Standard</ItalicText>
@@ -51,12 +56,21 @@ function TranscriptionLine ({ classification, index }) {
 }
 
 TranscriptionLine.defaultProps = {
-  classification: null,
+  selectedItem: null,
+  setItem: () => {},
+  transcription: {
+    date: '',
+    goldStandard: false,
+    text: '',
+    userName: ''
+  },
   index: 0
 }
 
 TranscriptionLine.propTypes = {
-  classification: PropTypes.shape({
+  selectedItem: PropTypes.number,
+  setItem: PropTypes.func,
+  transcription: PropTypes.shape({
     date: PropTypes.string,
     goldStandard: PropTypes.bool,
     text: PropTypes.string,
@@ -65,4 +79,5 @@ TranscriptionLine.propTypes = {
   index: PropTypes.number
 }
 
-export default withThemeContext(TranscriptionLine, theme)
+export { ItalicText }
+export default observer(TranscriptionLine)

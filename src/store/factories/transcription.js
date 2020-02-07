@@ -7,9 +7,9 @@ export default new Factory()
     subject_id: 1,
     workflow_id: 1,
     group_id: 'GROUP_1',
-    text: {},
+    text: new Map(),
     status: 'unseen',
-    flagged: false
+    flagged: false,
   })
   .attr('relationships', {
     workflow: {

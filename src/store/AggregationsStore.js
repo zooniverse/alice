@@ -1,8 +1,7 @@
 import { types } from 'mobx-state-tree'
 
 const AggregationsStore = types.model('AggregationsStore', {
-  showModal: types.optional(types.boolean, false),
-  showTranscription: types.optional(types.boolean, false),
+  showModal: types.optional(types.boolean, false)
 }).actions(self => ({
   setModal: function(state) {
     self.showModal = state
@@ -10,10 +9,6 @@ const AggregationsStore = types.model('AggregationsStore', {
 
   toggleModal: function() {
     self.showModal = !self.showModal
-  },
-
-  toggleTranscription: function() {
-    self.showTranscription = !self.showTranscription
   }
 }))
 

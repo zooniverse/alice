@@ -1,5 +1,13 @@
 import { flow, getRoot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
+import * as Ramda from 'ramda'
+import { toJS } from 'mobx'
+import Reduction from './Reduction'
+
+let Frame = types.array(Reduction)
+const Extension = types.refinement(types.map(Frame), snapshot => {
+  return Ramda.all(Ramda.startsWith('frame'), Ramda.keys(snapshot))
+})
 
 const Transcription = types.model('Transcription', {
   id: types.identifier,
@@ -8,11 +16,12 @@ const Transcription = types.model('Transcription', {
   low_consensus_lines: types.optional(types.integer, 0),
   pages: types.optional(types.integer, 0),
   status: types.optional(types.string, ''),
-  text: types.optional(types.frozen(), {}),
-  transcribed_lines: types.optional(types.integer, 0)
+  text: Extension,
+  transcribed_lines: types.optional(types.number, 0)
 })
 
 const TranscriptionsStore = types.model('TranscriptionsStore', {
+  activeTranscriptionIndex: types.maybe(types.integer),
   all: types.map(Transcription),
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.safeReference(Transcription),
@@ -20,9 +29,21 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   page: types.optional(types.number, 0),
   totalPages: types.optional(types.number, 1)
 }).actions(self => ({
+  checkForFlagUpdate: () => {
+    let containsLineFlag = false
+    self.current.text.forEach(t => {
+      const flaggedItem = t.find(t => t.flagged)
+      if (flaggedItem) containsLineFlag = true
+    })
+    self.current.flagged = containsLineFlag
+    self.saveTranscription()
+  },
+
   createTranscription: (transcription) => {
     const text = transcription.attributes.text
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
+    const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
+    const textObject = Ramda.pickBy(containsFrameKey, transcription.attributes.text)
     return Transcription.create({
       id: transcription.id,
       flagged: transcription.attributes.flagged,
@@ -30,7 +51,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       low_consensus_lines: text.low_consensus_lines,
       pages,
       status: transcription.attributes.status,
-      text,
+      text: textObject,
       transcribed_lines: text.transcribed_lines
     })
   },
@@ -82,12 +103,37 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.all.clear()
   },
 
+  saveTranscription: flow(function * saveTranscription() {
+    const textBlob = toJS(self.current.text)
+    const client = getRoot(self).client.tove
+    const lineCounts = {
+      low_consensus_lines: self.current.low_consensus_lines,
+      transcribed_lines: self.current.transcribed_lines
+    }
+    const updatedTranscription = Object.assign(lineCounts, textBlob)
+    const query = {
+      data: {
+        type: 'transcriptions',
+        attributes: {
+          flagged: self.current.flagged,
+          text: updatedTranscription
+        }
+      }
+    }
+    yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
+  }),
+
   selectTranscription: flow(function * selectTranscription(id = null) {
     let transcription = self.all.get(id)
     if (!transcription) transcription = yield self.fetchTranscription(id)
     self.setTranscription(transcription)
     self.current = id || undefined
   }),
+
+  setTextObject: (text) => {
+    const index = getRoot(self).subjects.index
+    self.current.text.set(`frame${index}`, text)
+  },
 
   setTranscription: (transcription) => {
     if (transcription) {
@@ -109,7 +155,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.current.status = query.data.attributes.status
     const client = getRoot(self).client.tove
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
-  })
+  }),
+
+  setActiveTranscription: function(id) {
+    self.activeTranscriptionIndex = id
+  }
 })).views(self => ({
   get approved () {
     return !!(self.current && self.current.status === 'approved')

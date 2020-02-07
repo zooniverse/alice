@@ -2,9 +2,11 @@ import React from 'react'
 import HeaderButton from './HeaderButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from '@fortawesome/free-solid-svg-icons'
+import AppContext from 'store'
 
 function SaveButtonContainer({ disabled }) {
-  const onClick = () => console.log('Save Button Clicked');
+  const store = React.useContext(AppContext)
+  const onClick = () => store.transcriptions.saveTranscription()
 
   return (
     <HeaderButton

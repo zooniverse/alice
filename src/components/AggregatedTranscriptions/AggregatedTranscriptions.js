@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { bool, shape} from 'prop-types'
+import { observer } from 'mobx-react'
 import Overlay from '../Overlay'
 import TranscriptionTable from './components/TranscriptionTable'
 import LineViewer from '../LineViewer'
@@ -41,17 +42,17 @@ const OverflowBox = styled(Box)`
 function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
   return (
     <StyledBox height='large'>
-      <Box background='white' margin={margin} round='xsmall'>
+      <Box background='white' fill='vertical' margin={margin} round='xsmall'>
         <Box
           border={{ color: 'light-5', side: 'bottom' }}
           direction='row'
           justify='between'
-          pad={{ horizontal: 'small', bottom: 'small', top: 'xsmall' }}
+          pad={{ left: '1em', right: 'xsmall', bottom: 'xsmall', top: 'xsmall' }}
         >
           <Text>Transcribed Text</Text>
-          <CapitalText>Add Line</CapitalText>
+          <CapitalText size='xsmall'>Add Line</CapitalText>
         </Box>
-        <OverflowBox>
+        <OverflowBox fill='vertical'>
           <TranscriptionTable />
         </OverflowBox>
         {(showOverlay || showTranscription) && (
@@ -81,4 +82,4 @@ AggregatedTranscriptions.defaultProps = {
   showTranscription: false
 }
 
-export default AggregatedTranscriptions
+export default observer(AggregatedTranscriptions)

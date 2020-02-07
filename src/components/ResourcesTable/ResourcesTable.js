@@ -28,7 +28,7 @@ function ResourcesTable(props) {
           data={props.data}
           onClickRow={onClickRow}
           pad='xsmall'
-          primaryKey="id"
+          primaryKey='id'
         />
       }
       {props.status === ASYNC_STATES.LOADING && (

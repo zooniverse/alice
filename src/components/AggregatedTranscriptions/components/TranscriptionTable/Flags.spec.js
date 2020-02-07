@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Flags, StyledFontAwesomeIcon } from './Flags'
 
 let wrapper
-const reviewedDatum = { reviewed: true }
+const reviewedDatum = { seen: true }
 const flaggedDatum = { flagged: true }
 const goldStandardDatum = { goldStandard: true }
 

@@ -2,7 +2,8 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import styled from 'styled-components'
-import { arrayOf, func, number, shape } from 'prop-types'
+import { arrayOf, func, number, shape, string } from 'prop-types'
+import { observer } from 'mobx-react'
 import { Flags } from './Flags'
 
 const QuietBox = styled(Box)`
@@ -29,16 +30,25 @@ function stopEvents(e) {
   e.stopPropagation()
 }
 
-function handleDragEnter(e, dropID, data, dragID, setData, setDragID) {
+function handleDragEnter(e, dropID, data, dragID, moveData, setDragID) {
   e.preventDefault()
   let copiedArray = data.slice()
   const itemToMove = copiedArray.splice(dragID, 1)[0]
   copiedArray.splice(dropID,0,itemToMove)
   setDragID(dropID)
-  setData(copiedArray)
+  moveData(copiedArray)
 }
 
-function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID, toggleTranscription }) {
+function TranscriptionTableRow({
+  data,
+  datum,
+  dragID,
+  index,
+  moveData,
+  setActiveTranscription,
+  setDragID,
+  setTextObject
+}) {
   const [isHover, setHover] = React.useState(false)
   const isDragging = dragID === index
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
@@ -52,9 +62,12 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
       elevation={elevation}
       flex={false}
       gap='xsmall'
-      onDragEnd={() => setDragID(null)}
-      onDragEnter={(e) => handleDragEnter(e, index, data, dragID, setData, setDragID)}
-      onDragOver={stopEvents}
+      onDragEnd={() => {
+        setTextObject(data);
+        setDragID(null)
+      }}
+      onDragEnter={(e) => handleDragEnter(e, index, data, dragID, moveData, setDragID)}
+      onDragOver={(e) => stopEvents(e)}
       onDragStart={() => handleDragStart(index, setDragID, setHover)}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -66,25 +79,29 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
         align='center'
         direction='row'
         hover={isHover}
-        onMouseUp={() => toggleTranscription()}>
+        onMouseUp={() => setActiveTranscription(index)}>
         <MoveBox
           onMouseUp={(e) => stopEvents(e)}
           hover={isHover}
-          pad='0.25em'
-          basis='5%'
+          pad='0.2em'
+          basis='4%'
         >
           <QuietBox>
-            <Menu color={hamburgerColor} size='small' />
+            <Menu color={hamburgerColor} size='xsmall' />
           </QuietBox>
         </MoveBox>
-        <QuietBox basis='75%'>
-          <Text>{datum.transcription}</Text>
+        <QuietBox basis='76%'>
+          <Text>{datum.edited_consensus_text || datum.consensus_text}</Text>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />
         </QuietBox>
-        <QuietBox align='end' basis='10%'>
-          <Text>{datum.consensus}/{datum.counts}</Text>
+        <QuietBox align='end' basis='10%' pad={{ right: '0.25em' }}>
+          {datum.edited_consensus_text ? (
+            <Text>Edited</Text>
+          ) : (
+            <Text>{parseFloat(datum.consensus_score.toFixed(1))}/{datum.number_views}</Text>
+          )}
         </QuietBox>
       </PointerBox>
     </Box>
@@ -92,24 +109,34 @@ function TranscriptionTableRow({ datum, index, data, setData, setDragID, dragID,
 }
 
 TranscriptionTableRow.propTypes = {
-  datum: shape(),
+  datum: shape({
+    consensus_score: number,
+    consensus_text: string,
+    edited_consensus_text: string,
+    number_views: number
+  }),
   data: arrayOf(shape()),
   dragID: number,
   index: number,
-  setData: func,
+  moveData: func,
   setDragID: func,
-  toggleTranscription: func
+  setActiveTranscription: func
 }
 
 TranscriptionTableRow.defaultProps = {
-  datum: {},
+  datum: {
+    consensus_score: 0,
+    consensus_text: '',
+    edited_consensus_text: '',
+    number_views: 0
+  },
   data: [],
   dragID: null,
   index: null,
-  setData: () => {},
+  moveData: () => {},
   setDragID: () => {},
-  toggleTranscription: () => {}
+  setActiveTranscription: () => {}
 }
 
 export { PointerBox, MoveBox }
-export default TranscriptionTableRow
+export default observer(TranscriptionTableRow)
