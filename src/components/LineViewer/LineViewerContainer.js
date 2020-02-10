@@ -7,6 +7,7 @@ import LineViewer from './LineViewer'
 function LineViewerContainer() {
   const store = React.useContext(AppContext)
   const [inputText, setInputText] = React.useState('')
+  const [showDeleteModal, toggleDeleteModal] = React.useState(false)
   const [selectedItem, setItem] = React.useState()
   const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
@@ -47,6 +48,8 @@ function LineViewerContainer() {
       selectedItem={selectedItem}
       setInputText={setInputText}
       setItem={onSetItem}
+      showDeleteModal={showDeleteModal}
+      toggleDeleteModal={toggleDeleteModal}
       transcriptionOptions={transcriptionOptions}
       typedChoice={typedChoice}
     />
