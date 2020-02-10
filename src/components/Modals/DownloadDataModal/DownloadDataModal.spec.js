@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button } from 'grommet'
+import { Button, Text } from 'grommet'
 
 import DownloadDataModal from './DownloadDataModal'
 
@@ -30,5 +30,26 @@ describe('Component > DownloadDataModal', function () {
     const closeButton = wrapper.find(Button).at(1)
     closeButton.simulate('click')
     expect(onCloseSpy).toHaveBeenCalled()
+  })
+
+  describe('with entireGroup prop', function () {
+    beforeEach(function() {
+      wrapper = shallow(
+        <DownloadDataModal
+          approved={5}
+          entireGroup
+          transcriptionCount={10}
+        />)
+    })
+
+    it('should set the correct text', function () {
+      const header = wrapper.find(Text).first().props()
+      expect(header.children).toBe('Download approved subject set data')
+    })
+
+    it('should display the approved count', function () {
+      const approvedText = wrapper.find(Text).at(1).props()
+      expect(approvedText.children).toBe('5/10 SUBJECTS APPROVED')
+    })
   })
 })

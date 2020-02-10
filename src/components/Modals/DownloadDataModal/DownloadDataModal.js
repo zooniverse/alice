@@ -2,9 +2,15 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { func } from 'prop-types'
+import { bool, func, number } from 'prop-types'
 
-export default function DownloadDataModal({ onClose }) {
+export default function DownloadDataModal({
+  approved,
+  entireGroup,
+  onClose,
+  transcriptionCount
+}) {
+  const text = entireGroup ? 'Download approved subject set data' : 'Download subject data'
   return (
     <Box
       background='white'
@@ -12,10 +18,9 @@ export default function DownloadDataModal({ onClose }) {
       gap='xsmall'
       pad='small'
       round='xsmall'
-      width='medium'
     >
-      <Box direction='row' justify='between'>
-        <Text size='large'>Download subject data</Text>
+      <Box direction='row' gap='small' justify='between'>
+        <Text size='large'>{text}</Text>
         <Button
           a11yTitle="Close Download Subject Data Modal"
           icon={<FontAwesomeIcon icon={faTimesCircle} size='xs' />}
@@ -23,7 +28,8 @@ export default function DownloadDataModal({ onClose }) {
           plain
         />
       </Box>
-      <Text>Download a .zip file containing:</Text>
+      {entireGroup && <Text>{`${approved}/${transcriptionCount} SUBJECTS APPROVED`}</Text>}
+      <Text margin={{ top: 'xsmall' }}>Download a .zip file containing:</Text>
       <Box gap='xsmall'>
         <Text size='small'>&#8226; Line by line transcription and metadata (.csv)</Text>
         <Text size='small'>&#8226; Text-only file (.txt)</Text>
@@ -47,9 +53,15 @@ export default function DownloadDataModal({ onClose }) {
 }
 
 DownloadDataModal.propTypes = {
-  onClose: func
+  approved: number,
+  entireGroup: bool,
+  onClose: func,
+  transcriptionCount: number
 }
 
 DownloadDataModal.defaultProps = {
-  onClose: () => {}
+  approved: number,
+  entireGroup: false,
+  onClose: () => {},
+  transcriptionCount: 0
 }
