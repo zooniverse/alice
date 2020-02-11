@@ -124,6 +124,16 @@ describe('TranscriptionsStore', function () {
       expect(transcriptionsStore.activeTranscriptionIndex).toBe(5)
     })
 
+    it('should delete a transcription line', async function () {
+      await transcriptionsStore.selectTranscription(1)
+      transcriptionsStore.setTextObject([mockReduction])
+      const current = transcriptionsStore.current.text.get('frame0')
+      expect(current.length).toBe(1)
+      transcriptionsStore.setActiveTranscription(0)
+      transcriptionsStore.deleteCurrentLine()
+      expect(current.length).toBe(0)
+    })
+
     describe('after selecting a transcription', function () {
       beforeEach(async function () {
         await transcriptionsStore.selectTranscription(1)
