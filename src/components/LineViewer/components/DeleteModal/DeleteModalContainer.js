@@ -5,9 +5,13 @@ import DeleteModal from './DeleteModal'
 
 function DeleteModalContainer({ toggleModal }) {
   const store = React.useContext(AppContext)
+  const deleteLine = () => store.transcriptions.deleteCurrentLine()
 
   return (
-    <DeleteModal toggleModal={toggleModal} />
+    <DeleteModal
+      deleteLine={deleteLine}
+      toggleModal={toggleModal}
+    />
   )
 }
 
