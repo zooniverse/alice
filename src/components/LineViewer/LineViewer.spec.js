@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Button, CheckBox, Text, TextInput } from 'grommet'
+import DeleteModal from './components/DeleteModal'
 import { LineViewer } from './LineViewer'
 
 const setConsensusTextSpy = jest.fn()
@@ -21,7 +22,11 @@ const reduction = {
   setConsensusText: setConsensusTextSpy
 }
 
-const wrapper = shallow(
+jest
+  .spyOn(React, 'useRef')
+  .mockImplementation(() => { return { current: { value: 'Input Field' } }})
+
+let wrapper = shallow(
   <LineViewer
     algorithmChoice={transcriptionOptions.length}
     inputText='Input Field'
@@ -120,6 +125,13 @@ describe('Component > LineViewer', function () {
       const textInput = wrapper.find(TextInput).first()
       textInput.simulate('change', { target: { value: 'Hello' } })
       expect(setItemSpy).not.toHaveBeenCalled()
+  })
+
+  describe('with showDeleteModal true', function () {
+    it('should show the DeleteModal', function () {
+      wrapper = shallow(<LineViewer showDeleteModal />)
+      const modal = wrapper.find(DeleteModal).first()
+      expect(modal.length).toBe(1)
     })
   })
 })

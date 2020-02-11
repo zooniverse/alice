@@ -154,7 +154,8 @@ LineViewer.defaultProps = {
   replaceWithSelected: () => {},
   seen: false,
   selectedItem: null,
-  setItem: () => {}
+  setItem: () => {},
+  transcriptionOptions: []
 }
 
 LineViewer.propTypes = {
@@ -165,7 +166,8 @@ LineViewer.propTypes = {
   replaceWithSelected: PropTypes.func,
   seen: PropTypes.bool,
   selectedItem: PropTypes.number,
-  setItem: PropTypes.func
+  setItem: PropTypes.func,
+  transcriptionOptions: PropTypes.array
 }
 
 export { LineViewer }
