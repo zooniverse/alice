@@ -111,7 +111,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.extracts = validExtracts
   }),
 
-  const fetchTranscription = function * fetchTranscription(id) {
+  const fetchTranscription = flow(function * fetchTranscription(id) {
     if (!id) return undefined
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const client = getRoot(self).client.tove
@@ -127,7 +127,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
-  }
+  })
 
   const fetchTranscriptions = function * fetchTranscriptions(page = 0) {
     self.reset()
@@ -144,7 +144,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.all.clear()
   }
 
-  const retrieveTranscriptions = function * retrieveTranscriptions(query) {
+  const retrieveTranscriptions = flow(function * retrieveTranscriptions(query) {
     const client = getRoot(self).client.tove
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     try {
@@ -164,7 +164,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
-  }
+  })
 
   const saveTranscription = flow(function * saveTranscription() {
     const textBlob = toJS(self.current.text)
@@ -186,7 +186,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
   })
 
-  const selectTranscription = function * selectTranscription(id = null) {
+  const selectTranscription = flow(function * selectTranscription(id = null) {
     let transcription = self.all.get(id)
     if (!transcription) transcription = yield self.fetchTranscription(id)
     if (id) yield self.fetchExtracts(id)
@@ -194,7 +194,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     undoManager.withoutUndo(() => {
       self.current = id || undefined
     })
-  }
+  })
 
   function setActiveTranscription(id) {
     self.activeTranscriptionIndex = id
@@ -231,12 +231,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     changeIndex,
     checkForFlagUpdate,
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
-    fetchTranscription: (id) => undoManager.withoutUndo(() => flow(fetchTranscription))(id),
+    fetchTranscription,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
     reset: () => undoManager.withoutUndo(() => reset()),
-    retrieveTranscriptions: (query) => undoManager.withoutUndo(() => flow(retrieveTranscriptions))(query),
+    retrieveTranscriptions,
     saveTranscription,
-    selectTranscription: (id) => undoManager.withoutUndo(() => flow(selectTranscription))(id),
+    selectTranscription,
     setActiveTranscription,
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),

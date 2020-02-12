@@ -24,9 +24,9 @@ function findLocations(subject) {
 function Editor ({ match }) {
   const store = React.useContext(AppContext)
   const editorBox = React.useRef(null)
-  undoManager.clear()
 
   React.useEffect(() => {
+    undoManager.clear()
     const setResources = async () => {
       await store.getResources(match.params)
       await store.subjects.fetchSubject(match.params.subject)
