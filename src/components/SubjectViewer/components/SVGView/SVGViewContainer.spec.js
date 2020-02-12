@@ -28,11 +28,11 @@ const contextValues = {
         image: 'www.test.com'
     }]
     },
-    index: 0
   },
   transcriptions: {
     current: null,
-    extracts: []
+    extracts: [],
+    index: 0
   }
 }
 

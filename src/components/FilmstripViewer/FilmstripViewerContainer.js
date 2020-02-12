@@ -9,8 +9,8 @@ function FilmstripViewerContainer({ images }) {
   const disabled = store.aggregations.showModal
   const selectImage = (id) => {
     store.image.reset()
-    store.subjects.changeIndex(id)
     store.transcriptions.setActiveTranscription()
+    store.transcriptions.changeIndex(id)
   }
 
   return  (
@@ -20,7 +20,7 @@ function FilmstripViewerContainer({ images }) {
       isOpen={isOpen}
       selectImage={selectImage}
       setOpen={setOpen}
-      subjectIndex={store.subjects.index}
+      subjectIndex={store.transcriptions.index}
     />
   )
 }

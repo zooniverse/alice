@@ -28,10 +28,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.safeReference(Transcription),
   error: types.optional(types.string, ''),
+  index: types.optional(types.number, 0),
   page: types.optional(types.number, 0),
   totalPages: types.optional(types.number, 1),
   extracts: types.array(types.frozen())
 }).actions(self => {
+  function changeIndex(index) {
+    self.index = index
+  }
+
   function checkForFlagUpdate() {
     let containsLineFlag = false
     self.current.text.forEach(t => {
@@ -193,8 +198,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function setTextObject(text) {
-    const index = getRoot(self).subjects.index
-    self.current.text.set(`frame${index}`, text)
+    self.current.text.set(`frame${self.index}`, text)
   }
 
   function setTranscription(transcription) {
@@ -221,6 +225,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   return {
+    changeIndex,
     checkForFlagUpdate,
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
     fetchTranscription: (id) => undoManager.withoutUndo(() => flow(fetchTranscription))(id),

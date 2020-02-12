@@ -16,7 +16,7 @@ function SVGViewContainer () {
   const disableInteraction = store.subjects.asyncState !== ASYNC_STATES.READY
   const svgEl = React.useRef(null)
   const [img, setImg] = React.useState(new Image())
-  const src = findCurrentSrc(store.subjects.current.locations, store.subjects.index)
+  const src = findCurrentSrc(store.subjects.current.locations, store.transcriptions.index)
 
   React.useEffect(() => {
     async function fetchImage() {

@@ -100,6 +100,11 @@ describe('TranscriptionsStore', function () {
       expect(transcriptionsStore).toBeDefined()
     })
 
+    it('should change the index', function () {
+      transcriptionsStore.changeIndex(1)
+      expect(transcriptionsStore.index).toBe(1)
+    })
+
     it('should fetch transcriptions', async function () {
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.READY)
       expect(transcriptionsStore.all.size).toBe(2)

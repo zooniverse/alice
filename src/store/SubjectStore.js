@@ -13,12 +13,7 @@ const SubjectStore = types.model('SubjectStore', {
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.optional(Subject, {}),
   error: types.optional(types.string, ''),
-  index: types.optional(types.number, 0)
 }).actions(self => ({
-  changeIndex: (index) => {
-    self.index = index
-  },
-
   fetchSubject: flow (function * fetchSubject (id) {
     self.asyncState = ASYNC_STATES.LOADING
     try {

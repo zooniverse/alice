@@ -13,7 +13,7 @@ function LineViewerContainer() {
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
   const reduction = store.transcriptions.current &&
     store.transcriptions.current.text &&
-    store.transcriptions.current.text.get(`frame${store.subjects.index}`)[transcriptionIndex]
+    store.transcriptions.current.text.get(`frame${store.transcriptions.index}`)[transcriptionIndex]
   const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
   const [transcriptionOptions, setTranscriptionOptions] = React.useState([])
   const typedChoice = transcriptionOptions.length + 1
