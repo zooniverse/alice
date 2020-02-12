@@ -33,7 +33,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   extracts: types.array(types.frozen())
 }).actions(self => {
   function checkForFlagUpdate() {
-    console.log('check for flag');
     let containsLineFlag = false
     self.current.text.forEach(t => {
       const flaggedItem = t.find(t => t.flagged)
@@ -44,7 +43,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function createTranscription(transcription) {
-    console.log('create transcription', transcription);
     const text = transcription.attributes.text
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
@@ -108,7 +106,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.extracts = validExtracts
   }),
 
-  fetchTranscription: flow(function * fetchTranscription(id) {
+  const fetchTranscription = function * fetchTranscription(id) {
     if (!id) return undefined
     undoManager.withoutUndo(() => {
       self.test = 'cow'
@@ -130,7 +128,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   const fetchTranscriptions = function * fetchTranscriptions(page = 0) {
-    console.log('fetch transcriptions', page);
     self.reset()
     self.page = page
     const groupName = getRoot(self).groups.title
@@ -140,14 +137,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function reset() {
-    console.log('reset');
     getRoot(self).aggregations.setModal(false)
     self.current = undefined
     self.all.clear()
   }
 
   const retrieveTranscriptions = flow(function * retrieveTranscriptions(query) {
-    console.log('retrieve transcription');
     const client = getRoot(self).client.tove
     self.asyncState = ASYNC_STATES.LOADING
     try {
@@ -164,7 +159,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   const saveTranscription = flow(function * saveTranscription() {
-    console.log('save transcription');
     const textBlob = toJS(self.current.text)
     const client = getRoot(self).client.tove
     const lineCounts = {
@@ -185,7 +179,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   const selectTranscription = function * selectTranscription(id = null) {
-    console.log('select transcription', id);
     let transcription = self.all.get(id)
     if (!transcription) transcription = yield self.fetchTranscription(id)
     if (id) yield self.fetchExtracts(id)
@@ -196,18 +189,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function setActiveTranscription(id) {
-    console.log('set active transcription', id);
     self.activeTranscriptionIndex = id
   }
 
   function setTextObject(text) {
-    console.log('set text object');
     const index = getRoot(self).subjects.index
     self.current.text.set(`frame${index}`, text)
   }
 
   function setTranscription(transcription) {
-    console.log('set transcription', transcription);
     if (transcription) {
       try {
         self.all.put(transcription)
@@ -218,7 +208,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   const updateApproval = flow(function * updateApproval(isChecked) {
-    console.log('update approval');
+    self.setActiveTranscription()
     const isResearcher = getRoot(self).projects.isResearcher
     const query = { data: { type: 'transcriptions', attributes: { status: 'in_progress' } }}
     if (!isChecked) {
@@ -231,9 +221,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   return {
-    afterCreate: () => {
-      console.log(undoManager);
-    },
     checkForFlagUpdate,
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
     fetchTranscription: (id) => undoManager.withoutUndo(() => flow(fetchTranscription))(id),
@@ -245,7 +232,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setActiveTranscription,
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
-    updateApproval,
+    updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked)),
   }
 }).views(self => ({
   get approved () {
