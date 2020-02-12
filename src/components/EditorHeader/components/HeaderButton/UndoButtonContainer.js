@@ -1,9 +1,13 @@
 import React from 'react'
-import HeaderButton from './HeaderButton'
 import { Refresh } from 'grommet-icons'
+import { undoManager } from 'store/AppStore'
+import HeaderButton from './HeaderButton'
 
 function UndoButtonContainer({ disabled }) {
-  const onClick = () => console.log('Undo Button Clicked');
+  const onClick = () => {
+    console.log(undoManager.canUndo);
+    undoManager.canUndo && undoManager.undo()
+  }
 
   return (
     <HeaderButton

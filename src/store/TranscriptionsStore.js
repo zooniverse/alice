@@ -2,6 +2,7 @@ import { flow, getRoot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { toJS } from 'mobx'
+import { undoManager } from 'store/AppStore'
 import Reduction from './Reduction'
 import { request } from 'graphql-request'
 
@@ -30,8 +31,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   page: types.optional(types.number, 0),
   totalPages: types.optional(types.number, 1),
   extracts: types.array(types.frozen())
-}).actions(self => ({
-  checkForFlagUpdate: () => {
+}).actions(self => {
+  function checkForFlagUpdate() {
+    console.log('check for flag');
     let containsLineFlag = false
     self.current.text.forEach(t => {
       const flaggedItem = t.find(t => t.flagged)
@@ -39,10 +41,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
     self.current.flagged = containsLineFlag
     self.saveTranscription()
-  },
+  }
 
-  createTranscription: (transcription) => {
-    const text = (transcription.attributes && transcription.attributes.text) || {}
+  function createTranscription(transcription) {
+    console.log('create transcription', transcription);
+    const text = transcription.attributes.text
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
     const textObject = Ramda.pickBy(containsFrameKey, transcription.attributes.text)
@@ -107,36 +110,61 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   fetchTranscription: flow(function * fetchTranscription(id) {
     if (!id) return undefined
-    self.asyncState = ASYNC_STATES.LOADING
+    undoManager.withoutUndo(() => {
+      self.test = 'cow'
+      self.asyncState = ASYNC_STATES.LOADING
+    })
     const client = getRoot(self).client.tove
     try {
       const response = yield client.get(`/transcriptions/${id}`)
       const resource = JSON.parse(response.body)
-      self.asyncState = ASYNC_STATES.READY
+      undoManager.withoutUndo(() => {
+        self.asyncState = ASYNC_STATES.READY
+      })
       return self.createTranscription(resource.data)
     } catch (error) {
       console.warn(error);
       self.error = error.message
       self.asyncState = ASYNC_STATES.ERROR
     }
-  }),
+  }
 
-  fetchTranscriptions: flow (function * fetchTranscriptions(page = 0) {
+  const fetchTranscriptions = function * fetchTranscriptions(page = 0) {
+    console.log('fetch transcriptions', page);
     self.reset()
     self.page = page
     const groupName = getRoot(self).groups.title
     if (!groupName) return
     const searchQuery = getRoot(self).search.getSearchQuery()
     yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&page[number]=${self.page + 1}${searchQuery}`)
-  }),
+  }
 
-  reset: () => {
+  function reset() {
+    console.log('reset');
     getRoot(self).aggregations.setModal(false)
     self.current = undefined
     self.all.clear()
-  },
+  }
 
-  saveTranscription: flow(function * saveTranscription() {
+  const retrieveTranscriptions = flow(function * retrieveTranscriptions(query) {
+    console.log('retrieve transcription');
+    const client = getRoot(self).client.tove
+    self.asyncState = ASYNC_STATES.LOADING
+    try {
+      const response = yield client.get(query)
+      const resources = JSON.parse(response.body)
+      self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
+      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
+      self.asyncState = ASYNC_STATES.READY
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  })
+
+  const saveTranscription = flow(function * saveTranscription() {
+    console.log('save transcription');
     const textBlob = toJS(self.current.text)
     const client = getRoot(self).client.tove
     const lineCounts = {
@@ -154,21 +182,32 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }
     }
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
-  }),
+  })
 
-  selectTranscription: flow(function * selectTranscription(id = null) {
-    const transcription = yield self.fetchTranscription(id)
-    yield self.fetchExtracts(id)
+  const selectTranscription = function * selectTranscription(id = null) {
+    console.log('select transcription', id);
+    let transcription = self.all.get(id)
+    if (!transcription) transcription = yield self.fetchTranscription(id)
+    if (id) yield self.fetchExtracts(id)
     self.setTranscription(transcription)
-    self.current = id
-  }),
+    undoManager.withoutUndo(() => {
+      self.current = id || undefined
+    })
+  }
 
-  setTextObject: (text) => {
+  function setActiveTranscription(id) {
+    console.log('set active transcription', id);
+    self.activeTranscriptionIndex = id
+  }
+
+  function setTextObject(text) {
+    console.log('set text object');
     const index = getRoot(self).subjects.index
     self.current.text.set(`frame${index}`, text)
-  },
+  }
 
-  setTranscription: (transcription) => {
+  function setTranscription(transcription) {
+    console.log('set transcription', transcription);
     if (transcription) {
       try {
         self.all.put(transcription)
@@ -176,10 +215,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         console.error(error)
       }
     }
-  },
+  }
 
-  updateApproval: flow(function * updateApproval(isChecked) {
-    const isAdmin = getRoot(self).projects.isAdmin
+  const updateApproval = flow(function * updateApproval(isChecked) {
+    console.log('update approval');
+    const isResearcher = getRoot(self).projects.isResearcher
     const query = { data: { type: 'transcriptions', attributes: { status: 'in_progress' } }}
     if (!isChecked) {
       const newStatus = isAdmin ? 'approved' : 'ready'
@@ -188,12 +228,26 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.current.status = query.data.attributes.status
     const client = getRoot(self).client.tove
     yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
-  }),
+  })
 
-  setActiveTranscription: function(id) {
-    self.activeTranscriptionIndex = id
+  return {
+    afterCreate: () => {
+      console.log(undoManager);
+    },
+    checkForFlagUpdate,
+    createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
+    fetchTranscription: (id) => undoManager.withoutUndo(() => flow(fetchTranscription))(id),
+    fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
+    reset,
+    retrieveTranscriptions,
+    saveTranscription,
+    selectTranscription: (id) => undoManager.withoutUndo(() => flow(selectTranscription))(id),
+    setActiveTranscription,
+    setTextObject,
+    setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
+    updateApproval,
   }
-})).views(self => ({
+}).views(self => ({
   get approved () {
     return !!(self.current && self.current.status === 'approved')
   },

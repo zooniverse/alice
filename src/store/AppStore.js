@@ -1,4 +1,5 @@
 import { flow, types } from 'mobx-state-tree'
+import { UndoManager } from 'mst-middlewares'
 import { AggregationsStore } from './AggregationsStore'
 import { AuthStore } from './AuthStore'
 import { ClientStore } from './ClientStore'
@@ -26,8 +27,10 @@ const AppStore = types.model('AppStore', {
   modal: types.optional(ModalStore, () => ModalStore.create({})),
   transcriptions: types.optional(TranscriptionsStore, () => TranscriptionsStore.create({})),
   workflows: types.optional(WorkflowsStore, () => WorkflowsStore.create({})),
-}).actions(self => ({
-  getResources: flow (function * getResources(params) {
+}).actions(self => {
+  setUndoManager(self.transcriptions)
+
+  const getResources = flow (function * getResources(params) {
     if (!!params.project && params.project !== self.projects.id) {
       yield self.projects.selectProject(params.project)
     } else if (!params.project) {
@@ -48,13 +51,23 @@ const AppStore = types.model('AppStore', {
     } else if (!params.subject) {
       self.transcriptions.reset()
     }
-  }),
+  })
 
-  initialize: flow (function * initialize() {
+  const initialize = flow (function * initialize() {
     self.client.initialize()
     yield self.auth.checkCurrent()
     self.initialized = true;
   })
-}))
+
+  return {
+    getResources,
+    initialize
+  }
+})
+
+export let undoManager = {}
+export const setUndoManager = targetStore => {
+    undoManager = UndoManager.create({}, { targetStore })
+}
 
 export { AppStore }
