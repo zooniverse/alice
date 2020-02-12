@@ -113,22 +113,19 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const fetchTranscription = function * fetchTranscription(id) {
     if (!id) return undefined
-    undoManager.withoutUndo(() => {
-      self.test = 'cow'
-      self.asyncState = ASYNC_STATES.LOADING
-    })
+    undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const client = getRoot(self).client.tove
     try {
       const response = yield client.get(`/transcriptions/${id}`)
       const resource = JSON.parse(response.body)
-      undoManager.withoutUndo(() => {
-        self.asyncState = ASYNC_STATES.READY
-      })
+      undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.READY)
       return self.createTranscription(resource.data)
     } catch (error) {
       console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
+      undoManager.withoutUndo(() => {
+        self.error = error.message
+        self.asyncState = ASYNC_STATES.ERROR
+      })
     }
   }
 
@@ -147,21 +144,27 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.all.clear()
   }
 
-  const retrieveTranscriptions = flow(function * retrieveTranscriptions(query) {
+  const retrieveTranscriptions = function * retrieveTranscriptions(query) {
     const client = getRoot(self).client.tove
-    self.asyncState = ASYNC_STATES.LOADING
+    undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     try {
       const response = yield client.get(query)
       const resources = JSON.parse(response.body)
-      self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
-      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
-      self.asyncState = ASYNC_STATES.READY
+      undoManager.withoutUndo(() => {
+        resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
+      })
+      undoManager.withoutUndo(() => {
+        self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
+        self.asyncState = ASYNC_STATES.READY
+      })
     } catch (error) {
       console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
+      undoManager.withoutUndo(() => {
+        self.error = error.message
+        self.asyncState = ASYNC_STATES.ERROR
+      })
     }
-  })
+  }
 
   const saveTranscription = flow(function * saveTranscription() {
     const textBlob = toJS(self.current.text)
@@ -230,8 +233,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
     fetchTranscription: (id) => undoManager.withoutUndo(() => flow(fetchTranscription))(id),
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
-    reset,
-    retrieveTranscriptions,
+    reset: () => undoManager.withoutUndo(() => reset()),
+    retrieveTranscriptions: (query) => undoManager.withoutUndo(() => flow(retrieveTranscriptions))(query),
     saveTranscription,
     selectTranscription: (id) => undoManager.withoutUndo(() => flow(selectTranscription))(id),
     setActiveTranscription,

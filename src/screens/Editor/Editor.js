@@ -3,6 +3,7 @@ import { Box } from 'grommet'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import AppContext from 'store'
+import { undoManager } from 'store/AppStore'
 import Resizer from './components/Resizer'
 import AggregationModal from '../../components/AggregationSettings/AggregationModal'
 import SubjectViewer from '../../components/SubjectViewer'
@@ -23,6 +24,7 @@ function findLocations(subject) {
 function Editor ({ match }) {
   const store = React.useContext(AppContext)
   const editorBox = React.useRef(null)
+  undoManager.clear()
 
   React.useEffect(() => {
     const setResources = async () => {
