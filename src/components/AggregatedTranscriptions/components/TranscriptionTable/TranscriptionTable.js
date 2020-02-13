@@ -22,11 +22,13 @@ const RightAlignText = styled(StyledText)`
 `
 
 function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
-  const [dataArray, moveData] = React.useState(data)
+  const [dataArray, resetDataArray] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
   const emptyData = data.length === 0
 
-  React.useEffect(() => moveData(data), [data])
+  React.useEffect(() => {
+    if (dragID === null) resetDataArray(data)
+  }, [data, dragID])
   const background = emptyData ? { color: 'light-2', opacity: 'strong' } : {}
 
   return (
@@ -51,7 +53,7 @@ function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
               dragID={dragID}
               index={i}
               key={`TRANSCRIPTION_ROW_${i}`}
-              moveData={moveData}
+              moveData={resetDataArray}
               setActiveTranscription={setActiveTranscription}
               setDragID={setDragID}
               setTextObject={setTextObject}
