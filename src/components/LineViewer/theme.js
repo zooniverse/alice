@@ -33,7 +33,6 @@ const theme = {
     container: {
       extend: props => `
         input {
-          background: #EBEBEB;
           font-style: italic;
           padding: 0.2em;
         }

@@ -1,9 +1,10 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button, CheckBox, Text } from 'grommet'
+import { Button, CheckBox, Text, TextInput } from 'grommet'
 import { LineViewer } from './LineViewer'
 
 const setConsensusTextSpy = jest.fn()
+const setInputTextSpy = jest.fn()
 const setItemSpy = jest.fn()
 const transcriptionOptions = [
   {
@@ -20,15 +21,15 @@ const reduction = {
   setConsensusText: setConsensusTextSpy
 }
 
-jest
-  .spyOn(React, 'useRef')
-  .mockImplementation(() => { return { current: { value: 'Input Field' } }})
-
 const wrapper = shallow(
   <LineViewer
+    algorithmChoice={transcriptionOptions.length}
+    inputText='Input Field'
     reduction={reduction}
+    setInputText={setInputTextSpy}
     setItem={setItemSpy}
     transcriptionOptions={transcriptionOptions}
+    typedChoice={transcriptionOptions.length + 1}
   />
 )
 
@@ -96,6 +97,29 @@ describe('Component > LineViewer', function () {
       wrapper.setProps({ selectedItem: 1 })
       wrapper.find(Button).at(2).props().onClick()
       expect(setConsensusTextSpy).toHaveBeenCalledWith(reduction.consensus_text, true)
+    })
+  })
+
+  describe('text input box', function () {
+    it('should be selected on text input', function () {
+      const textInput = wrapper.find(TextInput).first()
+      textInput.simulate('change', { target: { value: 'Hello' } })
+      expect(setInputTextSpy).toHaveBeenCalledWith('Hello')
+      expect(setItemSpy).toHaveBeenCalledWith(transcriptionOptions.length + 1)
+    })
+
+    it('should unselect on text deletion', function () {
+      const textInput = wrapper.find(TextInput).first()
+      textInput.simulate('change', { target: { value: 'Hello' } })
+      textInput.simulate('change', { target: { value: '' } })
+      expect(setItemSpy).toHaveBeenCalledWith(null)
+    })
+
+    it('should not select self if already selected', function () {
+      wrapper.setProps({ selectedItem: transcriptionOptions.length + 1 })
+      const textInput = wrapper.find(TextInput).first()
+      textInput.simulate('change', { target: { value: 'Hello' } })
+      expect(setItemSpy).not.toHaveBeenCalled()
     })
   })
 })

@@ -6,16 +6,22 @@ import LineViewer from './LineViewer'
 
 function LineViewerContainer() {
   const store = React.useContext(AppContext)
+  const [inputText, setInputText] = React.useState('')
   const [selectedItem, setItem] = React.useState()
   const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
-  const subjectIndex = store.subjects.index
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
   const reduction = store.transcriptions.current &&
     store.transcriptions.current.text &&
-    store.transcriptions.current.text.get(`frame${subjectIndex}`)[transcriptionIndex]
+    store.transcriptions.current.text.get(`frame${store.subjects.index}`)[transcriptionIndex]
   const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
-
   const [transcriptionOptions, setTranscriptionOptions] = React.useState([])
+  const typedChoice = transcriptionOptions.length + 1
+  const onSetItem = (item) => {
+    if (item !== typedChoice && inputText.length) {
+      setInputText('')
+    }
+    setItem(item)
+  }
 
   React.useEffect(() => {
     const transcriptionArray = constructText(reduction).map((text, i) => {
@@ -31,14 +37,18 @@ function LineViewerContainer() {
 
   return (
     <LineViewer
+      algorithmChoice={transcriptionOptions.length}
       closeModal={closeModal}
       consensusText={consensusText}
       flagged={reduction && reduction.flagged}
+      inputText={inputText}
       reduction={reduction}
       seen={reduction && reduction.seen}
       selectedItem={selectedItem}
-      setItem={setItem}
+      setInputText={setInputText}
+      setItem={onSetItem}
       transcriptionOptions={transcriptionOptions}
+      typedChoice={typedChoice}
     />
   )
 }
