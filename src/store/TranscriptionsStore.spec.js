@@ -94,6 +94,8 @@ describe('TranscriptionsStore', function () {
       await transcriptionsStore.fetchTranscriptions()
     })
 
+    afterEach(() => jest.clearAllMocks());
+
     it('should exist', function () {
       expect(transcriptionsStore).toBeDefined()
     })
@@ -132,6 +134,16 @@ describe('TranscriptionsStore', function () {
       transcriptionsStore.setActiveTranscription(0)
       transcriptionsStore.deleteCurrentLine()
       expect(current.length).toBe(0)
+      expect(patchToveSpy).toHaveBeenCalled()
+    })
+
+    it('should not delete an inactive transcription line', async function () {
+      await transcriptionsStore.selectTranscription(1)
+      transcriptionsStore.setTextObject([mockReduction])
+      const current = transcriptionsStore.current.text.get('frame0')
+      expect(current.length).toBe(1)
+      transcriptionsStore.deleteCurrentLine()
+      expect(patchToveSpy).not.toHaveBeenCalled()
     })
 
     describe('after selecting a transcription', function () {

@@ -59,11 +59,13 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   deleteCurrentLine: function deleteCurrentLine() {
-    const index = getRoot(self).subjects.index
-    const page = self.current.text.get(`frame${index}`)
-    page.splice(self.activeTranscriptionIndex, 1)
-    self.saveTranscription()
-    self.setActiveTranscription()
+    if (Number.isInteger(self.activeTranscriptionIndex)) {
+      const index = getRoot(self).subjects.index
+      const page = self.current.text.get(`frame${index}`)
+      page.splice(self.activeTranscriptionIndex, 1)
+      self.saveTranscription()
+      self.setActiveTranscription()
+    }
   },
 
   retrieveTranscriptions: flow(function * retrieveTranscriptions(query) {
