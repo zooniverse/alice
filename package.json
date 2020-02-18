@@ -24,6 +24,7 @@
     "mobx-state-tree": "^3.14.1",
     "mst-middlewares": "^3.15.0",
     "panoptes-client": "3.0.0-rc.0",
+    "publisssh": "^1.1.0",
     "ramda": "^0.26.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -45,6 +46,7 @@
     "nock": "^11.3.5",
     "require-context.macro": "^1.2.2"
   },
+  "homepage": "https://alice.zooniverse.org",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
