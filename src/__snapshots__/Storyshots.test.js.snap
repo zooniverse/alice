@@ -766,7 +766,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             <span
               className="StyledText-sc-1sadyjn-0 kutFY"
             >
-
+              
             </span>
           </div>
           <div
@@ -1644,7 +1644,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-eHgmQL imVRNQ"
       >
-        This subject cannot be accessed because
+        This subject cannot be accessed because 
         <b>
           Erin Green
         </b>
@@ -1709,8 +1709,14 @@ exports[`Storyshots SubjectViewer Default 1`] = `
           <div
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf clSTOo"
+            <button
+              className="StyledButton-sc-323bzc-0 jfbKsv"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
             >
               <span
                 className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1722,16 +1728,16 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-iRbamj kaiWNV"
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-gPEVay hclups"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-jlyJG cTReEj"
+          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-iRbamj ckEhXp"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-gPEVay fGMXQl"
+            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-jDwBTQ bhlsFh"
           />
           <div
-            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-jlyJG sc-gipzik bfyToa"
+            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-iRbamj sc-jlyJG ArOes"
           />
         </div>
       </div>
