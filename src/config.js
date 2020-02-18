@@ -3,7 +3,7 @@ const envFromBrowser = locationMatch(/\W?env=(\w+)/);
 const envFromShell = process.env.NODE_ENV;
 const env = envFromBrowser || envFromShell || DEFAULT_ENV;
 
-if (!env.match(/^(production|staging|development)$/)) {
+if (!env.match(/^(production|staging|development|test)$/)) {
   throw new Error(`Error: Invalid Environment - ${env}`);
 }
 
@@ -15,7 +15,11 @@ const baseConfig = {
   production: {
     caesar: 'https://caesar.zooniverse.org/graphql',
     tove: 'https://tove.zooniverse.org'
-  }
+  },
+  test: {
+    caesar: 'https://caesar-staging.zooniverse.org/graphql',
+    tove: 'https://tove-staging.zooniverse.org'
+  },
 };
 
 const config = baseConfig[env];
