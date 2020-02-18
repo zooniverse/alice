@@ -1,5 +1,5 @@
 function indexToColor(index) {
-  switch (index) {
+  switch (index % 12) {
     case 0:
       // red
       return '#D0021B';

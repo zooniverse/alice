@@ -4,7 +4,7 @@ let FINAL_CASE = 11
 
 describe('Helper > indexToColor', function () {
   it('should return a black hex code by default', function () {
-    const value = indexToColor(20)
+    const value = indexToColor()
     expect(value).toBe('#000000')
   })
 

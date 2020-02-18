@@ -10,7 +10,7 @@ export default function SVGLines({ lines, isExtract, reductionIndex }) {
   return (
     <g>
       {lines.map((line, index) => {
-        const color = indexToColor(reductionIndex % 12)
+        const color = indexToColor(reductionIndex)
         const svgPoints = []
         const isLeftToRight = line.x1 < line.x2
         const endLinePos = isLeftToRight ? line.x2 - circleWidth : line.x2 + circleWidth
