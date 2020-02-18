@@ -1,55 +1,51 @@
 import React from 'react'
-import { array, string } from 'prop-types'
+import { array, bool, number } from 'prop-types'
+import SVGLines from './SVGLines'
 
-function AnnotationsPane({ lines, x, y }) {
+export default function AnnotationsPane({
+  extractLines,
+  linesVisible,
+  reductionLines,
+  x,
+  y
+}) {
   const offset = `translate(${x}, ${y})`
+
+  if (!linesVisible) return null
 
   return (
     <g transform={offset}>
-      {lines.map((line, i) => {
-        const svgPoints = []
-        const svgLines = []
-
-        for (let i = 0; i < line.length; i++) {
-          const point = line[i]
-          svgPoints.push(
-            <circle
-              key={`SVG_DOT_${i}`}
-              cx={point.x} cy={point.y} r={10} fill="#FF0000"
-            />
-          )
-          if (i > 0) {
-            const prevPoint = line[i -1]
-            svgLines.push(
-              <line
-                key={`SVG_LINE_${i}`}
-                x1={prevPoint.x} y1={prevPoint.y}
-                x2={point.x} y2={point.y}
-                stroke="#FF0000" strokeWidth="2"
-              />
-            )
-          }
-        }
-
-        return (
-          <g key={`TRANSCRIPTION_${i}`}>
-            {svgLines}
-            {svgPoints}
-          </g>
-        )
-      })}
+      {reductionLines.map((lines, i) => (
+        <SVGLines
+          key={`SVG_LINE_${i}`}
+          lines={lines}
+          reductionIndex={i}
+        />
+      ))}
+      {extractLines.map((lines, i) => (
+        <SVGLines
+          key={`SVG_LINE_${i}`}
+          isExtract
+          lines={lines}
+          reductionIndex={i}
+        />
+      ))}
     </g>
   )
 }
 
 AnnotationsPane.propTypes = {
-  lines: array,
-  offset: string
+  extractLines: array,
+  linesVisible: bool,
+  reductionLines: array,
+  x: number,
+  y: number
 }
 
 AnnotationsPane.defaultProps = {
-  lines: [],
-  offset: ''
+  extractLines: [],
+  linesVisible: true,
+  reductionLines: [],
+  x: 0,
+  y: 0
 }
-
-export default AnnotationsPane

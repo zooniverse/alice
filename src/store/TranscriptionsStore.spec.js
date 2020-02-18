@@ -1,10 +1,20 @@
 import ASYNC_STATES from 'helpers/asyncStates'
+import * as graphQl from 'graphql-request'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
 
 let transcriptionsStore
 let rootStore
 let patchToveSpy = jest.fn().mockResolvedValue(true)
+const extracts = {
+  workflow: {
+    extracts: [{
+      data: {
+        frame0: {}
+      }
+    }]
+  }
+}
 let simpleTranscription = TranscriptionFactory.build({ status: 'approved' })
 let mockReduction = {
   clusters_text: [],
@@ -63,12 +73,21 @@ let failedToveStub = {
 describe('TranscriptionsStore', function () {
   describe('success state fetching multiple transcriptions', function () {
     beforeEach(async function () {
+      jest
+        .spyOn(graphQl, 'request')
+        .mockImplementation(() => {
+          return Promise.resolve(extracts)
+        })
       rootStore = AppStore.create({
         client: { tove: successfulToveStub },
         groups: {
           current: {
             display_name: 'GROUP_1'
           }
+        },
+        workflows: {
+          all: { 1: { id: '1' } },
+          current: '1'
         }
       })
       transcriptionsStore = rootStore.transcriptions
@@ -144,6 +163,13 @@ describe('TranscriptionsStore', function () {
           current: {
             display_name: 'GROUP_1'
           }
+        },
+        subject: {
+          index: 0
+        },
+        workflows: {
+          all: { 1: { id: '1' } },
+          current: '1'
         }
       })
       transcriptionsStore = rootStore.transcriptions
@@ -181,6 +207,13 @@ describe('TranscriptionsStore', function () {
     it('should handle an error when fetching transcriptions', async function () {
       transcriptionsStore = rootStore.transcriptions
       await transcriptionsStore.fetchTranscriptions()
+      expect(transcriptionsStore.error).toBe(error.message)
+      expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+    })
+
+    it('should handle an error when fetching a transcription', async function () {
+      transcriptionsStore = rootStore.transcriptions
+      await transcriptionsStore.fetchTranscription('1')
       expect(transcriptionsStore.error).toBe(error.message)
       expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
     })

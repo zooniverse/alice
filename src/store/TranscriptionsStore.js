@@ -3,6 +3,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { toJS } from 'mobx'
 import Reduction from './Reduction'
+import { request } from 'graphql-request'
 
 let Frame = types.array(Reduction)
 const Extension = types.refinement(types.map(Frame), snapshot => {
@@ -27,7 +28,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   current: types.safeReference(Transcription),
   error: types.optional(types.string, ''),
   page: types.optional(types.number, 0),
-  totalPages: types.optional(types.number, 1)
+  totalPages: types.optional(types.number, 1),
+  extracts: types.array(types.frozen())
 }).actions(self => ({
   checkForFlagUpdate: () => {
     let containsLineFlag = false
@@ -70,6 +72,27 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       self.error = error.message
       self.asyncState = ASYNC_STATES.ERROR
     }
+  }),
+
+  fetchExtracts: flow(function * fetchExtracts(id) {
+    const workflowId = getRoot(self).workflows.current.id
+    // TODO: The extractor key below will need to change eventually. This is just
+    // to test the code with ASM staging data. In the future, this will change to
+    // 'alice' once current extractors have been backfilled with duplicate extractors
+    // with the correct 'alice' key.
+    const query = `{
+      workflow(id: ${workflowId}) {
+        extracts(subjectId: ${id}, extractorKey: "ext-17") {
+          data, userId
+        }
+      }
+    }`
+    let validExtracts = []
+    yield request('https://caesar-staging.zooniverse.org/graphql', query).then((data) => {
+      const index = getRoot(self).subjects.index
+      validExtracts = data.workflow.extracts.filter(extract => extract.data[`frame${index}`])
+    })
+    self.extracts = validExtracts
   }),
 
   fetchTranscription: flow(function * fetchTranscription(id) {
@@ -126,6 +149,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   selectTranscription: flow(function * selectTranscription(id = null) {
     let transcription = self.all.get(id)
     if (!transcription) transcription = yield self.fetchTranscription(id)
+    if (id) yield self.fetchExtracts(id)
     self.setTranscription(transcription)
     self.current = id || undefined
   }),

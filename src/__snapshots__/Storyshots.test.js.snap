@@ -1698,7 +1698,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         className="StyledBox-sc-13pk1d4-0 iGfFSe"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 cGDWft"
+          className="StyledBox-sc-13pk1d4-0 hFIMGw"
         >
           <span
             className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1708,25 +1708,35 @@ exports[`Storyshots SubjectViewer Default 1`] = `
           <div
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP gxqauL"
+            <button
+              className="StyledButton-sc-323bzc-0 jfbKsv"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
             >
-              View All Lines
-            </span>
+              <span
+                className="StyledText-sc-1sadyjn-0 bmpSIR"
+              >
+                HIDE ALL LINES
+              </span>
+            </button>
           </div>
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-gPEVay hclups"
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-jDwBTQ johwsq"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-iRbamj ckEhXp"
+          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-gPEVay cRnTDt"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-jDwBTQ bhlsFh"
+            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-jAaTju dtvBwa"
           />
           <div
-            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-iRbamj sc-jlyJG ArOes"
+            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-gPEVay sc-iRbamj cLvnoa"
           />
         </div>
       </div>

@@ -1,44 +1,41 @@
 function indexToColor(index) {
-  switch (index) {
+  switch (index % 12) {
     case 0:
-      // yellow
-      return '#FFFF00';
-    case 1:
-      // green
-      return '#02FE81';
-    case 2:
-      // pink
-      return '#FF327B';
-    case 3:
-      // blue
-      return '#2967FF';
-    case 4:
-      // orange
-      return '#FF6600';
-    case 5:
       // red
-      return '#FF0000';
+      return '#D0021B';
+    case 1:
+      // orange
+      return '#F5A623';
+    case 2:
+      // yellow
+      return '#F8E71C';
+    case 3:
+      // light-green
+      return '#7ED321';
+    case 4:
+      // green
+      return '#417505';
+    case 5:
+      // blue
+      return '#4A90E2';
     case 6:
       // purple
-      return '#6600FF';
+      return '#9013FE'
     case 7:
-      // red-orange
-      return '#FF4500';
+      // pink
+      return '#BD10E0';
     case 8:
-      // yellow-orange
-      return '#F8D568';
+      // cyan
+      return '#50E3C2';
     case 9:
-      // yellow-green
-      return '#9ACD32';
+      // avocado
+      return '#B8E986';
     case 10:
-      // blue-green
-      return '#0D98BA';
+      // coral
+      return '#D06F7B';
     case 11:
-      // blue-violet
-      return '#8A2BE2';
-    case 12:
-      // red-violet
-      return '#C71585';
+      // brown
+      return '#795315';
     default:
       // black
       return '#000000';
