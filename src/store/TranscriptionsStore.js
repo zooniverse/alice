@@ -3,8 +3,9 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { toJS } from 'mobx'
 import { undoManager } from 'store/AppStore'
-import Reduction from './Reduction'
 import { request } from 'graphql-request'
+import { config } from 'config'
+import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
 const Extension = types.refinement(types.map(Frame), snapshot => {
@@ -87,7 +88,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }
     }`
     let validExtracts = []
-    yield request('https://caesar-staging.zooniverse.org/graphql', query).then((data) => {
+    yield request(config.caesar, query).then((data) => {
       const index = getRoot(self).subjects.index
       validExtracts = data.workflow.extracts.filter(extract => extract.data[`frame${index}`])
     })

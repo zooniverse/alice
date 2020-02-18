@@ -1,5 +1,6 @@
 import { types } from 'mobx-state-tree'
 import Frisbee from 'frisbee'
+import { config } from 'config'
 
 const ClientStore = types.model('ClientStore', {
   bearerToken: types.optional(types.string, ''),
@@ -7,7 +8,7 @@ const ClientStore = types.model('ClientStore', {
 }).actions(self => ({
   initialize: () => {
     self.tove = new Frisbee({
-      baseURI: 'https://tove-staging.zooniverse.org',
+      baseURI: config.tove,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
