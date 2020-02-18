@@ -30,6 +30,7 @@ function Editor ({ match }) {
       await store.subjects.fetchSubject(match.params.subject)
     }
     setResources()
+    store.transcriptions.setActiveTranscription()
   }, [match, store])
 
   const disabled = store.aggregations.showModal || store.transcriptions.approved

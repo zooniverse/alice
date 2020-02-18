@@ -10,6 +10,7 @@ function FilmstripViewerContainer({ images }) {
   const selectImage = (id) => {
     store.image.reset()
     store.subjects.changeIndex(id)
+    store.transcriptions.setActiveTranscription()
   }
 
   return  (

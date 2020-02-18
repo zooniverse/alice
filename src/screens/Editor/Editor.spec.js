@@ -10,6 +10,7 @@ const fetchSubjectSpy = jest.fn()
 const getResourcesSpy = jest.fn()
 const setState = jest.fn()
 const preventDefaultSpy = jest.fn()
+const setActiveTranscriptionSpy = jest.fn()
 const match = {
   params: {
     subject: 2
@@ -51,7 +52,8 @@ const contextValues = {
   },
   transcriptions: {
     current: undefined,
-    extracts: []
+    extracts: [],
+    setActiveTranscription: setActiveTranscriptionSpy
   }
 }
 
