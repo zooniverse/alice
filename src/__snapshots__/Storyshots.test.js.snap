@@ -11,7 +11,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 bdFdoP"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-fjdhpX fCEyoV"
+        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-jzJRlG byHcWR"
       >
         <div
           className="StyledBox-sc-13pk1d4-0 ikTqht"
@@ -25,14 +25,14 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
               Transcribed Text
             </span>
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-jTzLTM krJVzu"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-fjdhpX jMSAXb"
               size="xsmall"
             >
               Add Line
             </span>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 tkzRw sc-cSHVUG iUjjWu"
+            className="StyledBox-sc-13pk1d4-0 tkzRw sc-kAzzGY cHmBTk"
           >
             <div
               className="StyledBox-sc-13pk1d4-0 joGoBe"
@@ -101,7 +101,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 jxCWxi"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-ckVGcZ cKVUCJ"
+        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-jKJlTe MPVAE"
       >
         <svg
           aria-hidden="true"
@@ -197,7 +197,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-chPdSV emslNC"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kgoBCf fDGffR"
                       >
                         <div
                           className="StyledBox-sc-13pk1d4-0 bDTvWa"
@@ -230,7 +230,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kgoBCf fDGffR"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kGXeez fOyJew"
                       >
                         <div
                           className="StyledBox-sc-13pk1d4-0 bDTvWa"
@@ -452,7 +452,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
     className="StyledBox-sc-13pk1d4-0 iNPZuM"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 kFLDHg sc-eHgmQL dpAtYH"
+      className="StyledBox-sc-13pk1d4-0 kFLDHg sc-cvbbAY cDfiQI"
     >
       <div
         className="StyledBox-sc-13pk1d4-0 cGDWft"
@@ -476,7 +476,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 jHQJnz"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-hSdWYo fTcbhG"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-eHgmQL keiOXo"
             >
               Collapse
                Filmstrip
@@ -525,7 +525,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-jKJlTe fOlXkZ"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jtFbJk"
       >
         Layout
       </span>
@@ -639,7 +639,7 @@ exports[`Storyshots HeaderButtons SaveButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-jKJlTe fOlXkZ"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jtFbJk"
       >
         Save
       </span>
@@ -687,7 +687,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-jKJlTe fOlXkZ"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jtFbJk"
       >
         Undo
       </span>
@@ -719,7 +719,7 @@ exports[`Storyshots LineViewer Default 1`] = `
     className="StyledBox-sc-13pk1d4-0 iNPZuM"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 biltor sc-VigVT gRqLsd"
+      className="StyledBox-sc-13pk1d4-0 biltor sc-jTzLTM kGoDGv"
     >
       <div
         className="StyledBox-sc-13pk1d4-0 HtQTI"
@@ -731,7 +731,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 iYFxCu"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 dxiclx sc-gZMcBi hFMlKC"
+              className="StyledText-sc-1sadyjn-0 dxiclx sc-gqjmRU jppNnv"
               size="0.6em"
             >
               Selected Transcription
@@ -741,7 +741,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 dXDFWh"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 dxiclx sc-gZMcBi hFMlKC"
+              className="StyledText-sc-1sadyjn-0 dxiclx sc-gqjmRU jppNnv"
               size="0.6em"
             >
               Flag
@@ -750,7 +750,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 eFJbSQ sc-gZMcBi hFMlKC"
+              className="StyledText-sc-1sadyjn-0 eFJbSQ sc-gqjmRU jppNnv"
               size="0.6em"
             >
               Consensus Score
@@ -766,7 +766,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             <span
               className="StyledText-sc-1sadyjn-0 kutFY"
             >
-
+              
             </span>
           </div>
           <div
@@ -789,7 +789,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-iwsKbI gzdDow"
+                  className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-gZMcBi jsFekD"
                   color="green"
                   data-icon="circle"
                   data-prefix="fas"
@@ -822,7 +822,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="svg-inline--fa fa-flag fa-w-16 fa-xs sc-iwsKbI gzdDow"
+                  className="svg-inline--fa fa-flag fa-w-16 fa-xs sc-gZMcBi jsFekD"
                   color="tomato"
                   data-icon="flag"
                   data-prefix="fas"
@@ -903,7 +903,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               />
             </div>
             <span
-              className="StyledText-sc-1sadyjn-0 hqDeHd sc-gqjmRU cTmRFQ"
+              className="StyledText-sc-1sadyjn-0 hqDeHd sc-VigVT ghmUWa"
               size="xsmall"
             >
               aggregated transcription (via algorithm)
@@ -978,7 +978,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gZMcBi hFMlKC"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
               size="xsmall"
             >
               Add Line Below
@@ -994,7 +994,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gZMcBi hFMlKC"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
               size="xsmall"
             >
               Delete Line
@@ -1015,7 +1015,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gZMcBi hFMlKC"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
               size="xsmall"
             >
               Replace With Selected
@@ -1034,7 +1034,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gZMcBi hFMlKC"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
               size="xsmall"
             >
               Close
@@ -1057,7 +1057,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     onClick={[Function]}
   >
     <span
-      className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jMItqB"
+      className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs isvcEd"
     >
       Ready For Review
     </span>
@@ -1189,7 +1189,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
           />
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP gxqauL"
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf clSTOo"
           >
             Find a specific subject
           </span>
@@ -1207,7 +1207,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 iEMnku"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-cMljjf cNLuT"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jAaTju eFLOIY"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -1275,7 +1275,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 bgTRhM"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-cMljjf cNLuT"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jAaTju eFLOIY"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -1313,7 +1313,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP gxqauL"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf clSTOo"
             >
               Filter subject list by status
             </span>
@@ -1594,7 +1594,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="button"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP gxqauL"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf clSTOo"
                 >
                   Close
                 </span>
@@ -1609,7 +1609,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="submit"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP gxqauL"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf clSTOo"
                 >
                   Search
                 </span>
@@ -1643,9 +1643,9 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-cvbbAY jkpiMY"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jWBwVP eUsdhQ"
       >
-        This subject cannot be accessed because
+        This subject cannot be accessed because 
         <b>
           Erin Green
         </b>
@@ -1655,7 +1655,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-cvbbAY jkpiMY"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jWBwVP eUsdhQ"
       >
         For access, ask them to close their version.
       </span>
@@ -1710,8 +1710,14 @@ exports[`Storyshots SubjectViewer Default 1`] = `
           <div
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-jAaTju jhmhPS"
+            <button
+              className="StyledButton-sc-323bzc-0 jfbKsv"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              type="button"
             >
               <span
                 className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1793,7 +1799,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jWBwVP eUsdhQ"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP ffvzpR"
       >
         By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
       </span>
@@ -1801,7 +1807,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jWBwVP eUsdhQ"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP ffvzpR"
       >
         This action can be reversed at any time.
       </span>

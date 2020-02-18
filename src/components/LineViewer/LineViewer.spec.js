@@ -125,6 +125,7 @@ describe('Component > LineViewer', function () {
       const textInput = wrapper.find(TextInput).first()
       textInput.simulate('change', { target: { value: 'Hello' } })
       expect(setItemSpy).not.toHaveBeenCalled()
+    })
   })
 
   describe('with showDeleteModal true', function () {
