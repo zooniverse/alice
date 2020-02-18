@@ -20,12 +20,10 @@ const currentTranscription = {
 }
 
 const contextValues = {
-  subjects: {
-    index: 0
-  },
   transcriptions: {
     activeTranscriptionIndex: 0,
     current: currentTranscription,
+    index: 0,
     setActiveTranscription: setActiveTranscriptionSpy
   }
 }

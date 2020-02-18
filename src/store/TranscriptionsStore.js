@@ -62,35 +62,18 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       text: textObject,
       transcribed_lines: text.transcribed_lines
     })
-  },
+  }
 
-  deleteCurrentLine: function deleteCurrentLine() {
+  function deleteCurrentLine() {
     if (Number.isInteger(self.activeTranscriptionIndex)) {
-      const index = getRoot(self).subjects.index
-      const page = self.current.text.get(`frame${index}`)
+      const page = self.current.text.get(`frame${self.index}`)
       page.splice(self.activeTranscriptionIndex, 1)
       self.saveTranscription()
       self.setActiveTranscription()
     }
-  },
+  }
 
-  retrieveTranscriptions: flow(function * retrieveTranscriptions(query) {
-    const client = getRoot(self).client.tove
-    self.asyncState = ASYNC_STATES.LOADING
-    try {
-      const response = yield client.get(query)
-      const resources = JSON.parse(response.body)
-      self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
-      resources.data.forEach(transcription => self.all.put(self.createTranscription(transcription)))
-      self.asyncState = ASYNC_STATES.READY
-    } catch (error) {
-      console.warn(error);
-      self.error = error.message
-      self.asyncState = ASYNC_STATES.ERROR
-    }
-  }),
-
-  fetchExtracts: flow(function * fetchExtracts(id) {
+  const fetchExtracts = function * fetchExtracts(id) {
     const workflowId = getRoot(self).workflows.current.id
     // TODO: The extractor key below will need to change eventually. This is just
     // to test the code with ASM staging data. In the future, this will change to
@@ -109,7 +92,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       validExtracts = data.workflow.extracts.filter(extract => extract.data[`frame${index}`])
     })
     self.extracts = validExtracts
-  }),
+  }
 
   const fetchTranscription = flow(function * fetchTranscription(id) {
     if (!id) return undefined
@@ -231,6 +214,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     changeIndex,
     checkForFlagUpdate,
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
+    deleteCurrentLine,
+    fetchExtracts: (id) => undoManager.withoutUndo(() => flow(fetchExtracts))(id),
     fetchTranscription,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
     reset: () => undoManager.withoutUndo(() => reset()),
