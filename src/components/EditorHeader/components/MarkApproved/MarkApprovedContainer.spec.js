@@ -11,7 +11,7 @@ const contextValues = {
     toggleModal: toggleModalSpy
   },
   projects: {
-    isResearcher: false
+    isAdmin: false
   },
   transcriptions: {
     approved: true,
@@ -42,7 +42,7 @@ describe('Component > MarkApprovedContainer', function () {
   describe('as researcher with approved transcription', function () {
     it('should toggle off the approval', function () {
       const updatedContext = Object.assign({}, contextValues)
-      updatedContext.projects.isResearcher = true
+      updatedContext.projects.isAdmin = true
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => updatedContext )
@@ -55,7 +55,7 @@ describe('Component > MarkApprovedContainer', function () {
   describe('as researcher with unapproved transcription', function () {
     it('should toggle off the approval', function () {
       const updatedContext = Object.assign({}, contextValues)
-      updatedContext.projects.isResearcher = true
+      updatedContext.projects.isAdmin = true
       updatedContext.transcriptions.approved = false
       jest
         .spyOn(React, 'useContext')

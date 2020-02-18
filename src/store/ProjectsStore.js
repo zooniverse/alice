@@ -3,13 +3,13 @@ import apiClient from 'panoptes-client/lib/api-client.js'
 import ASYNC_STATES from 'helpers/asyncStates'
 
 const ROLES = {
-  RESEARCHER: 'Researcher',
-  VOLUNTEER: 'Volunteer',
+  ADMIN: 'Admin',
+  EDITOR: 'Editor',
   VIEWER: 'Viewer'
 }
 
-const researcherRoles = ['owner', 'collaborator']
-const volunteerRoles = ['expert', 'researcher', 'moderator']
+const adminRoles = ['owner', 'collaborator']
+const editorRoles = ['expert', 'researcher', 'moderator']
 
 const Project = types
   .model('Project', {
@@ -40,8 +40,8 @@ const ProjectsStore = types.model('ProjectsStore', {
     const roles = yield apiClient.type('project_roles').get({ user_id: user.id, page_size: 50 })
     self.roles = roles.reduce((roles, role) => {
       let title = ROLES.VIEWER
-      if (role.roles.some(role => volunteerRoles.includes(role))) { title = ROLES.VOLUNTEER }
-      if (role.roles.some(role => researcherRoles.includes(role))) { title = ROLES.RESEARCHER }
+      if (role.roles.some(role => editorRoles.includes(role))) { title = ROLES.EDITOR }
+      if (role.roles.some(role => adminRoles.includes(role))) { title = ROLES.ADMIN }
       roles[role.links.project] = title
       return roles
     }, {})
@@ -114,8 +114,8 @@ const ProjectsStore = types.model('ProjectsStore', {
     return self.current && self.current.id
   },
 
-  get isResearcher () {
-    return (self.current && self.current.role === ROLES.RESEARCHER) || false
+  get isAdmin () {
+    return (self.current && self.current.role === ROLES.ADMIN) || false
   },
 
   get role () {
@@ -127,11 +127,11 @@ const ProjectsStore = types.model('ProjectsStore', {
   },
 
   get collabProjects () {
-    return Array.from(self.all.values()).filter(project => project.role !== ROLES.RESEARCHER)
+    return Array.from(self.all.values()).filter(project => project.role !== ROLES.ADMIN)
   },
 
   get ownerProjects () {
-    return Array.from(self.all.values()).filter(project => project.role === ROLES.RESEARCHER)
+    return Array.from(self.all.values()).filter(project => project.role === ROLES.ADMIN)
   }
 }))
 

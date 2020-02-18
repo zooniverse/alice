@@ -6,7 +6,7 @@ let wrapper
 
 describe('Component > MarkApproved', function () {
   beforeEach(function() {
-    wrapper = shallow(<MarkApproved isResearcher />);
+    wrapper = shallow(<MarkApproved isAdmin />);
   })
 
   it('should render without crashing', function () {
