@@ -5,10 +5,13 @@ import FilmstripViewerContainer from './FilmstripViewerContainer'
 let wrapper
 const resetSpy = jest.fn()
 const changeIndexSpy = jest.fn()
+const setActiveTranscriptionSpy = jest.fn()
+
 const contextValues = {
   aggregations: { showModal: false },
   image: { reset: resetSpy },
-  subjects: { changeIndex: changeIndexSpy }
+  subjects: { changeIndex: changeIndexSpy },
+  transcriptions: { setActiveTranscription: setActiveTranscriptionSpy }
 }
 
 describe('Component > FilmstripViewerContainer', function () {

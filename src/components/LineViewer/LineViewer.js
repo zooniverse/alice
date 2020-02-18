@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import TranscriptionLine from './components/TranscriptionLine'
 import withThemeContext from '../../helpers/withThemeContext'
+import DeleteModal from './components/DeleteModal'
 import FlagButtonContainer from './components/FlagButtons/FlagButtonContainer'
 import SeenButtonContainer from './components/FlagButtons/SeenButtonContainer'
 import theme from './theme'
@@ -15,6 +16,10 @@ const CapitalText = styled(Text)`
 
 const ItalicText = styled(Text)`
   font-style: italic;
+`
+
+const RelativeBox = styled(Box)`
+  position: relative;
 `
 
 function LineViewer ({
@@ -29,7 +34,9 @@ function LineViewer ({
   setInputText,
   setItem,
   transcriptionOptions,
-  typedChoice
+  typedChoice,
+  showDeleteModal,
+  toggleDeleteModal
 }) {
   const replaceWithSelected = () => {
     let textOption = ''
@@ -45,7 +52,8 @@ function LineViewer ({
   }
 
   return (
-    <Box background='white' elevation='small' round='xsmall' width='large'>
+    <RelativeBox background='white' elevation='small' round='xsmall' width='large'>
+      {showDeleteModal && <DeleteModal toggleModal={toggleDeleteModal} />}
       <Box border='bottom' pad={{ top: 'xsmall', horizontal: 'xsmall' }}>
         <Box align='center' direction='row' justify='between'>
           <Box basis='80%'>
@@ -125,14 +133,14 @@ function LineViewer ({
       <Box direction='row' justify='between' margin={{ horizontal: 'xsmall', bottom: 'xsmall', top: '0.25em' }}>
         <Box direction='row'>
           <Button margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
-          <Button><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
+          <Button onClick={toggleDeleteModal}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
         </Box>
         <Box direction='row' gap='small'>
           <Button disabled={selectedItem === null} onClick={replaceWithSelected}><CapitalText size='xsmall'>Replace With Selected</CapitalText></Button>
           <Button onClick={closeModal}><CapitalText size='xsmall'>Close</CapitalText></Button>
         </Box>
       </Box>
-    </Box>
+    </RelativeBox>
   )
 }
 
@@ -146,7 +154,8 @@ LineViewer.defaultProps = {
   replaceWithSelected: () => {},
   seen: false,
   selectedItem: null,
-  setItem: () => {}
+  setItem: () => {},
+  transcriptionOptions: []
 }
 
 LineViewer.propTypes = {
@@ -157,7 +166,8 @@ LineViewer.propTypes = {
   replaceWithSelected: PropTypes.func,
   seen: PropTypes.bool,
   selectedItem: PropTypes.number,
-  setItem: PropTypes.func
+  setItem: PropTypes.func,
+  transcriptionOptions: PropTypes.array
 }
 
 export { LineViewer }
