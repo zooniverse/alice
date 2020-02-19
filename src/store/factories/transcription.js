@@ -7,7 +7,9 @@ export default new Factory()
     subject_id: 1,
     workflow_id: 1,
     group_id: 'GROUP_1',
-    text: new Map(),
+    text: {
+      frame0: [{ text: 'text' }]
+    },
     status: 'unseen',
     flagged: false,
   })

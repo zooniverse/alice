@@ -133,7 +133,6 @@ describe('TranscriptionsStore', function () {
 
     it('should delete a transcription line', async function () {
       await transcriptionsStore.selectTranscription(1)
-      transcriptionsStore.setTextObject([mockReduction])
       const current = transcriptionsStore.current.text.get('frame0')
       expect(current.length).toBe(1)
       transcriptionsStore.setActiveTranscription(0)
@@ -144,9 +143,6 @@ describe('TranscriptionsStore', function () {
 
     it('should not delete an inactive transcription line', async function () {
       await transcriptionsStore.selectTranscription(1)
-      transcriptionsStore.setTextObject([mockReduction])
-      const current = transcriptionsStore.current.text.get('frame0')
-      expect(current.length).toBe(1)
       transcriptionsStore.deleteCurrentLine()
       expect(patchToveSpy).not.toHaveBeenCalled()
     })
@@ -178,6 +174,21 @@ describe('TranscriptionsStore', function () {
         transcriptionsStore.checkForFlagUpdate()
         expect(patchToveSpy).toHaveBeenCalled()
         expect(transcriptionsStore.current.flagged).toBe(true)
+      })
+
+      describe('and attempting to undo', function () {
+        it('should not make a change', function () {
+          transcriptionsStore.undo()
+          expect(patchToveSpy).not.toHaveBeenCalled()
+        })
+      })
+
+      describe('and making a change', function () {
+        it('should undo the previous action', function () {
+          transcriptionsStore.setTextObject([mockReduction])
+          transcriptionsStore.undo()
+          expect(patchToveSpy).toHaveBeenCalled()
+        })
       })
     })
   })
