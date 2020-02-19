@@ -1,4 +1,4 @@
-import { flow, getRoot, types } from 'mobx-state-tree'
+import { flow, getRoot, getSnapshot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { toJS } from 'mobx'
@@ -185,6 +185,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function setTextObject(text) {
     self.current.text.set(`frame${self.index}`, text)
+    self.saveTranscription()
   }
 
   function setTranscription(transcription) {
@@ -194,6 +195,20 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       } catch (error) {
         console.error(error)
       }
+    }
+  }
+
+  function undo() {
+    const prevSnapshot = getSnapshot(self)
+    const prevTranscription = prevSnapshot.all[prevSnapshot.current]
+
+    undoManager.canUndo && undoManager.undo()
+
+    const nextSnapshot = getSnapshot(self)
+    const nextTranscription = nextSnapshot.all[nextSnapshot.current]
+
+    if (prevTranscription !== nextTranscription) {
+      self.saveTranscription()
     }
   }
 
@@ -225,6 +240,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setActiveTranscription,
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
+    undo,
     updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked)),
   }
 }).views(self => ({

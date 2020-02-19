@@ -2,10 +2,12 @@ import React from 'react'
 import { Refresh } from 'grommet-icons'
 import { undoManager } from 'store/AppStore'
 import { observer } from 'mobx-react'
+import AppContext from 'store'
 import HeaderButton from './HeaderButton'
 
 function UndoButtonContainer({ disabled }) {
-  const onUndo = () => undoManager.canUndo && undoManager.undo()
+  const store = React.useContext(AppContext)
+  const onUndo = () => store.transcriptions.undo()
   const disableUndo = disabled || !undoManager.canUndo
 
   return (
