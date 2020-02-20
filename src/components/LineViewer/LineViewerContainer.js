@@ -1,27 +1,43 @@
 import React from 'react'
 import AppContext from 'store'
-import { observer } from 'mobx-react'
+import { observer, useLocalStore } from 'mobx-react'
 import { constructText } from 'helpers/parseTranscriptionData'
 import LineViewer from './LineViewer'
 
 function LineViewerContainer() {
   const store = React.useContext(AppContext)
-  const [inputText, setInputText] = React.useState('')
-  const [showDeleteModal, toggleDeleteModal] = React.useState(false)
-  const [selectedItem, setItem] = React.useState()
+
+  const localStore = useLocalStore(() => ({
+    inputText: '',
+    selectedItem: null,
+    setInputText(text) {
+      localStore.inputText = text
+    },
+    setItem(item) {
+      localStore.selectedItem = item
+    },
+    setTranscriptionOptions(options) {
+      localStore.transcriptionOptions = options
+    },
+    showDeleteModal: false,
+    toggleDeleteModal() {
+      localStore.showDeleteModal = !localStore.showDeleteModal
+    },
+    transcriptionOptions: []
+  }))
+
   const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
   const reduction = store.transcriptions.current &&
     store.transcriptions.current.text &&
     store.transcriptions.current.text.get(`frame${store.transcriptions.index}`)[transcriptionIndex]
   const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
-  const [transcriptionOptions, setTranscriptionOptions] = React.useState([])
-  const typedChoice = transcriptionOptions.length + 1
+  const typedChoice = localStore.transcriptionOptions.length + 1
   const onSetItem = (item) => {
-    if (item !== typedChoice && inputText.length) {
-      setInputText('')
+    if (item !== typedChoice && localStore.inputText.length) {
+      localStore.setInputText('')
     }
-    setItem(item)
+    localStore.setItem(item)
   }
 
   React.useEffect(() => {
@@ -33,24 +49,24 @@ function LineViewerContainer() {
         text
       }
     })
-    setTranscriptionOptions(transcriptionArray)
-  }, [reduction])
+    localStore.setTranscriptionOptions(transcriptionArray)
+  }, [localStore, reduction])
 
   return (
     <LineViewer
-      algorithmChoice={transcriptionOptions.length}
+      algorithmChoice={localStore.transcriptionOptions.length}
       closeModal={closeModal}
       consensusText={consensusText}
       flagged={reduction && reduction.flagged}
-      inputText={inputText}
+      inputText={localStore.inputText}
       reduction={reduction}
       seen={reduction && reduction.seen}
-      selectedItem={selectedItem}
-      setInputText={setInputText}
+      selectedItem={localStore.selectedItem}
+      setInputText={localStore.setInputText}
       setItem={onSetItem}
-      showDeleteModal={showDeleteModal}
-      toggleDeleteModal={toggleDeleteModal}
-      transcriptionOptions={transcriptionOptions}
+      showDeleteModal={localStore.showDeleteModal}
+      toggleDeleteModal={localStore.toggleDeleteModal}
+      transcriptionOptions={localStore.transcriptionOptions}
       typedChoice={typedChoice}
     />
   )
