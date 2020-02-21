@@ -1,9 +1,9 @@
 import { flow, getRoot, getSnapshot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
-import { toJS } from 'mobx'
 import { undoManager } from 'store/AppStore'
 import apiClient from 'panoptes-client/lib/api-client.js'
+import { reaction, toJS } from 'mobx'
 import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
@@ -34,6 +34,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   index: types.optional(types.number, 0),
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
+  showSaveTranscriptionError: types.optional(types.boolean, false),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
@@ -44,6 +45,14 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
       return list
     }, {})
+  }
+
+  function afterAttach() {
+    reaction(() => self.asyncState, (state) => {
+      if (state === ASYNC_STATES.ERROR) {
+        self.showSaveTranscriptionError = true
+      }
+    })
   }
 
   function changeIndex(index) {
@@ -161,6 +170,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   const saveTranscription = flow(function * saveTranscription() {
+    self.asyncState = ASYNC_STATES.LOADING
     const textBlob = toJS(self.current.text)
     const client = getRoot(self).client.tove
     const lineCounts = {
@@ -239,6 +249,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
+  function toggleError() {
+    self.showSaveTranscriptionError = !self.showSaveTranscriptionError
+  }
+
   function undo() {
     const prevSnapshot = getSnapshot(self)
     const prevTranscription = prevSnapshot.all[prevSnapshot.current]
@@ -267,6 +281,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   return {
+    afterAttach,
     arrangeExtractsByUser,
     changeIndex,
     checkForFlagUpdate,
@@ -283,8 +298,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setParsedExtracts: (extractsByUser) => undoManager.withoutUndo(() => setParsedExtracts(extractsByUser)),
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
+    toggleError,
     undo,
-    updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked)),
+    updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked))
   }
 }).views(self => ({
   get approved () {

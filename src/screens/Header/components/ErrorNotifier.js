@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import styled from 'styled-components'
+import { bool } from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,7 +14,9 @@ const AbsoluteBox = styled(Box)`
   z-index: 5;
 `
 
-export default function ErrorNotifier() {
+export default function ErrorNotifier({ showNotifier, toggleError }) {
+  if (!showNotifier) return null
+
   return (
     <RelativeBox>
       <AbsoluteBox background='#E45950' direction='row' height='4em' fill='horizontal'>
@@ -24,9 +27,18 @@ export default function ErrorNotifier() {
         <Button
           icon={<FontAwesomeIcon color='white' icon={faTimesCircle} />}
           margin='small'
+          onClick={toggleError}
           plain
         />
       </AbsoluteBox>
     </RelativeBox>
   )
+}
+
+ErrorNotifier.propTypes = {
+  showNotifier: bool
+}
+
+ErrorNotifier.defaultProps = {
+  showNotifier: false
 }
