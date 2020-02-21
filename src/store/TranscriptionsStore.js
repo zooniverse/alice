@@ -177,7 +177,13 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         }
       }
     }
-    yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
+    try {
+      yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
+    } catch (error) {
+      console.warn(error);
+      self.error = error.message
+      self.asyncState = ASYNC_STATES.ERROR
+    }
   })
 
   const selectTranscription = flow(function * selectTranscription(id = null) {

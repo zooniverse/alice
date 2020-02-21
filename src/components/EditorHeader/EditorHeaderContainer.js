@@ -6,6 +6,7 @@ import EditorHeader from './EditorHeader'
 import SearchButton from './components/HeaderButton/SearchButtonContainer'
 import DownloadSetData from './components/HeaderButton/DownloadSetDataContainer'
 import MarkApproved from './components/MarkApproved'
+import SaveStatus from './components/SaveStatus'
 import UndoButton from './components/HeaderButton/UndoButtonContainer'
 import LayoutButton from './components/HeaderButton/LayoutButtonContainer'
 import MoreButton from './components/MoreButton'
@@ -22,7 +23,7 @@ function getHeaderTools(path, isViewer = false) {
     if (isViewer) buttons.shift()
     return buttons
   } else if (routeMatcher(path, EDIT_PATH)) {
-    let buttons = [MarkApproved, UndoButton, LayoutButton, MoreButton]
+    let buttons = [SaveStatus, MarkApproved, UndoButton, LayoutButton, MoreButton]
     if (isViewer) buttons = [LayoutButton]
     return buttons
   }
