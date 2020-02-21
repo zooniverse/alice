@@ -9,6 +9,7 @@ function SaveStatusContainer() {
   return (
     <SaveStatus
       status={store.transcriptions.asyncState}
+      toggleError={store.transcriptions.toggleError}
     />
   )
 }
