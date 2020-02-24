@@ -24,13 +24,13 @@ export default function getError(err) {
     type = code.toString().charAt(0) === '4' ? ERROR_TYPES.HANDLED : ERROR_TYPES.UNHANDLED
     message = err.body.error
   } else {
-    type = err.indexOf('Failed to fetch') >= 0 ? ERROR_TYPES.CONNECTION : ERROR_TYPES.HANDLED
-    message = err
+    type = err.message.indexOf('Failed to fetch') >= 0 ? ERROR_TYPES.CONNECTION : ERROR_TYPES.HANDLED
+    message = err.message
   }
 
   switch (type) {
     case ERROR_TYPES.HANDLED:
-      return Error.create({ message, help: HELP_TEXT.REFRESH })
+      return Error.create({ message: message, help: HELP_TEXT.REFRESH })
     case ERROR_TYPES.UNHANDLED:
       return Error.create({
         message: 'Uh oh. Something unexpected happened',

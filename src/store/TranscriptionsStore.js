@@ -50,9 +50,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function afterAttach() {
     reaction(() => self.asyncState, (state) => {
-      if (state === ASYNC_STATES.ERROR) {
-        self.showSaveTranscriptionError = true
-      }
+      self.showSaveTranscriptionError = state === ASYNC_STATES.ERROR
     })
   }
 
@@ -189,7 +187,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }
     }
     try {
-      yield client.patch(`/transcrptions/${self.current.id}`, { body: query }).then(response => {
+      yield client.patch(`/transcriptions/${self.current.id}`, { body: query }).then(response => {
         if (response.ok) {
           return response
         } else {

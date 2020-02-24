@@ -8,6 +8,7 @@ function ErrorNotifierContainer() {
 
   return (
     <ErrorNotifier
+      error={store.transcriptions.error}
       showNotifier={store.transcriptions.showSaveTranscriptionError}
       toggleError={store.transcriptions.toggleError}
     />
