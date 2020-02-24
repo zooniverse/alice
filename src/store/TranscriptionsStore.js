@@ -140,6 +140,24 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
+  const patchTranscription = flow(function * patchTranscription(query) {
+    const client = getRoot(self).client.tove
+    try {
+      yield client.patch(`/transcriptions/${self.current.id}`, { body: query }).then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          return Promise.reject(response)
+        }
+      })
+      self.error = null
+      self.asyncState = ASYNC_STATES.READY
+    } catch (err) {
+      self.error = getError(err)
+      self.asyncState = ASYNC_STATES.ERROR
+    }
+  })
+
   function reset() {
     getRoot(self).aggregations.setModal(false)
     self.current = undefined
@@ -168,10 +186,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   })
 
-  const saveTranscription = flow(function * saveTranscription() {
+  function saveTranscription() {
     self.asyncState = ASYNC_STATES.LOADING
     const textBlob = toJS(self.current.text)
-    const client = getRoot(self).client.tove
     const lineCounts = {
       low_consensus_lines: self.current.low_consensus_lines,
       transcribed_lines: self.current.transcribed_lines
@@ -186,21 +203,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         }
       }
     }
-    try {
-      yield client.patch(`/transcriptions/${self.current.id}`, { body: query }).then(response => {
-        if (response.ok) {
-          return response
-        } else {
-          return Promise.reject(response)
-        }
-      })
-      self.error = null
-      self.asyncState = ASYNC_STATES.READY
-    } catch (err) {
-      self.error = getError(err)
-      self.asyncState = ASYNC_STATES.ERROR
-    }
-  })
+    self.patchTranscription(query)
+  }
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
     if (!id) return undefined
@@ -273,7 +277,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
-  const updateApproval = flow(function * updateApproval(isChecked) {
+  function updateApproval(isChecked) {
     self.setActiveTranscription()
     const isAdmin = getRoot(self).projects.isAdmin
     const query = { data: { type: 'transcriptions', attributes: { status: 'in_progress' } }}
@@ -282,9 +286,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       query.data.attributes.status = newStatus
     }
     self.current.status = query.data.attributes.status
-    const client = getRoot(self).client.tove
-    yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
-  })
+    self.patchTranscription(query)
+  }
 
   return {
     afterAttach,
@@ -296,6 +299,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     fetchExtracts,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
     getTranscriberInfo,
+    patchTranscription,
     reset: () => undoManager.withoutUndo(() => reset()),
     retrieveTranscriptions,
     saveTranscription,
