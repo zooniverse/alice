@@ -52,7 +52,7 @@
     "stage": "export REACT_APP_ENV=development; export PATH_ROOT=preview.zooniverse.org/alice; yarn build && yarn _publish",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false --silent",
+    "test": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

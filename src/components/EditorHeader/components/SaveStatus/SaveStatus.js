@@ -33,4 +33,5 @@ SaveStatus.defaultProps = {
   toggleError: () => {}
 }
 
+export { SaveStatus }
 export default withThemeContext(SaveStatus, theme)
