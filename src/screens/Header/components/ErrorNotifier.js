@@ -10,7 +10,7 @@ const AbsoluteBox = styled(Box)`
   z-index: 5;
 `
 
-const CapitalText = styled(Text)`
+export const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
