@@ -1,5 +1,6 @@
 import apiClient from 'panoptes-client/lib/api-client.js';
 import ASYNC_STATES from 'helpers/asyncStates'
+import { when } from 'jest-when'
 import { AppStore } from './AppStore'
 import ProjectFactory from './factories/project'
 
@@ -38,17 +39,22 @@ const rootStore = AppStore.create({
   auth: {
     user: { id: '1' }
   },
-  client: { tove: toveStub },
-  projects: { roles }
+  client: { tove: toveStub }
 })
 
 describe('ProjectsStore', function () {
   beforeAll(function () {
-    jest
-      .spyOn(apiClient, 'type')
+    const clientSpy = jest.spyOn(apiClient, 'type')
+    when(clientSpy).calledWith('projects')
       .mockImplementation(() => {
         return {
           get: () => Promise.resolve([ownedProject, collabProject])
+        }
+      })
+    when(clientSpy).calledWith('project_roles')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.resolve([ownerRole, collabRole])
         }
       })
     projectsStore = rootStore.projects
@@ -161,18 +167,24 @@ describe('ProjectsStore getRoles', function () {
 
 describe('Default role', function () {
   it('should be viewer', async function () {
-    jest
-      .spyOn(apiClient, 'type')
+    const clientSpy = jest.spyOn(apiClient, 'type')
+    when(clientSpy).calledWith('projects')
       .mockImplementation(() => {
         return {
           get: () => Promise.resolve([collabProject])
-        }})
+        }
+      })
+    when(clientSpy).calledWith('project_roles')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.resolve([])
+        }
+      })
     const rootStore = AppStore.create({
       auth: {
         user: { id: '1' }
       },
-      client: { tove: toveStub },
-      projects: { roles: {} }
+      client: { tove: toveStub }
     })
     projectsStore = rootStore.projects
     await projectsStore.getProjects()

@@ -55,9 +55,7 @@ const ProjectsStore = types.model('ProjectsStore', {
       const resources = JSON.parse(response.body)
       const ids = resources.data.map(project => project.id)
       const projects = yield apiClient.type('projects').get({ id: ids.toString(), cards: true })
-      console.log('get the roles');
       yield self.getRoles(ids)
-      console.log('DId we get em');
 
       projects.forEach((project) => {
         const role = self.roles[project.id] || ROLES.VIEWER
