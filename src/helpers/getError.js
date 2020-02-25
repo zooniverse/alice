@@ -5,7 +5,7 @@ export const TranscriptionError = types.model('Error', {
   help: types.optional(types.string, ''),
 })
 
-const HELP_TEXT = {
+export const HELP_TEXT = {
   RECONNECT: 'Your changes have been saved but will not be synced until reconnection',
   REFRESH: 'Please refresh the page to begin from your most recent save state'
 }
@@ -16,7 +16,7 @@ const ERROR_TYPES = {
   CONNECTION: 'CONNECTION'
 }
 
-export default function getError(err) {
+export default function getError(err = {}) {
   const code = err.status
   let type, message
 
