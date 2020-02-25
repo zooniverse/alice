@@ -41,7 +41,7 @@ function SubjectsPageContainer ({ history, match }) {
         activeStep={store.transcriptions.page}
         columns={columns}
         data={transcriptions}
-        error={store.transcriptions.error}
+        error={store.transcriptions.error && store.transcriptions.error.message}
         onSelection={onSelection}
         resource='Subjects'
         searching={store.search.active}

@@ -7,7 +7,7 @@ import { reaction, toJS } from 'mobx'
 import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
-import getError, { Error } from 'helpers/getError'
+import getError, { TranscriptionError } from 'helpers/getError'
 import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
@@ -31,7 +31,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   all: types.map(Transcription),
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.safeReference(Transcription),
-  error: types.maybeNull(Error),
+  error: types.maybeNull(TranscriptionError),
   index: types.optional(types.number, 0),
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),

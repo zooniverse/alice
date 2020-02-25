@@ -8,6 +8,7 @@ import TranscriptionFactory from './factories/transcription'
 let rootStore
 let transcriptionsStore
 
+let patchToveSpy = jest.fn().mockResolvedValue({ ok: true })
 const extracts = {
   workflow: {
     extracts: [{
@@ -204,8 +205,8 @@ describe('TranscriptionsStore', function () {
       })
 
       it('should update the flagged attribute', function () {
-        expect(transcriptionsStore.current.flagged).toBe(false)
         transcriptionsStore.setTextObject([mockReduction])
+        expect(transcriptionsStore.current.flagged).toBe(false)
         transcriptionsStore.checkForFlagUpdate()
         expect(patchToveSpy).toHaveBeenCalled()
         expect(transcriptionsStore.current.flagged).toBe(true)
