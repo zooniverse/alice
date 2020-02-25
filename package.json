@@ -49,8 +49,8 @@
   "homepage": "https://alice.zooniverse.org",
   "scripts": {
     "_publish": "publisssh ./build \"zooniverse-static/$PATH_ROOT\"",
-    "deploy": "export PATH_ROOT=alice.zooniverse.org; npm run build && npm run _publish",
-    "stage": "export PATH_ROOT=preview.zooniverse.org/alice; npm run build && npm run _publish",
+    "deploy": "export PATH_ROOT=alice.zooniverse.org; yarn build && yarn _publish",
+    "stage": "export PATH_ROOT=preview.zooniverse.org/alice; yarn build && yarn _publish",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --watchAll=false --silent",
