@@ -83,7 +83,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const query = `{
       workflow(id: ${workflowId}) {
         extracts(subjectId: ${id}, extractorKey: "ext-17") {
-          data, userId
+          data, userId, classificationAt
         }
       }
     }`
