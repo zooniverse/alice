@@ -5,6 +5,7 @@ import { toJS } from 'mobx'
 import { undoManager } from 'store/AppStore'
 import { request } from 'graphql-request'
 import { config } from 'config'
+import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
 import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
@@ -32,7 +33,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   index: types.optional(types.number, 0),
   page: types.optional(types.number, 0),
   totalPages: types.optional(types.number, 1),
-  extracts: types.array(types.frozen())
+  rawExtracts: types.array(types.frozen()),
+  parsedExtracts: types.array(types.frozen())
 }).actions(self => {
   function changeIndex(index) {
     self.index = index
@@ -89,10 +91,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }`
     let validExtracts = []
     yield request(config.caesar, query).then((data) => {
-      const index = getRoot(self).subjects.index
-      validExtracts = data.workflow.extracts.filter(extract => extract.data[`frame${index}`])
+      validExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
     })
-    self.extracts = validExtracts
+    self.rawExtracts = validExtracts
+    self.setParsedExtracts()
   }
 
   const fetchTranscription = flow(function * fetchTranscription(id) {
@@ -173,15 +175,31 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
     const transcription = yield self.fetchTranscription(id)
-    yield self.fetchExtracts(id)
     self.setTranscription(transcription)
     undoManager.withoutUndo(() => {
       self.current = id
     })
+    yield self.fetchExtracts(id)
   })
 
   function setActiveTranscription(id) {
     self.activeTranscriptionIndex = id
+  }
+
+  function setParsedExtracts() {
+    const extracts = []
+    const index = getRoot(self).subjects.index
+    const extractsByUser = self.rawExtracts.reduce((list, extract) => {
+      if (!list[extract.userId]) list[extract.userId] = []
+      list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
+      return list
+    }, {})
+    const transcriptionFrame = self.current && self.current.text && self.current.text.get(`frame${index}`)
+    const reductionText = transcriptionFrame && transcriptionFrame.map(transcription => constructText(transcription))
+    transcriptionFrame && transcriptionFrame.forEach((reduction, reductionIndex) => {
+      extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, index))
+    })
+    self.parsedExtracts = extracts
   }
 
   function setTextObject(text) {
@@ -239,6 +257,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     saveTranscription,
     selectTranscription,
     setActiveTranscription,
+    setParsedExtracts: () => undoManager.withoutUndo(() => setParsedExtracts()),
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
     undo,
