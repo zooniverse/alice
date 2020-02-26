@@ -1,3 +1,5 @@
+const SLOPE_BUFFER = 10;
+
 function constructCoordinates(line) {
   const points = [];
 
@@ -35,25 +37,43 @@ function mapExtractsToReductions(
 ) {
   const result = []
 
-  reduction.user_ids && reduction.user_ids.forEach((id, userIdIndex) => {
-    extractsByUser[id] && extractsByUser[id].forEach(extract => {
-      if (extract[`frame${subjectIndex}`]) {
-        const extractLocation = extract[`frame${subjectIndex}`].text[reduction.extract_index[userIdIndex]]
-        if (extractLocation && extractLocation[0] === reductionText[reductionIndex][userIdIndex]) {
-          const annotationIndexToExtract = reduction.extract_index[userIdIndex]
-          const points = extract[`frame${subjectIndex}`].points
-          const lastIndex = points.x[annotationIndexToExtract].length - 1
+  reduction.user_ids.forEach((userId, idIndex) => {
+    // lets find that user's annotation
+    const userClassificationsOnSubject = extractsByUser[userId]
+    for (let i = 0; i < userClassificationsOnSubject.length; i++) {
+      const classification = userClassificationsOnSubject[i]
+      const currentFrame = `frame${subjectIndex}`
+      if (classification[currentFrame]) {
+        // Get the extract_index value at this user_id index
+        // this tells you which extract index to consider
+        const extractIndex = reduction.extract_index[idIndex]
+        // check this classification at that index
+        const text = classification[currentFrame].text[extractIndex]
+        const points = classification[currentFrame].points
+
+        // check slope is similar to reduction
+        const extractSlope = classification[currentFrame].slope[extractIndex]
+        const reductionSlope = reduction.line_slope
+        const similarSlope = Math.abs(Math.abs(extractSlope) - Math.abs(reductionSlope)) < SLOPE_BUFFER
+
+        const isMatch = text && text[0] === reductionText[reductionIndex][idIndex]
+        // see if that text exists and if it matches the reductionText
+        if (isMatch && similarSlope) {
+          const lastIndex = points.x[extractIndex].length - 1
           result.push({
-            x1: points.x[annotationIndexToExtract][0],
-            x2: points.x[annotationIndexToExtract][lastIndex],
-            y1: points.y[annotationIndexToExtract][0],
-            y2: points.y[annotationIndexToExtract][lastIndex]
+            userId,
+            text: text[0],
+            slope: classification[currentFrame].slope[extractIndex],
+            x1: points.x[extractIndex][0],
+            x2: points.x[extractIndex][lastIndex],
+            y1: points.y[extractIndex][0],
+            y2: points.y[extractIndex][lastIndex]
           })
+          break;
         }
       }
-    })
+    }
   })
-
   return result
 }
 
