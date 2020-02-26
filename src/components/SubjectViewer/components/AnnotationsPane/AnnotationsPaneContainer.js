@@ -13,7 +13,7 @@ function AnnotationsPaneContainer({ x, y }) {
   const validExtracts = store.transcriptions.extracts.filter(extract => extract.data[`frame${index}`])
   const extractsByUser = validExtracts.reduce((list, extract) => {
     if (!list[extract.userId]) list[extract.userId] = []
-    list[extract.userId].push(extract.data)
+    list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
     return list
   }, {})
 
