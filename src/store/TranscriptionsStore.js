@@ -3,6 +3,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { toJS } from 'mobx'
 import { undoManager } from 'store/AppStore'
+import apiClient from 'panoptes-client/lib/api-client.js'
 import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
@@ -31,11 +32,20 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   current: types.safeReference(Transcription),
   error: types.optional(types.string, ''),
   index: types.optional(types.number, 0),
+  extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
 }).actions(self => {
+  function arrangeExtractsByUser() {
+    return self.rawExtracts.reduce((list, extract) => {
+      if (!list[extract.userId]) list[extract.userId] = []
+      list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
+      return list
+    }, {})
+  }
+
   function changeIndex(index) {
     self.index = index
   }
@@ -94,7 +104,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       validExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
     })
     self.rawExtracts = validExtracts
-    self.setParsedExtracts()
+    const arrangedExtractsByUser = self.arrangeExtractsByUser()
+    self.getTranscriberInfo(arrangedExtractsByUser)
+    self.setParsedExtracts(arrangedExtractsByUser)
   }
 
   const fetchTranscription = flow(function * fetchTranscription(id) {
@@ -124,6 +136,17 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const searchQuery = getRoot(self).search.getSearchQuery()
     yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}`)
   }
+
+  const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
+    let usersWhoClassified = Object.keys(arrangedExtractsByUser)
+    usersWhoClassified = usersWhoClassified.filter(user => user !== 'null')
+    const users = yield apiClient.type('users').get({ id: usersWhoClassified })
+
+    self.extractUsers = users.reduce((list, user) => {
+      list[user.id] = user.display_name
+      return list
+    }, {})
+  })
 
   function reset() {
     getRoot(self).aggregations.setModal(false)
@@ -186,14 +209,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.activeTranscriptionIndex = id
   }
 
-  function setParsedExtracts() {
+  function setParsedExtracts(arrangedExtractsByUser) {
     const extracts = []
     const index = getRoot(self).subjects.index
-    const extractsByUser = self.rawExtracts.reduce((list, extract) => {
-      if (!list[extract.userId]) list[extract.userId] = []
-      list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
-      return list
-    }, {})
+    const extractsByUser = arrangedExtractsByUser || self.arrangeExtractsByUser()
     const transcriptionFrame = self.current && self.current.text && self.current.text.get(`frame${index}`)
     const reductionText = transcriptionFrame && transcriptionFrame.map(transcription => constructText(transcription))
     transcriptionFrame && transcriptionFrame.forEach((reduction, reductionIndex) => {
@@ -245,6 +264,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   return {
+    arrangeExtractsByUser,
     changeIndex,
     checkForFlagUpdate,
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
@@ -252,6 +272,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     fetchExtracts: (id) => undoManager.withoutUndo(() => flow(fetchExtracts))(id),
     fetchTranscription,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
+    getTranscriberInfo,
     reset: () => undoManager.withoutUndo(() => reset()),
     retrieveTranscriptions,
     saveTranscription,

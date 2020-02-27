@@ -6,6 +6,7 @@ import { observer } from 'mobx-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import writeDate from 'helpers/writeDate'
+import AppContext from 'store'
 import indexToColor from '../../../helpers/indexToColor'
 
 const ItalicText = styled(Text)`
@@ -17,6 +18,9 @@ const StyledBox = styled(Box)`
 `
 
 function TranscriptionLine ({ isViewer, selectedItem, setItem, transcription, index }) {
+  const store = React.useContext(AppContext)
+  const userName = store.transcriptions.extractUsers && store.transcriptions.extractUsers[transcription.userId]
+
   const timeString = transcription.time && transcription.time.toLocaleTimeString([], { hour: '2-digit', hour12: false, minute: '2-digit' });
   return (
     <Box height={{ min: '2em' }}>
@@ -52,15 +56,15 @@ function TranscriptionLine ({ isViewer, selectedItem, setItem, transcription, in
           </Box>
         )}
       </Box>
-      <Box direction='row' gap='xsmall' margin={{ left: '3em' }}>
+      <Box direction='row' gap='xxsmall' margin={{ left: '3em' }} wrap>
         <ItalicText>{writeDate(transcription.time)}</ItalicText>
         <Text>&#8226;</Text>
         <ItalicText>{timeString}</ItalicText>
         <Text>&#8226;</Text>
-        <ItalicText size='xsmall'>{transcription.userName}</ItalicText>
+        <ItalicText size='xsmall'>{userName}</ItalicText>
         {transcription.goldStandard && (
-          <Box direction='row'>
-            <Text margin={{ horizontal: 'xsmall' }}>&#8226;</Text>
+          <Box direction='row' gap='xxsmall'>
+            <Text>&#8226;</Text>
             <ItalicText>Gold Standard</ItalicText>
           </Box>
         )}
