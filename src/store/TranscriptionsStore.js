@@ -42,7 +42,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   createTranscription: (transcription) => {
-    const text = transcription.attributes.text
+    const text = (transcription.attributes && transcription.attributes.text) || {}
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
     const textObject = Ramda.pickBy(containsFrameKey, transcription.attributes.text)
@@ -132,7 +132,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   reset: () => {
     getRoot(self).aggregations.setModal(false)
-    self.selectTranscription(null)
+    self.current = undefined
     self.all.clear()
   },
 
@@ -157,11 +157,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }),
 
   selectTranscription: flow(function * selectTranscription(id = null) {
-    let transcription = self.all.get(id)
-    if (!transcription) transcription = yield self.fetchTranscription(id)
-    if (id) yield self.fetchExtracts(id)
+    const transcription = yield self.fetchTranscription(id)
+    yield self.fetchExtracts(id)
     self.setTranscription(transcription)
-    self.current = id || undefined
+    self.current = id
   }),
 
   setTextObject: (text) => {
