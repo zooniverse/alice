@@ -63,10 +63,11 @@ function mapExtractsToReductions(
           const time = new Date(0)
           time.setUTCSeconds(classification.time)
           result.push({
+            goldStandard: reduction.gold_standard[idIndex],
+            slope: classification[currentFrame].slope[extractIndex],
+            text: text[0],
             time,
             userId,
-            text: text[0],
-            slope: classification[currentFrame].slope[extractIndex],
             x1: points.x[extractIndex][0],
             x2: points.x[extractIndex][lastIndex],
             y1: points.y[extractIndex][0],

@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import writeDate from 'helpers/writeDate'
 import indexToColor from '../../../helpers/indexToColor'
 
 const ItalicText = styled(Text)`
@@ -16,6 +17,7 @@ const StyledBox = styled(Box)`
 `
 
 function TranscriptionLine ({ isViewer, selectedItem, setItem, transcription, index }) {
+  const timeString = transcription.time && transcription.time.toLocaleTimeString([], { hour: '2-digit', hour12: false, minute: '2-digit' });
   return (
     <Box height={{ min: '2em' }}>
       <Box direction='row' justify='between'>
@@ -50,9 +52,11 @@ function TranscriptionLine ({ isViewer, selectedItem, setItem, transcription, in
           </Box>
         )}
       </Box>
-      <Box direction='row' margin={{ left: '4em' }}>
-        <ItalicText>{transcription.date}</ItalicText>
-        <Text margin={{ horizontal: 'xsmall' }}>&#8226;</Text>
+      <Box direction='row' gap='xsmall' margin={{ left: '3em' }}>
+        <ItalicText>{writeDate(transcription.time)}</ItalicText>
+        <Text>&#8226;</Text>
+        <ItalicText>{timeString}</ItalicText>
+        <Text>&#8226;</Text>
         <ItalicText size='xsmall'>{transcription.userName}</ItalicText>
         {transcription.goldStandard && (
           <Box direction='row'>
@@ -70,10 +74,10 @@ TranscriptionLine.defaultProps = {
   selectedItem: null,
   setItem: () => {},
   transcription: {
-    date: '',
     goldStandard: false,
+    time: null,
     text: '',
-    userName: ''
+    userName: null
   },
   index: 0
 }
@@ -83,10 +87,10 @@ TranscriptionLine.propTypes = {
   selectedItem: PropTypes.number,
   setItem: PropTypes.func,
   transcription: PropTypes.shape({
-    date: PropTypes.string,
     goldStandard: PropTypes.bool,
+    time: PropTypes.shape(),
     text: PropTypes.string,
-    userName: PropTypes.string
+    userName: PropTypes.number
   }),
   index: PropTypes.number
 }
