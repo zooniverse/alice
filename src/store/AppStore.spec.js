@@ -15,9 +15,7 @@ const selectProjectSpy = jest.fn().mockResolvedValue(null)
 const selectWorkflowSpy = jest.fn().mockResolvedValue(null)
 const selectGroupSpy = jest.fn()
 const selectTranscriptionSpy = jest.fn().mockResolvedValue(null)
-const resetProjectsSpy = jest.fn()
-const resetWorkflowsSpy = jest.fn()
-const resetGroupsSpy = jest.fn()
+const selectGroupsSpy = jest.fn()
 const resetTransciptionsSpy = jest.fn()
 
 describe('AppStore', function () {
@@ -83,25 +81,17 @@ describe('AppStore', function () {
 
     it('should reset resources without params', async function () {
       Object.defineProperty(
-        appStore.projects, 'selectProject',
-        { writable: true, value: resetProjectsSpy }
-      )
-      Object.defineProperty(
-        appStore.workflows, 'selectWorkflow',
-        { writable: true, value: resetWorkflowsSpy }
-      )
-      Object.defineProperty(
         appStore.groups, 'selectGroup',
-        { writable: true, value: resetGroupsSpy }
+        { writable: true, value: selectGroupsSpy }
       )
       Object.defineProperty(
-        appStore.transcriptions, 'selectTranscription',
+        appStore.transcriptions, 'reset',
         { writable: true, value: resetTransciptionsSpy }
       )
       await appStore.getResources({})
-      expect(resetProjectsSpy).toHaveBeenCalled()
-      expect(resetWorkflowsSpy).toHaveBeenCalled()
-      expect(resetGroupsSpy).toHaveBeenCalled()
+      expect(selectProjectSpy).toHaveBeenCalled()
+      expect(selectWorkflowSpy).toHaveBeenCalled()
+      expect(selectGroupsSpy).toHaveBeenCalled()
       expect(resetTransciptionsSpy).toHaveBeenCalled()
     })
   })
