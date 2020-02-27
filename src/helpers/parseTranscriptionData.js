@@ -34,9 +34,9 @@ function mapExtractsToReductions(
   reductionIndex = 0,
   reductionText = [],
   subjectIndex = 0,
+  extractUsers = {}
 ) {
   const result = []
-
   reduction.user_ids.forEach((userId, idIndex) => {
     // lets find that user's annotation
     const userClassificationsOnSubject = extractsByUser[userId]
@@ -67,7 +67,7 @@ function mapExtractsToReductions(
             slope: classification[currentFrame].slope[extractIndex],
             text: text[0],
             time,
-            userId,
+            user: extractUsers[userId],
             x1: points.x[extractIndex][0],
             x2: points.x[extractIndex][lastIndex],
             y1: points.y[extractIndex][0],

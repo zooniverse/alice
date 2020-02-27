@@ -105,7 +105,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
     self.rawExtracts = validExtracts
     const arrangedExtractsByUser = self.arrangeExtractsByUser()
-    self.getTranscriberInfo(arrangedExtractsByUser)
+    yield self.getTranscriberInfo(arrangedExtractsByUser)
     self.setParsedExtracts(arrangedExtractsByUser)
   }
 
@@ -216,7 +216,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const transcriptionFrame = self.current && self.current.text && self.current.text.get(`frame${index}`)
     const reductionText = transcriptionFrame && transcriptionFrame.map(transcription => constructText(transcription))
     transcriptionFrame && transcriptionFrame.forEach((reduction, reductionIndex) => {
-      extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, index))
+      extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, index, self.extractUsers))
     })
     self.parsedExtracts = extracts
   }
