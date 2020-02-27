@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'grommet'
+import { Box, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
@@ -41,7 +41,7 @@ const columns = [
   {
     property: "flagged",
     header: "Flag",
-    render: datum => datum.flagged ? <StyledFontAwesomeIcon color='tomato' icon={faCircle} /> : null
+    render: datum => datum.flagged ? <Box><StyledFontAwesomeIcon color='tomato' icon={faCircle} /></Box> : null
   },
   {
     property: "consensusScore",

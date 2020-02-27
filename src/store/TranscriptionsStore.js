@@ -42,7 +42,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   createTranscription: (transcription) => {
-    const text = transcription.attributes.text
+    const text = (transcription.attributes && transcription.attributes.text) || {}
+    console.log(text);
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
     const textObject = Ramda.pickBy(containsFrameKey, transcription.attributes.text)
