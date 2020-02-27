@@ -127,7 +127,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   })
 
-  const fetchTranscriptions = function * fetchTranscriptions(page = 0) {
+  const fetchTranscriptions = flow (function * fetchTranscriptions(page = 0) {
     self.reset()
     self.page = page
     const groupName = getRoot(self).groups.title
@@ -135,7 +135,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     if (!groupName || !workflow) return
     const searchQuery = getRoot(self).search.getSearchQuery()
     yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}`)
-  }
+  })
 
   const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
     let usersWhoClassified = Object.keys(arrangedExtractsByUser)
@@ -197,12 +197,26 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
-    const transcription = yield self.fetchTranscription(id)
-    self.setTranscription(transcription)
-    undoManager.withoutUndo(() => {
-      self.current = id
-    })
-    yield self.fetchExtracts(id)
+    if (!id) return undefined
+    self.asyncState = ASYNC_STATES.LOADING
+    const client = getRoot(self).client.tove
+    try {
+      const response = yield client.get(`/transcriptions/${id}`)
+      const resource = JSON.parse(response.body)
+      const transcription = self.createTranscription(resource.data)
+      self.setTranscription(transcription)
+      undoManager.withoutUndo(() => {
+        self.current = id
+        self.asyncState = ASYNC_STATES.READY
+      })
+      yield self.fetchExtracts(id)
+    } catch (error) {
+      console.warn(error);
+      undoManager.withoutUndo(() => {
+        self.error = error.message
+        self.asyncState = ASYNC_STATES.ERROR
+      })
+    }
   })
 
   function setActiveTranscription(id) {

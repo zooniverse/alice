@@ -14,7 +14,7 @@ const MONTHS = [
 ]
 
 export default function writeDate(date) {
-  if (!date) return
+  if (!date) return ''
   if (typeof date === 'string' && !date.length) return ''
   const dateObject = typeof date === 'string' ? new Date(date) : date
   const month = MONTHS[dateObject.getMonth()]

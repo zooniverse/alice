@@ -11,7 +11,7 @@ const transcriptionOptions = [
   {
     date: '',
     goldStandard: false,
-    userName: 'Anonymous',
+    user: 'A_User',
     text: 'Testing'
   }
 ]
@@ -89,19 +89,19 @@ describe('Component > LineViewer', function () {
     it('should replace with a transcription', function () {
       wrapper.setProps({ selectedItem: 0 })
       wrapper.find(Button).at(2).props().onClick()
-      expect(setConsensusTextSpy).toHaveBeenCalledWith('Testing', false)
+      expect(setConsensusTextSpy).toHaveBeenCalledWith('Testing', false, 'A_User')
     })
 
     it('should replace with a typed transcription', function () {
       wrapper.setProps({ selectedItem: 2 })
       wrapper.find(Button).at(2).props().onClick()
-      expect(setConsensusTextSpy).toHaveBeenCalledWith('Input Field', false)
+      expect(setConsensusTextSpy).toHaveBeenCalledWith('Input Field', false, '')
     })
 
     it('should replace with the algorithm', function () {
       wrapper.setProps({ selectedItem: 1 })
       wrapper.find(Button).at(2).props().onClick()
-      expect(setConsensusTextSpy).toHaveBeenCalledWith(reduction.consensus_text, true)
+      expect(setConsensusTextSpy).toHaveBeenCalledWith(reduction.consensus_text, true, '')
     })
   })
 

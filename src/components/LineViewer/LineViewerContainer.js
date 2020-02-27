@@ -40,7 +40,9 @@ function LineViewerContainer() {
   }
 
   React.useEffect(() => {
-    localStore.setTranscriptionOptions(store.transcriptions.parsedExtracts[transcriptionIndex])
+    if (store.transcriptions.parsedExtracts && transcriptionIndex !== undefined) {
+      localStore.setTranscriptionOptions(store.transcriptions.parsedExtracts[transcriptionIndex])
+    }
   }, [localStore, store.transcriptions.parsedExtracts, transcriptionIndex])
 
   return (
