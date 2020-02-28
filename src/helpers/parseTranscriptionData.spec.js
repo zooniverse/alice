@@ -10,7 +10,7 @@ const line = {
   clusters_x: [0, 100],
   clusters_y: [100, 200]
 }
-const extract = {
+export const mockExtract = {
   frame0: {
     slope: [0],
     text: [['My text for this line']],
@@ -22,9 +22,9 @@ const extract = {
   time: date
 }
 const extractsByUser = {
-  1: [extract]
+  1: [mockExtract]
 }
-const reduction = {
+export const mockReduction = {
   gold_standard: [false],
   line_slope: 0,
   extract_index: [0],
@@ -66,7 +66,7 @@ describe('Helper > constructText', function () {
 
 describe('Helper > mapExtractsToReductions', function () {
   it('returns data needed for a line', function () {
-    const result = mapExtractsToReductions(extractsByUser, reduction, 0, reductionText, 0)
+    const result = mapExtractsToReductions(extractsByUser, mockReduction, 0, reductionText, 0)
     const time = new Date(0)
     time.setUTCSeconds(date)
     const expectation = {

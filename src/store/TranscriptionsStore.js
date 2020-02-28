@@ -245,7 +245,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       try {
         self.all.put(transcription)
       } catch (error) {
-        console.error(error)
+        console.warn(error)
       }
     }
   }
