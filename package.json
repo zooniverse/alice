@@ -50,7 +50,7 @@
   "scripts": {
     "_publish": "publisssh ./build \"zooniverse-static/$PATH_ROOT\"",
     "deploy": "export PATH_ROOT=alice.zooniverse.org; yarn build && yarn _publish",
-    "stage": "export PATH_ROOT=preview.zooniverse.org/alice; yarn build && yarn _publish",
+    "stage": "export REACT_APP_ENV=development; export PATH_ROOT=preview.zooniverse.org/alice; yarn build && yarn _publish",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --watchAll=false --silent",
