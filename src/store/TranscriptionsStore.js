@@ -179,10 +179,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   updateApproval: flow(function * updateApproval(isChecked) {
-    const isResearcher = getRoot(self).projects.isResearcher
+    const isAdmin = getRoot(self).projects.isAdmin
     const query = { data: { type: 'transcriptions', attributes: { status: 'in_progress' } }}
     if (!isChecked) {
-      const newStatus = isResearcher ? 'approved' : 'ready'
+      const newStatus = isAdmin ? 'approved' : 'ready'
       query.data.attributes.status = newStatus
     }
     self.current.status = query.data.attributes.status

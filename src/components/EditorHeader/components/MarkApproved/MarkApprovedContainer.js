@@ -6,8 +6,8 @@ import MarkApproved from './MarkApproved'
 
 function MarkApprovedContainer() {
   const store = React.useContext(AppContext)
-  const isResearcher = store.projects.isResearcher
-  const isChecked = isResearcher ?
+  const isAdmin = store.projects.isAdmin
+  const isChecked = isAdmin ?
     store.transcriptions.approved :
     (store.transcriptions.approved || store.transcriptions.readyForReview)
   const onChangeAsResearcher = () => {
@@ -18,12 +18,12 @@ function MarkApprovedContainer() {
     }
   }
   const onChangeAsVolunteer = () => store.transcriptions.updateApproval(isChecked)
-  const onChange = isResearcher ? onChangeAsResearcher : onChangeAsVolunteer
+  const onChange = isAdmin ? onChangeAsResearcher : onChangeAsVolunteer
 
   return (
     <MarkApproved
       checked={isChecked}
-      isResearcher={store.projects.isResearcher}
+      isAdmin={store.projects.isAdmin}
       onChange={onChange}
     />
   )

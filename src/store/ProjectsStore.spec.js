@@ -1,5 +1,6 @@
 import apiClient from 'panoptes-client/lib/api-client.js';
 import ASYNC_STATES from 'helpers/asyncStates'
+import { when } from 'jest-when'
 import { AppStore } from './AppStore'
 import ProjectFactory from './factories/project'
 
@@ -22,7 +23,7 @@ let collabRole = {
 }
 let userRoles = [ownerRole, collabRole]
 
-let roles = { 1: 'Researcher', 2: 'Volunteer' }
+let roles = { 1: 'Admin', 2: 'Editor' }
 let toveStub = {
   get: () => Promise.resolve(
     {
@@ -38,17 +39,22 @@ const rootStore = AppStore.create({
   auth: {
     user: { id: '1' }
   },
-  client: { tove: toveStub },
-  projects: { roles }
+  client: { tove: toveStub }
 })
 
 describe('ProjectsStore', function () {
   beforeAll(function () {
-    jest
-      .spyOn(apiClient, 'type')
+    const clientSpy = jest.spyOn(apiClient, 'type')
+    when(clientSpy).calledWith('projects')
       .mockImplementation(() => {
         return {
           get: () => Promise.resolve([ownedProject, collabProject])
+        }
+      })
+    when(clientSpy).calledWith('project_roles')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.resolve([ownerRole, collabRole])
         }
       })
     projectsStore = rootStore.projects
@@ -91,12 +97,12 @@ describe('ProjectsStore', function () {
 
   it('should get the current role', function () {
     projectsStore.selectProject('1')
-    expect(projectsStore.role).toBe('Researcher')
+    expect(projectsStore.role).toBe('Admin')
   })
 
   it('should state if the current role is researcher', function () {
     projectsStore.selectProject('1')
-    expect(projectsStore.isResearcher).toBe(true)
+    expect(projectsStore.isAdmin).toBe(true)
   })
 
   it('should get the current project id', function () {
@@ -155,24 +161,30 @@ describe('ProjectsStore getRoles', function () {
       })
     projectsStore = rootStore.projects
     await projectsStore.getRoles()
-    expect(projectsStore.roles).toEqual({ 1: 'Researcher', 2: 'Volunteer' })
+    expect(projectsStore.roles).toEqual({ 1: 'Admin', 2: 'Editor' })
   })
 })
 
 describe('Default role', function () {
   it('should be viewer', async function () {
-    jest
-      .spyOn(apiClient, 'type')
+    const clientSpy = jest.spyOn(apiClient, 'type')
+    when(clientSpy).calledWith('projects')
       .mockImplementation(() => {
         return {
           get: () => Promise.resolve([collabProject])
-        }})
+        }
+      })
+    when(clientSpy).calledWith('project_roles')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.resolve([])
+        }
+      })
     const rootStore = AppStore.create({
       auth: {
         user: { id: '1' }
       },
-      client: { tove: toveStub },
-      projects: { roles: {} }
+      client: { tove: toveStub }
     })
     projectsStore = rootStore.projects
     await projectsStore.getProjects()

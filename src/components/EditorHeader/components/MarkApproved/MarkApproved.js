@@ -10,8 +10,8 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-function MarkApproved ({ checked, isResearcher, onChange }) {
-  const innerText = isResearcher ? 'Mark As Approved' : 'Ready For Review'
+function MarkApproved ({ checked, isAdmin, onChange }) {
+  const innerText = isAdmin ? 'Mark As Approved' : 'Ready For Review'
 
   return (
     <CheckBox
@@ -26,13 +26,13 @@ function MarkApproved ({ checked, isResearcher, onChange }) {
 
 MarkApproved.propTypes = {
   checked: bool,
-  isResearcher: bool,
+  isAdmin: bool,
   onChange: func
 }
 
 MarkApproved.defaultProps = {
   checked: false,
-  isResearcher: false,
+  isAdmin: false,
   onChange: () => {}
 }
 
