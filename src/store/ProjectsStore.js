@@ -9,7 +9,7 @@ const ROLES = {
 }
 
 const adminRoles = ['owner', 'collaborator']
-const editorRoles = ['expert', 'researcher', 'moderator']
+const editorRoles = ['expert', 'researcher', 'moderator', 'scientist']
 
 const Project = types
   .model('Project', {
