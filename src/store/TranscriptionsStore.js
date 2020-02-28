@@ -48,10 +48,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function createTranscription(transcription) {
-    const text = transcription.attributes.text
+    const text = (transcription.attributes && transcription.attributes.text) || {}
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
-    const textObject = Ramda.pickBy(containsFrameKey, transcription.attributes.text)
+    const textObject = Ramda.pickBy(containsFrameKey, text)
     return Transcription.create({
       id: transcription.id,
       flagged: transcription.attributes.flagged,
@@ -170,12 +170,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
-    let transcription = self.all.get(id)
-    if (!transcription) transcription = yield self.fetchTranscription(id)
-    if (id) yield self.fetchExtracts(id)
+    const transcription = yield self.fetchTranscription(id)
+    yield self.fetchExtracts(id)
     self.setTranscription(transcription)
     undoManager.withoutUndo(() => {
-      self.current = id || undefined
+      self.current = id
     })
   })
 
@@ -214,7 +213,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const updateApproval = flow(function * updateApproval(isChecked) {
     self.setActiveTranscription()
-    const isResearcher = getRoot(self).projects.isResearcher
+    const isAdmin = getRoot(self).projects.isAdmin
     const query = { data: { type: 'transcriptions', attributes: { status: 'in_progress' } }}
     if (!isChecked) {
       const newStatus = isAdmin ? 'approved' : 'ready'
