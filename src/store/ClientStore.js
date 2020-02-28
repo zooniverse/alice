@@ -4,11 +4,21 @@ import { config } from 'config'
 import download from 'downloadjs'
 
 const ClientStore = types.model('ClientStore', {
+  aggregator: types.optional(types.frozen({}), null),
   bearerToken: types.optional(types.string, ''),
   tove: types.optional(types.frozen({}), null),
   toveZip: types.optional(types.frozen({}), null)
 }).actions(self => ({
   initialize: () => {
+    self.aggregator = new Frisbee({
+      baseURI: 'https://aggregation-caesar.zooniverse.org/reducers',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors'
+    })
+
     self.tove = new Frisbee({
       baseURI: config.tove,
       headers: {

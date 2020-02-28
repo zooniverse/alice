@@ -105,6 +105,21 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
+  const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
+    const client = getRoot(self).client.aggregator
+    const query = `/?eps_slope=${params.epsSlope}&eps_line=${params.epsLine}&eps_word=${params.epsWord}&gutter_tol=${params.gutterTol}&min_samples=${params.minSamples}&min_word_count=${params.minWordCount}`
+    const result = yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.extracts) })
+    console.log(result);
+  })
+
+  const reaggregateOptics = flow(function * reaggregateOptics(params) {
+    const client = getRoot(self).client.aggregator
+    const minSamples = params.auto ? 'auto' : params.minSamples
+    const query = `/?min_samples=${minSamples}&xi=${params.xi}&angle_eps=${params.angleEps}&gutter_eps=${params.gutterEps}&min_line_length=${params.minLineLength}`
+    const result = yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.extracts) })
+    console.log(result);
+  })
+
   const fetchExtracts = flow(function * fetchExtracts(id) {
     const workflowId = getRoot(self).workflows.current.id
     // TODO: The extractor key below will need to change eventually. This is just
@@ -335,6 +350,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     getTranscriberInfo,
     patchTranscription,
     reset: () => undoManager.withoutUndo(() => reset()),
+    reaggregateDBScan,
+    reaggregateOptics,
     retrieveTranscriptions,
     saveTranscription,
     selectTranscription,
