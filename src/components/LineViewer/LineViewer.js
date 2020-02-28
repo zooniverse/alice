@@ -73,14 +73,14 @@ function LineViewer ({
             <Text weight='bold'>{consensusText}</Text>
           </Box>
           <Box direction='row' margin={{ bottom: '0.5em' }}>
-            <SeenButtonContainer disabled={isViewer} reduction={reduction} tag={seen} />
-            <FlagButtonContainer disabled={isViewer} reduction={reduction} tag={flagged} />
+            <SeenButtonContainer disabled={isViewer || !!reduction} reduction={reduction} tag={seen} />
+            <FlagButtonContainer disabled={isViewer || !!reduction} reduction={reduction} tag={flagged} />
           </Box>
           <Box>
             {reduction.edited_consensus_text ? (
               <Text>Edited</Text>
             ) : (
-              <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
+              <Text>{parseFloat(reduction.consensus_score && reduction.consensus_score.toFixed(1)) || 0}/{reduction.number_views || 0}</Text>
             )}
           </Box>
         </Box>
@@ -98,9 +98,9 @@ function LineViewer ({
             />)}
         </Box>
         <Box border='top' gap='xsmall' height={{ min: '4em' }} margin={{ horizontal: 'small', bottom: 'xsmall' }} pad={{ top: 'xsmall' }}>
-          <Box>
-            <Box direction='row' gap='xsmall'>
-              {!isViewer && (
+          {reduction.consensus_text && !isViewer && (
+            <Box>
+              <Box direction='row' gap='xsmall'>
                 <CheckBox
                   checked={selectedItem === algorithmChoice}
                   onChange={() => {
@@ -108,18 +108,26 @@ function LineViewer ({
                     setItem(setTo)
                   }}
                 />
-              )}
-              <Text>{reduction.consensus_text}</Text>
+                <Text>{reduction.consensus_text}</Text>
+              </Box>
+              <ItalicText margin={{ left: 'medium' }} size='xsmall'>aggregated transcription (via algorithm)</ItalicText>
             </Box>
-            <ItalicText margin={{ left: 'medium' }} size='xsmall'>aggregated transcription (via algorithm)</ItalicText>
-          </Box>
-          {!isViewer && (
-            <Box direction='row' gap='xsmall'>
-              <CheckBox
-                checked={selectedItem === typedChoice}
-                onChange={() => {
-                  const setTo = selectedItem === typedChoice ? null : typedChoice
-                  setItem(setTo)
+          )}
+          <Box direction='row' gap='xsmall'>
+            <CheckBox
+              checked={selectedItem === typedChoice}
+              onChange={() => {
+                const setTo = selectedItem === typedChoice ? null : typedChoice
+                setItem(setTo)
+              }}
+            />
+            <Box fill='horizontal'>
+              <TextInput
+                onChange={(e) => {
+                  setInputText(e.target.value)
+                  if (e.target.value.length && selectedItem !== typedChoice) {
+                    setItem(typedChoice)
+                  } else if (!e.target.value.length) { setItem(null) }
                 }}
               />
               <Box fill='horizontal'>
@@ -168,7 +176,8 @@ LineViewer.defaultProps = {
   flagged: false,
   isViewer: false,
   reduction: {
-    consensus_score: 0
+    consensus_score: 0,
+    edited_consensus_text: ''
   },
   replaceWithSelected: () => {},
   seen: false,

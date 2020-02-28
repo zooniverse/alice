@@ -21,10 +21,8 @@ function FlagButton({ disabled, onShowFlag, setFlag, showFlag, seenButton, tag }
       <Button
         disabled={disabled}
         onClick={setFlag}
-        onMouseOver={() => {
-          if (!disabled) onShowFlag(true)}
-        }
-        onMouseOut={() => onShowFlag(false)}
+        onMouseOver={() => !disabled && onShowFlag(true)}
+        onMouseOut={() => !disabled && onShowFlag(false)}
         plain
         ref={flagBtn}
       >
