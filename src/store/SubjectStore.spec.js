@@ -1,4 +1,4 @@
-import { subjects } from '@zooniverse/panoptes-js'
+import apiClient from 'panoptes-client/lib/api-client.js'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
 import { Subject } from './SubjectStore'
@@ -10,22 +10,16 @@ const mockSubject = {
   locations: [],
   metadata: {}
 }
-const response = {
-  body: {
-    subjects: [mockSubject]
-  }
-}
-const emptyResponse = {
-  body: {
-    subjects: []
-  }
-}
 
 describe('SubjectStore', function () {
   beforeEach(function () {
     jest
-      .spyOn(subjects, 'get')
-      .mockImplementation(() => Promise.resolve(response))
+      .spyOn(apiClient, 'type')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.resolve([mockSubject])
+        }
+      })
     const rootStore = AppStore.create({})
     subjectStore = rootStore.subjects
   })
@@ -58,8 +52,12 @@ describe('SubjectStore error', function () {
   let error = { message: 'No subject found' }
   beforeEach(function () {
     jest
-      .spyOn(subjects, 'get')
-      .mockImplementation(() => Promise.reject(error))
+      .spyOn(apiClient, 'type')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.reject(error)
+        }
+      })
     const rootStore = AppStore.create({})
     subjectStore = rootStore.subjects
   })
@@ -86,8 +84,12 @@ describe('SubjectStore error', function () {
 describe('SubjectStore empty return when fetching subjects', function () {
   it('should resolve the call without error', async function () {
     jest
-      .spyOn(subjects, 'get')
-      .mockImplementation(() => Promise.resolve(emptyResponse))
+      .spyOn(apiClient, 'type')
+      .mockImplementation(() => {
+        return {
+          get: () => Promise.resolve([])
+        }
+      })
     const rootStore = AppStore.create({})
     subjectStore = rootStore.subjects
     await subjectStore.fetchSubject('1')

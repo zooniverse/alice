@@ -8,7 +8,6 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@storybook/addon-storyshots": "^5.2.5",
     "@zooniverse/grommet-theme": "^2.1.0",
-    "@zooniverse/panoptes-js": "^0.1.1",
     "babel-preset-react-app": "^7.0.0",
     "coveralls": "^3.0.7",
     "formik": "^1.5.8",
