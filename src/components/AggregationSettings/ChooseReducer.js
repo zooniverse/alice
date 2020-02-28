@@ -1,6 +1,8 @@
 import React from 'react'
-import { Box, Button, Text } from 'grommet'
+import { Box, Button, Image, Text } from 'grommet'
 import { bool, func, string } from 'prop-types'
+import DBScan from 'images/dbscan.png'
+import Optics from 'images/optics.png'
 import { REDUCERS } from './AggregationSettingsContainer'
 import styled from 'styled-components'
 
@@ -31,9 +33,9 @@ export default function ChooseReducer({ closeContainer, currentScreen, selectRed
           <Button
             label={
               <OpticsBox selectedReducer={selectedReducer} gap='xsmall' pad='small'>
-                <Box background='light-4' height='8em' fill='horizontal'/>
+                <Image alt='Optics Aggregation Example' fit='contain' src={Optics} />
                 <Text>OPTICS Reducer</Text>
-                <Text>Short description of when to use this algorithm</Text>
+                <Text size='xsmall'>Used for clustering full-width transcriptions</Text>
               </OpticsBox>
             }
             onClick={() => { selectReducer(REDUCERS.OPTICS)}}
@@ -42,9 +44,9 @@ export default function ChooseReducer({ closeContainer, currentScreen, selectRed
           <Button
             label={
               <DbScanBox selectedReducer={selectedReducer} gap='xsmall' pad='small'>
-                <Box background='light-4' height='8em' fill='horizontal'/>
+                <Image alt='DBScan Aggregation Example' fit='contain' src={DBScan} />
                 <Text>DBSCAN Reducer</Text>
-                <Text>Short description of when to use this algorithm</Text>
+                <Text size='xsmall'>Used for clustering shorter, incomplete transcriptions of a line</Text>
               </DbScanBox>
             }
             onClick={() => { selectReducer(REDUCERS.DBSCAN)}}
