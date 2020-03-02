@@ -6,6 +6,7 @@ import LineViewer from './LineViewer'
 
 let wrapper
 
+const deleteCurrentLineSpy = jest.fn()
 const setActiveTranscriptionSpy = jest.fn()
 const currentTranscription = {
   text: new Map([
@@ -29,6 +30,7 @@ const contextValues = {
   },
   transcriptions: {
     activeTranscriptionIndex: 0,
+    deleteCurrentLine: deleteCurrentLineSpy,
     current: currentTranscription,
     index: 0,
     parsedExtracts: [[{}]],
@@ -97,6 +99,14 @@ describe('Component > LineViewerContainer', function () {
         wrapper.update()
         expect(wrapper.find(LineViewer).first().props().inputText).toBe('')
       })
+    })
+  })
+
+  describe('closeModal function', function () {
+    it('should set the active transcription', function () {
+      wrapper.props().closeModal()
+      expect(deleteCurrentLineSpy).toHaveBeenCalled()
+      expect(setActiveTranscriptionSpy).toHaveBeenCalledWith(undefined)
     })
   })
 })
