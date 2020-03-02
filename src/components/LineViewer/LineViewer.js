@@ -23,6 +23,7 @@ const RelativeBox = styled(Box)`
 `
 
 function LineViewer ({
+  addLine,
   algorithmChoice,
   closeModal,
   consensusText,
@@ -113,21 +114,13 @@ function LineViewer ({
               <ItalicText margin={{ left: 'medium' }} size='xsmall'>aggregated transcription (via algorithm)</ItalicText>
             </Box>
           )}
-          <Box direction='row' gap='xsmall'>
-            <CheckBox
-              checked={selectedItem === typedChoice}
-              onChange={() => {
-                const setTo = selectedItem === typedChoice ? null : typedChoice
-                setItem(setTo)
-              }}
-            />
-            <Box fill='horizontal'>
-              <TextInput
-                onChange={(e) => {
-                  setInputText(e.target.value)
-                  if (e.target.value.length && selectedItem !== typedChoice) {
-                    setItem(typedChoice)
-                  } else if (!e.target.value.length) { setItem(null) }
+          {!isViewer && (
+            <Box direction='row' gap='xsmall'>
+              <CheckBox
+                checked={selectedItem === typedChoice}
+                onChange={() => {
+                  const setTo = selectedItem === typedChoice ? null : typedChoice
+                  setItem(setTo)
                 }}
               />
               <Box fill='horizontal'>
@@ -150,7 +143,7 @@ function LineViewer ({
       <Box direction='row' height={{ min: '1.5em' }} justify='between' margin='xsmall'>
         {!isViewer && (
           <Box direction='row'>
-            <Button margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
+            <Button onClick={addLine} margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
             <Button onClick={toggleDeleteModal}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
           </Box>
         )}
@@ -171,6 +164,7 @@ function LineViewer ({
 }
 
 LineViewer.defaultProps = {
+  addLine: () => {},
   closeModal: () => {},
   consensusText: '',
   flagged: false,
@@ -187,6 +181,7 @@ LineViewer.defaultProps = {
 }
 
 LineViewer.propTypes = {
+  addLine: PropTypes.func,
   closeModal: PropTypes.func,
   consensusText: PropTypes.string,
   flagged: PropTypes.bool,

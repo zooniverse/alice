@@ -43,6 +43,7 @@ function LineViewerContainer({ isLoaded }) {
     }
     localStore.setItem(item)
   }
+  const addLine = () => store.transcriptions.addLine(transcriptionIndex + 1)
 
   React.useEffect(() => {
     localStore.loadTranscription(false)
@@ -56,6 +57,7 @@ function LineViewerContainer({ isLoaded }) {
 
   return (
     <LineViewer
+      addLine={addLine}
       algorithmChoice={localStore.transcriptionOptions.length}
       closeModal={closeModal}
       consensusText={consensusText}

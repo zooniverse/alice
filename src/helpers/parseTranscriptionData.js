@@ -3,7 +3,7 @@ const SLOPE_BUFFER = 10;
 function constructCoordinates(line) {
   const points = [];
 
-  if (line && line.clusters_x && line.clusters_y) {
+  if (line && line.clusters_x && line.clusters_y && line.clusters_x.length) {
     const lastPoint = line.clusters_x.length - 1
     points.push({
       x1: line.clusters_x[0],
