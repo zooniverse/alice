@@ -59,6 +59,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   }
 
+  function addLine(index) {
+    const subjectLocation = getRoot(self).subjects.index
+    const page = self.current.text.get(`frame${subjectLocation}`)
+    const location = index ? index : page.length
+    const newLine = Reduction.create()
+    page.splice(location, 0, newLine)
+    self.setActiveTranscription(location)
+  }
+
   function changeIndex(index) {
     self.index = index
   }
@@ -319,6 +328,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   return {
     afterAttach,
     arrangeExtractsByUser,
+    addLine,
     changeIndex,
     checkForFlagUpdate,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
