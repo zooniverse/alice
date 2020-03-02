@@ -74,14 +74,14 @@ function LineViewer ({
             <Text weight='bold'>{consensusText}</Text>
           </Box>
           <Box direction='row' margin={{ bottom: '0.5em' }}>
-            <SeenButtonContainer disabled={isViewer || !!reduction} reduction={reduction} tag={seen} />
-            <FlagButtonContainer disabled={isViewer || !!reduction} reduction={reduction} tag={flagged} />
+            <SeenButtonContainer disabled={isViewer || !consensusText} reduction={reduction} tag={seen} />
+            <FlagButtonContainer disabled={isViewer || !consensusText} reduction={reduction} tag={flagged} />
           </Box>
           <Box>
             {reduction.edited_consensus_text ? (
               <Text>Edited</Text>
             ) : (
-              <Text>{parseFloat(reduction.consensus_score && reduction.consensus_score.toFixed(1)) || 0}/{reduction.number_views || 0}</Text>
+              <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
             )}
           </Box>
         </Box>
@@ -171,6 +171,7 @@ LineViewer.defaultProps = {
   isViewer: false,
   reduction: {
     consensus_score: 0,
+    consensus_text: '',
     edited_consensus_text: ''
   },
   replaceWithSelected: () => {},

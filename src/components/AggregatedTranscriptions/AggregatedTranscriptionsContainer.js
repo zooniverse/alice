@@ -6,11 +6,7 @@ import AggregatedTranscriptions from './AggregatedTranscriptions'
 function AggregatedTranscriptionsContainer({ margin }) {
   const store = React.useContext(AppContext)
 
-  const addLine = () => {
-    store.transcriptions.addLine()
-    // const currentPage = store.transcriptions.current.text.get(`frame${store.subjects.index}`)
-    // store.transcriptions.setActiveTranscription(currentPage.length)
-  }
+  const addLine = () => store.transcriptions.addLine()
   const showOverlay = store.aggregations.showModal || store.transcriptions.approved
   const showTranscription = store.transcriptions.activeTranscriptionIndex !== undefined
 
