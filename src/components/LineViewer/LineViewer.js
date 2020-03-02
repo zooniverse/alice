@@ -143,7 +143,7 @@ function LineViewer ({
       <Box direction='row' height={{ min: '1.5em' }} justify='between' margin='xsmall'>
         {!isViewer && (
           <Box direction='row'>
-            <Button onClick={addLine} margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
+            <Button disabled={!consensusText} onClick={addLine} margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
             <Button onClick={toggleDeleteModal}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
           </Box>
         )}
