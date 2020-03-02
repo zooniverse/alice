@@ -116,9 +116,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.reset()
     self.page = page
     const groupName = getRoot(self).groups.title
-    if (!groupName) return
+    const workflow = getRoot(self).workflows.current.id
+    if (!groupName || !workflow) return
     const searchQuery = getRoot(self).search.getSearchQuery()
-    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&page[number]=${self.page + 1}${searchQuery}`)
+    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}`)
   }
 
   function reset() {
