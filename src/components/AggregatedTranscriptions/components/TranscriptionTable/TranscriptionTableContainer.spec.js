@@ -5,6 +5,9 @@ import TranscriptionTableContainer from './TranscriptionTableContainer'
 let wrapper
 const setActiveTranscriptionSpy = jest.fn()
 const contextValues = {
+  projects: {
+    isViewer: false
+  },
   subjects: {
     index: 0
   },

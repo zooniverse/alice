@@ -18,6 +18,9 @@ const contextValues = {
   auth: {
     user: { id: '1' }
   },
+  projects: {
+    isViewer: false
+  },
   transcriptions: {
     approved: false
   }
