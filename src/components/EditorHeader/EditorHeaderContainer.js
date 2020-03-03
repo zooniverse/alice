@@ -17,18 +17,22 @@ function routeMatcher(currentPath, route) {
   return !!(matchProfile && matchProfile.isExact)
 }
 
-function getHeaderTools(path) {
+function getHeaderTools(path, isViewer = false) {
   if (routeMatcher(path, SUBJECTS_PATH)) {
-    return [DownloadSetData, SearchButton]
+    const buttons = [DownloadSetData, SearchButton]
+    if (isViewer) buttons.shift()
+    return buttons
   } else if (routeMatcher(path, EDIT_PATH)) {
-    return [MarkApproved, UndoButton, SaveButton, LayoutButton, MoreButton]
+    let buttons = [MarkApproved, UndoButton, SaveButton, LayoutButton, MoreButton]
+    if (isViewer) buttons = [LayoutButton]
+    return buttons
   }
   return []
 }
 
 function EditorHeaderContainer({ history }) {
   const store = React.useContext(AppContext)
-  const buttons = getHeaderTools(history.location.pathname)
+  const buttons = getHeaderTools(history.location.pathname, store.projects.isViewer)
   const disabled = store.aggregations.showModal || store.transcriptions.approved
   const onAbout = routeMatcher(history.location.pathname, ABOUT_PATH)
   const showMetadata = routeMatcher(history.location.pathname, EDIT_PATH)
