@@ -15,7 +15,7 @@ const StyledBox = styled(Box)`
   flex: 0 0 auto;
 `
 
-function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
+function TranscriptionLine ({ isViewer, selectedItem, setItem, transcription, index }) {
   return (
     <Box height={{ min: '2em' }}>
       <Box direction='row' justify='between'>
@@ -23,10 +23,11 @@ function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
           <StyledBox
             align='end'
             background={indexToColor(index)}
-            height='fit-content'
+            height={{ min: '0.75em' }}
             pad='0.15em'
             width='1.75em'
           >
+            {!isViewer && (
               <CheckBox
                 checked={selectedItem === index}
                 onChange={() => {
@@ -34,6 +35,7 @@ function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
                   setItem(setTo)
                 }}
               />
+            )}
           </StyledBox>
           <Text
             alignSelf='center'
@@ -64,6 +66,7 @@ function TranscriptionLine ({ selectedItem, setItem, transcription, index }) {
 }
 
 TranscriptionLine.defaultProps = {
+  isViewer: false,
   selectedItem: null,
   setItem: () => {},
   transcription: {
@@ -76,6 +79,7 @@ TranscriptionLine.defaultProps = {
 }
 
 TranscriptionLine.propTypes = {
+  isViewer: PropTypes.bool,
   selectedItem: PropTypes.number,
   setItem: PropTypes.func,
   transcription: PropTypes.shape({
