@@ -7,6 +7,7 @@ import ProjectFactory from './factories/project'
 let projectsStore
 let ownedProject = ProjectFactory.build()
 let collabProject = ProjectFactory.build({ id: '2', display_name: 'Second Project' })
+let viewerProject = ProjectFactory.build({ id: '3', display_name: 'Third Project' })
 let error = { message: 'Failed to Return' }
 
 let ownerRole = {
@@ -21,15 +22,21 @@ let collabRole = {
   },
   roles: ['expert']
 }
-let userRoles = [ownerRole, collabRole]
+let viewerRole = {
+  links: {
+     project: '3'
+  },
+  roles: ['tester']
+}
+let userRoles = [ownerRole, collabRole, viewerRole]
 
-let roles = { 1: 'Admin', 2: 'Editor' }
+let roles = { 1: 'Admin', 2: 'Editor', 3: 'Viewer' }
 let toveStub = {
   get: () => Promise.resolve(
     {
       body: JSON.stringify(
         {
-          data: [ownedProject, collabProject]
+          data: [ownedProject, collabProject, viewerProject]
         })
     }
   )
@@ -48,13 +55,13 @@ describe('ProjectsStore', function () {
     when(clientSpy).calledWith('projects')
       .mockImplementation(() => {
         return {
-          get: () => Promise.resolve([ownedProject, collabProject])
+          get: () => Promise.resolve([ownedProject, collabProject, viewerProject])
         }
       })
     when(clientSpy).calledWith('project_roles')
       .mockImplementation(() => {
         return {
-          get: () => Promise.resolve([ownerRole, collabRole])
+          get: () => Promise.resolve([ownerRole, collabRole, viewerRole])
         }
       })
     projectsStore = rootStore.projects
@@ -74,8 +81,9 @@ describe('ProjectsStore', function () {
     await projectsStore.getProjects()
     const mergedOwnerProject = { ...ownedProject, role: roles[ownedProject.id] }
     const mergedCollabProject = { ...collabProject, role: roles[collabProject.id] }
+    const mergedViewerProject = { ...viewerProject, role: roles[viewerProject.id] }
     expect(projectsStore.ownerProjects).toEqual([mergedOwnerProject])
-    expect(projectsStore.collabProjects).toEqual([mergedCollabProject])
+    expect(projectsStore.collabProjects).toEqual([mergedCollabProject, mergedViewerProject])
     expect(projectsStore.asyncState).toBe(ASYNC_STATES.READY)
     expect(projectsStore.error).toBe('')
   })
@@ -100,9 +108,14 @@ describe('ProjectsStore', function () {
     expect(projectsStore.role).toBe('Admin')
   })
 
-  it('should state if the current role is researcher', function () {
+  it('should state if the current role is admin', function () {
     projectsStore.selectProject('1')
     expect(projectsStore.isAdmin).toBe(true)
+  })
+
+  it('should state if the current role is viewer', function () {
+    projectsStore.selectProject('3')
+    expect(projectsStore.isViewer).toBe(true)
   })
 
   it('should get the current project id', function () {
@@ -161,7 +174,7 @@ describe('ProjectsStore getRoles', function () {
       })
     projectsStore = rootStore.projects
     await projectsStore.getRoles()
-    expect(projectsStore.roles).toEqual({ 1: 'Admin', 2: 'Editor' })
+    expect(projectsStore.roles).toEqual({ 1: 'Admin', 2: 'Editor', 3: 'Viewer' })
   })
 })
 
