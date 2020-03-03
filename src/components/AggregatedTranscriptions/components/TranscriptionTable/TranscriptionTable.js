@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
-import { arrayOf, shape, func } from 'prop-types'
+import { arrayOf, bool, shape, func } from 'prop-types'
 import { observer } from 'mobx-react'
 import TranscriptionTableRow from './TranscriptionTableRow'
 
@@ -21,7 +21,7 @@ const RightAlignText = styled(StyledText)`
   text-align: end;
 `
 
-function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
+function TranscriptionTable ({ data, isViewer, setActiveTranscription, setTextObject }) {
   const [dataArray, resetDataArray] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
   const emptyData = data.length === 0
@@ -52,6 +52,7 @@ function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
               datum={datum}
               dragID={dragID}
               index={i}
+              isViewer={isViewer}
               key={`TRANSCRIPTION_ROW_${i}`}
               moveData={resetDataArray}
               setActiveTranscription={setActiveTranscription}
@@ -72,11 +73,13 @@ function TranscriptionTable ({ data, setActiveTranscription, setTextObject }) {
 
 TranscriptionTable.propTypes = {
   data: arrayOf(shape()),
+  isViewer: bool,
   setActiveTranscription: func
 }
 
 TranscriptionTable.defaultProps = {
   data: [],
+  isViewer: false,
   setActiveTranscription: () => {}
 }
 

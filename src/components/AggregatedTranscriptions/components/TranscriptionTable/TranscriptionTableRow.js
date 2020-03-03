@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import styled from 'styled-components'
-import { arrayOf, func, number, shape, string } from 'prop-types'
+import { arrayOf, bool, func, number, shape, string } from 'prop-types'
 import { observer } from 'mobx-react'
 import { Flags } from './Flags'
 
@@ -11,7 +11,7 @@ const QuietBox = styled(Box)`
 `
 
 const MoveBox = styled(Box)`
-  cursor: ${props => props.hover ? 'move' : 'default'};
+  cursor: ${props => (props.hover && !props.isViewer) ? 'move' : 'default'};
   pointer-events: ${props => props.hover ? 'all' : 'none'};
 `
 
@@ -44,6 +44,7 @@ function TranscriptionTableRow({
   datum,
   dragID,
   index,
+  isViewer,
   moveData,
   setActiveTranscription,
   setDragID,
@@ -58,7 +59,7 @@ function TranscriptionTableRow({
   return (
     <Box
       border={{ color: '#ECECEC', side: 'bottom' }}
-      draggable='true'
+      draggable={!isViewer}
       elevation={elevation}
       flex={false}
       gap='xsmall'
@@ -81,14 +82,17 @@ function TranscriptionTableRow({
         hover={isHover}
         onMouseUp={() => setActiveTranscription(index)}>
         <MoveBox
-          onMouseUp={(e) => stopEvents(e)}
-          hover={isHover}
-          pad='0.2em'
           basis='4%'
+          hover={isHover}
+          isViewer={isViewer}
+          onMouseUp={(e) => stopEvents(e)}
+          pad='0.2em'
         >
-          <QuietBox>
-            <Menu color={hamburgerColor} size='xsmall' />
-          </QuietBox>
+          {!isViewer && (
+            <QuietBox>
+              <Menu color={hamburgerColor} size='xsmall' />
+            </QuietBox>
+          )}
         </MoveBox>
         <QuietBox basis='76%'>
           <Text>{datum.edited_consensus_text || datum.consensus_text}</Text>
@@ -118,6 +122,7 @@ TranscriptionTableRow.propTypes = {
   data: arrayOf(shape()),
   dragID: number,
   index: number,
+  isViewer: bool,
   moveData: func,
   setDragID: func,
   setActiveTranscription: func
@@ -133,6 +138,7 @@ TranscriptionTableRow.defaultProps = {
   data: [],
   dragID: null,
   index: null,
+  isViewer: false,
   moveData: () => {},
   setDragID: () => {},
   setActiveTranscription: () => {}
