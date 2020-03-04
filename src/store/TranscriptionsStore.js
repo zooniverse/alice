@@ -180,7 +180,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     } catch (error) {
       console.warn(error);
       undoManager.withoutUndo(() => {
-        self.error = error.message
+        self.error = TranscriptionError.create({ message: error.message })
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
