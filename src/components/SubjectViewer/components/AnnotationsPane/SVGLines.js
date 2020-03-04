@@ -1,14 +1,14 @@
 import React from 'react'
-import { array, bool, number } from 'prop-types'
+import { array, bool, func, number } from 'prop-types'
 import indexToColor from 'helpers/indexToColor'
 
-export default function SVGLines({ lines, isExtract, reductionIndex }) {
+export default function SVGLines({ lines, onLineClick, isExtract, reductionIndex }) {
   const circleWidth = isExtract ? 4 : 10
   const dashArray = isExtract ? '4' : '0'
   const strokeWidth = isExtract ? '0.5' : '3'
 
   return (
-    <g>
+    <g onClick={onLineClick}>
       {lines.map((line, index) => {
         const color = indexToColor(reductionIndex)
         const svgPoints = []
@@ -62,11 +62,13 @@ export default function SVGLines({ lines, isExtract, reductionIndex }) {
 SVGLines.propTypes = {
   isExtract: bool,
   lines: array,
+  onLineClick: func,
   reductionIndex: number
 }
 
 SVGLines.defaultProps = {
   isExtract: false,
   lines: [],
+  onLineClick: () => {},
   reductionIndex: 0
 }
