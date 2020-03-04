@@ -1,6 +1,11 @@
 import React from 'react'
 import { array, bool, func, number } from 'prop-types'
 import indexToColor from 'helpers/indexToColor'
+import styled from 'styled-components'
+
+const G = styled('g')`
+  cursor: ${props => props.clickable ? 'pointer' : 'inherit'};
+`
 
 export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick, isExtract, reductionIndex }) {
   const circleWidth = isExtract ? 4 : 10
@@ -11,7 +16,7 @@ export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick,
   if (Number.isInteger(activeTranscriptionIndex) && !isActive) return null
 
   return (
-    <g onClick={onLineClick}>
+    <G clickable={!isExtract} onClick={onLineClick}>
       {lines.map((line, index) => {
         const color = isExtract && isActive ? indexToColor(index) : indexToColor(reductionIndex)
         const svgPoints = []
@@ -58,7 +63,7 @@ export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick,
           </g>
         )
       })}
-    </g>
+    </G>
   )
 }
 
