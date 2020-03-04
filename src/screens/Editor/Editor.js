@@ -26,13 +26,13 @@ function Editor ({ match }) {
   const editorBox = React.useRef(null)
 
   React.useEffect(() => {
-    undoManager.clear()
     const setResources = async () => {
       await store.getResources(match.params)
       await store.subjects.fetchSubject(match.params.subject)
     }
     setResources()
     store.transcriptions.setActiveTranscription()
+    undoManager.clear()
   }, [match, store])
 
   const disabled = store.aggregations.showModal || store.transcriptions.approved
