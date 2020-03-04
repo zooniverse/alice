@@ -48,11 +48,11 @@ const contextValues = {
     asyncState: ASYNC_STATES.IDLE,
     current: { locations: [{ 'image': 'site.com' }] },
     fetchSubject: fetchSubjectSpy,
-    index: 0
   },
   transcriptions: {
     current: undefined,
     extracts: [],
+    index: 0,
     setActiveTranscription: setActiveTranscriptionSpy
   }
 }

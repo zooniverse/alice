@@ -3,6 +3,7 @@ import { Box } from 'grommet'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import AppContext from 'store'
+import { undoManager } from 'store/AppStore'
 import Resizer from './components/Resizer'
 import AggregationModal from '../../components/AggregationSettings/AggregationModal'
 import SubjectViewer from '../../components/SubjectViewer'
@@ -31,6 +32,7 @@ function Editor ({ match }) {
     }
     setResources()
     store.transcriptions.setActiveTranscription()
+    undoManager.clear()
   }, [match, store])
 
   const disabled = store.aggregations.showModal || store.transcriptions.approved

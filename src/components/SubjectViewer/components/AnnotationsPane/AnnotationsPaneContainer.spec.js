@@ -11,7 +11,6 @@ const contextValues = {
   editor: {
     linesVisible: true
   },
-  subjects: { index: 0 },
   transcriptions: {
     current: {
       text: new Map([
@@ -21,6 +20,7 @@ const contextValues = {
         }] ]
       ])
     },
+    index: 0,
     extracts: [extract]
   }
 }

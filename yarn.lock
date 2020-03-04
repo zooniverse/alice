@@ -8817,6 +8817,11 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
+mst-middlewares@^3.15.0:
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/mst-middlewares/-/mst-middlewares-3.15.0.tgz#91517667f7b455402f565b918f23c1a943c01b7c"
+  integrity sha512-JHmyijpbI3Hesj23bdU5q3gfm2bqkp989UqtN+K5toN5z6oYD/QMF2X1veZlZkVu+y05Ay1ZD8ForQXv1tgEww==
+
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"

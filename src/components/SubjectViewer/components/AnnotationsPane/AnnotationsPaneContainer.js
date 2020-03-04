@@ -7,7 +7,7 @@ import { constructCoordinates, constructText, mapExtractsToReductions } from 'he
 function AnnotationsPaneContainer({ x, y }) {
   let [ extractLines, reductionLines ] = [[], []]
   const store = React.useContext(AppContext)
-  const index = store.subjects.index
+  const index = store.transcriptions.index
   const transcription = store.transcriptions.current
 
   const validExtracts = store.transcriptions.extracts.filter(extract => extract.data[`frame${index}`])

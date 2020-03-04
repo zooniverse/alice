@@ -10,8 +10,10 @@ const setActiveTranscriptionSpy = jest.fn()
 const contextValues = {
   aggregations: { showModal: false },
   image: { reset: resetSpy },
-  subjects: { changeIndex: changeIndexSpy },
-  transcriptions: { setActiveTranscription: setActiveTranscriptionSpy }
+  transcriptions: {
+    changeIndex: changeIndexSpy,
+    setActiveTranscription: setActiveTranscriptionSpy
+  }
 }
 
 describe('Component > FilmstripViewerContainer', function () {

@@ -34,11 +34,6 @@ describe('SubjectStore', function () {
     expect(subjectStore).toBeDefined()
   })
 
-  it('should change the index', function () {
-    subjectStore.changeIndex(1)
-    expect(subjectStore.index).toBe(1)
-  })
-
   it('should set the subject', async function () {
     await subjectStore.fetchSubject('1')
     expect(subjectStore.current).toEqual(mockSubject)

@@ -1,18 +1,23 @@
 import React from 'react'
-import HeaderButton from './HeaderButton'
 import { Refresh } from 'grommet-icons'
+import { undoManager } from 'store/AppStore'
+import { observer } from 'mobx-react'
+import AppContext from 'store'
+import HeaderButton from './HeaderButton'
 
 function UndoButtonContainer({ disabled }) {
-  const onClick = () => console.log('Undo Button Clicked');
+  const store = React.useContext(AppContext)
+  const onUndo = () => store.transcriptions.undo()
+  const disableUndo = disabled || !undoManager.canUndo
 
   return (
     <HeaderButton
-      disabled={disabled}
+      disabled={disableUndo}
       icon={<Refresh color='#555555' size='small'/>}
-      label={'Undo'}
-      onClick={onClick}
+      label='Undo'
+      onClick={onUndo}
     />
   )
 }
 
-export default UndoButtonContainer
+export default observer(UndoButtonContainer)
