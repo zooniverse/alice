@@ -8066,10 +8066,10 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
 
-json-api-client@~5.0.0-rc.0:
-  version "5.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/json-api-client/-/json-api-client-5.0.0-rc.0.tgz#0d54b4ff1241106c0a5c1b9b4cb60d42b860eefa"
-  integrity sha512-xnGt9yfU9s3v7Lll3gEVY1xJd/auR0AaLmph2KBhK9CclrSxfpoP9rvMX5Qh1A7CBjIGai0JpJm8bjTWf9o2Yw==
+json-api-client@~5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/json-api-client/-/json-api-client-5.0.0.tgz#473082ffd2d0fc46013c6e14f360fe20a63f2c22"
+  integrity sha512-HFXao3PkvgNQOlD1iAwKbR+tuT+lYiyyu6Q/FxPoTRai1DAv7c6pha0gvOFxe/FrkaUu1/v6btr2OdkzFVGX0A==
   dependencies:
     normalizeurl "~0.1.3"
     superagent "^3.8.3"
@@ -9509,12 +9509,12 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.10.tgz#4328badb5086a426aa90f541977d4955da5c9732"
   integrity sha512-0DTvPVU3ed8+HNXOu5Bs+o//Mbdj9VNQMUOe9oKCwh8l0GNwpTDMKCWbRjgtD291AWnkAgkqA/LOnQS8AmS1tw==
 
-panoptes-client@3.0.0-rc.0:
-  version "3.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/panoptes-client/-/panoptes-client-3.0.0-rc.0.tgz#83b067f83d6447e7a5c2b8b38c15ae659f24219b"
-  integrity sha512-eWKvvMXzIVdt8YMwF6PdG4K7dSHlP8LpSI0TJ9C3IME2U96YDEBsKiZKUaP+5IzJyv21Mj9sXlmVRL0KYtNH3Q==
+panoptes-client@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/panoptes-client/-/panoptes-client-3.2.0.tgz#9a83ee7755722b36fda73f37041c3c75ac85c32e"
+  integrity sha512-qXp1L4XZhiJ4dAhybtyivlpu28zZfTKf68qEzqCUsjo1RuSO21ri27lWPqS5QdDgxhq4VqvZHnSWMuyDQPbEaA==
   dependencies:
-    json-api-client "~5.0.0-rc.0"
+    json-api-client "~5.0.0"
     local-storage "^1.4.2"
     sugar-client "^1.0.1"
 
