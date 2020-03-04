@@ -50,7 +50,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function afterAttach() {
     reaction(() => self.asyncState, (state) => {
-      self.showSaveTranscriptionError = state === ASYNC_STATES.ERROR
+      if (state === ASYNC_STATES.ERROR) {
+        undoManager.withoutUndo(() => self.showSaveTranscriptionError = true)
+      }
     })
   }
 
@@ -150,11 +152,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
           return Promise.reject(response)
         }
       })
-      self.error = null
-      self.asyncState = ASYNC_STATES.READY
+      undoManager.withoutUndo(() => {
+        self.error = null
+        self.asyncState = ASYNC_STATES.READY
+      })
     } catch (err) {
-      self.error = getError(err)
-      self.asyncState = ASYNC_STATES.ERROR
+      undoManager.withoutUndo(() => {
+        self.error = getError(err)
+        self.asyncState = ASYNC_STATES.ERROR
+      })
     }
   })
 
@@ -187,7 +193,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   function saveTranscription() {
-    self.asyncState = ASYNC_STATES.LOADING
+    undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const textBlob = toJS(self.current.text)
     const lineCounts = {
       low_consensus_lines: self.current.low_consensus_lines,
@@ -308,7 +314,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setParsedExtracts: (extractsByUser) => undoManager.withoutUndo(() => setParsedExtracts(extractsByUser)),
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
-    toggleError,
+    toggleError: () => undoManager.withoutUndo(() => toggleError()),
     undo,
     updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked))
   }
