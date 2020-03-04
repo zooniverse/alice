@@ -3,6 +3,7 @@ import { array, bool, func, number } from 'prop-types'
 import SVGLines from './SVGLines'
 
 export default function AnnotationsPane({
+  activeTranscriptionIndex,
   extractLines,
   linesVisible,
   onLineClick,
@@ -18,6 +19,7 @@ export default function AnnotationsPane({
     <g transform={offset}>
       {extractLines.map((lines, i) => (
         <SVGLines
+          activeTranscriptionIndex={activeTranscriptionIndex}
           key={`SVG_LINE_${i}`}
           isExtract
           lines={lines}
@@ -26,6 +28,7 @@ export default function AnnotationsPane({
       ))}
       {reductionLines.map((lines, i) => (
         <SVGLines
+          activeTranscriptionIndex={activeTranscriptionIndex}
           key={`SVG_LINE_${i}`}
           lines={lines}
           onLineClick={() => onLineClick(i)}
@@ -37,6 +40,7 @@ export default function AnnotationsPane({
 }
 
 AnnotationsPane.propTypes = {
+  activeTranscriptionIndex: number,
   extractLines: array,
   linesVisible: bool,
   onLineClick: func,
@@ -46,6 +50,7 @@ AnnotationsPane.propTypes = {
 }
 
 AnnotationsPane.defaultProps = {
+  activeTranscriptionIndex: null,
   extractLines: [],
   linesVisible: true,
   onLineClick: () => {},

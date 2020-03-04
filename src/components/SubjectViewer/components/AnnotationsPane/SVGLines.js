@@ -2,15 +2,18 @@ import React from 'react'
 import { array, bool, func, number } from 'prop-types'
 import indexToColor from 'helpers/indexToColor'
 
-export default function SVGLines({ lines, onLineClick, isExtract, reductionIndex }) {
+export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick, isExtract, reductionIndex }) {
   const circleWidth = isExtract ? 4 : 10
   const dashArray = isExtract ? '4' : '0'
   const strokeWidth = isExtract ? '0.5' : '3'
 
+  const isActive = reductionIndex === activeTranscriptionIndex
+  if (Number.isInteger(activeTranscriptionIndex) && !isActive) return null
+
   return (
     <g onClick={onLineClick}>
       {lines.map((line, index) => {
-        const color = indexToColor(reductionIndex)
+        const color = isExtract && isActive ? indexToColor(index) : indexToColor(reductionIndex)
         const svgPoints = []
         const isLeftToRight = line.x1 < line.x2
         const endLinePos = isLeftToRight ? line.x2 - circleWidth : line.x2 + circleWidth

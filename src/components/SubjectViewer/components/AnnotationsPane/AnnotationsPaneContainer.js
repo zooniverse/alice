@@ -25,6 +25,7 @@ function AnnotationsPaneContainer({ x, y }) {
       extractLines={store.transcriptions.parsedExtracts}
       reductionLines={reductionLines}
       onLineClick={onLineClick}
+      activeTranscriptionIndex={store.transcriptions.activeTranscriptionIndex}
     />
   )
 }
