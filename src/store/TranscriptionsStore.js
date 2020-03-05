@@ -86,7 +86,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
-  const fetchExtracts = function * fetchExtracts(id) {
+  const fetchExtracts = flow(function * fetchExtracts(id) {
     const workflowId = getRoot(self).workflows.current.id
     // TODO: The extractor key below will need to change eventually. This is just
     // to test the code with ASM staging data. In the future, this will change to
@@ -103,11 +103,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     yield request(config.caesar, query).then((data) => {
       validExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
     })
-    self.rawExtracts = validExtracts
+    undoManager.withoutUndo(() => self.rawExtracts = validExtracts)
     const arrangedExtractsByUser = self.arrangeExtractsByUser()
     yield self.getTranscriberInfo(arrangedExtractsByUser)
     self.setParsedExtracts(arrangedExtractsByUser)
-  }
+  })
 
   const fetchTranscription = flow(function * fetchTranscription(id) {
     if (!id) return undefined
@@ -127,7 +127,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   })
 
-  const fetchTranscriptions = flow (function * fetchTranscriptions(page = 0) {
+  const fetchTranscriptions = function * fetchTranscriptions(page = 0) {
     self.reset()
     self.page = page
     const groupName = getRoot(self).groups.title
@@ -135,17 +135,19 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     if (!groupName || !workflow) return
     const searchQuery = getRoot(self).search.getSearchQuery()
     yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}`)
-  })
+  }
 
   const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
     let usersWhoClassified = Object.keys(arrangedExtractsByUser)
     usersWhoClassified = usersWhoClassified.filter(user => user !== 'null')
     const users = yield apiClient.type('users').get({ id: usersWhoClassified })
 
-    self.extractUsers = users.reduce((list, user) => {
-      list[user.id] = user.display_name
-      return list
-    }, {})
+    undoManager.withoutUndo(() => {
+      self.extractUsers = users.reduce((list, user) => {
+        list[user.id] = user.display_name
+        return list
+      }, {})
+    })
   })
 
   function reset() {
@@ -198,7 +200,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
     if (!id) return undefined
-    self.asyncState = ASYNC_STATES.LOADING
+    undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const client = getRoot(self).client.tove
     try {
       const response = yield client.get(`/transcriptions/${id}`)
@@ -225,12 +227,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function setParsedExtracts(arrangedExtractsByUser) {
     const extracts = []
-    const index = getRoot(self).subjects.index
     const extractsByUser = arrangedExtractsByUser || self.arrangeExtractsByUser()
-    const transcriptionFrame = self.current && self.current.text && self.current.text.get(`frame${index}`)
+    const transcriptionFrame = self.current && self.current.text && self.current.text.get(`frame${self.index}`)
     const reductionText = transcriptionFrame && transcriptionFrame.map(transcription => constructText(transcription))
     transcriptionFrame && transcriptionFrame.forEach((reduction, reductionIndex) => {
-      extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, index, self.extractUsers))
+      extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, self.index, self.extractUsers))
     })
     self.parsedExtracts = extracts
   }
@@ -283,7 +284,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     checkForFlagUpdate,
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
     deleteCurrentLine,
-    fetchExtracts: (id) => undoManager.withoutUndo(() => flow(fetchExtracts))(id),
+    fetchExtracts,
     fetchTranscription,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
     getTranscriberInfo,
@@ -292,7 +293,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     saveTranscription,
     selectTranscription,
     setActiveTranscription,
-    setParsedExtracts: () => undoManager.withoutUndo(() => setParsedExtracts()),
+    setParsedExtracts: (extractsByUser) => undoManager.withoutUndo(() => setParsedExtracts(extractsByUser)),
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
     undo,
