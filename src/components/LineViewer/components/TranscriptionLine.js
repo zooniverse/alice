@@ -54,13 +54,10 @@ function TranscriptionLine ({ isViewer, selectedItem, setItem, transcription, in
       </Box>
       <Box direction='row' gap='xxsmall' margin={{ left: '3em' }} wrap>
         <ItalicText>{writeDate(transcription.time)}</ItalicText>
-        <Text>&#8226;</Text>
         <ItalicText>{timeString}</ItalicText>
-        <Text>&#8226;</Text>
         <ItalicText size='xsmall'>{transcription.user}</ItalicText>
         {transcription.goldStandard && (
-          <Box direction='row' gap='xxsmall'>
-            <Text>&#8226;</Text>
+          <Box direction='row'>
             <ItalicText>Gold Standard</ItalicText>
           </Box>
         )}
