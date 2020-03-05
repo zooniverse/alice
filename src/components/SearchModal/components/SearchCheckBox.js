@@ -1,6 +1,8 @@
 import React from 'react'
 import { CheckBox, Text } from 'grommet'
 import PropTypes from 'prop-types'
+import withThemeContext from 'helpers/withThemeContext'
+import theme from './theme'
 
 function SearchCheckBox({ checked, disabled, label, onChange, title }) {
   return (
@@ -31,4 +33,5 @@ SearchCheckBox.propTypes = {
   title: PropTypes.string
 }
 
-export default SearchCheckBox
+export { SearchCheckBox }
+export default withThemeContext(SearchCheckBox, theme)
