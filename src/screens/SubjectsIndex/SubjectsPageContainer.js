@@ -14,10 +14,11 @@ function SubjectsPageContainer ({ history, match }) {
   React.useEffect(() => {
     const setResources = async () => {
       await store.getResources(match.params)
-      await store.transcriptions.fetchTranscriptions()
-      store.search.reset()
+      await store.transcriptions.fetchTranscriptions(store.transcriptions.page, false)
     }
-    setResources()
+    if (!(store.transcriptions.current && store.transcriptions.current.id)) {
+      setResources()
+    }
     return () => store.modal.toggleModal('')
   }, [match, store])
 
