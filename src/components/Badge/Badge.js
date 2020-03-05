@@ -36,7 +36,7 @@ const DropLink = styled(Link)`
 `
 
 function Badge ({ disabled, isOpen, name, onAbout, role, setOpen, signOut, src }) {
-  const Icon = isOpen ? FormDown : FormUp
+  const Icon = isOpen ? FormUp : FormDown
 
   return (
     <Box align='center' direction='row' gap='xsmall'>

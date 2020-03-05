@@ -1,5 +1,6 @@
 import React from 'react'
-import { Refresh } from 'grommet-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRedo } from '@fortawesome/free-solid-svg-icons'
 import { undoManager } from 'store/AppStore'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
@@ -13,7 +14,7 @@ function UndoButtonContainer({ disabled }) {
   return (
     <HeaderButton
       disabled={disableUndo}
-      icon={<Refresh color='#555555' size='small'/>}
+      icon={<FontAwesomeIcon color='#555555' icon={faRedo} size='xs' />}
       label='Undo'
       onClick={onUndo}
     />
