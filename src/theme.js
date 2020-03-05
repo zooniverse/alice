@@ -32,10 +32,10 @@ const theme = {
       knob: {
         extend: ({ checked }) => `
         background-color: #FFFFFF;
-        border: 2px solid #5C5C5C;
+        border: 1px solid #5C5C5C;
         height: 1em;
         width: 1em;
-        ${checked ? `margin: 0.15em 0;` : `margin: 0.15em`}
+        ${checked ? `margin: 0.2em 0;` : `margin: 0.2em`}
         `
       }
     }
