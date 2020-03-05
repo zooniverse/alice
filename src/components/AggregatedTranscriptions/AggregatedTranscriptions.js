@@ -44,12 +44,13 @@ function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
     <StyledBox height='large'>
       <Box background='white' fill='vertical' margin={margin} round='xsmall'>
         <Box
+          align='center'
           border={{ color: 'light-5', side: 'bottom' }}
           direction='row'
           justify='between'
           pad={{ left: '1em', right: 'xsmall', bottom: 'xsmall', top: 'xsmall' }}
         >
-          <Text>Transcribed Text</Text>
+          <Text size='1em'>Transcribed Text</Text>
           <CapitalText size='xsmall'>Add Line</CapitalText>
         </Box>
         <OverflowBox fill='vertical'>
