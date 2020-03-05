@@ -10,7 +10,7 @@ import {
   Text
 } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faInfo, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { bool, number, shape, string } from 'prop-types'
 import styled from 'styled-components'
 import withThemeContext from 'helpers/withThemeContext'
@@ -33,6 +33,10 @@ const StyledText = styled(Text)`
   overflow-wrap: break-word;
 `
 
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  height: 0.4em
+`
+
 function MetadataButton({
   disabled,
   goldStandard,
@@ -52,7 +56,18 @@ function MetadataButton({
       <Button
         a11yTitle="Open Metadata Information"
         disabled={disabled}
-        icon={<FontAwesomeIcon icon={faInfoCircle} />}
+        icon={
+          <Box
+            align='center'
+            border={{ color: 'black' }}
+            height='0.85em'
+            width='0.85em'
+            justify='center'
+            round
+          >
+            <StyledFontAwesomeIcon icon={faInfo}/>
+          </Box>
+        }
         onClick={toggleDrop}
         plain
         ref={targetEl}
