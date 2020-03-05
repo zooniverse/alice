@@ -1,7 +1,9 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Button, Drop } from 'grommet'
-import FlagButton from './FlagButton'
+import renderer from 'react-test-renderer'
+import 'jest-styled-components'
+import FlagButton, { StyledFontAwesomeIcon } from './FlagButton'
 
 let wrapper
 const onShowFlagSpy = jest.fn()
@@ -30,6 +32,14 @@ describe('Component > FlagButton', function () {
   it('should show the drop component', function () {
     wrapper = shallow(<FlagButton showFlag />)
     expect(wrapper.find(Drop).length).toBe(1)
+  })
+
+  it('should not dim the component', function () {
+    wrapper = shallow(<FlagButton showFlag tag />)
+    const icon = wrapper.find(StyledFontAwesomeIcon).first()
+
+    const tree = renderer.create(icon).toJSON()
+    expect(tree).toHaveStyleRule('opacity', '1')
   })
 
   describe('when a viewer', function () {

@@ -103,9 +103,26 @@ describe('Component > LineViewerContainer', function () {
   })
 
   describe('closeModal function', function () {
-    it('should set the active transcription', function () {
+    describe('with consensus text', function () {
+      it('should set the active transcription', function () {
+        const lineViewer = wrapper.find(LineViewer).first()
+        lineViewer.props().closeModal()
+        expect(setActiveTranscriptionSpy).toHaveBeenCalledWith(undefined)
+      })
+    })
+
+    describe('without consensus text', function () {
+      const editedContext = Object.assign(contextValues, {})
+      const frame = editedContext.transcriptions.current.text.get('frame0')
+      frame[0].consensus_text = null
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => editedContext )
+
+      wrapper = shallow(<LineViewerContainer />)
       const lineViewer = wrapper.find(LineViewer).first()
       lineViewer.props().closeModal()
+      expect(deleteCurrentLineSpy).toHaveBeenCalled()
       expect(setActiveTranscriptionSpy).toHaveBeenCalledWith(undefined)
     })
   })
