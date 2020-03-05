@@ -82,25 +82,25 @@ function TranscriptionTableRow({
         hover={isHover}
         onMouseUp={() => setActiveTranscription(index)}>
         <MoveBox
-          basis='4%'
           hover={isHover}
           isViewer={isViewer}
           onMouseUp={(e) => stopEvents(e)}
           pad='0.2em'
+          basis='5%'
         >
           {!isViewer && (
-            <QuietBox>
-              <Menu color={hamburgerColor} size='xsmall' />
+            <QuietBox align='center'>
+              <Menu color={hamburgerColor} size='0.75em' />
             </QuietBox>
           )}
         </MoveBox>
-        <QuietBox basis='76%'>
+        <QuietBox basis='72%'>
           <Text>{datum.edited_consensus_text || datum.consensus_text}</Text>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />
         </QuietBox>
-        <QuietBox align='end' basis='10%' pad={{ right: '0.25em' }}>
+        <QuietBox align='end' basis='13%' pad={{ right: '0.25em' }}>
           {datum.edited_consensus_text ? (
             <Text>Edited</Text>
           ) : (
