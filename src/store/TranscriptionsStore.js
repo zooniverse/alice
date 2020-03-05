@@ -121,8 +121,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.setParsedExtracts(arrangedExtractsByUser)
   })
 
-  const fetchTranscriptions = function * fetchTranscriptions(page = 0) {
-    self.reset()
+  const fetchTranscriptions = function * fetchTranscriptions(page = 0, shouldReset = true) {
+    if (shouldReset) self.reset()
     self.page = page
     const groupName = getRoot(self).groups.title
     const workflow = getRoot(self).workflows.current.id
