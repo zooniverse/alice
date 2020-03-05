@@ -22,7 +22,7 @@ function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen,
     <RelativeBox background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
       {disabled && <Overlay />}
       <Box direction='row' justify='between'>
-        <Text>All pages</Text>
+        <Text>All Pages</Text>
         {!isOpen && (
           <StepNavigation
             activeStep={subjectIndex}
