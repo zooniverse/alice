@@ -104,8 +104,8 @@ describe('Component > LineViewerContainer', function () {
 
   describe('closeModal function', function () {
     it('should set the active transcription', function () {
-      wrapper.props().closeModal()
-      expect(deleteCurrentLineSpy).toHaveBeenCalled()
+      const lineViewer = wrapper.find(LineViewer).first()
+      lineViewer.props().closeModal()
       expect(setActiveTranscriptionSpy).toHaveBeenCalledWith(undefined)
     })
   })

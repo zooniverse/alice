@@ -60,8 +60,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function addLine(index) {
-    const subjectLocation = getRoot(self).subjects.index
-    const page = self.current.text.get(`frame${subjectLocation}`)
+    const page = self.current.text.get(`frame${self.index}`)
     const location = index ? index : page.length
     const newLine = Reduction.create()
     page.splice(location, 0, newLine)
