@@ -34,7 +34,7 @@ const theme = {
       extend: props => `
         input {
           font-style: italic;
-          padding: 0.2em;
+          padding: 0.4em;
         }
       `
     }
