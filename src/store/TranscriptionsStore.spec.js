@@ -192,6 +192,12 @@ describe('TranscriptionsStore', function () {
         expect(transcriptionsStore.all.size).toBe(1)
       })
 
+      it('should not attempt to set an empty transcription', function () {
+        expect(transcriptionsStore.current.id).toBe("1")
+        transcriptionsStore.setTranscription()
+        expect(transcriptionsStore.current.id).toBe("1")
+      })
+
       it('should save a transcription', function () {
         transcriptionsStore.saveTranscription()
         expect(patchToveSpy).toHaveBeenCalled()
@@ -215,6 +221,11 @@ describe('TranscriptionsStore', function () {
         expect(transcriptionsStore.readyForReview).toBe(false)
       })
 
+      it('should change the index', function () {
+        transcriptionsStore.changeIndex(1)
+        expect(transcriptionsStore.index).toBe(1)
+      })
+
       describe('when deleting a line', function () {
         it('should not proceed without an active transcription', function () {
           const current = transcriptionsStore.current.text.get('frame0')
@@ -230,6 +241,21 @@ describe('TranscriptionsStore', function () {
           expect(current.length).toBe(1)
           transcriptionsStore.deleteCurrentLine()
           expect(current.length).toBe(0)
+          expect(patchToveSpy).toHaveBeenCalled()
+        })
+      })
+
+      describe('and attempting to undo', function () {
+        it('should not make a change', function () {
+          transcriptionsStore.undo()
+          expect(patchToveSpy).not.toHaveBeenCalled()
+        })
+      })
+
+      describe('and making a change', function () {
+        it('should undo the previous action', function () {
+          transcriptionsStore.setTextObject([mockReduction])
+          transcriptionsStore.undo()
           expect(patchToveSpy).toHaveBeenCalled()
         })
       })

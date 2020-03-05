@@ -109,24 +109,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.setParsedExtracts(arrangedExtractsByUser)
   })
 
-  const fetchTranscription = flow(function * fetchTranscription(id) {
-    if (!id) return undefined
-    undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
-    const client = getRoot(self).client.tove
-    try {
-      const response = yield client.get(`/transcriptions/${id}`)
-      const resource = JSON.parse(response.body)
-      undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.READY)
-      return self.createTranscription(resource.data)
-    } catch (error) {
-      console.warn(error);
-      undoManager.withoutUndo(() => {
-        self.error = error.message
-        self.asyncState = ASYNC_STATES.ERROR
-      })
-    }
-  })
-
   const fetchTranscriptions = function * fetchTranscriptions(page = 0) {
     self.reset()
     self.page = page
@@ -285,7 +267,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
     deleteCurrentLine,
     fetchExtracts,
-    fetchTranscription,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
     getTranscriberInfo,
     reset: () => undoManager.withoutUndo(() => reset()),
