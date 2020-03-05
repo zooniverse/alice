@@ -12,7 +12,7 @@ export default function ThumbnailBorder({ rotationDegrees }) {
   return (
     <StyledBox
       align='center'
-      border={{ color: 'blue', size: 'large' }}
+      border={{ color: 'brand', size: 'large' }}
       height='xsmall'
       justify='center'
       width='xsmall'>
