@@ -6,12 +6,15 @@ import DownloadDataModal from './DownloadDataModal'
 export default function DownloadDataModalContainer({ entireGroup }) {
   const store = React.useContext(AppContext)
   const onClose = () => store.modal.toggleModal('')
+  const onDownload = () => store.client.downloadData(entireGroup)
+
 
   return (
     <DownloadDataModal
       approved={store.transcriptions.approvedCount}
       entireGroup={entireGroup}
       onClose={onClose}
+      onDownload={onDownload}
       transcriptionCount={store.transcriptions.all.size}
     />
   )
