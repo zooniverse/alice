@@ -57,7 +57,7 @@ export default function Home () {
           <Box width='50%'>
             <Image alt='ALICE Logo' fit='contain' src={Alice} />
           </Box>
-          <Text color="#5C5C5C" size='large'>Aggregate Line Inspector / Collaborative Editor</Text>
+          <Text color="#5C5C5C" size='1.75em'>Aggregate Line Inspector / Collaborative Editor</Text>
         </Box>
         <Box
           border='bottom'

@@ -30,7 +30,7 @@ export default function Footer () {
     <Box>
       <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='medium'>
         {images.map((image) =>
-          <Box key={image.title} height='1.5em' width='xsmall'>
+          <Box key={image.title} height='2.8em' width='xsmall'>
             <Image alt={`${image.title} Logo`} fit='contain' src={image.logo}/>
           </Box>
         )}
