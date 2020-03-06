@@ -36,6 +36,21 @@ const theme = {
         height: 1em;
         width: 1em;
         ${checked ? `margin: 0.2em 0;` : `margin: 0.2em`}
+        ${checked ? `
+          &::before {
+            content: "\u2713";
+            left: 1px;
+            position: absolute;
+            top: -3px;
+          }
+        ` : `
+          &::before {
+            content: "\u0078";
+            left: 3px;
+            position: absolute;
+            top: -5px;
+          }
+        `}
         `
       }
     }
