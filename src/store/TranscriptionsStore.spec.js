@@ -231,6 +231,10 @@ describe('TranscriptionsStore', function () {
           current: {
             display_name: 'GROUP_1'
           }
+        },
+        workflows: {
+          all: { 1: { id: '1' } },
+          current: '1'
         }
       })
     })
