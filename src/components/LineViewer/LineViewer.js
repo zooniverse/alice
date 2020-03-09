@@ -28,6 +28,7 @@ function LineViewer ({
   consensusText,
   flagged,
   inputText,
+  isViewer,
   reduction,
   selectedItem,
   seen,
@@ -69,8 +70,8 @@ function LineViewer ({
             <Text weight='bold'>{consensusText}</Text>
           </Box>
           <Box direction='row' margin={{ bottom: '0.5em' }}>
-            <SeenButtonContainer reduction={reduction} tag={seen} />
-            <FlagButtonContainer reduction={reduction} tag={flagged} />
+            <SeenButtonContainer disabled={isViewer} reduction={reduction} tag={seen} />
+            <FlagButtonContainer disabled={isViewer} reduction={reduction} tag={flagged} />
           </Box>
           <Box>
             {reduction.edited_consensus_text ? (
@@ -85,58 +86,72 @@ function LineViewer ({
         <Box gap='xsmall' margin={{ vertical: 'xsmall' }} overflow='auto'>
           {transcriptionOptions.map((transcription, index) =>
             <TranscriptionLine
-              transcription={transcription}
               index={index}
+              isViewer={isViewer}
               key={`LINE_${index}`}
               selectedItem={selectedItem}
               setItem={setItem}
+              transcription={transcription}
             />)}
         </Box>
         <Box border='top' gap='xsmall' margin={{ horizontal: 'small', bottom: 'xsmall' }} pad={{ top: 'xsmall' }}>
           <Box>
             <Box direction='row' gap='xsmall'>
-              <CheckBox
-                checked={selectedItem === algorithmChoice}
-                onChange={() => {
-                  const setTo = selectedItem === algorithmChoice ? null : algorithmChoice
-                  setItem(setTo)
-                }}
-              />
+              {!isViewer && (
+                <CheckBox
+                  checked={selectedItem === algorithmChoice}
+                  onChange={() => {
+                    const setTo = selectedItem === algorithmChoice ? null : algorithmChoice
+                    setItem(setTo)
+                  }}
+                />
+              )}
               <Text>{reduction.consensus_text}</Text>
             </Box>
             <ItalicText margin={{ left: 'medium' }} size='xsmall'>aggregated transcription (via algorithm)</ItalicText>
           </Box>
-          <Box direction='row' gap='xsmall'>
-            <CheckBox
-              checked={selectedItem === typedChoice}
-              onChange={() => {
-                const setTo = selectedItem === typedChoice ? null : typedChoice
-                setItem(setTo)
-              }}
-            />
-            <Box fill='horizontal'>
-              <TextInput
-                onChange={(e) => {
-                  setInputText(e.target.value)
-                  if (e.target.value.length && selectedItem !== typedChoice) {
-                    setItem(typedChoice)
-                  } else if (!e.target.value.length) { setItem(null) }
+          {!isViewer && (
+            <Box direction='row' gap='xsmall'>
+              <CheckBox
+                checked={selectedItem === typedChoice}
+                onChange={() => {
+                  const setTo = selectedItem === typedChoice ? null : typedChoice
+                  setItem(setTo)
                 }}
-                placeholder='Write new...'
-                size='xsmall'
-                value={inputText}
               />
+              <Box fill='horizontal'>
+                <TextInput
+                  onChange={(e) => {
+                    setInputText(e.target.value)
+                    if (e.target.value.length && selectedItem !== typedChoice) {
+                      setItem(typedChoice)
+                    } else if (!e.target.value.length) { setItem(null) }
+                  }}
+                  placeholder='Write new...'
+                  size='xsmall'
+                  value={inputText}
+                />
+              </Box>
             </Box>
-          </Box>
+          )}
         </Box>
       </Box>
       <Box direction='row' justify='between' margin={{ horizontal: 'xsmall', bottom: 'xsmall', top: '0.25em' }}>
-        <Box direction='row'>
-          <Button margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
-          <Button onClick={toggleDeleteModal}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
-        </Box>
-        <Box direction='row' gap='small'>
-          <Button disabled={selectedItem === null} onClick={replaceWithSelected}><CapitalText size='xsmall'>Replace With Selected</CapitalText></Button>
+        {!isViewer && (
+          <Box direction='row'>
+            <Button margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
+            <Button onClick={toggleDeleteModal}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
+          </Box>
+        )}
+        <Box direction='row' margin={{ left: 'auto' }} gap='small'>
+          {!isViewer && (
+            <Button
+              disabled={selectedItem === null}
+              label={<CapitalText size='xsmall'>Replace With Selected</CapitalText>}
+              onClick={replaceWithSelected}
+              plain
+            />
+            )}
           <Button onClick={closeModal}><CapitalText size='xsmall'>Close</CapitalText></Button>
         </Box>
       </Box>
@@ -148,6 +163,7 @@ LineViewer.defaultProps = {
   closeModal: () => {},
   consensusText: '',
   flagged: false,
+  isViewer: false,
   reduction: {
     consensus_score: 0
   },
@@ -162,6 +178,7 @@ LineViewer.propTypes = {
   closeModal: PropTypes.func,
   consensusText: PropTypes.string,
   flagged: PropTypes.bool,
+  isViewer: PropTypes.bool,
   reduction: PropTypes.shape(),
   replaceWithSelected: PropTypes.func,
   seen: PropTypes.bool,

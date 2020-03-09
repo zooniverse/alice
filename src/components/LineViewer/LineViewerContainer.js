@@ -59,6 +59,7 @@ function LineViewerContainer() {
       consensusText={consensusText}
       flagged={reduction && reduction.flagged}
       inputText={localStore.inputText}
+      isViewer={store.projects.isViewer}
       reduction={reduction}
       seen={reduction && reduction.seen}
       selectedItem={localStore.selectedItem}

@@ -118,6 +118,10 @@ const ProjectsStore = types.model('ProjectsStore', {
     return (self.current && self.current.role === ROLES.ADMIN) || false
   },
 
+  get isViewer () {
+    return (self.current && self.current.role === ROLES.VIEWER) || false
+  },
+
   get role () {
     return self.current && self.current.role
   },

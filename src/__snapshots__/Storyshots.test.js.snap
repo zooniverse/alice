@@ -780,6 +780,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             >
               <button
                 className="StyledButton-sc-323bzc-0 jfbKsv"
+                disabled={false}
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -813,6 +814,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             >
               <button
                 className="StyledButton-sc-323bzc-0 jfbKsv"
+                disabled={false}
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -1002,7 +1004,7 @@ exports[`Storyshots LineViewer Default 1`] = `
           </button>
         </div>
         <div
-          className="StyledBox-sc-13pk1d4-0 ekjAwv"
+          className="StyledBox-sc-13pk1d4-0 TetEL"
         >
           <button
             className="StyledButton-sc-323bzc-0 chnll"

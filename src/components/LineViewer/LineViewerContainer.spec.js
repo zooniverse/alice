@@ -24,6 +24,9 @@ const currentTranscription = {
 }
 
 const contextValues = {
+  projects: {
+    isViewer: false
+  },
   transcriptions: {
     activeTranscriptionIndex: 0,
     current: currentTranscription,

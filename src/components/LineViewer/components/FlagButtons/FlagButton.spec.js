@@ -31,4 +31,12 @@ describe('Component > FlagButton', function () {
     wrapper = shallow(<FlagButton showFlag />)
     expect(wrapper.find(Drop).length).toBe(1)
   })
+
+  describe('when a viewer', function () {
+    it('should not trigger onShowFlag', function () {
+      wrapper = shallow(<FlagButton disabled onShowFlag={onShowFlagSpy} />)
+      wrapper.find(Button).first().simulate('mouseover')
+      expect(onShowFlagSpy).not.toHaveBeenCalled()
+    })
+  })
 })

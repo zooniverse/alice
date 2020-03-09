@@ -43,6 +43,9 @@ const contextValues = {
   image: {
     zoomIn: () => {}
   },
+  projects: {
+    isViewer: false
+  },
   subjects: {
     all: { '1': { locations: [{ 'image': 'site.com' }] } },
     asyncState: ASYNC_STATES.IDLE,

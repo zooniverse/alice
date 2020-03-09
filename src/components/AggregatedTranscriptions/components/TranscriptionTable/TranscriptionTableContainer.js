@@ -12,6 +12,7 @@ function TranscriptionTableContainer() {
   return (
     <TranscriptionTable
       data={frameData}
+      isViewer={store.projects.isViewer}
       setActiveTranscription={setActiveTranscription}
       setTextObject={store.transcriptions.setTextObject}
     />

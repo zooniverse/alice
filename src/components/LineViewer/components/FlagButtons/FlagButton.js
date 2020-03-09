@@ -10,7 +10,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   opacity: ${props => props.dim ? 0.25 : 1};
 `
 
-function FlagButton({ onShowFlag, setFlag, showFlag, seenButton, tag }) {
+function FlagButton({ disabled, onShowFlag, setFlag, showFlag, seenButton, tag }) {
   const flagBtn = React.useRef(null)
   const color = seenButton ? 'green' : 'tomato'
   const icon = seenButton ? faCircle : faFlag
@@ -19,8 +19,11 @@ function FlagButton({ onShowFlag, setFlag, showFlag, seenButton, tag }) {
   return (
     <Box>
       <Button
+        disabled={disabled}
         onClick={setFlag}
-        onMouseOver={() => onShowFlag(true)}
+        onMouseOver={() => {
+          if (!disabled) onShowFlag(true)}
+        }
         onMouseOut={() => onShowFlag(false)}
         plain
         ref={flagBtn}
@@ -58,6 +61,7 @@ function FlagButton({ onShowFlag, setFlag, showFlag, seenButton, tag }) {
 }
 
 FlagButton.propTypes = {
+  disabled: bool,
   onShowFlag: func,
   seenButton: bool,
   setFlag: func,
@@ -66,6 +70,7 @@ FlagButton.propTypes = {
 }
 
 FlagButton.defaultProps = {
+  disabled: false,
   onShowFlag: () => {},
   seenButton: false,
   setFlag: () => {},
