@@ -784,7 +784,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             <span
               className="StyledText-sc-1sadyjn-0 kutFY"
             >
-
+              
             </span>
           </div>
           <div
@@ -886,7 +886,7 @@ exports[`Storyshots LineViewer Default 1`] = `
         <div
           className="StyledBox-sc-13pk1d4-0 eVyzLf"
         >
-
+          
           <div
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
@@ -1626,7 +1626,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ eJgHCP"
       >
-        This subject cannot be accessed because
+        This subject cannot be accessed because 
         <b>
           Erin Green
         </b>
