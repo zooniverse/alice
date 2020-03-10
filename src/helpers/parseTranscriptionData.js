@@ -40,6 +40,7 @@ function mapExtractsToReductions(
   reduction.user_ids && reduction.user_ids.forEach((userId, idIndex) => {
     // lets find that user's annotation
     const userClassificationsOnSubject = extractsByUser[userId]
+    if (!userClassificationsOnSubject) return null
     for (let i = 0; i < userClassificationsOnSubject.length; i++) {
       const classification = userClassificationsOnSubject[i]
       const currentFrame = `frame${subjectIndex}`
