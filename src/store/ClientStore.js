@@ -6,7 +6,7 @@ import download from 'downloadjs'
 const ClientStore = types.model('ClientStore', {
   bearerToken: types.optional(types.string, ''),
   tove: types.optional(types.frozen({}), null),
-  toveCSV: types.optional(types.frozen({}), null)
+  toveZip: types.optional(types.frozen({}), null)
 }).actions(self => ({
   initialize: () => {
     self.tove = new Frisbee({
@@ -17,7 +17,7 @@ const ClientStore = types.model('ClientStore', {
       },
       mode: 'cors'
     })
-    self.toveCSV = new Frisbee({
+    self.toveZip = new Frisbee({
       baseURI: config.tove,
       headers: {
         'Accept': 'application/zip',
@@ -39,7 +39,7 @@ const ClientStore = types.model('ClientStore', {
     const filename = isEntireGroup ? `${currentGroup}_export` : `${currentTranscription}_export`
 
       try {
-        yield self.toveCSV.get(query).then(response => response.blob())
+        yield self.toveZip.get(query).then(response => response.blob())
           .then(blob => download(blob, `${filename}.zip`))
       } catch (error) {
         console.log(error);
@@ -48,7 +48,7 @@ const ClientStore = types.model('ClientStore', {
 
   setBearerToken: (token) => {
     self.tove.jwt(token)
-    self.toveCSV.jwt(token)
+    self.toveZip.jwt(token)
   }
 }))
 
