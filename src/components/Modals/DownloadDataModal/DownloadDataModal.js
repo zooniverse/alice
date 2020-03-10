@@ -49,7 +49,6 @@ export default function DownloadDataModal({
           onClick={onDownload}
           plain
         />
-        <a href="https://tove-staging.zooniverse.org/transcriptions/export_group?group_id=TEST1&workflow_id=3085">download via link</a>
       </Box>
     </Box>
   )

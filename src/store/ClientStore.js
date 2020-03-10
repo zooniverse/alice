@@ -42,7 +42,7 @@ const ClientStore = types.model('ClientStore', {
 
       try {
         yield self.toveCSV.get(query).then(response => response.blob())
-          .then(blob => download(blob, filename))
+          .then(blob => download(blob, `${filename}.zip`))
       } catch (error) {
         console.log(error);
       }
