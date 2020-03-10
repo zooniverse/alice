@@ -94,7 +94,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     // with the correct 'alice' key.
     const query = `{
       workflow(id: ${workflowId}) {
-        extracts(subjectId: ${id}, extractorKey: "ext-17") {
+        extracts(subjectId: ${id}, extractorKey: "alice") {
           data, userId, classificationAt
         }
       }
