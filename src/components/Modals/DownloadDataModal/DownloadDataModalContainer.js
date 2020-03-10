@@ -6,7 +6,10 @@ import DownloadDataModal from './DownloadDataModal'
 export default function DownloadDataModalContainer({ entireGroup }) {
   const store = React.useContext(AppContext)
   const onClose = () => store.modal.toggleModal('')
-  const onDownload = () => store.client.downloadData(entireGroup)
+  const onDownload = () => {
+    store.client.downloadData(entireGroup)
+    onClose()
+  }
 
 
   return (

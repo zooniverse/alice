@@ -21,9 +21,7 @@ const ClientStore = types.model('ClientStore', {
       baseURI: config.tove,
       headers: {
         'Accept': 'application/zip',
-        'Access-Control-Expose-Headers': 'Content-Disposition',
-        'Content-Type': 'application/zip',
-        'Content-Disposition': 'attachment; filename="export.zip"'
+        'Content-Type': 'application/zip'
       },
       mode: 'cors',
       // This is necessary for the Frisbee api to convert the response to a blob
