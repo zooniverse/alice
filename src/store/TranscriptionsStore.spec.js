@@ -144,16 +144,6 @@ describe('TranscriptionsStore', function () {
         expect(transcriptionsStore.showSaveTranscriptionError).toBe(true)
       })
 
-      it('should add a transcription line', async function () {
-        await transcriptionsStore.selectTranscription(1)
-        transcriptionsStore.setTextObject([mockReduction])
-        const current = transcriptionsStore.current.text.get('frame0')
-        expect(current.length).toBe(1)
-        transcriptionsStore.addLine()
-        expect(current.length).toBe(2)
-        expect(transcriptionsStore.activeTranscriptionIndex).toBe(1)
-      })
-
       it('should not delete an inactive transcription line', async function () {
         await transcriptionsStore.selectTranscription(1)
         transcriptionsStore.deleteCurrentLine()
@@ -260,6 +250,15 @@ describe('TranscriptionsStore', function () {
       it('should change the index', function () {
         transcriptionsStore.changeIndex(1)
         expect(transcriptionsStore.index).toBe(1)
+      })
+
+      it('should add a transcription line', async function () {
+        transcriptionsStore.setTextObject([mockReduction])
+        const current = transcriptionsStore.current.text.get('frame0')
+        expect(current.length).toBe(1)
+        transcriptionsStore.addLine()
+        expect(current.length).toBe(2)
+        expect(transcriptionsStore.activeTranscriptionIndex).toBe(1)
       })
 
       describe('when deleting a line', function () {
