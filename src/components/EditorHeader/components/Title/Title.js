@@ -87,5 +87,5 @@ Title.defaultProps = {
   onEditer: false
 }
 
-export { CapitalText, Title }
+export { CapitalText, StyledHeading, Title }
 export default withRouter(observer(Title))
