@@ -52,6 +52,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     reaction(() => self.asyncState, (state) => {
       if (state === ASYNC_STATES.ERROR) {
         undoManager.withoutUndo(() => self.showSaveTranscriptionError = true)
+      } else if (state === ASYNC_STATES.READY) {
+        undoManager.withoutUndo(() => self.showSaveTranscriptionError = false)
       }
     })
   }
