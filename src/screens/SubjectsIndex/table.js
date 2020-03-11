@@ -3,6 +3,7 @@ import { Box, Button, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import writeDate from 'helpers/writeDate'
 import HeaderButton from './HeaderButton'
 
 const CapitalText = styled(Text)`
@@ -23,19 +24,19 @@ const columns = [
     header: "Internal ID"
   },
   {
-    property: "lastEdit",
+    property: "updated_at",
     header: (
       <Button onClick={() => console.log('last edit click')} plain>
         <CapitalText>Last Edit</CapitalText>
       </Button>
     ),
     render: datum => {
-      const color = datum.locked ? 'red' : 'black'
-      return <Text color={color}>{datum.locked ? 'LOCKED' : datum.lastEdit}</Text>
+      const color = datum.locked ? 'red' : 'inherit'
+      return <Text color={color}>{datum.locked ? 'LOCKED' : writeDate(datum.updated_at)}</Text>
     }
   },
   {
-    property: "lastEditor",
+    property: "updated_by",
     header: "Last Editor"
   },
   {
@@ -52,7 +53,7 @@ const columns = [
     property: "consensusScore",
     header: "Consensus Score",
     render: datum => {
-      const color = datum.consensusScore <= datum.classifications / 2 ? 'red' : 'black'
+      const color = datum.consensusScore <= datum.classifications / 2 ? 'red' : 'inherit'
       return <Text color={color}>{datum.low_consensus_lines}/{datum.transcribed_lines}</Text>
     }
   },
