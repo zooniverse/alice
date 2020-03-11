@@ -192,7 +192,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   })
 
-  function saveTranscription() {
+  const saveTranscription = flow(function * saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const textBlob = toJS(self.current.text)
     const lineCounts = {
@@ -209,8 +209,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         }
       }
     }
-    self.patchTranscription(query)
-  }
+    yield self.patchTranscription(query)
+  })
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
     if (!id) return undefined
@@ -229,7 +229,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     } catch (error) {
       console.warn(error);
       undoManager.withoutUndo(() => {
-        self.error = error.message
+        self.error = TranscriptionError.create({ message: error.message })
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
