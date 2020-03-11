@@ -911,13 +911,13 @@ exports[`Storyshots LineViewer Default 1`] = `
               >
                 <input
                   autoComplete="off"
-                  className="StyledTextInput-sc-1x30a0s-0 kXUzSj"
+                  className="StyledTextInput-sc-1x30a0s-0 bVzAne"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
                   onKeyDown={[Function]}
                   placeholder="Write new..."
-                  size="medium"
+                  size="xsmall"
                   value=""
                 />
               </div>
