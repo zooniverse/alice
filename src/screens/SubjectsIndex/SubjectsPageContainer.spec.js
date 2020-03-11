@@ -97,19 +97,42 @@ describe('Component > SubjectsPageContainer', function () {
   })
 
   describe('useEffect hook', function () {
-    it('should fetch resources', async function () {
-      jest
-        .spyOn(React, 'useContext')
-        .mockImplementation(() => contextValues )
-      wrapper = mount(
-        <Router>
-          <SubjectsPageContainer match={match} />
-        </Router>);
-      await act(async () => {
-        wrapper.update();
-      });
-      expect(getResourcesSpy).toHaveBeenCalled()
-      expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+    afterEach(() => jest.clearAllMocks())
+
+    describe('without a current transcription', function () {
+      it('should fetch resources', async function () {
+        jest
+          .spyOn(React, 'useContext')
+          .mockImplementation(() => contextValues )
+        wrapper = mount(
+          <Router>
+            <SubjectsPageContainer match={match} />
+          </Router>);
+        await act(async () => {
+          wrapper.update();
+        });
+        expect(getResourcesSpy).toHaveBeenCalled()
+        expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+      })
+    })
+
+    describe('with a current transcription', function () {
+      it('should not fetch resources', async function () {
+        console.log('CHECK THIS OUT HERE');
+        const editedContextValues = Object.assign(contextValues, {})
+        editedContextValues.transcriptions.current = { id: '1' }
+        jest
+          .spyOn(React, 'useContext')
+          .mockImplementation(() => editedContextValues )
+        wrapper = mount(
+          <Router>
+            <SubjectsPageContainer match={match} />
+          </Router>);
+        await act(async () => {
+          wrapper.update();
+        });
+        expect(getResourcesSpy).not.toHaveBeenCalled()
+      })
     })
   })
 })

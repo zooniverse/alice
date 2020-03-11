@@ -16,6 +16,8 @@ function SubjectsPageContainer ({ history, match }) {
       await store.getResources(match.params)
       await store.transcriptions.fetchTranscriptions(store.transcriptions.page, false)
     }
+    console.log(store.transcriptions);
+    console.log('store', store.transcriptions.current);
     if (!(store.transcriptions.current && store.transcriptions.current.id)) {
       setResources()
     }
