@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { DropButton } from 'grommet'
-import Badge, { DropLink } from './Badge'
+import Badge, { DropLink, StyledBox } from './Badge'
 import { BrowserRouter as Router } from 'react-router-dom'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
@@ -37,7 +37,6 @@ describe('Component > Badge', function () {
           <DropLink />
         </Router>)
       const tree = renderer.create(wrapper).toJSON()
-      expect(tree).toHaveStyleRule('background', 'inherit')
       expect(tree).toHaveStyleRule('pointer-events', 'all')
     })
 
@@ -47,8 +46,21 @@ describe('Component > Badge', function () {
           <DropLink disabled />
         </Router>)
       const tree = renderer.create(wrapper).toJSON()
-      expect(tree).toHaveStyleRule('background', '#D8D8D8')
       expect(tree).toHaveStyleRule('pointer-events', 'none')
+    })
+  })
+
+  describe('StyledBox', function () {
+    it('should enable the component', function () {
+      wrapper = shallow(<StyledBox />)
+      const tree = renderer.create(wrapper).toJSON()
+      expect(tree).toHaveStyleRule('background', 'inherit')
+    })
+
+    it('should disable the component', function () {
+      wrapper = shallow(<StyledBox disabled />)
+      const tree = renderer.create(wrapper).toJSON()
+      expect(tree).toHaveStyleRule('background', '#D8D8D8')
     })
   })
 
