@@ -2,20 +2,24 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { Button } from 'grommet'
 import FilmstripThumbnail from './FilmstripThumbnail'
-import ThumbnailBorder from './ThumbnailBorder'
 
-let selectImage
+const selectImage = jest.fn()
+const setStateSpy = jest.fn()
 let wrapper
 
 describe('Component > FilmstripViewer', function () {
   beforeEach(function() {
-    selectImage = jest.fn()
+    jest
+      .spyOn(React, 'useState')
+      .mockImplementation((init) => [init, setStateSpy])
     wrapper = shallow(
       <FilmstripThumbnail
         selectImage={selectImage}
         src={'www.testlocation.com'}
       />)
   })
+
+  afterEach(() => jest.clearAllMocks());
 
   it('renders without crashing', function () {
     expect(wrapper).toBeDefined()
@@ -27,20 +31,27 @@ describe('Component > FilmstripViewer', function () {
     expect(selectImage).toHaveBeenCalled()
   })
 
-  it('should not render a border when not active', function() {
-    const border = wrapper.find(ThumbnailBorder)
-    expect(border.length).toBe(0)
+  it('changes the isHover state on blur', function() {
+    const button = wrapper.find(Button).first()
+    button.simulate('blur')
+    expect(setStateSpy).toHaveBeenCalledWith(false)
   })
 
-  describe('when isActive set to true', function() {
-    it('should render a border around the subejct', function() {
-      wrapper = shallow(
-        <FilmstripThumbnail
-          isActive
-          src={'www.testlocation.com'}
-        />)
-      const border = wrapper.find(ThumbnailBorder)
-      expect(border.length).toBe(1)
-    })
+  it('changes the isHover state on mouse leave', function() {
+    const button = wrapper.find(Button).first()
+    button.simulate('mouseleave')
+    expect(setStateSpy).toHaveBeenCalledWith(false)
+  })
+
+  it('changes the isHover state on mouse enter', function() {
+    const button = wrapper.find(Button).first()
+    button.simulate('mouseenter')
+    expect(setStateSpy).toHaveBeenCalledWith(true)
+  })
+
+  it('changes the isHover state on focus', function() {
+    const button = wrapper.find(Button).first()
+    button.simulate('focus')
+    expect(setStateSpy).toHaveBeenCalledWith(true)
   })
 })
