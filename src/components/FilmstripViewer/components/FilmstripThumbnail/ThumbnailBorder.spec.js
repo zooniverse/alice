@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Text } from 'grommet'
-import ThumbnailBorder from './ThumbnailBorder'
+import ThumbnailBorder, { StyledBox } from './ThumbnailBorder'
 
 let wrapper
 
@@ -23,5 +23,21 @@ describe('Component > FilmstripViewer', function () {
     wrapper = shallow(<ThumbnailBorder rotationDegrees={90} />)
     const degrees = wrapper.find(Text).length
     expect(degrees).toBe(1)
+  })
+
+  describe('when hovered', function () {
+    it('should set the correct border', function () {
+      wrapper = shallow(<ThumbnailBorder isHover />)
+      const box = wrapper.find(StyledBox).first()
+      expect(box.props().border.size).toBe('medium')
+    })
+  })
+
+  describe('when active', function () {
+    it('should set the correct border', function () {
+      wrapper = shallow(<ThumbnailBorder isActive />)
+      const box = wrapper.find(StyledBox).first()
+      expect(box.props().border.size).toBe('large')
+    })
   })
 })
