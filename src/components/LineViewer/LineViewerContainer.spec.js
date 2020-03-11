@@ -31,6 +31,7 @@ const contextValues = {
     activeTranscriptionIndex: 0,
     current: currentTranscription,
     index: 0,
+    parsedExtracts: [[{}]],
     setActiveTranscription: setActiveTranscriptionSpy
   }
 }

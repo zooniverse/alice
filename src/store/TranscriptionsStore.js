@@ -3,8 +3,10 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { toJS } from 'mobx'
 import { undoManager } from 'store/AppStore'
+import apiClient from 'panoptes-client/lib/api-client.js'
 import { request } from 'graphql-request'
 import { config } from 'config'
+import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
 import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
@@ -30,10 +32,20 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   current: types.safeReference(Transcription),
   error: types.optional(types.string, ''),
   index: types.optional(types.number, 0),
+  extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
   totalPages: types.optional(types.number, 1),
-  extracts: types.array(types.frozen())
+  rawExtracts: types.array(types.frozen()),
+  parsedExtracts: types.array(types.frozen())
 }).actions(self => {
+  function arrangeExtractsByUser() {
+    return self.rawExtracts.reduce((list, extract) => {
+      if (!list[extract.userId]) list[extract.userId] = []
+      list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
+      return list
+    }, {})
+  }
+
   function changeIndex(index) {
     self.index = index
   }
@@ -74,7 +86,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
-  const fetchExtracts = function * fetchExtracts(id) {
+  const fetchExtracts = flow(function * fetchExtracts(id) {
     const workflowId = getRoot(self).workflows.current.id
     // TODO: The extractor key below will need to change eventually. This is just
     // to test the code with ASM staging data. In the future, this will change to
@@ -82,35 +94,19 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     // with the correct 'alice' key.
     const query = `{
       workflow(id: ${workflowId}) {
-        extracts(subjectId: ${id}, extractorKey: "ext-17") {
-          data, userId
+        extracts(subjectId: ${id}, extractorKey: "alice") {
+          data, userId, classificationAt
         }
       }
     }`
     let validExtracts = []
     yield request(config.caesar, query).then((data) => {
-      const index = getRoot(self).subjects.index
-      validExtracts = data.workflow.extracts.filter(extract => extract.data[`frame${index}`])
+      validExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
     })
-    self.extracts = validExtracts
-  }
-
-  const fetchTranscription = flow(function * fetchTranscription(id) {
-    if (!id) return undefined
-    undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
-    const client = getRoot(self).client.tove
-    try {
-      const response = yield client.get(`/transcriptions/${id}`)
-      const resource = JSON.parse(response.body)
-      undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.READY)
-      return self.createTranscription(resource.data)
-    } catch (error) {
-      console.warn(error);
-      undoManager.withoutUndo(() => {
-        self.error = error.message
-        self.asyncState = ASYNC_STATES.ERROR
-      })
-    }
+    undoManager.withoutUndo(() => self.rawExtracts = validExtracts)
+    const arrangedExtractsByUser = self.arrangeExtractsByUser()
+    yield self.getTranscriberInfo(arrangedExtractsByUser)
+    self.setParsedExtracts(arrangedExtractsByUser)
   })
 
   const fetchTranscriptions = function * fetchTranscriptions(page = 0) {
@@ -122,6 +118,19 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const searchQuery = getRoot(self).search.getSearchQuery()
     yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}`)
   }
+
+  const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
+    let usersWhoClassified = Object.keys(arrangedExtractsByUser)
+    usersWhoClassified = usersWhoClassified.filter(user => user !== 'null')
+    const users = yield apiClient.type('users').get({ id: usersWhoClassified })
+
+    undoManager.withoutUndo(() => {
+      self.extractUsers = users.reduce((list, user) => {
+        list[user.id] = user.display_name
+        return list
+      }, {})
+    })
+  })
 
   function reset() {
     getRoot(self).aggregations.setModal(false)
@@ -172,16 +181,41 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
-    const transcription = yield self.fetchTranscription(id)
-    yield self.fetchExtracts(id)
-    self.setTranscription(transcription)
-    undoManager.withoutUndo(() => {
-      self.current = id
-    })
+    if (!id) return undefined
+    undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
+    const client = getRoot(self).client.tove
+    try {
+      const response = yield client.get(`/transcriptions/${id}`)
+      const resource = JSON.parse(response.body)
+      const transcription = self.createTranscription(resource.data)
+      self.setTranscription(transcription)
+      undoManager.withoutUndo(() => {
+        self.current = id
+        self.asyncState = ASYNC_STATES.READY
+      })
+      yield self.fetchExtracts(id)
+    } catch (error) {
+      console.warn(error);
+      undoManager.withoutUndo(() => {
+        self.error = error.message
+        self.asyncState = ASYNC_STATES.ERROR
+      })
+    }
   })
 
   function setActiveTranscription(id) {
     self.activeTranscriptionIndex = id
+  }
+
+  function setParsedExtracts(arrangedExtractsByUser) {
+    const extracts = []
+    const extractsByUser = arrangedExtractsByUser || self.arrangeExtractsByUser()
+    const transcriptionFrame = self.current && self.current.text && self.current.text.get(`frame${self.index}`)
+    const reductionText = transcriptionFrame && transcriptionFrame.map(transcription => constructText(transcription))
+    transcriptionFrame && transcriptionFrame.forEach((reduction, reductionIndex) => {
+      extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, self.index, self.extractUsers))
+    })
+    self.parsedExtracts = extracts
   }
 
   function setTextObject(text) {
@@ -194,7 +228,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       try {
         self.all.put(transcription)
       } catch (error) {
-        console.error(error)
+        console.warn(error)
       }
     }
   }
@@ -227,18 +261,20 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   return {
+    arrangeExtractsByUser,
     changeIndex,
     checkForFlagUpdate,
     createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
     deleteCurrentLine,
-    fetchExtracts: (id) => undoManager.withoutUndo(() => flow(fetchExtracts))(id),
-    fetchTranscription,
+    fetchExtracts,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
+    getTranscriberInfo,
     reset: () => undoManager.withoutUndo(() => reset()),
     retrieveTranscriptions,
     saveTranscription,
     selectTranscription,
     setActiveTranscription,
+    setParsedExtracts: (extractsByUser) => undoManager.withoutUndo(() => setParsedExtracts(extractsByUser)),
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
     undo,

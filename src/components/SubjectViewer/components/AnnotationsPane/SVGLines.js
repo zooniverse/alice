@@ -21,7 +21,7 @@ export default function SVGLines({ lines, isExtract, reductionIndex }) {
             cx={line.x1}
             cy={line.y1}
             r={circleWidth}
-            fill={color}
+            fill='transparent'
             stroke={color}
             strokeWidth={strokeWidth}
           />
@@ -32,7 +32,7 @@ export default function SVGLines({ lines, isExtract, reductionIndex }) {
             cx={line.x2}
             cy={line.y2}
             r={circleWidth}
-            fill='transparent'
+            fill={color}
             stroke={color}
             strokeWidth={strokeWidth}
           />

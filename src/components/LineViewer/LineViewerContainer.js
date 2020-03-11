@@ -1,7 +1,6 @@
 import React from 'react'
 import AppContext from 'store'
 import { observer, useLocalStore } from 'mobx-react'
-import { constructText } from 'helpers/parseTranscriptionData'
 import LineViewer from './LineViewer'
 
 function LineViewerContainer() {
@@ -41,16 +40,10 @@ function LineViewerContainer() {
   }
 
   React.useEffect(() => {
-    const transcriptionArray = constructText(reduction).map((text, i) => {
-      return {
-        date: '',
-        goldStandard: (reduction.gold_standard && reduction.gold_standard[i]) || false,
-        userName: 'Anonymous',
-        text
-      }
-    })
-    localStore.setTranscriptionOptions(transcriptionArray)
-  }, [localStore, reduction])
+    if (store.transcriptions.parsedExtracts && transcriptionIndex !== undefined) {
+      localStore.setTranscriptionOptions(store.transcriptions.parsedExtracts[transcriptionIndex])
+    }
+  }, [localStore, store.transcriptions.parsedExtracts, transcriptionIndex])
 
   return (
     <LineViewer

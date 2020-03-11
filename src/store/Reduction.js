@@ -15,15 +15,17 @@ const Reduction = types.model('Reduction', {
   line_slope: types.optional(types.number, 0),
   low_consensus: types.optional(types.boolean, false),
   number_views: types.optional(types.integer, 0),
+  original_transcriber: types.optional(types.string, ''),
   seen: types.optional(types.boolean, false),
   slope_label: types.optional(types.integer, 0),
   user_ids: types.array(types.maybeNull(types.integer))
 })
 .actions(self => ({
-  setConsensusText: (text, isOriginalOption = false) => {
+  setConsensusText: (text, isOriginalOption = false, originalTranscriber = '') => {
+    self.original_transcriber = originalTranscriber
     self.line_editor = isOriginalOption ? '' : getRoot(self).auth.user.display_name
     self.edited_consensus_text = isOriginalOption ? '' : text
-    
+
     const transcription = getRoot(self).transcriptions
     transcription.saveTranscription()
   },

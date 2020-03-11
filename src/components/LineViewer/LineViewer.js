@@ -40,16 +40,19 @@ function LineViewer ({
   toggleDeleteModal
 }) {
   const replaceWithSelected = () => {
+    let originalTranscriber = ''
     let textOption = ''
+
     if (selectedItem === algorithmChoice) {
       textOption = reduction.consensus_text
     } else if (selectedItem === typedChoice) {
       textOption = inputText
     } else {
+      originalTranscriber = transcriptionOptions[selectedItem].user
       textOption = transcriptionOptions[selectedItem].text
     }
     const isAlgorithmChoice = selectedItem === algorithmChoice
-    reduction.setConsensusText(textOption, isAlgorithmChoice)
+    reduction.setConsensusText(textOption, isAlgorithmChoice, originalTranscriber)
   }
 
   return (
