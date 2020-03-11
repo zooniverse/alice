@@ -3,7 +3,7 @@ import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { bool, number } from 'prop-types'
 
-const StyledBox = styled(Box)`
+export const StyledBox = styled(Box)`
   background-color: rgba(0, 95, 255, 0.14);
   position: absolute;
 `
