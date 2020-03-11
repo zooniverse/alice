@@ -29,9 +29,7 @@ function SubjectsPageContainer ({ history, match }) {
     history.push(nextPath)
   }
 
-  const onSetPage = (page) => {
-    store.transcriptions.fetchTranscriptions(page)
-  }
+  const onSetPage = (page) => store.transcriptions.fetchTranscriptions(page)
   const steps = Array.from(Array(store.transcriptions.totalPages).keys())
   const transcriptions = Array.from(store.transcriptions.all.values())
 

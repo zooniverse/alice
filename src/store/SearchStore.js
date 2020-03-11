@@ -14,16 +14,18 @@ const FILTERS = {
   UNSEEN: 'unseen'
 }
 
-const SORT_VALUES = ['id', 'flagged', 'status']
+const SORT_VALUES = ['id', 'internal_id', 'flagged', 'status']
 
 const SearchStore = types.model('SearchStore', {
   approved: types.optional(types.boolean, false),
   flagged: types.optional(types.boolean, false),
   id: types.optional(types.string, ''),
+  internal_id: types.optional(types.string, ''),
   in_progress: types.optional(types.boolean, false),
   low_consensus: types.optional(types.boolean, false),
   ready: types.optional(types.boolean, false),
   sort_id: types.optional(types.number, 0),
+  sort_internal_id: types.optional(types.number, 0),
   sort_flagged: types.optional(types.number, 0),
   sort_status: types.optional(types.number, 0),
   type: types.optional(types.string, ''),

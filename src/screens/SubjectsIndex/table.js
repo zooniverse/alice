@@ -21,7 +21,7 @@ const columns = [
   },
   {
     property: "internal_id",
-    header: "Internal ID"
+    header: <HeaderButton property='internal_id' title='INTERNAL ID' />
   },
   {
     property: "updated_at",
@@ -46,7 +46,7 @@ const columns = [
   },
   {
     property: "flagged",
-    header: "Flag",
+    header: <HeaderButton property='flagged' title='FLAG' />,
     render: datum => datum.flagged ? <Box><StyledFontAwesomeIcon color='tomato' icon={faCircle} /></Box> : null
   },
   {
