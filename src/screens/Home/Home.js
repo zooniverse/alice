@@ -6,12 +6,19 @@ import {
   Image,
   Text,
 } from 'grommet'
+import styled from 'styled-components'
 import Alice from '../../images/alice.png'
 import { Link } from 'react-router-dom'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 import LoginForm from './components/LoginForm'
 import Footer from './components/Footer'
+
+const StyledGrid = styled(Grid)`
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+`
 
 const content = [
   {
@@ -44,11 +51,10 @@ const content = [
 
 export default function Home () {
   return (
-    <Grid
+    <StyledGrid
       areas={[{ name: 'content', start: [0, 0], end: [0, 0] }, { name: 'login', start: [1, 0], end: [1, 0] }]}
       columns={['2/3', '1/3']}
-      rows={['full']}
-      fill>
+      rows={['full']}>
       <Box gridArea='content' pad='medium'>
         <Box margin={{ vertical: 'large' }}>
           <Box height='2em' width='12em'>
@@ -71,6 +77,6 @@ export default function Home () {
       <Box gridArea='login'>
         <LoginForm />
       </Box>
-    </Grid>
+    </StyledGrid>
   )
 }
