@@ -73,7 +73,8 @@ const SearchStore = types.model('SearchStore', {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
     const searchType = self.type === TYPES.ZOONIVERSE ? 'subject_id' : 'internal_id'
-    return `filter[${searchType}_eq]=${self.id}`
+    const filterType = self.type === TYPES.ZOONIVERSE ? '_eq' : '_cont'
+    return `filter[${searchType}${filterType}]=${self.id}`
   },
 
   setArgs: function setArgs(args) {
