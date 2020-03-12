@@ -16,7 +16,7 @@ const ClientStore = types.model('ClientStore', {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      mode: 'no-cors'
+      mode: 'cors'
     })
 
     self.tove = new Frisbee({

@@ -108,6 +108,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
     const client = getRoot(self).client.aggregator
     const query = `?eps_slope=${params.epsSlope}&eps_line=${params.epsLine}&eps_word=${params.epsWord}&gutter_tol=${params.gutterTol}&min_samples=${params.minSamples}&min_word_count=${params.minWordCount}`
+    console.log(toJS(self.extracts));
     const result = yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.extracts) })
     console.log(result);
   })
@@ -116,6 +117,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const client = getRoot(self).client.aggregator
     const minSamples = params.auto ? 'auto' : params.minSamples
     const query = `?min_samples=${minSamples}&xi=${params.xi}&angle_eps=${params.angleEps}&gutter_eps=${params.gutterEps}&min_line_length=${params.minLineLength}`
+    console.log(toJS(self.extracts));
     const result = yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.extracts) })
     console.log(result);
   })
@@ -135,7 +137,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }`
     let validExtracts = []
     yield request(config.caesar, query).then((data) => {
-      validExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
+      const filteredExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
+      validExtracts = filteredExtracts.map((extract) => {
+        return { data: extract.data, user_id: extract.userId }
+      })
     })
     undoManager.withoutUndo(() => self.rawExtracts = validExtracts)
     const arrangedExtractsByUser = self.arrangeExtractsByUser()
