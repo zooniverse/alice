@@ -109,8 +109,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const client = getRoot(self).client.aggregator
     const query = `?eps_slope=${params.epsSlope}&eps_line=${params.epsLine}&eps_word=${params.epsWord}&gutter_tol=${params.gutterTol}&min_samples=${params.minSamples}&min_word_count=${params.minWordCount}`
     console.log(toJS(self.extracts));
-    const result = yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.extracts) })
-    console.log(result);
+    yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.extracts) }).then((response) => {
+      self.redefineTranscription(response.body)
+    })
   })
 
   const reaggregateOptics = flow(function * reaggregateOptics(params) {
@@ -118,9 +119,23 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const minSamples = params.auto ? 'auto' : params.minSamples
     const query = `?min_samples=${minSamples}&xi=${params.xi}&angle_eps=${params.angleEps}&gutter_eps=${params.gutterEps}&min_line_length=${params.minLineLength}`
     console.log(toJS(self.extracts));
-    const result = yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.extracts) })
-    console.log(result);
+    yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.extracts) }).then((response) => {
+      self.redefineTranscription(response.body)
+    })
   })
+
+  function redefineTranscription(transcription) {
+    const textObject = {}
+    Object.keys(transcription).forEach((key) => {
+      if (key.includes('frame')) {
+        textObject[key] = transcription[key]
+      }
+    })
+    console.log(textObject);
+    self.current.text = textObject
+    // self.current.low_consensus_lines = transcription.low_consensus_lines
+    // self.current.transcribed_lines = transcription.transcribed_lines
+  }
 
   const fetchExtracts = flow(function * fetchExtracts(id) {
     const workflowId = getRoot(self).workflows.current.id
@@ -357,6 +372,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     reset: () => undoManager.withoutUndo(() => reset()),
     reaggregateDBScan,
     reaggregateOptics,
+    redefineTranscription,
     retrieveTranscriptions,
     saveTranscription,
     selectTranscription,
