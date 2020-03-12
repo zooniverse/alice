@@ -65,6 +65,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const newLine = Reduction.create()
     page.splice(location, 0, newLine)
     self.setActiveTranscription(location)
+    self.setParsedExtracts()
   }
 
   function changeIndex(index) {
