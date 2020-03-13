@@ -90,6 +90,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       internal_id: transcription.attributes.internal_id || '',
       low_consensus_lines: transcription.attributes.low_consensus_lines || 0,
       pages: transcription.attributes.total_pages || 0,
+      parameters: text.parameters,
+      reducer: text.reducer,
       status: transcription.attributes.status,
       text: textObject,
       transcribed_lines: transcription.attributes.total_lines || 0,
@@ -138,6 +140,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.current.reducer = transcription.reducer
     self.current.text = textObject
     self.current.transcribed_lines = transcription.transcribed_lines
+    self.saveTranscription()
   }
 
   const fetchExtracts = flow(function * fetchExtracts(id) {
@@ -258,11 +261,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   const saveTranscription = flow(function * saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const textBlob = toJS(self.current.text)
-    const lineCounts = {
+    const additionalData = {
       low_consensus_lines: self.current.low_consensus_lines,
       transcribed_lines: self.current.transcribed_lines
     }
-    const updatedTranscription = Object.assign(lineCounts, textBlob)
+    if (self.current.reducer.length) {
+      additionalData.reducer = self.current.reducer
+      additionalData.parameters = self.current.parameters
+    }
+    const updatedTranscription = Object.assign(additionalData, textBlob)
     const query = {
       data: {
         type: 'transcriptions',

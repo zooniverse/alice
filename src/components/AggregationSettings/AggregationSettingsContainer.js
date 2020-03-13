@@ -14,8 +14,14 @@ function AggregationSettingsContainer({ dragHandle }) {
   const [ selectedReducer, selectReducer ] = React.useState(null);
   const [ currentScreen, setScreen ] = React.useState(REDUCERS.CHOOSE);
   const [ confirmationCallback, setCallback ] = React.useState(null)
-  const submitOptics = (params) => store.transcriptions.reaggregateOptics(params)
-  const submitDBScan = (params) => store.transcriptions.reaggregateDBScan(params)
+  const submitOptics = (params) => {
+    store.transcriptions.reaggregateOptics(params)
+    store.aggregations.setModal(false)
+  }
+  const submitDBScan = (params) => {
+    store.transcriptions.reaggregateDBScan(params)
+    store.aggregations.setModal(false)
+  }
 
   return (
     <AggregationSettings
