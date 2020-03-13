@@ -23,6 +23,8 @@ const Transcription = types.model('Transcription', {
   internal_id: types.optional(types.string, ''),
   low_consensus_lines: types.optional(types.integer, 0),
   pages: types.optional(types.integer, 0),
+  parameters: types.optional(types.frozen()),
+  reducer: types.optional(types.string, ''),
   status: types.optional(types.string, ''),
   text: Extension,
   transcribed_lines: types.optional(types.number, 0),
@@ -131,10 +133,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         textObject[key] = transcription[key]
       }
     })
-    console.log(textObject);
+    self.current.low_consensus_lines = transcription.low_consensus_lines
+    self.current.parameters = transcription.parameters
+    self.current.reducer = transcription.reducer
     self.current.text = textObject
-    // self.current.low_consensus_lines = transcription.low_consensus_lines
-    // self.current.transcribed_lines = transcription.transcribed_lines
+    self.current.transcribed_lines = transcription.transcribed_lines
   }
 
   const fetchExtracts = flow(function * fetchExtracts(id) {
