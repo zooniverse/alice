@@ -29,6 +29,8 @@ function AggregationSettingsContainer({ dragHandle }) {
       confirmationCallback={confirmationCallback}
       currentScreen={currentScreen}
       dragHandle={dragHandle}
+      reducer={store.transcriptions.current.reducer}
+      parameters={store.transcriptions.current.parameters}
       selectReducer={selectReducer}
       selectedReducer={selectedReducer}
       setCallback={setCallback}

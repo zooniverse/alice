@@ -51,8 +51,24 @@ export default function AggregationSettings(props) {
                 selectedReducer={props.selectedReducer}
                 setScreen={props.setScreen}
               />}
-            {props.currentScreen === REDUCERS.OPTICS && <OpticsReducer closeContainer={props.closeContainer} setCallback={props.setCallback} setScreen={props.setScreen} submitOptics={props.submitOptics} />}
-            {props.currentScreen === REDUCERS.DBSCAN && <DBScanReducer closeContainer={props.closeContainer} setCallback={props.setCallback} setScreen={props.setScreen} submitDBScan={props.submitDBScan} />}
+            {props.currentScreen === REDUCERS.OPTICS && (
+              <OpticsReducer
+                closeContainer={props.closeContainer}
+                defaultParams={props.reducer === 'optics_line_text_reducer' ? props.parameters : {}}
+                setCallback={props.setCallback}
+                setScreen={props.setScreen}
+                submitOptics={props.submitOptics}
+              />
+            )}
+            {props.currentScreen === REDUCERS.DBSCAN && (
+              <DBScanReducer
+                closeContainer={props.closeContainer}
+                defaultParams={props.reducer === 'poly_line_text_reducer' ? props.parameters : {}}
+                setCallback={props.setCallback}
+                setScreen={props.setScreen}
+                submitDBScan={props.submitDBScan}
+              />
+            )}
           </Box>
         </Box>
         {props.confirmationCallback && <Confirmation callback={props.confirmationCallback} setCallback={props.setCallback} />}

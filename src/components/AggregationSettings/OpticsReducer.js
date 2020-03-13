@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { Field, Formik } from 'formik'
 import styled from 'styled-components'
-import { func } from 'prop-types'
+import { bool, func, number, shape } from 'prop-types'
 import * as Yup from 'yup'
 import { REDUCERS } from './AggregationSettingsContainer'
 
@@ -39,17 +39,17 @@ const StyledLabel = styled.label`
   font-size: 0.75em;
 `
 
-function OpticsReducer({ closeContainer, setCallback, setScreen, submitOptics }) {
+function OpticsReducer({ closeContainer, defaultParams, setCallback, setScreen, submitOptics }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
         initialValues={{
-          angleEps: 30,
-          auto: false,
-          gutterEps: 150,
-          minLineLength: 0,
-          minSamples: 2,
-          xi: 0.05,
+          angleEps: defaultParams.min_samples || 30,
+          auto: defaultParams.auto || false,
+          gutterEps: defaultParams.gutter_eps || 150,
+          minLineLength: defaultParams.min_line_length || 0,
+          minSamples: defaultParams.min_samples || 2,
+          xi: defaultParams.xi || 0.05,
         }}
         isInitialValid
         validationSchema={opticsSchema}
@@ -172,11 +172,20 @@ function OpticsReducer({ closeContainer, setCallback, setScreen, submitOptics })
 
 OpticsReducer.defaultProps = {
   closeContainer: () => {},
+  defaultParams: {},
   setScreen: () => {}
 }
 
 OpticsReducer.propTypes = {
   closeContainer: func,
+  defaultParams: shape({
+    angle_eps: number,
+    auto: bool,
+    gutter_eps: number,
+    min_line_length: number,
+    min_samples: number,
+    xi: number
+  }),
   setScreen: func
 }
 
