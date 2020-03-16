@@ -18,7 +18,7 @@ const Reduction = types.model('Reduction', {
   original_transcriber: types.optional(types.string, ''),
   seen: types.optional(types.boolean, false),
   slope_label: types.optional(types.integer, 0),
-  user_ids: types.array(types.maybeNull(types.integer))
+  user_ids: types.array(types.maybeNull(types.union(types.integer, types.string)))
 })
 .actions(self => ({
   setConsensusText: (text, isOriginalOption = false, originalTranscriber = '') => {
