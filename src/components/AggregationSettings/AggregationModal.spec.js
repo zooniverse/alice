@@ -4,6 +4,14 @@ import { act } from 'react-dom/test-utils';
 import AggregationModal from './AggregationModal'
 
 let wrapper
+const contextValues = {
+  transcriptions: {
+    current: {
+      reducer: '',
+      parameters: {}
+    }
+  }
+}
 
 const refStub = React.createRef()
 refStub.current = { getBoundingClientRect: () => {
@@ -15,6 +23,9 @@ refStub.current = { getBoundingClientRect: () => {
 
 describe('Component > AggregationModal', function () {
   beforeEach(async function() {
+    jest
+      .spyOn(React, 'useContext')
+      .mockImplementation(() => contextValues )
     wrapper = mount(
       <div>
         <AggregationModal ref={refStub} />

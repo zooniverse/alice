@@ -200,8 +200,10 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       <div
                         className="StyledBox-sc-13pk1d4-0 htLYVV sc-kgoBCf fDGffR"
                       >
-                        <div
-                          className="StyledBox-sc-13pk1d4-0 bDTvWa"
+                        <img
+                          alt="Optics Aggregation Example"
+                          className="StyledImage-ey4zx9-0 Axri"
+                          src="optics.png"
                         />
                         <div
                           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
@@ -215,9 +217,10 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 bmpSIR"
+                          className="StyledText-sc-1sadyjn-0 fNQaFh"
+                          size="xsmall"
                         >
-                          Short description of when to use this algorithm
+                          Used for clustering full-width transcriptions
                         </span>
                       </div>
                     </button>
@@ -233,8 +236,10 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       <div
                         className="StyledBox-sc-13pk1d4-0 htLYVV sc-kGXeez fOyJew"
                       >
-                        <div
-                          className="StyledBox-sc-13pk1d4-0 bDTvWa"
+                        <img
+                          alt="DBScan Aggregation Example"
+                          className="StyledImage-ey4zx9-0 Axri"
+                          src="dbscan.png"
                         />
                         <div
                           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
@@ -248,9 +253,10 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 bmpSIR"
+                          className="StyledText-sc-1sadyjn-0 fNQaFh"
+                          size="xsmall"
                         >
-                          Short description of when to use this algorithm
+                          Used for clustering shorter, incomplete transcriptions of a line
                         </span>
                       </div>
                     </button>

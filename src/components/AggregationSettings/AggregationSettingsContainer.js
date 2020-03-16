@@ -10,17 +10,19 @@ const REDUCERS = {
 
 function AggregationSettingsContainer({ dragHandle }) {
   const store = React.useContext(AppContext)
+  const reducer = store.transcriptions.current && store.transcriptions.current.reducer
+  const parameters = store.transcriptions.current && store.transcriptions.current.parameters
   const closeContainer = () => store.aggregations.toggleModal()
   const [ selectedReducer, selectReducer ] = React.useState(null);
   const [ currentScreen, setScreen ] = React.useState(REDUCERS.CHOOSE);
   const [ confirmationCallback, setCallback ] = React.useState(null)
   const submitOptics = (params) => {
     store.transcriptions.reaggregateOptics(params)
-    store.aggregations.setModal(false)
+    store.aggregations.toggleModal()
   }
   const submitDBScan = (params) => {
     store.transcriptions.reaggregateDBScan(params)
-    store.aggregations.setModal(false)
+    store.aggregations.toggleModal()
   }
 
   return (
@@ -29,8 +31,8 @@ function AggregationSettingsContainer({ dragHandle }) {
       confirmationCallback={confirmationCallback}
       currentScreen={currentScreen}
       dragHandle={dragHandle}
-      reducer={store.transcriptions.current.reducer}
-      parameters={store.transcriptions.current.parameters}
+      reducer={reducer}
+      parameters={parameters}
       selectReducer={selectReducer}
       selectedReducer={selectedReducer}
       setCallback={setCallback}
