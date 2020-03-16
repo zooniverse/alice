@@ -126,18 +126,18 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
-  function redefineTranscription(transcription) {
+  function redefineTranscription(reduction) {
     const textObject = {}
-    Object.keys(transcription).forEach((key) => {
+    Object.keys(reduction).forEach((key) => {
       if (key.includes('frame')) {
-        textObject[key] = transcription[key]
+        textObject[key] = reduction[key]
       }
     })
-    self.current.low_consensus_lines = transcription.low_consensus_lines
-    self.current.parameters = transcription.parameters
-    self.current.reducer = transcription.reducer
+    self.current.low_consensus_lines = reduction.low_consensus_lines
+    self.current.parameters = reduction.parameters
+    self.current.reducer = reduction.reducer
     self.current.text = textObject
-    self.current.transcribed_lines = transcription.transcribed_lines
+    self.current.transcribed_lines = reduction.transcribed_lines
     self.saveTranscription()
   }
 

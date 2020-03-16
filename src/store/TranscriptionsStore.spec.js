@@ -58,12 +58,21 @@ const mockReduction = {
   user_ids: []
 }
 
+const mockReaggregation = {
+  frame0: [{}],
+  low_consensus_lines: 1,
+  parameters: {},
+  reducer: 'reducer',
+  transcribed_lines: 2
+}
+
 const user = {
   id: '123',
   display_name: 'A_User'
 }
 
 const consoleSpy = jest.spyOn(console, 'warn')
+const postCaesarSpy = jest.fn().mockResolvedValue({ body: mockReaggregation })
 
 const multipleTranscriptionsStub = {
   get: () => Promise.resolve(
@@ -80,6 +89,9 @@ const multipleTranscriptionsStub = {
   patch: patchToveSpy
 }
 
+const aggregatorStub = {
+  post: postCaesarSpy
+}
 const singleTranscriptionStub = {
   get: getToveResponse,
   patch: patchToveSpy
@@ -170,7 +182,10 @@ describe('TranscriptionsStore', function () {
             }
           })
         rootStore = AppStore.create({
-          client: { tove: singleTranscriptionStub },
+          client: {
+            aggregator: aggregatorStub,
+            tove: singleTranscriptionStub
+          },
           groups: {
             current: {
               display_name: 'GROUP_1'
@@ -276,6 +291,39 @@ describe('TranscriptionsStore', function () {
         it('should undo the previous action', function () {
           transcriptionsStore.setTextObject([mockReduction])
           transcriptionsStore.undo()
+          expect(patchToveSpy).toHaveBeenCalled()
+        })
+      })
+
+      describe('when reaggregating', function () {
+        afterEach(() => jest.clearAllMocks());
+
+        it('should reaggregate DBScan', async function () {
+          const params = {
+            epsSlope: 1,
+            epsLine: 2,
+            epsWord: 3,
+            gutterTol: 4,
+            minSamples: 5,
+            minWordCount: 6
+          }
+          await transcriptionsStore.reaggregateDBScan(params)
+          expect(postCaesarSpy).toHaveBeenCalled()
+          expect(transcriptionsStore.current.low_consensus_lines).toBe(mockReaggregation.low_consensus_lines)
+          expect(patchToveSpy).toHaveBeenCalled()
+        })
+
+        it('should reaggregate optics', async function () {
+          const params = {
+            minSamples: 1,
+            xi: 2,
+            angleEps: 3,
+            gutterEps: 4,
+            minLineLength: 5
+          }
+          await transcriptionsStore.reaggregateOptics(params)
+          expect(postCaesarSpy).toHaveBeenCalled()
+          expect(transcriptionsStore.current.low_consensus_lines).toBe(mockReaggregation.low_consensus_lines)
           expect(patchToveSpy).toHaveBeenCalled()
         })
       })
