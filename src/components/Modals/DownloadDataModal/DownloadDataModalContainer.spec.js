@@ -37,7 +37,7 @@ describe('Component > DownloadDataModalContainer', function () {
     expect(toggleModalSpy).toHaveBeenCalledWith('')
   })
 
-  it('should call toggleModal on child onClose', function () {
+  it('should call downloadData when download clicked', function () {
     wrapper.props().onDownload()
     expect(downloadDataSpy).toHaveBeenCalled()
     expect(toggleModalSpy).toHaveBeenCalledWith('')
