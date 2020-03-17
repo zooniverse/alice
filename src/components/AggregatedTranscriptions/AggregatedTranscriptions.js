@@ -35,7 +35,7 @@ const OverflowBox = styled(Box)`
   }
 `
 
-function AggregatedTranscriptions ({ addLine, margin, showOverlay, showTranscription }) {
+function AggregatedTranscriptions ({ addLine, isViewer, margin, showOverlay, showTranscription }) {
   return (
     <StyledBox height='large'>
       <Box background='white' fill='vertical' margin={margin} round='xsmall'>
@@ -48,6 +48,7 @@ function AggregatedTranscriptions ({ addLine, margin, showOverlay, showTranscrip
         >
           <Text size='1em'>Transcribed Text</Text>
           <Button
+            disabled={isViewer}
             label={<Text size='small'>ADD LINE</Text>}
             onClick={addLine}
             plain
@@ -73,6 +74,7 @@ function AggregatedTranscriptions ({ addLine, margin, showOverlay, showTranscrip
 
 AggregatedTranscriptions.propTypes = {
   addLine: func,
+  isViewer: bool,
   margin: shape(),
   showOverlay: bool,
   showTranscription: bool
@@ -80,6 +82,7 @@ AggregatedTranscriptions.propTypes = {
 
 AggregatedTranscriptions.defaultProps = {
   addLine: () => {},
+  isViewer: false,
   margin: {},
   showOverlay: false,
   showTranscription: false

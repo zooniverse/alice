@@ -13,6 +13,7 @@ function AggregatedTranscriptionsContainer({ margin }) {
   return (
     <AggregatedTranscriptions
       addLine={addLine}
+      isViewer={store.projects.isViewer}
       margin={margin}
       showOverlay={showOverlay}
       showTranscription={showTranscription}
