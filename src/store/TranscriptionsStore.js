@@ -48,8 +48,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 }).actions(self => {
   function arrangeExtractsByUser() {
     return self.rawExtracts.reduce((list, extract) => {
-      if (!list[extract.userId]) list[extract.userId] = []
-      list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
+      if (!list[extract.user_id]) list[extract.user_id] = []
+      list[extract.user_id].push({ ...extract.data, time: extract.classificationAt })
       return list
     }, {})
   }
