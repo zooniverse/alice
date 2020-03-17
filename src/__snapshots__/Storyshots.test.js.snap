@@ -11,7 +11,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 bdFdoP"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-fjdhpX fCEyoV"
+        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-jzJRlG byHcWR"
       >
         <div
           className="StyledBox-sc-13pk1d4-0 ikTqht"
@@ -27,6 +27,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
             </span>
             <button
               className="StyledButton-sc-323bzc-0 jfbKsv"
+              disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -43,7 +44,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
             </button>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 tkzRw sc-cSHVUG iUjjWu"
+            className="StyledBox-sc-13pk1d4-0 tkzRw sc-kAzzGY cHmBTk"
           >
             <div
               className="StyledBox-sc-13pk1d4-0 joGoBe"
@@ -112,7 +113,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 jxCWxi"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-ckVGcZ cKVUCJ"
+        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-jKJlTe MPVAE"
       >
         <svg
           aria-hidden="true"
@@ -208,7 +209,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-chPdSV emslNC"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kgoBCf fDGffR"
                       >
                         <div
                           className="StyledBox-sc-13pk1d4-0 bDTvWa"
@@ -241,7 +242,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kgoBCf fDGffR"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kGXeez fOyJew"
                       >
                         <div
                           className="StyledBox-sc-13pk1d4-0 bDTvWa"
@@ -538,7 +539,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-jKJlTe fOlXkZ"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jtFbJk"
       >
         Layout
       </span>
@@ -651,7 +652,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-jKJlTe fOlXkZ"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jtFbJk"
       >
         Undo
       </span>
@@ -689,7 +690,7 @@ exports[`Storyshots LineViewer Default 1`] = `
     className="StyledBox-sc-13pk1d4-0 iNPZuM"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 biltor sc-jTzLTM kGoDGv"
+      className="StyledBox-sc-13pk1d4-0 biltor sc-fjdhpX fCEyoV"
     >
       <div
         className="StyledBox-sc-13pk1d4-0 dbskGW"
@@ -698,133 +699,13 @@ exports[`Storyshots LineViewer Default 1`] = `
           className="StyledBox-sc-13pk1d4-0 hFIMGw"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 iYFxCu"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 dxiclx sc-gqjmRU jppNnv"
-              size="0.6em"
-            >
-              Selected Transcription
-            </span>
-          </div>
-          <div
-            className="StyledBox-sc-13pk1d4-0 dXDFWh"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 dxiclx sc-gqjmRU jppNnv"
-              size="0.6em"
-            >
-              Flag
-            </span>
-            <div
-              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-            />
-            <span
-              className="StyledText-sc-1sadyjn-0 eFJbSQ sc-gqjmRU jppNnv"
-              size="0.6em"
-            >
-              Consensus Score
-            </span>
-          </div>
-        </div>
-        <div
-          className="StyledBox-sc-13pk1d4-0 hFIMGw"
-        >
-          <div
-            className="StyledBox-sc-13pk1d4-0 jUNXut"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 kutFY"
-            >
-              
-            </span>
-          </div>
-          <div
-            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-          />
-          <div
-            className="StyledBox-sc-13pk1d4-0 llmAzH"
-          >
-            <div
-              className="StyledBox-sc-13pk1d4-0 fWrrBh"
-            >
-              <button
-                className="StyledButton-sc-323bzc-0 chnll"
-                disabled={true}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onMouseOut={[Function]}
-                onMouseOver={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-circle fa-w-16 fa-xs sc-gZMcBi jsFekD"
-                  color="green"
-                  data-icon="circle"
-                  data-prefix="fas"
-                  dim={1}
-                  focusable="false"
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              className="StyledBox-sc-13pk1d4-0 fWrrBh"
-            >
-              <button
-                className="StyledButton-sc-323bzc-0 chnll"
-                disabled={true}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onMouseOut={[Function]}
-                onMouseOver={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-flag fa-w-16 fa-xs sc-gZMcBi jsFekD"
-                  color="tomato"
-                  data-icon="flag"
-                  data-prefix="fas"
-                  dim={1}
-                  focusable="false"
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div
-            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-          />
-          <div
             className="StyledBox-sc-13pk1d4-0 fWrrBh"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR"
+              className="StyledText-sc-1sadyjn-0 dxiclx sc-VigVT cDzzLD"
+              size="0.6em"
             >
-              0
-              /
+              Selected Transcription
             </span>
           </div>
         </div>
@@ -838,7 +719,7 @@ exports[`Storyshots LineViewer Default 1`] = `
         <div
           className="StyledBox-sc-13pk1d4-0 eVyzLf"
         >
-          
+
           <div
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
@@ -897,24 +778,8 @@ exports[`Storyshots LineViewer Default 1`] = `
           className="StyledBox-sc-13pk1d4-0 ekjAwv"
         >
           <button
-            className="StyledButton-sc-323bzc-0 hRCsWM"
-            disabled={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
-              size="xsmall"
-            >
-              Add Line Below
-            </span>
-          </button>
-          <button
             className="StyledButton-sc-323bzc-0 jfbKsv"
+            disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -923,10 +788,10 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-VigVT cDzzLD"
               size="xsmall"
             >
-              Delete Line
+              Cancel
             </span>
           </button>
         </div>
@@ -944,29 +809,10 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-VigVT cDzzLD"
               size="xsmall"
             >
-              Replace With Selected
-            </span>
-          </button>
-          <div
-            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 gNUkxn"
-          />
-          <button
-            className="StyledButton-sc-323bzc-0 jfbKsv"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-gqjmRU jppNnv"
-              size="xsmall"
-            >
-              Close
+              Add Line
             </span>
           </button>
         </div>
@@ -986,7 +832,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     onClick={[Function]}
   >
     <span
-      className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jMItqB"
+      className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs isvcEd"
     >
       Ready For Review
     </span>
@@ -1578,7 +1424,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ eJgHCP"
       >
-        This subject cannot be accessed because 
+        This subject cannot be accessed because
         <b>
           Erin Green
         </b>
