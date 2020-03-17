@@ -40,6 +40,10 @@ function LineViewer ({
   showDeleteModal,
   toggleDeleteModal
 }) {
+  const isNewLine = !consensusText
+  const deleteText = isNewLine ? 'Cancel' : 'Delete Line'
+  const addLineText = isNewLine ? 'Add Line' : 'Replace With Selected'
+
   const replaceWithSelected = () => {
     let originalTranscriber = ''
     let textOption = ''
@@ -59,32 +63,36 @@ function LineViewer ({
   return (
     <RelativeBox background='white' elevation='small' round='xsmall' width='large'>
       {showDeleteModal && <DeleteModal toggleModal={toggleDeleteModal} />}
-      <Box border='bottom' height={{ min: '3em' }}  pad={{ top: 'xsmall', horizontal: 'xsmall' }}>
+      <Box border='bottom' height={{ min: '3em' }} gap='xxsmall' pad={{ vertical: 'xsmall', horizontal: 'xsmall' }}>
         <Box align='center' direction='row' justify='between'>
-          <Box basis='80%'>
+          <Box>
             <CapitalText size='0.6em' weight='bold'>Selected Transcription</CapitalText>
           </Box>
-          <Box align='center' basis='20%' direction='row' gap='xsmall'>
-            <CapitalText size='0.6em' weight='bold'>Flag</CapitalText>
-            <CapitalText textAlign='end' size='0.6em' weight='bold'>Consensus Score</CapitalText>
-          </Box>
+          {!isNewLine && (
+            <Box align='center' direction='row' gap='xsmall'>
+              <CapitalText size='0.6em' weight='bold'>Flag</CapitalText>
+              <CapitalText size='0.6em' weight='bold'>Consensus Score</CapitalText>
+            </Box>
+          )}
         </Box>
-        <Box align='center' direction='row' gap='xsmall' justify='between'>
-          <Box fill='horizontal'>
-            <Text weight='bold'>{consensusText}</Text>
+        {!isNewLine && (
+          <Box align='center' direction='row' gap='xsmall' justify='between'>
+            <Box fill='horizontal'>
+              <Text weight='bold'>{consensusText}</Text>
+            </Box>
+            <Box direction='row'>
+              <SeenButtonContainer disabled={isViewer} reduction={reduction} tag={seen} />
+              <FlagButtonContainer disabled={isViewer} reduction={reduction} tag={flagged} />
+            </Box>
+            <Box>
+              {reduction.edited_consensus_text ? (
+                <Text>Edited</Text>
+              ) : (
+                <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
+              )}
+            </Box>
           </Box>
-          <Box direction='row' margin={{ bottom: '0.5em' }}>
-            <SeenButtonContainer disabled={isViewer || !consensusText} reduction={reduction} tag={seen} />
-            <FlagButtonContainer disabled={isViewer || !consensusText} reduction={reduction} tag={flagged} />
-          </Box>
-          <Box>
-            {reduction.edited_consensus_text ? (
-              <Text>Edited</Text>
-            ) : (
-              <Text>{parseFloat(reduction.consensus_score.toFixed(1))}/{reduction.number_views}</Text>
-            )}
-          </Box>
-        </Box>
+        )}
       </Box>
       <Box border='bottom'>
         <Box gap='xsmall' margin={{ vertical: 'xsmall' }} overflow='auto'>
@@ -140,23 +148,38 @@ function LineViewer ({
           )}
         </Box>
       </Box>
-      <Box direction='row' height={{ min: '1.5em' }} justify='between' margin='xsmall'>
-        {!isViewer && (
-          <Box direction='row'>
-            <Button disabled={!consensusText} onClick={addLine} margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
-            <Button onClick={toggleDeleteModal}><CapitalText size='xsmall'>Delete Line</CapitalText></Button>
-          </Box>
-        )}
-        <Box direction='row' margin={{ left: 'auto' }} gap='small'>
-          {!isViewer && (
+      <Box direction='row' height={{ min: '1.5em' }} justify='between' margin={{ horizontal: 'xsmall', bottom: 'xsmall', top: '0.25em' }}>
+        <Box direction='row'>
+          {!isNewLine && (
             <Button
-              disabled={selectedItem === null}
-              label={<CapitalText size='xsmall'>Replace With Selected</CapitalText>}
-              onClick={replaceWithSelected}
+              disabled={isViewer}
+              label={<CapitalText size='xsmall'>Add Line Below</CapitalText>}
+              margin={{ right: 'small' }}
+              onClick={addLine}
               plain
             />
-            )}
-          <Button onClick={closeModal}><CapitalText size='xsmall'>Close</CapitalText></Button>
+          )}
+          <Button
+            disabled={isViewer}
+            label={<CapitalText size='xsmall'>{deleteText}</CapitalText>}
+            onClick={toggleDeleteModal}
+            plain
+          />
+        </Box>
+        <Box direction='row' margin={{ left: 'auto' }} gap='small'>
+          <Button
+            disabled={selectedItem === null || isViewer}
+            label={<CapitalText size='xsmall'>{addLineText}</CapitalText>}
+            onClick={replaceWithSelected}
+            plain
+          />
+          {!isNewLine && (
+            <Button
+              label={<CapitalText size='xsmall'>Close</CapitalText>}
+              onClick={closeModal}
+              plain
+            />
+          )}
         </Box>
       </Box>
     </RelativeBox>
