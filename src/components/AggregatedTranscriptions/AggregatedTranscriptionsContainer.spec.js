@@ -5,6 +5,7 @@ import AggregatedTranscriptionsContainer from './AggregatedTranscriptionsContain
 const addLineSpy = jest.fn()
 const context = {
   aggregations: {},
+  projects: { isViewer: false },
   transcriptions: {
     activeTranscriptionIndex: 0,
     addLine: addLineSpy
