@@ -58,6 +58,12 @@ export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick,
 
         return (
           <g key={`TRANSCRIPTION_${index}`}>
+            <line
+              key={`SVG_LINE_${index}_bonus`}
+              x1={line.x1} y1={line.y1}
+              x2={endLinePos} y2={line.y2}
+              stroke={'transparent'} strokeWidth={strokeWidth * 10}
+            />
             {svgLines}
             {svgPoints}
           </g>
