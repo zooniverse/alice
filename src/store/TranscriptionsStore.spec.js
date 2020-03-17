@@ -8,6 +8,23 @@ import TranscriptionFactory from './factories/transcription'
 let rootStore
 let transcriptionsStore
 
+const patchToveSpy = jest.fn().mockResolvedValue({ ok: true })
+const getToveResponse = () => Promise.resolve(
+  {
+    body: JSON.stringify(
+      {
+        data: TranscriptionFactory.build({
+          attributes: {
+            text: { frame0: [{}] }
+          }
+        }),
+        meta: {
+          pagination: { last: 1 }
+        }
+      })
+  }
+)
+
 const extracts = {
   workflow: {
     extracts: [{
@@ -45,7 +62,6 @@ const user = {
 }
 
 const consoleSpy = jest.spyOn(console, 'warn')
-const patchToveSpy = jest.fn().mockResolvedValue(true)
 
 const multipleTranscriptionsStub = {
   get: () => Promise.resolve(
@@ -63,26 +79,22 @@ const multipleTranscriptionsStub = {
 }
 
 const singleTranscriptionStub = {
-  get: () => Promise.resolve(
-    {
-      body: JSON.stringify(
-        {
-          data: TranscriptionFactory.build({
-            attributes: {
-              text: { frame0: [{}] }
-            }
-          }),
-          meta: {
-            pagination: { last: 1 }
-          }
-        })
-    }
-  ),
+  get: getToveResponse,
   patch: patchToveSpy
 }
 
 const failedToveStub = {
   get: () => Promise.reject({ message: 'Failed to Return' })
+}
+
+const failedTovePatch = {
+  get: getToveResponse,
+  patch: () => Promise.reject({ message: 'Failed to Return' })
+}
+
+const failedTovePatchNotOk = {
+  get: getToveResponse,
+  patch: jest.fn().mockResolvedValue({ ok: false })
 }
 
 describe('TranscriptionsStore', function () {
@@ -123,6 +135,11 @@ describe('TranscriptionsStore', function () {
       it('should not select a transcription without an id', function () {
         transcriptionsStore.selectTranscription()
         expect(transcriptionsStore.current).toBe(undefined)
+      })
+
+      it('should toggle the transcription error', function () {
+        transcriptionsStore.toggleError()
+        expect(transcriptionsStore.showSaveTranscriptionError).toBe(true)
       })
     })
 
@@ -204,8 +221,8 @@ describe('TranscriptionsStore', function () {
       })
 
       it('should update the flagged attribute', function () {
-        expect(transcriptionsStore.current.flagged).toBe(false)
         transcriptionsStore.setTextObject([mockReduction])
+        expect(transcriptionsStore.current.flagged).toBe(false)
         transcriptionsStore.checkForFlagUpdate()
         expect(patchToveSpy).toHaveBeenCalled()
         expect(transcriptionsStore.current.flagged).toBe(true)
@@ -262,10 +279,40 @@ describe('TranscriptionsStore', function () {
     })
 
     describe('failure state', function () {
-      it('should register an error', async function () {
+      it('should register an error on selecting', async function () {
         rootStore = AppStore.create({ client: { tove: failedToveStub }})
         transcriptionsStore = rootStore.transcriptions
         await transcriptionsStore.selectTranscription(1)
+        expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+        expect(consoleSpy).toHaveBeenCalled()
+      })
+
+      it('should register an error on patching', async function () {
+        rootStore = AppStore.create({
+          client: { tove: failedTovePatch },
+          workflows: {
+            all: { 1: { id: '1' } },
+            current: '1'
+          }
+        })
+        transcriptionsStore = rootStore.transcriptions
+        await transcriptionsStore.selectTranscription(1)
+        await transcriptionsStore.saveTranscription()
+        expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+        expect(consoleSpy).toHaveBeenCalled()
+      })
+
+      it('should register an error on patching if response not ok', async function () {
+        rootStore = AppStore.create({
+          client: { tove: failedTovePatchNotOk },
+          workflows: {
+            all: { 1: { id: '1' } },
+            current: '1'
+          }
+        })
+        transcriptionsStore = rootStore.transcriptions
+        await transcriptionsStore.selectTranscription(1)
+        await transcriptionsStore.saveTranscription()
         expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
         expect(consoleSpy).toHaveBeenCalled()
       })

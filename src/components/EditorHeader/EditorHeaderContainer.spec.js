@@ -5,7 +5,6 @@ import SearchButton from './components/HeaderButton/SearchButtonContainer'
 import DownloadSetData from './components/HeaderButton/DownloadSetDataContainer'
 import MarkApproved from './components/MarkApproved'
 import UndoButton from './components/HeaderButton/UndoButtonContainer'
-import SaveButton from './components/HeaderButton/SaveButtonContainer'
 import LayoutButton from './components/HeaderButton/LayoutButtonContainer'
 import MoreButton from './components/MoreButton'
 import { EDIT_PATH, PROJECTS_PATH, SUBJECTS_PATH } from 'paths'
@@ -61,7 +60,6 @@ describe('Component > EditorHeaderContainer', function () {
     const wrapperButtons = wrapper.find('EditorHeader').props().buttons
     expect(wrapperButtons).toEqual(expect.arrayContaining([MarkApproved]))
     expect(wrapperButtons).toEqual(expect.arrayContaining([UndoButton]))
-    expect(wrapperButtons).toEqual(expect.arrayContaining([SaveButton]))
     expect(wrapperButtons).toEqual(expect.arrayContaining([LayoutButton]))
     expect(wrapperButtons).toEqual(expect.arrayContaining([MoreButton]))
   })

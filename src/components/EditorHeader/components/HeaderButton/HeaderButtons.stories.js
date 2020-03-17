@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { Grommet } from 'grommet';
 import { mergedTheme } from '../../../../theme'
 import UndoButtonContainer from './UndoButtonContainer'
-import SaveButtonContainer from './SaveButtonContainer'
 import MoreButtonContainer from '../MoreButton'
 import LayoutButtonContainer from './LayoutButtonContainer'
 
@@ -11,11 +10,6 @@ storiesOf('HeaderButtons', module)
   .add('UndoButton', () => (
     <Grommet theme={mergedTheme}>
       <UndoButtonContainer />
-    </Grommet>
-  ))
-  .add('SaveButton', () => (
-    <Grommet theme={mergedTheme}>
-      <SaveButtonContainer />
     </Grommet>
   ))
   .add('MoreButton', () => (

@@ -1,12 +1,12 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import SaveButtonContainer from './SaveButtonContainer'
+import ErrorNotifierContainer from './ErrorNotifierContainer'
 
 let wrapper
 
-describe('Component > UndoButton', function () {
+describe('Component > ErrorNotifierContainer', function () {
   beforeEach(function() {
-    wrapper = shallow(<SaveButtonContainer />);
+    wrapper = shallow(<ErrorNotifierContainer />);
   })
 
   it('should render without crashing', function () {

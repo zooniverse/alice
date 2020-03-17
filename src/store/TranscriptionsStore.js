@@ -1,12 +1,13 @@
 import { flow, getRoot, getSnapshot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
-import { toJS } from 'mobx'
 import { undoManager } from 'store/AppStore'
 import apiClient from 'panoptes-client/lib/api-client.js'
+import { reaction, toJS } from 'mobx'
 import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
+import getError, { TranscriptionError } from 'helpers/getError'
 import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
@@ -30,10 +31,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   all: types.map(Transcription),
   asyncState: types.optional(types.string, ASYNC_STATES.IDLE),
   current: types.safeReference(Transcription),
-  error: types.optional(types.string, ''),
+  error: types.maybeNull(TranscriptionError),
   index: types.optional(types.number, 0),
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
+  showSaveTranscriptionError: types.optional(types.boolean, false),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
@@ -44,6 +46,16 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
       return list
     }, {})
+  }
+
+  function afterAttach() {
+    reaction(() => self.asyncState, (state) => {
+      if (state === ASYNC_STATES.ERROR) {
+        undoManager.withoutUndo(() => self.showSaveTranscriptionError = true)
+      } else if (state === ASYNC_STATES.READY) {
+        undoManager.withoutUndo(() => self.showSaveTranscriptionError = false)
+      }
+    })
   }
 
   function changeIndex(index) {
@@ -132,6 +144,28 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
+  const patchTranscription = flow(function * patchTranscription(query) {
+    const client = getRoot(self).client.tove
+    try {
+      yield client.patch(`/transcriptions/${self.current.id}`, { body: query }).then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          return Promise.reject(response)
+        }
+      })
+      undoManager.withoutUndo(() => {
+        self.error = null
+        self.asyncState = ASYNC_STATES.READY
+      })
+    } catch (err) {
+      undoManager.withoutUndo(() => {
+        self.error = getError(err)
+        self.asyncState = ASYNC_STATES.ERROR
+      })
+    }
+  })
+
   function reset() {
     getRoot(self).aggregations.setModal(false)
     self.current = undefined
@@ -154,15 +188,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     } catch (error) {
       console.warn(error);
       undoManager.withoutUndo(() => {
-        self.error = error.message
+        self.error = TranscriptionError.create({ message: error.message })
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
   })
 
   const saveTranscription = flow(function * saveTranscription() {
+    undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const textBlob = toJS(self.current.text)
-    const client = getRoot(self).client.tove
     const lineCounts = {
       low_consensus_lines: self.current.low_consensus_lines,
       transcribed_lines: self.current.transcribed_lines
@@ -177,7 +211,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         }
       }
     }
-    yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
+    yield self.patchTranscription(query)
   })
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
@@ -197,7 +231,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     } catch (error) {
       console.warn(error);
       undoManager.withoutUndo(() => {
-        self.error = error.message
+        self.error = TranscriptionError.create({ message: error.message })
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
@@ -233,6 +267,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
+  function toggleError() {
+    self.showSaveTranscriptionError = !self.showSaveTranscriptionError
+  }
+
   function undo() {
     const prevSnapshot = getSnapshot(self)
     const prevTranscription = prevSnapshot.all[prevSnapshot.current]
@@ -247,7 +285,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
-  const updateApproval = flow(function * updateApproval(isChecked) {
+  function updateApproval(isChecked) {
     self.setActiveTranscription()
     const isAdmin = getRoot(self).projects.isAdmin
     const query = { data: { type: 'transcriptions', attributes: { status: 'in_progress' } }}
@@ -256,11 +294,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       query.data.attributes.status = newStatus
     }
     self.current.status = query.data.attributes.status
-    const client = getRoot(self).client.tove
-    yield client.patch(`/transcriptions/${self.current.id}`, { body: query })
-  })
+    self.patchTranscription(query)
+  }
 
   return {
+    afterAttach,
     arrangeExtractsByUser,
     changeIndex,
     checkForFlagUpdate,
@@ -269,6 +307,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     fetchExtracts,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
     getTranscriberInfo,
+    patchTranscription,
     reset: () => undoManager.withoutUndo(() => reset()),
     retrieveTranscriptions,
     saveTranscription,
@@ -277,8 +316,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setParsedExtracts: (extractsByUser) => undoManager.withoutUndo(() => setParsedExtracts(extractsByUser)),
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
+    toggleError: () => undoManager.withoutUndo(() => toggleError()),
     undo,
-    updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked)),
+    updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked))
   }
 }).views(self => ({
   get approved () {
