@@ -8,6 +8,7 @@ export default function DownloadDataModal({
   approved,
   entireGroup,
   onClose,
+  onDownload,
   transcriptionCount
 }) {
   const text = entireGroup ? 'Download approved subject set data' : 'Download subject data'
@@ -45,6 +46,7 @@ export default function DownloadDataModal({
         <Button
           a11yTitle="Download Subject Data"
           label={<Text size='small'>DOWNLOAD</Text>}
+          onClick={onDownload}
           plain
         />
       </Box>
@@ -56,6 +58,7 @@ DownloadDataModal.propTypes = {
   approved: number,
   entireGroup: bool,
   onClose: func,
+  onDownload: func,
   transcriptionCount: number
 }
 
@@ -63,5 +66,6 @@ DownloadDataModal.defaultProps = {
   approved: number,
   entireGroup: false,
   onClose: () => {},
+  onDownload: () => {},
   transcriptionCount: 0
 }

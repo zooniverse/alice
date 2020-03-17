@@ -426,6 +426,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           aria-label="Download Subject Data"
           className="StyledButton-sc-323bzc-0 jfbKsv"
           onBlur={[Function]}
+          onClick={[Function]}
           onFocus={[Function]}
           onMouseOut={[Function]}
           onMouseOver={[Function]}
