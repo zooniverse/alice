@@ -32,7 +32,8 @@ describe('Component > SVGLines', function () {
     it('should render', function () {
       wrapper = shallow(<SVGLines isExtract lines={rightToLeftLines} />);
       expect(wrapper.find('circle').length).toBe(2)
-      expect(wrapper.find('line').length).toBe(1)
+      // two lines to account for underlying transparent line that increases click area
+      expect(wrapper.find('line').length).toBe(2)
     })
   })
 
