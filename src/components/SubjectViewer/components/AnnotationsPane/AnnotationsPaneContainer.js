@@ -15,6 +15,8 @@ function AnnotationsPaneContainer({ x, y }) {
     reductionLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
   }
 
+  const onLineClick = (index) => store.transcriptions.setActiveTranscription(index)
+
   return (
     <AnnotationsPane
       x={x}
@@ -22,6 +24,8 @@ function AnnotationsPaneContainer({ x, y }) {
       linesVisible={store.editor.linesVisible}
       extractLines={store.transcriptions.parsedExtracts}
       reductionLines={reductionLines}
+      onLineClick={onLineClick}
+      activeTranscriptionIndex={store.transcriptions.activeTranscriptionIndex}
     />
   )
 }

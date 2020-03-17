@@ -1,12 +1,17 @@
 import React from 'react'
 import AppContext from 'store'
 import { observer, useLocalStore } from 'mobx-react'
+import { bool } from 'prop-types'
 import LineViewer from './LineViewer'
 
-function LineViewerContainer() {
+function LineViewerContainer({ isLoaded }) {
   const store = React.useContext(AppContext)
 
   const localStore = useLocalStore(() => ({
+    isLoaded,
+    loadTranscription(state) {
+      localStore.isLoaded = state
+    },
     inputText: '',
     selectedItem: null,
     setInputText(text) {
@@ -40,10 +45,14 @@ function LineViewerContainer() {
   }
 
   React.useEffect(() => {
+    localStore.loadTranscription(false)
     if (store.transcriptions.parsedExtracts && transcriptionIndex !== undefined) {
       localStore.setTranscriptionOptions(store.transcriptions.parsedExtracts[transcriptionIndex])
     }
+    localStore.loadTranscription(true)
   }, [localStore, store.transcriptions.parsedExtracts, transcriptionIndex])
+
+  if (!localStore.isLoaded) return null
 
   return (
     <LineViewer
@@ -64,6 +73,14 @@ function LineViewerContainer() {
       typedChoice={typedChoice}
     />
   )
+}
+
+LineViewerContainer.propTypes = {
+  isLoaded: bool
+}
+
+LineViewerContainer.defaultProps = {
+  isLoaded: false
 }
 
 export default observer(LineViewerContainer)

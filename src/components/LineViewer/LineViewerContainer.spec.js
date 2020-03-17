@@ -65,7 +65,7 @@ describe('Component > LineViewerContainer', function () {
       jest
         .spyOn(React, 'useEffect')
         .mockImplementation(() => {});
-      wrapper = mount(<LineViewerContainer />, {
+      wrapper = mount(<LineViewerContainer isLoaded />, {
         wrappingComponent: Grommet
       })
       lineViewer = wrapper.find(LineViewer).first()

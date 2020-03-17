@@ -1,16 +1,24 @@
 import React from 'react'
-import { array, bool, number } from 'prop-types'
+import { array, bool, func, number } from 'prop-types'
 import indexToColor from 'helpers/indexToColor'
+import styled from 'styled-components'
 
-export default function SVGLines({ lines, isExtract, reductionIndex }) {
+const G = styled('g')`
+  cursor: ${props => props.clickable ? 'pointer' : 'inherit'};
+`
+
+export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick, isExtract, reductionIndex }) {
   const circleWidth = isExtract ? 4 : 10
   const dashArray = isExtract ? '4' : '0'
   const strokeWidth = isExtract ? '0.5' : '3'
 
+  const isActive = reductionIndex === activeTranscriptionIndex
+  if (Number.isInteger(activeTranscriptionIndex) && !isActive) return null
+
   return (
-    <g>
+    <G clickable={!isExtract} onClick={onLineClick}>
       {lines.map((line, index) => {
-        const color = indexToColor(reductionIndex)
+        const color = isExtract && isActive ? indexToColor(index) : indexToColor(reductionIndex)
         const svgPoints = []
         const isLeftToRight = line.x1 < line.x2
         const endLinePos = isLeftToRight ? line.x2 - circleWidth : line.x2 + circleWidth
@@ -50,23 +58,31 @@ export default function SVGLines({ lines, isExtract, reductionIndex }) {
 
         return (
           <g key={`TRANSCRIPTION_${index}`}>
+            <line
+              key={`SVG_LINE_${index}_bonus`}
+              x1={line.x1} y1={line.y1}
+              x2={endLinePos} y2={line.y2}
+              stroke={'transparent'} strokeWidth={strokeWidth * 10}
+            />
             {svgLines}
             {svgPoints}
           </g>
         )
       })}
-    </g>
+    </G>
   )
 }
 
 SVGLines.propTypes = {
   isExtract: bool,
   lines: array,
+  onLineClick: func,
   reductionIndex: number
 }
 
 SVGLines.defaultProps = {
   isExtract: false,
   lines: [],
+  onLineClick: () => {},
   reductionIndex: 0
 }
