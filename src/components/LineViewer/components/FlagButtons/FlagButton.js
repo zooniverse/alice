@@ -81,5 +81,5 @@ FlagButton.defaultProps = {
   tag: false
 }
 
-export { StyledFontAwesomeIcon }
+export { StyledButton, StyledFontAwesomeIcon }
 export default FlagButton
