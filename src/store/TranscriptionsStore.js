@@ -90,8 +90,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       internal_id: transcription.attributes.internal_id || '',
       low_consensus_lines: transcription.attributes.low_consensus_lines || 0,
       pages: transcription.attributes.total_pages || 0,
-      parameters: text.parameters,
-      reducer: text.reducer,
+      parameters: transcription.attributes.parameters,
+      reducer: transcription.attributes.reducer,
       status: transcription.attributes.status,
       text: textObject,
       transcribed_lines: transcription.attributes.total_lines || 0,
@@ -112,7 +112,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
     const client = getRoot(self).client.aggregator
     const query = `?eps_slope=${params.epsSlope}&eps_line=${params.epsLine}&eps_word=${params.epsWord}&gutter_tol=${params.gutterTol}&min_samples=${params.minSamples}&min_word_count=${params.minWordCount}`
-    yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.extracts) }).then((response) => {
+    yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.rawExtracts) }).then((response) => {
       self.redefineTranscription(response.body)
     })
   })
@@ -121,7 +121,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const client = getRoot(self).client.aggregator
     const minSamples = params.auto ? 'auto' : params.minSamples
     const query = `?min_samples=${minSamples}&xi=${params.xi}&angle_eps=${params.angleEps}&gutter_eps=${params.gutterEps}&min_line_length=${params.minLineLength}`
-    yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.extracts) }).then((response) => {
+    yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.rawExtracts) }).then((response) => {
       self.redefineTranscription(response.body)
     })
   })
@@ -263,10 +263,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       low_consensus_lines: self.current.low_consensus_lines,
       transcribed_lines: self.current.transcribed_lines
     }
-    if (self.current.reducer.length) {
-      additionalData.reducer = self.current.reducer
-      additionalData.parameters = self.current.parameters
-    }
     const updatedTranscription = Object.assign(additionalData, textBlob)
     const query = {
       data: {
@@ -276,6 +272,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
           text: updatedTranscription
         }
       }
+    }
+    if (self.current.reducer.length) {
+      query.data.attributes.reducer = self.current.reducer
+      query.data.attributes.parameters = self.current.parameters
     }
     yield self.patchTranscription(query)
   })
