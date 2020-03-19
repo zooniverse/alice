@@ -13,7 +13,8 @@ function findCurrentSrc(locations, index) {
 
 function SVGViewContainer () {
   const store = React.useContext(AppContext)
-  const disableInteraction = store.subjects.asyncState !== ASYNC_STATES.READY
+  const { asyncState } = store.subjects
+  const disableInteraction = asyncState !== ASYNC_STATES.READY
   const svgEl = React.useRef(null)
   const [img, setImg] = React.useState(new Image())
   const src = findCurrentSrc(store.subjects.current.locations, store.transcriptions.index)
@@ -55,9 +56,8 @@ function SVGViewContainer () {
     onLoad();
   }, [img, src, store.image])
 
-  console.log('loading', img);
   const transform = `scale(${store.image.scale}) translate(${store.image.translateX}, ${store.image.translateY}) rotate(${store.image.rotation})`
-  if (src.length === 0) return null;
+  if (src.length === 0 || asyncState !== ASYNC_STATES.READY) return null;
 
   return (
     <Box ref={svgEl} fill>
