@@ -54,7 +54,7 @@ describe('SearchStore', function () {
     expect(searchStore.id).toBe('1')
     expect(searchStore.type).toBe('INTERNAL ID')
     expect(fetchTranscriptionsSpy).toHaveBeenCalled()
-    expect(searchStore.getSearchQuery()).toBe(`&filter[internal_id_eq]=1`)
+    expect(searchStore.getSearchQuery()).toBe(`&filter[internal_id_cont]=1`)
   })
 
   it('should reset args', function() {
