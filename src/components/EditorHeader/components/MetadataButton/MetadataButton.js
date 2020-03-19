@@ -11,10 +11,6 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-const StyledText = styled(Text)`
-  overflow-wrap: break-word;
-`
-
 const StyledTable = styled(Table)`
   margin-top: 2em;
   table-layout: fixed;
@@ -22,6 +18,10 @@ const StyledTable = styled(Table)`
 
 const StyledDrop = styled(Drop)`
   background: white;
+`
+
+const StyledText = styled(Text)`
+  overflow-wrap: break-word;
 `
 
 function MetadataButton({
