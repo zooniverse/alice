@@ -90,4 +90,19 @@ describe('SearchStore', function () {
     searchStore.searchTranscriptions({ foo: 'bar' })
     expect(initialStore).toStrictEqual(searchStore)
   })
+
+  describe('when sorting values', function () {
+    it('should return an ascending sort query', function () {
+      searchStore.sort('internal_id')
+      const query = searchStore.getSortQuery()
+      expect(query).toBe('&sort=internal_id')
+    })
+
+    it('should return a descending sort query', function () {
+      searchStore.sort('internal_id')
+      searchStore.sort('internal_id')
+      const query = searchStore.getSortQuery()
+      expect(query).toBe('&sort=-internal_id')
+    })
+  })
 })
