@@ -1,15 +1,30 @@
 import React from 'react'
-import { Box, Button, Drop, Text } from 'grommet'
+import { Box, Button, Drop, Table, TableRow, TableCell, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { bool, number, shape, string } from 'prop-types'
 import styled from 'styled-components'
+import withThemeContext from 'helpers/withThemeContext'
+import theme from './theme'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
-export default function MetadataButton({
+const StyledText = styled(Text)`
+  overflow-wrap: break-word;
+`
+
+const StyledTable = styled(Table)`
+  margin-top: 2em;
+  table-layout: fixed;
+`
+
+const StyledDrop = styled(Drop)`
+  background: white;
+`
+
+function MetadataButton({
   disabled,
   goldStandard,
   id,
@@ -34,39 +49,41 @@ export default function MetadataButton({
         ref={targetEl}
       />
       {isOpen && (
-        <Drop
+        <StyledDrop
           align={{ top: 'bottom', left: 'right' }}
           onClickOutside={toggleDrop}
           target={targetEl.current}
         >
-          <Box background='white' gap='xsmall' pad='small'>
+          <Box background='white' height='large' margin='small' width='large'>
             <Box direction='row' justify='between'>
               <Text size='large'>{`Subject ${id}`}</Text>
               <Button onClick={() => {toggleDrop(false) }} plain>
                 <FontAwesomeIcon icon={faTimesCircle} size='xs' />
               </Button>
             </Box>
-            <Box direction='row'>
+            <Box margin={{ top: '2em' }}>
               <CapitalText size='xsmall'>
                 {pages} pages &#8226; {transcribers}/{goldStandard} transcribers/gold standard &#8226; {lines} transcribed lines &#8226; {score}/{transcribers} average consensus &#8226; {status}
               </CapitalText>
             </Box>
-            <Box gap='xsmall'>
+            <StyledTable>
+              <col width="33%" />
+              <col width="66%" />
               {metadata && Object.keys(metadata).map((key, i) => {
                 return (
-                  <Box direction='row' key={`METADATA_VALUE_${i}`}>
-                    <Box basis='1/3'>
+                  <TableRow key={`METADATA_VALUE_${i}`}>
+                    <TableCell>
                       <CapitalText>{key}</CapitalText>
-                    </Box>
-                    <Box basis='2/3'>
-                      <Text>{metadata[key]}</Text>
-                    </Box>
-                  </Box>
+                    </TableCell>
+                    <TableCell>
+                      <StyledText wrap>{metadata[key]}</StyledText>
+                    </TableCell>
+                  </TableRow>
                 )
               })}
-            </Box>
+            </StyledTable>
           </Box>
-        </Drop>
+        </StyledDrop>
       )}
     </Box>
   )
@@ -93,3 +110,5 @@ MetadataButton.propTypes = {
   score: number,
   transcribers: number
 }
+
+export default withThemeContext(MetadataButton, theme)
