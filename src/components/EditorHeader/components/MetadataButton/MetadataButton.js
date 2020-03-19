@@ -111,4 +111,5 @@ MetadataButton.propTypes = {
   transcribers: number
 }
 
+export { MetadataButton }
 export default withThemeContext(MetadataButton, theme)
