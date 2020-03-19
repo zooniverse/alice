@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Text } from 'grommet'
+import { Box, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
@@ -26,9 +26,7 @@ const columns = [
   {
     property: "updated_at",
     header: (
-      <Button onClick={() => console.log('last edit click')} plain>
-        <CapitalText>Last Edit</CapitalText>
-      </Button>
+      <HeaderButton property='updated_at' title='LAST EDIT' />
     ),
     render: datum => {
       const color = datum.locked ? 'red' : 'inherit'
@@ -37,7 +35,9 @@ const columns = [
   },
   {
     property: "updated_by",
-    header: "Last Editor"
+    header: (
+      <HeaderButton property='updated_by' title='LAST EDITOR' />
+    )
   },
   {
     property: "status",
@@ -51,7 +51,9 @@ const columns = [
   },
   {
     property: "consensusScore",
-    header: "Consensus Score",
+    header: (
+      <HeaderButton property='low_consensus_lines' title='CONSENSUS SCORE' />
+    ),
     render: datum => {
       const color = datum.consensusScore <= datum.classifications / 2 ? 'red' : 'inherit'
       return <Text color={color}>{datum.low_consensus_lines}/{datum.transcribed_lines}</Text>
@@ -59,11 +61,15 @@ const columns = [
   },
   {
     property: "transcribed_lines",
-    header: "Transcribed Lines"
+    header: (
+      <HeaderButton property='total_lines' title='TRANSCRIBED LINES' />
+    )
   },
   {
     property: "pages",
-    header: "Pages"
+    header: (
+      <HeaderButton property='total_pages' title='PAGES' />
+    )
   },
 ];
 
