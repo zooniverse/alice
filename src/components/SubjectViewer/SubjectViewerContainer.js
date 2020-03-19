@@ -2,6 +2,7 @@ import React from 'react'
 import { Box } from 'grommet'
 import styled from 'styled-components'
 import AppContext from 'store'
+import { observer } from 'mobx-react'
 import SubjectViewerHeader from './components/SubjectViewerHeader'
 import ImageTools from './components/ImageTools'
 import SVGView from './components/SVGView'
@@ -51,4 +52,4 @@ function SubjectViewerContainer() {
   )
 }
 
-export default SubjectViewerContainer
+export default observer(SubjectViewerContainer)

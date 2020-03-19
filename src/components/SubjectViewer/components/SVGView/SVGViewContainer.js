@@ -55,6 +55,7 @@ function SVGViewContainer () {
     onLoad();
   }, [img, src, store.image])
 
+  console.log('loading', img);
   const transform = `scale(${store.image.scale}) translate(${store.image.translateX}, ${store.image.translateY}) rotate(${store.image.rotation})`
   if (src.length === 0) return null;
 
