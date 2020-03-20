@@ -13,7 +13,7 @@ const ClientStore = types.model('ClientStore', {
       baseURI: config.tove,
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       mode: 'cors'
     })
