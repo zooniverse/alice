@@ -24,7 +24,7 @@ const Transcription = types.model('Transcription', {
   low_consensus_lines: types.optional(types.integer, 0),
   pages: types.optional(types.integer, 0),
   parameters: types.optional(types.frozen()),
-  reducer: types.optional(types.string, ''),
+  reducer: types.maybeNull(types.string),
   status: types.optional(types.string, ''),
   text: Extension,
   transcribed_lines: types.optional(types.number, 0),
