@@ -24,7 +24,6 @@ function LoginForm ({ error, initialValues, onSubmit }) {
     <Box
       background='white'
       fill='vertical'
-      margin={{ right: 'small' }}
       pad={{ horizontal: 'medium', vertical: 'large' }}>
       <SmallHeader color='black' level="3" margin={{ vertical: 'large' }}>
         Log in with your Zooniverse username to get started

@@ -2,7 +2,6 @@ import React from 'react'
 import {
   Anchor,
   Box,
-  Grid,
   Image,
   Text,
 } from 'grommet'
@@ -12,6 +11,13 @@ import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 import LoginForm from './components/LoginForm'
 import Footer from './components/Footer'
+import styled from 'styled-components'
+
+const StyledBox = styled(Box)`
+  @media (min-width: 1440px) {
+    margin: auto
+  }
+`
 
 const content = [
   {
@@ -44,12 +50,8 @@ const content = [
 
 export default function Home () {
   return (
-    <Grid
-      areas={[{ name: 'content', start: [0, 0], end: [0, 0] }, { name: 'login', start: [1, 0], end: [1, 0] }]}
-      columns={['2/3', '1/3']}
-      rows={['full']}
-      fill>
-      <Box gridArea='content' pad='medium'>
+    <Box direction='row' fill>
+      <StyledBox pad='medium' width='large'>
         <Box margin={{ vertical: 'large' }}>
           <Box height='2em' width='12em'>
             <Image alt="Powered by Zooniverse" fit='contain' src={Zooniverse} />
@@ -67,10 +69,10 @@ export default function Home () {
           {content.map((item, i) => <InfoText key={`INFO_${i}`} index={i} item={item}/> )}
         </Box>
         <Footer />
-      </Box>
-      <Box gridArea='login'>
+      </StyledBox>
+      <Box margin={{ left: 'auto', right: 'small' }} width='medium'>
         <LoginForm />
       </Box>
-    </Grid>
+    </Box>
   )
 }
