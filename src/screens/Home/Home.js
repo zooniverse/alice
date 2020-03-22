@@ -13,9 +13,48 @@ import LoginForm from './components/LoginForm'
 import Footer from './components/Footer'
 import styled from 'styled-components'
 
-const StyledBox = styled(Box)`
+const AliceBox = styled(Box)`
+  max-width: 550px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+`
+
+const ContentBox = styled(Box)`
+  @media (min-width: 768px) {
+    margin-right: 375px;
+    max-width: 850px;
+  }
+`
+
+const CenterBox = styled(Box)`
   @media (min-width: 1440px) {
-    margin: auto
+    margin: auto;
+  }
+`
+
+const RelativeBox = styled(Box)`
+  position: relative;
+`
+
+const LoginBox = styled(Box)`
+  width: 100%;
+
+  @media (min-width: 768px) {
+    margin-right: 25px;
+    max-width: 40%;
+    position: absolute;
+    right: 0;
+    width: 350px;
+  }
+`
+
+const StackBox = styled(Box)`
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 `
 
@@ -50,29 +89,34 @@ const content = [
 
 export default function Home () {
   return (
-    <Box direction='row' fill>
-      <StyledBox pad='medium' width='large'>
-        <Box margin={{ vertical: 'large' }}>
-          <Box height='2em' width='12em'>
-            <Image alt="Powered by Zooniverse" fit='contain' src={Zooniverse} />
+    <RelativeBox fill>
+      <CenterBox>
+        <ContentBox>
+          <Box pad='small'>
+            <Box height='2em' width='12em'>
+              <Image alt="Powered by Zooniverse" fit='contain' src={Zooniverse} />
+            </Box>
+            <AliceBox>
+              <Image alt='ALICE Logo' fit='contain' src={Alice} />
+            </AliceBox>
+            <Text color="#5C5C5C" size='large'>Aggregate Line Inspector / Collaborative Editor</Text>
           </Box>
-          <Box width='50%'>
-            <Image alt='ALICE Logo' fit='contain' src={Alice} />
+          <LoginBox fill='vertical'>
+            <LoginForm />
+          </LoginBox>
+          <StackBox gap='small' pad='small'>
+            {content.map((item, i) => (
+              <InfoText
+                key={`INFO_${i}`}
+                index={i}
+                item={item}/
+              >))}
+          </StackBox>
+          <Box pad='small'>
+            <Footer />
           </Box>
-          <Text color="#5C5C5C" size='large'>Aggregate Line Inspector / Collaborative Editor</Text>
-        </Box>
-        <Box
-          border='bottom'
-          direction='row'
-          gap='medium'
-          pad={{ bottom: 'xlarge' }}>
-          {content.map((item, i) => <InfoText key={`INFO_${i}`} index={i} item={item}/> )}
-        </Box>
-        <Footer />
-      </StyledBox>
-      <Box margin={{ left: 'auto', right: 'small' }} width='medium'>
-        <LoginForm />
-      </Box>
-    </Box>
+        </ContentBox>
+      </CenterBox>
+    </RelativeBox>
   )
 }

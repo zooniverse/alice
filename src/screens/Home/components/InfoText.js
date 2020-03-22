@@ -4,7 +4,7 @@ import { Box, Heading } from 'grommet'
 
 function InfoText ({ index, item }) {
   return (
-    <Box key={`INFO_${index}`} width='medium'>
+    <Box key={`INFO_${index}`} margin={{ right: 'small' }}>
       <Heading level='6' weight='bold'>{item && item.header}</Heading>
       <Box>{item && item.content}</Box>
     </Box>

@@ -15,6 +15,14 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
+const StackBox = styled(Box)`
+  flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`
+
 const images = [{
     logo: NEH, title: 'National Endowment for the Humanities'
   }, {
@@ -28,13 +36,13 @@ const images = [{
 export default function Footer () {
   return (
     <Box>
-      <Box direction='row' pad={{ vertical: 'small' }} align='center' wrap gap='medium'>
+      <StackBox align='center' gap='medium' pad={{ vertical: 'small' }} wrap>
         {images.map((image) =>
-          <Box key={image.title} height='1.5em' width='xsmall'>
+          <Box key={image.title} height='1.5em' margin={{ right: 'xsmall' }} width='xsmall'>
             <Image alt={`${image.title} Logo`} fit='contain' src={image.logo}/>
           </Box>
         )}
-      </Box>
+      </StackBox>
       <Box>
         <CapitalText size='xsmall'>
           This material is based upon work supported by the national endowment
