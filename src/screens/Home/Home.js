@@ -61,8 +61,8 @@ export default function Home () {
   return (
     <RelativeBox fill>
       <CenterBox>
-        <ContentBox>
-          <Box pad='small'>
+        <ContentBox gap='large'>
+          <Box margin={{ top: 'large' }} pad='small'>
             <Box height='2em' width='12em'>
               <Image alt="Powered by Zooniverse" fit='contain' src={Zooniverse} />
             </Box>
@@ -82,7 +82,7 @@ export default function Home () {
                 item={item}/
               >))}
           </StackBox>
-          <Box pad='small'>
+          <Box border='top' margin='small'>
             <Footer />
           </Box>
         </ContentBox>
