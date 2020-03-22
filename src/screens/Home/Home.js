@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Image, Text } from 'grommet'
+import { Box, Heading, Image, Text } from 'grommet'
 import Alice from '../../images/alice.png'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
@@ -31,6 +31,10 @@ const CenterBox = styled(Box)`
 
 const RelativeBox = styled(Box)`
   position: relative;
+`
+
+const LiteHeading = styled(Heading)`
+  font-weight: 300;
 `
 
 const LoginBox = styled(Box)`
@@ -65,7 +69,7 @@ export default function Home () {
             <AliceBox>
               <Image alt='ALICE Logo' fit='contain' src={Alice} />
             </AliceBox>
-            <Text color="#5C5C5C" size='large'>Aggregate Line Inspector / Collaborative Editor</Text>
+            <LiteHeading color="#5C5C5C" level='2'>Aggregate Line Inspector / Collaborative Editor</LiteHeading>
           </Box>
           <LoginBox fill='vertical'>
             <LoginForm />
