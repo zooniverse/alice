@@ -1,16 +1,11 @@
 import React from 'react'
-import {
-  Anchor,
-  Box,
-  Image,
-  Text,
-} from 'grommet'
+import { Box, Image, Text } from 'grommet'
 import Alice from '../../images/alice.png'
-import { Link } from 'react-router-dom'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'
 import LoginForm from './components/LoginForm'
 import Footer from './components/Footer'
+import content from './homeContent'
 import styled from 'styled-components'
 
 const AliceBox = styled(Box)`
@@ -57,35 +52,6 @@ const StackBox = styled(Box)`
     flex-direction: row;
   }
 `
-
-const content = [
-  {
-    header: 'WHAT IS THIS',
-    content:
-      <Text>
-        The Zooniverse team have created this app to view and edit
-        the results of transcription projects hosted on Zooniverse.
-      </Text>
-  },{
-    header: 'WHO CAN USE IT',
-    content:
-      <Text>
-        Anyone with a text transcription project can use this tool.
-      <Anchor margin={{ left: '0.2em' }} size='xsmall'>Contact</Anchor> the Zooniverse team to set up your transcription project.</Text>
-  }, {
-    header: 'HOW TO USE IT',
-    content:
-      <Box>
-        <Text>
-          Documentation has been created to help research teams set up
-          and optimally use this tool.
-        </Text>
-        <Text margin={{ vertical: 'xsmall' }} size='xsmall'>
-          <Link to='/about'>Link to Documentation</Link>
-        </Text>
-      </Box>
-  }
-]
 
 export default function Home () {
   return (
