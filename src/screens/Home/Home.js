@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Heading, Image, Text } from 'grommet'
+import { Box, Heading, Image } from 'grommet'
 import Alice from '../../images/alice.png'
 import Zooniverse from '../../images/zooniverse.png'
 import InfoText from './components/InfoText'

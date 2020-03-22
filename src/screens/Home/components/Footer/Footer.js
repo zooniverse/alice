@@ -38,7 +38,7 @@ export default function Footer () {
     <Box>
       <StackBox align='center' gap='medium' pad={{ vertical: 'small' }} wrap>
         {images.map((image) =>
-          <Box key={image.title} height='1.5em' margin={{ right: 'xsmall' }} width='xsmall'>
+          <Box key={image.title} height='2.8em' margin={{ right: 'xsmall' }} width='xsmall'>
             <Image alt={`${image.title} Logo`} fit='contain' src={image.logo}/>
           </Box>
         )}
