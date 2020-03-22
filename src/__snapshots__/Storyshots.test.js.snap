@@ -726,7 +726,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             <span
               className="StyledText-sc-1sadyjn-0 kutFY"
             >
-              
+
             </span>
           </div>
           <div
@@ -907,7 +907,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               className="StyledBox-sc-13pk1d4-0 jUNXut"
             >
               <div
-                className="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 hlgLRt"
+                className="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 VFomL"
               >
                 <input
                   autoComplete="off"
@@ -1016,6 +1016,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
   <label
     checked={false}
     className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+    disabled={false}
     onClick={[Function]}
   >
     <span
@@ -1026,10 +1027,12 @@ exports[`Storyshots MarkApproved Default 1`] = `
     <div
       checked={false}
       className="StyledBox-sc-13pk1d4-0 fdQGpV StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+      disabled={false}
     >
       <input
         checked={false}
         className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dmrmuV"
+        disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -1037,11 +1040,13 @@ exports[`Storyshots MarkApproved Default 1`] = `
       />
       <span
         checked={false}
-        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 kOvstK"
+        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 hjGuWS"
+        disabled={false}
       >
         <span
           checked={false}
-          className="StyledCheckBox__StyledCheckBoxKnob-sc-1dbk5ju-5 GTsLr"
+          className="StyledCheckBox__StyledCheckBoxKnob-sc-1dbk5ju-5 kGMNhu"
+          disabled={false}
         />
       </span>
     </div>
@@ -1611,7 +1616,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ eJgHCP"
       >
-        This subject cannot be accessed because 
+        This subject cannot be accessed because
         <b>
           Erin Green
         </b>
@@ -1679,6 +1684,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
           >
             <button
               className="StyledButton-sc-323bzc-0 jfbKsv"
+              disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
