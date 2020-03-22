@@ -23,6 +23,7 @@ function MarkApprovedContainer() {
   return (
     <MarkApproved
       checked={isChecked}
+      disabled={store.transcriptions.isActive}
       isAdmin={store.projects.isAdmin}
       onChange={onChange}
     />

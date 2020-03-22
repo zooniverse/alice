@@ -8,7 +8,7 @@ function BadgeContainer ({ onAbout }) {
   const [isOpen, setOpen] = React.useState(false)
   const user = store.auth.user
 
-  const disabled = store.aggregations.showModal
+  const disabled = store.aggregations.showModal || store.transcriptions.isActive
   const name = user && user.display_name
   const signOut = store.auth.logout
   const src = user && user.avatar_src

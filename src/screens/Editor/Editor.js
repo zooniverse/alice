@@ -35,7 +35,7 @@ function Editor ({ match }) {
     undoManager.clear()
   }, [match, store])
 
-  const disabled = store.aggregations.showModal || store.transcriptions.approved
+  const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive
   const subject = store.subjects.current
   const locations = findLocations(subject)
   const direction = store.editor.layout

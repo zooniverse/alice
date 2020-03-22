@@ -28,6 +28,7 @@ function Title({ history, match, onEditor }) {
   }
 
   const store = React.useContext(AppContext)
+  const disabled = store.aggregations.showModal || store.transcriptions.isActive
   const project = store.projects.title || ''
   const workflow = store.workflows.title || ''
   const group = store.groups.title || ''
@@ -63,7 +64,7 @@ function Title({ history, match, onEditor }) {
               <Button
                 key={`SUB_HEADER_${i}`}
                 a11yTitle={sub.to}
-                disabled={store.aggregations.showModal}
+                disabled={disabled}
                 label={<CapitalText key={`SUB_HEADER_${i}`} color='#5C5C5C'>{`${sub.title} ${removeSlash ? '' : '/'}`}</CapitalText>}
                 onClick={() => routeTo(sub.path)}
                 plain

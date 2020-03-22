@@ -43,7 +43,7 @@ function SubjectViewerContainer() {
         <AbsoluteBox fill>
           <AsyncMessages error={store.subjects.error} subjectState={store.subjects.asyncState} />
           <ToolsBox>
-            {showTools && <ImageTools />}
+            {showTools && !store.transcriptions.isActive && <ImageTools />}
           </ToolsBox>
         </AbsoluteBox>
         <SVGView />
