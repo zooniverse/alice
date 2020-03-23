@@ -1207,7 +1207,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         >
                           <svg
                             aria-label="FormDown"
-                            className="StyledIcon-ofa7kd-0 bgjyaD"
+                            className="StyledIcon-ofa7kd-0 bKsZCm"
                             viewBox="0 0 24 24"
                           >
                             <polyline
@@ -1297,7 +1297,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
                       disabled={false}
                       htmlFor="unseen"
                       onClick={[Function]}
@@ -1309,7 +1309,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
                           disabled={false}
                           id="unseen"
                           name="unseen"
@@ -1320,7 +1320,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1344,7 +1344,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
                       disabled={false}
                       htmlFor="in_progress"
                       onClick={[Function]}
@@ -1356,7 +1356,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
                           disabled={false}
                           id="in_progress"
                           name="in_progress"
@@ -1367,7 +1367,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1391,7 +1391,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
                       disabled={false}
                       htmlFor="ready"
                       onClick={[Function]}
@@ -1403,7 +1403,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
                           disabled={false}
                           id="ready"
                           name="ready"
@@ -1414,7 +1414,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1438,7 +1438,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
                       disabled={false}
                       htmlFor="approved"
                       onClick={[Function]}
@@ -1450,7 +1450,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
                           disabled={false}
                           id="approved"
                           name="approved"
@@ -1461,7 +1461,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1494,7 +1494,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
                       disabled={false}
                       htmlFor="flagged"
                       onClick={[Function]}
@@ -1506,7 +1506,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOuVEs"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
                           disabled={false}
                           id="flagged"
                           name="flagged"
@@ -1517,7 +1517,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 SUcEn StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
