@@ -17,7 +17,6 @@ const StyledText = styled('h6')`
 `
 
 const RightAlignText = styled(StyledText)`
-  margin-left: auto;
   text-align: end;
 `
 
@@ -40,7 +39,7 @@ function TranscriptionTable ({ data, isViewer, setActiveTranscription, setTextOb
         <Box>
           <StyledText>Flag</StyledText>
         </Box>
-        <Box>
+        <Box margin={{ left: 'auto' }}>
           <RightAlignText>Consensus Score</RightAlignText>
         </Box>
       </Box>
