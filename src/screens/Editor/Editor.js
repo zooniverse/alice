@@ -27,8 +27,8 @@ function Editor ({ match }) {
 
   React.useEffect(() => {
     const setResources = async () => {
-      await store.getResources(match.params)
       await store.subjects.fetchSubject(match.params.subject)
+      await store.getResources(match.params)
     }
     setResources()
     store.transcriptions.setActiveTranscription()

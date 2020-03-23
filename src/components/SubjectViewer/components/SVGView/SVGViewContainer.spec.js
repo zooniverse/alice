@@ -22,7 +22,7 @@ const contextValues = {
     translateY: 0
   },
   subjects: {
-    asyncState: ASYNC_STATES.IDLE,
+    asyncState: ASYNC_STATES.READY,
     current: {
       locations: [{
         image: 'www.test.com'
@@ -76,7 +76,7 @@ describe('Component > SVGViewContainer', function () {
   })
 
   it('should set the image size', function () {
-    expect(svg.props().height).toBe(200)
-    expect(svg.props().width).toBe(100)
+    expect(svg.props().height.naturalHeight).toBe(200)
+    expect(svg.props().width.naturalWidth).toBe(100)
   })
 })

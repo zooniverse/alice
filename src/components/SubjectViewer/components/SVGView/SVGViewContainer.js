@@ -13,10 +13,13 @@ function findCurrentSrc(locations, index) {
 
 function SVGViewContainer () {
   const store = React.useContext(AppContext)
-  const disableInteraction = store.subjects.asyncState !== ASYNC_STATES.READY
+  const { asyncState } = store.subjects
+  const disableInteraction = asyncState !== ASYNC_STATES.READY
   const svgEl = React.useRef(null)
   const [img, setImg] = React.useState(new Image())
   const src = findCurrentSrc(store.subjects.current.locations, store.transcriptions.index)
+  const [naturalWidth, setNaturalWidth] = React.useState(0)
+  const [naturalHeight, setNaturalHeight] = React.useState(0)
 
   React.useEffect(() => {
     async function fetchImage() {
@@ -36,6 +39,8 @@ function SVGViewContainer () {
     async function getImageSize() {
       const image = await preLoad()
       const svg = svgEl.current || {}
+      setNaturalWidth(image.naturalWidth)
+      setNaturalHeight(image.naturalHeight)
       return {
         clientHeight: svg.clientHeight,
         clientWidth: svg.clientWidth,
@@ -51,9 +56,8 @@ function SVGViewContainer () {
     onLoad();
   }, [img, src, store.image])
 
-  const { naturalHeight, naturalWidth } = img
   const transform = `scale(${store.image.scale}) translate(${store.image.translateX}, ${store.image.translateY}) rotate(${store.image.rotation})`
-  if (src.length === 0) return null;
+  if (src.length === 0 || disableInteraction) return null;
 
   return (
     <Box ref={svgEl} fill>
