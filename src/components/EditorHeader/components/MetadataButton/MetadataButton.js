@@ -63,38 +63,42 @@ function MetadataButton({
           onClickOutside={toggleDrop}
           target={targetEl.current}
         >
-          <Box background='white' height='large' margin='small' width='large'>
-            <Box direction='row' justify='between'>
-              <Text size='large'>{`Subject ${id}`}</Text>
-              <Button onClick={() => {toggleDrop(false) }} plain>
-                <FontAwesomeIcon icon={faTimesCircle} size='xs' />
-              </Button>
+          <Box background='white' height='large' overflow='hidden' width='large'>
+            <Box pad='small'>
+              <Box direction='row' justify='between'>
+                <Text size='large'>{`Subject ${id}`}</Text>
+                <Button onClick={() => {toggleDrop(false) }} plain>
+                  <FontAwesomeIcon icon={faTimesCircle} size='xs' />
+                </Button>
+              </Box>
+              <Box margin={{ top: 'medium' }}>
+                <CapitalText size='xsmall'>
+                  {pages} pages &#8226; {transcribers}/{goldStandard} transcribers/gold standard &#8226; {lines} transcribed lines &#8226; {score}/{transcribers} average consensus &#8226; {status}
+                </CapitalText>
+              </Box>
             </Box>
-            <Box margin={{ top: '2em' }}>
-              <CapitalText size='xsmall'>
-                {pages} pages &#8226; {transcribers}/{goldStandard} transcribers/gold standard &#8226; {lines} transcribed lines &#8226; {score}/{transcribers} average consensus &#8226; {status}
-              </CapitalText>
+            <Box margin={{ top: 'medium' }} overflow={{ vertical: 'scroll' }} width='100%'>
+              <StyledTable>
+                <colgroup>
+                  <col width="33%" />
+                  <col width="66%" />
+                </colgroup>
+                <TableBody>
+                {metadata && Object.keys(metadata).map((key, i) => {
+                  return (
+                    <TableRow key={`METADATA_VALUE_${i}`}>
+                      <TableCell>
+                        <CapitalText>{key}</CapitalText>
+                      </TableCell>
+                      <TableCell>
+                        <StyledText>{metadata[key]}</StyledText>
+                      </TableCell>
+                    </TableRow>
+                  )
+                })}
+                </TableBody>
+              </StyledTable>
             </Box>
-            <StyledTable>
-              <colgroup>
-                <col width="33%" />
-                <col width="66%" />
-              </colgroup>
-              <TableBody>
-              {metadata && Object.keys(metadata).map((key, i) => {
-                return (
-                  <TableRow key={`METADATA_VALUE_${i}`}>
-                    <TableCell>
-                      <CapitalText>{key}</CapitalText>
-                    </TableCell>
-                    <TableCell>
-                      <StyledText>{metadata[key]}</StyledText>
-                    </TableCell>
-                  </TableRow>
-                )
-              })}
-              </TableBody>
-            </StyledTable>
           </Box>
         </StyledDrop>
       )}
