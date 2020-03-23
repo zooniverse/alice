@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { Button } from 'grommet'
-import MetadataButton from './MetadataButton'
+import { MetadataButton } from './MetadataButton'
 import mockMetadata from './mockMetadata'
 
 let wrapper
