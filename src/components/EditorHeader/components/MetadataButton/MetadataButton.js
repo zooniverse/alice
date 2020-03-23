@@ -1,5 +1,14 @@
 import React from 'react'
-import { Box, Button, Drop, Table, TableRow, TableCell, Text } from 'grommet'
+import {
+  Box,
+  Button,
+  Drop,
+  Table,
+  TableBody,
+  TableRow,
+  TableCell,
+  Text
+} from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { bool, number, shape, string } from 'prop-types'
@@ -67,8 +76,11 @@ function MetadataButton({
               </CapitalText>
             </Box>
             <StyledTable>
-              <col width="33%" />
-              <col width="66%" />
+              <colgroup>
+                <col width="33%" />
+                <col width="66%" />
+              </colgroup>
+              <TableBody>
               {metadata && Object.keys(metadata).map((key, i) => {
                 return (
                   <TableRow key={`METADATA_VALUE_${i}`}>
@@ -76,11 +88,12 @@ function MetadataButton({
                       <CapitalText>{key}</CapitalText>
                     </TableCell>
                     <TableCell>
-                      <StyledText wrap>{metadata[key]}</StyledText>
+                      <StyledText>{metadata[key]}</StyledText>
                     </TableCell>
                   </TableRow>
                 )
               })}
+              </TableBody>
             </StyledTable>
           </Box>
         </StyledDrop>
