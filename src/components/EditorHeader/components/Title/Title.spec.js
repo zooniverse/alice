@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button, Heading } from 'grommet'
-import { CapitalText, Title } from './Title'
+import { Button } from 'grommet'
+import { CapitalText, StyledHeading, Title } from './Title'
 
 let wrapper
 const editContext = {
@@ -53,8 +53,8 @@ describe('Component > Title', function () {
 
     it('Should display only the group subheader', function () {
       expect(wrapper.find(Button).length).toBe(1)
-      expect(wrapper.find(Heading).length).toBe(1)
-      expect(wrapper.find(Heading).props().children).toBe(editContext.transcriptions.title)
+      expect(wrapper.find(StyledHeading).length).toBe(1)
+      expect(wrapper.find(StyledHeading).props().children).toBe(editContext.transcriptions.title)
     })
   })
 
