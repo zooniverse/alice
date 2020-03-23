@@ -10,9 +10,13 @@ let wrapper
 const fetchWorkflowsSpy = jest.fn()
 const pushSpy = jest.fn()
 const getResourcesSpy = jest.fn()
+const resetSpy = jest.fn()
 const selectWorkflowSpy = jest.fn()
 const contextValues = {
   getResources: getResourcesSpy,
+  search: {
+    reset: resetSpy
+  },
   workflows: {
     all: [],
     asyncState: ASYNC_STATES.IDLE,
@@ -48,6 +52,7 @@ describe('Component > WorkflowsPageContainer', function () {
       const workflow = { id: 1 }
       const table = wrapper.find(ResourcesTable).first()
       table.props().onSelection(workflow)
+      expect(resetSpy).toHaveBeenCalled()
       expect(pushSpy).toHaveBeenCalled()
     })
 
