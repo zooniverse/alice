@@ -135,10 +135,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function getLastModified(response) {
     let lastModified = ''
-    response.headers.forEach((val, key) => {
-      console.log(val, key);
-      if (key === 'last-modified') lastModified = val
-    })
+    if (response.headers) {
+      response.headers.forEach((val, key) => {
+        if (key === 'last-modified') lastModified = val
+      })
+    }
     return lastModified
   }
 
