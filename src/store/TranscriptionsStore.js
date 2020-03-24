@@ -19,9 +19,10 @@ const Transcription = types.model('Transcription', {
   id: types.identifier,
   flagged: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
-  lastModified: types.optional(types.string, ''),
   internal_id: types.optional(types.string, ''),
+  last_modified: types.optional(types.string, ''),
   low_consensus_lines: types.optional(types.integer, 0),
+  locked_by: types.maybeNull(types.string),
   pages: types.optional(types.integer, 0),
   parameters: types.optional(types.frozen()),
   reducer: types.maybeNull(types.string),
@@ -88,7 +89,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.saveTranscription()
   }
 
-  function createTranscription(transcription, lastModified = '') {
+  function createTranscription(transcription, last_modified = '') {
     const text = (transcription.attributes && transcription.attributes.text) || {}
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
     const textObject = Ramda.pickBy(containsFrameKey, text)
@@ -96,7 +97,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       id: transcription.id,
       flagged: transcription.attributes.flagged,
       group_id: transcription.attributes.group_id,
-      lastModified,
+      last_modified,
       internal_id: transcription.attributes.internal_id || '',
       low_consensus_lines: transcription.attributes.low_consensus_lines || 0,
       pages: transcription.attributes.total_pages || 0,
@@ -363,6 +364,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
+  const unlockTranscription = flow(function * unlockTranscription() {
+    console.log('unlocking');
+    const client = getRoot(self).client.tove
+    yield client.patch(`/transcriptions/${self.current.id}/unlock`, { headers: { 'If-Unmodified-Since': self.current.lastModified } })
+  })
+
   function updateApproval(isChecked) {
     self.setActiveTranscription()
     const isAdmin = getRoot(self).projects.isAdmin
@@ -401,6 +408,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
     toggleError: () => undoManager.withoutUndo(() => toggleError()),
     undo,
+    unlockTranscription,
     updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked))
   }
 }).views(self => ({

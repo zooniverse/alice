@@ -33,6 +33,11 @@ function Editor ({ match }) {
     setResources()
     store.transcriptions.setActiveTranscription()
     undoManager.clear()
+
+    // window.addEventListener('beforeunload', function() {
+    //   store.transcriptions.unlockTranscription()
+    // });
+    return () => store.transcriptions.unlockTranscription()
   }, [match, store])
 
   const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive
