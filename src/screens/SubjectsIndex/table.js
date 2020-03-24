@@ -30,7 +30,7 @@ const columns = [
     ),
     render: datum => {
       const color = datum.locked ? 'red' : 'inherit'
-      return <Text color={color}>{datum.locked ? 'LOCKED' : writeDate(datum.updated_at)}</Text>
+      return <Text color={color}>{datum.locked_by ? 'LOCKED' : writeDate(datum.updated_at)}</Text>
     }
   },
   {
