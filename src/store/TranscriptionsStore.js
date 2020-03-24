@@ -157,9 +157,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const patchTranscription = flow(function * patchTranscription(query) {
     const client = getRoot(self).client.tove
+    let lastModified
     try {
       yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.lastModified } }).then(response => {
         if (response.ok) {
+          lastModified = getLastModified(response)
           return response
         } else {
           return Promise.reject(response)
@@ -175,6 +177,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
+    if (lastModified) self.current.lastModified = lastModified
   })
 
   function reset() {
@@ -233,7 +236,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       const response = yield client.get(`/transcriptions/${id}`)
       const lastModified = getLastModified(response)
       const resource = JSON.parse(response.body)
-      console.log(lastModified);
       const transcription = self.createTranscription(resource.data, lastModified)
       self.setTranscription(transcription)
       undoManager.withoutUndo(() => {
