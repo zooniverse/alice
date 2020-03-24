@@ -122,7 +122,6 @@ describe('Component > LineViewerContainer', function () {
         wrapper = shallow(<LineViewerContainer isLoaded />)
         const lineViewer = wrapper.find(LineViewer).first()
         lineViewer.props().closeModal()
-        expect(deleteCurrentLineSpy).toHaveBeenCalled()
         expect(setActiveTranscriptionSpy).toHaveBeenCalledWith(undefined)
       })
     })

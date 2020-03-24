@@ -58,6 +58,7 @@ function LineViewer ({
     }
     const isAlgorithmChoice = selectedItem === algorithmChoice
     reduction.setConsensusText(textOption, isAlgorithmChoice, originalTranscriber)
+    if (isNewLine) closeModal()
   }
 
   return (

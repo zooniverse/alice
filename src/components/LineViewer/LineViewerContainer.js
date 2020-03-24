@@ -37,10 +37,7 @@ function LineViewerContainer({ isLoaded }) {
   const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
   const typedChoice = localStore.transcriptionOptions.length + 1
 
-  const closeModal = e => {
-    if (!consensusText) store.transcriptions.deleteCurrentLine()
-    store.transcriptions.setActiveTranscription(undefined)
-  }
+  const closeModal = () => store.transcriptions.setActiveTranscription(undefined)
   const onSetItem = (item) => {
     if (item !== typedChoice && localStore.inputText.length) {
       localStore.setInputText('')
