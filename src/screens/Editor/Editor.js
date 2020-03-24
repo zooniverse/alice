@@ -34,9 +34,9 @@ function Editor ({ match }) {
     store.transcriptions.setActiveTranscription()
     undoManager.clear()
 
-    // window.addEventListener('beforeunload', function() {
-    //   store.transcriptions.unlockTranscription()
-    // });
+    window.addEventListener('beforeunload', function() {
+      store.transcriptions.unlockTranscription()
+    });
     return () => store.transcriptions.unlockTranscription()
   }, [match, store])
 
