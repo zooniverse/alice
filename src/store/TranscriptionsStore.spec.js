@@ -8,7 +8,9 @@ import TranscriptionFactory from './factories/transcription'
 let rootStore
 let transcriptionsStore
 
-const patchToveSpy = jest.fn().mockResolvedValue({ ok: true })
+const headers = new Headers()
+headers.append('last-modified', 'Mon, June 31, 2020');
+const patchToveSpy = jest.fn().mockResolvedValue({ ok: true, headers })
 const getToveResponse = () => Promise.resolve(
   {
     body: JSON.stringify(
@@ -215,9 +217,10 @@ describe('TranscriptionsStore', function () {
         expect(transcriptionsStore.current.id).toBe("1")
       })
 
-      it('should save a transcription', function () {
-        transcriptionsStore.saveTranscription()
+      it('should save a transcription', async function () {
+        await transcriptionsStore.saveTranscription()
         expect(patchToveSpy).toHaveBeenCalled()
+        expect(transcriptionsStore.current.lastModified).toBe('Mon, June 31, 2020')
       })
 
       it('should update the flagged attribute', function () {

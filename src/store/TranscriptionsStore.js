@@ -19,6 +19,7 @@ const Transcription = types.model('Transcription', {
   id: types.identifier,
   flagged: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
+  lastModified: types.optional(types.string, ''),
   low_consensus_lines: types.optional(types.integer, 0),
   pages: types.optional(types.integer, 0),
   status: types.optional(types.string, ''),
@@ -72,7 +73,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.saveTranscription()
   }
 
-  function createTranscription(transcription) {
+  function createTranscription(transcription, lastModified = '') {
     const text = (transcription.attributes && transcription.attributes.text) || {}
     const pages = Object.keys(text).filter(key => key.includes('frame')).length
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
@@ -81,6 +82,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       id: transcription.id,
       flagged: transcription.attributes.flagged,
       group_id: transcription.attributes.group_id,
+      lastModified,
       low_consensus_lines: text.low_consensus_lines,
       pages,
       status: transcription.attributes.status,
@@ -131,6 +133,16 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}`)
   }
 
+  function getLastModified(response) {
+    let lastModified = ''
+    if (response.headers) {
+      response.headers.forEach((val, key) => {
+        if (key === 'last-modified') lastModified = val
+      })
+    }
+    return lastModified
+  }
+
   const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
     let usersWhoClassified = Object.keys(arrangedExtractsByUser)
     usersWhoClassified = usersWhoClassified.filter(user => user !== 'null')
@@ -146,9 +158,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const patchTranscription = flow(function * patchTranscription(query) {
     const client = getRoot(self).client.tove
+    let lastModified
     try {
-      yield client.patch(`/transcriptions/${self.current.id}`, { body: query }).then(response => {
+      yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.lastModified } }).then(response => {
         if (response.ok) {
+          lastModified = getLastModified(response)
           return response
         } else {
           return Promise.reject(response)
@@ -164,6 +178,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
+    undoManager.withoutUndo(() => {
+      if (lastModified) self.current.lastModified = lastModified
+    })
   })
 
   function reset() {
@@ -220,8 +237,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const client = getRoot(self).client.tove
     try {
       const response = yield client.get(`/transcriptions/${id}`)
+      const lastModified = getLastModified(response)
       const resource = JSON.parse(response.body)
-      const transcription = self.createTranscription(resource.data)
+      const transcription = self.createTranscription(resource.data, lastModified)
       self.setTranscription(transcription)
       undoManager.withoutUndo(() => {
         self.current = id
@@ -302,10 +320,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     arrangeExtractsByUser,
     changeIndex,
     checkForFlagUpdate,
-    createTranscription: (transcription) => undoManager.withoutUndo(() => createTranscription(transcription)),
+    createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
     fetchExtracts,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
+    getLastModified,
     getTranscriberInfo,
     patchTranscription,
     reset: () => undoManager.withoutUndo(() => reset()),
