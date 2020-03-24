@@ -177,7 +177,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
-    if (lastModified) self.current.lastModified = lastModified
+    undoManager.withoutUndo(() => {
+      if (lastModified) self.current.lastModified = lastModified
+    })
   })
 
   function reset() {
