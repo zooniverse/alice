@@ -44,6 +44,10 @@ const AuthStore = types.model('AuthStore', {
     self.user = null
     history.push('/')
   })
+})).views(self => ({
+  get userName () {
+    return self.user && self.user.display_name
+  }
 }))
 
 export { AuthStore }

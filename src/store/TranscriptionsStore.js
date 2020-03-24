@@ -216,7 +216,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const client = getRoot(self).client.tove
     let lastModified
     try {
-      yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.lastModified } }).then(response => {
+      yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
         if (response.ok) {
           lastModified = getLastModified(response)
           return response
@@ -235,7 +235,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       })
     }
     undoManager.withoutUndo(() => {
-      if (lastModified) self.current.lastModified = lastModified
+      if (lastModified) self.current.last_modified = lastModified
     })
   })
 

@@ -23,7 +23,7 @@ const Reduction = types.model('Reduction', {
 .actions(self => ({
   setConsensusText: (text, isOriginalOption = false, originalTranscriber = '') => {
     self.original_transcriber = originalTranscriber
-    self.line_editor = isOriginalOption ? '' : getRoot(self).auth.user.display_name
+    self.line_editor = isOriginalOption ? '' : getRoot(self).auth.userName
     self.edited_consensus_text = isOriginalOption ? '' : text
 
     const transcription = getRoot(self).transcriptions

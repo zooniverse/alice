@@ -22,11 +22,10 @@ function SubjectsPageContainer ({ history, match }) {
     return () => store.modal.toggleModal('')
   }, [match, store])
 
-  const onSelection = (subject) => {
-    if (subject.locked) {
-      store.modal.toggleModal(MODALS.LOCKED)
-    }
-    const nextPath = generatePath(EDIT_PATH, { subject: subject.id, ...match.params})
+  const onSelection = (transcription) => {
+    const isLocked = transcription.locked_by && transcription.locked_by !== store.auth.userName
+    if (isLocked) store.modal.toggleModal(MODALS.LOCKED)
+    const nextPath = generatePath(EDIT_PATH, { subject: transcription.id, ...match.params})
     history.push(nextPath)
   }
 
