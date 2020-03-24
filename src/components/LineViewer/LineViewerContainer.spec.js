@@ -119,7 +119,7 @@ describe('Component > LineViewerContainer', function () {
         jest
           .spyOn(React, 'useContext')
           .mockImplementation(() => editedContext )
-        wrapper = shallow(<LineViewerContainer />)
+        wrapper = shallow(<LineViewerContainer isLoaded />)
         const lineViewer = wrapper.find(LineViewer).first()
         lineViewer.props().closeModal()
         expect(deleteCurrentLineSpy).toHaveBeenCalled()
