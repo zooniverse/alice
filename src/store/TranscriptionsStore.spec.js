@@ -25,7 +25,8 @@ const getToveResponse = () => Promise.resolve(
         meta: {
           pagination: { last: 1 }
         }
-      })
+      }),
+    headers
   }
 )
 
@@ -286,6 +287,14 @@ describe('TranscriptionsStore', function () {
       it('should show when the transcription is locked', async function () {
         await transcriptionsStore.checkIfLocked()
         expect(toggleModalSpy).toHaveBeenCalled()
+      })
+
+      it('should unlock a transcription', async function () {
+        await transcriptionsStore.unlockTranscription()
+        expect(patchToveSpy).toHaveBeenCalledWith(
+          '/transcriptions/1/unlock',
+          {"headers": {"If-Unmodified-Since": "Mon, June 31, 2020"}}
+        )
       })
 
       describe('when deleting a line', function () {

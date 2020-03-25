@@ -378,7 +378,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const unlockTranscription = flow(function * unlockTranscription() {
     const client = getRoot(self).client.tove
-    yield client.patch(`/transcriptions/${self.current.id}/unlock`, { headers: { 'If-Unmodified-Since': self.current.lastModified } })
+    yield client.patch(`/transcriptions/${self.current.id}/unlock`, { headers: { 'If-Unmodified-Since': self.current.last_modified } })
   })
 
   function updateApproval(isChecked) {
