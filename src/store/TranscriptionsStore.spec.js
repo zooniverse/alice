@@ -11,12 +11,14 @@ let transcriptionsStore
 const headers = new Headers()
 headers.append('last-modified', 'Mon, June 31, 2020');
 const patchToveSpy = jest.fn().mockResolvedValue({ ok: true, headers })
+const toggleModalSpy = jest.fn()
 const getToveResponse = () => Promise.resolve(
   {
     body: JSON.stringify(
       {
         data: TranscriptionFactory.build({
           attributes: {
+            locked_by: 'ANOTHER_USER',
             text: { frame0: [{}] }
           }
         }),
@@ -188,6 +190,7 @@ describe('TranscriptionsStore', function () {
             }
           })
         rootStore = AppStore.create({
+          auth: { userName: 'A_USER' },
           client: {
             aggregator: aggregatorStub,
             tove: singleTranscriptionStub
@@ -203,6 +206,10 @@ describe('TranscriptionsStore', function () {
             current: '1'
           }
         })
+        Object.defineProperty(
+          rootStore.modal, 'toggleModal',
+          { writable: true, value: toggleModalSpy }
+        )
         transcriptionsStore = rootStore.transcriptions
         await transcriptionsStore.selectTranscription(1)
       })
@@ -274,6 +281,11 @@ describe('TranscriptionsStore', function () {
         transcriptionsStore.addLine()
         expect(current.length).toBe(2)
         expect(transcriptionsStore.activeTranscriptionIndex).toBe(1)
+      })
+
+      it('should show when the transcription is locked', async function () {
+        await transcriptionsStore.checkIfLocked()
+        expect(toggleModalSpy).toHaveBeenCalled()
       })
 
       describe('when deleting a line', function () {
