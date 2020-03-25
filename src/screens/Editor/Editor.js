@@ -26,6 +26,8 @@ function Editor ({ match }) {
   const editorBox = React.useRef(null)
 
   React.useEffect(() => {
+    let accessTime = new Date()
+
     const setResources = async () => {
       await store.subjects.fetchSubject(match.params.subject)
       await store.getResources(match.params)
@@ -37,7 +39,23 @@ function Editor ({ match }) {
     window.addEventListener('beforeunload', function() {
       store.transcriptions.unlockTranscription()
     });
-    return () => store.transcriptions.unlockTranscription()
+
+    window.addEventListener('visibilitychange', function() {
+      let recheckTime = new Date(accessTime).setHours(accessTime.getHours() + 3)
+      const shouldRecheck = new Date() > recheckTime
+      if (shouldRecheck) {
+        accessTime = new Date()
+        recheckTime = new Date(accessTime).setHours(accessTime.getHours() + 3)
+        store.transcriptions.checkIfLocked()
+      }
+    })
+    return () => {
+      store.transcriptions.unlockTranscription()
+
+      window.removeEventListener('beforeunload', function() {
+        store.transcriptions.unlockTranscription()
+      });
+    }
   }, [match, store])
 
   const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive

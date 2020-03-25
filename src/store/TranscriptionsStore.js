@@ -8,6 +8,7 @@ import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
 import getError, { TranscriptionError } from 'helpers/getError'
+import MODALS from 'helpers/modals'
 import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
@@ -88,6 +89,17 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.current.flagged = containsLineFlag
     self.saveTranscription()
   }
+
+  const checkIfLocked = flow(function * checkIfLocked() {
+    const client = getRoot(self).client.tove
+    const response = yield client.get(`/transcriptions/${self.title}`)
+    const resource = JSON.parse(response.body)
+    const lockedBy = resource.data.attributes.locked_by
+    const lockedByDifferentUser = lockedBy && lockedBy !== getRoot(self).auth.userName
+    if (lockedByDifferentUser) {
+      getRoot(self).modal.toggleModal(MODALS.LOCKED)
+    }
+  })
 
   function createTranscription(transcription, last_modified = '') {
     const text = (transcription.attributes && transcription.attributes.text) || {}
@@ -388,6 +400,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     addLine,
     changeIndex,
     checkForFlagUpdate,
+    checkIfLocked,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
     fetchExtracts,
