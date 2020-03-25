@@ -14,6 +14,9 @@ let history = {
 const contextValues = {
   modal: {
     toggleModal: toggleModalSpy,
+  },
+  transcriptions: {
+    current: { locked_by: 'A_USER' }
   }
 }
 

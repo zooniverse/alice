@@ -241,7 +241,7 @@ describe('TranscriptionsStore', function () {
       it('should save a transcription', async function () {
         await transcriptionsStore.saveTranscription()
         expect(patchToveSpy).toHaveBeenCalled()
-        expect(transcriptionsStore.current.lastModified).toBe('Mon, June 31, 2020')
+        expect(transcriptionsStore.current.last_modified).toBe('Mon, June 31, 2020')
       })
 
       it('should update the flagged attribute', function () {
