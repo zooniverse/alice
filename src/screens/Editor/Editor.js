@@ -36,11 +36,7 @@ function Editor ({ match }) {
     store.transcriptions.setActiveTranscription()
     undoManager.clear()
 
-    window.addEventListener('beforeunload', function() {
-      store.transcriptions.unlockTranscription()
-    });
-
-    window.addEventListener('visibilitychange', function() {
+    function handleTimeCheck() {
       let recheckTime = new Date(accessTime).setHours(accessTime.getHours() + 3)
       const shouldRecheck = new Date() > recheckTime
       if (shouldRecheck) {
@@ -48,13 +44,15 @@ function Editor ({ match }) {
         recheckTime = new Date(accessTime).setHours(accessTime.getHours() + 3)
         store.transcriptions.checkIfLocked()
       }
-    })
+    }
+
+    window.addEventListener('beforeunload', store.transcriptions.unlockTranscription)
+    window.addEventListener('visibilitychange', handleTimeCheck)
+
     return () => {
       store.transcriptions.unlockTranscription()
-
-      window.removeEventListener('beforeunload', function() {
-        store.transcriptions.unlockTranscription()
-      });
+      window.removeEventListener('beforeunload', store.transcriptions.unlockTranscription);
+      window.removeEventListener('visibilitychange', handleTimeCheck)
     }
   }, [match, store])
 
