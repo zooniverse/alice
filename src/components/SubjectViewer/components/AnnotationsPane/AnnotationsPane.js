@@ -5,6 +5,7 @@ import SVGLines from './SVGLines'
 export default function AnnotationsPane({
   activeTranscriptionIndex,
   extractLines,
+  isApproved,
   linesVisible,
   onLineClick,
   reductionLines,
@@ -30,6 +31,7 @@ export default function AnnotationsPane({
         <SVGLines
           activeTranscriptionIndex={activeTranscriptionIndex}
           key={`SVG_LINE_${i}`}
+          isApproved={isApproved}
           lines={lines}
           onLineClick={() => onLineClick(i)}
           reductionIndex={i}
@@ -42,6 +44,7 @@ export default function AnnotationsPane({
 AnnotationsPane.propTypes = {
   activeTranscriptionIndex: number,
   extractLines: array,
+  isApproved: bool,
   linesVisible: bool,
   onLineClick: func,
   reductionLines: array,
@@ -52,6 +55,7 @@ AnnotationsPane.propTypes = {
 AnnotationsPane.defaultProps = {
   activeTranscriptionIndex: null,
   extractLines: [],
+  isApproved: false,
   linesVisible: true,
   onLineClick: () => {},
   reductionLines: [],

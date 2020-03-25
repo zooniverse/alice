@@ -21,11 +21,12 @@ function AnnotationsPaneContainer({ x, y }) {
     <AnnotationsPane
       x={x}
       y={y}
-      linesVisible={store.editor.linesVisible}
-      extractLines={store.transcriptions.parsedExtracts}
-      reductionLines={reductionLines}
-      onLineClick={onLineClick}
       activeTranscriptionIndex={store.transcriptions.activeTranscriptionIndex}
+      extractLines={store.transcriptions.parsedExtracts}
+      isApproved={store.transcriptions.approved}
+      linesVisible={store.editor.linesVisible}
+      onLineClick={onLineClick}
+      reductionLines={reductionLines}
     />
   )
 }
