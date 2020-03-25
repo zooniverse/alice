@@ -2,7 +2,7 @@ import auth from 'panoptes-client/lib/auth'
 import { AppStore } from './AppStore'
 import history from '../history'
 
-const user = { id: '1' }
+const user = { id: '1', display_name: 'A_USER' }
 
 let authStore
 const setBearerTokenSpy = jest.fn()
@@ -34,6 +34,7 @@ describe('AuthStore', function () {
       await authStore.login('login', 'password', setSubmittingSpy)
       expect(setSubmittingSpy).toHaveBeenCalledWith(false)
       expect(authStore.user).toBe(user)
+      expect(authStore.userName).toBe(user.display_name)
     })
   })
 
