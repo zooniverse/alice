@@ -21,7 +21,7 @@ function findLocations(subject) {
   })
 }
 
-function Editor ({ match }) {
+function Editor ({ match, testTime }) {
   const store = React.useContext(AppContext)
   const editorBox = React.useRef(null)
 
@@ -37,7 +37,7 @@ function Editor ({ match }) {
     undoManager.clear()
 
     function handleTimeCheck() {
-      let recheckTime = new Date(accessTime).setHours(accessTime.getHours() + 3)
+      let recheckTime = testTime || new Date(accessTime).setHours(accessTime.getHours() + 3)
       const shouldRecheck = new Date() > recheckTime
       if (shouldRecheck) {
         accessTime = new Date()
@@ -54,7 +54,7 @@ function Editor ({ match }) {
       window.removeEventListener('beforeunload', store.transcriptions.unlockTranscription);
       window.removeEventListener('visibilitychange', handleTimeCheck)
     }
-  }, [match, store])
+  }, [testTime, match, store])
 
   const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive
   const subject = store.subjects.current
