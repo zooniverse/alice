@@ -12,6 +12,7 @@ const contextValues = {
     linesVisible: true
   },
   transcriptions: {
+    approved: false,
     current: {
       text: new Map([
         [ 'frame0', [{
