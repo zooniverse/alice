@@ -272,6 +272,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function setTextObject(text) {
     self.current.text.set(`frame${self.index}`, text)
+    self.setParsedExtracts()
     self.saveTranscription()
   }
 
