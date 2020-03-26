@@ -8,6 +8,11 @@ function TranscriptionTableContainer() {
   const transcriptionData = store.transcriptions.current && store.transcriptions.current.text
   const frameData = (transcriptionData && transcriptionData.get(`frame${store.transcriptions.index}`)) || []
   const setActiveTranscription = id => store.transcriptions.setActiveTranscription(id);
+  // console.log('reductions', frameData);
+  //
+  // frameData.forEach((item) => {
+  //   console.log(item.line_slope);
+  // })
 
   return (
     <TranscriptionTable

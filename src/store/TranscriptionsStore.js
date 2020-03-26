@@ -61,6 +61,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function changeIndex(index) {
     self.index = index
+    self.setParsedExtracts()
   }
 
   function checkForFlagUpdate() {
