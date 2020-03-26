@@ -273,7 +273,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         }
       }
     }
-    if (self.current.reducer.length) {
+    if (self.current.reducer && self.current.reducer.length) {
       query.data.attributes.reducer = self.current.reducer
       query.data.attributes.parameters = self.current.parameters
     }
