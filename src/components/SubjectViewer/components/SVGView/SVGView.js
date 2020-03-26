@@ -15,15 +15,16 @@ const G = styled.g`
   }
 `
 
-function SVGView ({ disabled, height, url, transform, width}) {
-  const svgEl = React.useRef(null)
-  const boundingBox = svgEl.current && svgEl.current.getBoundingClientRect()
+const SVGView = React.forwardRef(function ({ disabled, height, url, transform, width}, ref) {
+  const boundingBox = ref.current && ref.current.getBoundingClientRect()
   const viewerWidth = (boundingBox && boundingBox.width) || 0
   const viewerHeight = (boundingBox && boundingBox.height) || 0
   const viewBox = `${-viewerWidth/2} ${-viewerHeight/2} ${viewerWidth || 0} ${viewerHeight || 0}`
 
+  if (url.length === 0 || disabled) return null;
+
   return (
-    <SVG ref={svgEl} viewBox={viewBox}>
+    <SVG viewBox={viewBox}>
       <G disabled={disabled} transform={transform}>
         <image
           height={height}
@@ -37,7 +38,7 @@ function SVGView ({ disabled, height, url, transform, width}) {
       </G>
     </SVG>
   )
-}
+})
 
 SVGView.propTypes = {
   disabled: bool,
