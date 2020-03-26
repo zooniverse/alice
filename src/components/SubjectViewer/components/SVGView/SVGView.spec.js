@@ -13,13 +13,11 @@ ref.current = { getBoundingClientRect: () => {
 
 describe('Component > SVGView', function () {
   it('should disable interaction', function () {
-    console.log('LETS TEST THIS');
     const wrapper = shallow(<SVGView disabled url='www.test.com' />);
     expect(wrapper).toEqual({})
   })
 
   it('should render without crashing', function () {
-    console.log('rendered');
     const wrapper = shallow(<SVGView disabled={false} ref={ref} url='www.test.com' />);
     expect(wrapper).toBeDefined()
   })
