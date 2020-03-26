@@ -1,8 +1,9 @@
 import React from 'react'
 import { array, bool, func, number } from 'prop-types'
+import { observer } from 'mobx-react'
 import SVGLines from './SVGLines'
 
-export default function AnnotationsPane({
+function AnnotationsPane({
   activeTranscriptionIndex,
   extractLines,
   linesVisible,
@@ -58,3 +59,5 @@ AnnotationsPane.defaultProps = {
   x: 0,
   y: 0
 }
+
+export default observer(AnnotationsPane)

@@ -57,13 +57,13 @@ function SVGViewContainer () {
   }, [img, src, store.image])
 
   const transform = `scale(${store.image.scale}) translate(${store.image.translateX}, ${store.image.translateY}) rotate(${store.image.rotation})`
-  if (src.length === 0 || disableInteraction) return null;
 
   return (
     <Box ref={svgEl} fill>
       <SVGView
         disabled={disableInteraction}
         height={naturalHeight}
+        ref={svgEl}
         transform={transform}
         url={src}
         width={naturalWidth}
