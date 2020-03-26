@@ -11,21 +11,21 @@ const SVG = styled.svg`
 
 const G = styled.g`
   :hover {
-    cursor: ${props => props.disabled ? 'default' : 'move'};
+    cursor: move;
   }
 `
 
 const SVGView = React.forwardRef(function ({ disabled, height, url, transform, width}, ref) {
+  if (url.length === 0 || disabled || !ref) return null;
+
   const boundingBox = ref.current && ref.current.getBoundingClientRect()
   const viewerWidth = (boundingBox && boundingBox.width) || 0
   const viewerHeight = (boundingBox && boundingBox.height) || 0
   const viewBox = `${-viewerWidth/2} ${-viewerHeight/2} ${viewerWidth || 0} ${viewerHeight || 0}`
 
-  if (url.length === 0 || disabled) return null;
-
   return (
     <SVG viewBox={viewBox}>
-      <G disabled={disabled} transform={transform}>
+      <G transform={transform}>
         <image
           height={height}
           width={width}
@@ -53,7 +53,7 @@ SVGView.defaultProps = {
   height: 0,
   transform: '',
   url: '',
-  width: number
+  width: 0
 }
 
 export { G }
