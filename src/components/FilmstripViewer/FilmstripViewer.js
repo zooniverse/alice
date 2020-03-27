@@ -17,6 +17,7 @@ const RelativeBox = styled(Box)`
 `
 
 function FilmstripViewer ({
+  activeSlopeIndex,
   disabled,
   images,
   isOpen,
@@ -54,10 +55,11 @@ function FilmstripViewer ({
               const isActive = i === subjectIndex
               return (
                 <FilmstripThumbnails
-                  key={`THUMBNAIL_${i}`}
+                  key={`THUMBNAILS_${i}`}
+                  activeSlopeIndex={activeSlopeIndex}
                   disabled={disabled}
                   index={i}
-                  isActive={isActive}
+                  isActiveSubject={isActive}
                   selectImage={selectImage}
                   slopeValues={slopeValues.length ? slopeValues[i] : []}
                   src={image}

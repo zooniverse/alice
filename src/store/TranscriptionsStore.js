@@ -61,8 +61,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   }
 
-  function changeIndex(index) {
+  function changeIndex(index, slopeIndex) {
     self.index = index
+    self.slopeIndex = slopeIndex
     self.setParsedExtracts()
   }
 

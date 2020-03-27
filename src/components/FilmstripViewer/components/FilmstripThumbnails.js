@@ -11,12 +11,15 @@ function FilmstripThumbnails (props) {
     <Box border={props.slopeValues.length > 1} direction='row' margin={{ bottom: 'xsmall' }}>
       {props.slopeValues.map((slope, index) => {
         const roundedSlope = INTERVAL * Math.round(slope/INTERVAL) || null
+        const isActive = props.isActiveSubject && index === props.activeSlopeIndex
         return (
           <FilmstripThumbnail
             {...props}
-            key={`FILM_THUMB_${index}`}
+            key={`THUMBNAIL_${index}_${roundedSlope}`}
             imageSlopeIndex={index}
+            isActive={isActive}
             slope={roundedSlope}
+            slopeIndex={index}
           />
       )})}
     </Box>
@@ -25,8 +28,8 @@ function FilmstripThumbnails (props) {
 
 FilmstripThumbnails.propTypes = {
   disabled: bool,
-  index: number,
-  isActive: bool,
+  subjectIndex: number,
+  isActiveSubject: bool,
   selectImage: func,
   slopeValues: array,
   src: string
@@ -34,8 +37,8 @@ FilmstripThumbnails.propTypes = {
 
 FilmstripThumbnails.defaultProps = {
   disabled: false,
-  index: 0,
-  isActive: false,
+  subjectIndex: 0,
+  isActiveSubject: false,
   selectImage: () => {},
   slopeValues: [],
   src: ''

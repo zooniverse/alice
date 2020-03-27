@@ -10,12 +10,16 @@ export default function FilmstripThumbnail ({
   rotationDegrees,
   selectImage,
   slope,
+  slopeIndex,
   src
 }) {
   return (
-      <Button disabled={disabled} margin='xsmall' onClick={() => selectImage(index)}>
+      <Button disabled={disabled} margin='xsmall' onClick={() => selectImage(index, slopeIndex)}>
         <Box height='xsmall' width='xsmall'>
-          <ThumbnailBorder isActive={isActive} rotationDegrees={slope} />
+          <ThumbnailBorder
+            isActive={isActive}
+            rotationDegrees={slope}
+          />
           <Image alt={`Subject Page ${index + 1}`} fit='cover' src={src} />
         </Box>
       </Button>
