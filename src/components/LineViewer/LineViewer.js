@@ -58,7 +58,7 @@ function LineViewer ({
   return (
     <RelativeBox background='white' elevation='small' round='xsmall' width='large'>
       {showDeleteModal && <DeleteModal toggleModal={toggleDeleteModal} />}
-      <Box border='bottom' pad={{ top: 'xsmall', horizontal: 'xsmall' }}>
+      <Box border='bottom' height={{ min: '3em' }}  pad={{ top: 'xsmall', horizontal: 'xsmall' }}>
         <Box align='center' direction='row' justify='between'>
           <Box basis='80%'>
             <CapitalText size='0.6em' weight='bold'>Selected Transcription</CapitalText>
@@ -97,7 +97,7 @@ function LineViewer ({
               transcription={transcription}
             />)}
         </Box>
-        <Box border='top' gap='xsmall' margin={{ horizontal: 'small', bottom: 'xsmall' }} pad={{ top: 'xsmall' }}>
+        <Box border='top' gap='xsmall' height={{ min: '4em' }} margin={{ horizontal: 'small', bottom: 'xsmall' }} pad={{ top: 'xsmall' }}>
           <Box>
             <Box direction='row' gap='xsmall'>
               {!isViewer && (
@@ -139,7 +139,7 @@ function LineViewer ({
           )}
         </Box>
       </Box>
-      <Box direction='row' justify='between' margin={{ horizontal: 'xsmall', bottom: 'xsmall', top: '0.25em' }}>
+      <Box direction='row' height={{ min: '1.5em' }} justify='between' margin='xsmall'>
         {!isViewer && (
           <Box direction='row'>
             <Button margin={{ right: 'small' }}><CapitalText size='xsmall'>Add Line Below</CapitalText></Button>
