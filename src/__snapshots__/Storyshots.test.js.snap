@@ -454,7 +454,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
     className="StyledBox-sc-13pk1d4-0 iNPZuM"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 kFLDHg sc-jWBwVP gkntHJ"
+      className="StyledBox-sc-13pk1d4-0 kFLDHg sc-jAaTju lEldS"
     >
       <div
         className="StyledBox-sc-13pk1d4-0 cGDWft"
@@ -479,7 +479,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 jHQJnz"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cvbbAY bWJQPb"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf clSTOo"
             >
               Collapse
                Filmstrip
@@ -726,7 +726,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             <span
               className="StyledText-sc-1sadyjn-0 kutFY"
             >
-
+              
             </span>
           </div>
           <div
@@ -1075,7 +1075,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-info fa-w-6 sc-kkGfuU iRTBUr"
+            className="svg-inline--fa fa-info fa-w-6 sc-eHgmQL tiSJc"
             data-icon="info"
             data-prefix="fas"
             focusable="false"
@@ -1155,7 +1155,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
           />
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-jAaTju jhmhPS"
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-iRbamj jbhAcf"
           >
             Find a specific subject
           </span>
@@ -1173,7 +1173,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 iEMnku"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jDwBTQ elzxaP"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jlyJG kcnAXP"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -1241,7 +1241,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 bgTRhM"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jDwBTQ elzxaP"
+                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-jlyJG kcnAXP"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -1279,7 +1279,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-jAaTju jhmhPS"
+              className="StyledText-sc-1sadyjn-0 bmpSIR sc-iRbamj jbhAcf"
             >
               Filter subject list by status
             </span>
@@ -1560,7 +1560,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="button"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-jAaTju jhmhPS"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-iRbamj jbhAcf"
                 >
                   Close
                 </span>
@@ -1575,7 +1575,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="submit"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-jAaTju jhmhPS"
+                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-iRbamj jbhAcf"
                 >
                   Search
                 </span>
@@ -1609,9 +1609,9 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP ffvzpR"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ eJgHCP"
       >
-        This subject cannot be accessed because
+        This subject cannot be accessed because 
         <b>
           Erin Green
         </b>
@@ -1621,7 +1621,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP ffvzpR"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ eJgHCP"
       >
         For access, ask them to close their version.
       </span>
@@ -1696,16 +1696,16 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-csuQGl dlqfCR"
+        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-hzDkRC eniHZY"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-Rmtcm bUdQZZ"
+          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-jhAzac ZlZeV"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-gipzik gWRpcz"
+            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-bRBYWo cfFjGV"
           />
           <div
-            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-Rmtcm sc-bRBYWo dNnMia"
+            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-jhAzac sc-fBuWsC deBBpZ"
           />
         </div>
         <div
@@ -1769,7 +1769,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf djFewk"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-gPEVay yONTa"
       >
         By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
       </span>
@@ -1777,7 +1777,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf djFewk"
+        className="StyledText-sc-1sadyjn-0 bmpSIR sc-gPEVay yONTa"
       >
         This action can be reversed at any time.
       </span>
