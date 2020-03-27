@@ -6,6 +6,7 @@ function constructCoordinates(line) {
   if (line && line.clusters_x && line.clusters_y) {
     const lastPoint = line.clusters_x.length - 1
     points.push({
+      slope: line.line_slope,
       x1: line.clusters_x[0],
       x2: line.clusters_x[lastPoint],
       y1: line.clusters_y[0],
@@ -65,7 +66,7 @@ function mapExtractsToReductions(
           time.setUTCSeconds(classification.time)
           result.push({
             goldStandard: reduction.gold_standard[idIndex],
-            slope: classification[currentFrame].slope[extractIndex],
+            slope: reduction.line_slope,
             text: text[0],
             time,
             user: extractUsers[userId],

@@ -7,7 +7,14 @@ const G = styled('g')`
   cursor: ${props => props.clickable ? 'pointer' : 'inherit'};
 `
 
-export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick, isExtract, reductionIndex }) {
+export default function SVGLines({
+  activeSlope,
+  activeTranscriptionIndex,
+  isExtract,
+  lines,
+  onLineClick,
+  reductionIndex
+}) {
   const circleWidth = isExtract ? 4 : 10
   const dashArray = isExtract ? '4' : '0'
   const strokeWidth = isExtract ? '0.5' : '3'
@@ -18,6 +25,7 @@ export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick,
   return (
     <G clickable={!isExtract} onClick={onLineClick}>
       {lines.map((line, index) => {
+        if (line.slope !== activeSlope) return null
         const color = isExtract && isActive ? indexToColor(index) : indexToColor(reductionIndex)
         const svgPoints = []
         const isLeftToRight = line.x1 < line.x2

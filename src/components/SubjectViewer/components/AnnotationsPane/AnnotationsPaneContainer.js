@@ -19,6 +19,7 @@ function AnnotationsPaneContainer({ x, y }) {
     <AnnotationsPane
       x={x}
       y={y}
+      activeSlope={store.transcriptions.activeSlope}
       linesVisible={store.editor.linesVisible}
       extractLines={store.transcriptions.parsedExtracts}
       reductionLines={reductionLines}
