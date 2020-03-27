@@ -37,6 +37,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
   showSaveTranscriptionError: types.optional(types.boolean, false),
+  slopeValues: types.array(types.number),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
@@ -94,7 +95,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function deleteCurrentLine() {
     if (Number.isInteger(self.activeTranscriptionIndex)) {
-      const page = self.current.text.get(`frame${self.index}`)
+      const page = self.currentFrame
       page.splice(self.activeTranscriptionIndex, 1)
       self.saveTranscription()
       self.setActiveTranscription()
@@ -261,10 +262,21 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.activeTranscriptionIndex = id
   }
 
+  function determineSlopeValue() {
+    const currentSlopeValues = []
+    self.currentFrame.forEach(r => {
+      if (!currentSlopeValues.includes(r.line_slope)) {
+        currentSlopeValues.push(r.line_slope)
+      }
+    })
+    self.slopeValues = currentSlopeValues
+  }
+
   function setParsedExtracts(arrangedExtractsByUser) {
+    self.determineSlopeValue()
     const extracts = []
     const extractsByUser = arrangedExtractsByUser || self.arrangeExtractsByUser()
-    const transcriptionFrame = self.current && self.current.text && self.current.text.get(`frame${self.index}`)
+    const transcriptionFrame = self.currentFrame
     const reductionText = transcriptionFrame && transcriptionFrame.map(transcription => constructText(transcription))
     transcriptionFrame && transcriptionFrame.forEach((reduction, reductionIndex) => {
       extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, self.index, self.extractUsers))
@@ -325,6 +337,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     checkForFlagUpdate,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
+    determineSlopeValue,
     fetchExtracts,
     fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
     getLastModified,
@@ -355,6 +368,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }
     })
     return count;
+  },
+
+  get currentFrame () {
+    return self.current && self.current.text && self.current.text.get(`frame${self.index}`)
   },
 
   get readyForReview () {

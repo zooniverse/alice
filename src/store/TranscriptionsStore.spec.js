@@ -201,7 +201,7 @@ describe('TranscriptionsStore', function () {
       it('should edit the text object', function () {
         const textObject = [mockReduction]
         transcriptionsStore.setTextObject([mockReduction])
-        expect(transcriptionsStore.current.text.get('frame0')).toEqual(textObject)
+        expect(transcriptionsStore.currentFrame).toEqual(textObject)
       })
 
       it('should not insert an invalid transcription', function () {
@@ -248,7 +248,7 @@ describe('TranscriptionsStore', function () {
 
       describe('when deleting a line', function () {
         it('should not proceed without an active transcription', function () {
-          const current = transcriptionsStore.current.text.get('frame0')
+          const current = transcriptionsStore.currentFrame
           expect(current.length).toBe(1)
           transcriptionsStore.deleteCurrentLine()
           expect(current.length).toBe(1)
@@ -257,7 +257,7 @@ describe('TranscriptionsStore', function () {
 
         it('should delete a line', function () {
           transcriptionsStore.setActiveTranscription(0)
-          const current = transcriptionsStore.current.text.get('frame0')
+          const current = transcriptionsStore.currentFrame
           expect(current.length).toBe(1)
           transcriptionsStore.deleteCurrentLine()
           expect(current.length).toBe(0)

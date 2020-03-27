@@ -32,9 +32,7 @@ function LineViewerContainer({ isLoaded }) {
 
   const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
-  const reduction = store.transcriptions.current &&
-    store.transcriptions.current.text &&
-    store.transcriptions.current.text.get(`frame${store.transcriptions.index}`)[transcriptionIndex]
+  const reduction = store.transcriptions.currentFrame && store.transcriptions.currentFrame[transcriptionIndex]
   const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
   const typedChoice = localStore.transcriptionOptions.length + 1
   const onSetItem = (item) => {
