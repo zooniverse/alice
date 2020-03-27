@@ -3,7 +3,8 @@ import { Box, Button, Text } from 'grommet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { FormDown, FormUp } from 'grommet-icons'
-import FilmstripThumbnail from './components/FilmstripThumbnail'
+import { observer } from 'mobx-react'
+import FilmstripThumbnails from './components/FilmstripThumbnails'
 import StepNavigation from '../StepNavigation'
 import Overlay from '../Overlay'
 
@@ -15,7 +16,15 @@ const RelativeBox = styled(Box)`
   position: relative;
 `
 
-function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen, setOpen }) {
+function FilmstripViewer ({
+  disabled,
+  images,
+  isOpen,
+  selectImage,
+  setOpen,
+  slopeValues,
+  subjectIndex
+}) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
 
   return (
@@ -40,16 +49,17 @@ function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen,
           reverse />
       </Box>
       {isOpen && (
-          <Box direction='row'>
+          <Box direction='row' gap='small' wrap>
             {images.map((image, i) => {
               const isActive = i === subjectIndex
               return (
-                <FilmstripThumbnail
+                <FilmstripThumbnails
                   key={`THUMBNAIL_${i}`}
                   disabled={disabled}
                   index={i}
                   isActive={isActive}
                   selectImage={selectImage}
+                  slopeValues={slopeValues.length ? slopeValues[i] : []}
                   src={image}
                 />)
             })}
@@ -77,4 +87,4 @@ FilmstripViewer.propTypes = {
   subjectIndex: PropTypes.number
 }
 
-export default FilmstripViewer
+export default observer(FilmstripViewer)

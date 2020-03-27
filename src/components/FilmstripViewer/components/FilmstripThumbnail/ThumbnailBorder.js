@@ -8,11 +8,12 @@ const StyledBox = styled(Box)`
   position: absolute;
 `
 
-export default function ThumbnailBorder({ rotationDegrees }) {
+export default function ThumbnailBorder({ isActive, rotationDegrees }) {
+  const color = isActive ? 'blue' : 'transparent'
   return (
     <StyledBox
       align='center'
-      border={{ color: 'blue', size: 'large' }}
+      border={{ color, size: 'large' }}
       height='xsmall'
       justify='center'
       width='xsmall'>
@@ -33,5 +34,5 @@ ThumbnailBorder.propTypes = {
 }
 
 ThumbnailBorder.defaultProps = {
-  rotationDegrees: 0
+  rotationDegrees: null
 }

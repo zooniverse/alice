@@ -37,7 +37,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
   showSaveTranscriptionError: types.optional(types.boolean, false),
-  slopeValues: types.array(types.number),
+  slopeIndex: types.optional(types.number, 0),
+  slopeValues: types.array(types.array(types.number)),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
@@ -264,10 +265,14 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function determineSlopeValue() {
     const currentSlopeValues = []
-    self.currentFrame.forEach(r => {
-      if (!currentSlopeValues.includes(r.line_slope)) {
-        currentSlopeValues.push(r.line_slope)
-      }
+    self.current.text.forEach(frame => {
+      const frameSlopeValues = []
+      frame.forEach(r => {
+        if (!frameSlopeValues.includes(r.line_slope)) {
+          frameSlopeValues.push(r.line_slope)
+        }
+      })
+      currentSlopeValues.push(frameSlopeValues)
     })
     self.slopeValues = currentSlopeValues
   }

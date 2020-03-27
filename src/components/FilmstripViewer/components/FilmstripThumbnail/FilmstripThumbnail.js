@@ -3,13 +3,19 @@ import { Box, Button, Image } from 'grommet'
 import { bool, func, number, string } from 'prop-types'
 import ThumbnailBorder from './ThumbnailBorder'
 
-export default function FilmstripThumbnail ({ disabled, index, isActive, rotationDegrees, selectImage, src }) {
+export default function FilmstripThumbnail ({
+  disabled,
+  index,
+  isActive,
+  rotationDegrees,
+  selectImage,
+  slope,
+  src
+}) {
   return (
       <Button disabled={disabled} margin='xsmall' onClick={() => selectImage(index)}>
         <Box height='xsmall' width='xsmall'>
-          {isActive && (
-            <ThumbnailBorder rotationDegrees={rotationDegrees} />
-          )}
+          <ThumbnailBorder isActive={isActive} rotationDegrees={slope} />
           <Image alt={`Subject Page ${index + 1}`} fit='cover' src={src} />
         </Box>
       </Button>
