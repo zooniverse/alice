@@ -187,6 +187,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function reset() {
     getRoot(self).aggregations.setModal(false)
     self.current = undefined
+    self.index = 0
     self.all.clear()
   }
 
