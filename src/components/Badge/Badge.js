@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { FormDown, FormUp } from 'grommet-icons'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import DefaultAvatar from '../../images/simple-avatar.png'
+import DefaultAvatar from '../../images/user.svg'
 
 const StyledAvatar = styled.img`
   border-radius: 100%;
@@ -42,7 +42,7 @@ function Badge ({ disabled, isOpen, name, onAbout, role, setOpen, signOut, src }
 
   return (
     <Box align='center' direction='row' gap='xsmall'>
-      <StyledAvatar alt={`${name} Avatar`} fallback={DefaultAvatar} src={src} />
+      <StyledAvatar alt={`${name} Avatar`} src={src || DefaultAvatar} />
       <Box>
         <Text weight='bold'>{name}</Text>
         <CapitalText color='dark-5' size='small'>{role}</CapitalText>
