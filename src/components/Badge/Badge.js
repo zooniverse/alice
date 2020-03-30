@@ -100,5 +100,5 @@ Badge.propTypes = {
   src: PropTypes.string
 }
 
-export { DropLink, StyledBox }
+export { DropLink, StyledAvatar, StyledBox }
 export default Badge
