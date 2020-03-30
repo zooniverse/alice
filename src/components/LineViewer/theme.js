@@ -1,3 +1,5 @@
+import { css } from 'styled-components'
+
 const theme = {
   checkBox: {
     check: {
@@ -18,7 +20,7 @@ const theme = {
       }
     },
     size: '0.5em',
-    extend: props => `
+    extend: props => css`
       div {
         border: none
       }

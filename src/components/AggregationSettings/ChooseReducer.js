@@ -3,20 +3,20 @@ import { Box, Button, Image, Text } from 'grommet'
 import { bool, func, string } from 'prop-types'
 import DBScan from 'images/dbscan.png'
 import Optics from 'images/optics.png'
+import styled, { css } from 'styled-components'
 import { REDUCERS } from './AggregationSettingsContainer'
-import styled from 'styled-components'
 
 const OpticsBox = styled(Box)`
-  background: ${props => props.selectedReducer === REDUCERS.OPTICS && '#F5F5F5'};
-  border: ${props => props.selectedReducer === REDUCERS.OPTICS ?
-    '1px solid #979797' : '1px solid transparent'};
+  ${css`background: ${props => props.selectedReducer === REDUCERS.OPTICS && '#F5F5F5'};`}
+  ${css`border: ${props => props.selectedReducer === REDUCERS.OPTICS ?
+    '1px solid #979797' : '1px solid transparent'};`}
 `
 
 const DbScanBox = styled(Box)`
-  background: ${props => props.selectedReducer === REDUCERS.DBSCAN && '#F5F5F5'};
-  border: ${props => props.selectedReducer === REDUCERS.DBSCAN ?
-    '1px solid #979797' : '1px solid transparent'};
-`
+  ${css`background: ${props => props.selectedReducer === REDUCERS.DBSCAN && '#F5F5F5'};`}
+  ${css`border: ${props => props.selectedReducer === REDUCERS.DBSCAN ?
+    '1px solid #979797' : '1px solid transparent'};`}
+  `
 
 export default function ChooseReducer({ closeContainer, currentScreen, selectReducer, selectedReducer, setScreen }) {
   return (

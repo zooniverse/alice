@@ -1,5 +1,6 @@
 import merge from 'lodash/merge'
 import zooTheme from '@zooniverse/grommet-theme'
+import { css } from 'styled-components'
 
 const theme = {
   global: {
@@ -25,7 +26,7 @@ const theme = {
     size: '1.35em',
     gap: 'xxsmall',
     toggle: {
-      extend: props => `
+      extend: props => css`
       background-color: #D8D8D8;
       border-color: #979797;
       `,
@@ -65,7 +66,7 @@ const theme = {
       margin: { bottom: 'xsmall', horizontal: "none" }
     },
     margin: 'medium',
-    extend: props => `
+    extend: props => css`
       div:first-child {
         border-bottom: none;
       }
@@ -85,7 +86,7 @@ const theme = {
     }
   },
   table: {
-    extend: props => `
+    extend: props => css`
       tr:nth-child(even) {
         background: #EEEEEE;
       }

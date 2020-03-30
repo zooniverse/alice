@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, DropButton, Text } from 'grommet'
 import { Link } from 'react-router-dom'
 import { FormDown, FormUp } from 'grommet-icons'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import DefaultAvatar from '../../images/simple-avatar.png'
 
@@ -26,7 +26,8 @@ const DropItem = styled(Button)`
 `
 
 const DropLink = styled(Link)`
-  pointer-events: ${props => props.disabled ? 'none' : 'all'}
+  ${css`background: ${props => props.disabled ? '#D8D8D8' : 'inherit'};`}
+  ${css`pointer-events: ${props => props.disabled ? 'none' : 'all'};`}
   text-decoration: none;
 `
 
