@@ -16,6 +16,10 @@ const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
+const StyledHeading = styled(Heading)`
+  font-weight: 300;
+`
+
 function Title({ history, match, onEditor }) {
   const routeTo = (path) => {
     const matchProfile = matchPath(history.location.pathname, { path });
@@ -68,7 +72,7 @@ function Title({ history, match, onEditor }) {
         )})}
       </Box>
       <Box align='baseline' direction='row' gap='0.5em'>
-        <Heading margin='0em'>{header.title}</Heading>
+        <StyledHeading margin='0em'>{header.title}</StyledHeading>
         {subjectCount.length > 0 && <CapitalText color='#5C5C5C'>{subjectCount}</CapitalText>}
       </Box>
     </Box>
@@ -83,5 +87,5 @@ Title.defaultProps = {
   onEditer: false
 }
 
-export { CapitalText, Title }
+export { CapitalText, StyledHeading, Title }
 export default withRouter(observer(Title))

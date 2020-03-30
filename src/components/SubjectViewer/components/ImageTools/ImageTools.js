@@ -9,17 +9,17 @@ function ImageTools() {
   const borderStyle = { side: 'right', color: '#979797' }
   return (
     <Box
-      background='#A6A7A9'
+      background={{ color: 'white', opacity: '50%' }}
       direction='row'
       elevation='large'
       margin='small'
       round='xxsmall'
     >
       <Box border={borderStyle}>
-        <ZoomInButtonContainer />
+        <ZoomOutButtonContainer />
       </Box>
       <Box border={borderStyle}>
-        <ZoomOutButtonContainer />
+        <ZoomInButtonContainer />
       </Box>
       <Box border={borderStyle}>
         <RotateButtonContainer />

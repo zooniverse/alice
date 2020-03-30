@@ -13,7 +13,7 @@ export default function MoreButton({
   toggleDownload
 }) {
   const store = React.useContext(AppContext)
-  const Icon = isOpen ? FormDown : FormUp
+  const Icon = isOpen ? FormUp : FormDown
   const onEditSettings = () => {
     setOpen(false)
     store.aggregations.toggleModal()

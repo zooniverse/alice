@@ -56,6 +56,6 @@ describe('Component > UndoButton', function () {
   it('should set the icon to FormDown when open', function() {
     wrapper = shallow(<MoreButton isOpen={true} />)
     const html = wrapper.html()
-    expect(html).toContain('FormDown')
+    expect(html).toContain('FormUp')
   })
 })

@@ -8,7 +8,7 @@ export default function SubjectViewerHeader({ linesVisible, toggleLineVisibility
   return (
     <Box background={{ color: 'white' }} round={{ size: 'xsmall', corner: 'top' }} pad='xsmall'>
       <Box align='center' direction='row' justify='between'>
-        <Text>Original Subject</Text>
+        <Text size='1em'>Original Subject</Text>
         <Box direction='row' gap='small'>
           <Button
             label={<Text>{text}</Text>}
