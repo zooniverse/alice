@@ -18,6 +18,13 @@ const theme = {
     color: '#0043B8',
     textDecoration: 'underline'
   },
+  button: {
+    extend: props => `
+      &:hover {
+        box-shadow: 0 0 2px 2px #addde0;
+      }
+    `
+  },
   checkBox: {
     check: {
       radius: '0'
