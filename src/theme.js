@@ -1,5 +1,6 @@
 import merge from 'lodash/merge'
 import zooTheme from '@zooniverse/grommet-theme'
+import { css } from 'styled-components'
 
 const theme = {
   global: {
@@ -19,9 +20,11 @@ const theme = {
     textDecoration: 'underline'
   },
   button: {
-    extend: props => `
+    extend: props => css`
       &:hover {
-        box-shadow: 0 0 2px 2px #addde0;
+        ${!props.disabled && css`
+          box-shadow: 0 0 2px 2px #addde0;
+        `}
       }
     `
   },
