@@ -726,7 +726,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             <span
               className="StyledText-sc-1sadyjn-0 kutFY"
             >
-
+              
             </span>
           </div>
           <div
@@ -1040,12 +1040,12 @@ exports[`Storyshots MarkApproved Default 1`] = `
       />
       <span
         checked={false}
-        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 hjGuWS"
+        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 kOvstK"
         disabled={false}
       >
         <span
           checked={false}
-          className="StyledCheckBox__StyledCheckBoxKnob-sc-1dbk5ju-5 kGMNhu"
+          className="StyledCheckBox__StyledCheckBoxKnob-sc-1dbk5ju-5 GTsLr"
           disabled={false}
         />
       </span>
@@ -1616,7 +1616,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ eJgHCP"
       >
-        This subject cannot be accessed because
+        This subject cannot be accessed because 
         <b>
           Erin Green
         </b>
