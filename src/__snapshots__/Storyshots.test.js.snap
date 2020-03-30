@@ -693,7 +693,7 @@ exports[`Storyshots LineViewer Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 biltor sc-fjdhpX fCEyoV"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dbskGW"
+        className="StyledBox-sc-13pk1d4-0 eTTqCm"
       >
         <div
           className="StyledBox-sc-13pk1d4-0 hFIMGw"
@@ -717,9 +717,9 @@ exports[`Storyshots LineViewer Default 1`] = `
           className="StyledBox-sc-13pk1d4-0 eDJfis"
         />
         <div
-          className="StyledBox-sc-13pk1d4-0 eVyzLf"
+          className="StyledBox-sc-13pk1d4-0 iRPRCt"
         >
-
+          
           <div
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
@@ -772,7 +772,7 @@ exports[`Storyshots LineViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 fFNGzj"
+        className="StyledBox-sc-13pk1d4-0 gPLowh"
       >
         <div
           className="StyledBox-sc-13pk1d4-0 ekjAwv"
@@ -1424,7 +1424,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-jAaTju lmAtdT"
       >
-        This subject cannot be accessed because
+        This subject cannot be accessed because 
         <b>
           Erin Green
         </b>

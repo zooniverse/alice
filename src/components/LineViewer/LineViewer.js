@@ -64,7 +64,7 @@ function LineViewer ({
   return (
     <RelativeBox background='white' elevation='small' round='xsmall' width='large'>
       {showDeleteModal && <DeleteModal toggleModal={toggleDeleteModal} />}
-      <Box border='bottom' height={{ min: '3em' }} gap='xxsmall' pad={{ vertical: 'xsmall', horizontal: 'xsmall' }}>
+      <Box border='bottom' height={{ min: `${!isNewLine ? '3em' : ''}` }} gap='xxsmall' pad={{ vertical: 'xsmall', horizontal: 'xsmall' }}>
         <Box align='center' direction='row' justify='between'>
           <Box>
             <CapitalText size='0.6em' weight='bold'>Selected Transcription</CapitalText>
@@ -107,7 +107,7 @@ function LineViewer ({
               transcription={transcription}
             />)}
         </Box>
-        <Box border='top' gap='xsmall' height={{ min: '4em' }} margin={{ horizontal: 'small', bottom: 'xsmall' }} pad={{ top: 'xsmall' }}>
+        <Box gap='xsmall' height={{ min: `${!isNewLine ? '4em' : ''}` }} margin={{ horizontal: 'small', bottom: 'xsmall' }}>
           {reduction.consensus_text && !isViewer && (
             <Box>
               <Box direction='row' gap='xsmall'>
