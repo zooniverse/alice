@@ -164,14 +164,14 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const client = getRoot(self).client.tove
     let lastModified
     try {
-      yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.lastModified } }).then(response => {
-        if (response.ok) {
-          lastModified = getLastModified(response)
-          return response
-        } else {
-          return Promise.reject(response)
-        }
-      })
+      // yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.lastModified } }).then(response => {
+      //   if (response.ok) {
+      //     lastModified = getLastModified(response)
+      //     return response
+      //   } else {
+      //     return Promise.reject(response)
+      //   }
+      // })
       undoManager.withoutUndo(() => {
         self.error = null
         self.asyncState = ASYNC_STATES.READY
@@ -186,6 +186,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       if (lastModified) self.current.lastModified = lastModified
     })
   })
+
+  function rearrangeSlopes(index) {
+    if (index === self.index) {
+      console.log('REARRANGE SLOPES');
+    }
+  }
 
   function reset() {
     getRoot(self).aggregations.setModal(false)
@@ -349,6 +355,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     getLastModified,
     getTranscriberInfo,
     patchTranscription,
+    rearrangeSlopes,
     reset: () => undoManager.withoutUndo(() => reset()),
     retrieveTranscriptions,
     saveTranscription,
