@@ -27,6 +27,20 @@ const Transcription = types.model('Transcription', {
   transcribed_lines: types.optional(types.number, 0)
 })
 
+const Slope = types.model({
+  id: types.identifier,
+  slope: types.number
+})
+
+const SlopeGroup = types.model({
+  id: types.identifier,
+  slopes: types.map(Slope)
+}).actions(self => ({
+  add: function(id, item) {
+    self.slopes.set(id, item)
+  }
+}))
+
 const TranscriptionsStore = types.model('TranscriptionsStore', {
   activeTranscriptionIndex: types.maybe(types.integer),
   all: types.map(Transcription),
@@ -38,7 +52,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   page: types.optional(types.number, 0),
   showSaveTranscriptionError: types.optional(types.boolean, false),
   slopeIndex: types.optional(types.number, 0),
-  slopeValues: types.array(types.array(types.number)),
+  slopeValues: types.map(SlopeGroup),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
@@ -188,9 +202,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   function rearrangeSlopes(index) {
-    if (index === self.index) {
-      console.log('REARRANGE SLOPES');
-    }
+    console.log('REARRANGE SLOPES');
   }
 
   function reset() {
@@ -271,17 +283,20 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function determineSlopeValue() {
-    const currentSlopeValues = []
-    self.current.text.forEach(frame => {
-      const frameSlopeValues = []
+    self.slopeValues.clear()
+    self.current.text.forEach((frame, key) => {
+      const slopeGroup = SlopeGroup.create({ id: key })
       frame.forEach(r => {
-        if (!frameSlopeValues.includes(r.line_slope)) {
-          frameSlopeValues.push(r.line_slope)
+        if (!slopeGroup.slopes.has(r.slope_label)) {
+          const newSlope = Slope.create({
+            id: r.slope_label.toString(),
+            slope: r.line_slope
+          })
+          slopeGroup.add(r.slope_label.toString(), newSlope)
         }
       })
-      currentSlopeValues.push(frameSlopeValues)
+      self.slopeValues.set(key, slopeGroup)
     })
-    self.slopeValues = currentSlopeValues
   }
 
   function setParsedExtracts(arrangedExtractsByUser) {
@@ -370,7 +385,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 }).views(self => ({
   get activeSlope () {
-    return self.slopeValues.length && self.slopeValues[self.index][self.slopeIndex]
+    return null
+    // return self.slopeValues.length && self.slopeValues[self.index][self.slopeIndex]
   },
 
   get approved () {
