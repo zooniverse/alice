@@ -14,13 +14,40 @@ const FILTERS = {
   UNSEEN: 'unseen'
 }
 
+const SORT_VALUES = [
+  'flagged',
+  'id',
+  'internal_id',
+  'low_consensus_lines',
+  'status',
+  'total_lines',
+  'total_pages',
+  'updated_at',
+  'updated_by'
+]
+
 const SearchStore = types.model('SearchStore', {
   approved: types.optional(types.boolean, false),
   flagged: types.optional(types.boolean, false),
   id: types.optional(types.string, ''),
+  internal_id: types.optional(types.string, ''),
+  updated_at: types.optional(types.string, ''),
+  updated_by: types.optional(types.string, ''),
   in_progress: types.optional(types.boolean, false),
   low_consensus: types.optional(types.boolean, false),
+  low_consensus_lines: types.optional(types.number, 0),
+  total_lines: types.optional(types.number, 0),
+  total_page: types.optional(types.number, 0),
   ready: types.optional(types.boolean, false),
+  sort_id: types.optional(types.number, 0),
+  sort_internal_id: types.optional(types.number, 0),
+  sort_low_consensus_lines: types.optional(types.number, 0),
+  sort_total_lines: types.optional(types.number, 0),
+  sort_total_pages: types.optional(types.number, 0),
+  sort_updated_at: types.optional(types.number, 0),
+  sort_updated_by: types.optional(types.number, 0),
+  sort_flagged: types.optional(types.number, 0),
+  sort_status: types.optional(types.number, 0),
   type: types.optional(types.string, ''),
   unseen: types.optional(types.boolean, false),
 }).actions(self => ({
@@ -66,7 +93,8 @@ const SearchStore = types.model('SearchStore', {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
     const searchType = self.type === TYPES.ZOONIVERSE ? 'subject_id' : 'internal_id'
-    return `filter[${searchType}_eq]=${self.id}`
+    const filterType = self.type === TYPES.ZOONIVERSE ? '_eq' : '_cont'
+    return `filter[${searchType}${filterType}]=${self.id}`
   },
 
   setArgs: function setArgs(args) {
@@ -75,6 +103,15 @@ const SearchStore = types.model('SearchStore', {
         self[key] = args[key]
       }
     })
+  },
+
+  sort: function sort(property) {
+    SORT_VALUES.forEach((value) => {
+      if (property !== value) self[`sort_${value}`] = 0
+    })
+
+    self[`sort_${property}`] = (self[`sort_${property}`] + 1) % 3
+    getRoot(self).transcriptions.fetchTranscriptions()
   },
 
   reset: function reset() {
@@ -99,6 +136,23 @@ const SearchStore = types.model('SearchStore', {
     }
     getRoot(self).modal.toggleModal('')
     return query.length > 0 ? `&${query}` : query
+  },
+
+  getSortQuery: function () {
+    let query = ''
+    SORT_VALUES.forEach(value => {
+      switch (self[`sort_${value}`]) {
+        case 1:
+          query = `&sort=${value}`
+          break;
+        case 2:
+          query = `&sort=-${value}`
+          break;
+        default:
+          break
+      }
+    })
+    return query
   }
 })).views(self => ({
   get active() {

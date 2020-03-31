@@ -20,11 +20,14 @@ const Transcription = types.model('Transcription', {
   flagged: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
   lastModified: types.optional(types.string, ''),
+  internal_id: types.optional(types.string, ''),
   low_consensus_lines: types.optional(types.integer, 0),
   pages: types.optional(types.integer, 0),
   status: types.optional(types.string, ''),
   text: Extension,
-  transcribed_lines: types.optional(types.number, 0)
+  transcribed_lines: types.optional(types.number, 0),
+  updated_at: types.optional(types.string, ''),
+  updated_by: types.optional(types.string, '')
 })
 
 const TranscriptionsStore = types.model('TranscriptionsStore', {
@@ -75,7 +78,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function createTranscription(transcription, lastModified = '') {
     const text = (transcription.attributes && transcription.attributes.text) || {}
-    const pages = Object.keys(text).filter(key => key.includes('frame')).length
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
     const textObject = Ramda.pickBy(containsFrameKey, text)
     return Transcription.create({
@@ -83,11 +85,14 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       flagged: transcription.attributes.flagged,
       group_id: transcription.attributes.group_id,
       lastModified,
-      low_consensus_lines: text.low_consensus_lines,
-      pages,
+      internal_id: transcription.attributes.internal_id || '',
+      low_consensus_lines: transcription.attributes.low_consensus_lines || 0,
+      pages: transcription.attributes.total_pages || 0,
       status: transcription.attributes.status,
       text: textObject,
-      transcribed_lines: text.transcribed_lines
+      transcribed_lines: transcription.attributes.total_lines || 0,
+      updated_at: transcription.attributes.updated_at || '',
+      updated_by: transcription.attributes.updated_by || ''
     })
   }
 
@@ -130,7 +135,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const workflow = getRoot(self).workflows.current.id
     if (!groupName || !workflow) return
     const searchQuery = getRoot(self).search.getSearchQuery()
-    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}`)
+    const sortQuery = getRoot(self).search.getSortQuery()
+    yield self.retrieveTranscriptions(`/transcriptions?filter[group_id_eq]=${groupName}&filter[workflow_id_eq]=${workflow}&page[number]=${self.page + 1}${searchQuery}${sortQuery}`)
   }
 
   function getLastModified(response) {

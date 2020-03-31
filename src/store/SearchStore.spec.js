@@ -54,7 +54,7 @@ describe('SearchStore', function () {
     expect(searchStore.id).toBe('1')
     expect(searchStore.type).toBe('INTERNAL ID')
     expect(fetchTranscriptionsSpy).toHaveBeenCalled()
-    expect(searchStore.getSearchQuery()).toBe(`&filter[internal_id_eq]=1`)
+    expect(searchStore.getSearchQuery()).toBe(`&filter[internal_id_cont]=1`)
   })
 
   it('should reset args', function() {
@@ -89,5 +89,20 @@ describe('SearchStore', function () {
     const initialStore = Object.assign({}, searchStore)
     searchStore.searchTranscriptions({ foo: 'bar' })
     expect(initialStore).toStrictEqual(searchStore)
+  })
+
+  describe('when sorting values', function () {
+    it('should return an ascending sort query', function () {
+      searchStore.sort('internal_id')
+      const query = searchStore.getSortQuery()
+      expect(query).toBe('&sort=internal_id')
+    })
+
+    it('should return a descending sort query', function () {
+      searchStore.sort('internal_id')
+      searchStore.sort('internal_id')
+      const query = searchStore.getSortQuery()
+      expect(query).toBe('&sort=-internal_id')
+    })
   })
 })
