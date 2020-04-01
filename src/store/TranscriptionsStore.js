@@ -29,7 +29,8 @@ const Transcription = types.model('Transcription', {
 
 const Slope = types.model({
   label: types.number,
-  value: types.number
+  value: types.number,
+  group: types.string
 })
 
 const SlopeGroup = types.model({
@@ -295,7 +296,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         if (!slopeGroup.includesLabel(r.slope_label)) {
           const newSlope = Slope.create({
             label: r.slope_label,
-            value: r.line_slope
+            value: r.line_slope,
+            group: key
           })
           slopeGroup.add(newSlope)
         }
@@ -391,8 +393,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 }).views(self => ({
   get activeSlope () {
-    return null
-    // return self.slopeValues.length && self.slopeValues[self.index][self.slopeIndex]
+    return self.slopeValues.length && self.slopeValues[self.index].slopes[self.slopeIndex]
   },
 
   get approved () {

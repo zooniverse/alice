@@ -25,7 +25,7 @@ export default function SVGLines({
   return (
     <G clickable={!isExtract} onClick={onLineClick}>
       {lines.map((line, index) => {
-        if (line.slope !== activeSlope) return null
+        if (line.slope !== activeSlope.value) return null
         const color = isExtract && isActive ? indexToColor(index) : indexToColor(reductionIndex)
         const svgPoints = []
         const isLeftToRight = line.x1 < line.x2

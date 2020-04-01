@@ -3,6 +3,8 @@ import { Box, Button, Image } from 'grommet'
 import { bool, func, number, string } from 'prop-types'
 import ThumbnailBorder from './ThumbnailBorder'
 
+const INTERVAL = 10
+
 function stopEvents(e) {
   e.preventDefault()
   e.stopPropagation()
@@ -14,32 +16,37 @@ export default function FilmstripThumbnail ({
   index,
   isActive,
   isViewer,
-  rearrangeSlopes,
+  hoveredSlope,
   rotationDegrees,
   selectImage,
-  setHoveredPage,
+  setHoveredSlope,
   slope,
   slopeIndex,
   src
 }) {
+  const rearrangeSlopes = (droppedSlope) => {
+    console.log(droppedSlope);
+    console.log(hoveredSlope);
+  }
+  const roundedSlope = INTERVAL * Math.round(slope.value/INTERVAL) || null
+
   return (
       <Button
         disabled={disabled}
         draggable={!isViewer}
         onDragEnd={() => {
-          rearrangeSlopes()
-          setHoveredPage(null)
+          rearrangeSlopes(slope)
+          setHoveredSlope(null)
         }}
-        onDragEnter={() => setHoveredPage(imageIndex)}
+        onDragEnter={() => setHoveredSlope(slope)}
         onDragOver={(e) => stopEvents(e)}
-        onDragStart={() => console.log('START', slopeIndex)}
         margin='xsmall'
-        onClick={() => selectImage(index, slopeIndex)}
+        onClick={() => selectImage(imageIndex, slopeIndex)}
       >
         <Box height='xsmall' width='xsmall'>
           <ThumbnailBorder
             isActive={isActive}
-            rotationDegrees={slope}
+            rotationDegrees={roundedSlope}
           />
           <Image alt={`Subject Page ${index + 1}`} fit='cover' src={src} />
         </Box>

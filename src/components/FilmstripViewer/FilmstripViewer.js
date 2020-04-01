@@ -26,7 +26,7 @@ function FilmstripViewer ({
   subjectIndex
 }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
-  const [hoveredPage, setHoveredPage] = React.useState()
+  const [hoveredSlope, setHoveredSlope] = React.useState()
 
   return (
     <RelativeBox background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
@@ -59,8 +59,8 @@ function FilmstripViewer ({
                   activeSlopeIndex={activeSlopeIndex}
                   disabled={disabled}
                   imageIndex={i}
-                  hoveredPage={hoveredPage}
-                  setHoveredPage={setHoveredPage}
+                  hoveredSlope={hoveredSlope}
+                  setHoveredSlope={setHoveredSlope}
                   isActiveSubject={isActive}
                   selectImage={selectImage}
                   src={image}
