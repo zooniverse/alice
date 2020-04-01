@@ -28,16 +28,20 @@ const Transcription = types.model('Transcription', {
 })
 
 const Slope = types.model({
-  id: types.identifier,
-  slope: types.number
+  label: types.number,
+  value: types.number
 })
 
 const SlopeGroup = types.model({
-  id: types.identifier,
-  slopes: types.map(Slope)
+  key: types.string,
+  slopes: types.array(Slope)
 }).actions(self => ({
-  add: function(id, item) {
-    self.slopes.set(id, item)
+  add: function(item) {
+    self.slopes.push(item)
+  },
+
+  includesLabel: function(label) {
+    return self.slopes.some(slope => slope.label === label)
   }
 }))
 
@@ -52,7 +56,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   page: types.optional(types.number, 0),
   showSaveTranscriptionError: types.optional(types.boolean, false),
   slopeIndex: types.optional(types.number, 0),
-  slopeValues: types.map(SlopeGroup),
+  slopeValues: types.array(SlopeGroup),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
@@ -283,20 +287,22 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function determineSlopeValue() {
-    self.slopeValues.clear()
+    const allSlopeValues = []
+
     self.current.text.forEach((frame, key) => {
-      const slopeGroup = SlopeGroup.create({ id: key })
+      const slopeGroup = SlopeGroup.create({ key })
       frame.forEach(r => {
-        if (!slopeGroup.slopes.has(r.slope_label)) {
+        if (!slopeGroup.includesLabel(r.slope_label)) {
           const newSlope = Slope.create({
-            id: r.slope_label.toString(),
-            slope: r.line_slope
+            label: r.slope_label,
+            value: r.line_slope
           })
-          slopeGroup.add(r.slope_label.toString(), newSlope)
+          slopeGroup.add(newSlope)
         }
       })
-      self.slopeValues.set(key, slopeGroup)
+      allSlopeValues.push(slopeGroup)
     })
+    self.slopeValues = allSlopeValues
   }
 
   function setParsedExtracts(arrangedExtractsByUser) {

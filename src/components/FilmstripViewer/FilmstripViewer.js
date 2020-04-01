@@ -23,7 +23,6 @@ function FilmstripViewer ({
   isOpen,
   selectImage,
   setOpen,
-  slopeValues,
   subjectIndex
 }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
@@ -64,7 +63,6 @@ function FilmstripViewer ({
                   setHoveredPage={setHoveredPage}
                   isActiveSubject={isActive}
                   selectImage={selectImage}
-                  slopeValues={slopeValues.length ? slopeValues[i] : []}
                   src={image}
                 />)
             })}

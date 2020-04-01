@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from 'grommet'
-import { array, bool, func, number, string } from 'prop-types'
+import { bool, func, number, string } from 'prop-types'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import FilmstripThumbnail from './FilmstripThumbnail'
@@ -9,18 +9,22 @@ const INTERVAL = 10
 
 function FilmstripThumbnails (props) {
   const store = React.useContext(AppContext)
+  const { slopeValues } = store.transcriptions
+  const slopeGroup = (slopeValues.length && slopeValues[props.imageIndex])
 
   const rearrangeSlopes = () => {
     if (props.hoveredPage === props.imageIndex) {
-      console.log(props.slopeValues);
+      console.log(slopeGroup);
     }
     store.transcriptions.rearrangeSlopes()
   }
 
+  if (!slopeGroup || !slopeGroup.slopes.length) return null
+
   return (
-    <Box border={props.slopeValues.length > 1} direction='row' margin={{ bottom: 'xsmall' }}>
-      {props.slopeValues.map((slope, index) => {
-        const roundedSlope = INTERVAL * Math.round(slope/INTERVAL) || null
+    <Box border={slopeGroup.slopes.length > 1} direction='row' margin={{ bottom: 'xsmall' }}>
+      {slopeGroup.slopes.map((slope, index) => {
+        const roundedSlope = INTERVAL * Math.round(slope.value/INTERVAL) || null
         const isActive = props.isActiveSubject && index === props.activeSlopeIndex
         return (
           <FilmstripThumbnail
@@ -45,7 +49,6 @@ FilmstripThumbnails.propTypes = {
   index: number,
   isActiveSubject: bool,
   selectImage: func,
-  slopeValues: array,
   src: string,
   subjectIndex: number
 }
@@ -55,7 +58,6 @@ FilmstripThumbnails.defaultProps = {
   index: 0,
   isActiveSubject: false,
   selectImage: () => {},
-  slopeValues: [],
   src: '',
   subjectIndex: 0
 }
