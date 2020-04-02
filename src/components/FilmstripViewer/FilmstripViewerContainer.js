@@ -7,10 +7,10 @@ function FilmstripViewerContainer({ images }) {
   const [isOpen, setOpen] = React.useState(true)
   const store = React.useContext(AppContext)
   const disabled = store.aggregations.showModal || store.transcriptions.isActive
-  const selectImage = (id) => {
+  const selectImage = (page) => {
     store.image.reset()
     store.transcriptions.setActiveTranscription()
-    store.transcriptions.changeIndex(id)
+    store.transcriptions.changeIndex(page)
   }
 
   return  (
@@ -20,6 +20,7 @@ function FilmstripViewerContainer({ images }) {
       isOpen={isOpen}
       selectImage={selectImage}
       setOpen={setOpen}
+      slopeKeys={store.transcriptions.slopeKeys}
       subjectIndex={store.transcriptions.index}
     />
   )

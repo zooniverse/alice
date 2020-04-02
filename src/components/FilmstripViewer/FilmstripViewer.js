@@ -2,7 +2,9 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { observer } from 'mobx-react'
 import { FormDown, FormUp } from 'grommet-icons'
+import { getPage } from 'helpers/slopeHelpers'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from '../StepNavigation'
 import Overlay from '../Overlay'
@@ -15,8 +17,18 @@ const RelativeBox = styled(Box)`
   position: relative;
 `
 
-function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen, setOpen }) {
+function FilmstripViewer ({
+  disabled,
+  images,
+  isOpen,
+  selectImage,
+  setOpen,
+  slopeKeys,
+  subjectIndex
+}) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
+  const [slopeValues, setSlopeValues] = React.useState(slopeKeys)
+  const [hoveredIndex, setHoveredIndex] = React.useState()
 
   return (
     <RelativeBox background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
@@ -40,16 +52,24 @@ function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen,
           reverse />
       </Box>
       {isOpen && (
-          <Box direction='row'>
-            {images.map((image, i) => {
-              const isActive = i === subjectIndex
+          <Box direction='row' wrap>
+            {slopeValues.map((key, i) => {
+              const page = parseInt(getPage(key))
+              const image = images[page]
+              const isActive = page === subjectIndex
               return (
                 <FilmstripThumbnail
                   key={`THUMBNAIL_${i}`}
                   disabled={disabled}
+                  hoveredIndex={hoveredIndex}
                   index={i}
                   isActive={isActive}
+                  page={page}
                   selectImage={selectImage}
+                  setHoveredIndex={setHoveredIndex}
+                  setSlopeValues={setSlopeValues}
+                  slopeKey={key}
+                  slopeValues={slopeValues}
                   src={image}
                 />)
             })}
@@ -77,4 +97,4 @@ FilmstripViewer.propTypes = {
   subjectIndex: PropTypes.number
 }
 
-export default FilmstripViewer
+export default observer(FilmstripViewer)

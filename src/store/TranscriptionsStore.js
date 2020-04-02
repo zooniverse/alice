@@ -79,6 +79,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function changeIndex(index) {
     self.index = index
+    self.setParsedExtracts()
   }
 
   function checkForFlagUpdate() {
@@ -224,7 +225,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         }
       })
     })
-    self.slopeValues = allSlopeKeys
+    self.slopeKeys = allSlopeKeys
   }
 
   const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
