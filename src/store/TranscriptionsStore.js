@@ -7,6 +7,7 @@ import { reaction, toJS } from 'mobx'
 import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
+import { getPage, getSlopeLabel, isolateGroups } from 'helpers/slopeHelpers'
 import getError, { TranscriptionError } from 'helpers/getError'
 import MODALS from 'helpers/modals'
 import Reduction from './Reduction'
@@ -276,6 +277,21 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
+  function rearrangePages(keys) {
+    const groupedKeys = isolateGroups(keys)
+    console.log(groupedKeys);
+    const newText = {}
+    // keys.forEach(key => {
+    //   const page = getPage(key)
+    //   const baseFrame = `frame${page}`
+    //   if (!newText[baseFrame]) {
+    //
+    //   }
+    // })
+    //
+    // console.log('new keys', keys);
+  }
+
   function reset() {
     getRoot(self).aggregations.setModal(false)
     self.current = undefined
@@ -439,6 +455,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     reset: () => undoManager.withoutUndo(() => reset()),
     reaggregateDBScan,
     reaggregateOptics,
+    rearrangePages,
     redefineTranscription,
     retrieveTranscriptions,
     saveTranscription,

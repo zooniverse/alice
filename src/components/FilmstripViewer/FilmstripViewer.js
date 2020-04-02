@@ -22,6 +22,7 @@ function FilmstripViewer ({
   disabled,
   images,
   isOpen,
+  rearrangePages,
   selectImage,
   setOpen,
   slopeDefinitions,
@@ -31,6 +32,7 @@ function FilmstripViewer ({
   const actionText = isOpen ? 'Collapse' : 'Expand';
   const [slopeValues, setSlopeValues] = React.useState(slopeKeys)
   const [hoveredIndex, setHoveredIndex] = React.useState()
+  const handlePageRearrangement = () => rearrangePages(slopeValues)
 
   return (
     <RelativeBox background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
@@ -71,12 +73,12 @@ function FilmstripViewer ({
                     index={i}
                     isActive={isActive}
                     page={page}
+                    rearrangePages={handlePageRearrangement}
                     selectImage={selectImage}
                     setHoveredIndex={setHoveredIndex}
                     setSlopeValues={setSlopeValues}
                     slopeDefinition={slopeDefinition}
                     slopeIndex={slopeIndex}
-                    slopeKey={key}
                     slopeValues={slopeValues}
                     src={image}
                   />

@@ -9,13 +9,13 @@ export default function FilmstripThumbnail ({
   index,
   isActive,
   page,
+  rearrangePages,
   rotationDegrees,
   selectImage,
   setHoveredIndex,
   setSlopeValues,
   slopeDefinition,
   slopeIndex,
-  slopeKey,
   slopeValues,
   src
 }) {
@@ -43,7 +43,10 @@ export default function FilmstripThumbnail ({
         onBlur={() => onHover(false)}
         onClick={() => selectImage(page, slopeIndex)}
         onFocus={() => onHover(true)}
-        onDragEnd={() => setHoveredIndex(null)}
+        onDragEnd={() => {
+          setHoveredIndex(null)
+          rearrangePages()
+        }}
         onDragOver={(e) => stopEvents(e)}
         onDragEnter={(e) => handleDragEnter(e, index, hoveredIndex, setHoveredIndex, slopeValues, setSlopeValues)}
         onDragStart={() => setHoveredIndex(index)}

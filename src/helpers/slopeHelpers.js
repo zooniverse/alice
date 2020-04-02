@@ -30,22 +30,24 @@ export function spotInGroup(slopes, index) {
   return BORDER_MAP.NONE
 }
 
-export default function getSlopeGroups(slopeKeys) {
-  const slopeGroups = []
-  const example = ['frame0.0', 'frame0.1', 'frame1.0', 'frame2.0', 'frame2.1']
-
+export function isolateGroups(slopeKeys) {
   let currentPage;
-  let frameGroup;
+  let frameGroup = [];
+  let slopeGroups = []
 
-  example.forEach(key => {
+  slopeKeys.forEach((key, index) => {
     const keyPage = getPage(key)
-
     if (keyPage !== currentPage) {
+      if (frameGroup.length > 0) {
+        slopeGroups.push(frameGroup)
+      }
       frameGroup = []
       currentPage = keyPage
-      frameGroup.push(key)
     }
-
     frameGroup.push(key)
+    if (!slopeKeys[index + 1]) {
+      slopeGroups.push(frameGroup)
+    }
   })
+  return slopeGroups
 }

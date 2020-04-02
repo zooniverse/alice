@@ -19,14 +19,14 @@ function AnnotationsPaneContainer({ x, y }) {
 
   return (
     <AnnotationsPane
-      x={x}
-      y={y}
       activeSlope={store.transcriptions.activeSlope}
       activeTranscriptionIndex={store.transcriptions.activeTranscriptionIndex}
       isApproved={store.transcriptions.approved}
       linesVisible={store.editor.linesVisible}
       onLineClick={onLineClick}
       reductionLines={reductionLines}
+      x={x}
+      y={y}
     />
   )
 }
