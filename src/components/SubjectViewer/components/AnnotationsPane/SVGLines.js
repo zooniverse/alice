@@ -7,7 +7,15 @@ export const G = styled('g')`
   ${css`cursor: ${props => props.clickable && !props.isApproved ? 'pointer' : 'inherit'};`}
 `
 
-export default function SVGLines({ activeTranscriptionIndex, isApproved, lines, onLineClick, isExtract, reductionIndex }) {
+export default function SVGLines({
+  activeSlope,
+  activeTranscriptionIndex,
+  isApproved,
+  lines,
+  onLineClick,
+  isExtract,
+  reductionIndex
+}) {
   const circleWidth = isExtract ? 4 : 10
   const dashArray = isExtract ? '4' : '0'
   const strokeWidth = isExtract ? '0.5' : '3'
@@ -20,6 +28,7 @@ export default function SVGLines({ activeTranscriptionIndex, isApproved, lines, 
       if (!isApproved) onLineClick()
     }}>
       {lines.map((line, index) => {
+        if (activeSlope !== line.slope) return null
         const color = isExtract && isActive ? indexToColor(index) : indexToColor(reductionIndex)
         const svgPoints = []
         const isLeftToRight = line.x1 < line.x2

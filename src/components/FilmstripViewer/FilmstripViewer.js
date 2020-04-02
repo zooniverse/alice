@@ -62,7 +62,6 @@ function FilmstripViewer ({
               const isActive = page === subjectIndex && slopeIndex === activeSlope
               const slopeDefinition = slopeDefinitions[key]
               const border = spotInGroup(slopeValues, i)
-              console.log(border);
 
               return (
                 <Box border={border} key={`THUMBNAIL_${i}`} margin={{ bottom: 'xsmall' }}>

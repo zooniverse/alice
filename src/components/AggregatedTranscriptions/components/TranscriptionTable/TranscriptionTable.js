@@ -20,7 +20,7 @@ const RightAlignText = styled(StyledText)`
   text-align: end;
 `
 
-function TranscriptionTable ({ data, isViewer, setActiveTranscription, setTextObject }) {
+function TranscriptionTable ({ activeSlope, data, isViewer, setActiveTranscription, setTextObject }) {
   const [dataArray, resetDataArray] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
   const emptyData = data.length === 0
@@ -45,6 +45,7 @@ function TranscriptionTable ({ data, isViewer, setActiveTranscription, setTextOb
       </Box>
       <Box pad={{ bottom: 'xsmall' }}>
         {dataArray.map((datum, i) => {
+          if (activeSlope !== datum.line_slope) return null
           return (
             <TranscriptionTableRow
               data={dataArray}

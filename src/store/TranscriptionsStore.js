@@ -453,6 +453,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked))
   }
 }).views(self => ({
+  get activeSlope () {
+    const activeSlopeKey = `frame${self.index}.${self.slopeIndex}`
+    return self.slopeDefinitions[activeSlopeKey]
+  },
+
   get approved () {
     return !!(self.current && self.current.status === 'approved')
   },

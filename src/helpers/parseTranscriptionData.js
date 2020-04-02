@@ -9,7 +9,8 @@ function constructCoordinates(line) {
       x1: line.clusters_x[0],
       x2: line.clusters_x[lastPoint],
       y1: line.clusters_y[0],
-      y2: line.clusters_y[lastPoint]
+      y2: line.clusters_y[lastPoint],
+      slope: line.line_slope
     })
   }
   return points;
@@ -65,7 +66,7 @@ function mapExtractsToReductions(
           time.setUTCSeconds(classification.time)
           result.push({
             goldStandard: reduction.gold_standard[idIndex],
-            slope: classification[currentFrame].slope[extractIndex],
+            slope: reduction.line_slope,
             text: text[0],
             time,
             user: extractUsers[userId],

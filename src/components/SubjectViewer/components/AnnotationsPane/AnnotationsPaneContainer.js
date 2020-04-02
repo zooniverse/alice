@@ -21,8 +21,8 @@ function AnnotationsPaneContainer({ x, y }) {
     <AnnotationsPane
       x={x}
       y={y}
+      activeSlope={store.transcriptions.activeSlope}
       activeTranscriptionIndex={store.transcriptions.activeTranscriptionIndex}
-      extractLines={store.transcriptions.parsedExtracts}
       isApproved={store.transcriptions.approved}
       linesVisible={store.editor.linesVisible}
       onLineClick={onLineClick}

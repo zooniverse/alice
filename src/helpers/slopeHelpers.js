@@ -17,8 +17,8 @@ export function getSlopeLabel(key) {
 export function spotInGroup(slopes, index) {
   const currentPage = getPage(slopes[index])
 
-  const samePageToLeft = slopes[index - 1] && getPage(slopes[index - 1]) === currentPage
-  const samePageToRight = slopes[index + 1] && getPage(slopes[index + 1]) === currentPage
+  const samePageToLeft = index - 1 >= 0 && getPage(slopes[index - 1]) === currentPage
+  const samePageToRight = index + 1 < slopes.length && getPage(slopes[index + 1]) === currentPage
 
   if (!samePageToLeft && samePageToRight) {
     return BORDER_MAP.LEFT
