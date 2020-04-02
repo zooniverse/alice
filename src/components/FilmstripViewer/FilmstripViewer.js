@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react'
 import { FormDown, FormUp } from 'grommet-icons'
-import { getPage, getSlopeLabel } from 'helpers/slopeHelpers'
+import { spotInGroup, getPage, getSlopeLabel } from 'helpers/slopeHelpers'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from '../StepNavigation'
 import Overlay from '../Overlay'
@@ -61,23 +61,27 @@ function FilmstripViewer ({
               const image = images[page]
               const isActive = page === subjectIndex && slopeIndex === activeSlope
               const slopeDefinition = slopeDefinitions[key]
+              const border = spotInGroup(slopeValues, i)
+              console.log(border);
+
               return (
-                <FilmstripThumbnail
-                  key={`THUMBNAIL_${i}`}
-                  disabled={disabled}
-                  hoveredIndex={hoveredIndex}
-                  index={i}
-                  isActive={isActive}
-                  page={page}
-                  selectImage={selectImage}
-                  setHoveredIndex={setHoveredIndex}
-                  setSlopeValues={setSlopeValues}
-                  slopeDefinition={slopeDefinition}
-                  slopeIndex={slopeIndex}
-                  slopeKey={key}
-                  slopeValues={slopeValues}
-                  src={image}
-                />)
+                <Box border={border} key={`THUMBNAIL_${i}`} margin={{ bottom: 'xsmall' }}>
+                  <FilmstripThumbnail
+                    disabled={disabled}
+                    hoveredIndex={hoveredIndex}
+                    index={i}
+                    isActive={isActive}
+                    page={page}
+                    selectImage={selectImage}
+                    setHoveredIndex={setHoveredIndex}
+                    setSlopeValues={setSlopeValues}
+                    slopeDefinition={slopeDefinition}
+                    slopeIndex={slopeIndex}
+                    slopeKey={key}
+                    slopeValues={slopeValues}
+                    src={image}
+                  />
+                </Box>)
             })}
           </Box>
       )}

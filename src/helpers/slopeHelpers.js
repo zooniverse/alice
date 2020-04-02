@@ -1,3 +1,10 @@
+const BORDER_MAP = {
+  LEFT: [{ side: 'left'}, {side: 'horizontal' }],
+  MIDDLE: [{ side: 'horizontal' }],
+  RIGHT: [{ side: 'right'}, {side: 'horizontal' }],
+  NONE: false
+}
+
 export function getPage(key) {
   const dotIndex = key.indexOf('.')
   return parseInt(key[dotIndex -1])
@@ -5,6 +12,22 @@ export function getPage(key) {
 
 export function getSlopeLabel(key) {
   return parseInt(key[key.length - 1])
+}
+
+export function spotInGroup(slopes, index) {
+  const currentPage = getPage(slopes[index])
+
+  const samePageToLeft = slopes[index - 1] && getPage(slopes[index - 1]) === currentPage
+  const samePageToRight = slopes[index + 1] && getPage(slopes[index + 1]) === currentPage
+
+  if (!samePageToLeft && samePageToRight) {
+    return BORDER_MAP.LEFT
+  } else if (samePageToLeft && samePageToRight) {
+    return BORDER_MAP.MIDDLE
+  } else if (samePageToLeft && !samePageToRight) {
+    return BORDER_MAP.RIGHT
+  }
+  return BORDER_MAP.NONE
 }
 
 export default function getSlopeGroups(slopeKeys) {
