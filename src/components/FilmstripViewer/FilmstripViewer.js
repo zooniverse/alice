@@ -24,6 +24,7 @@ function FilmstripViewer ({
   isOpen,
   selectImage,
   setOpen,
+  slopeDefinitions,
   slopeKeys,
   subjectIndex
 }) {
@@ -59,6 +60,7 @@ function FilmstripViewer ({
               const slopeIndex = getSlopeLabel(key)
               const image = images[page]
               const isActive = page === subjectIndex && slopeIndex === activeSlope
+              const slopeDefinition = slopeDefinitions[key]
               return (
                 <FilmstripThumbnail
                   key={`THUMBNAIL_${i}`}
@@ -70,6 +72,7 @@ function FilmstripViewer ({
                   selectImage={selectImage}
                   setHoveredIndex={setHoveredIndex}
                   setSlopeValues={setSlopeValues}
+                  slopeDefinition={slopeDefinition}
                   slopeIndex={slopeIndex}
                   slopeKey={key}
                   slopeValues={slopeValues}

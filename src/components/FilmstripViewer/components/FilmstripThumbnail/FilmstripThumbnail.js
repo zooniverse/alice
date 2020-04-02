@@ -13,6 +13,7 @@ export default function FilmstripThumbnail ({
   selectImage,
   setHoveredIndex,
   setSlopeValues,
+  slopeDefinition,
   slopeIndex,
   slopeKey,
   slopeValues,
@@ -50,13 +51,11 @@ export default function FilmstripThumbnail ({
         onMouseLeave={() => onHover(false)}
       >
         <Box height='xsmall' width='xsmall'>
-          {isActive && (
-            <ThumbnailBorder
-              isActive={isActive}
-              isHover={isHover}
-              rotationDegrees={rotationDegrees}
-            />
-          )}
+          <ThumbnailBorder
+            isActive={isActive}
+            isHover={isHover}
+            rotationDegrees={slopeDefinition}
+          />
           <Image alt={`Subject Page ${page + 1}`} fit='cover' src={src} />
         </Box>
       </Button>

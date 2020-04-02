@@ -45,6 +45,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   page: types.optional(types.number, 0),
   showSaveTranscriptionError: types.optional(types.boolean, false),
   slopeIndex: types.optional(types.number, 0),
+  slopeDefinitions: types.optional(types.frozen(), {}),
   slopeKeys: types.array(types.string),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
@@ -218,6 +219,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function getSlopeKeys() {
     const allSlopeKeys = []
+    const slopeDefinitions = {}
 
     self.current.text.forEach((frame, key) => {
       frame.forEach(r => {
@@ -225,9 +227,13 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         if (!allSlopeKeys.includes(slopeKey)) {
           allSlopeKeys.push(slopeKey)
         }
+        if (!slopeDefinitions[slopeKey]) {
+          slopeDefinitions[slopeKey] = r.line_slope
+        }
       })
     })
     self.slopeKeys = allSlopeKeys
+    self.slopeDefinitions = slopeDefinitions
   }
 
   const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
@@ -272,7 +278,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function reset() {
     getRoot(self).aggregations.setModal(false)
-    self.getSlopeKeys()
     self.current = undefined
     self.index = 0
     self.slopeIndex = 0

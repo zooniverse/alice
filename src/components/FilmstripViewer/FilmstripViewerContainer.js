@@ -21,6 +21,7 @@ function FilmstripViewerContainer({ images }) {
       isOpen={isOpen}
       selectImage={selectImage}
       setOpen={setOpen}
+      slopeDefinitions={store.transcriptions.slopeDefinitions}
       slopeKeys={store.transcriptions.slopeKeys}
       subjectIndex={store.transcriptions.index}
     />

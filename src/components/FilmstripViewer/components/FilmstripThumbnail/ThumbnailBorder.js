@@ -8,7 +8,10 @@ export const StyledBox = styled(Box)`
   position: absolute;
 `
 
+const INTERVAL = 10
+
 export default function ThumbnailBorder({ isActive, isHover, rotationDegrees }) {
+  const roundedSlope = INTERVAL * Math.round(rotationDegrees/INTERVAL) || null
   let border = {}
   if (isHover) {
     border = { color: 'brand', size: 'medium' }
@@ -24,12 +27,12 @@ export default function ThumbnailBorder({ isActive, isHover, rotationDegrees }) 
       height='xsmall'
       justify='center'
       width='xsmall'>
-      {rotationDegrees && (
+      {roundedSlope && (
         <Text
           color='white'
           size='xlarge'
         >
-          {rotationDegrees}&deg;
+          {roundedSlope}&deg;
         </Text>
       )}
     </StyledBox>
