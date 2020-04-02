@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react'
 import { FormDown, FormUp } from 'grommet-icons'
-import { getPage } from 'helpers/slopeHelpers'
+import { getPage, getSlopeLabel } from 'helpers/slopeHelpers'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from '../StepNavigation'
 import Overlay from '../Overlay'
@@ -18,6 +18,7 @@ const RelativeBox = styled(Box)`
 `
 
 function FilmstripViewer ({
+  activeSlope,
   disabled,
   images,
   isOpen,
@@ -54,9 +55,10 @@ function FilmstripViewer ({
       {isOpen && (
           <Box direction='row' wrap>
             {slopeValues.map((key, i) => {
-              const page = parseInt(getPage(key))
+              const page = getPage(key)
+              const slopeIndex = getSlopeLabel(key)
               const image = images[page]
-              const isActive = page === subjectIndex
+              const isActive = page === subjectIndex && slopeIndex === activeSlope
               return (
                 <FilmstripThumbnail
                   key={`THUMBNAIL_${i}`}
@@ -68,6 +70,7 @@ function FilmstripViewer ({
                   selectImage={selectImage}
                   setHoveredIndex={setHoveredIndex}
                   setSlopeValues={setSlopeValues}
+                  slopeIndex={slopeIndex}
                   slopeKey={key}
                   slopeValues={slopeValues}
                   src={image}

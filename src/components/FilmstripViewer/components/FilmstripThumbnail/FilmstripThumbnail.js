@@ -13,6 +13,7 @@ export default function FilmstripThumbnail ({
   selectImage,
   setHoveredIndex,
   setSlopeValues,
+  slopeIndex,
   slopeKey,
   slopeValues,
   src
@@ -39,7 +40,7 @@ export default function FilmstripThumbnail ({
         draggable
         margin='xsmall'
         onBlur={() => onHover(false)}
-        onClick={() => selectImage(page)}
+        onClick={() => selectImage(page, slopeIndex)}
         onFocus={() => onHover(true)}
         onDragEnd={() => setHoveredIndex(null)}
         onDragOver={(e) => stopEvents(e)}

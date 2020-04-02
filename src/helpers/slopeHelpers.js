@@ -1,10 +1,10 @@
 export function getPage(key) {
   const dotIndex = key.indexOf('.')
-  return key[dotIndex -1]
+  return parseInt(key[dotIndex -1])
 }
 
-function getSlopeLabel(key) {
-  return key[key.length - 1]
+export function getSlopeLabel(key) {
+  return parseInt(key[key.length - 1])
 }
 
 export default function getSlopeGroups(slopeKeys) {

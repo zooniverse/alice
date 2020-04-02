@@ -44,6 +44,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
   showSaveTranscriptionError: types.optional(types.boolean, false),
+  slopeIndex: types.optional(types.number, 0),
   slopeKeys: types.array(types.string),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
@@ -77,8 +78,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.setParsedExtracts()
   }
 
-  function changeIndex(index) {
+  function changeIndex(index, slopeIndex) {
     self.index = index
+    self.slopeIndex = slopeIndex
     self.setParsedExtracts()
   }
 
@@ -273,6 +275,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.getSlopeKeys()
     self.current = undefined
     self.index = 0
+    self.slopeIndex = 0
     self.all.clear()
   }
 
