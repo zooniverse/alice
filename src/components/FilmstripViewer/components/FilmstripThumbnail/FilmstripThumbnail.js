@@ -17,6 +17,7 @@ export default function FilmstripThumbnail ({
   isActive,
   isViewer,
   hoveredSlope,
+  rearrangeSlopes,
   rotationDegrees,
   selectImage,
   setHoveredSlope,
@@ -24,9 +25,8 @@ export default function FilmstripThumbnail ({
   slopeIndex,
   src
 }) {
-  const rearrangeSlopes = (droppedSlope) => {
-    console.log(droppedSlope);
-    console.log(hoveredSlope);
+  const handleRearrangingSlopes = (droppedSlope) => {
+    rearrangeSlopes(hoveredSlope, droppedSlope)
   }
   const roundedSlope = INTERVAL * Math.round(slope.value/INTERVAL) || null
 
@@ -35,10 +35,12 @@ export default function FilmstripThumbnail ({
         disabled={disabled}
         draggable={!isViewer}
         onDragEnd={() => {
-          rearrangeSlopes(slope)
+          handleRearrangingSlopes(slope)
           setHoveredSlope(null)
         }}
-        onDragEnter={() => setHoveredSlope(slope)}
+        onDragEnter={() => {
+          setHoveredSlope(slope)
+        }}
         onDragOver={(e) => stopEvents(e)}
         margin='xsmall'
         onClick={() => selectImage(imageIndex, slopeIndex)}

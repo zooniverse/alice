@@ -3,7 +3,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { undoManager } from 'store/AppStore'
 import apiClient from 'panoptes-client/lib/api-client.js'
-import { reaction, toJS } from 'mobx'
+import { observable, reaction, toJS } from 'mobx'
 import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
@@ -206,13 +206,23 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
-  function rearrangeSlopes(index) {
-    console.log('REARRANGE SLOPES');
+  function rearrangeSlopes(hoveredSlope, droppedSlope) {
+    const samePage = hoveredSlope.group === droppedSlope.group
+    if (!samePage) {
+      console.log('HOVERED: ', hoveredSlope.group);
+      console.log('DROPPED: ', droppedSlope.group);
+      const array = Array.from(self.current.text)
+      const objectFrom = Array.from(self.current.text.entries()).reduce((main, [key, value]) => ({...main, [key]: value}), {})
+      console.log(objectFrom);
+      // const backToMap = observable.map(array)
+      // console.log(self.current.text.size);
+    }
   }
 
   function reset() {
     getRoot(self).aggregations.setModal(false)
     self.current = undefined
+    self.slopeIndex = 0
     self.index = 0
     self.all.clear()
   }

@@ -24,6 +24,7 @@ function FilmstripThumbnails (props) {
             imageIndex={props.imageIndex}
             isActive={isActive}
             isViewer={store.projects.isViewer}
+            rearrangeSlopes={store.transcriptions.rearrangeSlopes}
             selectImage={props.selectImage}
             setHoveredSlope={props.setHoveredSlope}
             slope={slope}
