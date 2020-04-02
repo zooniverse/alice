@@ -44,6 +44,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
   showSaveTranscriptionError: types.optional(types.boolean, false),
+  slopeKeys: types.array(types.string),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
@@ -212,6 +213,20 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return lastModified
   }
 
+  function getSlopeKeys() {
+    const allSlopeKeys = []
+
+    self.current.text.forEach((frame, key) => {
+      frame.forEach(r => {
+        const slopeKey = `${key}.${r.slope_label}`
+        if (!allSlopeKeys.includes(slopeKey)) {
+          allSlopeKeys.push(slopeKey)
+        }
+      })
+    })
+    self.slopeValues = allSlopeKeys
+  }
+
   const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
     let usersWhoClassified = Object.keys(arrangedExtractsByUser)
     usersWhoClassified = usersWhoClassified.filter(user => user !== 'null')
@@ -254,7 +269,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function reset() {
     getRoot(self).aggregations.setModal(false)
+    self.getSlopeKeys()
     self.current = undefined
+    self.index = 0
     self.all.clear()
   }
 
@@ -319,6 +336,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.READY
       })
       yield self.fetchExtracts(id)
+      self.getSlopeKeys()
     } catch (error) {
       console.warn(error);
       undoManager.withoutUndo(() => {
@@ -406,6 +424,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     fetchExtracts,
     fetchTranscriptions: (page, shouldReset) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page, shouldReset),
     getLastModified,
+    getSlopeKeys,
     getTranscriberInfo,
     patchTranscription,
     reset: () => undoManager.withoutUndo(() => reset()),
