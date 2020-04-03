@@ -13,7 +13,7 @@ function UndoButtonContainer({ disabled }) {
 
   return (
     <HeaderButton
-      disabled={disableUndo}
+      disabled={disableUndo && !store.transcriptions.isActive}
       icon={<FontAwesomeIcon color='#555555' icon={faRedo} size='xs' />}
       label='Undo'
       onClick={onUndo}

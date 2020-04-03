@@ -33,7 +33,7 @@ function getHeaderTools(path, isViewer = false) {
 function EditorHeaderContainer({ history }) {
   const store = React.useContext(AppContext)
   const buttons = getHeaderTools(history.location.pathname, store.projects.isViewer)
-  const disabled = store.aggregations.showModal || store.transcriptions.approved
+  const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive
   const onAbout = routeMatcher(history.location.pathname, ABOUT_PATH)
   const showMetadata = routeMatcher(history.location.pathname, EDIT_PATH)
 

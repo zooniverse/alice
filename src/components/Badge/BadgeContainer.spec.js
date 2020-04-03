@@ -20,6 +20,9 @@ const contextValues = {
   projects: {
     role: 'Researcher'
   },
+  transcriptions: {
+    isActive: false
+  }
 }
 
 describe('Component > BadgeContainer', function () {

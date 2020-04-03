@@ -8,6 +8,9 @@ const contextValues = {
   editor: {
     linesVisible: true,
     toggleLineVisibility: toggleLineVisibilitySpy
+  },
+  transcriptions: {
+    isActive: false
   }
 }
 

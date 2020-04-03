@@ -9,6 +9,7 @@ function SubjectViewerHeaderContainer() {
 
   return (
     <SubjectViewerHeader
+      disabled={store.transcriptions.isActive}
       linesVisible={store.editor.linesVisible}
       toggleLineVisibility={toggleLineVisibility}
     />

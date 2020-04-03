@@ -6,7 +6,7 @@ import FilmstripViewer from './FilmstripViewer'
 function FilmstripViewerContainer({ images }) {
   const [isOpen, setOpen] = React.useState(true)
   const store = React.useContext(AppContext)
-  const disabled = store.aggregations.showModal
+  const disabled = store.aggregations.showModal || store.transcriptions.isActive
   const selectImage = (id) => {
     store.image.reset()
     store.transcriptions.setActiveTranscription()

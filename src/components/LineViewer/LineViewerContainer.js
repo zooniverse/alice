@@ -46,11 +46,16 @@ function LineViewerContainer({ isLoaded }) {
 
   React.useEffect(() => {
     localStore.loadTranscription(false)
-    if (store.transcriptions.parsedExtracts && transcriptionIndex !== undefined) {
+    if (store.transcriptions.parsedExtracts && store.transcriptions.isActive) {
       localStore.setTranscriptionOptions(store.transcriptions.parsedExtracts[transcriptionIndex])
     }
     localStore.loadTranscription(true)
-  }, [localStore, store.transcriptions.parsedExtracts, transcriptionIndex])
+  }, [
+    localStore,
+    store.transcriptions.isActive,
+    store.transcriptions.parsedExtracts,
+    transcriptionIndex
+  ])
 
   if (!localStore.isLoaded) return null
 

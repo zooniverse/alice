@@ -8,10 +8,11 @@ function MetadataButtonContainer() {
   const metadata = store.subjects.current && store.subjects.current.metadata
   const id = store.subjects.current && store.subjects.current.id
   const status = store.transcriptions.current && store.transcriptions.current.status
+  const disabled = store.aggregations.showModal || store.transcriptions.isActive
 
   return (
     <MetadataButton
-      disabled={store.aggregations.showModal}
+      disabled={disabled}
       id={id}
       metadata={metadata}
       status={status}

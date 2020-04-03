@@ -361,6 +361,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return count;
   },
 
+  get isActive () {
+    return self.activeTranscriptionIndex !== undefined
+  },
+
   get readyForReview () {
     return !!(self.current && self.current.status === 'ready')
   },
