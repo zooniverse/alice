@@ -14,7 +14,6 @@ import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
 const Extension = types.refinement(types.map(Frame), snapshot => {
-  console.log(snapshot);
   return Ramda.all(Ramda.startsWith('frame'), Ramda.keys(snapshot))
 })
 
@@ -510,6 +509,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   get isActive () {
     return self.activeTranscriptionIndex !== undefined
+  },
+
+  get currentTranscriptions () {
+    return self.current && self.current.text &&
+      (self.current.text.get(`frame${self.index}.${self.slopeIndex}`) ||
+       self.current.text.get(`frame${self.index}`))
   },
 
   get readyForReview () {
