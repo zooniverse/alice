@@ -1,4 +1,4 @@
-import { flow, getRoot, getSnapshot, types } from 'mobx-state-tree'
+import { detach, flow, getRoot, getSnapshot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { undoManager } from 'store/AppStore'
@@ -14,6 +14,7 @@ import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
 const Extension = types.refinement(types.map(Frame), snapshot => {
+  console.log(snapshot);
   return Ramda.all(Ramda.startsWith('frame'), Ramda.keys(snapshot))
 })
 
@@ -279,17 +280,30 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function rearrangePages(keys) {
     const groupedKeys = isolateGroups(keys)
-    console.log(groupedKeys);
-    const newText = {}
-    // keys.forEach(key => {
-    //   const page = getPage(key)
-    //   const baseFrame = `frame${page}`
-    //   if (!newText[baseFrame]) {
-    //
-    //   }
-    // })
-    //
-    // console.log('new keys', keys);
+    const rearrangedText = {}
+    groupedKeys.forEach(group => {
+      group.forEach((key, index) => {
+        const page = getPage(key)
+        const slopeLabel = getSlopeLabel(key)
+        const isNewKey = !rearrangedText[`frame${page}`]
+        const firstItemInGroup = index === 0
+        const reductions = self.current.text.get(key) || self.current.text.get(`frame${page}`)
+
+        if (isNewKey && firstItemInGroup) {
+          rearrangedText[`frame${page}`] = []
+        } else if (!isNewKey && firstItemInGroup) {
+          rearrangedText[key] = []
+        }
+        reductions.forEach(reduction => {
+          if (reduction.slope_label === slopeLabel) {
+            const lastKey = Object.keys(rearrangedText)[Object.keys(rearrangedText).length - 1]
+            rearrangedText[lastKey].push(reduction)
+            detach(reduction)
+          }
+        })
+      })
+    })
+    self.current.text = rearrangedText
   }
 
   function reset() {
