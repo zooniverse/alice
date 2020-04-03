@@ -5,6 +5,10 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faFlag } from '@fortawesome/free-solid-svg-icons'
 
+const StyledButton = styled(Button)`
+  display: flex;
+`
+
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   height: 0.5em;
   opacity: ${props => props.dim ? 0.25 : 1};
@@ -17,24 +21,23 @@ function FlagButton({ disabled, onShowFlag, setFlag, showFlag, seenButton, tag }
   const text = seenButton ? 'MARK AS SEEN' : 'FLAG'
 
   return (
-    <Box>
-      <Button
+    <Box align='center'>
+      <StyledButton
         disabled={disabled}
-        onClick={setFlag}
-        onMouseOver={() => {
-          if (!disabled) onShowFlag(true)}
+        label={
+          <StyledFontAwesomeIcon
+            color={color}
+            dim={!tag ? 1 : 0}
+            icon={icon}
+            size='xs'
+          />
         }
-        onMouseOut={() => onShowFlag(false)}
+        onClick={setFlag}
+        onMouseOver={() => !disabled && onShowFlag(true)}
+        onMouseOut={() => !disabled && onShowFlag(false)}
         plain
         ref={flagBtn}
-      >
-        <StyledFontAwesomeIcon
-          color={color}
-          dim={!tag ? 1 : 0}
-          icon={icon}
-          size='xs'
-        />
-      </Button>
+      />
       {showFlag && (
         <Drop
           align={{ right: 'right', top: 'bottom' }}
@@ -78,4 +81,5 @@ FlagButton.defaultProps = {
   tag: false
 }
 
+export { StyledButton, StyledFontAwesomeIcon }
 export default FlagButton

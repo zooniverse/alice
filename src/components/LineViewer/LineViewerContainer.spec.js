@@ -6,6 +6,7 @@ import LineViewer from './LineViewer'
 
 let wrapper
 
+const deleteCurrentLineSpy = jest.fn()
 const setActiveTranscriptionSpy = jest.fn()
 const currentTranscription = {
   text: new Map([
@@ -29,6 +30,7 @@ const contextValues = {
   },
   transcriptions: {
     activeTranscriptionIndex: 0,
+    deleteCurrentLine: deleteCurrentLineSpy,
     current: currentTranscription,
     index: 0,
     isActive: true,
@@ -97,6 +99,31 @@ describe('Component > LineViewerContainer', function () {
         wrapper.find(LineViewer).first().props().setItem(0)
         wrapper.update()
         expect(wrapper.find(LineViewer).first().props().inputText).toBe('')
+      })
+    })
+  })
+
+  describe('closeModal function', function () {
+    describe('with consensus text', function () {
+      it('should set the active transcription', function () {
+        const lineViewer = wrapper.find(LineViewer).first()
+        lineViewer.props().closeModal()
+        expect(setActiveTranscriptionSpy).toHaveBeenCalledWith(undefined)
+      })
+    })
+
+    describe('without consensus text', function () {
+      it('should set the active transcription', function () {
+        const editedContext = Object.assign(contextValues, {})
+        const frame = editedContext.transcriptions.current.text.get('frame0')
+        frame[0].consensus_text = null
+        jest
+          .spyOn(React, 'useContext')
+          .mockImplementation(() => editedContext )
+        wrapper = shallow(<LineViewerContainer isLoaded />)
+        const lineViewer = wrapper.find(LineViewer).first()
+        lineViewer.props().closeModal()
+        expect(setActiveTranscriptionSpy).toHaveBeenCalledWith(undefined)
       })
     })
   })

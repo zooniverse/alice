@@ -30,19 +30,21 @@ function LineViewerContainer({ isLoaded }) {
     transcriptionOptions: []
   }))
 
-  const closeModal = e => store.transcriptions.setActiveTranscription(undefined)
   const transcriptionIndex = store.transcriptions.activeTranscriptionIndex
   const reduction = store.transcriptions.current &&
     store.transcriptions.current.text &&
     store.transcriptions.current.text.get(`frame${store.transcriptions.index}`)[transcriptionIndex]
   const consensusText = reduction && (reduction.edited_consensus_text || reduction.consensus_text)
   const typedChoice = localStore.transcriptionOptions.length + 1
+
+  const closeModal = () => store.transcriptions.setActiveTranscription(undefined)
   const onSetItem = (item) => {
     if (item !== typedChoice && localStore.inputText.length) {
       localStore.setInputText('')
     }
     localStore.setItem(item)
   }
+  const addLine = () => store.transcriptions.addLine(transcriptionIndex + 1)
 
   React.useEffect(() => {
     localStore.loadTranscription(false)
@@ -61,6 +63,7 @@ function LineViewerContainer({ isLoaded }) {
 
   return (
     <LineViewer
+      addLine={addLine}
       algorithmChoice={localStore.transcriptionOptions.length}
       closeModal={closeModal}
       consensusText={consensusText}

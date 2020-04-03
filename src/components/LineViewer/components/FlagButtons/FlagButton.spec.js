@@ -1,7 +1,9 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button, Drop } from 'grommet'
-import FlagButton from './FlagButton'
+import { Drop } from 'grommet'
+import renderer from 'react-test-renderer'
+import 'jest-styled-components'
+import FlagButton, { StyledButton, StyledFontAwesomeIcon } from './FlagButton'
 
 let wrapper
 const onShowFlagSpy = jest.fn()
@@ -18,12 +20,12 @@ describe('Component > FlagButton', function () {
   })
 
   it('should show flag on mouseover', function () {
-    wrapper.find(Button).first().simulate('mouseover')
+    wrapper.find(StyledButton).first().simulate('mouseover')
     expect(onShowFlagSpy).toHaveBeenCalledWith(true)
   })
 
   it('should hide flag on mouseout', function () {
-    wrapper.find(Button).first().simulate('mouseout')
+    wrapper.find(StyledButton).first().simulate('mouseout')
     expect(onShowFlagSpy).toHaveBeenCalledWith(false)
   })
 
@@ -32,10 +34,18 @@ describe('Component > FlagButton', function () {
     expect(wrapper.find(Drop).length).toBe(1)
   })
 
+  it('should not dim the component', function () {
+    wrapper = shallow(<FlagButton showFlag tag />)
+    const icon = wrapper.find(StyledFontAwesomeIcon).first()
+
+    const tree = renderer.create(icon).toJSON()
+    expect(tree).toHaveStyleRule('opacity', '1')
+  })
+
   describe('when a viewer', function () {
     it('should not trigger onShowFlag', function () {
       wrapper = shallow(<FlagButton disabled onShowFlag={onShowFlagSpy} />)
-      wrapper.find(Button).first().simulate('mouseover')
+      wrapper.find(StyledButton).first().simulate('mouseover')
       expect(onShowFlagSpy).not.toHaveBeenCalled()
     })
   })

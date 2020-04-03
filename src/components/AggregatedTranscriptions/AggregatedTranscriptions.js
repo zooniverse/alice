@@ -1,15 +1,11 @@
 import React from 'react'
-import { Box, Text } from 'grommet'
+import { Box, Button, Text } from 'grommet'
 import styled from 'styled-components'
-import { bool, shape} from 'prop-types'
+import { bool, func, shape} from 'prop-types'
 import { observer } from 'mobx-react'
 import Overlay from '../Overlay'
 import TranscriptionTable from './components/TranscriptionTable'
 import LineViewer from '../LineViewer'
-
-const CapitalText = styled(Text)`
-  text-transform: uppercase;
-`
 
 const StyledBox = styled(Box)`
   position: relative;
@@ -39,7 +35,7 @@ const OverflowBox = styled(Box)`
   }
 `
 
-function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
+function AggregatedTranscriptions ({ addLine, isViewer, margin, showOverlay, showTranscription }) {
   return (
     <StyledBox height='large'>
       <Box background='white' fill='vertical' margin={margin} round='xsmall'>
@@ -51,7 +47,12 @@ function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
           pad={{ left: '1em', right: 'xsmall', bottom: 'xsmall', top: 'xsmall' }}
         >
           <Text size='1em'>Transcribed Text</Text>
-          <CapitalText size='xsmall'>Add Line</CapitalText>
+          <Button
+            disabled={isViewer}
+            label={<Text size='small'>ADD LINE</Text>}
+            onClick={addLine}
+            plain
+          />
         </Box>
         <OverflowBox fill='vertical'>
           <TranscriptionTable />
@@ -72,12 +73,16 @@ function AggregatedTranscriptions ({ margin, showOverlay, showTranscription }) {
 }
 
 AggregatedTranscriptions.propTypes = {
+  addLine: func,
+  isViewer: bool,
   margin: shape(),
   showOverlay: bool,
   showTranscription: bool
 }
 
 AggregatedTranscriptions.defaultProps = {
+  addLine: () => {},
+  isViewer: false,
   margin: {},
   showOverlay: false,
   showTranscription: false

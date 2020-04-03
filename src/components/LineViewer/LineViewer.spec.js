@@ -29,6 +29,7 @@ jest
 let wrapper = shallow(
   <LineViewer
     algorithmChoice={transcriptionOptions.length}
+    consensusText='Original Consensus Text'
     inputText='Input Field'
     reduction={reduction}
     setInputText={setInputTextSpy}
@@ -76,6 +77,7 @@ describe('Component > LineViewer', function () {
     newReduction.edited_consensus_text = 'Edited Consensus Text'
     const newWrapper = shallow(
       <LineViewer
+        consensusText='Original Consensus Text'
         reduction={newReduction}
         setItem={setItemSpy}
         transcriptionOptions={transcriptionOptions}
