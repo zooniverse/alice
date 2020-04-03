@@ -1,18 +1,26 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
-import { number } from 'prop-types'
+import { bool, number } from 'prop-types'
 
-const StyledBox = styled(Box)`
+export const StyledBox = styled(Box)`
   background-color: rgba(0, 95, 255, 0.14);
   position: absolute;
 `
 
-export default function ThumbnailBorder({ rotationDegrees }) {
+export default function ThumbnailBorder({ isActive, isHover, rotationDegrees }) {
+  let border = {}
+  if (isHover) {
+    border = { color: 'brand', size: 'medium' }
+  }
+  if (isActive) {
+    border = { color: 'brand', size: 'large' }
+  }
+
   return (
     <StyledBox
       align='center'
-      border={{ color: 'blue', size: 'large' }}
+      border={border}
       height='xsmall'
       justify='center'
       width='xsmall'>
@@ -29,9 +37,13 @@ export default function ThumbnailBorder({ rotationDegrees }) {
 }
 
 ThumbnailBorder.propTypes = {
+  isActive: bool,
+  isHover: bool,
   rotationDegrees: number
 }
 
 ThumbnailBorder.defaultProps = {
+  isActive: false,
+  isHover: false,
   rotationDegrees: 0
 }
