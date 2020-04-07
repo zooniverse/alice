@@ -29,7 +29,8 @@ const columns = [
       <HeaderButton property='updated_at' title='LAST EDIT' />
     ),
     render: datum => {
-      const color = datum.locked ? 'red' : 'inherit'
+      console.log(datum);
+      const color = datum.locked_by ? 'red' : 'inherit'
       return <Text color={color}>{datum.locked_by ? 'LOCKED' : writeDate(datum.updated_at)}</Text>
     }
   },

@@ -105,12 +105,14 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const text = (transcription.attributes && transcription.attributes.text) || {}
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
     const textObject = Ramda.pickBy(containsFrameKey, text)
+    console.log(transcription);
     return Transcription.create({
       id: transcription.id,
       flagged: transcription.attributes.flagged,
       group_id: transcription.attributes.group_id,
       last_modified,
       internal_id: transcription.attributes.internal_id || '',
+      locked_by: transcription.attributes.locked_by,
       low_consensus_lines: transcription.attributes.low_consensus_lines || 0,
       pages: transcription.attributes.total_pages || 0,
       parameters: transcription.attributes.parameters,
