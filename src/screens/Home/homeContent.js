@@ -1,5 +1,5 @@
 import React from 'react'
-import { Anchor, Box, Text } from 'grommet'
+import { Box, Text } from 'grommet'
 import { Link } from 'react-router-dom'
 
 const content = [
@@ -14,8 +14,14 @@ const content = [
     header: 'WHO CAN USE IT',
     content:
       <Text>
-        Anyone with a text transcription project can use this tool.
-      <Anchor margin={{ left: '0.2em' }} size='xsmall'>Contact</Anchor> the Zooniverse team to set up your transcription project.</Text>
+        Anyone with an ALICE-compatible Zooniverse text transcription project
+        can use this tool. Some setup required before transcriptions are collected.
+        See the
+        <Text margin={{ horizontal: '0.2em' }}>
+          <Link to='/about'>Getting Started with ALICE</Link>
+        </Text>
+        docs for further instructions.
+      </Text>
   }, {
     header: 'HOW TO USE IT',
     content:

@@ -7,12 +7,13 @@ const AuthStore = types.model('AuthStore', {
   error: types.optional(types.string, '')
 }).actions(self => ({
   checkCurrent: flow(function* checkCurrent () {
+    const allAccessPaths = ['/', '/about']
     try {
       const user = yield auth.checkCurrent()
       if (user) {
         self.user = user
         yield auth.checkBearerToken().then(token => getRoot(self).client.setBearerToken(token));
-      } else if (history.location.pathname !== '/') {
+      } else if (!allAccessPaths.includes(history.location.pathname)) {
         history.push('/')
       }
     } catch (error) {
