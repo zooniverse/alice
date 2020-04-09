@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text } from 'grommet'
+import { Anchor, Box, Text } from 'grommet'
 import { Link } from 'react-router-dom'
 
 const content = [
@@ -28,10 +28,13 @@ const content = [
       <Box>
         <Text>
           Documentation has been created to help research teams set up
-          and optimally use this tool.
-        </Text>
-        <Text margin={{ vertical: 'xsmall' }} size='xsmall'>
-          <Link to='/about'>Link to Documentation</Link>
+          and optimally use this tool at alice.zooniverse.org/about. Code is
+          available via the
+          <Anchor
+            href='https://github.com/zooniverse/text-editor'
+            label='git repository'
+            margin={{ horizontal: '0.2em' }}
+          />.
         </Text>
       </Box>
   }
