@@ -20,6 +20,7 @@ function WorkflowsPageContainer({ history, match }) {
 
   const onSelection = workflow => {
     const nextPath = generatePath(GROUPS_PATH, { workflow: workflow.id, ...match.params})
+    store.search.reset()
     history.push(nextPath)
   }
   const workflows = Array.from(store.workflows.all.values())

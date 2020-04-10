@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import SearchCheckBox from './SearchCheckBox'
+import { SearchCheckBox } from './SearchCheckBox'
 
 let wrapper;
 

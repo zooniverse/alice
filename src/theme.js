@@ -79,6 +79,11 @@ const theme = {
       background: 'rgba(225, 225, 225, 0.75)'
     }
   },
+  select: {
+    icons: {
+      color: 'black'
+    }
+  },
   table: {
     extend: props => `
       tr:nth-child(even) {
