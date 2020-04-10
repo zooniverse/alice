@@ -23,6 +23,8 @@ const Transcription = types.model('Transcription', {
   internal_id: types.optional(types.string, ''),
   low_consensus_lines: types.optional(types.integer, 0),
   pages: types.optional(types.integer, 0),
+  parameters: types.optional(types.frozen()),
+  reducer: types.maybeNull(types.string),
   status: types.optional(types.string, ''),
   text: Extension,
   transcribed_lines: types.optional(types.number, 0),
@@ -46,8 +48,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 }).actions(self => {
   function arrangeExtractsByUser() {
     return self.rawExtracts.reduce((list, extract) => {
-      if (!list[extract.userId]) list[extract.userId] = []
-      list[extract.userId].push({ ...extract.data, time: extract.classificationAt })
+      if (!list[extract.user_id]) list[extract.user_id] = []
+      list[extract.user_id].push({ ...extract.data, time: extract.classificationAt })
       return list
     }, {})
   }
@@ -98,6 +100,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       internal_id: transcription.attributes.internal_id || '',
       low_consensus_lines: transcription.attributes.low_consensus_lines || 0,
       pages: transcription.attributes.total_pages || 0,
+      parameters: transcription.attributes.parameters,
+      reducer: transcription.attributes.reducer,
       status: transcription.attributes.status,
       text: textObject,
       transcribed_lines: transcription.attributes.total_lines || 0,
@@ -115,6 +119,38 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
+  const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
+    const client = getRoot(self).client.aggregator
+    const query = `?eps_slope=${params.epsSlope}&eps_line=${params.epsLine}&eps_word=${params.epsWord}&gutter_tol=${params.gutterTol}&min_samples=${params.minSamples}&min_word_count=${params.minWordCount}`
+    yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.rawExtracts) }).then((response) => {
+      self.redefineTranscription(response.body)
+    })
+  })
+
+  const reaggregateOptics = flow(function * reaggregateOptics(params) {
+    const client = getRoot(self).client.aggregator
+    const minSamples = params.auto ? 'auto' : params.minSamples
+    const query = `?min_samples=${minSamples}&xi=${params.xi}&angle_eps=${params.angleEps}&gutter_eps=${params.gutterEps}&min_line_length=${params.minLineLength}`
+    yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.rawExtracts) }).then((response) => {
+      self.redefineTranscription(response.body)
+    })
+  })
+
+  function redefineTranscription(reduction) {
+    const textObject = {}
+    Object.keys(reduction).forEach((key) => {
+      if (key.includes('frame')) {
+        textObject[key] = reduction[key]
+      }
+    })
+    self.current.low_consensus_lines = reduction.low_consensus_lines
+    self.current.parameters = reduction.parameters
+    self.current.reducer = reduction.reducer
+    self.current.text = textObject
+    self.current.transcribed_lines = reduction.transcribed_lines
+    self.saveTranscription()
+  }
+
   const fetchExtracts = flow(function * fetchExtracts(id) {
     const workflowId = getRoot(self).workflows.current.id
     // TODO: The extractor key below will need to change eventually. This is just
@@ -130,7 +166,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }`
     let validExtracts = []
     yield request(config.caesar, query).then((data) => {
-      validExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
+      const filteredExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
+      validExtracts = filteredExtracts.map((extract) => {
+        return { data: extract.data, user_id: extract.userId }
+      })
     })
     undoManager.withoutUndo(() => self.rawExtracts = validExtracts)
     const arrangedExtractsByUser = self.arrangeExtractsByUser()
@@ -230,11 +269,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   const saveTranscription = flow(function * saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const textBlob = toJS(self.current.text)
-    const lineCounts = {
+    const additionalData = {
       low_consensus_lines: self.current.low_consensus_lines,
       transcribed_lines: self.current.transcribed_lines
     }
-    const updatedTranscription = Object.assign(lineCounts, textBlob)
+    const updatedTranscription = Object.assign(additionalData, textBlob)
     const query = {
       data: {
         type: 'transcriptions',
@@ -243,6 +282,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
           text: updatedTranscription
         }
       }
+    }
+    if (self.current.reducer && self.current.reducer.length) {
+      query.data.attributes.reducer = self.current.reducer
+      query.data.attributes.parameters = self.current.parameters
     }
     yield self.patchTranscription(query)
   })
@@ -346,6 +389,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     getTranscriberInfo,
     patchTranscription,
     reset: () => undoManager.withoutUndo(() => reset()),
+    reaggregateDBScan,
+    reaggregateOptics,
+    redefineTranscription,
     retrieveTranscriptions,
     saveTranscription,
     selectTranscription,

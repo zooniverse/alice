@@ -56,4 +56,30 @@ describe('Component > AggregationSettings', function () {
       expect(closeContainerSpy).toHaveBeenCalledTimes(1)
     })
   })
+
+  describe('when passing aggregation parameters', function () {
+    it('should pass dbscan params', function () {
+      const parameters = { eps_slope: 1 }
+      wrapper = shallow(
+        <AggregationSettings
+          currentScreen={REDUCERS.DBSCAN}
+          reducer='poly_line_text_reducer'
+          parameters={parameters}
+        />)
+      const dbScan = wrapper.find(DBScanReducer).first()
+      expect(dbScan.props().defaultParams).toBe(parameters)
+    })
+
+    it('should pass optics params', function () {
+      const parameters = { angle_eps: 1 }
+      wrapper = shallow(
+        <AggregationSettings
+          currentScreen={REDUCERS.OPTICS}
+          reducer='optics_line_text_reducer'
+          parameters={parameters}
+        />)
+      const optics = wrapper.find(OpticsReducer).first()
+      expect(optics.props().defaultParams).toBe(parameters)
+    })
+  })
 })

@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { Field, Formik } from 'formik'
 import styled from 'styled-components'
-import { func } from 'prop-types'
+import { func, number, shape } from 'prop-types'
 import * as Yup from 'yup'
 import { REDUCERS } from './AggregationSettingsContainer'
 
@@ -35,17 +35,17 @@ const dbScanSchema = Yup.object().shape({
     .required('Required')
 });
 
-export default function DBScanReducer({ closeContainer, setCallback, setScreen, submitDBScan }) {
+export default function DBScanReducer({ closeContainer, defaultParams, setCallback, setScreen, submitDBScan }) {
   return (
     <Box gap='small' direction='row'>
       <Formik
         initialValues={{
-          epsSlope: 25,
-          epsLine: 40,
-          epsWord: 40,
-          gutterTol: 0,
-          minSamples: 1,
-          minWordCount: 1
+          epsSlope: defaultParams.eps_slope || 25,
+          epsLine: defaultParams.eps_line || 40,
+          epsWord: defaultParams.eps_word || 40,
+          gutterTol: defaultParams.gutter_tol || 0,
+          minSamples: defaultParams.min_samples || 1,
+          minWordCount: defaultParams.min_word_count || 1
         }}
         isInitialValid
         validationSchema={dbScanSchema}
@@ -183,10 +183,19 @@ export default function DBScanReducer({ closeContainer, setCallback, setScreen, 
 
 DBScanReducer.defaultProps = {
   closeContainer: () => {},
+  defaultParams: {},
   setScreen: () => {}
 }
 
 DBScanReducer.propTypes = {
   closeContainer: func,
+  defaultParams: shape({
+    eps_slope: number,
+    eps_line: number,
+    eps_word: number,
+    gutter_tol: number,
+    min_samples: number,
+    min_word_count: number
+  }),
   setScreen: func
 }
