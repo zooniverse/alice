@@ -64,11 +64,9 @@ export default function About () {
           return (
             <AboutContent
               key={`CONTENT_${i}`}
-              caption={item.caption}
-              image={item.image}
+              content={item.content}
               index={i}
               setModal={setModal}
-              text={item.text}
               title={item.title}
             />
           )

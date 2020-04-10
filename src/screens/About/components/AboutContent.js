@@ -20,25 +20,24 @@ export default function AboutContent(props) {
   return (
     <Box gap='small'>
       {props.title.length > 0 && <Text id={props.title} size='large'>{props.title}</Text>}
-      <Box direction='row' gap='medium'>
-        <Box basis='2/3' gap='small'>
-          {props.text.map((blob, i) => {
-            return (
-              <BodyText color='black' key={`subcontext_${props.index}_${i}`}>
-                <Markdown>{blob}</Markdown>
+      {props.content.map((item, i) => {
+        return (
+          <Box direction='row' gap='medium' key={`subcontext_${props.index}_${i}`}>
+            <Box basis='2/3' gap='small'>
+              <BodyText color='black'>
+                <Markdown>{item.text}</Markdown>
               </BodyText>
-            )
-          })}
+            </Box>
+            <Box basis='1/3'>
+              <Button onClick={() => props.setModal(item)} plain>
+                <ResponsiveImage alignSelf='start' fit='contain' src={item.image} />
+              </Button>
+              <CapitalText>
+                <Markdown>{item.caption}</Markdown>
+              </CapitalText>
+            </Box>
         </Box>
-        <Box basis='1/3'>
-          <Box>
-            <Button onClick={() => props.setModal(props)} plain>
-              <ResponsiveImage alignSelf='start' fit='contain' src={props.image} />
-            </Button>
-            <CapitalText>{props.caption}</CapitalText>
-          </Box>
-        </Box>
-      </Box>
+      )})}
     </Box>
   )
 }
