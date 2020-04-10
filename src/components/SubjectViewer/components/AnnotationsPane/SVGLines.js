@@ -3,11 +3,11 @@ import { array, bool, func, number } from 'prop-types'
 import indexToColor from 'helpers/indexToColor'
 import styled from 'styled-components'
 
-const G = styled('g')`
-  cursor: ${props => props.clickable ? 'pointer' : 'inherit'};
+export const G = styled('g')`
+  cursor: ${props => props.clickable && !props.isApproved ? 'pointer' : 'inherit'};
 `
 
-export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick, isExtract, reductionIndex }) {
+export default function SVGLines({ activeTranscriptionIndex, isApproved, lines, onLineClick, isExtract, reductionIndex }) {
   const circleWidth = isExtract ? 4 : 10
   const dashArray = isExtract ? '4' : '0'
   const strokeWidth = isExtract ? '0.5' : '3'
@@ -16,7 +16,9 @@ export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick,
   if (Number.isInteger(activeTranscriptionIndex) && !isActive) return null
 
   return (
-    <G clickable={!isExtract} onClick={onLineClick}>
+    <G clickable={!isExtract} isApproved={isApproved} onClick={() => {
+      if (!isApproved) onLineClick()
+    }}>
       {lines.map((line, index) => {
         const color = isExtract && isActive ? indexToColor(index) : indexToColor(reductionIndex)
         const svgPoints = []
@@ -74,6 +76,7 @@ export default function SVGLines({ activeTranscriptionIndex, lines, onLineClick,
 }
 
 SVGLines.propTypes = {
+  isApproved: bool,
   isExtract: bool,
   lines: array,
   onLineClick: func,
@@ -81,6 +84,7 @@ SVGLines.propTypes = {
 }
 
 SVGLines.defaultProps = {
+  isApproved: false,
   isExtract: false,
   lines: [],
   onLineClick: () => {},

@@ -2,7 +2,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
-import SVGLines from './SVGLines'
+import SVGLines, { G } from './SVGLines'
 
 let wrapper
 
@@ -60,6 +60,24 @@ describe('Component > SVGLines', function () {
           reductionIndex={1}
         />);
       expect(wrapper).toEqual({})
+    })
+  })
+
+  describe('onLineClick', function () {
+    const onLineClickSpy = jest.fn()
+
+    afterEach(() => jest.clearAllMocks());
+
+    it('should trigger by default', function () {
+      wrapper = shallow(<SVGLines onLineClick={onLineClickSpy} />)
+      wrapper.find(G).first().props().onClick()
+      expect(onLineClickSpy).toHaveBeenCalled()
+    })
+
+    it('should not trigger with approved transcription', function () {
+      wrapper = shallow(<SVGLines isApproved onLineClick={onLineClickSpy} />)
+      wrapper.find(G).first().props().onClick()
+      expect(onLineClickSpy).not.toHaveBeenCalled()
     })
   })
 })
