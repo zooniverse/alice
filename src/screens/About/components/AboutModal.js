@@ -17,7 +17,9 @@ export default function AboutModal({ caption, image, setModal }) {
       <Button alignSelf='end' margin='0.2em' onClick={closeModal} plain>
         <FontAwesomeIcon icon={faTimesCircle} size='xs' />
       </Button>
-      <Image src={image}/>
+      <Box height={{ max: 'large' }} width={{ max: 'large' }}>
+        <Image fit='contain' src={image}/>
+      </Box>
       <CapitalText margin='xsmall' size='0.6em'>{caption}</CapitalText>
     </Box>
   )

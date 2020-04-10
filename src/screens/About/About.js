@@ -32,8 +32,12 @@ export default function About () {
   return (
     <Box align='start' gap='xsmall' margin='medium' direction='row'>
       {currentModal && (
-        <Layer>
-          <AboutModal caption={currentModal.caption} image={currentModal.image} setModal={setModal} />
+        <Layer onClickOutside={() => setModal(null)}>
+          <AboutModal
+            caption={currentModal.caption}
+            image={currentModal.image}
+            setModal={setModal}
+          />
         </Layer>
       )}
       <StickyBox basis='20%'>
@@ -55,13 +59,14 @@ export default function About () {
         </Box>
       </StickyBox>
       <Box background='white' basis='80%' gap='small' pad='large' round='xsmall'>
-        <Text color='black' size='xlarge'>How to Use this Tool</Text>
+        <Text color='black' size='xlarge'>Getting Started</Text>
         {content.map((item, i) => {
           return (
             <AboutContent
               key={`CONTENT_${i}`}
               caption={item.caption}
               image={item.image}
+              index={i}
               setModal={setModal}
               text={item.text}
               title={item.title}

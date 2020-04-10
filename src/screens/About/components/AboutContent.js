@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Button, Image, Text } from 'grommet'
-import { func, string } from 'prop-types'
+import { arrayOf, func, number, string } from 'prop-types'
+import { Markdown } from 'markdownz'
 import styled from 'styled-components'
 
 const BodyText = styled(Text)`
@@ -20,10 +21,14 @@ export default function AboutContent(props) {
     <Box gap='small'>
       {props.title.length > 0 && <Text id={props.title} size='large'>{props.title}</Text>}
       <Box direction='row' gap='medium'>
-        <Box basis='2/3'>
-          <BodyText color='black'>
-            {props.text}
-          </BodyText>
+        <Box basis='2/3' gap='small'>
+          {props.text.map((blob, i) => {
+            return (
+              <BodyText color='black' key={`subcontext_${props.index}_${i}`}>
+                <Markdown>{blob}</Markdown>
+              </BodyText>
+            )
+          })}
         </Box>
         <Box basis='1/3'>
           <Box>
@@ -40,16 +45,18 @@ export default function AboutContent(props) {
 
 AboutContent.propTypes = {
   caption: string,
+  index: number,
   image: string,
   setModal: func,
-  text: string,
+  text: arrayOf(string),
   title: string
 }
 
 AboutContent.defaultProps = {
   caption: '',
+  index: 0,
   image: '',
   setModal: () => {},
-  text: '',
+  text: [],
   title: ''
 }
