@@ -3,8 +3,8 @@ import { Anchor, Box, Image, Layer, Text } from 'grommet'
 import Zooniverse from 'images/zooniverse.png'
 import styled from 'styled-components'
 import content from './content'
-import AboutContent from './components/AboutContent'
 import AboutModal from './components/AboutModal'
+import GettingStarted from './GettingStarted'
 
 const PlainAnchor = styled(Anchor)`
   text-decoration: none;
@@ -59,18 +59,7 @@ export default function About () {
         </Box>
       </StickyBox>
       <Box background='white' basis='80%' gap='small' pad='large' round='xsmall'>
-        <Text color='black' size='xlarge'>Getting Started</Text>
-        {content.map((item, i) => {
-          return (
-            <AboutContent
-              key={`CONTENT_${i}`}
-              content={item.content}
-              index={i}
-              setModal={setModal}
-              title={item.title}
-            />
-          )
-        })}
+        <GettingStarted />
       </Box>
     </Box>
   )

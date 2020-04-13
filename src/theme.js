@@ -16,6 +16,7 @@ const theme = {
   },
   anchor: {
     color: '#0043B8',
+    fontWeight: 300,
     textDecoration: 'underline'
   },
   checkBox: {
