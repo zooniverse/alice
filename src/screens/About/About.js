@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import content from './content'
 import AboutModal from './components/AboutModal'
 import GettingStarted from './GettingStarted'
+import Setup from './Setup'
 
 const PlainAnchor = styled(Anchor)`
   text-decoration: none;
@@ -60,6 +61,7 @@ export default function About () {
       </StickyBox>
       <Box background='white' basis='80%' gap='small' pad='large' round='xsmall'>
         <GettingStarted />
+        <Setup />
       </Box>
     </Box>
   )
