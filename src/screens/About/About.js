@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import content from './content'
 import AboutModal from './components/AboutModal'
 import GettingStarted from './GettingStarted'
+import Optics from './Optics'
 import Setup from './Setup'
 import UsingAlice from './UsingAlice'
 
@@ -64,6 +65,7 @@ export default function About () {
         <GettingStarted />
         <Setup />
         <UsingAlice />
+        <Optics />
       </Box>
     </Box>
   )
