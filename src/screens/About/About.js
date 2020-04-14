@@ -1,9 +1,8 @@
 import React from 'react'
-import { Anchor, Box, Image, Layer, Text } from 'grommet'
+import { Anchor, Box, Image, Text } from 'grommet'
 import Zooniverse from 'images/zooniverse.png'
 import styled from 'styled-components'
 import content from './content'
-import AboutModal from './components/AboutModal'
 import GettingStarted from './GettingStarted'
 import Optics from './Optics'
 import Setup from './Setup'
@@ -30,19 +29,8 @@ const StickyBox = styled(Box)`
 `
 
 export default function About () {
-  const [currentModal, setModal] = React.useState(null)
-
   return (
     <Box align='start' gap='xsmall' margin='medium' direction='row'>
-      {currentModal && (
-        <Layer onClickOutside={() => setModal(null)}>
-          <AboutModal
-            caption={currentModal.caption}
-            image={currentModal.image}
-            setModal={setModal}
-          />
-        </Layer>
-      )}
       <StickyBox basis='20%'>
         <Box gap='xsmall'>
           <Box height='1em' width='6em'>
