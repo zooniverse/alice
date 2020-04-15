@@ -42,9 +42,10 @@ PhotoBlock.propTypes = {
   photos: arrayOf(shape({
     alt: string,
     src: string,
-  })).isRequired
+  }))
 }
 
 PhotoBlock.defaultProps = {
-  caption: ''
+  caption: '',
+  photos: []
 }

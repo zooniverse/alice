@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Layer } from 'grommet'
 import About from './About'
 
 let wrapper
