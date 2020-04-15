@@ -2,7 +2,7 @@ import React from 'react'
 import { Anchor, Box, Image, Text } from 'grommet'
 import Zooniverse from 'images/zooniverse.png'
 import styled from 'styled-components'
-import content from './content'
+import ContentsTable from './components/ContentsTable'
 import GettingStarted from './GettingStarted'
 import Optics from './Optics'
 import Setup from './Setup'
@@ -23,31 +23,27 @@ const ResponsiveText = styled(Text)`
 `
 
 const StickyBox = styled(Box)`
+  height: 100%;
+  overflow-y: auto;
   position: -webkit-sticky;
   position: sticky;
-  top: 1em;
+  top: 12px;
 `
 
 export default function About () {
+  const contentContainerRef = React.useRef()
+
   return (
     <Box align='start' gap='xsmall' margin='medium' direction='row'>
       <StickyBox basis='20%'>
-        <Box gap='xsmall'>
+        <Box gap='xsmall' ref={contentContainerRef}>
           <Box height='1em' width='6em'>
             <Image alt='Zooniverse Logo' fit='contain' src={Zooniverse}/>
           </Box>
           <ResponsiveText size='xlarge'>Transcription viewer/editor help</ResponsiveText>
+          <CapitalText margin={{ top: 'large', bottom: 'xsmall' }} weight='bold'>Contents</CapitalText>
         </Box>
-        <Box gap='xsmall' margin={{ top: 'large' }}>
-          <CapitalText weight='bold'>Contents</CapitalText>
-          {content.map((item, i) => {
-            return (
-              <PlainAnchor key={`ABOUT_NAV_${i}`} href={`#${item.title}`}>
-                <CapitalText color='#005D69' weight={300}>{item.title}</CapitalText>
-              </PlainAnchor>
-            )
-          })}
-        </Box>
+        <ContentsTable ref={contentContainerRef}/>
       </StickyBox>
       <Box background='white' basis='80%' gap='small' pad='large' round='xsmall'>
         <GettingStarted />
