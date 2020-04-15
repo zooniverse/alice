@@ -1,10 +1,11 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import { DropButton } from 'grommet'
-import Badge, { DropLink, StyledBox } from './Badge'
 import { BrowserRouter as Router } from 'react-router-dom'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
+import Badge, { DropLink, StyledAvatar, StyledBox } from './Badge'
+import DefaultAvatar from '../../images/user.svg'
 
 let wrapper
 const setOpenSpy = jest.fn()
@@ -61,6 +62,22 @@ describe('Component > Badge', function () {
       wrapper = shallow(<StyledBox disabled />)
       const tree = renderer.create(wrapper).toJSON()
       expect(tree).toHaveStyleRule('background', '#D8D8D8')
+    })
+  })
+
+  describe('src prop', function () {
+    it('should pass to the image', function () {
+      const src = 'www.zooniverse.com/anImage'
+      wrapper = shallow(<Badge name='User' src={src} />);
+      const image = wrapper.find(StyledAvatar).first()
+      expect(image.props().alt).toBe('User Avatar')
+      expect(image.props().src).toBe(src)
+    })
+
+    it('should fallback on the DefaultAvatar', function () {
+      wrapper = shallow(<Badge />);
+      const image = wrapper.find(StyledAvatar).first()
+      expect(image.props().src).toBe(DefaultAvatar)
     })
   })
 
