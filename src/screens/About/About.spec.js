@@ -21,8 +21,4 @@ describe('Component > About', function () {
   it('should render without crashing', function () {
     expect(wrapper).toBeDefined()
   })
-
-  it('should show a layer', async function () {
-    expect(wrapper.find(Layer).length).toBe(1)
-  })
 })
