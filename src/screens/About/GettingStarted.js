@@ -50,7 +50,7 @@ export default function GettingStarted() {
         Once you’ve created your account, read through the Zooniverse documentation
         and policies at
         <Anchor
-          href='https://www.help.zooniverse.org'
+          href='https://help.zooniverse.org/getting-started/'
           label='help.zooniverse.org.'
           margin={{ left: '0.2em' }}
         />

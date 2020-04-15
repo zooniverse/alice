@@ -188,7 +188,7 @@ export default function Setup() {
         setup, to ensure that retired subjects will be sent to ALICE. To do so,
         <b>please email</b>
         <Anchor
-          href='mailto:m.bluth@example.com'
+          href='mailto:contact@zooniverse.com'
           label='contact@zooniverse.org'
           margin={{ horizontal: '0.2em' }}
         />
