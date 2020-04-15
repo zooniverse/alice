@@ -15,6 +15,14 @@ const StyledList = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
+
+  div > li:first-child span {
+    font-weight: bold
+  }
+
+  ul {
+    padding-left: 1em
+  }
 `
 
 const BUFFER = 12
@@ -22,7 +30,7 @@ const BUFFER = 12
 function renderHeaders(title, key) {
   return (
     <li>
-      <PlainAnchor key={`ABOUT_NAV_${key}`} href={`#${title}`}>
+      <PlainAnchor key={key} href={`#${title}`}>
         <CapitalText color='#005D69' weight={300}>{title}</CapitalText>
       </PlainAnchor>
     </li>
@@ -51,19 +59,19 @@ const ContentsTable = React.forwardRef(function (props, ref) {
     <Box height={`${contentsHeight}px`} pad={{ bottom: 'xsmall' }} overflow='auto'>
       <StyledList>
         {contents.map((content, i) =>
-          <>
-            {renderHeaders(content.title, i)}
+          <Box key={`CONTENT_LIST_${i}`}>
+            {renderHeaders(content.title, `CONTENT_TITLE_${i}`)}
             {content.sub && content.sub.map((secondHead, i) =>
-              <StyledList>
-                {renderHeaders(secondHead.title, i)}
+              <StyledList key={`CONTENT_SUB_LIST_${i}`}>
+                {renderHeaders(secondHead.title, `CONTENT_TITLE_SUB_${i}`)}
                 {secondHead.sub && secondHead.sub.map((thirdHead, i) =>
-                  <StyledList>
-                    {renderHeaders(thirdHead.title, i)}
+                  <StyledList key={`CONTENT_SUB_LIST_2_${i}`}>
+                    {renderHeaders(thirdHead.title, `CONTENT_TITLE_SUB_1_${i}`)}
                   </StyledList>
                 )}
               </StyledList>
             )}
-          </>
+          </Box>
         )}
       </StyledList>
     </Box>

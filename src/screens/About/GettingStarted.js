@@ -45,7 +45,7 @@ export default function GettingStarted() {
         and clicking <b>REGISTER</b>. You only need a name and email address to
         create an account.
       </BodyText>
-      <PhotoBlock caption={REGISTER} photos={photos} />
+      <PhotoBlock caption={REGISTER} description='REGISTER' photos={photos} />
       <BodyText>
         Once you’ve created your account, read through the Zooniverse documentation
         and policies at
@@ -64,7 +64,7 @@ export default function GettingStarted() {
         />
         , sign into your account, and click <b>Create a new project.</b>
       </BodyText>
-      <PhotoBlock photos={[{ alt: 'Create a new project button from the project lab.', photo: Create }]} />
+      <PhotoBlock description='CREATE' photos={[{ alt: 'Create a new project button from the project lab.', photo: Create }]} />
     </Box>
   )
 }

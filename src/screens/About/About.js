@@ -1,16 +1,13 @@
 import React from 'react'
-import { Anchor, Box, Image, Text } from 'grommet'
+import { Box, Image, Text } from 'grommet'
 import Zooniverse from 'images/zooniverse.png'
 import styled from 'styled-components'
 import ContentsTable from './components/ContentsTable'
 import GettingStarted from './GettingStarted'
+import DBScan from './DBScan'
 import Optics from './Optics'
 import Setup from './Setup'
 import UsingAlice from './UsingAlice'
-
-const PlainAnchor = styled(Anchor)`
-  text-decoration: none;
-`
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -50,6 +47,7 @@ export default function About () {
         <Setup />
         <UsingAlice />
         <Optics />
+        <DBScan />
       </Box>
     </Box>
   )
