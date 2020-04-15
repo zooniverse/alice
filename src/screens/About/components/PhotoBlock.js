@@ -12,18 +12,25 @@ const StyledBox = styled(Box)`
   display: inline-block;
 `
 
+const StyledImage = styled(Image)`
+  max-height: 20em;
+`
+
 export default function PhotoBlock({ caption, description, photos }) {
   const width = photos.length > 1 ? '50%' : '100%';
   return (
     <StyledBox margin={{ vertical: 'small' }}>
       {photos.map((item, i) => (
-        <Image key={`${description}_${i}`} fit='contain' src={item.photo} width={width} />
+        <StyledImage
+          key={`${description}_${i}`}
+          fit='contain'
+          width={width}
+          src={item.photo}
+        />
       ))}
       {caption && (
         <CapitalText>
-          <Markdown>
-              {caption}
-          </Markdown>
+          <Markdown>{caption}</Markdown>
         </CapitalText>
       )}
     </StyledBox>
