@@ -19,7 +19,7 @@ const photos = [
 export default function GettingStarted() {
   return (
     <Box>
-      <AboutTitle title='Getting Started' />
+      <AboutTitle title='Getting started' />
       <BodyText>
         Welcome to <b>ALICE</b>, the <b>A</b>ggregate <b>L</b>ine <b>I</b>nspector
         and <b>C</b>ollaborative <b>E</b>ditor. ALICE is a tool for working
