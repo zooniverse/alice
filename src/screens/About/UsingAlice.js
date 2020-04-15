@@ -10,10 +10,6 @@ const BodyText = styled(Text)`
   line-height: 1.75em;
 `
 
-const Italic = styled(Text)`
-  font-style: italic;
-`
-
 const StyledList = styled.ul`
   margin: 0;
 `
@@ -48,7 +44,7 @@ export default function UsingAlice() {
         Zooniverse projects, and your designated role on each (Admin, Editor, or
         Viewer). Click on a project to get started.
       </BodyText>
-      <PhotoBlock photos={[{ alt: 'ALICE projects index page', photo: Projects }]} />
+      <PhotoBlock description='PROJECTS' photos={[{ alt: 'ALICE projects index page', photo: Projects }]} />
       <AboutTitle level={4} title='Adding team members & levels of access' />
       <BodyText>
         To grant your team members access to ALICE, they will need individual
@@ -57,6 +53,7 @@ export default function UsingAlice() {
       </BodyText>
       <PhotoBlock
         caption={CAPTION}
+        description='COLLABORATORS'
         photos={[{ alt: 'Collaborators tab of the Project Builder interface', photo: Collaborators }]}
       />
       <BodyText>
@@ -92,20 +89,20 @@ export default function UsingAlice() {
       <BodyText>
         <b>Viewer</b> access: Tester
       </BodyText>
-      <Italic>Viewing workflows</Italic>
+      <AboutTitle level={4} title='Viewing' />
+      <AboutTitle level={6} title='Viewing workflows' />
       <BodyText>
         Once you’ve selected your project from the list on the ALICE homepage,
         you will see a list of all ALICE-compatible <b>workflows</b> for that
         project, as well as information about their corresponding <b>workflow ID</b>,
-        the number of <b>groups</b> within the workflow, and total number of
-        <b>subjects</b>.
+        the number of <b>groups</b> within the workflow, and total number of <b>subjects</b>.
       </BodyText>
       <BodyText>
         Please note that data from any additional project workflows which are not
         ALICE-compatible will not be shown in this list. To access results from
         those workflows, download your project data export from the Project Builder.
       </BodyText>
-      <Italic>Viewing groups</Italic>
+      <AboutTitle level={6} title='Viewing groups' />
       <BodyText>
         When you select a workflow from the list, you will be taken to a new page
         that shows a list of the groups within that particular workflow, their
@@ -116,7 +113,7 @@ export default function UsingAlice() {
         Selecting a group will open a new page which lists all the subjects
         within that group.
       </BodyText>
-      <Italic>Viewing subjects</Italic>
+      <AboutTitle level={6} title='Viewing subjects' />
       <BodyText>
         Within a group, you will be able to view a list of all subjects that
         have been retired from your project so far. For each subject, you will
@@ -198,7 +195,7 @@ export default function UsingAlice() {
         in a new browser page, with the original image on the left side and a
         list of line-by-line transcriptions on the right.
       </BodyText>
-      <Italic>Search</Italic>
+      <AboutTitle level={6} title='Search' />
       <BodyText>
         Clicking the <b>Search</b> button will open a pop-up module that allows
         you to find a specific subject, as well filter subjects by their status
@@ -208,7 +205,7 @@ export default function UsingAlice() {
         also <b>Sort</b> any of the lists (Workflows, Groups, Subjects) by
         clicking on the available column headings.
       </BodyText>
-      <Italic>What am I looking at? Images, markings, and transcriptions</Italic>
+      <AboutTitle level={6} title='What am I looking at? Images, markings, and transcriptions' />
       <BodyText>
         Clicking on an individual subject will show you the original image on the
         left side of the screen, and a list of transcriptions on the right.
@@ -228,7 +225,7 @@ export default function UsingAlice() {
         the transcription was submitted.
       </BodyText>
       <AboutTitle level={4} title='Editing' />
-      <Italic>Editing or changing transcriptions</Italic>
+      <AboutTitle level={6} title='Editing or changing transcriptions' />
       <BodyText>
         The <b>aggregated transcription</b> will be the default selected transcription.
         To change it, select an individual transcription from the list, or write
@@ -239,13 +236,13 @@ export default function UsingAlice() {
         click on the line to reopen the module, select the aggregated transcription
         from the menu, and click <b>Replace with selected</b>.
       </BodyText>
-      <Italic>Flags</Italic>
+      <AboutTitle level={6} title='Flags' />
       <BodyText>
         Press the green circle to mark the line as <b>seen</b>, or press the red
         flag if the line <b>needs attention</b>. Fellow Admins, Editors, and
         Viewers will be able to see any flags you add to a subject.
       </BodyText>
-      <Italic>Approving subjects</Italic>
+      <AboutTitle level={6} title='Approving subjects' />
       <BodyText>
         Once a subject has been reviewed and all changes are in place, a subject
         must be marked as Approved in order for the subject to be included in the
@@ -262,7 +259,7 @@ export default function UsingAlice() {
         will not be able to request a data export for that subject until it has
         been re-approved.
       </BodyText>
-      <Italic>Aggregation settings (advanced)</Italic>
+      <AboutTitle level={6} title='Aggregation settings (advanced)' />
       <BodyText>
         The aggregation settings allow you to adjust the way that the raw
         transcriptions are combined together to create aggregated transcriptions.

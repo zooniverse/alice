@@ -12,12 +12,12 @@ const StyledBox = styled(Box)`
   display: inline-block;
 `
 
-export default function PhotoBlock({ caption, photos }) {
+export default function PhotoBlock({ caption, description, photos }) {
   const width = photos.length > 1 ? '50%' : '100%';
   return (
     <StyledBox margin={{ vertical: 'small' }}>
-      {photos.map(item => (
-        <Image fit='contain' src={item.photo} width={width} />
+      {photos.map((item, i) => (
+        <Image key={`${description}_${i}`} fit='contain' src={item.photo} width={width} />
       ))}
       {caption && (
         <CapitalText>
@@ -32,6 +32,7 @@ export default function PhotoBlock({ caption, photos }) {
 
 PhotoBlock.propTypes = {
   caption: string,
+  description: string.isRequired,
   photos: arrayOf(shape({
     alt: string,
     src: string,

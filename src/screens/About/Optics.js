@@ -18,7 +18,7 @@ const StyledListItem = styled.li`
 export default function Setup() {
   return (
     <Box>
-      <AboutTitle title='Optics' />
+      <AboutTitle title='OPTICS' />
       <BodyText>
         This process is designed to aggregate text that has been transcribed
         line-by-line (i.e. each submitted transcription contains a full line of
@@ -30,7 +30,7 @@ export default function Setup() {
         />
         for finding clusters within data.
       </BodyText>
-      <BodyText>Adjustable parameters</BodyText>
+      <AboutTitle level={6} title='Adjustable parameters' />
       <StyledList>
         <StyledListItem>
           <b>min_samples</b> This represents the smallest number of transcribed

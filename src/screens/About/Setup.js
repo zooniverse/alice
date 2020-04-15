@@ -78,10 +78,12 @@ export default function Setup() {
       </StyledList>
       <PhotoBlock
         caption={CAPTION}
+        description='WORKFLOW'
         photos={PHOTOS}
       />
       <PhotoBlock
         caption={CAPTION_2}
+        description='TRANSCRIPTION'
         photos={[{ alt: 'The Line + Text Sub-task as it appears in the classification interface', photo: Transcription }]}
       />
       <AboutTitle level={4} title='Uploading subjects' />
@@ -169,6 +171,7 @@ export default function Setup() {
       </BodyText>
       <PhotoBlock
         caption={CAPTION_3}
+        description='MANIFEST'
         photos={[{ alt: 'An example of an image manifest.', photo: Manifest }]}
       />
       <BodyText>
@@ -218,6 +221,7 @@ export default function Setup() {
       </BodyText>
       <PhotoBlock
         caption={CAPTION_4}
+        description='VISIBILITY'
         photos={[{ alt: 'The Visibility tab of the Project Builder interface', photo: Visibility }]}
       />
     </Box>
