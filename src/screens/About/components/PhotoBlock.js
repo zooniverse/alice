@@ -1,7 +1,6 @@
 import React from 'react'
-import { Box, Image, Text } from 'grommet'
+import { Box, Image, Markdown, Text } from 'grommet'
 import { arrayOf, shape, string } from 'prop-types'
-import { Markdown } from 'markdownz'
 import styled from 'styled-components'
 
 const CapitalText = styled(Text)`
