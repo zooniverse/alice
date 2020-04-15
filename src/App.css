@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.markdown
-  h4 {
-    font-weight: normal;
-    margin: 0;
-    text-decoration: underline
-  }
-
-  p {
-    margin: 0;
-  }
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
