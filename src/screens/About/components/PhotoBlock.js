@@ -3,7 +3,7 @@ import { Box, Image, Markdown, Text } from 'grommet'
 import { arrayOf, shape, string } from 'prop-types'
 import styled from 'styled-components'
 
-const CapitalText = styled(Text)`
+export const CapitalText = styled(Text)`
   text-transform: uppercase;
 `
 
@@ -11,7 +11,7 @@ const StyledBox = styled(Box)`
   display: inline-block;
 `
 
-const StyledImage = styled(Image)`
+export const StyledImage = styled(Image)`
   max-height: 20em;
 `
 
@@ -22,6 +22,7 @@ export default function PhotoBlock({ caption, description, photos }) {
       {photos.map((item, i) => (
         <StyledImage
           key={`${description}_${i}`}
+          a11yTitle={item.alt}
           fit='contain'
           width={width}
           src={item.photo}

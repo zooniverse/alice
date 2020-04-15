@@ -42,9 +42,8 @@ const ContentsTable = React.forwardRef(function (props, ref) {
 
   React.useEffect(() => {
     function setHeight() {
-      const { current } = ref
-      if (current) {
-        const rect = current.getBoundingClientRect()
+      if (ref && ref.current) {
+        const rect = ref.current.getBoundingClientRect()
         const contentHeight = window.innerHeight - rect.height - BUFFER
         setContentsHeight(contentHeight)
       }
