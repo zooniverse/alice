@@ -3,7 +3,7 @@ import { array, bool, func, number } from 'prop-types'
 import indexToColor from 'helpers/indexToColor'
 import styled, { css } from 'styled-components'
 
-const G = styled('g')`
+export const G = styled('g')`
   ${css`cursor: ${props => props.clickable && !props.isApproved ? 'pointer' : 'inherit'};`}
 `
 

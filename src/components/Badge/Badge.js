@@ -32,7 +32,7 @@ const DropLink = styled(Link)`
 `
 
 const StyledBox = styled(Box)`
-  background: ${props => props.disabled ? '#D8D8D8' : 'inherit'}
+  ${css`background: ${props => props.disabled ? '#D8D8D8' : 'inherit'};`}
   :hover {
     background: #D8D8D8;
   }
