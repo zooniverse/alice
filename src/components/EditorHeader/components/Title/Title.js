@@ -55,7 +55,7 @@ function Title({ history, match, onEditor }) {
     `(${store.transcriptions.approvedCount}/${store.transcriptions.all.size} approved)` : ''
   return (
     <Box align='baseline'>
-      <Box direction='row'>
+      <Box direction='row' wrap>
         {titles.reverse().map((sub, i) => {
           const nextSub = titles[i+1]
           const removeSlash = i === titles.length - 1 || nextSub.title.length === 0
