@@ -7,6 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import StepNavigation from '../StepNavigation'
 import SearchTags from './components/SearchTags'
+import styled from 'styled-components'
+
+const StyledDataTable = styled(DataTable)`
+  display: block;
+`
 
 function ResourcesTable(props) {
   const onClickRow = (e) => {
@@ -19,11 +24,18 @@ function ResourcesTable(props) {
   }
 
   return (
-    <Box background='white' fill='horizontal' margin={{ vertical: 'small' }} pad='medium' round='xsmall'>
+    <Box
+      background='white'
+      fill='horizontal'
+      margin={{ vertical: 'small' }}
+      overflow={{ horizontal: 'auto' }}
+      pad='medium'
+      round='xsmall'
+    >
       {props.searching && <SearchTags />}
 
       {props.data.length > 0 &&
-        <DataTable
+        <StyledDataTable
           columns={[...props.columns].map(col => ({ ...col }))}
           data={props.data}
           onClickRow={onClickRow}
