@@ -245,7 +245,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kGXeez fOyJew"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kGXeez lgIlUY"
                       >
                         <img
                           alt="DBScan Aggregation Example"

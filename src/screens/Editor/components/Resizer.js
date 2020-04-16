@@ -2,14 +2,14 @@ import React from 'react'
 import { Box } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { bool, func, string } from 'prop-types'
 
 const StyledBox = styled(Box)`
   :hover {
     cursor: ${props => {
-      let icon = props.direction === 'row' ? 'col-resize' : 'row-resize'
-      if (props.disabled) icon = 'default'
+      let icon = props.direction === 'row' ? css`col-resize` : css`row-resize`
+      if (props.disabled) icon = css`default`
       return icon
     }};
   }

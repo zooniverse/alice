@@ -1,10 +1,10 @@
 import React from 'react'
 import { array, bool, func, number } from 'prop-types'
 import indexToColor from 'helpers/indexToColor'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const G = styled('g')`
-  cursor: ${props => props.clickable && !props.isApproved ? 'pointer' : 'inherit'};
+  ${css`cursor: ${props => props.clickable && !props.isApproved ? 'pointer' : 'inherit'};`}
 `
 
 export default function SVGLines({ activeTranscriptionIndex, isApproved, lines, onLineClick, isExtract, reductionIndex }) {

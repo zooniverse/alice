@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, Drop, Text } from 'grommet'
 import { bool, func } from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faFlag } from '@fortawesome/free-solid-svg-icons'
 
@@ -11,7 +11,7 @@ const StyledButton = styled(Button)`
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   height: 0.5em;
-  opacity: ${props => props.dim ? 0.25 : 1};
+  ${css`opacity: ${props => props.dim ? 0.25 : 1};`}
 `
 
 function FlagButton({ disabled, onShowFlag, setFlag, showFlag, seenButton, tag }) {

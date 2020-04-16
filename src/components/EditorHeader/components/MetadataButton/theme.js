@@ -1,6 +1,8 @@
+import { css } from 'styled-components'
+
 const theme = {
   table: {
-    extend: props => `
+    extend: props => css`
       tr:nth-child(even) {
         background: #ffffff;
       }

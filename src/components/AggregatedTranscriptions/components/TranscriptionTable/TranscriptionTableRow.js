@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { arrayOf, bool, func, number, shape, string } from 'prop-types'
 import { observer } from 'mobx-react'
 import { Flags } from './Flags'
@@ -11,13 +11,13 @@ const QuietBox = styled(Box)`
 `
 
 const MoveBox = styled(Box)`
-  cursor: ${props => (props.hover && !props.isViewer) ? 'move' : 'default'};
-  pointer-events: ${props => props.hover ? 'all' : 'none'};
+  ${css`cursor: ${props => (props.hover && !props.isViewer) ? 'move' : 'default'};`}
+  ${css`pointer-events: ${props => props.hover ? 'all' : 'none'};`}
 `
 
 const PointerBox = styled(Box)`
-  cursor: ${props => props.hover ? 'pointer' : 'default'};
-  pointer-events: ${props => props.hover ? 'all' : 'none'};
+  ${css`cursor: ${props => props.hover ? 'pointer' : 'default'};`}
+  ${css`pointer-events: ${props => props.hover ? 'all' : 'none'};`}
 `
 
 function handleDragStart(dragID, setDragID, setHover) {

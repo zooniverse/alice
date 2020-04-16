@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { Field, Formik } from 'formik'
-import styled from 'styled-components'
 import { bool, func, number, shape } from 'prop-types'
+import styled, { css } from 'styled-components'
 import * as Yup from 'yup'
 import { REDUCERS } from './AggregationSettingsContainer'
 
@@ -30,7 +30,7 @@ const opticsSchema = Yup.object().shape({
 const StyledNumberInput = styled(Field)`
   border: 1px solid #979797;
   border-radius: 0.25em;
-  color: ${props => props.disabled ? '#d3d3d3' : 'black'};
+  ${css`color: ${props => props.disabled ? '#d3d3d3' : 'black'};`}
   height: 2em;
   text-align: center;
 `
