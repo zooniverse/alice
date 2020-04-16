@@ -10,7 +10,9 @@ import SearchTags from './components/SearchTags'
 import styled from 'styled-components'
 
 const StyledDataTable = styled(DataTable)`
-  display: block;
+  @-moz-document url-prefix() {
+    display: block
+  }
 `
 
 function ResourcesTable(props) {
