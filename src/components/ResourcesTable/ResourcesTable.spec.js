@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { DataTable, Text } from 'grommet'
+import { Text } from 'grommet'
 import ASYNC_STATES from 'helpers/asyncStates'
-import { ResourcesTable } from './ResourcesTable'
+import { ResourcesTable, StyledDataTable } from './ResourcesTable'
 import SearchTags from './components/SearchTags'
 
 let wrapper;
@@ -77,7 +77,7 @@ describe('ResourcesTable functions', function () {
       datum: { link: '/123' },
       target: { type: 'box' }
     }
-    const table = wrapper.find(DataTable).first().props()
+    const table = wrapper.find(StyledDataTable).first().props()
     table.onClickRow(mockEvent)
     expect(pushSpy).toHaveBeenCalledWith('/projects/123')
   })
@@ -93,7 +93,7 @@ describe('ResourcesTable onSelection prop', function () {
       datum: { link: '/123' },
       target: { type: 'box' }
     }
-    const table = wrapper.find(DataTable).first().props()
+    const table = wrapper.find(StyledDataTable).first().props()
     table.onClickRow(mockEvent)
     expect(onSelectionSpy).toHaveBeenCalledWith(mockEvent.datum)
   })

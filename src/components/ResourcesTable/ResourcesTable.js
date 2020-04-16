@@ -9,7 +9,7 @@ import StepNavigation from '../StepNavigation'
 import SearchTags from './components/SearchTags'
 import styled from 'styled-components'
 
-const StyledDataTable = styled(DataTable)`
+export const StyledDataTable = styled(DataTable)`
   @-moz-document url-prefix() {
     display: block
   }
