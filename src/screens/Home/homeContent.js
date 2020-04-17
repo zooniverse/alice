@@ -14,18 +14,27 @@ const content = [
     header: 'WHO CAN USE IT',
     content:
       <Text>
-        Anyone with a text transcription project can use this tool.
-      <Anchor margin={{ left: '0.2em' }} size='xsmall'>Contact</Anchor> the Zooniverse team to set up your transcription project.</Text>
+        Anyone with an ALICE-compatible Zooniverse text transcription project
+        can use this tool. Some setup required before transcriptions are collected.
+        See the
+        <Text margin={{ horizontal: '0.2em' }}>
+          <Link to='/about'>Getting Started with ALICE</Link>
+        </Text>
+        docs for further instructions.
+      </Text>
   }, {
     header: 'HOW TO USE IT',
     content:
       <Box>
         <Text>
           Documentation has been created to help research teams set up
-          and optimally use this tool.
-        </Text>
-        <Text margin={{ vertical: 'xsmall' }} size='xsmall'>
-          <Link to='/about'>Link to Documentation</Link>
+          and optimally use this tool at alice.zooniverse.org/about. Code is
+          available via the
+          <Anchor
+            href='https://github.com/zooniverse/text-editor'
+            label='git repository'
+            margin={{ horizontal: '0.2em' }}
+          />.
         </Text>
       </Box>
   }
