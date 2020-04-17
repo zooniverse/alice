@@ -92,7 +92,7 @@ const SearchStore = types.model('SearchStore', {
   fetchTranscriptionsById: function fetchTranscriptionsById() {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
-    const searchType = self.type === TYPES.ZOONIVERSE ? 'subject_id' : 'internal_id'
+    const searchType = self.type === TYPES.ZOONIVERSE ? 'id' : 'internal_id'
     const filterType = self.type === TYPES.ZOONIVERSE ? '_eq' : '_cont'
     return `filter[${searchType}${filterType}]=${self.id}`
   },
