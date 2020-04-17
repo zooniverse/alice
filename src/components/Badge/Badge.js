@@ -62,12 +62,22 @@ function Badge ({ disabled, isOpen, name, onAbout, role, setOpen, signOut, src }
         dropContent={
           <Box background='white' height='8em' width='6em' pad={{ vertical: 'xxsmall' }}>
             <StyledBox disabled={onAbout} justify='center' height='2.5em'>
-              <DropLink disabled={onAbout} to='/about' tabIndex={onAbout ? -1 : undefined}>
+              <DropLink
+                disabled={onAbout}
+                onClick={() => !onAbout && setOpen(false)}
+                tabIndex={onAbout ? -1 : undefined}
+                to='/about'
+              >
                 <CapitalText color='#5C5C5C' margin='1em'>Help</CapitalText>
               </DropLink>
             </StyledBox>
             <StyledBox disabled={!onAbout} justify='center' height='2.5em'>
-              <DropLink disabled={!onAbout} to='/projects' tabIndex={!onAbout ? -1 : undefined}>
+              <DropLink
+                disabled={!onAbout}
+                onClick={() => onAbout && setOpen(false)}
+                tabIndex={!onAbout ? -1 : undefined}
+                to='/projects'
+              >
                 <CapitalText color='#5C5C5C' margin='1em'>Viewer</CapitalText>
               </DropLink>
             </StyledBox>
