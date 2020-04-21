@@ -5,7 +5,7 @@ import { BodyText, StyledList, StyledListItem } from './components/Styled'
 
 export default function Setup() {
   return (
-    <Box>
+    <Box gap='xsmall'>
       <AboutTitle title='DBSCAN' />
       <BodyText>
         This process is designed to aggregate text that has been transcribed

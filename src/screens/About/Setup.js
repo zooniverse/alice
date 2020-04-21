@@ -40,7 +40,7 @@ const PHOTOS = [
 
 export default function Setup() {
   return (
-    <Box>
+    <Box gap='xsmall'>
       <AboutTitle title='Setting up your project for use with ALICE' />
       <BodyText>
         To use ALICE, you will need to set up your transcription project in a

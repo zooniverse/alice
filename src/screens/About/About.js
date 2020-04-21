@@ -42,7 +42,7 @@ export default function About () {
         </Box>
         <ContentsTable ref={contentContainerRef}/>
       </StickyBox>
-      <Box background='white' basis='80%' gap='small' pad='large' round='xsmall'>
+      <Box background='white' basis='80%' gap='medium' pad='large' round='xsmall'>
         <GettingStarted />
         <Setup />
         <UsingAlice />

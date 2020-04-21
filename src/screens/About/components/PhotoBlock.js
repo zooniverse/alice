@@ -13,10 +13,11 @@ const StyledBox = styled(Box)`
 
 export const StyledImage = styled(Image)`
   max-height: 20em;
+  max-width: 100%;
 `
 
 export default function PhotoBlock({ caption, description, photos }) {
-  const width = photos.length > 1 ? '50%' : '100%';
+  const width = photos.length > 1 ? '50%' : 'auto';
   return (
     <StyledBox margin={{ vertical: 'small' }}>
       {photos.map((item, i) => (

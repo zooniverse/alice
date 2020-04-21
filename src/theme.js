@@ -82,6 +82,20 @@ const theme = {
       }
     `
   },
+  heading: {
+    level: {
+      "4": {
+        "medium": {
+          "maxWidth": '100%'
+        }
+      },
+      "6": {
+        "medium": {
+          "maxWidth": '100%'
+        }
+      }
+    }
+  },
   layer: {
     border: {
       radius: '10px'

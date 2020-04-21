@@ -14,7 +14,7 @@ const photos = [
 
 export default function GettingStarted() {
   return (
-    <Box>
+    <Box gap='xsmall'>
       <AboutTitle title='Getting started' />
       <BodyText>
         Welcome to <b>ALICE</b>, the <b>A</b>ggregate <b>L</b>ine <b>I</b>nspector

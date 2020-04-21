@@ -13,7 +13,7 @@ const CAPTION = `
 
 export default function UsingAlice() {
   return (
-    <Box>
+    <Box gap='xsmall'>
       <AboutTitle title='Using ALICE with your team' />
       <BodyText>
         Once you have finished building your project and the Zooniverse team has
