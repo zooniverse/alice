@@ -77,6 +77,12 @@ export default function UsingAlice() {
       <BodyText>
         <b>Viewer</b> access: Tester
       </BodyText>
+      <BodyText>
+        Viewers are able to do the following:
+      </BodyText>
+      <StyledList>
+        <StyledListItem>View subjects</StyledListItem>
+      </StyledList>
       <AboutTitle level={4} title='Viewing' />
       <AboutTitle level={6} title='Viewing workflows' />
       <BodyText>
@@ -104,7 +110,7 @@ export default function UsingAlice() {
       <AboutTitle level={6} title='Viewing subjects' />
       <BodyText>
         Within a group, you will be able to view a list of all subjects that
-        have been retired from your project so far. For each subject, you will
+        have been retired from your project so far. For each group, you will
         be able to see (and sort by!) the following information:
       </BodyText>
       <StyledList>
@@ -191,7 +197,9 @@ export default function UsingAlice() {
         ID or Internal ID), enter the name, and click Search. To filter subjects,
         select from the list of options available and click Search. You can
         also <b>Sort</b> any of the lists (Workflows, Groups, Subjects) by
-        clicking on the available column headings.
+        clicking on the available column headings. Please note that ALICE only
+        supports search within individual groups, not across an entire Workflow
+        or Project.
       </BodyText>
       <AboutTitle level={6} title='What am I looking at? Images, markings, and transcriptions' />
       <BodyText>
@@ -209,7 +217,7 @@ export default function UsingAlice() {
         the selected transcription. Beneath it, you will see a list of individual
         transcriptions submitted by volunteers. For each individual transcription,
         you will see the Zooniverse username of the volunteer who submitted it
-        (if they are logged into a Zooniverse account), and the time and date
+        (if they were logged into a Zooniverse account), and the time and date
         the transcription was submitted.
       </BodyText>
       <AboutTitle level={4} title='Editing' />

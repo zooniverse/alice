@@ -40,11 +40,17 @@ const contents = [{
   },{
     title: 'Aggregation settings (advanced)',
     sub: [{
-      title: 'OPTICS'
+      title: 'OPTICS',
+      sub: [{
+        distinction: '_OPTICS',
+        title: 'Adjustable parameters'
+      }]
     },{
-      title: 'Adjustable parameters'
-    },{
-      title: 'DBSCAN'
+      title: 'DBSCAN',
+      sub: [{
+        distinction: '_DBSCAN',
+        title: 'Adjustable parameters'
+      }]
     }]
   },{
     title: 'Data exports'

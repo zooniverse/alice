@@ -20,7 +20,7 @@ export default function Setup() {
         />
         for finding clusters within data.
       </BodyText>
-      <BodyText>Adjustable parameters</BodyText>
+      <AboutTitle distinction='_DBSCAN' level={6} title='Adjustable parameters' />
       <StyledList>
         <StyledListItem>
           <b>eps_slope</b> This represents how close the angle (in degrees) of

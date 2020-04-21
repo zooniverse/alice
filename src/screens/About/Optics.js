@@ -18,7 +18,7 @@ export default function Setup() {
         />
         for finding clusters within data.
       </BodyText>
-      <AboutTitle level={6} title='Adjustable parameters' />
+      <AboutTitle distinction='_OPTICS' level={6} title='Adjustable parameters' />
       <StyledList>
         <StyledListItem>
           <b>min_samples</b> This represents the smallest number of transcribed

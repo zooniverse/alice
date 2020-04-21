@@ -27,12 +27,13 @@ const StyledList = styled.ul`
 
 const BUFFER = 12
 
-function renderHeaders(title, key, capital = false) {
+function renderHeaders(content, key, capital = false) {
+  const { distinction, title } = content
   const TextComponent = capital ? CapitalText : Text
 
   return (
     <li>
-      <PlainAnchor key={key} href={`#${title}`}>
+      <PlainAnchor key={key} href={`#${title}${distinction || ''}`}>
         <TextComponent color='#005D69' weight={300}>{title}</TextComponent>
       </PlainAnchor>
     </li>
@@ -61,13 +62,18 @@ const ContentsTable = React.forwardRef(function (props, ref) {
       <StyledList>
         {contents.map((content, i) =>
           <Box key={`CONTENT_LIST_${i}`}>
-            {renderHeaders(content.title, `CONTENT_TITLE_${i}`, true)}
+            {renderHeaders(content, `CONTENT_TITLE_${i}`, true)}
             {content.sub && content.sub.map((secondHead, i) =>
               <StyledList key={`CONTENT_SUB_LIST_${i}`}>
-                {renderHeaders(secondHead.title, `CONTENT_TITLE_SUB_${i}`)}
+                {renderHeaders(secondHead, `CONTENT_TITLE_SUB_${i}`)}
                 {secondHead.sub && secondHead.sub.map((thirdHead, i) =>
                   <StyledList key={`CONTENT_SUB_LIST_2_${i}`}>
-                    {renderHeaders(thirdHead.title, `CONTENT_TITLE_SUB_1_${i}`)}
+                    {renderHeaders(thirdHead, `CONTENT_TITLE_SUB_1_${i}`)}
+                    {thirdHead.sub && thirdHead.sub.map((fourthHead, i) =>
+                      <StyledList key={`CONTENT_SUB_LIST_3_${i}`}>
+                        {renderHeaders(fourthHead, `CONTENT_TITLE_SUB_2_${i}`)}
+                      </StyledList>
+                    )}
                   </StyledList>
                 )}
               </StyledList>

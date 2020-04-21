@@ -173,8 +173,7 @@ export default function Setup() {
         metadata uploaded to the Project Builder, and you have applied for beta
         review, you must reach out to the Zooniverse team so we can configure the
         accompanying Caesar classification processing workflows and complete your
-        setup, to ensure that retired subjects will be sent to ALICE. To do so,
-        <b>please email</b>
+        setup, to ensure that retired subjects will be sent to ALICE. To do so, <b>please email</b>
         <Anchor
           href='mailto:contact@zooniverse.com'
           label='contact@zooniverse.org'
