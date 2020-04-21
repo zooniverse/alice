@@ -25,11 +25,11 @@ describe('Component > PhotoBlock', function () {
   })
 
   describe('with one photo', function () {
-    it('should render the photo at 100% width', function () {
+    it('should render the photo at auto width', function () {
       const photo = [{ alt: 'Another photo' }]
       wrapper = shallow(<PhotoBlock caption='A caption' photos={photo} />);
       const image = wrapper.find(StyledImage).first()
-      expect(image.props().width).toBe('100%')
+      expect(image.props().width).toBe('auto')
     })
   })
 })
