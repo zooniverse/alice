@@ -1,19 +1,7 @@
 import React from 'react'
-import { Anchor, Box, Text } from 'grommet'
-import styled from 'styled-components'
+import { Anchor, Box } from 'grommet'
 import AboutTitle from './components/AboutTitle'
-
-const BodyText = styled(Text)`
-  line-height: 1.75em;
-`
-
-const StyledList = styled.ul`
-  margin: 0;
-`
-
-const StyledListItem = styled.li`
-  font-size: 14px;
-`
+import { BodyText, StyledList, StyledListItem } from './components/Styled'
 
 export default function Setup() {
   return (

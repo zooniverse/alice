@@ -1,22 +1,10 @@
 import React from 'react'
-import { Anchor, Box, Text } from 'grommet'
-import styled from 'styled-components'
+import { Anchor, Box } from 'grommet'
 import AboutTitle from './components/AboutTitle'
 import PhotoBlock from './components/PhotoBlock'
+import { BodyText, StyledList, StyledListItem } from './components/Styled'
 import Collaborators from 'images/about/collaborators.png'
 import Projects from 'images/about/projects.png'
-
-const BodyText = styled(Text)`
-  line-height: 1.75em;
-`
-
-const StyledList = styled.ul`
-  margin: 0;
-`
-
-const StyledListItem = styled.li`
-  font-size: 14px;
-`
 
 const CAPTION = `
   The Collaborators tab of the Project Builder interface, where project team

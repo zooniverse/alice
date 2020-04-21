@@ -1,8 +1,8 @@
 import React from 'react'
-import { Anchor, Box, Text } from 'grommet'
-import styled from 'styled-components'
+import { Anchor, Box } from 'grommet'
 import AboutTitle from './components/AboutTitle'
 import PhotoBlock from './components/PhotoBlock'
+import { BodyText, StyledList, StyledListItem } from './components/Styled'
 import Manifest from 'images/about/table.png'
 import Transcription from 'images/about/transcription.png'
 import Visibility from 'images/about/visibility.png'
@@ -10,18 +10,6 @@ import Workflow1 from 'images/about/workflow1.png'
 import Workflow2 from 'images/about/workflow2.png'
 import Workflow3 from 'images/about/workflow3.png'
 import Workflow4 from 'images/about/workflow4.png'
-
-const BodyText = styled(Text)`
-  line-height: 1.75em;
-`
-
-const StyledList = styled.ul`
-  margin: 0;
-`
-
-const StyledListItem = styled.li`
-  font-size: 14px;
-`
 
 const CAPTION = `
   Series illustrating the process of creating task + sub-task. Top left: adding

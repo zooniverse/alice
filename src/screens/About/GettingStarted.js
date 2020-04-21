@@ -1,14 +1,10 @@
 import React from 'react'
-import { Anchor, Box, Text } from 'grommet'
+import { Anchor, Box } from 'grommet'
 import AboutTitle from './components/AboutTitle'
 import PhotoBlock from './components/PhotoBlock'
-import styled from 'styled-components'
 import Create from 'images/about/create.png'
 import Register from 'images/about/register.png'
-
-const BodyText = styled(Text)`
-  line-height: 1.75em;
-`
+import { BodyText } from './components/Styled'
 
 const REGISTER = 'The registration button, shown here in red'
 
