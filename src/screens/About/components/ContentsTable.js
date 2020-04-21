@@ -27,11 +27,13 @@ const StyledList = styled.ul`
 
 const BUFFER = 12
 
-function renderHeaders(title, key) {
+function renderHeaders(title, key, capital = false) {
+  const TextComponent = capital ? CapitalText : Text
+
   return (
     <li>
       <PlainAnchor key={key} href={`#${title}`}>
-        <CapitalText color='#005D69' weight={300}>{title}</CapitalText>
+        <TextComponent color='#005D69' weight={300}>{title}</TextComponent>
       </PlainAnchor>
     </li>
   )
@@ -59,7 +61,7 @@ const ContentsTable = React.forwardRef(function (props, ref) {
       <StyledList>
         {contents.map((content, i) =>
           <Box key={`CONTENT_LIST_${i}`}>
-            {renderHeaders(content.title, `CONTENT_TITLE_${i}`)}
+            {renderHeaders(content.title, `CONTENT_TITLE_${i}`, true)}
             {content.sub && content.sub.map((secondHead, i) =>
               <StyledList key={`CONTENT_SUB_LIST_${i}`}>
                 {renderHeaders(secondHead.title, `CONTENT_TITLE_SUB_${i}`)}
