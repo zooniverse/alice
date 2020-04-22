@@ -439,6 +439,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return count;
   },
 
+  get lockedByCurrentUser () {
+    const user = getRoot(self).auth.userName
+    return user === self.current.locked_by
+  },
+
   get isActive () {
     return self.activeTranscriptionIndex !== undefined
   },

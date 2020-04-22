@@ -22,14 +22,6 @@ function findLocations(subject) {
   })
 }
 
-function shouldShowLockedModal(store) {
-  const { auth, transcriptions } = store
-  if (transcriptions.current) {
-    return auth.userName !== transcriptions.current.locked_by
-  }
-  return false
-}
-
 function Editor ({ match, testTime }) {
   const store = React.useContext(AppContext)
   const editorBox = React.useRef(null)
@@ -40,7 +32,7 @@ function Editor ({ match, testTime }) {
     const setResources = async () => {
       await store.subjects.fetchSubject(match.params.subject)
       await store.getResources(match.params)
-      if (shouldShowLockedModal(store)) {
+      if (!store.transcriptions.lockedByCurrentUser) {
         store.modal.toggleModal(MODALS.LOCKED)
       }
     }
@@ -62,7 +54,9 @@ function Editor ({ match, testTime }) {
     window.addEventListener('visibilitychange', handleTimeCheck)
 
     return () => {
-      store.transcriptions.unlockTranscription()
+      if (store.transcriptions.lockedByCurrentUser) {
+        store.transcriptions.unlockTranscription()
+      }
       window.removeEventListener('beforeunload', store.transcriptions.unlockTranscription);
       window.removeEventListener('visibilitychange', handleTimeCheck)
     }
