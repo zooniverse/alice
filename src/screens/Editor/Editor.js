@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import AppContext from 'store'
 import { undoManager } from 'store/AppStore'
+import MODALS from 'helpers/modals'
 import Resizer from './components/Resizer'
 import AggregationModal from '../../components/AggregationSettings/AggregationModal'
 import SubjectViewer from '../../components/SubjectViewer'
@@ -21,6 +22,14 @@ function findLocations(subject) {
   })
 }
 
+function shouldShowLockedModal(store) {
+  const { auth, transcriptions } = store
+  if (transcriptions.current) {
+    return auth.userName !== transcriptions.current.locked_by
+  }
+  return false
+}
+
 function Editor ({ match, testTime }) {
   const store = React.useContext(AppContext)
   const editorBox = React.useRef(null)
@@ -31,6 +40,9 @@ function Editor ({ match, testTime }) {
     const setResources = async () => {
       await store.subjects.fetchSubject(match.params.subject)
       await store.getResources(match.params)
+      if (shouldShowLockedModal(store)) {
+        store.modal.toggleModal(MODALS.LOCKED)
+      }
     }
     setResources()
     store.transcriptions.setActiveTranscription()

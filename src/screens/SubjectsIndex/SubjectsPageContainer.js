@@ -4,7 +4,6 @@ import AppContext from 'store'
 import { generatePath, withRouter } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import { EDIT_PATH } from 'paths'
-import MODALS from 'helpers/modals'
 import ResourcesTable from '../../components/ResourcesTable'
 import { columns } from './table'
 
@@ -19,12 +18,9 @@ function SubjectsPageContainer ({ history, match }) {
     if (!(store.transcriptions.current && store.transcriptions.current.id)) {
       setResources()
     }
-    return () => store.modal.toggleModal('')
   }, [match, store])
 
   const onSelection = (transcription) => {
-    const isLocked = transcription.locked_by && transcription.locked_by !== store.auth.userName
-    if (isLocked) store.modal.toggleModal(MODALS.LOCKED)
     const nextPath = generatePath(EDIT_PATH, { subject: transcription.id, ...match.params})
     history.push(nextPath)
   }
