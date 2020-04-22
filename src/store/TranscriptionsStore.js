@@ -404,7 +404,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
     fetchExtracts,
-    fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
+    fetchTranscriptions: (page, shouldReset) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page, shouldReset),
     getLastModified,
     getTranscriberInfo,
     patchTranscription,

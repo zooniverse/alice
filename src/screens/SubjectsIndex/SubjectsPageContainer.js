@@ -15,9 +15,7 @@ function SubjectsPageContainer ({ history, match }) {
       await store.getResources(match.params)
       await store.transcriptions.fetchTranscriptions(store.transcriptions.page, false)
     }
-    if (!(store.transcriptions.current && store.transcriptions.current.id)) {
-      setResources()
-    }
+    setResources()
   }, [match, store])
 
   const onSelection = (transcription) => {
