@@ -19,7 +19,7 @@ export default function SubjectLockedModal({ lockedBy, onBack }) {
     >
       <Text size='large'>Subject locked</Text>
       <StyledText>
-        This subject cannot be accessed because <b>{lockedBy}</b> is currently accessing it.
+        This subject cannot be accessed because <strong>{lockedBy}</strong> is currently accessing it.
       </StyledText>
       <StyledText>For access, ask them to close their version.</StyledText>
       <Button
