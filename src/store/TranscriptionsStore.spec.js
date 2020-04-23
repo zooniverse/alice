@@ -297,6 +297,10 @@ describe('TranscriptionsStore', function () {
         )
       })
 
+      it('should return if the transcription is lockedByCurrentUser', function () {
+        expect(transcriptionsStore.lockedByCurrentUser).toBe(false)
+      })
+
       describe('when deleting a line', function () {
         it('should not proceed without an active transcription', function () {
           const current = transcriptionsStore.current.text.get('frame0')

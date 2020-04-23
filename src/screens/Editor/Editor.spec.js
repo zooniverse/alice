@@ -2,6 +2,7 @@ import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { Box } from 'grommet'
 import ASYNC_STATES from 'helpers/asyncStates'
+import MODALS from 'helpers/modals'
 import { act } from 'react-dom/test-utils'
 import { Editor, Resizer } from './Editor'
 
@@ -12,6 +13,7 @@ const getResourcesSpy = jest.fn()
 const setState = jest.fn()
 const preventDefaultSpy = jest.fn()
 const setActiveTranscriptionSpy = jest.fn()
+const toggleModalSpy = jest.fn()
 const unlockTranscriptionSpy = jest.fn()
 const match = {
   params: {
@@ -45,6 +47,9 @@ const contextValues = {
   image: {
     zoomIn: () => {}
   },
+  modal: {
+    toggleModal: toggleModalSpy
+  },
   projects: {
     isViewer: false
   },
@@ -59,6 +64,7 @@ const contextValues = {
     current: undefined,
     extracts: [],
     index: 0,
+    lockedByCurrentUser: false,
     setActiveTranscription: setActiveTranscriptionSpy,
     unlockTranscription: unlockTranscriptionSpy
   }
@@ -94,14 +100,41 @@ describe('Component > Editor', function () {
       expect(fetchSubjectSpy).toHaveBeenCalled()
     })
 
-    it('should correctly unmount', function () {
-      wrapper.unmount()
-      expect(unlockTranscriptionSpy).toHaveBeenCalled()
-    })
-
     it('should check the time on visibilitychange', function () {
       map.visibilitychange()
       expect(checkIfLockedSpy).toHaveBeenCalled()
+    })
+
+    describe('with a locked transcription', function () {
+      it('should show the locked transcription modal', function () {
+        expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
+      })
+
+      it('should not attempt to unlock the transcription', function () {
+        wrapper.unmount()
+        expect(unlockTranscriptionSpy).not.toHaveBeenCalled()
+      })
+    })
+
+    describe('with an unlocked transcription', function () {
+      beforeEach(async function () {
+        jest.clearAllMocks()
+        const lockedValues = Object.assign(contextValues)
+        lockedValues.transcriptions.lockedByCurrentUser = true
+        jest
+          .spyOn(React, 'useContext')
+          .mockImplementation(() => Object.assign({}, lockedValues))
+        wrapper = mount(<Editor match={match} />);
+      })
+
+      it('should not show the locked transcription modal', function () {
+        expect(toggleModalSpy).not.toHaveBeenCalled()
+      })
+
+      it('should unlock the transcription', function () {
+        wrapper.unmount()
+        expect(unlockTranscriptionSpy).toHaveBeenCalled()
+      })
     })
   })
 

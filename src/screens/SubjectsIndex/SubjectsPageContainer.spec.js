@@ -71,14 +71,6 @@ describe('Component > SubjectsPageContainer', function () {
       expect(fetchTranscriptionsSpy).toHaveBeenCalled()
     })
 
-    it('should toggleModal when subject locked', function() {
-      const subject = { id: 1, locked_by: 'ANOTHER_USER' }
-      const table = wrapper.find(ResourcesTable).first()
-      table.props().onSelection(subject)
-      expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
-      expect(pushSpy).toHaveBeenCalled()
-    })
-
     it('should not toggleModal when subject unlocked', function() {
       const subject = { id: 1, locked: false }
       const table = wrapper.find(ResourcesTable).first()
