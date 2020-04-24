@@ -229,7 +229,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     frames.forEach(key => {
       const frame = self.current.text.get(key)
       frame.forEach(r => {
-        const slopeKey = `${key}.${r.slope_label}`
+        const slopeKey = key.includes('.') ? key : `${key}.${r.slope_label}`
         if (!allSlopeKeys.includes(slopeKey)) {
           allSlopeKeys.push(slopeKey)
         }
@@ -345,6 +345,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const saveTranscription = flow(function * saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
+    const frame_order = toJS(self.current.frame_order)
     const textBlob = toJS(self.current.text)
     const additionalData = {
       low_consensus_lines: self.current.low_consensus_lines,
@@ -356,6 +357,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         type: 'transcriptions',
         attributes: {
           flagged: self.current.flagged,
+          frame_order,
           text: updatedTranscription
         }
       }
