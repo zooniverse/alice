@@ -41,12 +41,12 @@ describe('SearchStore', function () {
     expect(searchStore.getSearchQuery()).toBe(`&filter[status_in]=unseen&filter[low_consensus_eq]=true`)
   })
 
-  it('should searchTranscriptions and fetch by subject_id', function() {;
+  it('should searchTranscriptions and fetch by subject id', function() {;
     searchStore.searchTranscriptions({ id: '1', type: 'ZOONIVERSE ID' })
     expect(searchStore.id).toBe('1')
     expect(searchStore.type).toBe('ZOONIVERSE ID')
     expect(fetchTranscriptionsSpy).toHaveBeenCalled()
-    expect(searchStore.getSearchQuery()).toBe(`&filter[subject_id_eq]=1`)
+    expect(searchStore.getSearchQuery()).toBe(`&filter[id_eq]=1`)
   })
 
   it('should searchTranscriptions and fetch by internal_id', function() {;
