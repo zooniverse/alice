@@ -9,7 +9,6 @@ function BadgeContainer ({ onAbout }) {
   const user = store.auth.user
 
   const disabled = store.aggregations.showModal || store.transcriptions.isActive
-  const name = user && user.display_name
   const signOut = store.auth.logout
   const src = user && user.avatar_src
 
@@ -17,7 +16,7 @@ function BadgeContainer ({ onAbout }) {
     <Badge
       disabled={disabled}
       isOpen={isOpen}
-      name={name}
+      name={store.auth.userName}
       onAbout={onAbout}
       role={store.projects.role}
       setOpen={setOpen}

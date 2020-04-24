@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import AppContext from 'store'
 import { undoManager } from 'store/AppStore'
+import MODALS from 'helpers/modals'
 import Resizer from './components/Resizer'
 import AggregationModal from '../../components/AggregationSettings/AggregationModal'
 import SubjectViewer from '../../components/SubjectViewer'
@@ -21,19 +22,45 @@ function findLocations(subject) {
   })
 }
 
-function Editor ({ match }) {
+function Editor ({ match, testTime }) {
   const store = React.useContext(AppContext)
   const editorBox = React.useRef(null)
 
   React.useEffect(() => {
+    let accessTime = new Date()
+
     const setResources = async () => {
       await store.subjects.fetchSubject(match.params.subject)
       await store.getResources(match.params)
+      if (!store.transcriptions.lockedByCurrentUser) {
+        store.modal.toggleModal(MODALS.LOCKED)
+      }
     }
     setResources()
     store.transcriptions.setActiveTranscription()
     undoManager.clear()
-  }, [match, store])
+
+    function handleTimeCheck() {
+      let recheckTime = testTime || new Date(accessTime).setHours(accessTime.getHours() + 3)
+      const shouldRecheck = new Date() > recheckTime
+      if (shouldRecheck) {
+        accessTime = new Date()
+        recheckTime = new Date(accessTime).setHours(accessTime.getHours() + 3)
+        store.transcriptions.checkIfLocked()
+      }
+    }
+
+    window.addEventListener('beforeunload', store.transcriptions.unlockTranscription)
+    window.addEventListener('visibilitychange', handleTimeCheck)
+
+    return () => {
+      if (store.transcriptions.lockedByCurrentUser) {
+        store.transcriptions.unlockTranscription()
+      }
+      window.removeEventListener('beforeunload', store.transcriptions.unlockTranscription);
+      window.removeEventListener('visibilitychange', handleTimeCheck)
+    }
+  }, [testTime, match, store])
 
   const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive
   const subject = store.subjects.current

@@ -7,9 +7,7 @@ const saveTranscriptionsSpy = jest.fn()
 
 const consensusText = 'Consensus Text'
 const contextValues = {
-  auth: {
-    user: { display_name: 'User' }
-  },
+  auth: { userName: 'User' },
   transcriptions: {
     checkForFlagUpdate: checkForFlagUpdateSpy,
     saveTranscription: saveTranscriptionsSpy

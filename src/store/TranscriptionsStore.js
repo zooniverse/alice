@@ -8,6 +8,7 @@ import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
 import getError, { TranscriptionError } from 'helpers/getError'
+import MODALS from 'helpers/modals'
 import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
@@ -19,9 +20,10 @@ const Transcription = types.model('Transcription', {
   id: types.identifier,
   flagged: types.optional(types.boolean, false),
   group_id: types.optional(types.string, ''),
-  lastModified: types.optional(types.string, ''),
   internal_id: types.optional(types.string, ''),
+  last_modified: types.optional(types.string, ''),
   low_consensus_lines: types.optional(types.integer, 0),
+  locked_by: types.maybeNull(types.string),
   pages: types.optional(types.integer, 0),
   parameters: types.optional(types.frozen()),
   reducer: types.maybeNull(types.string),
@@ -88,7 +90,18 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.saveTranscription()
   }
 
-  function createTranscription(transcription, lastModified = '') {
+  const checkIfLocked = flow(function * checkIfLocked() {
+    const client = getRoot(self).client.tove
+    const response = yield client.get(`/transcriptions/${self.title}`)
+    const resource = JSON.parse(response.body)
+    const lockedBy = resource.data.attributes.locked_by
+    const lockedByDifferentUser = lockedBy && lockedBy !== getRoot(self).auth.userName
+    if (lockedByDifferentUser) {
+      getRoot(self).modal.toggleModal(MODALS.LOCKED)
+    }
+  })
+
+  function createTranscription(transcription, last_modified = '') {
     const text = (transcription.attributes && transcription.attributes.text) || {}
     const containsFrameKey = (val, key) => key.indexOf('frame') >= 0
     const textObject = Ramda.pickBy(containsFrameKey, text)
@@ -96,8 +109,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       id: transcription.id,
       flagged: transcription.attributes.flagged,
       group_id: transcription.attributes.group_id,
-      lastModified,
+      last_modified,
       internal_id: transcription.attributes.internal_id || '',
+      locked_by: transcription.attributes.locked_by,
       low_consensus_lines: transcription.attributes.low_consensus_lines || 0,
       pages: transcription.attributes.total_pages || 0,
       parameters: transcription.attributes.parameters,
@@ -215,7 +229,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const client = getRoot(self).client.tove
     let lastModified
     try {
-      yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.lastModified } }).then(response => {
+      yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
         if (response.ok) {
           lastModified = getLastModified(response)
           return response
@@ -234,7 +248,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       })
     }
     undoManager.withoutUndo(() => {
-      if (lastModified) self.current.lastModified = lastModified
+      if (lastModified) self.current.last_modified = lastModified
     })
   })
 
@@ -363,6 +377,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
+  const unlockTranscription = flow(function * unlockTranscription() {
+    const client = getRoot(self).client.tove
+    yield client.patch(`/transcriptions/${self.current.id}/unlock`, { headers: { 'If-Unmodified-Since': self.current.last_modified } })
+  })
+
   function updateApproval(isChecked) {
     self.setActiveTranscription()
     const isAdmin = getRoot(self).projects.isAdmin
@@ -381,10 +400,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     addLine,
     changeIndex,
     checkForFlagUpdate,
+    checkIfLocked,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
     fetchExtracts,
-    fetchTranscriptions: (page) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page),
+    fetchTranscriptions: (page, shouldReset) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page, shouldReset),
     getLastModified,
     getTranscriberInfo,
     patchTranscription,
@@ -401,6 +421,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
     toggleError: () => undoManager.withoutUndo(() => toggleError()),
     undo,
+    unlockTranscription,
     updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked))
   }
 }).views(self => ({
@@ -416,6 +437,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }
     })
     return count;
+  },
+
+  get lockedByCurrentUser () {
+    const user = getRoot(self).auth.userName
+    return user === self.current.locked_by
   },
 
   get isActive () {

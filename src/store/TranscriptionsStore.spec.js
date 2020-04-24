@@ -11,18 +11,32 @@ let transcriptionsStore
 const headers = new Headers()
 headers.append('last-modified', 'Mon, June 31, 2020');
 const patchToveSpy = jest.fn().mockResolvedValue({ ok: true, headers })
+const toggleModalSpy = jest.fn()
 const getToveResponse = () => Promise.resolve(
   {
     body: JSON.stringify(
       {
         data: TranscriptionFactory.build({
           attributes: {
+            locked_by: 'ANOTHER_USER',
             text: { frame0: [{}] }
           }
         }),
         meta: {
           pagination: { last: 1 }
         }
+      }),
+    headers
+  }
+)
+
+const getToveResponseByAUser = () => Promise.resolve(
+  {
+    body: JSON.stringify(
+      {
+        data: TranscriptionFactory.build({
+          attributes: { locked_by: 'A_USER' }
+        })
       })
   }
 )
@@ -95,6 +109,10 @@ const aggregatorStub = {
 const singleTranscriptionStub = {
   get: getToveResponse,
   patch: patchToveSpy
+}
+
+const unlockedTranscriptionStub = {
+  get: getToveResponseByAUser
 }
 
 const failedToveStub = {
@@ -188,6 +206,7 @@ describe('TranscriptionsStore', function () {
             }
           })
         rootStore = AppStore.create({
+          auth: { user: { display_name: 'A_USER' } },
           client: {
             aggregator: aggregatorStub,
             tove: singleTranscriptionStub
@@ -197,12 +216,15 @@ describe('TranscriptionsStore', function () {
               display_name: 'GROUP_1'
             }
           },
-          subjects: { index: 0 },
           workflows: {
             all: { 1: { id: '1' } },
             current: '1'
           }
         })
+        Object.defineProperty(
+          rootStore.modal, 'toggleModal',
+          { writable: true, value: toggleModalSpy }
+        )
         transcriptionsStore = rootStore.transcriptions
         await transcriptionsStore.selectTranscription(1)
       })
@@ -241,7 +263,7 @@ describe('TranscriptionsStore', function () {
       it('should save a transcription', async function () {
         await transcriptionsStore.saveTranscription()
         expect(patchToveSpy).toHaveBeenCalled()
-        expect(transcriptionsStore.current.lastModified).toBe('Mon, June 31, 2020')
+        expect(transcriptionsStore.current.last_modified).toBe('Mon, June 31, 2020')
       })
 
       it('should update the flagged attribute', function () {
@@ -274,6 +296,40 @@ describe('TranscriptionsStore', function () {
         transcriptionsStore.addLine()
         expect(current.length).toBe(2)
         expect(transcriptionsStore.activeTranscriptionIndex).toBe(1)
+      })
+
+      it('should show when the transcription is locked', async function () {
+        await transcriptionsStore.checkIfLocked()
+        expect(toggleModalSpy).toHaveBeenCalled()
+      })
+
+      it('should unlock a transcription', async function () {
+        await transcriptionsStore.unlockTranscription()
+        expect(patchToveSpy).toHaveBeenCalledWith(
+          '/transcriptions/1/unlock',
+          {"headers": {"If-Unmodified-Since": "Mon, June 31, 2020"}}
+        )
+      })
+
+      it('should return false if the transcription is not lockedByCurrentUser', function () {
+        expect(transcriptionsStore.lockedByCurrentUser).toBe(false)
+      })
+
+      it('should return true if the transcription is lockedByCurrentUser', async function () {
+        const unlockableStore = AppStore.create({
+          auth: { user: { display_name: 'A_USER' } },
+          client: { tove: unlockedTranscriptionStub },
+          groups: {
+            current: { display_name: 'GROUP_1' }
+          },
+          workflows: {
+            all: { 1: { id: '1' } },
+            current: '1'
+          }
+        })
+        const unlockedTranscriptionStore = unlockableStore.transcriptions
+        await unlockedTranscriptionStore.selectTranscription(1)
+        expect(unlockedTranscriptionStore.lockedByCurrentUser).toBe(true)
       })
 
       describe('when deleting a line', function () {

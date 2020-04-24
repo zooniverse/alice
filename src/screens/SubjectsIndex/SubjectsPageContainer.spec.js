@@ -14,6 +14,7 @@ const pushSpy = jest.fn()
 const resetSpy = jest.fn()
 const toggleModalSpy = jest.fn()
 const contextValues = {
+  auth: { userName: 'A_USER' },
   getResources: getResourcesSpy,
   modal: {
     toggleModal: toggleModalSpy
@@ -68,14 +69,6 @@ describe('Component > SubjectsPageContainer', function () {
       const table = wrapper.find(ResourcesTable).first()
       table.props().setStep(1)
       expect(fetchTranscriptionsSpy).toHaveBeenCalled()
-    })
-
-    it('should toggleModal when subject locked', function() {
-      const subject = { id: 1, locked: true }
-      const table = wrapper.find(ResourcesTable).first()
-      table.props().onSelection(subject)
-      expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
-      expect(pushSpy).toHaveBeenCalled()
     })
 
     it('should not toggleModal when subject unlocked', function() {

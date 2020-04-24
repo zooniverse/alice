@@ -2,15 +2,19 @@ import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { Box } from 'grommet'
 import ASYNC_STATES from 'helpers/asyncStates'
+import MODALS from 'helpers/modals'
 import { act } from 'react-dom/test-utils'
 import { Editor, Resizer } from './Editor'
 
 let wrapper
+const checkIfLockedSpy = jest.fn()
 const fetchSubjectSpy = jest.fn()
 const getResourcesSpy = jest.fn()
 const setState = jest.fn()
 const preventDefaultSpy = jest.fn()
 const setActiveTranscriptionSpy = jest.fn()
+const toggleModalSpy = jest.fn()
+const unlockTranscriptionSpy = jest.fn()
 const match = {
   params: {
     subject: 2
@@ -43,6 +47,9 @@ const contextValues = {
   image: {
     zoomIn: () => {}
   },
+  modal: {
+    toggleModal: toggleModalSpy
+  },
   projects: {
     isViewer: false
   },
@@ -53,10 +60,13 @@ const contextValues = {
     fetchSubject: fetchSubjectSpy,
   },
   transcriptions: {
+    checkIfLocked: checkIfLockedSpy,
     current: undefined,
     extracts: [],
     index: 0,
-    setActiveTranscription: setActiveTranscriptionSpy
+    lockedByCurrentUser: false,
+    setActiveTranscription: setActiveTranscriptionSpy,
+    unlockTranscription: unlockTranscriptionSpy
   }
 }
 
@@ -67,16 +77,64 @@ describe('Component > Editor', function () {
   })
 
   describe('UseEffect', function() {
-    it('should load resources', async function () {
+    const map = {}
+
+    beforeEach(async function () {
+      window.addEventListener = jest.fn((event, cb) => {
+        map[event] = cb;
+      });
+
       jest
         .spyOn(React, 'useContext')
         .mockImplementation(() => Object.assign({}, contextValues))
-      wrapper = mount(<Editor match={match} />);
+      const fourHoursAgo = new Date()
+      fourHoursAgo.setHours(-4)
+      wrapper = mount(<Editor match={match} testTime={fourHoursAgo} />);
       await act(async () => {
         wrapper.update()
       });
+    })
+
+    it('should load resources', function () {
       expect(getResourcesSpy).toHaveBeenCalled()
       expect(fetchSubjectSpy).toHaveBeenCalled()
+    })
+
+    it('should check the time on visibilitychange', function () {
+      map.visibilitychange()
+      expect(checkIfLockedSpy).toHaveBeenCalled()
+    })
+
+    describe('with a locked transcription', function () {
+      it('should show the locked transcription modal', function () {
+        expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
+      })
+
+      it('should not attempt to unlock the transcription', function () {
+        wrapper.unmount()
+        expect(unlockTranscriptionSpy).not.toHaveBeenCalled()
+      })
+    })
+
+    describe('with an unlocked transcription', function () {
+      beforeEach(async function () {
+        jest.clearAllMocks()
+        const lockedValues = Object.assign(contextValues)
+        lockedValues.transcriptions.lockedByCurrentUser = true
+        jest
+          .spyOn(React, 'useContext')
+          .mockImplementation(() => Object.assign({}, lockedValues))
+        wrapper = mount(<Editor match={match} />);
+      })
+
+      it('should not show the locked transcription modal', function () {
+        expect(toggleModalSpy).not.toHaveBeenCalled()
+      })
+
+      it('should unlock the transcription', function () {
+        wrapper.unmount()
+        expect(unlockTranscriptionSpy).toHaveBeenCalled()
+      })
     })
   })
 

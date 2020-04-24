@@ -25,7 +25,6 @@ describe('ClientStore', function () {
       }
     })
     clientStore = rootStore.client
-    console.log('root', rootStore.workflows.current);
   })
 
   afterEach(() => jest.clearAllMocks());

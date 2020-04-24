@@ -7,7 +7,7 @@ const StyledText = styled(Text)`
   line-height: 1.75em;
 `
 
-export default function SubjectLockedModal({ onBack }) {
+export default function SubjectLockedModal({ lockedBy, onBack }) {
   return (
     <Box
       background='white'
@@ -19,7 +19,7 @@ export default function SubjectLockedModal({ onBack }) {
     >
       <Text size='large'>Subject locked</Text>
       <StyledText>
-        This subject cannot be accessed because <b>Erin Green</b> is currently accessing it.
+        This subject cannot be accessed because <strong>{lockedBy}</strong> is currently accessing it.
       </StyledText>
       <StyledText>For access, ask them to close their version.</StyledText>
       <Button

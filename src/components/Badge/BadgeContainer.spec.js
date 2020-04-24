@@ -12,10 +12,8 @@ const contextValues = {
   },
   auth: {
     logout: () => {},
-    user: {
-      avatar_src: 'source.jpg',
-      display_name: 'Test_User',
-    }
+    user: { avatar_src: 'source.jpg' },
+    userName: 'Test_User'
   },
   projects: {
     role: 'Researcher'
@@ -56,7 +54,7 @@ describe('Component > BadgeContainer', function () {
 
   it('should pass the src prop', function () {
     const name = badgeComponent.props().name
-    expect(name).toBe(contextValues.auth.user.display_name)
+    expect(name).toBe(contextValues.auth.userName)
     expect(typeof name).toBe('string')
   })
 })
