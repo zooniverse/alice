@@ -278,8 +278,8 @@ describe('TranscriptionsStore', function () {
         expect(transcriptionsStore.current.last_modified).toBe('Mon, June 31, 2020')
       })
 
-      it('should update the flagged attribute', function () {
-        transcriptionsStore.setTextObject([mockReduction])
+      it('should update the flagged attribute', async function () {
+        await transcriptionsStore.setTextObject([mockReduction])
         expect(transcriptionsStore.current.flagged).toBe(false)
         transcriptionsStore.checkForFlagUpdate()
         expect(patchToveSpy).toHaveBeenCalled()
@@ -376,11 +376,11 @@ describe('TranscriptionsStore', function () {
           expect(patchToveSpy).not.toHaveBeenCalled()
         })
 
-        it('should delete a line', function () {
+        it('should delete a line', async function () {
           transcriptionsStore.setActiveTranscription(0)
           const current = transcriptionsStore.current.text.get('frame0')
           expect(current.length).toBe(2)
-          transcriptionsStore.deleteCurrentLine()
+          await transcriptionsStore.deleteCurrentLine()
           expect(current.length).toBe(1)
           expect(patchToveSpy).toHaveBeenCalled()
         })
@@ -394,8 +394,8 @@ describe('TranscriptionsStore', function () {
       })
 
       describe('and making a change', function () {
-        it('should undo the previous action', function () {
-          transcriptionsStore.setTextObject([mockReduction])
+        it('should undo the previous action', async function () {
+          await transcriptionsStore.setTextObject([mockReduction])
           transcriptionsStore.undo()
           expect(patchToveSpy).toHaveBeenCalled()
         })

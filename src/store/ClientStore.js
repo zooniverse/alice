@@ -64,10 +64,10 @@ const ClientStore = types.model('ClientStore', {
     })
   }),
 
-  patch: flow(function* get (request) {
+  patch: flow(function* get (request, body) {
     return yield auth.checkBearerToken().then((token) => {
       self.setBearerToken(token)
-      return self.tove.patch(request)
+      return self.tove.patch(request, body)
     })
   }),
 
