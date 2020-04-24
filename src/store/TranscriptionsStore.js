@@ -20,6 +20,7 @@ const Extension = types.refinement(types.map(Frame), snapshot => {
 const Transcription = types.model('Transcription', {
   id: types.identifier,
   flagged: types.optional(types.boolean, false),
+  frame_order: types.array(types.string),
   group_id: types.optional(types.string, ''),
   internal_id: types.optional(types.string, ''),
   last_modified: types.optional(types.string, ''),
@@ -114,6 +115,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return Transcription.create({
       id: transcription.id,
       flagged: transcription.attributes.flagged,
+      frame_order: transcription.attributes.frame_order,
       group_id: transcription.attributes.group_id,
       last_modified,
       internal_id: transcription.attributes.internal_id || '',
@@ -222,7 +224,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const allSlopeKeys = []
     const slopeDefinitions = {}
 
-    self.current.text.forEach((frame, key) => {
+    let frames = self.current.frame_order.length ? self.current.frame_order : Array.from(self.current.text.keys())
+
+    frames.forEach(key => {
+      const frame = self.current.text.get(key)
       frame.forEach(r => {
         const slopeKey = `${key}.${r.slope_label}`
         if (!allSlopeKeys.includes(slopeKey)) {
@@ -233,6 +238,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         }
       })
     })
+
     self.slopeKeys = allSlopeKeys
     self.slopeDefinitions = slopeDefinitions
   }
@@ -302,7 +308,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         })
       })
     })
+    self.current.frame_order = Object.keys(rearrangedText)
     self.current.text = rearrangedText
+    self.saveTranscription()
   }
 
   function reset() {
