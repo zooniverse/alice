@@ -14,6 +14,14 @@ import Overlay from '../Overlay'
 
 let wrapper;
 let setOpen
+const slopeDefinitions = {
+  'frame0.0': '0',
+  'frame1.0': '90',
+  'frame2.0': '0',
+  'frame3.0': '0',
+  'frame4.0': '0',
+  'frame5.0': '0',
+}
 
 describe('Component > FilmstripViewer', function () {
   beforeEach(function() {
@@ -22,6 +30,8 @@ describe('Component > FilmstripViewer', function () {
       <FilmstripViewer
         images={[Page1, Page2, Page3, Page4, Page5, Page6]}
         setOpen={setOpen}
+        slopeDefinitions={slopeDefinitions}
+        slopeKeys={['frame0.0', 'frame1.0', 'frame2.0', 'frame3.0', 'frame4.0', 'frame5.0']}
       />)
   })
 

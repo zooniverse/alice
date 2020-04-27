@@ -96,6 +96,7 @@ FilmstripViewer.defaultProps = {
   isOpen: true,
   selectImage: () => {},
   setOpen: () => {},
+  slopeKeys: [],
   subjectIndex: 0
 }
 
@@ -105,6 +106,7 @@ FilmstripViewer.propTypes = {
   isOpen: PropTypes.bool,
   selectImage: PropTypes.func,
   setOpen: PropTypes.func,
+  slopeKeys: PropTypes.arrayOf(PropTypes.string),
   subjectIndex: PropTypes.number
 }
 

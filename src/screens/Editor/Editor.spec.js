@@ -66,6 +66,7 @@ const contextValues = {
     index: 0,
     lockedByCurrentUser: false,
     setActiveTranscription: setActiveTranscriptionSpy,
+    slopeKeys: [],
     unlockTranscription: unlockTranscriptionSpy
   }
 }

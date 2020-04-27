@@ -522,9 +522,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   get currentTranscriptions () {
-    return self.current && self.current.text &&
+    const current = self.current && self.current.text &&
       (self.current.text.get(`frame${self.index}.${self.slopeIndex}`) ||
        self.current.text.get(`frame${self.index}`))
+    return current || []
   },
 
   get readyForReview () {
