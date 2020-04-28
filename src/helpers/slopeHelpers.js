@@ -45,7 +45,7 @@ export function isolateGroups(slopeKeys) {
       currentPage = keyPage
     }
     frameGroup.push(key)
-    if (!slopeKeys[index + 1]) {
+    if (index === slopeKeys.length - 1) {
       slopeGroups.push(frameGroup)
     }
   })

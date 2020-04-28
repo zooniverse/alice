@@ -25,14 +25,14 @@ function FilmstripViewer ({
   rearrangePages,
   selectImage,
   setOpen,
+  setSlopeKeys,
   slopeDefinitions,
   slopeKeys,
   subjectIndex
 }) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
-  const [slopeValues, setSlopeValues] = React.useState(slopeKeys)
   const [hoveredIndex, setHoveredIndex] = React.useState()
-  const handlePageRearrangement = () => rearrangePages(slopeValues)
+  const handlePageRearrangement = () => rearrangePages(slopeKeys)
 
   return (
     <RelativeBox background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
@@ -57,13 +57,13 @@ function FilmstripViewer ({
       </Box>
       {isOpen && (
           <Box direction='row' wrap>
-            {slopeValues.map((key, i) => {
+            {slopeKeys.map((key, i) => {
               const page = getPage(key)
               const slopeIndex = getSlopeLabel(key)
               const image = images[page]
               const isActive = page === subjectIndex && slopeIndex === activeSlope
               const slopeDefinition = slopeDefinitions[key]
-              const border = spotInGroup(slopeValues, i)
+              const border = spotInGroup(slopeKeys, i)
 
               return (
                 <Box border={border} key={`THUMBNAIL_${i}`} margin={{ bottom: 'xsmall' }}>
@@ -76,10 +76,10 @@ function FilmstripViewer ({
                     rearrangePages={handlePageRearrangement}
                     selectImage={selectImage}
                     setHoveredIndex={setHoveredIndex}
-                    setSlopeValues={setSlopeValues}
+                    setSlopeValues={setSlopeKeys}
                     slopeDefinition={slopeDefinition}
                     slopeIndex={slopeIndex}
-                    slopeValues={slopeValues}
+                    slopeValues={slopeKeys}
                     src={image}
                   />
                 </Box>)
@@ -96,6 +96,7 @@ FilmstripViewer.defaultProps = {
   isOpen: true,
   selectImage: () => {},
   setOpen: () => {},
+  setSlopeKeys: () => {},
   slopeKeys: [],
   subjectIndex: 0
 }
@@ -106,6 +107,7 @@ FilmstripViewer.propTypes = {
   isOpen: PropTypes.bool,
   selectImage: PropTypes.func,
   setOpen: PropTypes.func,
+  setSlopeKeys: PropTypes.func,
   slopeKeys: PropTypes.arrayOf(PropTypes.string),
   subjectIndex: PropTypes.number
 }

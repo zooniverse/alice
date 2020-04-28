@@ -165,12 +165,14 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         textObject[key] = reduction[key]
       }
     })
+    self.current.frame_order = []
     self.current.low_consensus_lines = reduction.low_consensus_lines
     self.current.parameters = reduction.parameters
     self.current.reducer = reduction.reducer
     self.current.text = textObject
     self.current.transcribed_lines = reduction.transcribed_lines
     self.saveTranscription()
+    self.getSlopeKeys()
   }
 
   const fetchExtracts = flow(function * fetchExtracts(id) {
@@ -409,6 +411,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.parsedExtracts = extracts
   }
 
+  function setSlopeKeys(keys) {
+    self.slopeKeys = keys
+  }
+
   function setTextObject(text) {
     self.current.text.set(`frame${self.index}`, text)
     self.setParsedExtracts()
@@ -485,6 +491,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     selectTranscription,
     setActiveTranscription,
     setParsedExtracts: (extractsByUser) => undoManager.withoutUndo(() => setParsedExtracts(extractsByUser)),
+    setSlopeKeys,
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
     toggleError: () => undoManager.withoutUndo(() => toggleError()),
