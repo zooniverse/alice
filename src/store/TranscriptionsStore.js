@@ -222,7 +222,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return lastModified
   }
 
-  function getSlopeKeys() {
+  function getSlopeKeys(commitToHistory = true) {
     const allSlopeKeys = []
     const slopeDefinitions = {}
 
@@ -241,8 +241,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       })
     })
 
-    self.slopeKeys = allSlopeKeys
-    self.slopeDefinitions = slopeDefinitions
+    if (commitToHistory) {
+      self.slopeKeys = allSlopeKeys
+      self.slopeDefinitions = slopeDefinitions
+    } else {
+      undoManager.withoutUndo(() => {
+        self.slopeKeys = allSlopeKeys
+        self.slopeDefinitions = slopeDefinitions
+      })
+    }
   }
 
   const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
@@ -286,6 +293,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   function rearrangePages(keys) {
+    self.slopeKeys = keys
     const groupedKeys = isolateGroups(keys)
     const rearrangedText = {}
     groupedKeys.forEach(group => {
@@ -386,7 +394,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.READY
       })
       yield self.fetchExtracts(id)
-      self.getSlopeKeys()
+      self.getSlopeKeys(false)
     } catch (error) {
       console.warn(error);
       undoManager.withoutUndo(() => {
@@ -409,10 +417,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, self.index, self.extractUsers))
     })
     self.parsedExtracts = extracts
-  }
-
-  function setSlopeKeys(keys) {
-    self.slopeKeys = keys
   }
 
   function setTextObject(text) {
@@ -491,7 +495,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     selectTranscription,
     setActiveTranscription,
     setParsedExtracts: (extractsByUser) => undoManager.withoutUndo(() => setParsedExtracts(extractsByUser)),
-    setSlopeKeys,
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
     toggleError: () => undoManager.withoutUndo(() => toggleError()),
