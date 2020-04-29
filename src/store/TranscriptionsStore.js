@@ -165,7 +165,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         textObject[key] = reduction[key]
       }
     })
+    self.current.text.forEach((value, key) => {
+      if (!textObject[key]) detach(value)
+    })
     self.current.frame_order = []
+    self.index = 0
+    self.slopeIndex = 0
     self.current.low_consensus_lines = reduction.low_consensus_lines
     self.current.parameters = reduction.parameters
     self.current.reducer = reduction.reducer
