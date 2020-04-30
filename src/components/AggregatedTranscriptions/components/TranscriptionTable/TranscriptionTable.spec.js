@@ -23,6 +23,11 @@ describe('Component > TranscriptionTable', function () {
     expect(mockData.length).toEqual(wrapper.find(TranscriptionTableRow).length)
   })
 
+  it('should hide rows without a matching slope', function () {
+    wrapper = shallow(<TranscriptionTable activeSlope={90} data={mockData} />);
+    expect(0).toEqual(wrapper.find(TranscriptionTableRow).length)
+  })
+
   describe('useEffect hook', function () {
     it('should reset the data array with a null dragID', function () {
       const setStateSpy = jest.fn()

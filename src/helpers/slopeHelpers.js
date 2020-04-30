@@ -1,4 +1,4 @@
-const BORDER_MAP = {
+export const BORDER_MAP = {
   LEFT: [{ side: 'left'}, {side: 'horizontal' }],
   MIDDLE: [{ side: 'horizontal' }],
   RIGHT: [{ side: 'right'}, {side: 'horizontal' }],
@@ -7,10 +7,12 @@ const BORDER_MAP = {
 
 export function getPage(key) {
   const dotIndex = key.indexOf('.')
-  return parseInt(key[dotIndex -1])
+  if (dotIndex === -1) return 0
+  return parseInt(key[dotIndex - 1])
 }
 
 export function getSlopeLabel(key) {
+  if (!key || key.length === 0) return 0
   return parseInt(key[key.length - 1])
 }
 

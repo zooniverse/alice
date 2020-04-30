@@ -12,15 +12,12 @@ const contextValues = {
     linesVisible: true
   },
   transcriptions: {
+    activeSlope: 0,
     approved: false,
-    current: {
-      text: new Map([
-        [ 'frame0', [{
-          clusters_x: [],
-          clusters_y: []
-        }] ]
-      ])
-    },
+    currentTranscriptions: [{
+      clusters_x: [],
+      clusters_y: []
+    }],
     index: 0,
     extracts: [extract]
   }

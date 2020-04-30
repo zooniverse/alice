@@ -5,7 +5,7 @@ import { bool } from 'prop-types'
 import LineViewer from './LineViewer'
 
 function LineViewerContainer({ isLoaded }) {
-  const store = React.useContext(AppContext) || {}
+  const store = React.useContext(AppContext)
 
   const localStore = useLocalStore(() => ({
     isLoaded,

@@ -85,6 +85,7 @@ export default function SVGLines({
 }
 
 SVGLines.propTypes = {
+  activeSlope: number,
   isApproved: bool,
   isExtract: bool,
   lines: array,
@@ -93,6 +94,7 @@ SVGLines.propTypes = {
 }
 
 SVGLines.defaultProps = {
+  activeSlope: 0,
   isApproved: false,
   isExtract: false,
   lines: [],

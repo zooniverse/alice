@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
-import { arrayOf, bool, shape, func } from 'prop-types'
+import { arrayOf, bool, number, shape, func } from 'prop-types'
 import { observer } from 'mobx-react'
 import TranscriptionTableRow from './TranscriptionTableRow'
 
@@ -72,12 +72,14 @@ function TranscriptionTable ({ activeSlope, data, isViewer, setActiveTranscripti
 }
 
 TranscriptionTable.propTypes = {
+  activeSlope: number,
   data: arrayOf(shape()),
   isViewer: bool,
   setActiveTranscription: func
 }
 
 TranscriptionTable.defaultProps = {
+  activeSlope: 0,
   data: [],
   isViewer: false,
   setActiveTranscription: () => {}

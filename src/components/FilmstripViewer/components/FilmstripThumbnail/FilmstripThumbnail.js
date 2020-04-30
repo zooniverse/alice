@@ -47,8 +47,8 @@ export default function FilmstripThumbnail ({
           setHoveredIndex(null)
           rearrangePages()
         }}
-        onDragOver={(e) => stopEvents(e)}
         onDragEnter={(e) => handleDragEnter(e, index, hoveredIndex, setHoveredIndex, slopeValues, setSlopeValues)}
+        onDragOver={(e) => stopEvents(e)}
         onDragStart={() => setHoveredIndex(index)}
         onMouseEnter={() => onHover(true)}
         onMouseLeave={() => onHover(false)}

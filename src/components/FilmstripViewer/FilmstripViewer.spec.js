@@ -23,15 +23,20 @@ const slopeDefinitions = {
   'frame5.0': '0',
 }
 
+const slopeKeys = ['frame0.0', 'frame1.0', 'frame2.0', 'frame3.0', 'frame4.0', 'frame5.0']
+
 describe('Component > FilmstripViewer', function () {
   beforeEach(function() {
     setOpen = jest.fn()
+    jest
+      .spyOn(React, 'useState')
+      .mockImplementation((init) => [init, jest.fn()])
     wrapper = shallow(
       <FilmstripViewer
         images={[Page1, Page2, Page3, Page4, Page5, Page6]}
         setOpen={setOpen}
         slopeDefinitions={slopeDefinitions}
-        slopeKeys={['frame0.0', 'frame1.0', 'frame2.0', 'frame3.0', 'frame4.0', 'frame5.0']}
+        slopeKeys={slopeKeys}
       />)
   })
 
@@ -59,5 +64,14 @@ describe('Component > FilmstripViewer', function () {
   it('should show an overlay when disabled', function () {
     wrapper = shallow(<FilmstripViewer disabled />)
     expect(wrapper.find(Overlay).length).toBe(1)
+  })
+
+  it('should reset slopeValues if slopeKeys change', function () {
+    const newKeys = slopeKeys.slice()
+    newKeys.push('frame0.1')
+    wrapper.setProps({ slopeKeys: newKeys })
+    wrapper.update()
+    const thumbnailLength = wrapper.find(FilmstripThumbnail).length
+    expect(thumbnailLength).toBe(7)
   })
 })
