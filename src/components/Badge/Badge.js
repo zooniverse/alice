@@ -20,13 +20,19 @@ const CapitalText = styled(Text)`
 `
 
 const DropItem = styled(Button)`
+  display: flex;
+  flex: 1;
+
   :hover {
     background: #D8D8D8;
   }
 `
 
 const DropLink = styled(Link)`
+  align-items: center;
   ${css`background: ${props => props.disabled ? '#D8D8D8' : 'inherit'};`}
+  display: flex;
+  flex: 1;
   ${css`pointer-events: ${props => props.disabled ? 'none' : 'all'};`}
   text-decoration: none;
 `
@@ -54,14 +60,24 @@ function Badge ({ disabled, isOpen, name, onAbout, role, setOpen, signOut, src }
         dropAlign={{ right: 'right', top: 'bottom' }}
         label={<Box><Icon/></Box>}
         dropContent={
-          <Box background='white' height='7.5em' width='6em' pad={{ vertical: 'xxsmall' }}>
+          <Box background='white' height='8em' width='6em' pad={{ vertical: 'xxsmall' }}>
             <StyledBox disabled={onAbout} justify='center' height='2.5em'>
-              <DropLink disabled={onAbout} to='/about' tabIndex={onAbout ? -1 : undefined}>
+              <DropLink
+                disabled={onAbout}
+                onClick={() => !onAbout && setOpen(false)}
+                tabIndex={onAbout ? -1 : undefined}
+                to='/about'
+              >
                 <CapitalText color='#5C5C5C' margin='1em'>Help</CapitalText>
               </DropLink>
             </StyledBox>
             <StyledBox disabled={!onAbout} justify='center' height='2.5em'>
-              <DropLink disabled={!onAbout} to='/projects' tabIndex={!onAbout ? -1 : undefined}>
+              <DropLink
+                disabled={!onAbout}
+                onClick={() => onAbout && setOpen(false)}
+                tabIndex={!onAbout ? -1 : undefined}
+                to='/projects'
+              >
                 <CapitalText color='#5C5C5C' margin='1em'>Viewer</CapitalText>
               </DropLink>
             </StyledBox>

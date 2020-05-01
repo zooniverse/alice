@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { DropButton } from 'grommet'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -17,6 +17,8 @@ describe('Component > Badge', function () {
   })
 
   describe('functions', function () {
+    afterEach(() => jest.clearAllMocks());
+
     it('should open the drop', function () {
       const drop = wrapper.find(DropButton).first()
       drop.props().onOpen()
@@ -27,6 +29,30 @@ describe('Component > Badge', function () {
       wrapper = shallow(<Badge isOpen setOpen={setOpenSpy} />);
       const drop = wrapper.find(DropButton).first()
       drop.props().onClose()
+      expect(setOpenSpy).toHaveBeenCalledWith(false)
+    })
+  })
+
+  describe('with drop open', function () {
+    afterEach(() => jest.clearAllMocks());
+
+    it('should close the drop with about click', function () {
+      wrapper = mount(
+        <Router>
+          <Badge isOpen setOpen={setOpenSpy} />
+        </Router>);
+      const aboutLink = wrapper.find(DropLink).first()
+      aboutLink.simulate('click')
+      expect(setOpenSpy).toHaveBeenCalledWith(false)
+    })
+
+    it('should close the drop with viewer click', function () {
+      wrapper = mount(
+        <Router>
+          <Badge isOpen onAbout setOpen={setOpenSpy} />
+        </Router>);
+      const viewerLink = wrapper.find(DropLink).at(1)
+      viewerLink.simulate('click')
       expect(setOpenSpy).toHaveBeenCalledWith(false)
     })
   })
