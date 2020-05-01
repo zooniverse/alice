@@ -20,6 +20,15 @@ const theme = {
     fontWeight: '300',
     textDecoration: 'underline'
   },
+  button: {
+    extend: props => css`
+      &:hover {
+        ${!props.disabled && css`
+          box-shadow: 0 0 2px 2px #addde0;
+        `}
+      }
+    `
+  },
   checkBox: {
     check: {
       radius: '0'
