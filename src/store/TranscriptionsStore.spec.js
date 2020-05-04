@@ -41,13 +41,15 @@ const getToveResponseByAUser = () => Promise.resolve(
   }
 )
 
+const extract = {
+  data: mockExtract,
+  userId: '123',
+  classificationAt: 1515450629.237
+}
+
 const extracts = {
   workflow: {
-    extracts: [{
-      data: mockExtract,
-      userId: '123',
-      classificationAt: 1515450629.237
-    }]
+    extracts: [extract]
   }
 }
 
@@ -234,6 +236,13 @@ describe('TranscriptionsStore', function () {
       it('should return current transcription views', function () {
         expect(transcriptionsStore.approved).toBe(false)
         expect(transcriptionsStore.title).toBe('1')
+      })
+
+      it('should correctly set the raw extracts', function () {
+        const rawExtract = transcriptionsStore.rawExtracts[0]
+        expect(rawExtract.time).toEqual(extract.classificationAt)
+        expect(rawExtract.user_id).toEqual(extract.userId)
+        expect(rawExtract.data).toEqual(extract.data)
       })
 
       it('should set an active transcription', function () {

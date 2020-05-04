@@ -51,7 +51,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function arrangeExtractsByUser() {
     return self.rawExtracts.reduce((list, extract) => {
       if (!list[extract.user_id]) list[extract.user_id] = []
-      list[extract.user_id].push({ ...extract.data, time: extract.classificationAt })
+      list[extract.user_id].push({ ...extract.data, time: extract.time })
       return list
     }, {})
   }
@@ -182,7 +182,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     yield request(config.caesar, query).then((data) => {
       const filteredExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
       validExtracts = filteredExtracts.map((extract) => {
-        return { data: extract.data, user_id: extract.userId }
+        return { data: extract.data, user_id: extract.userId, time: extract.classificationAt }
       })
     })
     undoManager.withoutUndo(() => self.rawExtracts = validExtracts)
