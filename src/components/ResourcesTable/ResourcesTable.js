@@ -11,10 +11,7 @@ import styled from 'styled-components'
 
 export const StyledDataTable = styled(DataTable)`
   width: 100%;
-
-  @-moz-document url-prefix() {
-    table-layout: auto;
-  }
+  table-layout: auto;
 `
 
 function ResourcesTable(props) {
