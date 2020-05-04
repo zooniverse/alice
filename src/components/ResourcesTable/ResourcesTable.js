@@ -10,8 +10,10 @@ import SearchTags from './components/SearchTags'
 import styled from 'styled-components'
 
 export const StyledDataTable = styled(DataTable)`
+  width: 100%;
+
   @-moz-document url-prefix() {
-    display: block
+    table-layout: auto;
   }
 `
 
