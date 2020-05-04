@@ -191,10 +191,10 @@ export default function UsingAlice() {
       </BodyText>
       <AboutTitle level={6} title='Search' />
       <BodyText>
-        Clicking the <b>Search</b> button will open a pop-up module that allows
+        Clicking the 'Search' button will open a pop-up module that allows
         you to find a specific subject, as well filter subjects by their status
         or flags. To search for a specific subject, select the ID type (Zooniverse
-        ID or Internal ID), enter the name, and click Search. To filter subjects,
+        ID or Internal ID), enter the name, and click 'Search'. To filter subjects,
         select from the list of options available and click Search. You can
         also <b>Sort</b> any of the lists (Workflows, Groups, Subjects) by
         clicking on the available column headings. Please note that ALICE only
@@ -225,12 +225,12 @@ export default function UsingAlice() {
       <BodyText>
         The <b>aggregated transcription</b> will be the default selected transcription.
         To change it, select an individual transcription from the list, or write
-        your own in the space provided, and click <b>Replace with selected</b>.
+        your own in the space provided, and click 'Replace with selected'.
         Once a change has been made and the module is closed, the consensus score
         column for that line will read <b>Edited</b>, as it no longer reflects the
         aggregate transcription score. To revert to the aggregated transcription,
         click on the line to reopen the module, select the aggregated transcription
-        from the menu, and click <b>Replace with selected</b>.
+        from the menu, and click 'Replace with selected'.
       </BodyText>
       <AboutTitle level={6} title='Flags' />
       <BodyText>
@@ -250,7 +250,7 @@ export default function UsingAlice() {
       <BodyText>
         When a subject has been approved, no further actions can be taken unless
         the subject is un-approved by an Admin. To un-approve a subject, click
-        the Approve button at the top of the page, and confirm you want to
+        the 'Approve' button at the top of the page, and confirm you want to
         un-approve. Please note that when a subject has been un-approved, you
         will not be able to request a data export for that subject until it has
         been re-approved.

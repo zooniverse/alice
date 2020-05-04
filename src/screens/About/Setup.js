@@ -13,8 +13,8 @@ import Workflow4 from 'images/about/workflow4.png'
 
 const CAPTION = `
   Series illustrating the process of creating task + sub-task. Top left: adding
-  a **Drawing** task; Top right: selecting the **Line** tool; Bottom left:
-  adding a **Sub-task**; Bottom right: selecting the **Text** sub-task option.
+  a Drawing task; Top right: selecting the Line tool; Bottom left:
+  adding a Sub-task; Bottom right: selecting the Text sub-task option.
 `
 
 const CAPTION_2 = `
@@ -55,13 +55,13 @@ export default function Setup() {
         a combination of Drawing Tools and Text Entry Subtasks.
       </BodyText>
       <BodyText>
-        Please set up your workflow using the Line Tool with a <b>Text Entry Sub-task.</b>
+        Please set up your workflow using the Line Tool with a Text Entry Sub-task.
       </BodyText>
       <StyledList>
-        <StyledListItem>Select <b>Add A Task > Drawing</b></StyledListItem>
+        <StyledListItem>Select 'Add A Task' > 'Drawing'</StyledListItem>
         <StyledListItem>
-          In the <b>Tool Selection Area</b>, choose <b>Line</b> and add a <b>Text
-          Sub-task</b> (note: it is okay to use Text Modifiers with ALICE)
+          In the Tool Selection Area, choose 'Line' and add a 'Text
+          Sub-task' (note: it is okay to use Text Modifiers with ALICE)
         </StyledListItem>
       </StyledList>
       <PhotoBlock
@@ -93,10 +93,10 @@ export default function Setup() {
         for more information), with the exception of <b>Group</b>, as noted above.
       </BodyText>
       <BodyText>
-        To add metadata to your subjects, include a <b>manifest</b> in your subject
+        To add metadata to your subjects, include a manifest in your subject
         upload. The metadata can be accessed by volunteers within Project Builder
         projects (in the transcription interface), as well as by your collaborators
-        in ALICE (on individual <b>Subject</b> pages). For more information about
+        in ALICE (on individual Subject pages). For more information about
         creating a manifest, see the
         <Anchor
           href='https://help.zooniverse.org/getting-started/example/#details-subject-sets-and-manifest-details-aka-what-is-a-manifest'
@@ -110,7 +110,7 @@ export default function Setup() {
       </BodyText>
       <StyledList>
         <StyledListItem>
-          A column with the heading <b>Internal_ID</b> that contains the unique identifier
+          A column with the heading <b>internal_id</b> that contains the unique identifier
           you plan to use for each subject (note: a subject can be a single image,
           or multiple images, e.g. a multi-page letter)
           <StyledList>
@@ -121,10 +121,10 @@ export default function Setup() {
           </StyledList>
         </StyledListItem>
         <StyledListItem>
-          A column with the heading <b>Group_ID</b> that contains an identifier
-          for subjects that should be grouped together.  The Group_ID can be the
+          A column with the heading <b>group_id</b> that contains an identifier
+          for subjects that should be grouped together.  The group_id can be the
           Subject Set Name or ID used in the Project Builder, or you can choose
-          another name. The Group ID will be the sub-index for a given workflow
+          another name. The group_id will be the sub-index for a given workflow
           <StyledList>
             <StyledListItem>
               Feel free to group your subjects in whatever way you like, as long

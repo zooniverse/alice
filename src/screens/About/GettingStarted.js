@@ -38,7 +38,7 @@ export default function GettingStarted() {
           label='https://www.zooniverse.org'
           margin={{ horizontal: '0.2em' }}
         />
-        and clicking <b>REGISTER</b>. You only need a name and email address to
+        and clicking 'REGISTER'. You only need a name and email address to
         create an account.
       </BodyText>
       <PhotoBlock caption={REGISTER} description='REGISTER' photos={photos} />
@@ -58,7 +58,7 @@ export default function GettingStarted() {
           label='https://www.zooniverse.org/lab'
           margin={{ left: '0.2em' }}
         />
-        , sign into your account, and click <b>Create a new project.</b>
+        , sign into your account, and click 'Create a new project.'
       </BodyText>
       <PhotoBlock description='CREATE' photos={[{ alt: 'Create a new project button from the project lab.', photo: Create }]} />
     </Box>
