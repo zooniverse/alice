@@ -26,7 +26,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
               Transcribed Text
             </span>
             <button
-              className="StyledButton-sc-323bzc-0 jfbKsv"
+              className="StyledButton-sc-323bzc-0 dmFHgS"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
