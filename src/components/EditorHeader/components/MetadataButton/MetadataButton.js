@@ -21,7 +21,6 @@ const CapitalText = styled(Text)`
 `
 
 const StyledTable = styled(Table)`
-  margin-top: 2em;
   table-layout: fixed;
 `
 
@@ -79,20 +78,20 @@ function MetadataButton({
           target={targetEl.current}
         >
           <Box background='white' height='large' overflow='hidden' width='large'>
-            <Box pad='small'>
+            <Box basis='20%' pad='small'>
               <Box direction='row' justify='between'>
                 <Text size='large'>{`Subject ${id}`}</Text>
                 <Button onClick={() => {toggleDrop(false) }} plain>
                   <FontAwesomeIcon icon={faTimesCircle} size='xs' />
                 </Button>
               </Box>
-              <Box margin={{ top: 'medium' }}>
+              <Box>
                 <CapitalText size='xsmall'>
                   {pages} pages &#8226; {transcribers}/{goldStandard} transcribers/gold standard &#8226; {lines} transcribed lines &#8226; {score}/{transcribers} average consensus &#8226; {status}
                 </CapitalText>
               </Box>
             </Box>
-            <Box margin={{ top: 'medium' }} overflow={{ vertical: 'scroll' }} width='100%'>
+            <Box basis='80%' overflow={{ vertical: 'scroll' }} width='100%'>
               <StyledTable>
                 <colgroup>
                   <col width="33%" />
