@@ -211,6 +211,9 @@ export default function UsingAlice() {
         represent the aggregated markings made by volunteers in the transcription
         project. Each solid line represents a cluster of individual lines drawn
         by volunteers, which are represented by dotted lines of the same color.
+        Circles at the end of each line represent the dots placed by volunteers
+        to generate the underline marking. An open circle represents the first
+        dot placed by a volunteer; a closed circle represents the second dot.
       </BodyText>
       <BodyText>
         Clicking on a line of text will open a module that allows you to edit
