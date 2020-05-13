@@ -98,7 +98,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   const checkIfLocked = flow(function * checkIfLocked() {
-    const client = getRoot(self).client
+    const { client } = getRoot(self)
     const response = yield client.get(`/transcriptions/${self.title}`)
     const resource = JSON.parse(response.body)
     const lockedBy = resource.data.attributes.locked_by
