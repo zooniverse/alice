@@ -64,7 +64,7 @@ const contextValues = {
     current: undefined,
     extracts: [],
     index: 0,
-    lockedByCurrentUser: false,
+    lockedByDifferentUser: true,
     setActiveTranscription: setActiveTranscriptionSpy,
     slopeKeys: [],
     unlockTranscription: unlockTranscriptionSpy
@@ -121,7 +121,7 @@ describe('Component > Editor', function () {
       beforeEach(async function () {
         jest.clearAllMocks()
         const lockedValues = Object.assign(contextValues)
-        lockedValues.transcriptions.lockedByCurrentUser = true
+        lockedValues.transcriptions.lockedByDifferentUser = false
         jest
           .spyOn(React, 'useContext')
           .mockImplementation(() => Object.assign({}, lockedValues))

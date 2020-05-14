@@ -325,11 +325,11 @@ describe('TranscriptionsStore', function () {
         )
       })
 
-      it('should return false if the transcription is not lockedByCurrentUser', function () {
-        expect(transcriptionsStore.lockedByCurrentUser).toBe(false)
+      it('should return true if the transcription is lockedByDifferentUser', function () {
+        expect(transcriptionsStore.lockedByDifferentUser).toBe(true)
       })
 
-      it('should return true if the transcription is lockedByCurrentUser', async function () {
+      it('should return false if the transcription is not lockedByDifferentUser', async function () {
         const unlockableStore = AppStore.create({
           auth: { user: { display_name: 'A_USER' } },
           client: { tove: mockJWT(unlockedTranscriptionStub), toveZip: mockJWT() },
@@ -343,7 +343,7 @@ describe('TranscriptionsStore', function () {
         })
         const unlockedTranscriptionStore = unlockableStore.transcriptions
         await unlockedTranscriptionStore.selectTranscription(1)
-        expect(unlockedTranscriptionStore.lockedByCurrentUser).toBe(true)
+        expect(unlockedTranscriptionStore.lockedByDifferentUser).toBe(false)
       })
 
       describe('when rearranging pages', function () {
