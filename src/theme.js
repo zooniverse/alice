@@ -17,7 +17,7 @@ const theme = {
   },
   anchor: {
     color: '#0043B8',
-    fontWeight: '300',
+    fontWeight: 300,
     textDecoration: 'underline'
   },
   button: {
@@ -81,6 +81,20 @@ const theme = {
         border-bottom: none;
       }
     `
+  },
+  heading: {
+    level: {
+      "4": {
+        "medium": {
+          "maxWidth": '100%'
+        }
+      },
+      "6": {
+        "medium": {
+          "maxWidth": '100%'
+        }
+      }
+    }
   },
   layer: {
     border: {
