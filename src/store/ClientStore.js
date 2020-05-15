@@ -6,7 +6,6 @@ import auth from 'panoptes-client/lib/auth';
 
 const ClientStore = types.model('ClientStore', {
   aggregator: types.optional(types.frozen({}), null),
-  bearerToken: types.optional(types.string, ''),
   tove: types.optional(types.frozen({}), null),
   toveZip: types.optional(types.frozen({}), null)
 }).actions(self => ({
@@ -72,8 +71,7 @@ const ClientStore = types.model('ClientStore', {
   }),
 
   setBearerToken: (token) => {
-    if (token !== self.bearerToken) {
-      self.bearerToken = token
+    if (!!token) {
       self.tove.jwt(token)
       self.toveZip.jwt(token)
     }
