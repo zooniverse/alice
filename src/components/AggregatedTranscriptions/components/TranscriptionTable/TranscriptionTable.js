@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
-import { arrayOf, bool, shape, func } from 'prop-types'
+import { arrayOf, bool, number, shape, func } from 'prop-types'
 import { observer } from 'mobx-react'
 import TranscriptionTableRow from './TranscriptionTableRow'
 
@@ -20,7 +20,7 @@ const RightAlignText = styled(StyledText)`
   text-align: end;
 `
 
-function TranscriptionTable ({ data, isViewer, setActiveTranscription, setTextObject }) {
+function TranscriptionTable ({ activeSlope, data, isViewer, setActiveTranscription, setTextObject }) {
   const [dataArray, resetDataArray] = React.useState(data)
   const [dragID, setDragID] = React.useState(null)
   const emptyData = data.length === 0
@@ -45,6 +45,7 @@ function TranscriptionTable ({ data, isViewer, setActiveTranscription, setTextOb
       </Box>
       <Box pad={{ bottom: 'xsmall' }}>
         {dataArray.map((datum, i) => {
+          if (activeSlope !== datum.line_slope) return null
           return (
             <TranscriptionTableRow
               data={dataArray}
@@ -71,12 +72,14 @@ function TranscriptionTable ({ data, isViewer, setActiveTranscription, setTextOb
 }
 
 TranscriptionTable.propTypes = {
+  activeSlope: number,
   data: arrayOf(shape()),
   isViewer: bool,
   setActiveTranscription: func
 }
 
 TranscriptionTable.defaultProps = {
+  activeSlope: 0,
   data: [],
   isViewer: false,
   setActiveTranscription: () => {}

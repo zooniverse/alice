@@ -7,26 +7,24 @@ import { constructCoordinates } from 'helpers/parseTranscriptionData'
 function AnnotationsPaneContainer({ x, y }) {
   let reductionLines = []
   const store = React.useContext(AppContext)
-  const index = store.transcriptions.index
-  const transcription = store.transcriptions.current
-  const transcriptionFrame = transcription && transcription.text && transcription.text.get(`frame${index}`)
+  const transcriptions = store.transcriptions.currentTranscriptions
 
-  if (transcriptionFrame) {
-    reductionLines = transcriptionFrame.map(transcription => constructCoordinates(transcription))
+  if (transcriptions) {
+    reductionLines = transcriptions.map(transcription => constructCoordinates(transcription))
   }
 
   const onLineClick = (index) => store.transcriptions.setActiveTranscription(index)
 
   return (
     <AnnotationsPane
-      x={x}
-      y={y}
+      activeSlope={store.transcriptions.activeSlope}
       activeTranscriptionIndex={store.transcriptions.activeTranscriptionIndex}
-      extractLines={store.transcriptions.parsedExtracts}
       isApproved={store.transcriptions.approved}
       linesVisible={store.editor.linesVisible}
       onLineClick={onLineClick}
       reductionLines={reductionLines}
+      x={x}
+      y={y}
     />
   )
 }

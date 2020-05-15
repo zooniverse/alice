@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 import SVGLines from './SVGLines'
 
 function AnnotationsPane({
+  activeSlope,
   activeTranscriptionIndex,
   extractLines,
   isApproved,
@@ -21,6 +22,7 @@ function AnnotationsPane({
     <g transform={offset}>
       {extractLines.map((lines, i) => (
         <SVGLines
+          activeSlope={activeSlope}
           activeTranscriptionIndex={activeTranscriptionIndex}
           key={`SVG_LINE_${i}`}
           isExtract
@@ -30,6 +32,7 @@ function AnnotationsPane({
       ))}
       {reductionLines.map((lines, i) => (
         <SVGLines
+          activeSlope={activeSlope}
           activeTranscriptionIndex={activeTranscriptionIndex}
           key={`SVG_LINE_${i}`}
           isApproved={isApproved}

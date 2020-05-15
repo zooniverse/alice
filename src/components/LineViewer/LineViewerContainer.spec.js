@@ -8,19 +8,18 @@ let wrapper
 
 const deleteCurrentLineSpy = jest.fn()
 const setActiveTranscriptionSpy = jest.fn()
+const currentFrame = {
+  consensus_score: 0,
+  consensus_text: 'This text',
+  clusters_text: [
+    ['This, That'],
+    ['text, text']
+  ],
+  gold_standard: [false, false]
+}
 const currentTranscription = {
   text: new Map([
-    ['frame0', [
-      {
-        consensus_score: 0,
-        consensus_text: 'This text',
-        clusters_text: [
-          ['This, That'],
-          ['text, text']
-        ],
-        gold_standard: [false, false]
-      }
-    ]]
+    ['frame0', [currentFrame]]
   ])
 }
 
@@ -30,6 +29,7 @@ const contextValues = {
   },
   transcriptions: {
     activeTranscriptionIndex: 0,
+    currentTranscriptions: currentFrame,
     deleteCurrentLine: deleteCurrentLineSpy,
     current: currentTranscription,
     index: 0,
@@ -41,6 +41,9 @@ const contextValues = {
 
 describe('Component > LineViewerContainer', function () {
   it('should render without crashing', function () {
+    jest
+      .spyOn(React, 'useContext')
+      .mockImplementation(() => contextValues )
     wrapper = shallow(<LineViewerContainer />);
     expect(wrapper).toBeDefined()
   })

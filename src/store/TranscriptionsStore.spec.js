@@ -19,7 +19,10 @@ const getToveResponse = () => Promise.resolve(
         data: TranscriptionFactory.build({
           attributes: {
             locked_by: 'ANOTHER_USER',
-            text: { frame0: [{}] }
+            text: {
+              frame0: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }],
+              frame1: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }]
+            }
           }
         }),
         meta: {
@@ -341,21 +344,44 @@ describe('TranscriptionsStore', function () {
         expect(unlockedTranscriptionStore.lockedByCurrentUser).toBe(true)
       })
 
+      describe('when rearranging pages', function () {
+        it('should rearrange simple pages', function () {
+          transcriptionsStore.rearrangePages(['frame1.0', 'frame0.0'])
+          expect(transcriptionsStore.current.frame_order).toEqual(['frame1', 'frame0'])
+        })
+
+        it('should rearrange complex pages', function () {
+          transcriptionsStore.rearrangePages(['frame1.0', 'frame0.0', 'frame1.1', 'frame1.2', 'frame0.1'])
+          expect(transcriptionsStore.current.frame_order).toEqual(['frame1', 'frame0', 'frame1.1', 'frame0.1'])
+        })
+      })
+
+      it('should getSlopeKeys', function () {
+        transcriptionsStore.getSlopeKeys()
+        expect(transcriptionsStore.slopeKeys).toEqual(['frame0.0', 'frame0.1', 'frame1.0', 'frame1.1'])
+        expect(transcriptionsStore.slopeDefinitions).toEqual({
+          'frame0.0': 0,
+          'frame0.1': 90,
+          'frame1.0': 0,
+          'frame1.1': 90
+        })
+      })
+
       describe('when deleting a line', function () {
         it('should not proceed without an active transcription', function () {
           const current = transcriptionsStore.current.text.get('frame0')
-          expect(current.length).toBe(1)
+          expect(current.length).toBe(2)
           transcriptionsStore.deleteCurrentLine()
-          expect(current.length).toBe(1)
+          expect(current.length).toBe(2)
           expect(patchToveSpy).not.toHaveBeenCalled()
         })
 
         it('should delete a line', function () {
           transcriptionsStore.setActiveTranscription(0)
           const current = transcriptionsStore.current.text.get('frame0')
-          expect(current.length).toBe(1)
+          expect(current.length).toBe(2)
           transcriptionsStore.deleteCurrentLine()
-          expect(current.length).toBe(0)
+          expect(current.length).toBe(1)
           expect(patchToveSpy).toHaveBeenCalled()
         })
       })

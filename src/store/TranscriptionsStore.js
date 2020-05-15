@@ -1,4 +1,4 @@
-import { flow, getRoot, getSnapshot, types } from 'mobx-state-tree'
+import { detach, flow, getRoot, getSnapshot, types } from 'mobx-state-tree'
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as Ramda from 'ramda'
 import { undoManager } from 'store/AppStore'
@@ -7,6 +7,7 @@ import { reaction, toJS } from 'mobx'
 import { request } from 'graphql-request'
 import { config } from 'config'
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
+import { getPage, getSlopeLabel, isolateGroups } from 'helpers/slopeHelpers'
 import getError, { TranscriptionError } from 'helpers/getError'
 import MODALS from 'helpers/modals'
 import Reduction from './Reduction'
@@ -19,6 +20,7 @@ const Extension = types.refinement(types.map(Frame), snapshot => {
 const Transcription = types.model('Transcription', {
   id: types.identifier,
   flagged: types.optional(types.boolean, false),
+  frame_order: types.array(types.string),
   group_id: types.optional(types.string, ''),
   internal_id: types.optional(types.string, ''),
   last_modified: types.optional(types.string, ''),
@@ -44,6 +46,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
   showSaveTranscriptionError: types.optional(types.boolean, false),
+  slopeIndex: types.optional(types.number, 0),
+  slopeDefinitions: types.optional(types.frozen(), {}),
+  slopeKeys: types.array(types.string),
   totalPages: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
@@ -76,8 +81,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.setParsedExtracts()
   }
 
-  function changeIndex(index) {
+  function changeIndex(index, slopeIndex) {
     self.index = index
+    self.slopeIndex = slopeIndex
+    self.setParsedExtracts()
   }
 
   function checkForFlagUpdate() {
@@ -108,6 +115,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return Transcription.create({
       id: transcription.id,
       flagged: transcription.attributes.flagged,
+      frame_order: transcription.attributes.frame_order,
       group_id: transcription.attributes.group_id,
       last_modified,
       internal_id: transcription.attributes.internal_id || '',
@@ -157,12 +165,19 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         textObject[key] = reduction[key]
       }
     })
+    self.current.text.forEach((value, key) => {
+      if (!textObject[key]) detach(value)
+    })
+    self.current.frame_order = []
+    self.index = 0
+    self.slopeIndex = 0
     self.current.low_consensus_lines = reduction.low_consensus_lines
     self.current.parameters = reduction.parameters
     self.current.reducer = reduction.reducer
     self.current.text = textObject
     self.current.transcribed_lines = reduction.transcribed_lines
     self.saveTranscription()
+    self.getSlopeKeys()
   }
 
   const fetchExtracts = flow(function * fetchExtracts(id) {
@@ -212,6 +227,36 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return lastModified
   }
 
+  function getSlopeKeys(commitToHistory = true) {
+    const allSlopeKeys = []
+    const slopeDefinitions = {}
+
+    let frames = self.current.frame_order.length ? self.current.frame_order : Array.from(self.current.text.keys())
+
+    frames.forEach(key => {
+      const frame = self.current.text.get(key)
+      frame.forEach(r => {
+        const slopeKey = key.includes('.') ? key : `${key}.${r.slope_label}`
+        if (!allSlopeKeys.includes(slopeKey)) {
+          allSlopeKeys.push(slopeKey)
+        }
+        if (!slopeDefinitions[slopeKey]) {
+          slopeDefinitions[slopeKey] = r.line_slope
+        }
+      })
+    })
+
+    if (commitToHistory) {
+      self.slopeKeys = allSlopeKeys
+      self.slopeDefinitions = slopeDefinitions
+    } else {
+      undoManager.withoutUndo(() => {
+        self.slopeKeys = allSlopeKeys
+        self.slopeDefinitions = slopeDefinitions
+      })
+    }
+  }
+
   const getTranscriberInfo = flow(function * getTranscriberInfo(arrangedExtractsByUser) {
     let usersWhoClassified = Object.keys(arrangedExtractsByUser)
     usersWhoClassified = usersWhoClassified.filter(user => user !== 'null')
@@ -252,9 +297,42 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
+  function rearrangePages(keys) {
+    self.slopeKeys = keys
+    const groupedKeys = isolateGroups(keys)
+    const rearrangedText = {}
+    groupedKeys.forEach(group => {
+      group.forEach((key, index) => {
+        const page = getPage(key)
+        const slopeLabel = getSlopeLabel(key)
+        const isNewKey = !rearrangedText[`frame${page}`]
+        const firstItemInGroup = index === 0
+        const reductions = self.current.text.get(key) || self.current.text.get(`frame${page}`)
+
+        if (isNewKey && firstItemInGroup) {
+          rearrangedText[`frame${page}`] = []
+        } else if (!isNewKey && firstItemInGroup) {
+          rearrangedText[key] = []
+        }
+        reductions.forEach(reduction => {
+          if (reduction.slope_label === slopeLabel) {
+            const lastKey = Object.keys(rearrangedText)[Object.keys(rearrangedText).length - 1]
+            rearrangedText[lastKey].push(reduction)
+            detach(reduction)
+          }
+        })
+      })
+    })
+    self.current.frame_order = Object.keys(rearrangedText)
+    self.current.text = rearrangedText
+    self.saveTranscription()
+  }
+
   function reset() {
     getRoot(self).aggregations.setModal(false)
     self.current = undefined
+    self.index = 0
+    self.slopeIndex = 0
     self.all.clear()
   }
 
@@ -282,6 +360,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const saveTranscription = flow(function * saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
+    const frame_order = toJS(self.current.frame_order)
     const textBlob = toJS(self.current.text)
     const additionalData = {
       low_consensus_lines: self.current.low_consensus_lines,
@@ -293,6 +372,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         type: 'transcriptions',
         attributes: {
           flagged: self.current.flagged,
+          frame_order,
           text: updatedTranscription
         }
       }
@@ -319,6 +399,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.READY
       })
       yield self.fetchExtracts(id)
+      self.getSlopeKeys(false)
     } catch (error) {
       console.warn(error);
       undoManager.withoutUndo(() => {
@@ -406,11 +487,13 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     fetchExtracts,
     fetchTranscriptions: (page, shouldReset) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page, shouldReset),
     getLastModified,
+    getSlopeKeys,
     getTranscriberInfo,
     patchTranscription,
     reset: () => undoManager.withoutUndo(() => reset()),
     reaggregateDBScan,
     reaggregateOptics,
+    rearrangePages,
     redefineTranscription,
     retrieveTranscriptions,
     saveTranscription,
@@ -425,6 +508,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     updateApproval: (isChecked) => undoManager.withoutUndo(() => updateApproval(isChecked))
   }
 }).views(self => ({
+  get activeSlope () {
+    const activeSlopeKey = `frame${self.index}.${self.slopeIndex}`
+    return self.slopeDefinitions[activeSlopeKey]
+  },
+
   get approved () {
     return !!(self.current && self.current.status === 'approved')
   },
@@ -446,6 +534,13 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   get isActive () {
     return self.activeTranscriptionIndex !== undefined
+  },
+
+  get currentTranscriptions () {
+    const current = self.current && self.current.text &&
+      (self.current.text.get(`frame${self.index}.${self.slopeIndex}`) ||
+       self.current.text.get(`frame${self.index}`))
+    return current || []
   },
 
   get readyForReview () {

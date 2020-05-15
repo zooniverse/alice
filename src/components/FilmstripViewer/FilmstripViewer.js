@@ -2,7 +2,10 @@ import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { observer } from 'mobx-react'
+import isEqual from 'helpers/isEqual'
 import { FormDown, FormUp } from 'grommet-icons'
+import { spotInGroup, getPage, getSlopeLabel } from 'helpers/slopeHelpers'
 import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from '../StepNavigation'
 import Overlay from '../Overlay'
@@ -15,8 +18,39 @@ const RelativeBox = styled(Box)`
   position: relative;
 `
 
-function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen, setOpen }) {
+function usePrevious(rawValue) {
+  const value = rawValue.map(l => l)
+  const ref = React.useRef();
+
+  React.useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
+}
+
+function FilmstripViewer ({
+  activeSlope,
+  disabled,
+  images,
+  isOpen,
+  rearrangePages,
+  selectImage,
+  setOpen,
+  slopeDefinitions,
+  slopeKeys,
+  subjectIndex
+}) {
   const actionText = isOpen ? 'Collapse' : 'Expand';
+  const [hoveredIndex, setHoveredIndex] = React.useState()
+  const [slopeValues, setSlopeValues] = React.useState(slopeKeys)
+  const previous = usePrevious(slopeKeys)
+
+  if (!isEqual(previous, slopeKeys) && slopeKeys !== slopeValues) {
+    setSlopeValues(slopeKeys)
+  }
+
+  const handlePageRearrangement = () => rearrangePages(slopeValues)
 
   return (
     <RelativeBox background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
@@ -40,18 +74,33 @@ function FilmstripViewer ({ disabled, selectImage, subjectIndex, images, isOpen,
           reverse />
       </Box>
       {isOpen && (
-          <Box direction='row'>
-            {images.map((image, i) => {
-              const isActive = i === subjectIndex
+          <Box direction='row' wrap>
+            {slopeValues.map((key, i) => {
+              const page = getPage(key)
+              const slopeIndex = getSlopeLabel(key)
+              const image = images[page]
+              const isActive = page === subjectIndex && slopeIndex === activeSlope
+              const slopeDefinition = slopeDefinitions[key]
+              const border = spotInGroup(slopeValues, i)
+
               return (
-                <FilmstripThumbnail
-                  key={`THUMBNAIL_${i}`}
-                  disabled={disabled}
-                  index={i}
-                  isActive={isActive}
-                  selectImage={selectImage}
-                  src={image}
-                />)
+                <Box border={border} key={`THUMBNAIL_${i}`} margin={{ bottom: 'xsmall' }}>
+                  <FilmstripThumbnail
+                    disabled={disabled}
+                    hoveredIndex={hoveredIndex}
+                    index={i}
+                    isActive={isActive}
+                    page={page}
+                    rearrangePages={handlePageRearrangement}
+                    selectImage={selectImage}
+                    setHoveredIndex={setHoveredIndex}
+                    setSlopeValues={setSlopeValues}
+                    slopeDefinition={slopeDefinition}
+                    slopeIndex={slopeIndex}
+                    slopeValues={slopeValues}
+                    src={image}
+                  />
+                </Box>)
             })}
           </Box>
       )}
@@ -65,6 +114,8 @@ FilmstripViewer.defaultProps = {
   isOpen: true,
   selectImage: () => {},
   setOpen: () => {},
+  setSlopeKeys: () => {},
+  slopeKeys: [],
   subjectIndex: 0
 }
 
@@ -74,7 +125,9 @@ FilmstripViewer.propTypes = {
   isOpen: PropTypes.bool,
   selectImage: PropTypes.func,
   setOpen: PropTypes.func,
+  setSlopeKeys: PropTypes.func,
+  slopeKeys: PropTypes.arrayOf(PropTypes.string),
   subjectIndex: PropTypes.number
 }
 
-export default FilmstripViewer
+export default observer(FilmstripViewer)
