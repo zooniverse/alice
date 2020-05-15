@@ -71,7 +71,9 @@ const ClientStore = types.model('ClientStore', {
   }),
 
   setBearerToken: (token) => {
-    if (!!token) {
+    // If Token is null, we need to remove jwt tokens
+    // If token is a string with a length, we need to set tokens
+    if (token === null || token.length) {
       self.tove.jwt(token)
       self.toveZip.jwt(token)
     }
