@@ -1,6 +1,7 @@
 import apiClient from 'panoptes-client/lib/api-client.js';
 import ASYNC_STATES from 'helpers/asyncStates'
 import { when } from 'jest-when'
+import mockJWT from 'helpers/mockJWT'
 import { AppStore } from './AppStore'
 import ProjectFactory from './factories/project'
 
@@ -46,7 +47,7 @@ const rootStore = AppStore.create({
   auth: {
     user: { id: '1' }
   },
-  client: { tove: toveStub }
+  client: { tove: mockJWT(toveStub), toveZip: mockJWT() }
 })
 
 describe('ProjectsStore', function () {
@@ -197,7 +198,7 @@ describe('Default role', function () {
       auth: {
         user: { id: '1' }
       },
-      client: { tove: toveStub }
+      client: { tove: mockJWT(toveStub), toveZip: mockJWT() }
     })
     projectsStore = rootStore.projects
     await projectsStore.getProjects()

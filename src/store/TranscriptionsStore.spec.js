@@ -2,6 +2,7 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import * as graphQl from 'graphql-request'
 import apiClient from 'panoptes-client/lib/api-client.js';
 import { mockExtract } from 'helpers/parseTranscriptionData.spec'
+import mockJWT from 'helpers/mockJWT'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
 
@@ -139,7 +140,7 @@ describe('TranscriptionsStore', function () {
     describe('success state', function () {
       beforeEach(async function () {
         rootStore = AppStore.create({
-          client: { tove: multipleTranscriptionsStub },
+          client: { tove: mockJWT(multipleTranscriptionsStub), toveZip: mockJWT() },
           groups: {
             current: {
               display_name: 'GROUP_1'
@@ -188,7 +189,7 @@ describe('TranscriptionsStore', function () {
 
     describe('failure state', function () {
       it('should register an error', async function () {
-        rootStore = AppStore.create({ client: { tove: failedToveStub }})
+        rootStore = AppStore.create({ client: { tove: mockJWT(failedToveStub), toveZip: mockJWT() }})
         transcriptionsStore = rootStore.transcriptions
         await transcriptionsStore.retrieveTranscriptions()
         expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
@@ -214,7 +215,8 @@ describe('TranscriptionsStore', function () {
           auth: { user: { display_name: 'A_USER' } },
           client: {
             aggregator: aggregatorStub,
-            tove: singleTranscriptionStub
+            tove: mockJWT(singleTranscriptionStub),
+            toveZip: mockJWT()
           },
           groups: {
             current: {
@@ -330,7 +332,7 @@ describe('TranscriptionsStore', function () {
       it('should return true if the transcription is lockedByCurrentUser', async function () {
         const unlockableStore = AppStore.create({
           auth: { user: { display_name: 'A_USER' } },
-          client: { tove: unlockedTranscriptionStub },
+          client: { tove: mockJWT(unlockedTranscriptionStub), toveZip: mockJWT() },
           groups: {
             current: { display_name: 'GROUP_1' }
           },
@@ -437,7 +439,7 @@ describe('TranscriptionsStore', function () {
 
     describe('failure state', function () {
       it('should register an error on selecting', async function () {
-        rootStore = AppStore.create({ client: { tove: failedToveStub }})
+        rootStore = AppStore.create({ client: { tove: mockJWT(failedToveStub), toveZip: mockJWT() }})
         transcriptionsStore = rootStore.transcriptions
         await transcriptionsStore.selectTranscription(1)
         expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
@@ -446,7 +448,7 @@ describe('TranscriptionsStore', function () {
 
       it('should register an error on patching', async function () {
         rootStore = AppStore.create({
-          client: { tove: failedTovePatch },
+          client: { tove: mockJWT(failedTovePatch), toveZip: mockJWT() },
           workflows: {
             all: { 1: { id: '1' } },
             current: '1'
@@ -461,7 +463,7 @@ describe('TranscriptionsStore', function () {
 
       it('should register an error on patching if response not ok', async function () {
         rootStore = AppStore.create({
-          client: { tove: failedTovePatchNotOk },
+          client: { tove: mockJWT(failedTovePatchNotOk), toveZip: mockJWT() },
           workflows: {
             all: { 1: { id: '1' } },
             current: '1'

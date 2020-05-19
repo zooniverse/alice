@@ -1,4 +1,5 @@
 import ASYNC_STATES from 'helpers/asyncStates'
+import mockJWT from 'helpers/mockJWT'
 import { AppStore } from './AppStore'
 import WorkflowFactory from './factories/workflow'
 
@@ -43,7 +44,7 @@ describe('WorkflowsStore', function () {
   describe('success state', function () {
     beforeEach(function () {
       rootStore = AppStore.create({
-        client: { tove: toveStubArray }
+        client: { tove: mockJWT(toveStubArray), toveZip: mockJWT() }
       })
       workflowsStore = rootStore.workflows
     })
@@ -76,7 +77,7 @@ describe('WorkflowsStore', function () {
     })
 
     it('should fetch a single workflow', async function () {
-      rootStore = AppStore.create({ client: { tove: toveStub }})
+      rootStore = AppStore.create({ client: { tove: mockJWT(toveStub), toveZip: mockJWT() }})
       workflowsStore = rootStore.workflows
       const returnValue = await workflowsStore.getWorkflow('1')
       expect(returnValue).toBeDefined()
@@ -86,7 +87,7 @@ describe('WorkflowsStore', function () {
 
   describe('failure state', function () {
     beforeEach(function () {
-      rootStore = AppStore.create({ client: { tove: failedToveStub }})
+      rootStore = AppStore.create({ client: { tove: mockJWT(failedToveStub), toveZip: mockJWT() }})
       workflowsStore = rootStore.workflows
     })
 
