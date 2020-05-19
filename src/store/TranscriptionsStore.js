@@ -271,7 +271,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   const patchTranscription = flow(function * patchTranscription(query) {
-    const { client } = getRoot(self)©
+    const { client } = getRoot(self)
     let lastModified
     try {
       yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
