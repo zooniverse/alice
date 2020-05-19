@@ -271,7 +271,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   })
 
   const patchTranscription = flow(function * patchTranscription(query) {
-    const client = getRoot(self).client
+    const { client } = getRoot(self)©
     let lastModified
     try {
       yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
@@ -337,7 +337,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   const retrieveTranscriptions = flow(function * retrieveTranscriptions(query) {
-    const client = getRoot(self).client
+    const { client } = getRoot(self)
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     try {
       const response = yield client.get(query)
@@ -387,7 +387,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   const selectTranscription = flow(function * selectTranscription(id = null) {
     if (!id) return undefined
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
-    const client = getRoot(self).client
+    const { client } = getRoot(self)
     try {
       const response = yield client.get(`/transcriptions/${id}`)
       const lastModified = getLastModified(response)
@@ -459,7 +459,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   const unlockTranscription = flow(function * unlockTranscription() {
-    const client = getRoot(self).client
+    const { client } = getRoot(self)
     yield client.patch(`/transcriptions/${self.current.id}/unlock`, { headers: { 'If-Unmodified-Since': self.current.last_modified } })
   })
 

@@ -48,7 +48,7 @@ const WorkflowsStore = types.model('WorkflowsStore', {
   getWorkflow: flow (function * getWorkflow(id) {
     if (!id) return undefined
     self.asyncState = ASYNC_STATES.LOADING
-    const client = getRoot(self).client
+    const { client } = getRoot(self)
     try {
       const response = yield client.get(`/workflows/${id}`)
       const resource = JSON.parse(response.body)
