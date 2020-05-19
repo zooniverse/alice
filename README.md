@@ -1,5 +1,6 @@
 # ALICE
-## Aggregate Line Inspector / Collaborative Editor
+
+**A**ggregate **L**ine **I**nspector / **C**ollaborative **E**ditor  
 A front end tool allowing reviewing and editing of Zooniverse transcription data.
 
 [![Coverage Status](https://coveralls.io/repos/github/zooniverse/text-editor/badge.svg?branch=master)](https://coveralls.io/github/zooniverse/text-editor?branch=master)
