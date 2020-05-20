@@ -98,13 +98,15 @@ function MetadataButton({
                 </colgroup>
                 <TableBody>
                 {metadata && Object.keys(metadata).map((key, i) => {
+                  const value = metadata[key]
+                  if (!value) return null
                   return (
                     <TableRow key={`METADATA_VALUE_${i}`}>
                       <TableCell>
                         <CapitalText>{key}</CapitalText>
                       </TableCell>
                       <TableCell>
-                        <StyledText>{metadata[key]}</StyledText>
+                        <StyledText>{value}</StyledText>
                       </TableCell>
                     </TableRow>
                   )
