@@ -49,7 +49,7 @@ const ProjectsStore = types.model('ProjectsStore', {
 
   getProjects: flow (function * getProjects() {
     self.asyncState = ASYNC_STATES.LOADING
-    const client = getRoot(self).client.tove
+    const client = getRoot(self).client
     try {
       const response = yield client.get('/projects')
       const resources = JSON.parse(response.body)

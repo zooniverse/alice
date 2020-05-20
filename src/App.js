@@ -4,6 +4,8 @@ import { Grommet } from 'grommet'
 import AppContext from 'store'
 import makeInspectable from 'mobx-devtools-mst'
 import { observer } from 'mobx-react'
+import apiClient from 'panoptes-client/lib/api-client';
+import auth from 'panoptes-client/lib/auth';
 import ScrollToTop from 'helpers/scrollToTop'
 import history from './history'
 import './App.css'
@@ -25,12 +27,19 @@ import {
   EDIT_PATH
 } from 'paths'
 
+function checkToken(store) {
+  return auth.checkBearerToken().then((token) => {
+    store.client.setBearerToken(token)
+  })
+}
+
 function App() {
   const store = React.useContext(AppContext)
   makeInspectable(store)
 
   React.useEffect(() => {
     store.initialize()
+    apiClient.beforeEveryRequest = () => checkToken(store)
   }, [store])
 
 
