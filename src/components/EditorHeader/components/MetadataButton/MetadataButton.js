@@ -86,7 +86,7 @@ function MetadataButton({
               </Box>
               <Box>
                 <CapitalText size='xsmall'>
-                  {pages} pages &#8226; {transcriberCount}/{goldStandardCount} transcribers/gold standard &#8226; {transcribed_lines} transcribed lines &#8226; {0}/{transcribed_lines} average consensus &#8226; {status}
+                  {pages} pages &#8226; {transcriberCount}/{goldStandardCount} transcribers/gold standard &#8226; {transcribed_lines} transcribed lines &#8226; {status}
                 </CapitalText>
               </Box>
             </Box>
