@@ -27,7 +27,7 @@ describe('Component > MetadataButton', function () {
       wrapper = shallow(<MetadataButton metadata={mockMetadata} />)
     })
 
-    it('should render metadata when passed', function () {
+    it('should render all valid metadata', function () {
       const metadataRows = wrapper.findWhere((n) => {
         if (n.key()) {
           return n.key().includes('METADATA_VALUE')
