@@ -102,7 +102,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const response = yield client.get(`/transcriptions/${self.title}`)
     const resource = JSON.parse(response.body)
     const lockedBy = resource.data.attributes.locked_by
-    const lockedByDifferentUser = lockedBy && lockedBy !== getRoot(self).auth.userName
+    const lockedByDifferentUser = lockedBy && lockedBy !== getRoot(self).auth.user.login
     if (lockedByDifferentUser) {
       getRoot(self).modal.toggleModal(MODALS.LOCKED)
     }
@@ -527,9 +527,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return count;
   },
 
-  get lockedByCurrentUser () {
-    const user = getRoot(self).auth.userName
-    return user === self.current.locked_by
+  get lockedByDifferentUser () {
+    const login = getRoot(self).auth.user.login;
+    return self.current.locked_by && self.current.locked_by !== login
   },
 
   get isActive () {

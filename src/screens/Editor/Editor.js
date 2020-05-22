@@ -32,7 +32,7 @@ function Editor ({ match, testTime }) {
     const setResources = async () => {
       await store.subjects.fetchSubject(match.params.subject)
       await store.getResources(match.params)
-      if (!store.transcriptions.lockedByCurrentUser) {
+      if (store.transcriptions.lockedByDifferentUser) {
         store.modal.toggleModal(MODALS.LOCKED)
       }
     }
@@ -54,7 +54,7 @@ function Editor ({ match, testTime }) {
     window.addEventListener('visibilitychange', handleTimeCheck)
 
     return () => {
-      if (store.transcriptions.lockedByCurrentUser) {
+      if (!store.transcriptions.lockedByDifferentUser) {
         store.transcriptions.unlockTranscription()
       }
       window.removeEventListener('beforeunload', store.transcriptions.unlockTranscription);
