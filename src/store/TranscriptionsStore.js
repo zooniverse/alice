@@ -102,7 +102,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const response = yield client.get(`/transcriptions/${self.title}`)
     const resource = JSON.parse(response.body)
     const lockedBy = resource.data.attributes.locked_by
-    const lockedByDifferentUser = lockedBy && lockedBy !== getRoot(self).auth.userName
+    const lockedByDifferentUser = lockedBy && lockedBy !== getRoot(self).auth.user.login
     if (lockedByDifferentUser) {
       getRoot(self).modal.toggleModal(MODALS.LOCKED)
     }
