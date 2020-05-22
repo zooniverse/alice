@@ -528,8 +528,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   get lockedByDifferentUser () {
-    const user = getRoot(self).auth.userName
-    return self.current.locked_by && self.current.locked_by !== user
+    const login = getRoot(self).auth.user.login;
+    return self.current.locked_by && self.current.locked_by !== login
   },
 
   get isActive () {

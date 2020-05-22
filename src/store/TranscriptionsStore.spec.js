@@ -331,7 +331,7 @@ describe('TranscriptionsStore', function () {
 
       it('should return false if the transcription is not lockedByDifferentUser', async function () {
         const unlockableStore = AppStore.create({
-          auth: { user: { display_name: 'A_USER' } },
+          auth: { user: { login: 'A_USER' } },
           client: { tove: mockJWT(unlockedTranscriptionStub), toveZip: mockJWT() },
           groups: {
             current: { display_name: 'GROUP_1' }
