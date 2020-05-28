@@ -1,4 +1,4 @@
-export default function gsCountFromExtracts(extracts) {
+export default function gsCountFromExtracts(extracts = []) {
   let count = 0;
   extracts.forEach(extract => {
     if (!extract.data) return

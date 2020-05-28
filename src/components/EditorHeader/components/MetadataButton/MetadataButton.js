@@ -47,7 +47,9 @@ function MetadataButton({
   const targetEl = React.useRef(null)
   const [isOpen, toggleDrop] = React.useState(false)
 
-  const { pages, status, transcribed_lines } = transcription || {}
+  console.log('TRANSCRIPTION', transcription);
+
+  const { pages, status, transcribed_lines } = transcription
 
   return (
     <Box width='1em'>
