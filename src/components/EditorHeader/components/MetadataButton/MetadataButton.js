@@ -38,17 +38,16 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 
 function MetadataButton({
   disabled,
-  goldStandard,
+  goldStandardCount,
   id,
-  lines,
   metadata,
-  pages,
-  score,
-  status,
-  transcribers
+  transcriberCount,
+  transcription
 }) {
   const targetEl = React.useRef(null)
   const [isOpen, toggleDrop] = React.useState(false)
+
+  const { pages, status, transcribed_lines } = transcription
 
   return (
     <Box width='1em'>
@@ -87,7 +86,7 @@ function MetadataButton({
               </Box>
               <Box>
                 <CapitalText size='xsmall'>
-                  {pages} pages &#8226; {transcribers}/{goldStandard} transcribers/gold standard &#8226; {lines} transcribed lines &#8226; {score}/{transcribers} average consensus &#8226; {status}
+                  {pages} pages &#8226; {transcriberCount}/{goldStandardCount} transcribers/gold standard &#8226; {transcribed_lines} transcribed lines &#8226; {status}
                 </CapitalText>
               </Box>
             </Box>
@@ -99,13 +98,15 @@ function MetadataButton({
                 </colgroup>
                 <TableBody>
                 {metadata && Object.keys(metadata).map((key, i) => {
+                  const value = metadata[key]
+                  if (!value) return null
                   return (
                     <TableRow key={`METADATA_VALUE_${i}`}>
                       <TableCell>
                         <CapitalText>{key}</CapitalText>
                       </TableCell>
                       <TableCell>
-                        <StyledText>{metadata[key]}</StyledText>
+                        <StyledText>{value}</StyledText>
                       </TableCell>
                     </TableRow>
                   )
@@ -122,24 +123,28 @@ function MetadataButton({
 
 MetadataButton.defaultProps = {
   disabled: false,
-  goldStandard: 0,
+  goldStandardCount: 0,
   id: '',
-  lines: 0,
   metadata: null,
-  pages: 0,
-  score: 0,
-  transcribers: 0
+  transcriberCount: 0,
+  transcription: {
+    pages: 0,
+    status: 'unseen',
+    transcribed_lines: 0
+  }
 }
 
 MetadataButton.propTypes = {
   disabled: bool,
-  goldStandard: number,
+  goldStandardCount: number,
   id: string,
-  lines: number,
   metadata: shape(),
-  pages: number,
-  score: number,
-  transcribers: number
+  transcriberCount: number,
+  transcription: shape({
+    pages: number,
+    status: string,
+    transcribed_lines: number
+  })
 }
 
 export { MetadataButton }
