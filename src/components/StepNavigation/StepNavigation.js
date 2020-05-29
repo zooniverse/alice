@@ -1,21 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Box, RadioButtonGroup } from 'grommet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft, faAngleRight, faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
-import { FormPrevious, FormNext } from 'grommet-icons'
-
-const StyledButton = styled(Button)`
-  &:first-of-type {
-    margin: 0 10px 0 0;
-    padding: 0;
-  }
-`
 
 const StyledRadioButtonGroup = styled(RadioButtonGroup)`
   position: relative;
   > label {
+    display: flex;
+    flex-direction: column;
+
     > div {
-      margin-right: 10px;
+      margin: 0 0.25em;
     }
   }
 `
@@ -29,25 +26,43 @@ class StepNavigation extends React.Component {
 
   render () {
     const { activeStep, disabled, setStep, steps } = this.props
+
+    let leftMost = activeStep - 2 < 0 ? 0 : activeStep - 2;
+    let rightMost = leftMost + 5;
+    if (steps.length > 5 && rightMost > steps.length - 1) {
+      leftMost = steps.length - 6
+      rightMost = steps.length - 1
+    }
+    const fiveSteps = steps.slice(leftMost, rightMost)
+
     if (steps && steps.length > 1) {
       const nextStep = activeStep + 1
       const prevStep = activeStep - 1
-      const options = steps.map((step, index) => {
+      const options = fiveSteps.map((step, index) => {
         // We can't just use index for the value
         // because Grommet is using indexes internally as keys and this will error with a duplicate key
         const value = `step-${index}`
         return {
           disabled,
+          label: index.toString(),
           id: value,
           value
         }
       })
+
       return (
-        <Box direction='row'>
-          <StyledButton
+        <Box direction='row' gap='xxsmall'>
+          <Button
+            data-index={0}
+            disabled={activeStep === 0}
+            icon={<FontAwesomeIcon icon={faAngleDoubleLeft} />}
+            onClick={() => setStep(0)}
+            plain
+          />
+          <Button
             data-index={prevStep}
             disabled={activeStep === 0}
-            icon={<FormPrevious />}
+            icon={<FontAwesomeIcon icon={faAngleLeft} />}
             onClick={() => setStep(prevStep)}
             plain
           />
@@ -59,11 +74,18 @@ class StepNavigation extends React.Component {
             options={options}
             value={`step-${activeStep}`}
           />
-          <StyledButton
+          <Button
             data-index={nextStep}
             disabled={activeStep === steps.length - 1}
-            icon={<FormNext />}
+            icon={<FontAwesomeIcon icon={faAngleRight} />}
             onClick={() => setStep(nextStep)}
+            plain
+          />
+          <Button
+            data-index={steps.length - 1}
+            disabled={activeStep === steps.length - 1}
+            icon={<FontAwesomeIcon icon={faAngleDoubleRight} />}
+            onClick={() => setStep(steps.length - 1)}
             plain
           />
         </Box>
@@ -87,5 +109,5 @@ StepNavigation.propTypes = {
   steps: PropTypes.array
 }
 
-export { StyledButton, StyledRadioButtonGroup }
+export { StyledRadioButtonGroup }
 export default StepNavigation
