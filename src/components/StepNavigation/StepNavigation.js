@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Box, RadioButtonGroup } from 'grommet'
+import { Button, Box, RadioButtonGroup, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight, faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
@@ -13,6 +13,10 @@ const StyledRadioButtonGroup = styled(RadioButtonGroup)`
 
     > div {
       margin: 0 0.25em;
+    }
+
+    > span {
+      font-size: 0.75em;
     }
   }
 `
@@ -30,8 +34,8 @@ class StepNavigation extends React.Component {
     let leftMost = activeStep - 2 < 0 ? 0 : activeStep - 2;
     let rightMost = leftMost + 5;
     if (steps.length > 5 && rightMost > steps.length - 1) {
-      leftMost = steps.length - 6
-      rightMost = steps.length - 1
+      leftMost = steps.length - 5
+      rightMost = steps.length
     }
     const fiveSteps = steps.slice(leftMost, rightMost)
 
@@ -41,10 +45,10 @@ class StepNavigation extends React.Component {
       const options = fiveSteps.map((step, index) => {
         // We can't just use index for the value
         // because Grommet is using indexes internally as keys and this will error with a duplicate key
-        const value = `step-${index}`
+        const value = `step-${step}`
         return {
           disabled,
-          label: index.toString(),
+          label: (step + 1).toString(),
           id: value,
           value
         }
@@ -66,6 +70,9 @@ class StepNavigation extends React.Component {
             onClick={() => setStep(prevStep)}
             plain
           />
+
+          {leftMost > 0 && <Text>...</Text>}
+
           <StyledRadioButtonGroup
             direction='row'
             gap='none'
@@ -74,6 +81,9 @@ class StepNavigation extends React.Component {
             options={options}
             value={`step-${activeStep}`}
           />
+
+          {rightMost < steps.length - 1 && <Text>...</Text>}
+
           <Button
             data-index={nextStep}
             disabled={activeStep === steps.length - 1}
