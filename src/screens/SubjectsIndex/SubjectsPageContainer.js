@@ -7,21 +7,21 @@ import { EDIT_PATH } from 'paths'
 import ResourcesTable from '../../components/ResourcesTable'
 import { columns } from './table'
 
-function slicePages(page, pages) {
+function slicePages(page, totalPages) {
+  const allPages = Array.from(Array(totalPages).keys())
   let leftPage = page - 2 < 0 ? 0 : page - 2
   let rightPage = leftPage + 5
-  if (pages.length > 5 && rightPage > pages.length - 1) {
-    leftPage = pages.length - 5
-    rightPage = pages.length
+  if (totalPages > 5 && rightPage > totalPages - 1) {
+    leftPage = totalPages - 5
+    rightPage = totalPages
   }
-  return pages.slice(leftPage, rightPage)
+  return allPages.slice(leftPage, rightPage)
 }
 
 function SubjectsPageContainer ({ history, match }) {
   const store = React.useContext(AppContext)
   const { page, totalPages } = store.transcriptions
-  const allPages = Array.from(Array(totalPages).keys())
-  const [pages, setPages] = React.useState(allPages)
+  const [pages, setPages] = React.useState([])
 
   React.useEffect(() => {
     const setResources = async () => {
@@ -31,7 +31,7 @@ function SubjectsPageContainer ({ history, match }) {
     setResources()
   }, [match, store])
 
-  React.useEffect(() => setPages(slicePages(0, allPages)), [totalPages])
+  React.useEffect(() => setPages(slicePages(0, totalPages)), [totalPages])
 
   const onSelection = (transcription) => {
     const nextPath = generatePath(EDIT_PATH, { subject: transcription.id, ...match.params})
@@ -40,7 +40,7 @@ function SubjectsPageContainer ({ history, match }) {
 
   const onSetPage = (page) => {
     store.transcriptions.fetchTranscriptions(page)
-    setPages(slicePages(page, allPages))
+    setPages(slicePages(page, totalPages))
   }
 
   const transcriptions = Array.from(store.transcriptions.all.values())

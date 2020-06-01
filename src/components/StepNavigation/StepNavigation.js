@@ -9,7 +9,6 @@ import {
   faAngleDoubleRight
 } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
-import { FormPrevious, FormNext } from 'grommet-icons'
 
 const StyledRadioButtonGroup = styled(RadioButtonGroup)`
   position: relative;
@@ -51,7 +50,7 @@ class StepNavigation extends React.Component {
         }
       })
       return (
-        <Box direction='row'>
+        <Box direction='row' gap='xsmall'>
           <Button
             data-index={0}
             disabled={activeStep === 0}
@@ -66,14 +65,20 @@ class StepNavigation extends React.Component {
             onClick={() => setStep(prevStep)}
             plain
           />
-          <StyledRadioButtonGroup
-            direction='row'
-            gap='none'
-            name='step-selectors'
-            onChange={this.onChange.bind(this)}
-            options={options}
-            value={`step-${activeStep}`}
-          />
+
+          <Box direction='row'>
+            {activeStep > 2 && <Text>...</Text>}
+            <StyledRadioButtonGroup
+              direction='row'
+              gap='none'
+              name='step-selectors'
+              onChange={this.onChange.bind(this)}
+              options={options}
+              value={`step-${activeStep}`}
+            />
+            {activeStep < totalPages - 3 && <Text>...</Text>}
+          </Box>
+
           <Button
             data-index={nextStep}
             disabled={activeStep === totalPages - 1}
