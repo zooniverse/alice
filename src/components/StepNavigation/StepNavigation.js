@@ -1,6 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Box, RadioButtonGroup } from 'grommet'
+import { Button, Box, RadioButtonGroup, Text } from 'grommet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faAngleLeft,
+  faAngleRight,
+  faAngleDoubleLeft,
+  faAngleDoubleRight
+} from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import { FormPrevious, FormNext } from 'grommet-icons'
 
