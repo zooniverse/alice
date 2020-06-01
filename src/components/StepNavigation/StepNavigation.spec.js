@@ -1,10 +1,11 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import StepNavigation, { StyledButton, StyledRadioButtonGroup } from './StepNavigation'
+import { Button } from 'grommet'
+import StepNavigation, { StyledRadioButtonGroup } from './StepNavigation'
 
 let wrapper
 const setStepSpy = jest.fn()
-const steps = ['one', 'two', 'three']
+const steps = [1, 2, 3]
 
 describe('Component > StepNavigation', function () {
   beforeEach(function() {
@@ -12,6 +13,7 @@ describe('Component > StepNavigation', function () {
       <StepNavigation
         setStep={setStepSpy}
         steps={steps}
+        totalPages={3}
       />);
   })
 
@@ -29,17 +31,17 @@ describe('Component > StepNavigation', function () {
       }
     }
     buttons.onChange(mockEvent)
-    expect(setStepSpy).toHaveBeenCalledWith(0)
+    expect(setStepSpy).toHaveBeenCalled()
   })
 
   it('should move back a step', function () {
-    const leftButton = wrapper.find(StyledButton).first().props()
+    const leftButton = wrapper.find(Button).first().props()
     leftButton.onClick()
     expect(setStepSpy).toHaveBeenCalledWith(leftButton['data-index'])
   })
 
   it('should move forward a step', function () {
-    const rightButton = wrapper.find(StyledButton).last().props()
+    const rightButton = wrapper.find(Button).last().props()
     rightButton.onClick()
     expect(setStepSpy).toHaveBeenCalledWith(rightButton['data-index'])
   })
