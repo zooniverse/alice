@@ -21,8 +21,15 @@ const StyledButton = styled(Button)`
 const StyledRadioButtonGroup = styled(RadioButtonGroup)`
   position: relative;
   > label {
+    display: flex;
+    flex-direction: column;
+
     > div {
-      margin-right: 10px;
+      margin: 0 0.25em;
+    }
+
+    > span {
+      font-size: 0.75em;
     }
   }
 `
@@ -35,17 +42,19 @@ class StepNavigation extends React.Component {
   }
 
   render () {
-    const { activeStep, disabled, setStep, steps } = this.props
+    const { activeStep, disabled, setStep, showLabel, steps } = this.props
     if (steps && steps.length > 1) {
       const nextStep = activeStep + 1
       const prevStep = activeStep - 1
       const options = steps.map((step, index) => {
+        const showPage = showLabel && !isNaN(step)
         // We can't just use index for the value
         // because Grommet is using indexes internally as keys and this will error with a duplicate key
-        const value = `step-${index}`
+        const value = `step-${showPage ? step : index}`
         return {
           disabled,
           id: value,
+          label: showPage ? (step + 1).toString() : null,
           value
         }
       })
@@ -84,6 +93,7 @@ StepNavigation.defaultProps = {
   activeStep: 0,
   disabled: false,
   setStep: () => {},
+  showLabel: false,
   steps: []
 }
 
@@ -91,6 +101,7 @@ StepNavigation.propTypes = {
   activeStep: PropTypes.number,
   disabled: PropTypes.bool,
   setStep: PropTypes.func,
+  showLabel: PropTypes.bool,
   steps: PropTypes.array
 }
 

@@ -61,6 +61,7 @@ function ResourcesTable(props) {
         <StepNavigation
           activeStep={props.activeStep}
           setStep={props.setStep}
+          showLabel
           steps={props.steps}
         />
       </Box>
@@ -79,7 +80,8 @@ ResourcesTable.defaultProps = {
   searching: false,
   setStep: () => {},
   status: ASYNC_STATES.IDLE,
-  steps: []
+  steps: [],
+  totalPages: 0
 }
 
 ResourcesTable.propTypes = {
@@ -92,7 +94,8 @@ ResourcesTable.propTypes = {
   searching: PropTypes.bool,
   setStep: PropTypes.func,
   steps: PropTypes.array,
-  status: PropTypes.string
+  status: PropTypes.string,
+  totalPages: PropTypes.number
 }
 
 export default withRouter(ResourcesTable)

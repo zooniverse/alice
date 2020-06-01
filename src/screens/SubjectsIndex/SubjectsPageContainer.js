@@ -14,14 +14,13 @@ function slicePages(page, pages) {
     leftPage = pages.length - 5
     rightPage = pages.length
   }
+  console.log(leftPage, rightPage);
   return pages.slice(leftPage, rightPage)
 }
 
 function SubjectsPageContainer ({ history, match }) {
   const store = React.useContext(AppContext)
-
   const { page, totalPages } = store.transcriptions
-
   const allPages = Array.from(Array(totalPages).keys())
   const [pages, setPages] = React.useState(allPages)
 
@@ -41,11 +40,14 @@ function SubjectsPageContainer ({ history, match }) {
   }
 
   const onSetPage = (page) => {
-    setPages(slicePages(page, allPages))
     store.transcriptions.fetchTranscriptions(page)
+    setPages(slicePages(page, allPages))
   }
 
   const transcriptions = Array.from(store.transcriptions.all.values())
+  console.log('total pages = ', totalPages);
+  console.log('pages = ', pages);
+  console.log('page = ', page);
 
   return (
     <Box margin='medium' fill='vertical'>
@@ -60,6 +62,7 @@ function SubjectsPageContainer ({ history, match }) {
         setStep={onSetPage}
         status={store.transcriptions.asyncState}
         steps={pages}
+        totalPages={totalPages}
       />
     </Box>
   )
