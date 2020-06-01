@@ -8,13 +8,12 @@ import ResourcesTable from '../../components/ResourcesTable'
 import { columns } from './table'
 
 function slicePages(page, pages) {
-  const leftPage = page - 2 < 0 ? 0 : page - 2
-  const rightPage = leftPage + 5
+  let leftPage = page - 2 < 0 ? 0 : page - 2
+  let rightPage = leftPage + 5
   if (pages.length > 5 && rightPage > pages.length - 1) {
     leftPage = pages.length - 5
     rightPage = pages.length
   }
-  console.log(leftPage, rightPage);
   return pages.slice(leftPage, rightPage)
 }
 
@@ -45,9 +44,6 @@ function SubjectsPageContainer ({ history, match }) {
   }
 
   const transcriptions = Array.from(store.transcriptions.all.values())
-  console.log('total pages = ', totalPages);
-  console.log('pages = ', pages);
-  console.log('page = ', page);
 
   return (
     <Box margin='medium' fill='vertical'>

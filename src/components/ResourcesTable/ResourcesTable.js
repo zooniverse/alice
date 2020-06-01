@@ -63,6 +63,7 @@ function ResourcesTable(props) {
           setStep={props.setStep}
           showLabel
           steps={props.steps}
+          totalPages={props.totalPages}
         />
       </Box>
     </Box>

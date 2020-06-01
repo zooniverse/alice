@@ -11,13 +11,6 @@ import {
 import styled from 'styled-components'
 import { FormPrevious, FormNext } from 'grommet-icons'
 
-const StyledButton = styled(Button)`
-  &:first-of-type {
-    margin: 0 10px 0 0;
-    padding: 0;
-  }
-`
-
 const StyledRadioButtonGroup = styled(RadioButtonGroup)`
   position: relative;
   > label {
@@ -42,28 +35,34 @@ class StepNavigation extends React.Component {
   }
 
   render () {
-    const { activeStep, disabled, setStep, showLabel, steps } = this.props
+    const { activeStep, disabled, setStep, showLabel, steps, totalPages } = this.props
     if (steps && steps.length > 1) {
       const nextStep = activeStep + 1
       const prevStep = activeStep - 1
       const options = steps.map((step, index) => {
-        const showPage = showLabel && !isNaN(step)
         // We can't just use index for the value
         // because Grommet is using indexes internally as keys and this will error with a duplicate key
-        const value = `step-${showPage ? step : index}`
+        const value = `step-${step}`
         return {
           disabled,
           id: value,
-          label: showPage ? (step + 1).toString() : null,
+          label: showLabel ? (step + 1).toString() : null,
           value
         }
       })
       return (
         <Box direction='row'>
-          <StyledButton
+          <Button
+            data-index={0}
+            disabled={activeStep === 0}
+            icon={<FontAwesomeIcon icon={faAngleDoubleLeft} />}
+            onClick={() => setStep(0)}
+            plain
+          />
+          <Button
             data-index={prevStep}
             disabled={activeStep === 0}
-            icon={<FormPrevious />}
+            icon={<FontAwesomeIcon icon={faAngleLeft} />}
             onClick={() => setStep(prevStep)}
             plain
           />
@@ -75,11 +74,18 @@ class StepNavigation extends React.Component {
             options={options}
             value={`step-${activeStep}`}
           />
-          <StyledButton
+          <Button
             data-index={nextStep}
-            disabled={activeStep === steps.length - 1}
-            icon={<FormNext />}
+            disabled={activeStep === totalPages - 1}
+            icon={<FontAwesomeIcon icon={faAngleRight} />}
             onClick={() => setStep(nextStep)}
+            plain
+          />
+          <Button
+            data-index={totalPages - 1}
+            disabled={activeStep === totalPages - 1}
+            icon={<FontAwesomeIcon icon={faAngleDoubleRight} />}
+            onClick={() => setStep(totalPages - 1)}
             plain
           />
         </Box>
@@ -102,8 +108,9 @@ StepNavigation.propTypes = {
   disabled: PropTypes.bool,
   setStep: PropTypes.func,
   showLabel: PropTypes.bool,
-  steps: PropTypes.array
+  steps: PropTypes.array,
+  totalPages: PropTypes.number.isRequired
 }
 
-export { StyledButton, StyledRadioButtonGroup }
+export { StyledRadioButtonGroup }
 export default StepNavigation

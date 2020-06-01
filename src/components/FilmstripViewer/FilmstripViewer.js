@@ -51,6 +51,7 @@ function FilmstripViewer ({
   }
 
   const handlePageRearrangement = () => rearrangePages(slopeValues)
+  const steps = images.map((src,i) => i)
 
   return (
     <RelativeBox background='#FFFFFF' pad='xsmall' round={{ size: 'xsmall', corner: 'top' }}>
@@ -62,7 +63,8 @@ function FilmstripViewer ({
             activeStep={subjectIndex}
             disabled={disabled}
             setStep={selectImage}
-            steps={images}
+            steps={steps}
+            totalPages={steps.length}
           /> )}
         <Button
           disabled={disabled}
