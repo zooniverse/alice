@@ -1,6 +1,7 @@
-import { flow, types } from 'mobx-state-tree'
+import { flow, getRoot, types } from 'mobx-state-tree'
 import apiClient from 'panoptes-client/lib/api-client.js'
 import ASYNC_STATES from 'helpers/asyncStates'
+import { ASM_INDIVIDUAL_ID, ASM_COLLABORATIVE_ID } from 'config'
 
 const Subject = types
   .model('Subject', {
@@ -14,7 +15,25 @@ const SubjectStore = types.model('SubjectStore', {
   current: types.optional(Subject, {}),
   error: types.optional(types.string, ''),
 }).actions(self => ({
+  originalSubjectCheck: flow (function * originalSubjectCheck (id) {
+    const workflows = getRoot(self).workflows
+
+    if (workflows.current.id === ASM_INDIVIDUAL_ID) {
+      const { current } = getRoot(self).transcriptions
+      const { client } = getRoot(self)
+
+      const response = yield client.get(`/transcriptions?filter[workflow_id_eq]=${ASM_COLLABORATIVE_ID}&filter[internal_id_eq]=${current.internal_id}`)
+      const resources = JSON.parse(response.body)
+      if (resources.data.length) {
+        id = resources.data[0].id
+      }
+    }
+    return id
+  }),
+
   fetchSubject: flow (function * fetchSubject (id) {
+    id = yield self.originalSubjectCheck(id)
+
     self.asyncState = ASYNC_STATES.LOADING
     try {
       const [subject] = yield apiClient.type('subjects').get({ id })
