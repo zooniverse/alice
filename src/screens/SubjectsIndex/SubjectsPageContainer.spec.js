@@ -26,7 +26,8 @@ const contextValues = {
   transcriptions: {
     all: { values: () => [] },
     asyncState: ASYNC_STATES.IDLE,
-    fetchTranscriptions: fetchTranscriptionsSpy
+    fetchTranscriptions: fetchTranscriptionsSpy,
+    totalPages: 8
   }
 }
 const history = {
@@ -65,10 +66,16 @@ describe('Component > SubjectsPageContainer', function () {
       expect(pushSpy).toHaveBeenCalled()
     })
 
-    it('should call the child setStep prop', function () {
+    it('should slice pages to the next step', function () {
       const table = wrapper.find(ResourcesTable).first()
       table.props().setStep(1)
-      expect(fetchTranscriptionsSpy).toHaveBeenCalled()
+      expect(fetchTranscriptionsSpy).toHaveBeenCalledWith(1)
+    })
+
+    it('should slice pages to the final step', function () {
+      const table = wrapper.find(ResourcesTable).first()
+      table.props().setStep(7)
+      expect(fetchTranscriptionsSpy).toHaveBeenCalledWith(7)
     })
 
     it('should not toggleModal when subject unlocked', function() {
