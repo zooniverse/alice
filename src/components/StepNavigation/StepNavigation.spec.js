@@ -1,11 +1,11 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button } from 'grommet'
+import { Button, Text } from 'grommet'
 import StepNavigation, { StyledRadioButtonGroup } from './StepNavigation'
 
 let wrapper
 const setStepSpy = jest.fn()
-const steps = [1, 2, 3]
+const steps = [0, 1, 2, 3, 4, 5, 6]
 
 describe('Component > StepNavigation', function () {
   beforeEach(function() {
@@ -13,7 +13,7 @@ describe('Component > StepNavigation', function () {
       <StepNavigation
         setStep={setStepSpy}
         steps={steps}
-        totalPages={3}
+        totalPages={7}
       />);
   })
 
@@ -34,16 +34,34 @@ describe('Component > StepNavigation', function () {
     expect(setStepSpy).toHaveBeenCalled()
   })
 
-  it('should move back a step', function () {
+  it('should move to the beginning', function () {
     const leftButton = wrapper.find(Button).first().props()
     leftButton.onClick()
     expect(setStepSpy).toHaveBeenCalledWith(leftButton['data-index'])
   })
 
+  it('should move back a step', function () {
+    const leftButton = wrapper.find(Button).at(1).props()
+    leftButton.onClick()
+    expect(setStepSpy).toHaveBeenCalledWith(leftButton['data-index'])
+  })
+
   it('should move forward a step', function () {
+    const rightButton = wrapper.find(Button).at(2).props()
+    rightButton.onClick()
+    expect(setStepSpy).toHaveBeenCalledWith(rightButton['data-index'])
+  })
+
+  it('should move to the last step', function () {
     const rightButton = wrapper.find(Button).last().props()
     rightButton.onClick()
     expect(setStepSpy).toHaveBeenCalledWith(rightButton['data-index'])
+  })
+
+  it('should show ellipses to left and right', function () {
+    wrapper.setProps({ activeStep: 3 })
+    const ellipses = wrapper.find(Text)
+    expect(ellipses.length).toBe(2)
   })
 })
 
