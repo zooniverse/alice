@@ -72,7 +72,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function addLine(index) {
-    const page = self.current.text.get(`frame${self.index}`)
+    const page = self.current.text.get(self.currentKey)
     if (!page) return
     const location = index ? index : page.length
     const newLine = Reduction.create()
@@ -134,7 +134,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   function deleteCurrentLine() {
     if (Number.isInteger(self.activeTranscriptionIndex)) {
-      const page = self.current.text.get(`frame${self.index}`)
+      const page = self.current.text.get(self.currentKey)
       page.splice(self.activeTranscriptionIndex, 1)
       self.saveTranscription()
       self.setActiveTranscription()
@@ -425,12 +425,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function setTextObject(text) {
-    if (self.current.text.get(`frame${self.index}.${self.slopeIndex}`)) {
-      self.current.text.set(`frame${self.index}.${self.slopeIndex}`, text)
-    } else {
-      self.current.text.set(`frame${self.index}`, text)
-    }
-
+    self.current.text.set(self.currentKey, text)
     self.setParsedExtracts()
     self.saveTranscription()
   }
@@ -543,9 +538,13 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   get currentTranscriptions () {
     const current = self.current && self.current.text &&
-      (self.current.text.get(`frame${self.index}.${self.slopeIndex}`) ||
-       self.current.text.get(`frame${self.index}`))
+      self.current.text.get(self.currentKey)
     return current || []
+  },
+
+  get currentKey () {
+    return self.current.text.get(`frame${self.index}.${self.slopeIndex}`) ?
+      `frame${self.index}.${self.slopeIndex}` : `frame${self.index}`
   },
 
   get readyForReview () {
