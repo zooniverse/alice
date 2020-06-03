@@ -18,7 +18,7 @@ const SubjectStore = types.model('SubjectStore', {
   originalSubjectCheck: flow (function * originalSubjectCheck (id) {
     const workflows = getRoot(self).workflows
 
-    if (workflows.current.id === ASM_INDIVIDUAL_ID) {
+    if (workflows.current && workflows.current.id === ASM_INDIVIDUAL_ID) {
       const { current } = getRoot(self).transcriptions
       const { client } = getRoot(self)
 
