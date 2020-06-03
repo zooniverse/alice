@@ -32,6 +32,7 @@ const SubjectStore = types.model('SubjectStore', {
   }),
 
   fetchSubject: flow (function * fetchSubject (id) {
+    // This is temporary while we test
     id = yield self.originalSubjectCheck(id)
 
     self.asyncState = ASYNC_STATES.LOADING

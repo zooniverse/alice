@@ -12,7 +12,7 @@ import { getPage, getSlopeLabel, isolateGroups } from 'helpers/slopeHelpers'
 import getError, { TranscriptionError } from 'helpers/getError'
 import MODALS from 'helpers/modals'
 import STATUS from 'helpers/status'
-
+import { ASM_INDIVIDUAL_ID, ASM_COLLABORATIVE_ID } from 'config'
 import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
@@ -205,11 +205,17 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   const fetchExtracts = flow(function * fetchExtracts(id) {
-    const workflowId = getRoot(self).workflows.current.id
+    let workflowId = getRoot(self).workflows.current.id
     // TODO: The extractor key below will need to change eventually. This is just
     // to test the code with ASM staging data. In the future, this will change to
     // 'alice' once current extractors have been backfilled with duplicate extractors
     // with the correct 'alice' key.
+
+    // This is temporary while we test
+    if (workflowId === ASM_INDIVIDUAL_ID) {
+      workflowId = ASM_COLLABORATIVE_ID
+    }
+
     const query = `{
       workflow(id: ${workflowId}) {
         extracts(subjectId: ${id}, extractorKey: "alice") {
@@ -217,6 +223,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         }
       }
     }`
+
     let validExtracts = []
     yield request(config.caesar, query).then((data) => {
       const filteredExtracts = data.workflow.extracts.filter(extract => Object.entries(extract.data).length > 0)
@@ -432,6 +439,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.current = id
         self.asyncState = ASYNC_STATES.READY
       })
+
+      // This is temporary while we test
+      id = yield getRoot(self).subjects.originalSubjectCheck(id)
+
       yield self.fetchExtracts(id)
       self.getSlopeKeys(false)
     } catch (error) {
