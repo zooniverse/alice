@@ -57,7 +57,8 @@ function mapExtractsToReductions(
         const extractSlope = classification[currentFrame].slope[extractIndex]
 
         const reductionSlope = reduction.line_slope
-        const similarSlope = Math.abs(Math.abs(extractSlope) - Math.abs(reductionSlope)) < SLOPE_BUFFER
+        const slopeDifference = Math.abs(Math.abs(extractSlope) - Math.abs(reductionSlope))
+        const similarSlope = Math.abs((slopeDifference + 180) % 360 - 180) < SLOPE_BUFFER
         const isMatch = text && text[0] === reductionText[reductionIndex][idIndex]
         // see if that text exists and if it matches the reductionText
         if (isMatch && similarSlope) {

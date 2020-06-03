@@ -416,7 +416,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function setParsedExtracts(arrangedExtractsByUser) {
     const extracts = []
     const extractsByUser = arrangedExtractsByUser || self.arrangeExtractsByUser()
-    const transcriptionFrame = self.current && self.current.text && self.current.text.get(`frame${self.index}`)
+    const transcriptionFrame = self.currentTranscriptions
     const reductionText = transcriptionFrame && transcriptionFrame.map(transcription => constructText(transcription))
     transcriptionFrame && transcriptionFrame.forEach((reduction, reductionIndex) => {
       extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, self.index, self.extractUsers))
