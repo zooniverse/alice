@@ -12,7 +12,7 @@ const Reduction = types.model('Reduction', {
   gold_standard: types.array(types.boolean),
   gutter_label: types.optional(types.integer, 0),
   line_editor: types.optional(types.string, ''),
-  line_slope: types.optional(types.number, 0),
+  line_slope: types.maybeNull(types.number),
   low_consensus: types.optional(types.boolean, false),
   number_views: types.optional(types.integer, 0),
   original_transcriber: types.optional(types.string, ''),

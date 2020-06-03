@@ -25,7 +25,7 @@ describe('Component > TranscriptionTable', function () {
 
   it('should hide rows without a matching slope', function () {
     wrapper = shallow(<TranscriptionTable activeSlope={90} data={mockData} />);
-    expect(0).toEqual(wrapper.find(TranscriptionTableRow).length)
+    expect(wrapper.find(TranscriptionTableRow).length).toEqual(0)
   })
 
   describe('useEffect hook', function () {
