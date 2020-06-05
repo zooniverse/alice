@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button, Text } from 'grommet'
-import StepNavigation, { StyledRadioButtonGroup } from './StepNavigation'
+import { Button, RadioButtonGroup, Text } from 'grommet'
+import StepNavigation from './StepNavigation'
 
 let wrapper
 const setStepSpy = jest.fn()
@@ -24,7 +24,7 @@ describe('Component > StepNavigation', function () {
   })
 
   it('should execute the onChange function', function () {
-    const buttons = wrapper.find(StyledRadioButtonGroup).first().props()
+    const buttons = wrapper.find(RadioButtonGroup).first().props()
     const mockEvent = {
       target: {
         value: buttons.options[0].id

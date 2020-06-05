@@ -1,30 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Box, RadioButtonGroup, Text } from 'grommet'
+import { Button, Box, RadioButton, RadioButtonGroup, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faAngleLeft,
   faAngleRight,
-  faAngleDoubleLeft,
-  faAngleDoubleRight
 } from '@fortawesome/free-solid-svg-icons'
-import styled from 'styled-components'
-
-const StyledRadioButtonGroup = styled(RadioButtonGroup)`
-  position: relative;
-  > label {
-    display: flex;
-    flex-direction: column;
-
-    > div {
-      margin: 0 0.25em;
-    }
-
-    > span {
-      font-size: 0.75em;
-    }
-  }
-`
 
 class StepNavigation extends React.Component {
   onChange (event) {
@@ -50,14 +31,7 @@ class StepNavigation extends React.Component {
         }
       })
       return (
-        <Box direction='row' gap='xsmall'>
-          <Button
-            data-index={0}
-            disabled={activeStep === 0}
-            icon={<FontAwesomeIcon icon={faAngleDoubleLeft} />}
-            onClick={() => setStep(0)}
-            plain
-          />
+        <Box direction='row' gap='xxsmall'>
           <Button
             data-index={prevStep}
             disabled={activeStep === 0}
@@ -66,31 +40,40 @@ class StepNavigation extends React.Component {
             plain
           />
 
-          <Box direction='row'>
-            {activeStep > 2 && <Text>...</Text>}
-            <StyledRadioButtonGroup
-              direction='row'
-              gap='none'
-              name='step-selectors'
-              onChange={this.onChange.bind(this)}
-              options={options}
-              value={`step-${activeStep}`}
-            />
-            {activeStep < totalPages - 3 && <Text>...</Text>}
-          </Box>
+          {activeStep > 2 && (
+            <Box direction='row' gap='xxsmall'>
+              <RadioButton
+                onClick={() => setStep(0)}
+                label={1}
+                name="First Page"
+              />
+              <Text>...</Text>
+            </Box>
+          )}
+          <RadioButtonGroup
+            direction='row'
+            gap='none'
+            name='step-selectors'
+            onChange={this.onChange.bind(this)}
+            options={options}
+            value={`step-${activeStep}`}
+          />
+          {activeStep < totalPages - 3 && (
+            <Box direction='row' gap='xxsmall'>
+              <Text>...</Text>
+              <RadioButton
+                onClick={() => setStep(totalPages - 1)}
+                label={totalPages}
+                name="Last Page"
+              />
+            </Box>
+          )}
 
           <Button
             data-index={nextStep}
             disabled={activeStep === totalPages - 1}
             icon={<FontAwesomeIcon icon={faAngleRight} />}
             onClick={() => setStep(nextStep)}
-            plain
-          />
-          <Button
-            data-index={totalPages - 1}
-            disabled={activeStep === totalPages - 1}
-            icon={<FontAwesomeIcon icon={faAngleDoubleRight} />}
-            onClick={() => setStep(totalPages - 1)}
             plain
           />
         </Box>
@@ -117,5 +100,4 @@ StepNavigation.propTypes = {
   totalPages: PropTypes.number.isRequired
 }
 
-export { StyledRadioButtonGroup }
 export default StepNavigation
