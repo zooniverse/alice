@@ -17,6 +17,7 @@ class StepNavigation extends React.Component {
   render () {
     const { activeStep, disabled, setStep, showLabel, steps, totalPages } = this.props
     if (steps && steps.length > 1) {
+      const currentStepAboveTwo = activeStep > 2
       const nextStep = activeStep + 1
       const prevStep = activeStep - 1
       const options = steps.map((step, index) => {
@@ -40,7 +41,7 @@ class StepNavigation extends React.Component {
             plain
           />
 
-          {activeStep > 2 && (
+          {currentStepAboveTwo && (
             <Box direction='row' gap='xxsmall'>
               <RadioButton
                 onClick={() => setStep(0)}

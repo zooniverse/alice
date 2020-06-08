@@ -7,12 +7,14 @@ import { EDIT_PATH } from 'paths'
 import ResourcesTable from '../../components/ResourcesTable'
 import { columns } from './table'
 
+const MAX_SHOWN_PAGES = 5
+
 function slicePages(page, totalPages) {
   const allPages = Array.from(Array(totalPages).keys())
   let leftPage = page - 2 < 0 ? 0 : page - 2
-  let rightPage = leftPage + 5
-  if (totalPages > 5 && rightPage > totalPages - 1) {
-    leftPage = totalPages - 5
+  let rightPage = leftPage + MAX_SHOWN_PAGES
+  if (totalPages > MAX_SHOWN_PAGES && rightPage > totalPages - 1) {
+    leftPage = totalPages - MAX_SHOWN_PAGES
     rightPage = totalPages
   }
   return allPages.slice(leftPage, rightPage)
