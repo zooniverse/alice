@@ -6,11 +6,9 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 function Loading() {
   return (
     <Box align='center' gap='xsmall' margin='small'>
-      <Box direction='row' gap='xsmall'>
-        <Text>Loading</Text>
-        <FontAwesomeIcon icon={faSpinner} spin />
-      </Box>
-      <Text>This could take a couple minutes</Text>
+      <FontAwesomeIcon icon={faSpinner} spin />
+      <Text>Reaggregating</Text>
+      <Text>Please be patient, this could take several minutes</Text>
     </Box>
   )
 }
