@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Layer } from 'grommet'
+import { Box } from 'grommet'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import AppContext from 'store'
@@ -65,7 +65,7 @@ function Editor ({ match, testTime }) {
   const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive
   const subject = store.subjects.current
   const locations = findLocations(subject)
-  const { blockInteraction, layout } = store.editor
+  const { layout } = store.editor
 
   const [viewerSize, setViewerSize] = React.useState(50)
   const [transcriberSize, setTranscriberSize] = React.useState(50)
@@ -111,7 +111,6 @@ function Editor ({ match, testTime }) {
 
   return (
     <Box>
-      {blockInteraction && <Layer />}
       <Box gap='small'>
         <Box
           direction={layout}

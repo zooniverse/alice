@@ -142,22 +142,24 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
-    getRoot(self).editor.toggleInteraction()
+    getRoot(self).modal.toggleModal(MODALS.LOADING)
     const client = getRoot(self).client.aggregator
-    // const query = `?eps_slope=${params.epsSlope}&eps_line=${params.epsLine}&eps_word=${params.epsWord}&gutter_tol=${params.gutterTol}&min_samples=${params.minSamples}&min_word_count=${params.minWordCount}`
-    // yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.rawExtracts) }).then((response) => {
-    //   self.redefineTranscription(response.body)
-    // })
+    const query = `?eps_slope=${params.epsSlope}&eps_line=${params.epsLine}&eps_word=${params.epsWord}&gutter_tol=${params.gutterTol}&min_samples=${params.minSamples}&min_word_count=${params.minWordCount}`
+    yield client.post(`/poly_line_text_reducer${query}`, { body: toJS(self.rawExtracts) }).then((response) => {
+      self.redefineTranscription(response.body)
+      getRoot(self).modal.toggleModal('')
+    })
   })
 
   const reaggregateOptics = flow(function * reaggregateOptics(params) {
-    getRoot(self).editor.toggleInteraction()
+    getRoot(self).modal.toggleModal(MODALS.LOADING)
     const client = getRoot(self).client.aggregator
     const minSamples = params.auto ? 'auto' : params.minSamples
-    // const query = `?min_samples=${minSamples}&xi=${params.xi}&angle_eps=${params.angleEps}&gutter_eps=${params.gutterEps}&min_line_length=${params.minLineLength}`
-    // yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.rawExtracts) }).then((response) => {
-    //   self.redefineTranscription(response.body)
-    // })
+    const query = `?min_samples=${minSamples}&xi=${params.xi}&angle_eps=${params.angleEps}&gutter_eps=${params.gutterEps}&min_line_length=${params.minLineLength}`
+    yield client.post(`/optics_line_text_reducer${query}`, { body: toJS(self.rawExtracts) }).then((response) => {
+      self.redefineTranscription(response.body)
+      getRoot(self).modal.toggleModal('')
+    })
   })
 
   function redefineTranscription(reduction) {

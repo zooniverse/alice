@@ -12,7 +12,7 @@ function ModalManager() {
   return (
     <Box>
       {CurrentModal && (
-        <Layer>
+        <Layer animate={false}>
           <CurrentModal />
         </Layer>
       )}
