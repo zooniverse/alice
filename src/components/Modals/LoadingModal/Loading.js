@@ -3,7 +3,7 @@ import { Box, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
-function Loading() {
+export default function Loading() {
   return (
     <Box align='center' gap='xsmall' margin='small'>
       <FontAwesomeIcon icon={faSpinner} spin />
@@ -12,11 +12,3 @@ function Loading() {
     </Box>
   )
 }
-
-Loading.propTypes = {
-}
-
-Loading.defaultProps = {
-}
-
-export default Loading
