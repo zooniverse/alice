@@ -104,6 +104,17 @@ const theme = {
       background: 'rgba(225, 225, 225, 0.75)'
     }
   },
+  radioButton: {
+    extend: props => css`
+      display: flex;
+      flex-direction: column;
+      font-size: 0.75em;
+
+      > div {
+        margin: 0 0.1em;
+      }
+    `
+  },
   select: {
     icons: {
       color: 'black'
