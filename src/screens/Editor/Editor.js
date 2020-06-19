@@ -65,7 +65,7 @@ function Editor ({ match, testTime }) {
   const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive
   const subject = store.subjects.current
   const locations = findLocations(subject)
-  const direction = store.editor.layout
+  const { layout } = store.editor
 
   const [viewerSize, setViewerSize] = React.useState(50)
   const [transcriberSize, setTranscriberSize] = React.useState(50)
@@ -79,7 +79,7 @@ function Editor ({ match, testTime }) {
   }
   const setNewPosition = e => {
     const bounds = editorBox.current.getBoundingClientRect();
-    if (direction === 'row') {
+    if (layout === 'row') {
       setPos({ x: e.clientX - bounds.left })
     } else {
       setPos({ y: e.clientY - bounds.top })
@@ -87,7 +87,7 @@ function Editor ({ match, testTime }) {
   }
   const resizePanels = (e) => {
     let newViewerSize
-    if (direction === 'row') {
+    if (layout === 'row') {
       newViewerSize = currentPos.x / editorBox.current.clientWidth * 100
     } else {
       newViewerSize = currentPos.y / editorBox.current.clientHeight * 100
@@ -106,14 +106,14 @@ function Editor ({ match, testTime }) {
       e.preventDefault()
     }
   }
-  const viewerMargin = direction === 'row' ? { left: 'medium', right: 'xsmall' } : { horizontal: 'medium', bottom: 'xsmall' }
-  const transcriptionsMargin = direction === 'row' ? { right: 'medium', left: 'xsmall' } : { horizontal: 'medium', top: 'xsmall' }
+  const viewerMargin = layout === 'row' ? { left: 'medium', right: 'xsmall' } : { horizontal: 'medium', bottom: 'xsmall' }
+  const transcriptionsMargin = layout === 'row' ? { right: 'medium', left: 'xsmall' } : { horizontal: 'medium', top: 'xsmall' }
 
   return (
     <Box>
       <Box gap='small'>
         <Box
-          direction={direction}
+          direction={layout}
           height='large'
           onMouseLeave={() => { setMove(false) }}
           onMouseMove={onMouseMove}
@@ -124,7 +124,7 @@ function Editor ({ match, testTime }) {
             <SubjectViewer />
           </Box>
           <Resizer
-            direction={direction}
+            direction={layout}
             disabled={disabled}
             onMouseDown={onMouseDown}
           />

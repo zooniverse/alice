@@ -112,6 +112,9 @@ const multipleTranscriptionsStub = {
 const aggregatorStub = {
   post: postCaesarSpy
 }
+const failedAggregatorPost = {
+  post: jest.fn().mockResolvedValue({ ok: false })
+}
 const singleTranscriptionStub = {
   get: getToveResponse,
   patch: patchToveSpy
@@ -474,6 +477,24 @@ describe('TranscriptionsStore', function () {
         await transcriptionsStore.saveTranscription()
         expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
         expect(consoleSpy).toHaveBeenCalled()
+      })
+
+      it('should set an error when reaggregating DBScan', async function () {
+        rootStore = AppStore.create({
+          client: { aggregator: mockJWT(failedAggregatorPost) },
+        })
+        transcriptionsStore = rootStore.transcriptions
+        await transcriptionsStore.reaggregateDBScan({})
+        expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
+      })
+
+      it('should set an error when reaggregating optics', async function () {
+        rootStore = AppStore.create({
+          client: { aggregator: mockJWT(failedAggregatorPost) },
+        })
+        transcriptionsStore = rootStore.transcriptions
+        await transcriptionsStore.reaggregateOptics({})
+        expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
       })
     })
   })
