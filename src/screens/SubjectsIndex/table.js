@@ -50,13 +50,13 @@ const columns = [
     render: datum => datum.flagged ? <Box><StyledFontAwesomeIcon color='tomato' icon={faCircle} /></Box> : null
   },
   {
-    property: "consensusScore",
+    property: "lowConsensusLines",
     header: (
-      <HeaderButton property='low_consensus_lines' title='CONSENSUS SCORE' />
+      <HeaderButton property='low_consensus_lines' title='LOW CONSENSUS LINES' />
     ),
     render: datum => {
       const color = datum.consensusScore <= datum.classifications / 2 ? 'red' : 'inherit'
-      return <Text color={color}>{datum.low_consensus_lines}/{datum.transcribed_lines}</Text>
+      return <Text color={color}>{datum.low_consensus_lines}</Text>
     }
   },
   {
