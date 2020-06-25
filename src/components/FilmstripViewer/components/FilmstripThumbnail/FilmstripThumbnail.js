@@ -5,6 +5,7 @@ import ThumbnailBorder from './ThumbnailBorder'
 
 export default function FilmstripThumbnail ({
   disabled,
+  draggable,
   hoveredIndex,
   index,
   isActive,
@@ -38,7 +39,7 @@ export default function FilmstripThumbnail ({
   return (
       <Button
         disabled={disabled}
-        draggable
+        draggable={draggable}
         margin='xsmall'
         onBlur={() => onHover(false)}
         onClick={() => selectImage(page, slopeIndex)}
@@ -67,6 +68,7 @@ export default function FilmstripThumbnail ({
 
 FilmstripThumbnail.propTypes = {
   disabled: bool,
+  draggable: bool,
   index: number,
   isActive: bool,
   rotationDegrees: number,
@@ -76,6 +78,7 @@ FilmstripThumbnail.propTypes = {
 
 FilmstripThumbnail.defaultProps = {
   disabled: false,
+  draggable: true,
   index: 0,
   isActive: false,
   rotationDegrees: null,

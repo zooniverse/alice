@@ -12,11 +12,13 @@ function FilmstripViewerContainer({ images }) {
     store.transcriptions.setActiveTranscription()
     store.transcriptions.changeIndex(page, slopeIndex)
   }
+  const inProgress = store.transcriptions.current && store.transcriptions.current.status !== 'approved'
 
   return  (
     <FilmstripViewer
       activeSlope={store.transcriptions.slopeIndex}
       disabled={disabled}
+      draggable={inProgress}
       images={images}
       isOpen={isOpen}
       rearrangePages={store.transcriptions.rearrangePages}
