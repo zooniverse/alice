@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import STATUS from 'helpers/status'
 import FilmstripViewerContainer from './FilmstripViewerContainer'
 
 let wrapper
@@ -30,5 +31,22 @@ describe('Component > FilmstripViewerContainer', function () {
     wrapper.props().selectImage()
     expect(resetSpy).toHaveBeenCalled()
     expect(changeIndexSpy).toHaveBeenCalled()
+  })
+})
+
+describe('Context > FilmstripViewerContainer', function () {
+  describe('with an approved subject', function () {
+    it('should set the draggable prop to false', function () {
+      const approvedContext = {
+        transcriptions: {
+          current: { status: STATUS.APPROVED }
+        }
+      }
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => Object.assign({}, contextValues, approvedContext ))
+      wrapper = shallow(<FilmstripViewerContainer />)
+      expect(wrapper.props().draggable).toBe(false)
+    })
   })
 })
