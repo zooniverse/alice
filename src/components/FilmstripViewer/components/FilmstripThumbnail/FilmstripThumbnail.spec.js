@@ -1,5 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import renderer from 'react-test-renderer'
+import 'jest-styled-components'
 import FilmstripThumbnail, { StyledButton } from './FilmstripThumbnail'
 
 const preventDefaultSpy = jest.fn()
@@ -84,5 +86,25 @@ describe('Component > FilmstripViewer', function () {
   it('should perform a drag start', function () {
     button.simulate('dragstart')
     expect(setHoveredIndexSpy).toHaveBeenCalledWith(0)
+  })
+
+  describe('Props > FilmstripThumbnail', function () {
+    describe('when not draggable', function () {
+      it("should set the cursor to 'cursor'", function () {
+        wrapper = shallow(<FilmstripThumbnail draggable={false} />)
+        const Btn = wrapper.find(StyledButton).first()
+        const btnTree = renderer.create(Btn).toJSON()
+        expect(btnTree).toHaveStyleRule('cursor', 'cursor')
+      })
+    })
+
+    describe('when draggable', function () {
+      it("should set the cursor to 'move'", function () {
+        wrapper = shallow(<FilmstripThumbnail draggable />)
+        const Btn = wrapper.find(StyledButton).first()
+        const btnTree = renderer.create(Btn).toJSON()
+        expect(btnTree).toHaveStyleRule('cursor', 'move')
+      })
+    })
   })
 })
