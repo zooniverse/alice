@@ -1,7 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Button } from 'grommet'
-import FilmstripThumbnail from './FilmstripThumbnail'
+import FilmstripThumbnail, { StyledButton } from './FilmstripThumbnail'
 
 const preventDefaultSpy = jest.fn()
 const rearrangePagesSpy = jest.fn()
@@ -30,7 +29,7 @@ describe('Component > FilmstripViewer', function () {
         selectImage={selectImage}
         src={'www.testlocation.com'}
       />)
-      button = wrapper.find(Button).first()
+      button = wrapper.find(StyledButton).first()
   })
 
   afterEach(() => jest.clearAllMocks());

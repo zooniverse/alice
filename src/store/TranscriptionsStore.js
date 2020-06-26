@@ -6,10 +6,13 @@ import apiClient from 'panoptes-client/lib/api-client.js'
 import { reaction, toJS } from 'mobx'
 import { request } from 'graphql-request'
 import { config } from 'config'
+
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
 import { getPage, getSlopeLabel, isolateGroups } from 'helpers/slopeHelpers'
 import getError, { TranscriptionError } from 'helpers/getError'
 import MODALS from 'helpers/modals'
+import STATUS from 'helpers/status'
+
 import Reduction from './Reduction'
 
 let Frame = types.array(Reduction)
@@ -484,9 +487,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function updateApproval(isChecked) {
     self.setActiveTranscription()
     const isAdmin = getRoot(self).projects.isAdmin
-    const query = { data: { type: 'transcriptions', attributes: { status: 'in_progress' } }}
+    const query = { data: { type: 'transcriptions', attributes: { status: STATUS.IN_PROGRESS } }}
     if (!isChecked) {
-      const newStatus = isAdmin ? 'approved' : 'ready'
+      const newStatus = isAdmin ? STATUS.APPROVED : STATUS.READY
       query.data.attributes.status = newStatus
     }
     self.current.status = query.data.attributes.status
@@ -532,13 +535,13 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   get approved () {
-    return !!(self.current && self.current.status === 'approved')
+    return !!(self.current && self.current.status === STATUS.APPROVED)
   },
 
   get approvedCount () {
     let count = 0;
     self.all.forEach(transcription => {
-      if (transcription.status === 'approved') {
+      if (transcription.status === STATUS.APPROVED) {
         count ++
       }
     })
@@ -566,7 +569,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   },
 
   get readyForReview () {
-    return !!(self.current && self.current.status === 'ready')
+    return !!(self.current && self.current.status === STATUS.READY)
   },
 
   get title () {

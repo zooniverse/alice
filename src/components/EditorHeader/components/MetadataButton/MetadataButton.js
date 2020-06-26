@@ -14,6 +14,7 @@ import { faInfo, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { bool, number, shape, string } from 'prop-types'
 import styled from 'styled-components'
 import withThemeContext from 'helpers/withThemeContext'
+import STATUS from 'helpers/status'
 import theme from './theme'
 
 const CapitalText = styled(Text)`
@@ -129,7 +130,7 @@ MetadataButton.defaultProps = {
   transcriberCount: 0,
   transcription: {
     pages: 0,
-    status: 'unseen',
+    status: STATUS.UNSEEN,
     transcribed_lines: 0
   }
 }

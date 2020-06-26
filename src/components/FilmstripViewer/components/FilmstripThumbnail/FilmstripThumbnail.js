@@ -4,7 +4,7 @@ import { bool, func, number, string } from 'prop-types'
 import ThumbnailBorder from './ThumbnailBorder'
 import styled, {css} from 'styled-components'
 
-const StyledButton = styled(Button)`
+export const StyledButton = styled(Button)`
   ${css`cursor: ${props => props.draggable ? 'move' : 'cursor'};`}
 `
 

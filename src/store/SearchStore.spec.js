@@ -1,4 +1,5 @@
 import { AppStore } from './AppStore'
+import STATUS from 'helpers/status'
 
 let searchStore
 const fetchTranscriptionsSpy = jest.fn()
@@ -81,7 +82,7 @@ describe('SearchStore', function () {
 
   it('should clear a tag', function() {
     searchStore.searchTranscriptions({ approved: true })
-    searchStore.clearTag('approved')
+    searchStore.clearTag(STATUS.APPROVED)
     expect(searchStore.approved).toBe(false)
   })
 

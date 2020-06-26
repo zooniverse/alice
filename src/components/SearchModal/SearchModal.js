@@ -7,7 +7,8 @@ import { Formik } from 'formik'
 import withThemeContext from '../../helpers/withThemeContext'
 import theme from './theme'
 import SearchCheckBox from './components/SearchCheckBox'
-import { FILTERS, TYPES } from 'store/SearchStore'
+import FILTERS from 'helpers/status'
+import { TYPES } from 'store/SearchStore'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
