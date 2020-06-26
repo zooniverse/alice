@@ -2,6 +2,11 @@ import React from 'react'
 import { Box, Button, Image } from 'grommet'
 import { bool, func, number, string } from 'prop-types'
 import ThumbnailBorder from './ThumbnailBorder'
+import styled, {css} from 'styled-components'
+
+const StyledButton = styled(Button)`
+  ${css`cursor: ${props => props.draggable ? 'move' : 'cursor'};`}
+`
 
 export default function FilmstripThumbnail ({
   disabled,
@@ -37,7 +42,7 @@ export default function FilmstripThumbnail ({
   }
 
   return (
-      <Button
+      <StyledButton
         disabled={disabled}
         draggable={draggable}
         margin='xsmall'
@@ -62,7 +67,7 @@ export default function FilmstripThumbnail ({
           />
           <Image alt={`Subject Page ${page + 1}`} fit='cover' src={src} />
         </Box>
-      </Button>
+      </StyledButton>
   )
 }
 
