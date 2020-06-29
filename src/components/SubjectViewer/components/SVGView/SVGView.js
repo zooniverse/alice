@@ -33,7 +33,11 @@ const SVGView = React.forwardRef(function ({ disabled, height, url, transform, w
           x={width * -0.5}
           y={height * -0.5}
         />
-        <InteractionLayer boundingBox={boundingBox} width={width} height={height} />
+        <InteractionLayer
+          boundingBox={boundingBox}
+          width={width}
+          height={height}
+        />
         <AnnotationsPane x={width * -0.5} y={height * -0.5} />
       </G>
     </SVG>

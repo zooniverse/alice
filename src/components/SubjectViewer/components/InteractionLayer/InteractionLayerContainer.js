@@ -2,13 +2,14 @@ import React from 'react'
 import AppContext from 'store'
 import InteractionLayer from './InteractionLayer'
 
+let startingPos = { x: 0, y: 0 }
+
 export default function InteractionLayerContainer({ boundingBox, disabled, height, width }) {
   const store = React.useContext(AppContext)
   const [isMoving, setMove] = React.useState(false)
-  const [currentPosition, setCurrentPosition] = React.useState({ x:0, y:0 })
   const onMouseDown = e => {
     if (disabled) return
-    setCurrentPosition({ x: e.clientX, y: e.clientY })
+    startingPos = { x: e.clientX, y: e.clientY }
     setMove(true)
   }
   const onMouseUp = e => {
@@ -19,10 +20,10 @@ export default function InteractionLayerContainer({ boundingBox, disabled, heigh
     if (disabled) return
     if (isMoving) {
       const difference = {
-        x: (e.clientX - currentPosition.x) / store.image.scale,
-        y: (e.clientY - currentPosition.y) / store.image.scale
+        x: (e.clientX - startingPos.x) / store.image.scale,
+        y: (e.clientY - startingPos.y) / store.image.scale
       }
-      setCurrentPosition({ x: e.clientX, y: e.clientY });
+      startingPos = { x: e.clientX, y: e.clientY }
       store.image.setTranslate(difference)
     }
   }
