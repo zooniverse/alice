@@ -446,10 +446,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
-  function setTextObject(text) {
-    self.current.text.set(self.currentKey, text)
-    self.setParsedExtracts()
-    self.saveTranscription()
+  function setTextObject(newState) {
+    if (!Ramda.equals(self.currentTranscriptions, newState)) {
+      self.current.text.set(self.currentKey, newState)
+      self.setParsedExtracts()
+      self.saveTranscription()
+    }
   }
 
   function setTranscription(transcription) {
