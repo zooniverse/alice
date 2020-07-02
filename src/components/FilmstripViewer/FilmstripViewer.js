@@ -68,7 +68,7 @@ function FilmstripViewer ({
           /> )}
         <Button
           disabled={disabled}
-          icon={isOpen ? <FormDown /> : <FormUp />}
+          icon={isOpen ? <FormUp /> : <FormDown />}
           label={<Uppercase>{actionText} Filmstrip</Uppercase>}
           gap='xsmall'
           onClick={() => { setOpen(!isOpen) }}

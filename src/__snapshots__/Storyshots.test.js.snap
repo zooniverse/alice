@@ -505,7 +505,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
             />
             <svg
-              aria-label="FormDown"
+              aria-label="FormUp"
               className="StyledIcon-ofa7kd-0 iOkQrb"
               viewBox="0 0 24 24"
             >
@@ -514,6 +514,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
                 points="18 9 12 15 6 9"
                 stroke="#000"
                 strokeWidth="2"
+                transform="matrix(1 0 0 -1 0 24)"
               />
             </svg>
           </div>
