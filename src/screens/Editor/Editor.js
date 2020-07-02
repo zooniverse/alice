@@ -56,7 +56,7 @@ function Editor ({ match, testTime }) {
     return () => {
       store.image.reset()
 
-      if (!store.transcriptions.lockedByDifferentUser) {
+      if (store.auth.user && !store.transcriptions.lockedByDifferentUser) {
         store.transcriptions.unlockTranscription()
       }
       window.removeEventListener('beforeunload', store.transcriptions.unlockTranscription);
