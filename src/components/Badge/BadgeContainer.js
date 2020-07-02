@@ -11,9 +11,7 @@ function BadgeContainer ({ onAbout }) {
   const disabled = store.aggregations.showModal || store.transcriptions.isActive
   const src = user && user.avatar_src
   const signOut = () => {
-    if (store.transcriptions.current && !store.transcriptions.lockedByDifferentUser) {
-      store.transcriptions.unlockTranscription()
-    }
+    store.transcriptions.unlockTranscription()
     store.auth.logout()
   }
 

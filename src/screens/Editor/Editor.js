@@ -32,7 +32,7 @@ function Editor ({ match, testTime }) {
     const setResources = async () => {
       await store.subjects.fetchSubject(match.params.subject)
       await store.getResources(match.params)
-      if (store.transcriptions.lockedByDifferentUser) {
+      if (!store.transcriptions.lockedByCurrentUser) {
         store.modal.toggleModal(MODALS.LOCKED)
       }
     }
