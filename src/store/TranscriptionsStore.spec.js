@@ -20,7 +20,7 @@ const getToveResponse = () => Promise.resolve(
       {
         data: TranscriptionFactory.build({
           attributes: {
-            locked_by: 'ANOTHER_USER',
+            locked_by: 'A_USER',
             text: {
               frame0: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }],
               frame1: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }]
@@ -35,12 +35,12 @@ const getToveResponse = () => Promise.resolve(
   }
 )
 
-const getToveResponseByAUser = () => Promise.resolve(
+const getToveLockedResponse = () => Promise.resolve(
   {
     body: JSON.stringify(
       {
         data: TranscriptionFactory.build({
-          attributes: { locked_by: 'A_USER' }
+          attributes: { locked_by: 'ANOTHER_USER' }
         })
       })
   }
@@ -121,8 +121,8 @@ const singleTranscriptionStub = {
   patch: patchToveSpy
 }
 
-const unlockedTranscriptionStub = {
-  get: getToveResponseByAUser
+const lockedTranscriptionStub = {
+  get: getToveLockedResponse
 }
 
 const failedToveStub = {
@@ -216,7 +216,7 @@ describe('TranscriptionsStore', function () {
             }
           })
         rootStore = AppStore.create({
-          auth: { user: { display_name: 'A_USER' } },
+          auth: { user: { display_name: 'A_USER', login: 'A_USER' } },
           client: {
             aggregator: aggregatorStub,
             tove: mockJWT(singleTranscriptionStub),
@@ -316,11 +316,6 @@ describe('TranscriptionsStore', function () {
         expect(transcriptionsStore.activeTranscriptionIndex).toBe(1)
       })
 
-      it('should show when the transcription is locked', async function () {
-        await transcriptionsStore.checkIfLocked()
-        expect(toggleModalSpy).toHaveBeenCalled()
-      })
-
       it('should unlock a transcription', async function () {
         await transcriptionsStore.unlockTranscription()
         expect(patchToveSpy).toHaveBeenCalledWith(
@@ -329,25 +324,8 @@ describe('TranscriptionsStore', function () {
         )
       })
 
-      it('should return true if the transcription is lockedByDifferentUser', function () {
-        expect(transcriptionsStore.lockedByDifferentUser).toBe(true)
-      })
-
-      it('should return false if the transcription is not lockedByDifferentUser', async function () {
-        const unlockableStore = AppStore.create({
-          auth: { user: { login: 'A_USER' } },
-          client: { tove: mockJWT(unlockedTranscriptionStub), toveZip: mockJWT() },
-          groups: {
-            current: { display_name: 'GROUP_1' }
-          },
-          workflows: {
-            all: { 1: { id: '1' } },
-            current: '1'
-          }
-        })
-        const unlockedTranscriptionStore = unlockableStore.transcriptions
-        await unlockedTranscriptionStore.selectTranscription(1)
-        expect(unlockedTranscriptionStore.lockedByDifferentUser).toBe(false)
+      it('should return true if the transcription is lockedByCurrentUser', function () {
+        expect(transcriptionsStore.lockedByCurrentUser).toBe(true)
       })
 
       describe('when rearranging pages', function () {
@@ -370,6 +348,44 @@ describe('TranscriptionsStore', function () {
           'frame0.1': 90,
           'frame1.0': 0,
           'frame1.1': 90
+        })
+      })
+
+      describe('with a locked transcription', function () {
+        let unlockedTranscriptionStore
+
+        beforeEach(function () {
+          const unlockedStore = AppStore.create({
+            auth: { user: { login: 'A_USER' } },
+            client: { tove: mockJWT(lockedTranscriptionStub), toveZip: mockJWT() },
+            groups: {
+              current: { display_name: 'GROUP_1' }
+            },
+            workflows: {
+              all: { 1: { id: '1' } },
+              current: '1'
+            }
+          })
+          Object.defineProperty(
+            unlockedStore.modal, 'toggleModal',
+            { writable: true, value: toggleModalSpy }
+          )
+          unlockedTranscriptionStore = unlockedStore.transcriptions
+        })
+
+        it('should return false if the transcription is not lockedByCurrentUser', async function () {
+          await unlockedTranscriptionStore.selectTranscription(1)
+          expect(unlockedTranscriptionStore.lockedByCurrentUser).toBe(false)
+        })
+
+        it('should show when the transcription is locked', async function () {
+          await unlockedTranscriptionStore.checkIfLocked()
+          expect(toggleModalSpy).toHaveBeenCalled()
+        })
+
+        it('should not unlock a transcription', async function () {
+          await unlockedTranscriptionStore.unlockTranscription()
+          expect(patchToveSpy).not.toHaveBeenCalled()
         })
       })
 
