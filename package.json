@@ -46,6 +46,9 @@
     "nock": "^11.3.5",
     "require-context.macro": "^1.2.2"
   },
+  "resolutions": {
+    "kind-of": "^6.0.3"
+  },
   "homepage": "https://alice.zooniverse.org",
   "scripts": {
     "_publish": "publisssh ./build \"zooniverse-static/$PATH_ROOT\"",
