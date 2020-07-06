@@ -61,6 +61,18 @@ function LineViewer ({
     if (isNewLine) closeModal()
   }
 
+  React.useEffect((e) => {
+    function isEscPressed(e) {
+      const ESC_KEY_CODE = 27
+      if (e.keyCode === ESC_KEY_CODE) {
+        closeModal()
+      }
+    }
+
+    window.addEventListener('keyup', isEscPressed);
+    return () => window.removeEventListener('keyup', isEscPressed);
+  }, [closeModal])
+
   return (
     <RelativeBox background='white' elevation='small' round='xsmall' width='large'>
       {showDeleteModal && <DeleteModal toggleModal={toggleDeleteModal} />}
