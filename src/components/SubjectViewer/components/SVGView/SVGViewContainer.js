@@ -63,6 +63,7 @@ function SVGViewContainer () {
       <SVGView
         disabled={disableInteraction}
         height={naturalHeight}
+        image={store.image}
         ref={svgEl}
         transform={transform}
         url={src}

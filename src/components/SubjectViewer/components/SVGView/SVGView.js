@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { bool, string, number } from 'prop-types'
-import AppContext from 'store'
+import { bool, func, shape, string, number } from 'prop-types'
 import AnnotationsPane from '../AnnotationsPane'
 
-let startingPos = { x: 0, y: 0 }
+let cursorPos = { x: 0, y: 0 }
 
 const SVG = styled.svg`
   height: 100%;
@@ -15,10 +14,9 @@ const SVG = styled.svg`
   }
 `
 
-const SVGView = React.forwardRef(function ({ disabled, height, url, transform, width}, ref) {
+const SVGView = React.forwardRef(function ({ disabled, height, image, url, transform, width}, ref) {
   if (url.length === 0 || disabled || !ref) return null;
 
-  const store = React.useContext(AppContext)
   const [isMoving, setMove] = React.useState(false)
 
   const boundingBox = ref.current && ref.current.getBoundingClientRect()
@@ -27,18 +25,18 @@ const SVGView = React.forwardRef(function ({ disabled, height, url, transform, w
   const viewBox = `${-viewerWidth/2} ${-viewerHeight/2} ${viewerWidth || 0} ${viewerHeight || 0}`
 
   const onMouseDown = e => {
-    startingPos = { x: e.clientX, y: e.clientY }
+    cursorPos = { x: e.clientX, y: e.clientY }
     setMove(true)
   }
   const onMouseMove = e => {
     if (!isMoving) return
 
     const difference = {
-      x: (e.clientX - startingPos.x) / store.image.scale,
-      y: (e.clientY - startingPos.y) / store.image.scale
+      x: (e.clientX - cursorPos.x) / image.scale,
+      y: (e.clientY - cursorPos.y) / image.scale
     }
-    startingPos = { x: e.clientX, y: e.clientY }
-    store.image.setTranslate(difference)
+    cursorPos = { x: e.clientX, y: e.clientY }
+    image.setTranslate(difference)
   }
 
   return (
@@ -66,6 +64,10 @@ const SVGView = React.forwardRef(function ({ disabled, height, url, transform, w
 SVGView.propTypes = {
   disabled: bool,
   height: number,
+  image: shape({
+    scale: number,
+    setTranslate: func
+  }),
   transform: string,
   url: string,
   width: number
@@ -74,6 +76,7 @@ SVGView.propTypes = {
 SVGView.defaultProps = {
   disabled: true,
   height: 0,
+  image: null,
   transform: '',
   url: '',
   width: 0
