@@ -32,6 +32,7 @@ function usePrevious(rawValue) {
 function FilmstripViewer ({
   activeSlope,
   disabled,
+  draggable,
   images,
   isOpen,
   rearrangePages,
@@ -89,6 +90,7 @@ function FilmstripViewer ({
                 <Box border={border} key={`THUMBNAIL_${i}`} margin={{ bottom: 'xsmall' }}>
                   <FilmstripThumbnail
                     disabled={disabled}
+                    draggable={draggable}
                     hoveredIndex={hoveredIndex}
                     index={i}
                     isActive={isActive}
@@ -112,6 +114,7 @@ function FilmstripViewer ({
 
 FilmstripViewer.defaultProps = {
   disabled: false,
+  draggable: true,
   images: [],
   isOpen: true,
   selectImage: () => {},
@@ -123,6 +126,7 @@ FilmstripViewer.defaultProps = {
 
 FilmstripViewer.propTypes = {
   disabled: PropTypes.bool,
+  draggable: PropTypes.bool,
   images: PropTypes.arrayOf(PropTypes.string),
   isOpen: PropTypes.bool,
   selectImage: PropTypes.func,

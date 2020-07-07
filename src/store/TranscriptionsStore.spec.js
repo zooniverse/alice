@@ -3,6 +3,7 @@ import * as graphQl from 'graphql-request'
 import apiClient from 'panoptes-client/lib/api-client.js';
 import { mockExtract } from 'helpers/parseTranscriptionData.spec'
 import mockJWT from 'helpers/mockJWT'
+import STATUS from 'helpers/status'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
 
@@ -99,7 +100,7 @@ const multipleTranscriptionsStub = {
     {
       body: JSON.stringify(
         {
-          data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: 'approved', subject_id: '2', text: new Map() }})],
+          data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: STATUS.APPROVED, subject_id: '2', text: new Map() }})],
           meta: {
             pagination: { last: 1 }
           }

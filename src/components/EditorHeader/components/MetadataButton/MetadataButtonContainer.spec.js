@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
+import STATUS from 'helpers/status'
 import MetadataButtonContainer from './MetadataButtonContainer'
 
 let wrapper
@@ -15,7 +16,7 @@ const contextValues = {
   },
   transcriptions: {
     current: {
-      status: 'approved'
+      status: STATUS.APPROVED
     }
   }
 }

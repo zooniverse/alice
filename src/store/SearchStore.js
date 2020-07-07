@@ -1,17 +1,9 @@
 import { getRoot, types } from 'mobx-state-tree'
+import STATUS from 'helpers/status'
 
 const TYPES = {
   ZOONIVERSE: 'ZOONIVERSE ID',
   INTERNAL: 'INTERNAL ID'
-}
-
-const FILTERS = {
-  APPROVED: 'approved',
-  FLAGGED: 'flagged',
-  IN_PROGRESS: 'in_progress',
-  LOW_CONSENSUS: 'low_consensus',
-  READY: 'ready',
-  UNSEEN: 'unseen'
 }
 
 const SORT_VALUES = [
@@ -66,8 +58,8 @@ const SearchStore = types.model('SearchStore', {
     const transcriptions = getRoot(self).transcriptions
     transcriptions.reset()
     let queries = []
-    const approvalFilters = [FILTERS.UNSEEN, FILTERS.IN_PROGRESS, FILTERS.READY, FILTERS.APPROVED]
-    const additionalFilters = [FILTERS.FLAGGED, FILTERS.LOW_CONSENSUS]
+    const approvalFilters = [STATUS.UNSEEN, STATUS.IN_PROGRESS, STATUS.READY, STATUS.APPROVED]
+    const additionalFilters = [STATUS.FLAGGED, STATUS.LOW_CONSENSUS]
     const activeApprovalFilters = []
     const activeAdditionalFilters = []
 
@@ -162,4 +154,4 @@ const SearchStore = types.model('SearchStore', {
   }
 }))
 
-export { FILTERS, SearchStore, TYPES }
+export { SearchStore, TYPES }

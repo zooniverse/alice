@@ -2,9 +2,15 @@ import React from 'react'
 import { Box, Button, Image } from 'grommet'
 import { bool, func, number, string } from 'prop-types'
 import ThumbnailBorder from './ThumbnailBorder'
+import styled, {css} from 'styled-components'
+
+export const StyledButton = styled(Button)`
+  ${css`cursor: ${props => props.draggable ? 'move' : 'cursor'};`}
+`
 
 export default function FilmstripThumbnail ({
   disabled,
+  draggable,
   hoveredIndex,
   index,
   isActive,
@@ -36,9 +42,9 @@ export default function FilmstripThumbnail ({
   }
 
   return (
-      <Button
+      <StyledButton
         disabled={disabled}
-        draggable
+        draggable={draggable}
         margin='xsmall'
         onBlur={() => onHover(false)}
         onClick={() => selectImage(page, slopeIndex)}
@@ -61,12 +67,13 @@ export default function FilmstripThumbnail ({
           />
           <Image alt={`Subject Page ${page + 1}`} fit='cover' src={src} />
         </Box>
-      </Button>
+      </StyledButton>
   )
 }
 
 FilmstripThumbnail.propTypes = {
   disabled: bool,
+  draggable: bool,
   index: number,
   isActive: bool,
   rotationDegrees: number,
@@ -76,6 +83,7 @@ FilmstripThumbnail.propTypes = {
 
 FilmstripThumbnail.defaultProps = {
   disabled: false,
+  draggable: true,
   index: 0,
   isActive: false,
   rotationDegrees: null,

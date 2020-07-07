@@ -1,6 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import AppContext from 'store'
+import STATUS from 'helpers/status'
 import FilmstripViewer from './FilmstripViewer'
 
 function FilmstripViewerContainer({ images }) {
@@ -12,11 +13,13 @@ function FilmstripViewerContainer({ images }) {
     store.transcriptions.setActiveTranscription()
     store.transcriptions.changeIndex(page, slopeIndex)
   }
+  const inProgress = store.transcriptions.current && store.transcriptions.current.status !== STATUS.APPROVED
 
   return  (
     <FilmstripViewer
       activeSlope={store.transcriptions.slopeIndex}
       disabled={disabled}
+      draggable={inProgress}
       images={images}
       isOpen={isOpen}
       rearrangePages={store.transcriptions.rearrangePages}
