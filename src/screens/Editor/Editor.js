@@ -54,6 +54,8 @@ function Editor ({ match, testTime }) {
     window.addEventListener('visibilitychange', handleTimeCheck)
 
     return () => {
+      store.image.reset()
+
       if (!store.transcriptions.lockedByDifferentUser) {
         store.transcriptions.unlockTranscription()
       }
