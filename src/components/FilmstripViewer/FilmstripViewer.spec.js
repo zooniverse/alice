@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { Button } from 'grommet'
 import FilmstripViewer from './FilmstripViewer'
@@ -26,10 +26,7 @@ const slopeKeys = ['frame0.0', 'frame1.0', 'frame2.0', 'frame3.0', 'frame4.0', '
 
 describe('Component > FilmstripViewer', function () {
   beforeEach(function() {
-    jest
-      .spyOn(React, 'useState')
-      .mockImplementation((init) => [init, jest.fn()])
-    wrapper = shallow(
+    wrapper = mount(
       <FilmstripViewer
         images={[Page1, Page2, Page3, Page4, Page5, Page6]}
         slopeDefinitions={slopeDefinitions}
