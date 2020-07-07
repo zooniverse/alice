@@ -221,7 +221,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     undoManager.withoutUndo(() => self.rawExtracts = validExtracts)
     const arrangedExtractsByUser = self.arrangeExtractsByUser()
     yield self.getTranscriberInfo(arrangedExtractsByUser)
-    self.setParsedExtracts(arrangedExtractsByUser)
+    self.setParsedExtracts(arrangedExtractsByUser, false)
   })
 
   const fetchTranscriptions = function * fetchTranscriptions(page = 0, shouldReset = true) {
@@ -431,21 +431,27 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     self.activeTranscriptionIndex = id
   }
 
-  function setParsedExtracts(arrangedExtractsByUser) {
+  function setParsedExtracts(arrangedExtractsByUser, commitToHistory = true) {
     const extracts = []
     const extractsByUser = arrangedExtractsByUser || self.arrangeExtractsByUser()
-    const transcriptionFrame = self.currentTranscriptions
-    const reductionText = transcriptionFrame && transcriptionFrame.map(transcription => constructText(transcription))
-    transcriptionFrame && transcriptionFrame.forEach((reduction, reductionIndex) => {
+    const reductionText = self.currentTranscriptions
+      && self.currentTranscriptions.map(transcription => constructText(transcription))
+    self.currentTranscriptions && self.currentTranscriptions.forEach((reduction, reductionIndex) => {
       extracts.push(mapExtractsToReductions(extractsByUser, reduction, reductionIndex, reductionText, self.index, self.extractUsers))
     })
-    self.parsedExtracts = extracts
+    if (commitToHistory) {
+      self.parsedExtracts = extracts
+    } else {
+      undoManager.withoutUndo(() => self.parsedExtracts = extracts)
+    }
   }
 
-  function setTextObject(text) {
-    self.current.text.set(self.currentKey, text)
-    self.setParsedExtracts()
-    self.saveTranscription()
+  function setTextObject(newState) {
+    if (!Ramda.equals(self.currentTranscriptions, newState)) {
+      self.current.text.set(self.currentKey, newState)
+      self.setParsedExtracts()
+      self.saveTranscription()
+    }
   }
 
   function setTranscription(transcription) {
@@ -517,7 +523,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     saveTranscription,
     selectTranscription,
     setActiveTranscription,
-    setParsedExtracts: (extractsByUser) => undoManager.withoutUndo(() => setParsedExtracts(extractsByUser)),
+    setParsedExtracts,
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
     toggleError: () => undoManager.withoutUndo(() => toggleError()),
