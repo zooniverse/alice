@@ -482,42 +482,6 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
         >
           All Pages
         </span>
-        <button
-          className="StyledButton-sc-323bzc-0 dmFHgS"
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onMouseOut={[Function]}
-          onMouseOver={[Function]}
-          type="button"
-        >
-          <div
-            className="StyledBox-sc-13pk1d4-0 jHQJnz"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-brqgnP gxqauL"
-            >
-              Collapse
-               Filmstrip
-            </span>
-            <div
-              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-            />
-            <svg
-              aria-label="FormDown"
-              className="StyledIcon-ofa7kd-0 iOkQrb"
-              viewBox="0 0 24 24"
-            >
-              <polyline
-                fill="none"
-                points="18 9 12 15 6 9"
-                stroke="#000"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-        </button>
       </div>
       <div
         className="StyledBox-sc-13pk1d4-0 ilHtzj"
@@ -725,7 +689,7 @@ exports[`Storyshots LineViewer Default 1`] = `
         <div
           className="StyledBox-sc-13pk1d4-0 iRPRCt"
         >
-          
+
           <div
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
@@ -1435,7 +1399,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-jAaTju lmAtdT"
       >
-        This subject cannot be accessed because 
+        This subject cannot be accessed because
         <strong />
          is currently accessing it.
       </span>
