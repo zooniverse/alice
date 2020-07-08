@@ -12,6 +12,9 @@ ref.current = { getBoundingClientRect: () => {
 } }
 
 const setTranslateSpy = jest.fn()
+const mockEvent = {
+  preventDefault: () => {}
+}
 
 describe('Component > SVGView', function () {
   afterEach(() => jest.clearAllMocks());
@@ -45,11 +48,13 @@ describe('Component > SVGView', function () {
   describe('Functions > SVGView', function () {
     const initialPos = {
       clientX: 0,
-      clientY: 0
+      clientY: 0,
+      preventDefault: () => {}
     }
     const movePos = {
       clientX: 10,
-      clientY: 10
+      clientY: 10,
+      preventDefault: () => {}
     }
 
     let wrapper
@@ -90,7 +95,7 @@ describe('Component > SVGView', function () {
       describe('after onMouseLeave', function () {
         it('should not move the svg', function () {
           wrapper.props().onMouseDown(initialPos)
-          wrapper.props().onMouseLeave()
+          wrapper.props().onMouseLeave(mockEvent)
           wrapper.props().onMouseMove(movePos)
           expect(setTranslateSpy).not.toHaveBeenCalled()
         })
@@ -99,7 +104,7 @@ describe('Component > SVGView', function () {
       describe('after onMouseUp', function () {
         it('should not move the svg', function () {
           wrapper.props().onMouseDown(initialPos)
-          wrapper.props().onMouseUp()
+          wrapper.props().onMouseUp(mockEvent)
           wrapper.props().onMouseMove(movePos)
           expect(setTranslateSpy).not.toHaveBeenCalled()
         })

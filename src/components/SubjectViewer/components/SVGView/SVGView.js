@@ -25,10 +25,12 @@ const SVGView = React.forwardRef(function ({ disabled, height, image, url, trans
   const viewBox = `${-viewerWidth/2} ${-viewerHeight/2} ${viewerWidth || 0} ${viewerHeight || 0}`
 
   const onMouseDown = e => {
+    e.preventDefault()
     cursorPos = { x: e.clientX, y: e.clientY }
     setMove(true)
   }
   const onMouseMove = e => {
+    e.preventDefault()
     if (!isMoving) return
 
     const difference = {
@@ -42,9 +44,15 @@ const SVGView = React.forwardRef(function ({ disabled, height, image, url, trans
   return (
     <SVG
       onMouseDown={onMouseDown}
-      onMouseLeave={() => setMove(false)}
+      onMouseLeave={(e) => {
+        e.preventDefault()
+        setMove(false)
+      }}
       onMouseMove={onMouseMove}
-      onMouseUp={() => setMove(false)}
+      onMouseUp={(e) => {
+        e.preventDefault()
+        setMove(false)
+      }}
       viewBox={viewBox}
     >
       <g transform={transform}>
