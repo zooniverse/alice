@@ -1,31 +1,61 @@
 import React from 'react'
 import styled from 'styled-components'
-import { bool, string, number } from 'prop-types'
+import { bool, func, shape, string, number } from 'prop-types'
 import AnnotationsPane from '../AnnotationsPane'
-import InteractionLayer from '../InteractionLayer'
+
+let cursorPos = { x: 0, y: 0 }
 
 const SVG = styled.svg`
   height: 100%;
   width: 100%;
-`
 
-const G = styled.g`
   :hover {
     cursor: move;
   }
 `
 
-const SVGView = React.forwardRef(function ({ disabled, height, url, transform, width}, ref) {
+const SVGView = React.forwardRef(function ({ disabled, height, image, url, transform, width}, ref) {
   if (url.length === 0 || disabled || !ref) return null;
+
+  const [isMoving, setMove] = React.useState(false)
 
   const boundingBox = ref.current && ref.current.getBoundingClientRect()
   const viewerWidth = (boundingBox && boundingBox.width) || 0
   const viewerHeight = (boundingBox && boundingBox.height) || 0
   const viewBox = `${-viewerWidth/2} ${-viewerHeight/2} ${viewerWidth || 0} ${viewerHeight || 0}`
 
+  const onMouseDown = e => {
+    e.preventDefault()
+    cursorPos = { x: e.clientX, y: e.clientY }
+    setMove(true)
+  }
+  const onMouseMove = e => {
+    e.preventDefault()
+    if (!isMoving) return
+
+    const difference = {
+      x: (e.clientX - cursorPos.x) / image.scale,
+      y: (e.clientY - cursorPos.y) / image.scale
+    }
+    cursorPos = { x: e.clientX, y: e.clientY }
+    image.setTranslate(difference)
+  }
+
   return (
-    <SVG viewBox={viewBox}>
-      <G transform={transform}>
+    <SVG
+      onMouseDown={onMouseDown}
+      onMouseLeave={(e) => {
+        e.preventDefault()
+        setMove(false)
+      }}
+      onMouseMove={onMouseMove}
+      onMouseUp={(e) => {
+        e.preventDefault()
+        setMove(false)
+      }}
+      viewBox={viewBox}
+    >
+      <g transform={transform}>
         <image
           height={height}
           width={width}
@@ -33,9 +63,8 @@ const SVGView = React.forwardRef(function ({ disabled, height, url, transform, w
           x={width * -0.5}
           y={height * -0.5}
         />
-        <InteractionLayer boundingBox={boundingBox} width={width} height={height} />
         <AnnotationsPane x={width * -0.5} y={height * -0.5} />
-      </G>
+      </g>
     </SVG>
   )
 })
@@ -43,6 +72,10 @@ const SVGView = React.forwardRef(function ({ disabled, height, url, transform, w
 SVGView.propTypes = {
   disabled: bool,
   height: number,
+  image: shape({
+    scale: number,
+    setTranslate: func
+  }),
   transform: string,
   url: string,
   width: number
@@ -51,6 +84,7 @@ SVGView.propTypes = {
 SVGView.defaultProps = {
   disabled: true,
   height: 0,
+  image: null,
   transform: '',
   url: '',
   width: 0
