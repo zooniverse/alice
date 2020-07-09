@@ -299,7 +299,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       setTimeout(() => {
         const mostRecentPatch = patchQueue.pop()
         if (mostRecentPatch) {
-          patchTranscription(mostRecentPatch)
+          self.patchTranscription(mostRecentPatch)
         }
         patchQueue = []
       }, MIN_TIME_BETWEEN_PATCH)
@@ -420,7 +420,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       query.data.attributes.reducer = self.current.reducer
       query.data.attributes.parameters = self.current.parameters
     }
-    self.patchTranscription(query)
+    self.enqueuePatch(query)
   }
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
@@ -530,6 +530,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     checkIfLocked,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
+    enqueuePatch,
     fetchExtracts,
     fetchTranscriptions: (page, shouldReset) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page, shouldReset),
     getLastModified,
