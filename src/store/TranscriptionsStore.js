@@ -396,7 +396,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   })
 
-  const saveTranscription = flow(function * saveTranscription() {
+  function saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const frame_order = toJS(self.current.frame_order)
     const textBlob = toJS(self.current.text)
@@ -411,6 +411,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         attributes: {
           flagged: self.current.flagged,
           frame_order,
+          status: self.current.status,
           text: updatedTranscription
         }
       }
@@ -419,8 +420,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       query.data.attributes.reducer = self.current.reducer
       query.data.attributes.parameters = self.current.parameters
     }
-    yield self.patchTranscription(query)
-  })
+    self.patchTranscription(query)
+  }
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
     if (!id) return undefined
@@ -512,13 +513,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function updateApproval(isChecked) {
     self.setActiveTranscription()
     const isAdmin = getRoot(self).projects.isAdmin
-    const query = { data: { type: 'transcriptions', attributes: { status: STATUS.IN_PROGRESS } }}
+    let status = STATUS.IN_PROGRESS
     if (!isChecked) {
-      const newStatus = isAdmin ? STATUS.APPROVED : STATUS.READY
-      query.data.attributes.status = newStatus
+      status = isAdmin ? STATUS.APPROVED : STATUS.READY
     }
-    self.current.status = query.data.attributes.status
-    self.patchTranscription(query)
+    self.current.status = status
+    self.saveTranscription()
   }
 
   return {
