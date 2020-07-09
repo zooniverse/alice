@@ -20,6 +20,9 @@ const Extension = types.refinement(types.map(Frame), snapshot => {
   return Ramda.all(Ramda.startsWith('frame'), Ramda.keys(snapshot))
 })
 
+let patchQueue = []
+const MIN_TIME_BETWEEN_PATCH = 3000
+
 const Transcription = types.model('Transcription', {
   id: types.identifier,
   flagged: types.optional(types.boolean, false),
@@ -290,6 +293,20 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }, {})
     })
   })
+
+  function enqueuePatch(query) {
+    if (patchQueue.length === 0) {
+      setTimeout(() => {
+        const mostRecentPatch = patchQueue.pop()
+        if (mostRecentPatch) {
+          patchTranscription(mostRecentPatch)
+        }
+        patchQueue = []
+      }, MIN_TIME_BETWEEN_PATCH)
+    }
+
+    patchQueue.push(query)
+  }
 
   const patchTranscription = flow(function * patchTranscription(query) {
     const { client } = getRoot(self)
