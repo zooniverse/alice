@@ -205,6 +205,7 @@ describe('TranscriptionsStore', function () {
   describe('fetching a single transcription', function () {
     describe('success state', function () {
       beforeEach(async function () {
+        jest.useFakeTimers();
         jest
           .spyOn(graphQl, 'request')
           .mockImplementation(() => Promise.resolve(extracts))
@@ -280,6 +281,7 @@ describe('TranscriptionsStore', function () {
 
       it('should save a transcription', async function () {
         await transcriptionsStore.saveTranscription()
+        jest.runAllTimers()
         expect(patchToveSpy).toHaveBeenCalled()
         expect(transcriptionsStore.current.last_modified).toBe('Mon, June 31, 2020')
       })

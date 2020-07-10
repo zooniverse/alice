@@ -294,7 +294,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
-  function enqueuePatch(query) {
+  const enqueuePatch = flow(function * enqueuePatch(query) {
     if (patchQueue.length === 0) {
       setTimeout(() => {
         const mostRecentPatch = patchQueue.pop()
@@ -306,13 +306,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
 
     patchQueue.push(query)
-  }
+  })
 
   const patchTranscription = flow(function * patchTranscription(query) {
     const { client } = getRoot(self)
     let lastModified
     try {
+      console.log('PATCHING');
       yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
+        console.log('PATCH DONE');
         if (response.ok) {
           lastModified = getLastModified(response)
           return response
@@ -396,7 +398,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   })
 
-  function saveTranscription() {
+  const saveTranscription = flow(function * saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const frame_order = toJS(self.current.frame_order)
     const textBlob = toJS(self.current.text)
@@ -420,8 +422,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       query.data.attributes.reducer = self.current.reducer
       query.data.attributes.parameters = self.current.parameters
     }
-    self.enqueuePatch(query)
-  }
+    yield self.enqueuePatch(query)
+  })
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
     if (!id) return undefined
@@ -549,6 +551,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setParsedExtracts,
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
+    test,
     toggleError: () => undoManager.withoutUndo(() => toggleError()),
     undo,
     unlockTranscription,
