@@ -280,13 +280,14 @@ describe('TranscriptionsStore', function () {
       })
 
       it('should save a transcription', async function () {
-        await transcriptionsStore.saveTranscription()
         jest.runAllTimers()
+        await transcriptionsStore.saveTranscription()
         expect(patchToveSpy).toHaveBeenCalled()
         expect(transcriptionsStore.current.last_modified).toBe('Mon, June 31, 2020')
       })
 
       it('should update the flagged attribute', async function () {
+        jest.runAllTimers()
         await transcriptionsStore.setTextObject([mockReduction])
         expect(transcriptionsStore.current.flagged).toBe(false)
         transcriptionsStore.checkForFlagUpdate()
@@ -401,6 +402,7 @@ describe('TranscriptionsStore', function () {
         })
 
         it('should delete a line', async function () {
+          jest.runAllTimers()
           transcriptionsStore.setActiveTranscription(0)
           const current = transcriptionsStore.current.text.get('frame0')
           expect(current.length).toBe(2)
@@ -419,6 +421,7 @@ describe('TranscriptionsStore', function () {
 
       describe('and making a change', function () {
         it('should undo the previous action', async function () {
+          jest.runAllTimers()
           await transcriptionsStore.setTextObject([mockReduction])
           transcriptionsStore.undo()
           expect(patchToveSpy).toHaveBeenCalled()
@@ -437,6 +440,7 @@ describe('TranscriptionsStore', function () {
             minSamples: 5,
             minWordCount: 6
           }
+          jest.runAllTimers()
           await transcriptionsStore.reaggregateDBScan(params)
           expect(postCaesarSpy).toHaveBeenCalled()
           expect(transcriptionsStore.current.low_consensus_lines).toBe(mockReaggregation.low_consensus_lines)
@@ -451,6 +455,7 @@ describe('TranscriptionsStore', function () {
             gutterEps: 4,
             minLineLength: 5
           }
+          jest.runAllTimers()
           await transcriptionsStore.reaggregateOptics(params)
           expect(postCaesarSpy).toHaveBeenCalled()
           expect(transcriptionsStore.current.low_consensus_lines).toBe(mockReaggregation.low_consensus_lines)
@@ -461,39 +466,11 @@ describe('TranscriptionsStore', function () {
 
     describe('failure state', function () {
       it('should register an error on selecting', async function () {
-        rootStore = AppStore.create({ client: { tove: mockJWT(failedToveStub), toveZip: mockJWT() }})
-        transcriptionsStore = rootStore.transcriptions
-        await transcriptionsStore.selectTranscription(1)
-        expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
-        expect(consoleSpy).toHaveBeenCalled()
-      })
-
-      it('should register an error on patching', async function () {
         rootStore = AppStore.create({
-          client: { tove: mockJWT(failedTovePatch), toveZip: mockJWT() },
-          workflows: {
-            all: { 1: { id: '1' } },
-            current: '1'
-          }
+          client: { tove: mockJWT(failedToveStub), toveZip: mockJWT() }
         })
         transcriptionsStore = rootStore.transcriptions
         await transcriptionsStore.selectTranscription(1)
-        await transcriptionsStore.saveTranscription()
-        expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
-        expect(consoleSpy).toHaveBeenCalled()
-      })
-
-      it('should register an error on patching if response not ok', async function () {
-        rootStore = AppStore.create({
-          client: { tove: mockJWT(failedTovePatchNotOk), toveZip: mockJWT() },
-          workflows: {
-            all: { 1: { id: '1' } },
-            current: '1'
-          }
-        })
-        transcriptionsStore = rootStore.transcriptions
-        await transcriptionsStore.selectTranscription(1)
-        await transcriptionsStore.saveTranscription()
         expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.ERROR)
         expect(consoleSpy).toHaveBeenCalled()
       })

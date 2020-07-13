@@ -285,7 +285,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     let usersWhoClassified = Object.keys(arrangedExtractsByUser)
     usersWhoClassified = usersWhoClassified.filter(user => user !== 'null')
     const users = yield apiClient.type('users').get({ id: usersWhoClassified })
-
     undoManager.withoutUndo(() => {
       self.extractUsers = users.reduce((list, user) => {
         list[user.id] = user.display_name
@@ -304,7 +303,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         patchQueue = []
       }, MIN_TIME_BETWEEN_PATCH)
     }
-
     patchQueue.push(query)
   })
 
@@ -312,9 +310,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const { client } = getRoot(self)
     let lastModified
     try {
-      console.log('PATCHING');
       yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
-        console.log('PATCH DONE');
         if (response.ok) {
           lastModified = getLastModified(response)
           return response
