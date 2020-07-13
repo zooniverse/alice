@@ -1,51 +1,14 @@
 import ASYNC_STATES from 'helpers/asyncStates'
-import * as graphQl from 'graphql-request'
-import apiClient from 'panoptes-client/lib/api-client.js';
-import { mockExtract } from 'helpers/parseTranscriptionData.spec'
 import mockJWT from 'helpers/mockJWT'
-import STATUS from 'helpers/status'
 import { AppStore } from './AppStore'
-import TranscriptionFactory from './factories/transcription'
-
-const headers = new Headers()
-headers.append('last-modified', 'Mon, June 31, 2020');
-
-const failedToveStub = {
-  get: () => Promise.reject({ message: 'Failed to Return' })
-}
-
-const consoleSpy = jest.spyOn(console, 'warn')
-
-const getToveResponse = () => Promise.resolve(
-  {
-    body: JSON.stringify(
-      {
-        data: TranscriptionFactory.build({
-          attributes: {
-            locked_by: 'ANOTHER_USER',
-            text: {
-              frame0: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }],
-              frame1: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }]
-            }
-          }
-        }),
-        meta: {
-          pagination: { last: 1 }
-        }
-      }),
-    headers
-  }
-)
-
-const failedTovePatchNotOk = {
-  get: getToveResponse,
-  patch: jest.fn().mockResolvedValue({ ok: false })
-}
-
-const failedTovePatch = {
-  get: getToveResponse,
-  patch: () => Promise.reject({ message: 'Failed to Return' })
-}
+import {
+  consoleSpy,
+  failedTovePatch,
+  failedTovePatchNotOk,
+  failedToveStub,
+  getToveResponse,
+  headers
+} from './testUtils/transcriptionsStore'
 
 describe('Store > TranscriptionsStore', function () {
   describe('with a failure', function () {

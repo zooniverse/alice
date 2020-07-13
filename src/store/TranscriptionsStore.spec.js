@@ -6,12 +6,16 @@ import mockJWT from 'helpers/mockJWT'
 import STATUS from 'helpers/status'
 import { AppStore } from './AppStore'
 import TranscriptionFactory from './factories/transcription'
+import {
+  consoleSpy,
+  failedToveStub,
+  getToveResponse,
+  headers
+} from './testUtils/transcriptionsStore'
 
 let rootStore
 let transcriptionsStore
 
-const headers = new Headers()
-headers.append('last-modified', 'Mon, June 31, 2020');
 const patchToveSpy = jest.fn().mockResolvedValue({ ok: true, headers })
 const toggleModalSpy = jest.fn()
 const getToveResponse = () => Promise.resolve(
@@ -92,7 +96,6 @@ const user = {
   display_name: 'A_User'
 }
 
-const consoleSpy = jest.spyOn(console, 'warn')
 const postCaesarSpy = jest.fn().mockResolvedValue({ body: mockReaggregation })
 
 const multipleTranscriptionsStub = {
@@ -123,20 +126,6 @@ const singleTranscriptionStub = {
 
 const lockedTranscriptionStub = {
   get: getToveLockedResponse
-}
-
-const failedToveStub = {
-  get: () => Promise.reject({ message: 'Failed to Return' })
-}
-
-const failedTovePatch = {
-  get: getToveResponse,
-  patch: () => Promise.reject({ message: 'Failed to Return' })
-}
-
-const failedTovePatchNotOk = {
-  get: getToveResponse,
-  patch: jest.fn().mockResolvedValue({ ok: false })
 }
 
 describe('TranscriptionsStore', function () {
