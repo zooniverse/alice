@@ -20,7 +20,6 @@ const Extension = types.refinement(types.map(Frame), snapshot => {
   return Ramda.all(Ramda.startsWith('frame'), Ramda.keys(snapshot))
 })
 
-let patchQueue = []
 const MIN_TIME_BETWEEN_PATCH = 3000
 
 const Transcription = types.model('Transcription', {
@@ -51,6 +50,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   index: types.optional(types.number, 0),
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
+  patchQueue: types.array(types.frozen()),
   showSaveTranscriptionError: types.optional(types.boolean, false),
   slopeIndex: types.optional(types.number, 0),
   slopeDefinitions: types.optional(types.frozen(), {}),
@@ -293,17 +293,17 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
+  function saveMostRecentPatch() {
+    const mostRecentPatch = self.patchQueue.pop()
+    if (mostRecentPatch) self.patchTranscription(mostRecentPatch)
+    self.patchQueue = []
+  }
+
   function enqueuePatch(query) {
-    if (patchQueue.length === 0) {
-      setTimeout(() => {
-        const mostRecentPatch = patchQueue.pop()
-        if (mostRecentPatch) {
-          self.patchTranscription(mostRecentPatch)
-        }
-        patchQueue = []
-      }, MIN_TIME_BETWEEN_PATCH)
+    if (self.patchQueue.length === 0) {
+      setTimeout(() => self.saveMostRecentPatch(), MIN_TIME_BETWEEN_PATCH)
     }
-    patchQueue.push(query)
+    self.patchQueue.push(query)
   }
 
   const patchTranscription = flow(function * patchTranscription(query) {
@@ -541,6 +541,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     rearrangePages,
     redefineTranscription,
     retrieveTranscriptions,
+    saveMostRecentPatch,
     saveTranscription,
     selectTranscription,
     setActiveTranscription,
