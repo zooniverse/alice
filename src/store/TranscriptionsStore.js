@@ -293,7 +293,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
-  const enqueuePatch = flow(function * enqueuePatch(query) {
+  function enqueuePatch(query) {
     if (patchQueue.length === 0) {
       setTimeout(() => {
         const mostRecentPatch = patchQueue.pop()
@@ -304,7 +304,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       }, MIN_TIME_BETWEEN_PATCH)
     }
     patchQueue.push(query)
-  })
+  }
 
   const patchTranscription = flow(function * patchTranscription(query) {
     const { client } = getRoot(self)
@@ -394,7 +394,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   })
 
-  const saveTranscription = flow(function * saveTranscription() {
+  function saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const frame_order = toJS(self.current.frame_order)
     const textBlob = toJS(self.current.text)
@@ -418,8 +418,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       query.data.attributes.reducer = self.current.reducer
       query.data.attributes.parameters = self.current.parameters
     }
-    yield self.enqueuePatch(query)
-  })
+    self.enqueuePatch(query)
+  }
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
     if (!id) return undefined
@@ -547,7 +547,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     setParsedExtracts,
     setTextObject,
     setTranscription: (transcription) => undoManager.withoutUndo(() => setTranscription(transcription)),
-    test,
     toggleError: () => undoManager.withoutUndo(() => toggleError()),
     undo,
     unlockTranscription,
