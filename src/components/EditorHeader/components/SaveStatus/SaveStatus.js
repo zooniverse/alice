@@ -8,9 +8,11 @@ import { faExclamation } from '@fortawesome/free-solid-svg-icons'
 import theme from './theme'
 
 function SaveStatus({ status, toggleError }) {
+  const saving = status === ASYNC_STATES.LOADING
   const showError = status === ASYNC_STATES.ERROR
   const color = showError ? '#FF0000' : '#5C5C5C'
-  const text = showError ? 'CHANGES NOT SAVED' : 'ALL CHANGES SAVED'
+  const text = showError ? 'CHANGES NOT SAVED' :
+    saving ? 'SAVING...' : 'ALL CHANGES SAVED'
 
   return (
     <Button

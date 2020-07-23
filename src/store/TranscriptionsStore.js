@@ -297,9 +297,11 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const mostRecentPatch = self.patchQueue.pop()
     if (mostRecentPatch) self.patchTranscription(mostRecentPatch)
     self.patchQueue = []
+    self.asyncState = ASYNC_STATES.READY
   }
 
   function enqueuePatch(query) {
+    self.asyncState = ASYNC_STATES.LOADING
     if (self.patchQueue.length === 0) {
       setTimeout(() => self.saveMostRecentPatch(), MIN_TIME_BETWEEN_PATCH)
     }
