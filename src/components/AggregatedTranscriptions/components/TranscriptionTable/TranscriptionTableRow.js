@@ -17,7 +17,6 @@ const MoveBox = styled(Box)`
 
 const PointerBox = styled(Box)`
   ${css`cursor: ${props => props.hover ? 'pointer' : 'default'};`}
-  ${css`pointer-events: ${props => props.hover ? 'all' : 'none'};`}
 `
 
 function handleDragStart(dragID, setDragID, setHover) {
@@ -59,17 +58,8 @@ function TranscriptionTableRow({
   return (
     <Box
       border={{ color: '#ECECEC', side: 'bottom' }}
-      draggable={!isViewer}
       elevation={elevation}
-      flex={false}
       gap='xsmall'
-      onDragEnd={() => {
-        setTextObject(data);
-        setDragID(null)
-      }}
-      onDragEnter={(e) => handleDragEnter(e, index, data, dragID, moveData, setDragID)}
-      onDragOver={(e) => stopEvents(e)}
-      onDragStart={() => handleDragStart(index, setDragID, setHover)}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       margin={{ right: '0.15em' }}
@@ -79,8 +69,17 @@ function TranscriptionTableRow({
       <PointerBox
         align='center'
         direction='row'
+        draggable={!isViewer}
         hover={isHover}
-        onMouseUp={() => setActiveTranscription(index)}>
+        onDragEnd={() => {
+          setTextObject(data);
+          setDragID(null)
+        }}
+        onDragLeave={(e) => handleDragEnter(e, index, data, dragID, moveData, setDragID)}
+        onDragOver={(e) => stopEvents(e)}
+        onDragStart={() => handleDragStart(index, setDragID, setHover)}
+        onMouseUp={() => setActiveTranscription(index)}
+      >
         <MoveBox
           hover={isHover}
           isViewer={isViewer}

@@ -30,6 +30,7 @@ function TranscriptionTable ({ activeSlope, data, isViewer, setActiveTranscripti
   }, [data, dragID])
   const background = emptyData ? { color: 'light-2', opacity: 'strong' } : {}
 
+
   return (
     <Box round={{ size: 'xsmall', corner: 'bottom' }}>
       <Box align='center' direction='row' margin={{ horizontal: 'xsmall' }} pad={{ vertical: 'xsmall' }}>
