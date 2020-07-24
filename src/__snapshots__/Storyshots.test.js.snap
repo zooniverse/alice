@@ -11,7 +11,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 bdFdoP"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-jzJRlG byHcWR"
+        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-cSHVUG hDUXUW"
       >
         <div
           className="StyledBox-sc-13pk1d4-0 ikTqht"
@@ -44,7 +44,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
             </button>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 tkzRw sc-kAzzGY cHmBTk"
+            className="StyledBox-sc-13pk1d4-0 tkzRw sc-chPdSV lxGhg"
           >
             <div
               className="StyledBox-sc-13pk1d4-0 joGoBe"
@@ -56,7 +56,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 fGMGTD"
                 >
                   <h6
-                    className="sc-bZQynM kvEEqW"
+                    className="sc-gzVnrw kDhxVb"
                   >
                     Aggregated Transcription
                   </h6>
@@ -65,7 +65,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 fWrrBh"
                 >
                   <h6
-                    className="sc-bZQynM kvEEqW"
+                    className="sc-gzVnrw kDhxVb"
                   >
                     Flag
                   </h6>
@@ -74,7 +74,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 dzunxD"
                 >
                   <h6
-                    className="sc-bZQynM sc-gzVnrw goYdle"
+                    className="sc-gzVnrw sc-htoDjs GbAiK"
                   >
                     Consensus Score
                   </h6>
@@ -84,7 +84,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 kLQRpX"
               />
               <div
-                className="StyledBox-sc-13pk1d4-0 kbrZBJ sc-EHOje kKWYcL"
+                className="StyledBox-sc-13pk1d4-0 kbrZBJ sc-bZQynM evmlAb"
               >
                 <span
                   className="StyledText-sc-1sadyjn-0 fNQaFh"
@@ -113,7 +113,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 jxCWxi"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-jKJlTe MPVAE"
+        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-eNQAEJ esYNcD"
       >
         <svg
           aria-hidden="true"
@@ -209,7 +209,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kgoBCf fDGffR"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kGXeez fOyJew"
                       >
                         <img
                           alt="Optics Aggregation Example"
@@ -245,7 +245,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kGXeez lgIlUY"
+                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kpOJdX kdgkNy"
                       >
                         <img
                           alt="DBScan Aggregation Example"
@@ -509,7 +509,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jtFbJk"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs hCtDtz"
       >
         Layout
       </span>
@@ -622,7 +622,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 jHQJnz"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-eNQAEJ jtFbJk"
+        className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs hCtDtz"
       >
         Undo
       </span>
@@ -660,7 +660,7 @@ exports[`Storyshots LineViewer Default 1`] = `
     className="StyledBox-sc-13pk1d4-0 iNPZuM"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 biltor sc-fjdhpX fCEyoV"
+      className="StyledBox-sc-13pk1d4-0 biltor sc-jzJRlG byHcWR"
     >
       <div
         className="StyledBox-sc-13pk1d4-0 eTTqCm"
@@ -672,7 +672,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 fWrrBh"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 dxiclx sc-VigVT cDzzLD"
+              className="StyledText-sc-1sadyjn-0 dxiclx sc-jTzLTM krJVzu"
               size="0.6em"
             >
               Selected Transcription
@@ -689,7 +689,7 @@ exports[`Storyshots LineViewer Default 1`] = `
         <div
           className="StyledBox-sc-13pk1d4-0 iRPRCt"
         >
-          
+
           <div
             className="StyledBox-sc-13pk1d4-0 ekjAwv"
           >
@@ -758,7 +758,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-VigVT cDzzLD"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-jTzLTM krJVzu"
               size="xsmall"
             >
               Cancel
@@ -779,7 +779,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-VigVT cDzzLD"
+              className="StyledText-sc-1sadyjn-0 fNQaFh sc-jTzLTM krJVzu"
               size="xsmall"
             >
               Add Line
@@ -803,7 +803,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     onClick={[Function]}
   >
     <span
-      className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs isvcEd"
+      className="StyledText-sc-1sadyjn-0 gcASOG sc-kEYyzF ggEPv"
     >
       Ready For Review
     </span>
@@ -863,7 +863,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-info fa-w-6 sc-eHgmQL tiSJc"
+            className="svg-inline--fa fa-info fa-w-6 sc-cvbbAY josHqt"
             data-icon="info"
             data-prefix="fas"
             focusable="false"
@@ -1399,7 +1399,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       <span
         className="StyledText-sc-1sadyjn-0 bmpSIR sc-cMljjf djFewk"
       >
-        This subject cannot be accessed because 
+        This subject cannot be accessed because
         <strong />
          is currently accessing it.
       </span>
