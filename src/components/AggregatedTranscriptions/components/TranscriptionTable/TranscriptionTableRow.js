@@ -19,6 +19,12 @@ const PointerBox = styled(Box)`
   ${css`cursor: ${props => props.hover ? 'pointer' : 'default'};`}
 `
 
+const StyledText = styled(Text)`
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+`
+
 function handleDragStart(dragID, setDragID, setHover) {
   setDragID(dragID)
   setHover(false)
@@ -75,7 +81,7 @@ function TranscriptionTableRow({
           setTextObject(data);
           setDragID(null)
         }}
-        onDragLeave={(e) => handleDragEnter(e, index, data, dragID, moveData, setDragID)}
+        onDragEnter={(e) => handleDragEnter(e, index, data, dragID, moveData, setDragID)}
         onDragOver={(e) => stopEvents(e)}
         onDragStart={() => handleDragStart(index, setDragID, setHover)}
         onMouseUp={() => setActiveTranscription(index)}
@@ -94,7 +100,7 @@ function TranscriptionTableRow({
           )}
         </MoveBox>
         <QuietBox basis='72%'>
-          <Text>{datum.edited_consensus_text || datum.consensus_text}</Text>
+          <StyledText>{datum.edited_consensus_text || datum.consensus_text}</StyledText>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />
