@@ -5,7 +5,6 @@ import STATUS from 'helpers/status'
 import FilmstripViewer from './FilmstripViewer'
 
 function FilmstripViewerContainer({ images }) {
-  const [isOpen, setOpen] = React.useState(true)
   const store = React.useContext(AppContext)
   const disabled = store.aggregations.showModal || store.transcriptions.isActive
   const selectImage = (page, slopeIndex) => {
@@ -21,10 +20,8 @@ function FilmstripViewerContainer({ images }) {
       disabled={disabled}
       draggable={inProgress}
       images={images}
-      isOpen={isOpen}
       rearrangePages={store.transcriptions.rearrangePages}
       selectImage={selectImage}
-      setOpen={setOpen}
       slopeDefinitions={store.transcriptions.slopeDefinitions}
       slopeKeys={store.transcriptions.slopeKeys}
       subjectIndex={store.transcriptions.index}
