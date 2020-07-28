@@ -19,7 +19,7 @@ This project uses [Yarn](https://yarnpkg.com/en/docs) or [Docker](https://docs.d
 - `yarn install` to install package dependencies  
 - `yarn test` to run all tests within the repo  
 - `yarn storybook` to open a [Storybook](https://storybook.js.org) viewer at `http://localhost:6006` to view components in isolation  
-- `yarn start` to open a staging version of the site at `http://localhost:3000`  
+- `yarn start` to open a staging version of the site at `http://localhost:3000` (may need to set up `local.zooniverse.org:3000` to login, [instructions](https://stackoverflow.com/c/zooniverse/questions/109))
 
 **Docker**
 - `docker-compose up` to run the development app at `http://localhost:3000` and start storybook at `http://localhost:6006`
