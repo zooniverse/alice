@@ -10,11 +10,13 @@ let wrapper
 const checkIfLockedSpy = jest.fn()
 const fetchSubjectSpy = jest.fn()
 const getResourcesSpy = jest.fn()
-const setState = jest.fn()
 const preventDefaultSpy = jest.fn()
+const resetImageSpy = jest.fn()
 const setActiveTranscriptionSpy = jest.fn()
+const setState = jest.fn()
 const toggleModalSpy = jest.fn()
 const unlockTranscriptionSpy = jest.fn()
+
 const match = {
   params: {
     subject: 2
@@ -45,6 +47,7 @@ const contextValues = {
   },
   getResources: getResourcesSpy,
   image: {
+    reset: resetImageSpy,
     zoomIn: () => {}
   },
   modal: {
@@ -132,9 +135,18 @@ describe('Component > Editor', function () {
         expect(toggleModalSpy).not.toHaveBeenCalled()
       })
 
-      it('should unlock the transcription', function () {
-        wrapper.unmount()
-        expect(unlockTranscriptionSpy).toHaveBeenCalled()
+      describe('when unmounting', function () {
+        beforeEach(function () {
+          wrapper.unmount()
+        })
+
+        it('should reset the image', function () {
+          expect(resetImageSpy).toHaveBeenCalled()
+        })
+
+        it('should unlock the transcription', function () {
+          expect(unlockTranscriptionSpy).toHaveBeenCalled()
+        })
       })
     })
   })
