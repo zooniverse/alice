@@ -8,6 +8,7 @@ import { Flags } from './Flags'
 
 const QuietBox = styled(Box)`
   pointer-events: none;
+  ${css`pointer-events: ${props => props.hover ? 'all' : 'none'};`}
 `
 
 const MoveBox = styled(Box)`
@@ -60,6 +61,7 @@ function TranscriptionTableRow({
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
   const elevation = isHover || isDragging ? 'small' : 'none'
   const round = isHover || isDragging ? 'xsmall' : 'none'
+  const visibleText = datum.edited_consensus_text || datum.consensus_text
 
   return (
     <Box
@@ -99,8 +101,8 @@ function TranscriptionTableRow({
             </QuietBox>
           )}
         </MoveBox>
-        <QuietBox basis='72%'>
-          <StyledText>{datum.edited_consensus_text || datum.consensus_text}</StyledText>
+        <QuietBox hover={isHover} basis='72%'>
+          <StyledText title={visibleText}>{visibleText}</StyledText>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />
