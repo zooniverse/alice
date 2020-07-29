@@ -7,6 +7,7 @@ import mockData from './mockData'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
+let pointerBox;
 let wrapper;
 let useStateSpy;
 
@@ -34,6 +35,7 @@ describe('Component > TranscriptionTable', function () {
         setDragID={setDragIDSpy}
         setTextObject={setTextObjectSpy}
       />);
+    pointerBox = wrapper.find(PointerBox).first()
   })
 
   it('should render without crashing', function () {
@@ -41,7 +43,7 @@ describe('Component > TranscriptionTable', function () {
   })
 
   it('should call setDragID on drag end', function () {
-    wrapper.simulate('dragend')
+    pointerBox.simulate('dragend')
     expect(setTextObjectSpy).toHaveBeenCalledWith(mockData)
     expect(setDragIDSpy).toHaveBeenCalledWith(null)
   })
@@ -57,20 +59,20 @@ describe('Component > TranscriptionTable', function () {
   })
 
   it('should call handleDragStart on dragStart', function () {
-    wrapper.simulate('dragstart')
+    pointerBox.simulate('dragstart')
     expect(setState).toHaveBeenCalledWith(false)
     expect(setDragIDSpy).toHaveBeenCalledWith(0)
   })
 
   it('should call handleDragEnter on dragEnter', function () {
-    wrapper.simulate('dragenter', mockEvent)
+    pointerBox.simulate('dragenter', mockEvent)
     expect(preventDefaultSpy).toHaveBeenCalled()
     expect(setDragIDSpy).toHaveBeenCalledWith(0)
     expect(moveDataSpy).toHaveBeenCalled()
   })
 
   it('should call stopEvent on dragOver', function () {
-    wrapper.simulate('dragover', mockEvent)
+    pointerBox.simulate('dragover', mockEvent)
     expect(preventDefaultSpy).toHaveBeenCalled()
     expect(stopPropagationSpy).toHaveBeenCalled()
   })
@@ -92,7 +94,6 @@ describe('Component > TranscriptionTable', function () {
     const Pointer = wrapper.find(PointerBox).first()
     const group = renderer.create(Pointer).toJSON()
     expect(group).toHaveStyleRule('cursor', 'default')
-    expect(group).toHaveStyleRule('pointer-events', 'none')
   })
 
   describe('should correctly style components on hover', function () {
@@ -122,7 +123,6 @@ describe('Component > TranscriptionTable', function () {
       const Pointer = wrapper.find(PointerBox).first()
       const group = renderer.create(Pointer).toJSON()
       expect(group).toHaveStyleRule('cursor', 'pointer')
-      expect(group).toHaveStyleRule('pointer-events', 'all')
     })
   })
 

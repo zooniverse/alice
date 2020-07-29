@@ -8,6 +8,7 @@ import { Flags } from './Flags'
 
 const QuietBox = styled(Box)`
   pointer-events: none;
+  ${css`pointer-events: ${props => props.hover ? 'all' : 'none'};`}
 `
 
 const MoveBox = styled(Box)`
@@ -17,7 +18,12 @@ const MoveBox = styled(Box)`
 
 const PointerBox = styled(Box)`
   ${css`cursor: ${props => props.hover ? 'pointer' : 'default'};`}
-  ${css`pointer-events: ${props => props.hover ? 'all' : 'none'};`}
+`
+
+const StyledText = styled(Text)`
+  overflow: hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
 `
 
 function handleDragStart(dragID, setDragID, setHover) {
@@ -55,21 +61,13 @@ function TranscriptionTableRow({
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
   const elevation = isHover || isDragging ? 'small' : 'none'
   const round = isHover || isDragging ? 'xsmall' : 'none'
+  const visibleText = datum.edited_consensus_text || datum.consensus_text
 
   return (
     <Box
       border={{ color: '#ECECEC', side: 'bottom' }}
-      draggable={!isViewer}
       elevation={elevation}
-      flex={false}
       gap='xsmall'
-      onDragEnd={() => {
-        setTextObject(data);
-        setDragID(null)
-      }}
-      onDragEnter={(e) => handleDragEnter(e, index, data, dragID, moveData, setDragID)}
-      onDragOver={(e) => stopEvents(e)}
-      onDragStart={() => handleDragStart(index, setDragID, setHover)}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       margin={{ right: '0.15em' }}
@@ -79,8 +77,17 @@ function TranscriptionTableRow({
       <PointerBox
         align='center'
         direction='row'
+        draggable={!isViewer}
         hover={isHover}
-        onMouseUp={() => setActiveTranscription(index)}>
+        onDragEnd={() => {
+          setTextObject(data);
+          setDragID(null)
+        }}
+        onDragEnter={(e) => handleDragEnter(e, index, data, dragID, moveData, setDragID)}
+        onDragOver={(e) => stopEvents(e)}
+        onDragStart={() => handleDragStart(index, setDragID, setHover)}
+        onMouseUp={() => setActiveTranscription(index)}
+      >
         <MoveBox
           hover={isHover}
           isViewer={isViewer}
@@ -94,8 +101,8 @@ function TranscriptionTableRow({
             </QuietBox>
           )}
         </MoveBox>
-        <QuietBox basis='72%'>
-          <Text>{datum.edited_consensus_text || datum.consensus_text}</Text>
+        <QuietBox hover={isHover} basis='72%'>
+          <StyledText title={visibleText}>{visibleText}</StyledText>
         </QuietBox>
         <QuietBox basis='10%'>
           <Flags datum={datum} />
