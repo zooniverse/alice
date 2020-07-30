@@ -9,8 +9,11 @@ function BadgeContainer ({ onAbout }) {
   const user = store.auth.user
 
   const disabled = store.aggregations.showModal || store.transcriptions.isActive
-  const signOut = store.auth.logout
   const src = user && user.avatar_src
+  const signOut = () => {
+    store.transcriptions.unlockTranscription()
+    store.auth.logout()
+  }
 
   return (
     <Badge

@@ -67,7 +67,7 @@ const contextValues = {
     current: undefined,
     extracts: [],
     index: 0,
-    lockedByDifferentUser: true,
+    lockedByCurrentUser: false,
     setActiveTranscription: setActiveTranscriptionSpy,
     slopeKeys: [],
     unlockTranscription: unlockTranscriptionSpy
@@ -113,18 +113,13 @@ describe('Component > Editor', function () {
       it('should show the locked transcription modal', function () {
         expect(toggleModalSpy).toHaveBeenCalledWith(MODALS.LOCKED)
       })
-
-      it('should not attempt to unlock the transcription', function () {
-        wrapper.unmount()
-        expect(unlockTranscriptionSpy).not.toHaveBeenCalled()
-      })
     })
 
     describe('with an unlocked transcription', function () {
       beforeEach(async function () {
         jest.clearAllMocks()
         const lockedValues = Object.assign(contextValues)
-        lockedValues.transcriptions.lockedByDifferentUser = false
+        lockedValues.transcriptions.lockedByCurrentUser = true
         jest
           .spyOn(React, 'useContext')
           .mockImplementation(() => Object.assign({}, lockedValues))

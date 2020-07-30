@@ -486,8 +486,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   const unlockTranscription = flow(function * unlockTranscription() {
-    const { client } = getRoot(self)
-    yield client.patch(`/transcriptions/${self.current.id}/unlock`, { headers: { 'If-Unmodified-Since': self.current.last_modified } })
+    if (self.lockedByCurrentUser) {
+      const { client } = getRoot(self)
+      yield client.patch(`/transcriptions/${self.current.id}/unlock`, { headers: { 'If-Unmodified-Since': self.current.last_modified } })
+    }
   })
 
   function updateApproval(isChecked) {
@@ -554,9 +556,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     return count;
   },
 
-  get lockedByDifferentUser () {
-    const login = getRoot(self).auth.user.login;
-    return self.current.locked_by && self.current.locked_by !== login
+  get lockedByCurrentUser () {
+    const login = getRoot(self).auth.user && getRoot(self).auth.user.login;
+    if (login && self.current) {
+      return self.current.locked_by && self.current.locked_by === login
+    }
+    return false
   },
 
   get isActive () {

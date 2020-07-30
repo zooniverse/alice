@@ -32,7 +32,7 @@ function Editor ({ match, testTime }) {
     const setResources = async () => {
       await store.subjects.fetchSubject(match.params.subject)
       await store.getResources(match.params)
-      if (store.transcriptions.lockedByDifferentUser) {
+      if (!store.transcriptions.lockedByCurrentUser) {
         store.modal.toggleModal(MODALS.LOCKED)
       }
     }
@@ -56,9 +56,7 @@ function Editor ({ match, testTime }) {
     return () => {
       store.image.reset()
 
-      if (!store.transcriptions.lockedByDifferentUser) {
-        store.transcriptions.unlockTranscription()
-      }
+      store.transcriptions.unlockTranscription()
       window.removeEventListener('beforeunload', store.transcriptions.unlockTranscription);
       window.removeEventListener('visibilitychange', handleTimeCheck)
     }
