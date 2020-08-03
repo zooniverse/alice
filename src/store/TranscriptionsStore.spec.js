@@ -18,26 +18,6 @@ let transcriptionsStore
 
 const patchToveSpy = jest.fn().mockResolvedValue({ ok: true, headers })
 const toggleModalSpy = jest.fn()
-const getToveResponse = () => Promise.resolve(
-  {
-    body: JSON.stringify(
-      {
-        data: TranscriptionFactory.build({
-          attributes: {
-            locked_by: 'A_USER',
-            text: {
-              frame0: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }],
-              frame1: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }]
-            }
-          }
-        }),
-        meta: {
-          pagination: { last: 1 }
-        }
-      }),
-    headers
-  }
-)
 
 const getToveLockedResponse = () => Promise.resolve(
   {

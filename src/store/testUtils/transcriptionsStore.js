@@ -16,7 +16,7 @@ export const getToveResponse = () => Promise.resolve(
       {
         data: TranscriptionFactory.build({
           attributes: {
-            locked_by: 'ANOTHER_USER',
+            locked_by: 'A_USER',
             text: {
               frame0: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }],
               frame1: [{ line_slope: 0, slope_label: 0 }, { line_slope: 90, slope_label: 1 }]
