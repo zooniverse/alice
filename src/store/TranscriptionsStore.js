@@ -309,17 +309,16 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   const patchTranscription = flow(function * patchTranscription(query) {
     const { client } = getRoot(self)
-    let lastModified
     try {
-      yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
+      const responseStream = yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
         if (response.ok) {
-          lastModified = getLastModified(response)
           return response
         } else {
           return Promise.reject(response)
         }
       })
       undoManager.withoutUndo(() => {
+        self.current.last_modified = getLastModified(responseStream)
         self.error = null
         self.asyncState = ASYNC_STATES.READY
       })
@@ -329,9 +328,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
-    undoManager.withoutUndo(() => {
-      if (lastModified) self.current.last_modified = lastModified
-    })
   })
 
   function rearrangePages(keys) {

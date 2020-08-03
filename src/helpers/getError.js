@@ -17,7 +17,6 @@ const ERROR_TYPES = {
 }
 
 export default function getError(err = {}) {
-  console.log('GETTING AN ERROR', err);
   const code = err.status
   let type, message
 
