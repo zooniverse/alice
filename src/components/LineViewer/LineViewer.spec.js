@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { Button, CheckBox, Text, TextInput } from 'grommet'
 import DeleteModal from './components/DeleteModal'
@@ -85,6 +85,30 @@ describe('Component > LineViewer', function () {
     )
     const textBox = newWrapper.find(Text).at(1)
     expect(textBox.props().children).toBe('Edited')
+  })
+
+  describe('with keyup event', function () {
+    const map = {}
+    const closeModalSpy = jest.fn()
+
+    beforeEach(function () {
+      window.addEventListener = jest.fn((evt, cb) => map[evt] = cb);
+      mount(<LineViewer closeModal={closeModalSpy} />)
+    })
+
+    describe('and the escape key', function () {
+      it('should close the modal', function () {
+        map.keyup({ keyCode: 27 })
+        expect(closeModalSpy).toHaveBeenCalled()
+      })
+    })
+
+    describe('and not the escape key', function () {
+      it('should not close the modal', function () {
+        map.keyup({ keyCode: 20 })
+        expect(closeModalSpy).not.toHaveBeenCalled()
+      })
+    })
   })
 
   describe('function replaceWithSelected', function () {
