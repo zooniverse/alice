@@ -20,6 +20,8 @@ const Extension = types.refinement(types.map(Frame), snapshot => {
   return Ramda.all(Ramda.startsWith('frame'), Ramda.keys(snapshot))
 })
 
+const MIN_TIME_BETWEEN_PATCH = 3000
+
 const Transcription = types.model('Transcription', {
   id: types.identifier,
   flagged: types.optional(types.boolean, false),
@@ -48,6 +50,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   index: types.optional(types.number, 0),
   extractUsers: types.optional(types.frozen()),
   page: types.optional(types.number, 0),
+  patchQueue: types.array(types.frozen()),
   showSaveTranscriptionError: types.optional(types.boolean, false),
   slopeIndex: types.optional(types.number, 0),
   slopeDefinitions: types.optional(types.frozen(), {}),
@@ -282,7 +285,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     let usersWhoClassified = Object.keys(arrangedExtractsByUser)
     usersWhoClassified = usersWhoClassified.filter(user => user !== 'null')
     const users = yield apiClient.type('users').get({ id: usersWhoClassified })
-
     undoManager.withoutUndo(() => {
       self.extractUsers = users.reduce((list, user) => {
         list[user.id] = user.display_name
@@ -291,19 +293,32 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     })
   })
 
+  function saveMostRecentPatch() {
+    const mostRecentPatch = self.patchQueue.pop()
+    if (mostRecentPatch) self.patchTranscription(mostRecentPatch)
+    self.patchQueue = []
+  }
+
+  function enqueuePatch(query) {
+    self.asyncState = ASYNC_STATES.LOADING
+    if (self.patchQueue.length === 0) {
+      setTimeout(() => self.saveMostRecentPatch(), MIN_TIME_BETWEEN_PATCH)
+    }
+    self.patchQueue.push(query)
+  }
+
   const patchTranscription = flow(function * patchTranscription(query) {
     const { client } = getRoot(self)
-    let lastModified
     try {
-      yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
+      const responseStream = yield client.patch(`/transcriptions/${self.current.id}`, { body: query, headers: { 'If-Unmodified-Since': self.current.last_modified } }).then(response => {
         if (response.ok) {
-          lastModified = getLastModified(response)
           return response
         } else {
           return Promise.reject(response)
         }
       })
       undoManager.withoutUndo(() => {
+        self.current.last_modified = getLastModified(responseStream)
         self.error = null
         self.asyncState = ASYNC_STATES.READY
       })
@@ -313,9 +328,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         self.asyncState = ASYNC_STATES.ERROR
       })
     }
-    undoManager.withoutUndo(() => {
-      if (lastModified) self.current.last_modified = lastModified
-    })
   })
 
   function rearrangePages(keys) {
@@ -379,7 +391,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   })
 
-  const saveTranscription = flow(function * saveTranscription() {
+  function saveTranscription() {
     undoManager.withoutUndo(() => self.asyncState = ASYNC_STATES.LOADING)
     const frame_order = toJS(self.current.frame_order)
     const textBlob = toJS(self.current.text)
@@ -394,6 +406,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
         attributes: {
           flagged: self.current.flagged,
           frame_order,
+          status: self.current.status,
           text: updatedTranscription
         }
       }
@@ -402,8 +415,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       query.data.attributes.reducer = self.current.reducer
       query.data.attributes.parameters = self.current.parameters
     }
-    yield self.patchTranscription(query)
-  })
+    self.enqueuePatch(query)
+  }
 
   const selectTranscription = flow(function * selectTranscription(id = null) {
     if (!id) return undefined
@@ -495,13 +508,12 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function updateApproval(isChecked) {
     self.setActiveTranscription()
     const isAdmin = getRoot(self).projects.isAdmin
-    const query = { data: { type: 'transcriptions', attributes: { status: STATUS.IN_PROGRESS } }}
+    let status = STATUS.IN_PROGRESS
     if (!isChecked) {
-      const newStatus = isAdmin ? STATUS.APPROVED : STATUS.READY
-      query.data.attributes.status = newStatus
+      status = isAdmin ? STATUS.APPROVED : STATUS.READY
     }
-    self.current.status = query.data.attributes.status
-    self.patchTranscription(query)
+    self.current.status = status
+    self.saveTranscription()
   }
 
   return {
@@ -513,6 +525,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     checkIfLocked,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
+    enqueuePatch,
     fetchExtracts,
     fetchTranscriptions: (page, shouldReset) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page, shouldReset),
     getLastModified,
@@ -525,6 +538,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     rearrangePages,
     redefineTranscription,
     retrieveTranscriptions,
+    saveMostRecentPatch,
     saveTranscription,
     selectTranscription,
     setActiveTranscription,

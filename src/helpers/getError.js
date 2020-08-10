@@ -22,7 +22,7 @@ export default function getError(err = {}) {
 
   if (code) {
     type = code.toString().charAt(0) === '4' ? ERROR_TYPES.HANDLED : ERROR_TYPES.UNHANDLED
-    message = err.body.error
+    message = (err.body && err.body.error) || 'There was an error!'
   } else {
     type = err.message && err.message.indexOf('Failed to fetch') >= 0 ? ERROR_TYPES.CONNECTION : ERROR_TYPES.HANDLED
     message = err.message || 'Unknown Error'
