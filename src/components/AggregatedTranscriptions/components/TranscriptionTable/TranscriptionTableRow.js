@@ -68,6 +68,7 @@ function TranscriptionTableRow({
       border={{ color: '#ECECEC', side: 'bottom' }}
       elevation={elevation}
       gap='xsmall'
+      height={{ min: '1.5rem' }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       margin={{ right: '0.15em' }}
