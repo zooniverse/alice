@@ -1,14 +1,34 @@
 import React from 'react'
-import { Box, Button, Image } from 'grommet'
+import { Box, Button, Image, Text } from 'grommet'
 import { bool, func, number, string } from 'prop-types'
 import ThumbnailBorder from './ThumbnailBorder'
 import styled, {css} from 'styled-components'
 
+export const DeleteButton = styled(Button)`
+  background: white;
+  border: 1px solid black;
+  border-radius: 100%;
+  box-shadow: 0px 5px 12px grey;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  left: -6px;
+  text-align: center;
+  top: -8px;
+  z-index: 1;
+
+  span {
+    vertical-align: super;
+  }
+`
+
 export const StyledButton = styled(Button)`
   ${css`cursor: ${props => props.draggable ? 'move' : 'cursor'};`}
+  position: relative;
 `
 
 export default function FilmstripThumbnail ({
+  canDelete,
   disabled,
   draggable,
   hoveredIndex,
@@ -16,7 +36,6 @@ export default function FilmstripThumbnail ({
   isActive,
   page,
   rearrangePages,
-  rotationDegrees,
   selectImage,
   setHoveredIndex,
   setSlopeValues,
@@ -60,6 +79,7 @@ export default function FilmstripThumbnail ({
         onMouseLeave={() => onHover(false)}
       >
         <Box height='xsmall' width='xsmall'>
+          {canDelete && <DeleteButton label={<Text size='0.75rem'>X</Text>} plain />}
           <ThumbnailBorder
             isActive={isActive}
             isHover={isHover}
@@ -72,21 +92,21 @@ export default function FilmstripThumbnail ({
 }
 
 FilmstripThumbnail.propTypes = {
+  canDelete: bool,
   disabled: bool,
   draggable: bool,
   index: number,
   isActive: bool,
-  rotationDegrees: number,
   selectImage: func,
   src: string
 }
 
 FilmstripThumbnail.defaultProps = {
+  canDelete: false,
   disabled: false,
   draggable: true,
   index: 0,
   isActive: false,
-  rotationDegrees: null,
   selectImage: () => {},
   src: ''
 }
