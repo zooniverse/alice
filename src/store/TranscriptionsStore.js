@@ -147,6 +147,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
+  function deletePage() {
+    console.log('We are deleting the page')
+  }
+
   const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
     undoManager.withoutUndo(() => getRoot(self).modal.toggleModal(MODALS.LOADING))
     const client = getRoot(self).client.aggregator
@@ -525,6 +529,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     checkIfLocked,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
+    deletePage,
     enqueuePatch,
     fetchExtracts,
     fetchTranscriptions: (page, shouldReset) => undoManager.withoutUndo(() => flow(fetchTranscriptions))(page, shouldReset),

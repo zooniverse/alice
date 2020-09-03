@@ -39,6 +39,7 @@ export default function FilmstripThumbnail ({
   selectImage,
   setHoveredIndex,
   setSlopeValues,
+  showDeletePage,
   slopeDefinition,
   slopeIndex,
   slopeValues,
@@ -79,7 +80,13 @@ export default function FilmstripThumbnail ({
         onMouseLeave={() => onHover(false)}
       >
         <Box height='xsmall' width='xsmall'>
-          {canDelete && <DeleteButton label={<Text size='0.75rem'>X</Text>} plain />}
+          {canDelete && (
+            <DeleteButton
+              label={<Text size='0.75rem'>X</Text>}
+              onClick={showDeletePage}
+              plain
+            />
+          )}
           <ThumbnailBorder
             isActive={isActive}
             isHover={isHover}
@@ -98,6 +105,7 @@ FilmstripThumbnail.propTypes = {
   index: number,
   isActive: bool,
   selectImage: func,
+  showDeletePage: func,
   src: string
 }
 
@@ -108,5 +116,6 @@ FilmstripThumbnail.defaultProps = {
   index: 0,
   isActive: false,
   selectImage: () => {},
+  showDeletePage: () => {},
   src: ''
 }

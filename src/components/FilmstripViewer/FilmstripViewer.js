@@ -34,6 +34,7 @@ function FilmstripViewer ({
   images,
   rearrangePages,
   selectImage,
+  showDeletePage,
   slopeDefinitions,
   slopeKeys,
   subjectIndex
@@ -83,6 +84,7 @@ function FilmstripViewer ({
                     selectImage={selectImage}
                     setHoveredIndex={setHoveredIndex}
                     setSlopeValues={setSlopeValues}
+                    showDeletePage={showDeletePage}
                     slopeDefinition={slopeDefinition}
                     slopeIndex={slopeIndex}
                     slopeValues={slopeValues}
@@ -101,6 +103,7 @@ FilmstripViewer.defaultProps = {
   images: [],
   selectImage: () => {},
   setSlopeKeys: () => {},
+  showDeletePage: () => {},
   slopeKeys: [],
   subjectIndex: 0
 }
@@ -111,6 +114,7 @@ FilmstripViewer.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   selectImage: PropTypes.func,
   setSlopeKeys: PropTypes.func,
+  showDeletePage: PropTypes.func,
   slopeKeys: PropTypes.arrayOf(PropTypes.string),
   subjectIndex: PropTypes.number
 }
