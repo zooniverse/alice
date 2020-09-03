@@ -150,7 +150,30 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function deletePage() {
     let page = self.current.text.get(self.currentKey)
     page = page.filter(line => line.slope_label !== self.slopeIndex)
-    self.current.text.set(self.currentKey, page)
+
+    let instancesOfPage = 0
+    self.slopeKeys.forEach(key => {
+      if (getPage(key) === self.index) instancesOfPage += 1
+    })
+    const lastTranscriptionsOnPage = instancesOfPage <= 1
+
+    if (page.length) {
+      self.current.text.set(self.currentKey, page)
+      self.getSlopeKeys()
+    } else if (lastTranscriptionsOnPage) {
+      self.current.text.set(self.currentKey, page)
+    } else {
+      if (self.current.frame_order.length) {
+        self.current.frame_order = self.current.frame_order.filter(frame => frame !== self.currentKey)
+      }
+      self.current.text.forEach((value, key) => {
+        if (key === self.currentKey) detach(value)
+      })
+      self.getSlopeKeys()
+    }
+    const newKey = self.slopeKeys.find(key => getSlopeLabel(key) !== self.slopeIndex)
+    self.index = getPage(newKey)
+    self.slopeIndex = getSlopeLabel(newKey)
   }
 
   const reaggregateDBScan = flow(function * reaggregateDBScan(params) {

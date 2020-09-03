@@ -52,7 +52,6 @@ function TranscriptionTable ({
       </Box>
       <Box pad={{ bottom: 'xsmall' }}>
         {dataArray.map((datum, i) => {
-          console.log(datum)
           if (datum.slope_label !== slopeIndex) return null
           return (
             <TranscriptionTableRow
