@@ -10,11 +10,11 @@ function TranscriptionTableContainer() {
 
   return (
     <TranscriptionTable
-      activeSlope={store.transcriptions.activeSlope}
       data={frameData}
       isViewer={store.projects.isViewer}
       setActiveTranscription={setActiveTranscription}
       setTextObject={store.transcriptions.setTextObject}
+      slopeIndex={store.transcriptions.slopeIndex}
     />
   )
 }

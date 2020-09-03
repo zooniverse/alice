@@ -81,7 +81,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const page = self.current.text.get(self.currentKey)
     if (!page) return
     const location = index ? index : page.length
-    const newLine = Reduction.create()
+    const newLine = Reduction.create({ slope_label: self.slopeIndex })
     page.splice(location, 0, newLine)
     self.setActiveTranscription(location)
     self.setParsedExtracts()
