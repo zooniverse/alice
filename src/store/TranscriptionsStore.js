@@ -148,7 +148,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   }
 
   function deletePage() {
-    console.log('We are deleting the page')
+    let page = self.current.text.get(self.currentKey)
+    page = page.filter(line => line.slope_label !== self.slopeIndex)
+    self.current.text.set(self.currentKey, page)
   }
 
   const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
