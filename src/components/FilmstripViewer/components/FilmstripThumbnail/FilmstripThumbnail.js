@@ -6,7 +6,7 @@ import styled, {css} from 'styled-components'
 
 export const DeleteButton = styled(Button)`
   background: white;
-  border: 1px solid black;
+  border: 1px solid #5c5c5c;
   border-radius: 100%;
   box-shadow: 0px 5px 12px grey;
   height: 1rem;
@@ -19,6 +19,10 @@ export const DeleteButton = styled(Button)`
 
   span {
     vertical-align: super;
+  }
+
+  &:focus {
+    box-shadow: 0 0 2px 2px #addde0;
   }
 `
 

@@ -8,7 +8,11 @@ import FilmstripViewer from './FilmstripViewer'
 function FilmstripViewerContainer({ images }) {
   const store = React.useContext(AppContext)
   const disabled = store.aggregations.showModal || store.transcriptions.isActive
-  const showDeletePage = () => store.modal.toggleModal(MODALS.DELETE_PAGE)
+  const showDeletePage = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    store.modal.toggleModal(MODALS.DELETE_PAGE)
+  }
   const selectImage = (page, slopeIndex) => {
     store.image.reset()
     store.transcriptions.setActiveTranscription()
