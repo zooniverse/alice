@@ -12,7 +12,7 @@ function DownloadSetDataContainer({ disabled }) {
   return (
     <HeaderButton
       disabled={disableButton}
-      label='Download Approved Subject Set Data'
+      label='Download Approved Group Data'
       onClick={onClick}
     />
   )

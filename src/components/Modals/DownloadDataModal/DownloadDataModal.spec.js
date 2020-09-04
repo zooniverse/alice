@@ -44,7 +44,7 @@ describe('Component > DownloadDataModal', function () {
 
     it('should set the correct text', function () {
       const header = wrapper.find(Text).first().props()
-      expect(header.children).toBe('Download approved subject set data')
+      expect(header.children).toBe('Download approved group data')
     })
 
     it('should display the approved count', function () {
