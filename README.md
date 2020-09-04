@@ -9,8 +9,10 @@ A front end tool allowing reviewing and editing of Zooniverse transcription data
 **Production:** [https://alice.zooniverse.org](https://alice.zooniverse.org)  
 **Staging:** [https://alice.preview.zooniverse.org](https://alice.preview.zooniverse.org)
 
+Please refer to the [wiki](https://github.com/zooniverse/text-editor/wiki) for more detailed information.
+
 ## Status
-This project is currently in development and projected to be completed February 2020.
+This project is currently in beta testing.
 
 ## Getting Started
 This project uses [Yarn](https://yarnpkg.com/en/docs) or [Docker](https://docs.docker.com/) to get the app up and running
