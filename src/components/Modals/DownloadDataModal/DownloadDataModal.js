@@ -11,7 +11,7 @@ export default function DownloadDataModal({
   onDownload,
   transcriptionCount
 }) {
-  const text = entireGroup ? 'Download approved subject set data' : 'Download subject data'
+  const text = entireGroup ? 'Download approved group data' : 'Download subject data'
   return (
     <Box
       background='white'
