@@ -148,16 +148,19 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     }
   }
 
+  function chooseNewActivePage() {
+    const newKey = self.slopeKeys.find(key => getSlopeLabel(key) !== self.slopeIndex)
+    self.index = getPage(newKey)
+    self.slopeIndex = getSlopeLabel(newKey)
+  }
+
   function deletePage() {
     let page = self.current.text.get(self.currentKey)
     page = page.filter(line => line.slope_label !== self.slopeIndex)
 
     const lastTranscriptionsOnPage = lastInstanceOnPage(self.slopeKeys, self.index)
 
-    if (page.length) {
-      self.current.text.set(self.currentKey, page)
-      self.getSlopeKeys()
-    } else if (lastTranscriptionsOnPage) {
+    if (page.length || lastTranscriptionsOnPage) {
       self.current.text.set(self.currentKey, page)
     } else {
       if (self.current.frame_order.length) {
@@ -166,11 +169,9 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       self.current.text.forEach((value, key) => {
         if (key === self.currentKey) detach(value)
       })
-      self.getSlopeKeys()
     }
-    const newKey = self.slopeKeys.find(key => getSlopeLabel(key) !== self.slopeIndex)
-    self.index = getPage(newKey)
-    self.slopeIndex = getSlopeLabel(newKey)
+    self.getSlopeKeys()
+    if (!lastTranscriptionsOnPage) self.chooseNewActivePage()
     self.saveTranscription()
   }
 
@@ -564,6 +565,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     changeIndex,
     checkForFlagUpdate,
     checkIfLocked,
+    chooseNewActivePage,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
     deletePage,
