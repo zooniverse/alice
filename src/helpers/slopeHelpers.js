@@ -16,7 +16,7 @@ export function getSlopeLabel(key) {
   return parseInt(key[key.length - 1])
 }
 
-export function lastInstanceOnPage(allKeys, page) {
+export function lastInstanceOnPage(allKeys = [], page) {
   let instances = 0
   allKeys.forEach(key => {
     if (getPage(key) === page) instances += 1
