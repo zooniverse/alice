@@ -12,7 +12,7 @@ describe('Component > TranscriptionTable', function () {
   beforeEach(function() {
     useStateSpy = jest.spyOn(React, 'useState')
     useStateSpy.mockImplementation((init) => [init, setState])
-    wrapper = shallow(<TranscriptionTable data={mockData} />);
+    wrapper = shallow(<TranscriptionTable data={mockData} slopeIndex={0} />);
   })
 
   it('should render without crashing', function () {
@@ -24,7 +24,7 @@ describe('Component > TranscriptionTable', function () {
   })
 
   it('should hide rows without a matching slope', function () {
-    wrapper = shallow(<TranscriptionTable activeSlope={90} data={mockData} />);
+    wrapper = shallow(<TranscriptionTable data={mockData} slopeIndex={1} />);
     expect(wrapper.find(TranscriptionTableRow).length).toEqual(0)
   })
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text } from 'grommet'
+import { Box, Button, Text } from 'grommet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react'
@@ -10,6 +10,10 @@ import Overlay from '../Overlay'
 
 const RelativeBox = styled(Box)`
   position: relative;
+`
+
+const Uppercase = styled(Text)`
+  text-transform: uppercase;
 `
 
 function usePrevious(rawValue) {
@@ -30,12 +34,14 @@ function FilmstripViewer ({
   images,
   rearrangePages,
   selectImage,
+  showDeletePage,
   slopeDefinitions,
   slopeKeys,
   subjectIndex
 }) {
   const [hoveredIndex, setHoveredIndex] = React.useState()
   const [slopeValues, setSlopeValues] = React.useState(slopeKeys)
+  const [canDelete, setCanDelete] = React.useState(false)
   const previous = usePrevious(slopeKeys)
 
   if (!isEqual(previous, slopeKeys) && slopeKeys !== slopeValues) {
@@ -49,6 +55,11 @@ function FilmstripViewer ({
       {disabled && <Overlay />}
       <Box direction='row' justify='between'>
         <Text size='1em'>All Pages</Text>
+        <Button
+          label={<Uppercase>Delete Pages</Uppercase>}
+          onClick={() => setCanDelete(!canDelete)}
+          plain
+        />
       </Box>
           <Box direction='row' wrap>
             {slopeValues.map((key, i) => {
@@ -62,6 +73,7 @@ function FilmstripViewer ({
               return (
                 <Box border={border} key={`THUMBNAIL_${i}`} margin={{ bottom: 'xsmall' }}>
                   <FilmstripThumbnail
+                    canDelete={canDelete}
                     disabled={disabled}
                     draggable={draggable}
                     hoveredIndex={hoveredIndex}
@@ -72,6 +84,7 @@ function FilmstripViewer ({
                     selectImage={selectImage}
                     setHoveredIndex={setHoveredIndex}
                     setSlopeValues={setSlopeValues}
+                    showDeletePage={showDeletePage}
                     slopeDefinition={slopeDefinition}
                     slopeIndex={slopeIndex}
                     slopeValues={slopeValues}
@@ -90,6 +103,7 @@ FilmstripViewer.defaultProps = {
   images: [],
   selectImage: () => {},
   setSlopeKeys: () => {},
+  showDeletePage: () => {},
   slopeKeys: [],
   subjectIndex: 0
 }
@@ -100,6 +114,7 @@ FilmstripViewer.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   selectImage: PropTypes.func,
   setSlopeKeys: PropTypes.func,
+  showDeletePage: PropTypes.func,
   slopeKeys: PropTypes.arrayOf(PropTypes.string),
   subjectIndex: PropTypes.number
 }
