@@ -142,6 +142,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     if (Number.isInteger(self.activeTranscriptionIndex)) {
       const page = self.current.text.get(self.currentKey)
       page.splice(self.activeTranscriptionIndex, 1)
+      self.getSlopeKeys()
       self.saveTranscription()
       self.setActiveTranscription()
     }
@@ -174,6 +175,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const newKey = self.slopeKeys.find(key => getSlopeLabel(key) !== self.slopeIndex)
     self.index = getPage(newKey)
     self.slopeIndex = getSlopeLabel(newKey)
+    self.saveTranscription()
   }
 
   const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
@@ -305,8 +307,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
     framesWithoutTranscriptions.forEach(emptyFrame => {
       const emptyFramePage = getPage(emptyFrame)
-      const pageIsInAllSlopeKeys = allSlopeKeys.some(key => getPage(key) === emptyFramePage)
-      if (!pageIsInAllSlopeKeys) {
+      const pageExistsInSlopeKeys = allSlopeKeys.some(key => getPage(key) === emptyFramePage)
+      if (!pageExistsInSlopeKeys) {
         const slopeKey = `frame${emptyFramePage}.0`
         allSlopeKeys.push(slopeKey)
         slopeDefinitions[slopeKey] = 0
