@@ -8,7 +8,7 @@ import { request } from 'graphql-request'
 import { config } from 'config'
 
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
-import { getPage, getSlopeLabel, isolateGroups } from 'helpers/slopeHelpers'
+import { getPage, getSlopeLabel, isolateGroups, lastInstanceOnPage } from 'helpers/slopeHelpers'
 import getError, { TranscriptionError } from 'helpers/getError'
 import MODALS from 'helpers/modals'
 import STATUS from 'helpers/status'
@@ -152,11 +152,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     let page = self.current.text.get(self.currentKey)
     page = page.filter(line => line.slope_label !== self.slopeIndex)
 
-    let instancesOfPage = 0
-    self.slopeKeys.forEach(key => {
-      if (getPage(key) === self.index) instancesOfPage += 1
-    })
-    const lastTranscriptionsOnPage = instancesOfPage <= 1
+    const lastTranscriptionsOnPage = lastInstanceOnPage(self.slopeKeys, self.index)
 
     if (page.length) {
       self.current.text.set(self.currentKey, page)
