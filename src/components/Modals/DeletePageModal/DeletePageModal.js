@@ -1,9 +1,10 @@
 import React from 'react'
 import { Box, Button, Text } from 'grommet'
-import { func } from 'prop-types'
+import { func, shape, string } from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import CONTENT from './content'
 
 const StyledText = styled(Text)`
   line-height: 1.5rem;
@@ -13,7 +14,7 @@ const Uppercase = styled(Text)`
   text-transform: uppercase;
 `
 
-export default function DeletePageModal({ onClose, onDelete }) {
+export default function DeletePageModal({ content, onClose, onDelete }) {
   return (
     <Box
       background='white'
@@ -24,7 +25,7 @@ export default function DeletePageModal({ onClose, onDelete }) {
       width='medium'
     >
       <Box direction='row' gap='small' justify='between'>
-        <Text size='large'>Delete this page?</Text>
+        <Text size='large'>{content.title}</Text>
         <Button
           a11yTitle="Close Delete Page Modal"
           icon={<FontAwesomeIcon icon={faTimesCircle} size='xs' />}
@@ -33,13 +34,8 @@ export default function DeletePageModal({ onClose, onDelete }) {
         />
       </Box>
 
-      <StyledText>
-        The selected page contains transcribed text data. Are you sure
-        you want to delete it?
-      </StyledText>
-      <StyledText>
-        This action can be undone using the Undo button in the toolbar.
-      </StyledText>
+      <StyledText>{content.firstParagraph}</StyledText>
+      <StyledText>{content.secondParagraph}</StyledText>
       <Box direction='row' justify='between' margin={{ top: 'small' }}>
         <Button
           a11yTitle="Close Delete Page Modal"
@@ -59,11 +55,17 @@ export default function DeletePageModal({ onClose, onDelete }) {
 }
 
 DeletePageModal.defaultProps = {
+  content: CONTENT.withDuplicates,
   onClose: () => {},
   onDelete: () => {}
 }
 
 DeletePageModal.propTypes = {
+  content: shape({
+    title: string,
+    firstParagraph: string,
+    secondParagraph: string
+  }),
   onClose: func,
   onDelete: func
 }
