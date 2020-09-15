@@ -283,11 +283,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function getSlopeKeys(commitToHistory = true) {
     const allSlopeKeys = []
     const slopeDefinitions = {}
+    const framesWithoutTranscriptions = []
 
     let frames = self.current.frame_order.length ? self.current.frame_order : Array.from(self.current.text.keys())
 
     frames.forEach(key => {
       const frame = self.current.text.get(key)
+
+      if (!frame.length) framesWithoutTranscriptions.push(key)
+
       frame.forEach(r => {
         const slopeKey = key.includes('.') ? key : `${key}.${r.slope_label}`
         if (!allSlopeKeys.includes(slopeKey)) {
@@ -297,6 +301,16 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
           slopeDefinitions[slopeKey] = r.line_slope
         }
       })
+    })
+
+    framesWithoutTranscriptions.forEach(emptyFrame => {
+      const emptyFramePage = getPage(emptyFrame)
+      const pageIsInAllSlopeKeys = allSlopeKeys.some(key => getPage(key) === emptyFramePage)
+      if (!pageIsInAllSlopeKeys) {
+        const slopeKey = `frame${emptyFramePage}.0`
+        allSlopeKeys.push(slopeKey)
+        slopeDefinitions[slopeKey] = 0
+      }
     })
 
     if (commitToHistory) {

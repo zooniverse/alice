@@ -6,8 +6,8 @@ export const BORDER_MAP = {
 }
 
 export function getPage(key) {
-  const dotIndex = key.indexOf('.')
-  if (dotIndex === -1) return 0
+  let dotIndex = key.indexOf('.')
+  if (dotIndex === -1) dotIndex = key.length
   return parseInt(key[dotIndex - 1])
 }
 
