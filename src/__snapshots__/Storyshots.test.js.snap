@@ -492,7 +492,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ hGYXTl"
+            className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ eYRRwn"
           >
             Delete Pages
           </span>
