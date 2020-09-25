@@ -6,14 +6,22 @@ export const BORDER_MAP = {
 }
 
 export function getPage(key) {
-  const dotIndex = key.indexOf('.')
-  if (dotIndex === -1) return 0
+  let dotIndex = key.indexOf('.')
+  if (dotIndex === -1) dotIndex = key.length
   return parseInt(key[dotIndex - 1])
 }
 
 export function getSlopeLabel(key) {
   if (!key || key.length === 0) return 0
   return parseInt(key[key.length - 1])
+}
+
+export function lastInstanceOnPage(allKeys = [], page) {
+  let instances = 0
+  allKeys.forEach(key => {
+    if (getPage(key) === page) instances += 1
+  })
+  return instances <= 1
 }
 
 export function spotInGroup(slopes, index) {

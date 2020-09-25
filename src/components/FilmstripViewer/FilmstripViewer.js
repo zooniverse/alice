@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Button, Text } from 'grommet'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { observer } from 'mobx-react'
 import isEqual from 'helpers/isEqual'
@@ -14,6 +14,7 @@ const RelativeBox = styled(Box)`
 
 const Uppercase = styled(Text)`
   text-transform: uppercase;
+  ${css`text-decoration: ${props => props.canDelete ? 'underline' : 'inherit'};`}
 `
 
 function usePrevious(rawValue) {
@@ -56,7 +57,7 @@ function FilmstripViewer ({
       <Box direction='row' justify='between'>
         <Text size='1em'>All Pages</Text>
         <Button
-          label={<Uppercase>Delete Pages</Uppercase>}
+          label={<Uppercase canDelete={canDelete}>Delete Pages</Uppercase>}
           onClick={() => setCanDelete(!canDelete)}
           plain
         />

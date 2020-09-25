@@ -8,7 +8,7 @@ import { request } from 'graphql-request'
 import { config } from 'config'
 
 import { constructText, mapExtractsToReductions } from 'helpers/parseTranscriptionData'
-import { getPage, getSlopeLabel, isolateGroups } from 'helpers/slopeHelpers'
+import { getPage, getSlopeLabel, isolateGroups, lastInstanceOnPage } from 'helpers/slopeHelpers'
 import getError, { TranscriptionError } from 'helpers/getError'
 import MODALS from 'helpers/modals'
 import STATUS from 'helpers/status'
@@ -142,25 +142,25 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     if (Number.isInteger(self.activeTranscriptionIndex)) {
       const page = self.current.text.get(self.currentKey)
       page.splice(self.activeTranscriptionIndex, 1)
+      self.getSlopeKeys()
       self.saveTranscription()
       self.setActiveTranscription()
     }
+  }
+
+  function chooseNewActivePage() {
+    const newKey = self.slopeKeys.find(key => getSlopeLabel(key) !== self.slopeIndex)
+    self.index = getPage(newKey)
+    self.slopeIndex = getSlopeLabel(newKey)
   }
 
   function deletePage() {
     let page = self.current.text.get(self.currentKey)
     page = page.filter(line => line.slope_label !== self.slopeIndex)
 
-    let instancesOfPage = 0
-    self.slopeKeys.forEach(key => {
-      if (getPage(key) === self.index) instancesOfPage += 1
-    })
-    const lastTranscriptionsOnPage = instancesOfPage <= 1
+    const lastTranscriptionsOnPage = lastInstanceOnPage(self.slopeKeys, self.index)
 
-    if (page.length) {
-      self.current.text.set(self.currentKey, page)
-      self.getSlopeKeys()
-    } else if (lastTranscriptionsOnPage) {
+    if (page.length || lastTranscriptionsOnPage) {
       self.current.text.set(self.currentKey, page)
     } else {
       if (self.current.frame_order.length) {
@@ -169,11 +169,10 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       self.current.text.forEach((value, key) => {
         if (key === self.currentKey) detach(value)
       })
-      self.getSlopeKeys()
     }
-    const newKey = self.slopeKeys.find(key => getSlopeLabel(key) !== self.slopeIndex)
-    self.index = getPage(newKey)
-    self.slopeIndex = getSlopeLabel(newKey)
+    self.getSlopeKeys()
+    if (!lastTranscriptionsOnPage) self.chooseNewActivePage()
+    self.saveTranscription()
   }
 
   const reaggregateDBScan = flow(function * reaggregateDBScan(params) {
@@ -283,11 +282,15 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   function getSlopeKeys(commitToHistory = true) {
     const allSlopeKeys = []
     const slopeDefinitions = {}
+    const framesWithoutTranscriptions = []
 
     let frames = self.current.frame_order.length ? self.current.frame_order : Array.from(self.current.text.keys())
 
     frames.forEach(key => {
       const frame = self.current.text.get(key)
+
+      if (!frame.length) framesWithoutTranscriptions.push(key)
+
       frame.forEach(r => {
         const slopeKey = key.includes('.') ? key : `${key}.${r.slope_label}`
         if (!allSlopeKeys.includes(slopeKey)) {
@@ -297,6 +300,16 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
           slopeDefinitions[slopeKey] = r.line_slope
         }
       })
+    })
+
+    framesWithoutTranscriptions.forEach(emptyFrame => {
+      const emptyFramePage = getPage(emptyFrame)
+      const pageExistsInSlopeKeys = allSlopeKeys.some(key => getPage(key) === emptyFramePage)
+      if (!pageExistsInSlopeKeys) {
+        const slopeKey = `frame${emptyFramePage}.0`
+        allSlopeKeys.push(slopeKey)
+        slopeDefinitions[slopeKey] = 0
+      }
     })
 
     if (commitToHistory) {
@@ -552,6 +565,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     changeIndex,
     checkForFlagUpdate,
     checkIfLocked,
+    chooseNewActivePage,
     createTranscription: (transcription, lastModified) => undoManager.withoutUndo(() => createTranscription(transcription, lastModified)),
     deleteCurrentLine,
     deletePage,
