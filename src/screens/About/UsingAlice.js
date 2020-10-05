@@ -46,7 +46,7 @@ export default function UsingAlice() {
       />
       <BodyText>
         The Project Builder roles determine what level of access your team members
-        will have in ALICE.
+        will have in ALICE. These roles are set by adding users to your project in the Collaborators tab of the Project Builder.
       </BodyText>
       <BodyText>
         <b>Admin</b> access: Project owner, Collaborator
