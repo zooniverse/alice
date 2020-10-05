@@ -111,7 +111,7 @@ export default function UsingAlice() {
       <BodyText>
         Within a group, you will be able to view a list of all subjects that
         have been retired from your project so far. For each group, you will
-        be able to see (and sort by!) the following information:
+        be able to see (and sort) subjects by the following information:
       </BodyText>
       <StyledList>
         <StyledListItem>
