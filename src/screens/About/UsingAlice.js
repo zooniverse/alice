@@ -276,6 +276,11 @@ export default function UsingAlice() {
         transcriptions.  Parameter adjustments can be made on a per-subject basis
         in the ALICE interface.
       </BodyText>
+      <BodyText>
+        Be sure to adjust a subject‘s aggregation settings BEFORE you start to make
+        any in-line edits. Changing the aggregation settings will cause any custom
+        text rearrangements to be lost.
+      </BodyText>
     </Box>
   )
 }
