@@ -235,6 +235,18 @@ export default function UsingAlice() {
         click on the line to reopen the module, select the aggregated transcription
         from the menu, and click 'Replace with selected'.
       </BodyText>
+      <AboutTitle level={6} title='Re-ordering transcriptions' />
+      <BodyText>
+        To adjust the reading order of lines, simply click on a line of text and hold, 
+        drag it into the desired position, and release the mouse to ‘drop‘ the line into place.
+      </BodyText>  
+      <AboutTitle level={6} title='Deleting transcriptions' />
+      <BodyText>
+        To delete a line, open the line you want to delete, select ‘Delete line‘, and 
+        confirm your cohice. You can use the ‘Undo‘ button to immediately reverse this 
+        action in the current session, but once you end your session, you will not be able
+        to retrieve deleted lines.
+      </BodyText> 
       <AboutTitle level={6} title='Flags' />
       <BodyText>
         Press the green circle to mark the line as <b>seen</b>, or press the red
@@ -258,6 +270,25 @@ export default function UsingAlice() {
         will not be able to request a data export for that subject until it has
         been re-approved.
       </BodyText>
+      <AboutTitle level={6} title='Auto-save' />
+      <BodyText>
+        In lieu of a ‘Save‘ button, ALICE includes an auto-save feature that saves
+        all changes as you go. The current status of a Save event can be monitored
+        at the top of the page.
+      </BodyText>
+      <BodyText>
+        When making changes, please check that the Save status says, ‘ALL CHANGES SAVED‘ 
+        before navigating away from the current page. If the Save status says, ‘SAVING...‘,
+        wait until all changes have been saved before leaving the page or closing your
+        browser.
+      </BodyText>  
+      <AboutTitle level={6} title='Undo' />
+      <BodyText>
+        You can use the Undo button to immediately revert an edit, or series of edits.
+        The Undo button will only work for changes that you have made in your current
+        session. You will not be able to Undo changes made in a previous session, or 
+        by another user.
+      </BodyText>  
       <AboutTitle level={6} title='Aggregation settings (advanced)' />
       <BodyText>
         The aggregation settings allow you to adjust the way that the raw
