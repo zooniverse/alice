@@ -111,6 +111,7 @@ export default function Setup() {
       </BodyText>
       <StyledList>
         <StyledListItem>A data table with the metadata created in the app (.csv)</StyledListItem>
+        <StyledListItem>Line by line transcription and metadata (.csv)</StyledListItem>
         <StyledListItem>A file with the selected transcription only (.txt)</StyledListItem>
         <StyledListItem>Raw, unparsed transcription data (.json)</StyledListItem>
       </StyledList>
