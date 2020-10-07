@@ -223,6 +223,43 @@ export default function UsingAlice() {
         (if they were logged into a Zooniverse account), and the time and date
         the transcription was submitted.
       </BodyText>
+      <AboutTitle level={6} title='Pages: viewing, re-ordering, and deleting' />
+      <BodyText>
+        Navigate across subjects that are multiple pages using the filmstrip viewer
+        at the bottom of the Subject View page. Click on a thumbnail to view the full
+        page, complete with annotations and transcription data.
+      </BodyText>
+      <BodyText>
+        Thumbnails labeled with an angle (in degrees) are automatically-generated 
+        duplicates of original images. These duplicate images are generated as a 
+        way to allow for re-ordering of cross-written or marginal text. The duplicate 
+        images of the original page will contain all text written at an angle greater 
+        than 25 or 30 degrees from 0 (i.e. text written across the page, from left 
+        to right). Subjects using the DBSCAN clustering algorithm will have 25 degrees 
+        as the default setting for generating duplicate pages; those using the OPTICS 
+        clustering algorithm will have a default setting of 30. 
+      </BodyText>
+      <BodyText>
+        Angles are calculated based on the underline drawn below a line of written text. 
+        From time to time, volunteers will underline a document from right to left, 
+        instead of left to right, resulting in a ‘false positive‘ identification of 
+        cross-writing (including the auto-generated duplicate page). In these cases, 
+        you can use the ‘Add line‘ option to copy and paste the text into a new line 
+        on the page where it belongs. 
+      </BodyText>
+      <BodyText>
+        To reorder pages, click and drag the image thumbnails as needed.
+      </BodyText>
+      <BodyText>
+        To delete pages, select the ‘Delete Pages‘ button in the upper right corner of 
+        the filmstrip viewer. An ‘X‘ will appear in the corner of each thumbnail image. 
+        Click on an ‘X‘ to delete the page, and a modal will appear asking you to 
+        confirm this action. Only auto-generated image duplicates can be truly deleted. 
+        If an image does not have a duplicate, clicking the X will instead delete 
+        the contents of that page (i.e. transcription data). The text of the confirmation
+        modal will notify you which action is taking place (‘Delete page‘ vs. ‘Delete
+        contents of this page‘).        
+      </BodyText>
       <AboutTitle level={4} title='Editing' />
       <AboutTitle level={6} title='Editing or changing transcriptions' />
       <BodyText>
@@ -238,14 +275,15 @@ export default function UsingAlice() {
       <AboutTitle level={6} title='Re-ordering transcriptions' />
       <BodyText>
         To adjust the reading order of lines, simply click on a line of text and hold, 
-        drag it into the desired position, and release the mouse to ‘drop‘ the line into place.
+        drag it into the desired position, and release the mouse to ‘drop‘ the line 
+        into place.
       </BodyText>  
       <AboutTitle level={6} title='Deleting transcriptions' />
       <BodyText>
         To delete a line, open the line you want to delete, select ‘Delete line‘, and 
         confirm your cohice. You can use the ‘Undo‘ button to immediately reverse this 
-        action in the current session, but once you end your session, you will not be able
-        to retrieve deleted lines.
+        action in the current session, but once you end your session, you will not be 
+        able to retrieve deleted lines.
       </BodyText> 
       <AboutTitle level={6} title='Flags' />
       <BodyText>
