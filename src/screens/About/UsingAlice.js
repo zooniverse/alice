@@ -196,7 +196,7 @@ export default function UsingAlice() {
         or flags. To search for a specific subject, select the ID type (Zooniverse
         ID or Internal ID), enter the name, and click 'Search'. To filter subjects,
         select from the list of options available and click Search. You can
-        also <b>Sort</b> any of the lists (Workflows, Groups, Subjects) by
+         <b>Sort</b> a list of subjects within a Group by
         clicking on the available column headings. Please note that ALICE only
         supports search within individual groups, not across an entire Workflow
         or Project.
