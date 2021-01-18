@@ -10,7 +10,7 @@ const CapitalText = styled(Text)`
 `
 
 function ProjectCard({ history, project }) {
-  const imageSrc = project.avatar_src && project.avatar_src.length ? `//${project.avatar_src}` : SimplePattern
+  const imageSrc = project.avatar_src && project.avatar_src.length ? project.avatar_src : SimplePattern
   const onClick = e => {
     history.push(`/projects/${project.id}/workflows`)
   }

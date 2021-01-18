@@ -37,7 +37,7 @@ describe('Component > ProjectCard', function () {
 
   it('should format the project src correctly', function () {
     wrapper = shallow(<ProjectCard project={project} />);
-    expect(wrapper.find(Image).first().props().src).toBe(`//${project.avatar_src}`)
+    expect(wrapper.find(Image).first().props().src).toBe(project.avatar_src)
   })
 
   it('should call store functions with onClick', function () {
