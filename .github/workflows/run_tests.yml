@@ -22,3 +22,4 @@ jobs:
       env:
         REACT_APP_ENV: development
     - run: yarn test
+    
