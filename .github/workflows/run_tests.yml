@@ -18,8 +18,5 @@ jobs:
       with:
         node-version: '14.x'
     - run: yarn install
-    - run: yarn build
-      env:
-        REACT_APP_ENV: development
     - run: yarn test
     
