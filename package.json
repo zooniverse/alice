@@ -24,7 +24,6 @@
     "mobx-state-tree": "^3.14.1",
     "mst-middlewares": "^3.15.0",
     "panoptes-client": "3.2.0",
-    "publisssh": "^1.1.0",
     "ramda": "^0.26.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
