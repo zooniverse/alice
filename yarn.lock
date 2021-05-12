@@ -9418,10 +9418,10 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.10.tgz#4328badb5086a426aa90f541977d4955da5c9732"
   integrity sha512-0DTvPVU3ed8+HNXOu5Bs+o//Mbdj9VNQMUOe9oKCwh8l0GNwpTDMKCWbRjgtD291AWnkAgkqA/LOnQS8AmS1tw==
 
-panoptes-client@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/panoptes-client/-/panoptes-client-3.2.0.tgz#9a83ee7755722b36fda73f37041c3c75ac85c32e"
-  integrity sha512-qXp1L4XZhiJ4dAhybtyivlpu28zZfTKf68qEzqCUsjo1RuSO21ri27lWPqS5QdDgxhq4VqvZHnSWMuyDQPbEaA==
+panoptes-client@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/panoptes-client/-/panoptes-client-3.3.2.tgz#aefaf42d01b3e490b02258d44fb0df0374f21c74"
+  integrity sha512-fb6Tah+M8QTZ/cSU6BE8/1+hatS1AVmj29iZj7hAdprvhenfcJcyj/C4eLEbbEmzXS7ZeOVJ3ESUY5KngAfivg==
   dependencies:
     json-api-client "~5.0.0"
     local-storage "^1.4.2"
