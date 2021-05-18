@@ -160,9 +160,10 @@ export default function Setup() {
           </StyledList>
         </StyledListItem>
         <StyledListItem>
-          Note: these identifiers can be a combination of alphanumeric and special
-          characters, but we recommend using minimal special characters, as they
-          can negatively affect the Search and Sort functions
+          Please limit your unique identifier fields (<b>internal_id</b> and
+          <b>group_id</b>) to alphanumeric characters only, and remove spaces, as
+          special characters can negatively impact the process of importing data
+          into ALICE.                                            
         </StyledListItem>
         <StyledListItem>
           Remember: you can’t change your groups once you’ve uploaded your
@@ -187,7 +188,13 @@ export default function Setup() {
       <BodyText>
         The metadata that you upload for your subjects will vary from project
         to project. The image above shows a basic example of the necessary column
-        headings for successful ALICE indexing.
+        headings for successful ALICE indexing. For an additional example of an
+        ALICE-compliant manifest, 
+        <Anchor
+          href='https://docs.google.com/spreadsheets/d/1x5RtFjpkSnTfm9IMgMd5BWalmEvcd8sESqXGnt6ItEA/edit?usp=sharing'
+          label='click here'
+          margin={{ horizontal: '0.2em' }}
+        />  
       </BodyText>
       <AboutTitle level={4} title='Reaching out to complete your setup' />
       <BodyText>
