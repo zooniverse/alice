@@ -52,16 +52,38 @@ export default function Setup() {
       <AboutTitle level={4} title='Choosing compatible tools' />
       <BodyText>
         ALICE is set up to work with transcription data that is collected using
-        a combination of Drawing Tools and Text Entry Subtasks.
+        a combination of Drawing Tools and Text Entry Subtasks. It is okay to 
+        use Text Modifiers with ALICE.
       </BodyText>
+       <BodyText>
+        Please set up your workflow using the Transcription Task (recommended). 
+        Note: if the Transcription Task does not appear in your task list, you 
+        will need to follow the instructions via  
+          <Anchor
+            href='https://docs.google.com/document/d/1XpoMC8SBYVCie9mjU_ZBuT3dLR4bWTN-eZE5lHvls2U/edit?usp=sharing'
+            label='this link'
+            margin={{ left: '0.2em' }}
+          />
+        to request that the Transcription Task be added to your project.
+      </BodyText>
+      <StyledList>
+        <StyledListItem>Select 'Add A Task' > 'Transcription'</StyledListItem>
+        <StyledListItem>
+          The transcription task includes a pre-configured drawing task wiht a text
+          sub-task, as well as a question task that is used to measure subject
+          completeness. Only the instructions, help text, and text modifiers are
+          editable.
+        </StyledListItem>
+      </StyledList>
       <BodyText>
-        Please set up your workflow using the Line Tool with a Text Entry Sub-task.
+        If you do not wish to use the Transcription Task, you can also set up 
+        your workflow using the Line Tool with a Text Entry Sub-task.
       </BodyText>
       <StyledList>
         <StyledListItem>Select 'Add A Task' > 'Drawing'</StyledListItem>
         <StyledListItem>
           In the Tool Selection Area, choose 'Line' and add a 'Text
-          Sub-task' (note: it is okay to use Text Modifiers with ALICE)
+          Sub-task' 
         </StyledListItem>
       </StyledList>
       <PhotoBlock
