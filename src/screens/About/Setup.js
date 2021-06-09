@@ -10,6 +10,7 @@ import Workflow1 from 'images/about/workflow1.png'
 import Workflow2 from 'images/about/workflow2.png'
 import Workflow3 from 'images/about/workflow3.png'
 import Workflow4 from 'images/about/workflow4.png'
+import TranscriptionTaskEditor from 'images/about/transcription-task-editor.png'
 
 const CAPTION = `
   Series illustrating the process of creating task + sub-task. Top left: adding
@@ -69,12 +70,17 @@ export default function Setup() {
       <StyledList>
         <StyledListItem>Select 'Add A Task' > 'Transcription'</StyledListItem>
         <StyledListItem>
-          The transcription task includes a pre-configured drawing task wiht a text
+          The transcription task includes a pre-configured drawing task with a text
           sub-task, as well as a question task that is used to measure subject
           completeness. Only the instructions, help text, and text modifiers are
           editable.
         </StyledListItem>
       </StyledList>
+      <PhotoBlock
+        caption={'The workflow editor interface where teams can pick to use the transcription task.'}
+        description='TRANSCRIPTION TASK EDITOR'
+        photos={[{ alt: 'Transcription task editor button as it appears in the workflow editor interface', photo: TranscriptionTaskEditor }]}
+      />
       <BodyText>
         If you do not wish to use the Transcription Task, you can also set up 
         your workflow using the Line Tool with a Text Entry Sub-task.
