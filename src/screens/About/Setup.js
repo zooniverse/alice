@@ -77,7 +77,7 @@ export default function Setup() {
         </StyledListItem>
       </StyledList>
       <PhotoBlock
-        caption={'The workflow editor interface where teams can pick to use the transcription task.'}
+        caption={'The workflow editor interface where teams can select the transcription task.'}
         description='TRANSCRIPTION TASK EDITOR'
         photos={[{ alt: 'Transcription task editor button as it appears in the workflow editor interface', photo: TranscriptionTaskEditor }]}
       />
