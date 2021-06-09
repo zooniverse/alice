@@ -46,7 +46,7 @@ export default function UsingAlice() {
       />
       <BodyText>
         The Project Builder roles determine what level of access your team members
-        will have in ALICE.
+        will have in ALICE. These roles are set by adding users to your project in the Collaborators tab of the Project Builder.
       </BodyText>
       <BodyText>
         <b>Admin</b> access: Project owner, Collaborator
@@ -111,7 +111,7 @@ export default function UsingAlice() {
       <BodyText>
         Within a group, you will be able to view a list of all subjects that
         have been retired from your project so far. For each group, you will
-        be able to see (and sort by!) the following information:
+        be able to see (and sort) subjects by the following information:
       </BodyText>
       <StyledList>
         <StyledListItem>
@@ -196,7 +196,7 @@ export default function UsingAlice() {
         or flags. To search for a specific subject, select the ID type (Zooniverse
         ID or Internal ID), enter the name, and click 'Search'. To filter subjects,
         select from the list of options available and click Search. You can
-        also <b>Sort</b> any of the lists (Workflows, Groups, Subjects) by
+         <b>Sort</b> a list of subjects within a Group by
         clicking on the available column headings. Please note that ALICE only
         supports search within individual groups, not across an entire Workflow
         or Project.
@@ -223,6 +223,43 @@ export default function UsingAlice() {
         (if they were logged into a Zooniverse account), and the time and date
         the transcription was submitted.
       </BodyText>
+      <AboutTitle level={6} title='Pages: viewing, re-ordering, and deleting' />
+      <BodyText>
+        Navigate across subjects that are multiple pages using the filmstrip viewer
+        at the bottom of the Subject View page. Click on a thumbnail to view the full
+        page, complete with annotations and transcription data.
+      </BodyText>
+      <BodyText>
+        Thumbnails labeled with an angle (in degrees) are automatically-generated 
+        duplicates of original images. These duplicate images are generated as a 
+        way to allow for re-ordering of cross-written or marginal text. The duplicate 
+        images of the original page will contain all text written at an angle greater 
+        than 25 or 30 degrees from 0 (i.e. text written across the page, from left 
+        to right). Subjects using the DBSCAN clustering algorithm will have 25 degrees 
+        as the default setting for generating duplicate pages; those using the OPTICS 
+        clustering algorithm will have a default setting of 30. 
+      </BodyText>
+      <BodyText>
+        Angles are calculated based on the underline drawn below a line of written text. 
+        From time to time, volunteers will underline a document from right to left, 
+        instead of left to right, resulting in a ‘false positive‘ identification of 
+        cross-writing (including the auto-generated duplicate page). In these cases, 
+        you can use the ‘Add line‘ option to copy and paste the text into a new line 
+        on the page where it belongs. 
+      </BodyText>
+      <BodyText>
+        To reorder pages, click and drag the image thumbnails as needed.
+      </BodyText>
+      <BodyText>
+        To delete pages, select the ‘Delete Pages‘ button in the upper right corner of 
+        the filmstrip viewer. An ‘X‘ will appear in the corner of each thumbnail image. 
+        Click on an ‘X‘ to delete the page, and a modal will appear asking you to 
+        confirm this action. Only auto-generated image duplicates can be truly deleted. 
+        If an image does not have a duplicate, clicking the X will instead delete 
+        the contents of that page (i.e. transcription data). The text of the confirmation
+        modal will notify you which action is taking place (‘Delete page‘ vs. ‘Delete
+        contents of this page‘).        
+      </BodyText>
       <AboutTitle level={4} title='Editing' />
       <AboutTitle level={6} title='Editing or changing transcriptions' />
       <BodyText>
@@ -235,6 +272,19 @@ export default function UsingAlice() {
         click on the line to reopen the module, select the aggregated transcription
         from the menu, and click 'Replace with selected'.
       </BodyText>
+      <AboutTitle level={6} title='Re-ordering transcriptions' />
+      <BodyText>
+        To adjust the reading order of lines, simply click on a line of text and hold, 
+        drag it into the desired position, and release the mouse to ‘drop‘ the line 
+        into place.
+      </BodyText>  
+      <AboutTitle level={6} title='Deleting transcriptions' />
+      <BodyText>
+        To delete a line, open the line you want to delete, select ‘Delete line‘, and 
+        confirm your cohice. You can use the ‘Undo‘ button to immediately reverse this 
+        action in the current session, but once you end your session, you will not be 
+        able to retrieve deleted lines.
+      </BodyText> 
       <AboutTitle level={6} title='Flags' />
       <BodyText>
         Press the green circle to mark the line as <b>seen</b>, or press the red
@@ -258,6 +308,25 @@ export default function UsingAlice() {
         will not be able to request a data export for that subject until it has
         been re-approved.
       </BodyText>
+      <AboutTitle level={6} title='Auto-save' />
+      <BodyText>
+        In lieu of a ‘Save‘ button, ALICE includes an auto-save feature that saves
+        all changes as you go. The current status of a Save event can be monitored
+        at the top of the page.
+      </BodyText>
+      <BodyText>
+        When making changes, please check that the Save status says, ‘ALL CHANGES SAVED‘ 
+        before navigating away from the current page. If the Save status says, ‘SAVING...‘,
+        wait until all changes have been saved before leaving the page or closing your
+        browser.
+      </BodyText>  
+      <AboutTitle level={6} title='Undo' />
+      <BodyText>
+        You can use the Undo button to immediately revert an edit, or series of edits.
+        The Undo button will only work for changes that you have made in your current
+        session. You will not be able to Undo changes made in a previous session, or 
+        by another user.
+      </BodyText>  
       <AboutTitle level={6} title='Aggregation settings (advanced)' />
       <BodyText>
         The aggregation settings allow you to adjust the way that the raw
@@ -275,6 +344,11 @@ export default function UsingAlice() {
         page, multiple lines may be grouped together, resulting in inaccurate
         transcriptions.  Parameter adjustments can be made on a per-subject basis
         in the ALICE interface.
+      </BodyText>
+      <BodyText>
+        Be sure to adjust a subject‘s aggregation settings BEFORE you start to make
+        any in-line edits. Changing the aggregation settings will cause any custom
+        text rearrangements to be lost.
       </BodyText>
     </Box>
   )

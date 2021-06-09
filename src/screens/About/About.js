@@ -8,6 +8,8 @@ import DBScan from './DBScan'
 import Optics from './Optics'
 import Setup from './Setup'
 import UsingAlice from './UsingAlice'
+import Acknowledgements from './Acknowledgements'
+import DataExports from './DataExports'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -48,6 +50,8 @@ export default function About () {
         <UsingAlice />
         <Optics />
         <DBScan />
+        <DataExports />
+        <Acknowledgements />
       </Box>
     </Box>
   )

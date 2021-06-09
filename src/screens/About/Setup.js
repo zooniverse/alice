@@ -10,6 +10,7 @@ import Workflow1 from 'images/about/workflow1.png'
 import Workflow2 from 'images/about/workflow2.png'
 import Workflow3 from 'images/about/workflow3.png'
 import Workflow4 from 'images/about/workflow4.png'
+import TranscriptionTaskEditor from 'images/about/transcription-task-editor.png'
 
 const CAPTION = `
   Series illustrating the process of creating task + sub-task. Top left: adding
@@ -52,16 +53,43 @@ export default function Setup() {
       <AboutTitle level={4} title='Choosing compatible tools' />
       <BodyText>
         ALICE is set up to work with transcription data that is collected using
-        a combination of Drawing Tools and Text Entry Subtasks.
+        a combination of Drawing Tools and Text Entry Subtasks. It is okay to 
+        use Text Modifiers with ALICE.
       </BodyText>
+       <BodyText>
+        Please set up your workflow using the Transcription Task (recommended). 
+        Note: if the Transcription Task does not appear in your task list, you 
+        will need to follow the instructions via  
+          <Anchor
+            href='https://docs.google.com/document/d/1XpoMC8SBYVCie9mjU_ZBuT3dLR4bWTN-eZE5lHvls2U/edit?usp=sharing'
+            label='this link'
+            margin={{ left: '0.2em' }}
+          />
+        to request that the Transcription Task be added to your project.
+      </BodyText>
+      <StyledList>
+        <StyledListItem>Select 'Add A Task' > 'Transcription'</StyledListItem>
+        <StyledListItem>
+          The transcription task includes a pre-configured drawing task with a text
+          sub-task, as well as a question task that is used to measure subject
+          completeness. Only the instructions, help text, and text modifiers are
+          editable.
+        </StyledListItem>
+      </StyledList>
+      <PhotoBlock
+        caption={'The workflow editor interface where teams can select the transcription task.'}
+        description='TRANSCRIPTION TASK EDITOR'
+        photos={[{ alt: 'Transcription task editor button as it appears in the workflow editor interface', photo: TranscriptionTaskEditor }]}
+      />
       <BodyText>
-        Please set up your workflow using the Line Tool with a Text Entry Sub-task.
+        If you do not wish to use the Transcription Task, you can also set up 
+        your workflow using the Line Tool with a Text Entry Sub-task.
       </BodyText>
       <StyledList>
         <StyledListItem>Select 'Add A Task' > 'Drawing'</StyledListItem>
         <StyledListItem>
           In the Tool Selection Area, choose 'Line' and add a 'Text
-          Sub-task' (note: it is okay to use Text Modifiers with ALICE)
+          Sub-task' 
         </StyledListItem>
       </StyledList>
       <PhotoBlock
@@ -138,9 +166,10 @@ export default function Setup() {
           </StyledList>
         </StyledListItem>
         <StyledListItem>
-          Note: these identifiers can be a combination of alphanumeric and special
-          characters, but we recommend using minimal special characters, as they
-          can negatively affect the Search and Sort functions
+          Please limit your unique identifier fields (<b>internal_id</b> and
+          <b>group_id</b>) to alphanumeric characters only, and remove spaces, as
+          special characters can negatively impact the process of importing data
+          into ALICE.                                            
         </StyledListItem>
         <StyledListItem>
           Remember: you can’t change your groups once you’ve uploaded your
@@ -165,7 +194,13 @@ export default function Setup() {
       <BodyText>
         The metadata that you upload for your subjects will vary from project
         to project. The image above shows a basic example of the necessary column
-        headings for successful ALICE indexing.
+        headings for successful ALICE indexing. For an additional example of an
+        ALICE-compliant manifest, 
+        <Anchor
+          href='https://docs.google.com/spreadsheets/d/1x5RtFjpkSnTfm9IMgMd5BWalmEvcd8sESqXGnt6ItEA/edit?usp=sharing'
+          label='click here'
+          margin={{ horizontal: '0.2em' }}
+        />  
       </BodyText>
       <AboutTitle level={4} title='Reaching out to complete your setup' />
       <BodyText>

@@ -54,6 +54,8 @@ const contents = [{
     }]
   },{
     title: 'Data exports'
+  }, {
+    title: 'Acknowledgements'
   }]
 }]
 
