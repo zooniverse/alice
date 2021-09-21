@@ -41,7 +41,7 @@ jobs:
               --account-name zooniversestatic \
               --content-cache-control 'public, max-age=60' \
               --container-name '$web' \
-              --name 'alice.zooniverse.org/index.html' \
+              --name 'alice.zooniverse.org/commit_id.txt' \
               --file ./build/commit_id.txt
             rm ./build/commit_id.txt
             az storage blob upload \
