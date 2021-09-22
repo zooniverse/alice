@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react';
 import { Box, Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import styled, { css } from 'styled-components'
@@ -56,7 +56,7 @@ function TranscriptionTableRow({
   setDragID,
   setTextObject
 }) {
-  const [isHover, setHover] = React.useState(false)
+  const [isHover, setHover] = useState(false)
   const isDragging = dragID === index
   const hamburgerColor = isHover || isDragging ? 'black' : 'transparent'
   const elevation = isHover || isDragging ? 'small' : 'none'

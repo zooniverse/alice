@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useEffect } from 'react';
 import { Box, Text } from 'grommet'
 import AppContext from 'store'
 import { observer } from 'mobx-react'
@@ -9,9 +9,9 @@ import { withRouter } from 'react-router-dom'
 import ProjectCard from './components/ProjectCard'
 
 function ProjectPageContainer ({ match }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const setResources = async () => {
       await store.getResources(match.params)
       await store.projects.getProjects()

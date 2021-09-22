@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react';
 import { Box } from 'grommet'
 import { observer } from 'mobx-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,7 @@ import AppContext from 'store'
 import HeaderButton from './HeaderButton'
 
 function LayoutButtonContainer({ disabled }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const onClick = e => { store.editor.toggleLayout() }
   const rowShade = store.editor.layout === 'row' ? '#555555' : '#CCCCCC'
   const columnShade = store.editor.layout === 'column' ? '#555555' : '#CCCCCC'

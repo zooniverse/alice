@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Box } from 'grommet'
 import AboutTitle from './components/AboutTitle'
 import PhotoBlock from './components/PhotoBlock'

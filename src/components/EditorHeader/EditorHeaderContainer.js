@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react';
 import { matchPath, withRouter } from "react-router-dom";
 import AppContext from 'store'
 import { observer } from 'mobx-react'
@@ -31,7 +31,7 @@ function getHeaderTools(path, isViewer = false) {
 }
 
 function EditorHeaderContainer({ history }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const buttons = getHeaderTools(history.location.pathname, store.projects.isViewer)
   const disabled = store.aggregations.showModal || store.transcriptions.approved || store.transcriptions.isActive
   const onAbout = routeMatcher(history.location.pathname, ABOUT_PATH)

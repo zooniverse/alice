@@ -1,4 +1,4 @@
-import React from 'react'
+import { useRef, useEffect, useState } from 'react';
 import { Box, Button, Text } from 'grommet'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
@@ -19,9 +19,9 @@ const Uppercase = styled(Text)`
 
 function usePrevious(rawValue) {
   const value = rawValue.map(l => l)
-  const ref = React.useRef();
+  const ref = useRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     ref.current = value;
   }, [value]);
 
@@ -40,9 +40,9 @@ function FilmstripViewer ({
   slopeKeys,
   subjectIndex
 }) {
-  const [hoveredIndex, setHoveredIndex] = React.useState()
-  const [slopeValues, setSlopeValues] = React.useState(slopeKeys)
-  const [canDelete, setCanDelete] = React.useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState()
+  const [slopeValues, setSlopeValues] = useState(slopeKeys)
+  const [canDelete, setCanDelete] = useState(false)
   const previous = usePrevious(slopeKeys)
 
   if (!isEqual(previous, slopeKeys) && slopeKeys !== slopeValues) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useRef } from 'react';
 import { Box, Image, Text } from 'grommet'
 import Zooniverse from 'images/zooniverse.png'
 import styled from 'styled-components'
@@ -30,7 +30,7 @@ const StickyBox = styled(Box)`
 `
 
 export default function About () {
-  const contentContainerRef = React.useRef()
+  const contentContainerRef = useRef()
 
   return (
     <Box align='start' gap='xsmall' margin='medium' direction='row'>

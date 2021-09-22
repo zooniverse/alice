@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import { Button } from 'grommet'
 import { Down, Up } from 'grommet-icons'
 import HeaderButton from './HeaderButton'

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useState, useEffect } from 'react';
 import { Box } from 'grommet'
 import AppContext from 'store'
 import { generatePath, withRouter } from 'react-router-dom'
@@ -21,11 +21,11 @@ function slicePages(page, totalPages) {
 }
 
 function SubjectsPageContainer ({ history, match }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const { page, totalPages } = store.transcriptions
-  const [pages, setPages] = React.useState([])
+  const [pages, setPages] = useState([])
 
-  React.useEffect(() => {
+  useEffect(() => {
     const setResources = async () => {
       await store.getResources(match.params)
       await store.transcriptions.fetchTranscriptions(store.transcriptions.page, false)
@@ -33,7 +33,7 @@ function SubjectsPageContainer ({ history, match }) {
     setResources()
   }, [match, store])
 
-  React.useEffect(() => setPages(slicePages(0, totalPages)), [totalPages])
+  useEffect(() => setPages(slicePages(0, totalPages)), [totalPages])
 
   const onSelection = (transcription) => {
     const nextPath = generatePath(EDIT_PATH, { subject: transcription.id, ...match.params})

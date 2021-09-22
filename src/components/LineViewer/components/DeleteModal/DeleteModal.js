@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { func } from 'prop-types'
 import styled from 'styled-components'

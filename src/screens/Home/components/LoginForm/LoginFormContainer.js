@@ -1,10 +1,10 @@
-import React from 'react'
+import { useContext } from 'react';
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import LoginForm from './LoginForm'
 
 function LoginFormContainer () {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const onSubmit = (e, { setSubmitting }) => {
     store.auth.login(e.login, e.password, setSubmitting)
   }

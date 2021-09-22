@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import { Button, RadioButton, RadioButtonGroup, Text } from 'grommet'
 import StepNavigation from './StepNavigation'
 

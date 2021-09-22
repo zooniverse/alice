@@ -1,10 +1,10 @@
-import React from 'react'
+import { useContext } from 'react';
 import AppContext from 'store'
 import { Box, Text } from 'grommet'
 import SearchTag from './SearchTag'
 
 function SearchTagContainer() {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const booleanTags = Object.keys(store.search).filter(key => store.search[key] === true);
   const idTag = store.search.id.length > 0 && store.search.type.length > 0
 

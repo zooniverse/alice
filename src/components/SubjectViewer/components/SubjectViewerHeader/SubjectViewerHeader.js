@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { bool, func } from 'prop-types'
 

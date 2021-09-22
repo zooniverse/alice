@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, Stack, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH, faTimesCircle } from '@fortawesome/free-solid-svg-icons'

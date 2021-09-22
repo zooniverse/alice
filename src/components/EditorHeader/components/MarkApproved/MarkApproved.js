@@ -1,4 +1,3 @@
-import React from 'react'
 import { CheckBox, Text } from 'grommet'
 import { bool, func } from 'prop-types'
 import styled from 'styled-components'

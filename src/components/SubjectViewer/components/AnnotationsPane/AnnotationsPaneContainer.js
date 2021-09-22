@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react';
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import AnnotationsPane from './AnnotationsPane'
@@ -6,7 +6,7 @@ import { constructCoordinates } from 'helpers/parseTranscriptionData'
 
 function AnnotationsPaneContainer({ x, y }) {
   let reductionLines = []
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const transcriptions = store.transcriptions.currentTranscriptions
 
   if (transcriptions) {

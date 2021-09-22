@@ -1,5 +1,5 @@
 import { mount, shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import ASYNC_STATES from 'helpers/asyncStates'
 import { Text } from 'grommet'
 import { act } from 'react-dom/test-utils'

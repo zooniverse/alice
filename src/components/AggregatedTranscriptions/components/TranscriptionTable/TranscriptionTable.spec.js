@@ -1,5 +1,5 @@
 import { mount, shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import mockData from './mockData'
 import TranscriptionTable from './TranscriptionTable'
 import TranscriptionTableRow from './TranscriptionTableRow'

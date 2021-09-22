@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, DropButton, Text } from 'grommet'
 import { Link } from 'react-router-dom'
 import { FormDown, FormUp } from 'grommet-icons'

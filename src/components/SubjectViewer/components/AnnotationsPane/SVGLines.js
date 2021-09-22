@@ -1,4 +1,3 @@
-import React from 'react'
 import { array, bool, func, number } from 'prop-types'
 import indexToColor from 'helpers/indexToColor'
 import styled, { css } from 'styled-components'

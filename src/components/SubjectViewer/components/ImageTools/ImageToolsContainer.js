@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react';
 import ImageTools from './ImageTools'
 
 class ImageToolsContainer extends Component {

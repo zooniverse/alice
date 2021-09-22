@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, Image, Text } from 'grommet'
 import { bool, func, string } from 'prop-types'
 import DBScan from 'images/dbscan.png'

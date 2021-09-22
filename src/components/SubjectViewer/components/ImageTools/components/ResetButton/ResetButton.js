@@ -1,4 +1,3 @@
-import React from 'react'
 import { Revert } from 'grommet-icons'
 import { Box, Button } from 'grommet'
 import PropTypes from 'prop-types'

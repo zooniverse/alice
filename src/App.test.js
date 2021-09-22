@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react';
 import { mount, shallow } from 'enzyme'
 import apiClient from 'panoptes-client/lib/api-client';
 import { act } from 'react-dom/test-utils'

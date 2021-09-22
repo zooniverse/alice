@@ -1,4 +1,3 @@
-import React from 'react'
 import { ZoomIn as ZoomInIcon } from 'grommet-icons'
 import { Box, Button } from 'grommet'
 import PropTypes from 'prop-types'

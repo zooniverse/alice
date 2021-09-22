@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import { Layer } from 'grommet'
 import MODALS from 'helpers/modals'
 import ModalManager from './ModalManager'

@@ -1,4 +1,3 @@
-import React from 'react'
 import DeletePage from 'components/Modals/DeletePageModal'
 import DownloadData from 'components/Modals/DownloadDataModal'
 import Loading from 'components/Modals/LoadingModal'

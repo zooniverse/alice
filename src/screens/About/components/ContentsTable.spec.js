@@ -1,8 +1,8 @@
 import { mount } from 'enzyme'
-import React from 'react'
+import { createRef } from 'react';
 import ContentsTable from './ContentsTable'
 
-const ref = React.createRef()
+const ref = createRef()
 ref.current = { getBoundingClientRect: () => {
   return {
     height: 100,

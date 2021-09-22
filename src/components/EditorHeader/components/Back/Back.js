@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { Text } from 'grommet'
 import PropTypes from 'prop-types'

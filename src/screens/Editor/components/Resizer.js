@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons'

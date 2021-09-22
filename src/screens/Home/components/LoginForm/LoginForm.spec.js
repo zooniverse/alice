@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import { Formik } from 'formik'
 import { Button } from 'grommet'
 import LoginForm from './LoginForm'

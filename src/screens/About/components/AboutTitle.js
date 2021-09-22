@@ -1,4 +1,3 @@
-import React from 'react'
 import { Heading } from 'grommet'
 import { number, string } from 'prop-types'
 

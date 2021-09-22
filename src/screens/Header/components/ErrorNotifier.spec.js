@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import { Text } from 'grommet'
 import ErrorNotifier, { CapitalText } from './ErrorNotifier'
 

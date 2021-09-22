@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import AnnotationsPane from './AnnotationsPane'
 import SVGLines from './SVGLines'
 

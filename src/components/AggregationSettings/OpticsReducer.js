@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { Field, Formik } from 'formik'
 import { bool, func, number, shape } from 'prop-types'

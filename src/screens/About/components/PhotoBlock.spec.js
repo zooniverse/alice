@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import PhotoBlock, { CapitalText, StyledImage } from './PhotoBlock'
 
 let wrapper

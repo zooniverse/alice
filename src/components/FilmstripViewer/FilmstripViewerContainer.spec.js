@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import STATUS from 'helpers/status'
 import FilmstripViewerContainer from './FilmstripViewerContainer'
 

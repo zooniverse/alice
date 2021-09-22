@@ -1,4 +1,3 @@
-import React from 'react'
 import { array, bool, func, number } from 'prop-types'
 import { observer } from 'mobx-react'
 import SVGLines from './SVGLines'

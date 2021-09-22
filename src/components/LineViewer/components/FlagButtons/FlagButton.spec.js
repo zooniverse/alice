@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import { Drop } from 'grommet'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'

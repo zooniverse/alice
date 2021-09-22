@@ -1,10 +1,10 @@
-import React from 'react'
+import { useContext } from 'react';
 import { Button, Text } from 'grommet'
 import AppContext from 'store'
 import { Down, Up } from 'grommet-icons'
 
 export default function HeaderButton ({ property, title }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const sortItem = () => store.search.sort(property)
   const sortDirection = store.search[`sort_${property}`]
 

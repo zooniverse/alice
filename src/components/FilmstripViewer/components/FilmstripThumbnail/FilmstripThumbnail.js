@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react';
 import { Box, Button, Image, Text } from 'grommet'
 import { bool, func, number, string } from 'prop-types'
 import ThumbnailBorder from './ThumbnailBorder'
@@ -49,7 +49,7 @@ export default function FilmstripThumbnail ({
   slopeValues,
   src
 }) {
-  const [isHover, onHover] = React.useState(false)
+  const [isHover, onHover] = useState(false)
 
   function handleDragEnter(e, dragIndex, hoveredIndex, setHoveredIndex, slopes, rearrangeSlopes) {
     e.preventDefault()

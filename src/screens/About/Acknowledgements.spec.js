@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import Acknowledgements from './Acknowledgements'
 
 describe('Component > Acknowledgements', function () {

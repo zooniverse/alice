@@ -1,11 +1,11 @@
-import React from 'react'
+import { useContext, useState } from 'react';
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import Badge from './Badge'
 
 function BadgeContainer ({ onAbout }) {
-  const store = React.useContext(AppContext)
-  const [isOpen, setOpen] = React.useState(false)
+  const store = useContext(AppContext)
+  const [isOpen, setOpen] = useState(false)
   const user = store.auth.user
 
   const disabled = store.aggregations.showModal || store.transcriptions.isActive

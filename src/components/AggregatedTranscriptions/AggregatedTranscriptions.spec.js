@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import Overlay from '../Overlay'
 import AggregatedTranscriptions from './AggregatedTranscriptions'
 import LineViewer from '../LineViewer'

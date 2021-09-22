@@ -1,5 +1,5 @@
 import { mount } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import { act } from 'react-dom/test-utils'
 import ASYNC_STATES from 'helpers/asyncStates'
 import SVGViewContainer from './SVGViewContainer'

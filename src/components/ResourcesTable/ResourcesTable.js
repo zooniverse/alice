@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, DataTable, Text } from 'grommet'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
