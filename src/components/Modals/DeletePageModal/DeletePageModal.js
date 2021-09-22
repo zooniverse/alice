@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { func, shape, string } from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Text } from 'grommet'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'

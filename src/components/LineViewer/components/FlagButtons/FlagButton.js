@@ -1,4 +1,4 @@
-import React from 'react'
+import { useRef } from 'react';
 import { Box, Button, Drop, Text } from 'grommet'
 import { bool, func } from 'prop-types'
 import styled, { css } from 'styled-components'
@@ -15,7 +15,7 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 `
 
 function FlagButton({ disabled, onShowFlag, setFlag, showFlag, seenButton, tag }) {
-  const flagBtn = React.useRef(null)
+  const flagBtn = useRef(null)
   const color = seenButton ? 'green' : 'tomato'
   const icon = seenButton ? faCircle : faFlag
   const text = seenButton ? 'MARK AS SEEN' : 'FLAG'

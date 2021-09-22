@@ -1,8 +1,8 @@
-import React from 'react'
+import { useState } from 'react';
 import FlagButton from './FlagButton'
 
 export default function FlagButtonContainer({ disabled, reduction, tag }) {
-  const [showFlag, onShowFlag] = React.useState(false)
+  const [showFlag, onShowFlag] = useState(false)
   const setFlag = () => reduction.toggleCurrentFlag()
 
   return (

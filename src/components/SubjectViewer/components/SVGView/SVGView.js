@@ -1,4 +1,4 @@
-import React from 'react'
+import { forwardRef, useState } from 'react';
 import styled from 'styled-components'
 import { bool, func, shape, string, number } from 'prop-types'
 import AnnotationsPane from '../AnnotationsPane'
@@ -14,10 +14,10 @@ const SVG = styled.svg`
   }
 `
 
-const SVGView = React.forwardRef(function ({ disabled, height, image, url, transform, width}, ref) {
+const SVGView = forwardRef(function ({ disabled, height, image, url, transform, width}, ref) {
   if (url.length === 0 || disabled || !ref) return null;
 
-  const [isMoving, setMove] = React.useState(false)
+  const [isMoving, setMove] = useState(false)
 
   const boundingBox = ref.current && ref.current.getBoundingClientRect()
   const viewerWidth = (boundingBox && boundingBox.width) || 0

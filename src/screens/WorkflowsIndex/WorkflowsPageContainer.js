@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useEffect } from 'react';
 import { Box } from 'grommet'
 import AppContext from 'store'
 import { generatePath, withRouter } from 'react-router-dom'
@@ -8,9 +8,9 @@ import ResourcesTable from '../../components/ResourcesTable'
 import COLUMNS from './workflowColumns'
 
 function WorkflowsPageContainer({ history, match }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const setResources = async () => {
       await store.getResources(match.params)
       await store.workflows.fetchWorkflows(match.params.project)

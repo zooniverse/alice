@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import Overlay from './Overlay'
 
 let wrapper

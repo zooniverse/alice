@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useEffect } from 'react';
 import { Router, Route } from 'react-router-dom'
 import { Grommet } from 'grommet'
 import AppContext from 'store'
@@ -34,10 +34,10 @@ function checkToken(store) {
 }
 
 function App() {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   makeInspectable(store)
 
-  React.useEffect(() => {
+  useEffect(() => {
     store.initialize()
     apiClient.beforeEveryRequest = () => checkToken(store)
   }, [store])

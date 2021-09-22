@@ -1,5 +1,4 @@
 import { mount, shallow } from 'enzyme'
-import React from 'react'
 import { Button } from 'grommet'
 import FilmstripViewer from './FilmstripViewer'
 import Page1 from '../../images/mockImages/page1.jpg'

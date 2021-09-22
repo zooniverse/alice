@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useState } from 'react';
 import { Box } from 'grommet'
 import styled from 'styled-components'
 import AppContext from 'store'
@@ -22,8 +22,8 @@ const ToolsBox = styled(AbsoluteBox)`
 `
 
 function SubjectViewerContainer() {
-  const store = React.useContext(AppContext)
-  const [showTools, setTools] = React.useState(false)
+  const store = useContext(AppContext)
+  const [showTools, setTools] = useState(false)
   const onMouseOver = e => {
     if (store.aggregations.showModal) return null;
     setTools(true)

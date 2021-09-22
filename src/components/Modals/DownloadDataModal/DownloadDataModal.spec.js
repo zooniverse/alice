@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import { Button, Text } from 'grommet'
 
 import DownloadDataModal from './DownloadDataModal'

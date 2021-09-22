@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useRef, useEffect, useState } from 'react';
 import { Box } from 'grommet'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
@@ -23,10 +23,10 @@ function findLocations(subject) {
 }
 
 function Editor ({ match, testTime }) {
-  const store = React.useContext(AppContext)
-  const editorBox = React.useRef(null)
+  const store = useContext(AppContext)
+  const editorBox = useRef(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     let accessTime = new Date()
 
     const setResources = async () => {
@@ -67,10 +67,10 @@ function Editor ({ match, testTime }) {
   const locations = findLocations(subject)
   const { layout } = store.editor
 
-  const [viewerSize, setViewerSize] = React.useState(50)
-  const [transcriberSize, setTranscriberSize] = React.useState(50)
-  const [isMoving, setMove] = React.useState(false)
-  const [currentPos, setPos] = React.useState()
+  const [viewerSize, setViewerSize] = useState(50)
+  const [transcriberSize, setTranscriberSize] = useState(50)
+  const [isMoving, setMove] = useState(false)
+  const [currentPos, setPos] = useState()
 
   const onMouseDown = e => {
     if (disabled) return null;

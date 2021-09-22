@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react';
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import MODALS from 'helpers/modals'
@@ -6,7 +6,7 @@ import STATUS from 'helpers/status'
 import FilmstripViewer from './FilmstripViewer'
 
 function FilmstripViewerContainer({ images }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const disabled = store.aggregations.showModal || store.transcriptions.isActive
   const showDeletePage = (e) => store.modal.toggleModal(MODALS.DELETE_PAGE)
   const selectImage = (page, slopeIndex) => {

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -45,8 +45,8 @@ function MetadataButton({
   transcriberCount,
   transcription
 }) {
-  const targetEl = React.useRef(null)
-  const [isOpen, toggleDrop] = React.useState(false)
+  const targetEl = useRef(null)
+  const [isOpen, toggleDrop] = useState(false)
 
   const { pages, status, transcribed_lines } = transcription
 

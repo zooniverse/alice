@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useRef, useState, useEffect } from 'react';
 import AppContext from 'store'
 import { Box } from 'grommet'
 import ASYNC_STATES from 'helpers/asyncStates'
@@ -12,16 +12,16 @@ function findCurrentSrc(locations, index) {
 }
 
 function SVGViewContainer () {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const { asyncState } = store.subjects
   const disableInteraction = asyncState !== ASYNC_STATES.READY
-  const svgEl = React.useRef(null)
-  const [img, setImg] = React.useState(new Image())
+  const svgEl = useRef(null)
+  const [img, setImg] = useState(new Image())
   const src = findCurrentSrc(store.subjects.current.locations, store.transcriptions.index)
-  const [naturalWidth, setNaturalWidth] = React.useState(0)
-  const [naturalHeight, setNaturalHeight] = React.useState(0)
+  const [naturalWidth, setNaturalWidth] = useState(0)
+  const [naturalHeight, setNaturalHeight] = useState(0)
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchImage() {
       return new Promise((resolve, reject) => {
         img.onload = () => resolve(img)

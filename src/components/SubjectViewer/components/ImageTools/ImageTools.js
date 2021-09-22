@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box } from 'grommet'
 import ZoomInButtonContainer from './components/ZoomInButton'
 import ZoomOutButtonContainer from './components/ZoomOutButton'

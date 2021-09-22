@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import { Text } from 'grommet'
 import { Menu } from 'grommet-icons'
 import TranscriptionTableRow, { PointerBox, MoveBox } from './TranscriptionTableRow'

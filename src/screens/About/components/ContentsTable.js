@@ -1,4 +1,4 @@
-import React from 'react'
+import { forwardRef, useState, useEffect } from 'react';
 import { Anchor, Box, Text } from 'grommet'
 import styled from 'styled-components'
 import contents from '../contents'
@@ -40,10 +40,10 @@ function renderHeaders(content, key, capital = false) {
   )
 }
 
-const ContentsTable = React.forwardRef(function (props, ref) {
-  const [contentsHeight, setContentsHeight] = React.useState(0)
+const ContentsTable = forwardRef(function (props, ref) {
+  const [contentsHeight, setContentsHeight] = useState(0)
 
-  React.useEffect(() => {
+  useEffect(() => {
     function setHeight() {
       if (ref && ref.current) {
         const rect = ref.current.getBoundingClientRect()

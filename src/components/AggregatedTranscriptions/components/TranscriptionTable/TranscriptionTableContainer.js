@@ -1,10 +1,10 @@
-import React from 'react'
+import { useContext } from 'react';
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import TranscriptionTable from './TranscriptionTable'
 
 function TranscriptionTableContainer() {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const frameData = store.transcriptions.currentTranscriptions || []
   const setActiveTranscription = id => store.transcriptions.setActiveTranscription(id);
 

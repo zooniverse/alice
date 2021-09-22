@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext, useEffect } from 'react';
 import { Box } from 'grommet'
 import AppContext from 'store'
 import { observer } from 'mobx-react'
@@ -9,9 +9,9 @@ import ResourcesTable from '../../components/ResourcesTable'
 import { columns } from './table'
 
 function GroupsPageContainer({ history, match }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
 
-  React.useEffect(() => {
+  useEffect(() => {
     store.getResources(match.params)
   }, [match, store])
 

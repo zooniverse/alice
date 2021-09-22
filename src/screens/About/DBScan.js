@@ -1,4 +1,3 @@
-import React from 'react'
 import { Anchor, Box } from 'grommet'
 import AboutTitle from './components/AboutTitle'
 import { BodyText, StyledList, StyledListItem } from './components/Styled'

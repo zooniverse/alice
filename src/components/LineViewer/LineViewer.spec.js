@@ -1,5 +1,5 @@
 import { mount, shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import { Button, CheckBox, Text, TextInput } from 'grommet'
 import DeleteModal from './components/DeleteModal'
 import { LineViewer } from './LineViewer'

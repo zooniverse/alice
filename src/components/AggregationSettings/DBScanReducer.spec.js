@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import { Button } from 'grommet'
 import { Formik } from 'formik'
 import { REDUCERS } from './AggregationSettingsContainer'

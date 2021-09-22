@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useEffect } from 'react';
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { arrayOf, bool, number, shape, func } from 'prop-types'
@@ -27,11 +27,11 @@ function TranscriptionTable ({
   setTextObject,
   slopeIndex
 }) {
-  const [dataArray, resetDataArray] = React.useState(data)
-  const [dragID, setDragID] = React.useState(null)
+  const [dataArray, resetDataArray] = useState(data)
+  const [dragID, setDragID] = useState(null)
   const emptyData = data.length === 0
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (dragID === null) resetDataArray(data)
   }, [data, dragID])
   const background = emptyData ? { color: 'light-2', opacity: 'strong' } : {}

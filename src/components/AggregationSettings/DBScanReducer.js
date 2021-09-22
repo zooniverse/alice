@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, Text } from 'grommet'
 import { Field, Formik } from 'formik'
 import styled from 'styled-components'

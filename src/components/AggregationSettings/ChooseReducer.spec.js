@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import { Button } from 'grommet'
 import ChooseReducer from './ChooseReducer'
 import { REDUCERS } from './AggregationSettingsContainer'

@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme'
-import React from 'react'
+import { createRef } from 'react';
 import SVGView from './SVGView'
 import 'jest-styled-components'
 
-const ref = React.createRef()
+const ref = createRef()
 ref.current = { getBoundingClientRect: () => {
   return {
     height: 100,

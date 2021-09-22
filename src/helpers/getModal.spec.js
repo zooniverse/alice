@@ -1,4 +1,3 @@
-import React from 'react'
 import { shallow } from 'enzyme'
 import getModal from './getModal'
 import MODALS from './modals'

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react';
 import { Box, Button, CheckBox, Text, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -61,7 +61,7 @@ function LineViewer ({
     if (isNewLine) closeModal()
   }
 
-  React.useEffect((e) => {
+  useEffect((e) => {
     function isEscPressed(e) {
       const ESC_KEY_CODE = 27
       if (e.keyCode === ESC_KEY_CODE) {

@@ -1,5 +1,5 @@
 import { mount, shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import { Grommet } from 'grommet'
 import LineViewerContainer from './LineViewerContainer'
 import LineViewer from './LineViewer'

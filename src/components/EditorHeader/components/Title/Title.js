@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react';
 import { observer } from 'mobx-react'
 import { Box, Button, Heading, Text } from 'grommet'
 import AppContext from 'store'
@@ -27,7 +27,7 @@ function Title({ history, match, onEditor }) {
     history.push(nextPath)
   }
 
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const disabled = store.aggregations.showModal || store.transcriptions.isActive
   const project = store.projects.title || ''
   const workflow = store.workflows.title || ''

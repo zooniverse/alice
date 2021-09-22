@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import { Box } from 'grommet'
 import SubjectViewerContainer from './SubjectViewerContainer'
 import SVGView from './components/SVGView'

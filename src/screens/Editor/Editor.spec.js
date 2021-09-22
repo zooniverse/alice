@@ -1,5 +1,5 @@
 import { mount, shallow } from 'enzyme'
-import React from 'react'
+import * as React from 'react';
 import { Box } from 'grommet'
 import ASYNC_STATES from 'helpers/asyncStates'
 import MODALS from 'helpers/modals'

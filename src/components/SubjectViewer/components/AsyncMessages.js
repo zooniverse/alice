@@ -1,4 +1,3 @@
-import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'

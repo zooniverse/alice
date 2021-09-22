@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRedo } from '@fortawesome/free-solid-svg-icons'
 import { undoManager } from 'store/AppStore'
@@ -7,7 +7,7 @@ import AppContext from 'store'
 import HeaderButton from './HeaderButton'
 
 function UndoButtonContainer({ disabled }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const onUndo = () => store.transcriptions.undo()
   const disableUndo = disabled || !undoManager.canUndo
 

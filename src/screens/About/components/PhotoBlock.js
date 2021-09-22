@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Image, Markdown, Text } from 'grommet'
 import { arrayOf, shape, string } from 'prop-types'
 import styled from 'styled-components'

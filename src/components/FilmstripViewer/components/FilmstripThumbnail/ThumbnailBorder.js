@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Text } from 'grommet'
 import styled from 'styled-components'
 import { bool, number } from 'prop-types'

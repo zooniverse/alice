@@ -1,11 +1,11 @@
-import React from 'react'
+import { useContext, useEffect } from 'react';
 import AppContext from 'store'
 import { observer, useLocalStore } from 'mobx-react'
 import { bool } from 'prop-types'
 import LineViewer from './LineViewer'
 
 function LineViewerContainer({ isLoaded }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
 
   const localStore = useLocalStore(() => ({
     isLoaded,
@@ -44,7 +44,7 @@ function LineViewerContainer({ isLoaded }) {
   }
   const addLine = () => store.transcriptions.addLine(transcriptionIndex + 1)
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStore.loadTranscription(false)
     if (store.transcriptions.parsedExtracts && store.transcriptions.isActive) {
       localStore.setTranscriptionOptions(store.transcriptions.parsedExtracts[transcriptionIndex])

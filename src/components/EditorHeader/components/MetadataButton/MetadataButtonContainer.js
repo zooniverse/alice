@@ -1,11 +1,11 @@
-import React from 'react'
+import { useContext } from 'react';
 import AppContext from 'store'
 import { observer } from 'mobx-react'
 import gsCountFromExtracts from 'helpers/gsCountFromExtracts'
 import MetadataButton from './MetadataButton'
 
 function MetadataButtonContainer() {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const metadata = store.subjects.current && store.subjects.current.metadata
   const id = store.subjects.current && store.subjects.current.id
   const disabled = store.aggregations.showModal || store.transcriptions.isActive

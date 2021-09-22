@@ -1,4 +1,4 @@
-import React from 'react'
+import { Component } from 'react';
 import PropTypes from 'prop-types'
 import { Button, Box, RadioButton, RadioButtonGroup, Text } from 'grommet'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,7 @@ import {
   faAngleRight,
 } from '@fortawesome/free-solid-svg-icons'
 
-class StepNavigation extends React.Component {
+class StepNavigation extends Component {
   onChange (event) {
     const { setStep } = this.props
     const indexValue = event.target.value.split('-')[1]

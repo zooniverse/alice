@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Button, FormField, Heading, Text, TextInput } from 'grommet'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'

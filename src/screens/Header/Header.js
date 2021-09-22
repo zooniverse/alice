@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box } from 'grommet'
 import EditorHeader from '../../components/EditorHeader'
 import ErrorNotifierContainer from './components/ErrorNotifierContainer'

@@ -1,14 +1,14 @@
-import React from 'react'
+import { forwardRef, useRef, useEffect } from 'react';
 import { Rnd } from 'react-rnd'
 import { Box } from 'grommet'
 import { AggregationSettingsContainer } from './AggregationSettingsContainer'
 
-const AggregationModal = React.forwardRef(function (props, ref) {
+const AggregationModal = forwardRef(function (props, ref) {
   const dragHandle = "dragHandle"
-  const rndEl = React.useRef(null)
-  const modalEl = React.useRef(null)
+  const rndEl = useRef(null)
+  const modalEl = useRef(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const containerSize = ref.current && ref.current.getBoundingClientRect()
     const modalSize = modalEl.current && modalEl.current.getBoundingClientRect()
     const RIGHT_BUFFER = 8

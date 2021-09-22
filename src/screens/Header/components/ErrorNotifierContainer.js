@@ -1,10 +1,10 @@
-import React from 'react'
+import { useContext } from 'react';
 import { observer } from 'mobx-react'
 import AppContext from 'store'
 import ErrorNotifier from './ErrorNotifier'
 
 function ErrorNotifierContainer() {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
 
   return (
     <ErrorNotifier

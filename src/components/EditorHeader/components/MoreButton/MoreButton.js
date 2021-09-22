@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react';
 import { Box, DropButton, Text } from 'grommet'
 import { FormDown, FormUp } from 'grommet-icons'
 import { bool, func } from 'prop-types'
@@ -12,7 +12,7 @@ export default function MoreButton({
   setOpen,
   toggleDownload
 }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const Icon = isOpen ? FormUp : FormDown
   const onEditSettings = () => {
     setOpen(false)

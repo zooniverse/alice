@@ -1,4 +1,3 @@
-import React from 'react'
 import { func, string } from 'prop-types'
 import { Button, Text } from 'grommet'
 import ASYNC_STATES from 'helpers/asyncStates'

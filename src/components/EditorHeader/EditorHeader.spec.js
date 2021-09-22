@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import MetadataButton from './components/MetadataButton'
 import EditorHeader from './EditorHeader'
 import Back from './components/Back'

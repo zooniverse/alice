@@ -1,10 +1,10 @@
-import React from 'react'
+import { useContext } from 'react';
 import AppContext from 'store'
 import { observer } from 'mobx-react'
 import DeleteModal from './DeleteModal'
 
 function DeleteModalContainer({ toggleModal }) {
-  const store = React.useContext(AppContext)
+  const store = useContext(AppContext)
   const deleteLine = () => store.transcriptions.deleteCurrentLine()
 
   return (
