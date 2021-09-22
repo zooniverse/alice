@@ -1,14 +1,16 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { Box, Grommet } from 'grommet';
-import LineViewerContainer from './LineViewerContainer'
-import zooTheme from '@zooniverse/grommet-theme'
+import LineViewerContainer from './LineViewerContainer';
+import zooTheme from '@zooniverse/grommet-theme';
 
-storiesOf('LineViewer', module)
-  .add('Default', () => (
-    <Grommet theme={zooTheme}>
-      <Box background='#D8D8D8' height='xlarge'>
-        <LineViewerContainer />
-      </Box>
-    </Grommet>
-  ))
+export default {
+  title: 'LineViewer',
+};
+
+export const Default = () => (
+  <Grommet theme={zooTheme}>
+    <Box background="#D8D8D8" height="xlarge">
+      <LineViewerContainer />
+    </Box>
+  </Grommet>
+);
