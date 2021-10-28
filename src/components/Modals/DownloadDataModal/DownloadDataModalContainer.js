@@ -18,7 +18,7 @@ export default function DownloadDataModalContainer({ entireGroup }) {
       entireGroup={entireGroup}
       onClose={onClose}
       onDownload={onDownload}
-      transcriptionCount={store.transcriptions.all.size}
+      transcriptionCount={store.transcriptions.totalCount}
     />
   )
 }
