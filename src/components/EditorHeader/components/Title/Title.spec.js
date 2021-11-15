@@ -20,7 +20,8 @@ const editContext = {
   transcriptions: {
     approvedCount: 0,
     all: { size: 0 },
-    title: 'Subject'
+    title: 'Subject',
+    totalCount: 100
   }
 }
 
@@ -71,7 +72,7 @@ describe('Component > Title', function () {
     it('should display three subheader buttons', function () {
       const approvedCount = wrapper.find(CapitalText).last().props()
       expect(wrapper.find(Button).length).toBe(3)
-      expect(approvedCount.children).toBe('(0/0 approved)')
+      expect(approvedCount.children).toBe(`(${editContext.transcriptions.approvedCount}/${editContext.transcriptions.totalCount} approved)`)
     })
 
     it('should route to the correct subheader location', function () {

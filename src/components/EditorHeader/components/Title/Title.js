@@ -52,7 +52,7 @@ function Title({ history, match, onEditor }) {
     header = { title: subject }
   }
   const subjectCount = header.title === group ?
-    `(${store.transcriptions.approvedCount}/${store.transcriptions.all.size} approved)` : ''
+    `(${store.transcriptions.approvedCount}/${store.transcriptions.totalCount} approved)` : ''
   return (
     <Box align='baseline'>
       <Box direction='row' wrap>

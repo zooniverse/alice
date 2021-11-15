@@ -56,6 +56,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
   slopeDefinitions: types.optional(types.frozen(), {}),
   slopeKeys: types.array(types.string),
   totalPages: types.optional(types.number, 1),
+  approvedCount: types.optional(types.number, 1),
+  totalCount: types.optional(types.number, 1),
   rawExtracts: types.array(types.frozen()),
   parsedExtracts: types.array(types.frozen())
 }).actions(self => {
@@ -422,6 +424,8 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
       })
       undoManager.withoutUndo(() => {
         self.totalPages = resources.meta.pagination.last || resources.meta.pagination.current
+        self.approvedCount = resources.meta.approved_count
+        self.totalCount = resources.meta.pagination.records
         self.asyncState = ASYNC_STATES.READY
       })
     } catch (error) {
@@ -602,16 +606,6 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
 
   get approved () {
     return !!(self.current && self.current.status === STATUS.APPROVED)
-  },
-
-  get approvedCount () {
-    let count = 0;
-    self.all.forEach(transcription => {
-      if (transcription.status === STATUS.APPROVED) {
-        count ++
-      }
-    })
-    return count;
   },
 
   get lockedByCurrentUser () {

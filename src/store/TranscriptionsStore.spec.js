@@ -85,7 +85,8 @@ const multipleTranscriptionsStub = {
         {
           data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: STATUS.APPROVED, subject_id: '2', text: new Map() }})],
           meta: {
-            pagination: { last: 1 }
+            pagination: { last: 1, records: 2 },
+            approved_count: 1
           }
         })
     }
@@ -137,6 +138,7 @@ describe('TranscriptionsStore', function () {
       it('should fetch transcriptions', async function () {
         expect(transcriptionsStore.asyncState).toBe(ASYNC_STATES.READY)
         expect(transcriptionsStore.all.size).toBe(2)
+        expect(transcriptionsStore.totalCount).toBe(2)
       })
 
       it('should count the number of approved', async function () {
