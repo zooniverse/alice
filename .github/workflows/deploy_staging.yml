@@ -42,6 +42,7 @@ jobs:
               --overwrite \
               --container-name '$web' \
               --name 'preview.zooniverse.org/alice/commit_id.txt' \
+              --content-type 'text/plain' \
               --file ./build/commit_id.txt
             rm ./build/commit_id.txt
             az storage blob upload \
@@ -49,6 +50,7 @@ jobs:
               --content-cache-control 'public, max-age=60' \
               --overwrite \
               --container-name '$web' \
+              --content-type 'text/html' \
               --name 'preview.zooniverse.org/alice/index.html' \
               --file ./build/index.html
             rm ./build/index.html
