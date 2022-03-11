@@ -42,7 +42,6 @@ jobs:
               --content-cache-control 'public, max-age=60' \
               --overwrite \
               --container-name '$web' \
-              --content-type 'text/plain' \
               --name 'alice.zooniverse.org/commit_id.txt' \
               --file ./build/commit_id.txt
             rm ./build/commit_id.txt
@@ -58,7 +57,6 @@ jobs:
               --account-name zooniversestatic \
               --content-cache-control 'public, immutable, max-age=604800' \
               --overwrite \
-              --content-type 'text/html' \
               --destination '$web/alice.zooniverse.org' \
               --source ./build
 
