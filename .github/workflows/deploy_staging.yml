@@ -39,7 +39,7 @@ jobs:
             az storage blob upload \
               --account-name zooniversestatic \
               --content-cache-control 'public, max-age=60' \
-              --overwrite \
+              --overwrite
               --container-name '$web' \
               --name 'preview.zooniverse.org/alice/commit_id.txt' \
               --file ./build/commit_id.txt
@@ -47,7 +47,7 @@ jobs:
             az storage blob upload \
               --account-name zooniversestatic \
               --content-cache-control 'public, max-age=60' \
-              --overwrite \
+              --overwrite
               --container-name '$web' \
               --name 'preview.zooniverse.org/alice/index.html' \
               --file ./build/index.html
@@ -55,7 +55,7 @@ jobs:
             az storage blob upload-batch \
               --account-name zooniversestatic \
               --content-cache-control 'public, immutable, max-age=604800' \
-              --overwrite \
+              --overwrite
               --destination '$web/preview.zooniverse.org/alice' \
               --source ./build
 
