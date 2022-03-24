@@ -54,7 +54,24 @@ const contents = [{
     }]
   },{
     title: 'Data exports'
-  }, {
+  },{
+    title: 'Video tutorials',
+    sub: [{
+      title: 'ALICE: Logging in & navigation'
+    },{
+      title: 'ALICE: Projects, workflows, & groups'
+    },{
+      title: 'ALICE: Sorting & searching'
+    },{
+      title: 'ALICE: Viewing subjects'
+    },{
+      title: 'ALICE: Editing & deleting transcriptions'
+    },{
+      title: 'ALICE: Reordering transcription lines'
+    },{
+      title: 'ALICE: Approving subjects'
+    }]
+  },{
     title: 'Acknowledgements'
   }]
 }]
