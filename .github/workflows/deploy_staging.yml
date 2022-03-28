@@ -10,6 +10,7 @@ on:
 
 jobs:
   build_staging:
+    name: Build Staging
     runs-on: ubuntu-latest
     env:
       HEAD_COMMIT: ${{ github.sha }}
@@ -54,7 +55,7 @@ jobs:
     if: always()
     with:
       commit_id: ${{ github.sha }}
-      job_name: Deploy Staging / deploy_static
+      job_name: Build Staging / build_staging
       status: ${{ needs.deploy.result }}
       title: 'ALICE Staging deploy complete'
       title_link: 'https://preview.zooniverse.org/alice'

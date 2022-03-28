@@ -11,6 +11,7 @@ on:
 
 jobs:
   build_production:
+    name: Build Production
     runs-on: ubuntu-latest
     env:
       HEAD_COMMIT: ${{ github.sha }}
@@ -55,7 +56,7 @@ jobs:
     if: always()
     with:
       commit_id: ${{ github.sha }}
-      job_name: Deploy Production / deploy_static
+      job_name: Build Production / build_production
       status: ${{ needs.deploy.result }}
       title: 'Alice Production deploy complete'
       title_link: 'https://alice.zooniverse.org'
