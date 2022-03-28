@@ -10,6 +10,7 @@ import Setup from './Setup'
 import UsingAlice from './UsingAlice'
 import Acknowledgements from './Acknowledgements'
 import DataExports from './DataExports'
+import VideoTutorials from './VideoTutorials'
 
 const CapitalText = styled(Text)`
   text-transform: uppercase;
@@ -51,6 +52,7 @@ export default function About () {
         <Optics />
         <DBScan />
         <DataExports />
+        <VideoTutorials />
         <Acknowledgements />
       </Box>
     </Box>
