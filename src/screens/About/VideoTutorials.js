@@ -9,7 +9,7 @@ export default function DataExports() {
     <Box gap='xsmall'>
       <AboutTitle title='Video tutorials' />
       <BodyText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        The video tutorials below offer detailed guidance around using specific ALICE features. The tutorials feature audio narration as well as captions, which you can turn on by clicking the "CC" button next to the volume control in the video menu.
       </BodyText>
       <AboutTitle level={6} title='ALICE: Logging in & navigation' />
       <VimeoEmbed
