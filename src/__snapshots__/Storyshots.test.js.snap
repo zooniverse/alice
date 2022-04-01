@@ -5,19 +5,19 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 bdFdoP"
+      className="StyledBox-sc-13pk1d4-0 htJbXs"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dPQuSd sc-cSHVUG hDUXUW"
+        className="StyledBox-sc-13pk1d4-0 dfkMUT sc-cSHVUG hDUXUW"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 ikTqht"
+          className="StyledBox-sc-13pk1d4-0 kipODK"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 dLbpnh"
+            className="StyledBox-sc-13pk1d4-0 ipDZoh"
           >
             <span
               className="StyledText-sc-1sadyjn-0 bXoRNz"
@@ -44,16 +44,16 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
             </button>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 tkzRw sc-chPdSV lxGhg"
+            className="StyledBox-sc-13pk1d4-0 hCTAHO sc-chPdSV lxGhg"
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 joGoBe"
+              className="StyledBox-sc-13pk1d4-0 bIBUuE"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 isAjiK"
+                className="StyledBox-sc-13pk1d4-0 bGdGYa"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fGMGTD"
+                  className="StyledBox-sc-13pk1d4-0 jPnVmB"
                 >
                   <h6
                     className="sc-gzVnrw kDhxVb"
@@ -62,7 +62,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   </h6>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                  className="StyledBox-sc-13pk1d4-0 koruWX"
                 >
                   <h6
                     className="sc-gzVnrw kDhxVb"
@@ -71,7 +71,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   </h6>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 dzunxD"
+                  className="StyledBox-sc-13pk1d4-0 jJdlSY"
                 >
                   <h6
                     className="sc-gzVnrw sc-htoDjs GbAiK"
@@ -81,10 +81,10 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 </div>
               </div>
               <div
-                className="StyledBox-sc-13pk1d4-0 kLQRpX"
+                className="StyledBox-sc-13pk1d4-0 drPSxh"
               />
               <div
-                className="StyledBox-sc-13pk1d4-0 kbrZBJ sc-bZQynM evmlAb"
+                className="StyledBox-sc-13pk1d4-0 cqufCe sc-bZQynM evmlAb"
               >
                 <span
                   className="StyledText-sc-1sadyjn-0 fNQaFh"
@@ -107,13 +107,13 @@ exports[`Storyshots AggregationSettings Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 jxCWxi"
+      className="StyledBox-sc-13pk1d4-0 cbpHOs"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dMvAxT sc-eNQAEJ esYNcD"
+        className="StyledBox-sc-13pk1d4-0 gwYnZy sc-eNQAEJ esYNcD"
       >
         <svg
           aria-hidden="true"
@@ -140,10 +140,10 @@ exports[`Storyshots AggregationSettings Default 1`] = `
           className="StyledStack__StyledStackLayer-ajspsk-1 zZZtW"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 fWrrBh"
+            className="StyledBox-sc-13pk1d4-0 koruWX"
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 itSRAm"
+              className="StyledBox-sc-13pk1d4-0 yGrji"
             >
               <span
                 className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -180,13 +180,13 @@ exports[`Storyshots AggregationSettings Default 1`] = `
               </button>
             </div>
             <div
-              className="StyledBox-sc-13pk1d4-0 fWrrBh"
+              className="StyledBox-sc-13pk1d4-0 koruWX"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                className="StyledBox-sc-13pk1d4-0 koruWX"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 htLYVV"
+                  className="StyledBox-sc-13pk1d4-0 czHqvg"
                 >
                   <span
                     className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -197,7 +197,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                     className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
                   />
                   <div
-                    className="StyledBox-sc-13pk1d4-0 ecGxSF"
+                    className="StyledBox-sc-13pk1d4-0 gIvbdb"
                   >
                     <button
                       className="StyledButton-sc-323bzc-0 dmFHgS"
@@ -209,11 +209,11 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kGXeez fOyJew"
+                        className="StyledBox-sc-13pk1d4-0 czHqvg sc-kGXeez fOyJew"
                       >
                         <img
                           alt="Optics Aggregation Example"
-                          className="StyledImage-ey4zx9-0 Axri"
+                          className="StyledImage-ey4zx9-0 kIodYe"
                           src="optics.png"
                         />
                         <div
@@ -245,11 +245,11 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 htLYVV sc-kpOJdX kdgkNy"
+                        className="StyledBox-sc-13pk1d4-0 czHqvg sc-kpOJdX kdgkNy"
                       >
                         <img
                           alt="DBScan Aggregation Example"
-                          className="StyledImage-ey4zx9-0 Axri"
+                          className="StyledImage-ey4zx9-0 kIodYe"
                           src="dbscan.png"
                         />
                         <div
@@ -277,7 +277,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 jjeUtd"
+                  className="StyledBox-sc-13pk1d4-0 zwPvD"
                 >
                   <button
                     aria-label="Close Aggregation Settings"
@@ -332,13 +332,13 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 bkeXWw"
+      className="StyledBox-sc-13pk1d4-0 jGXRJc"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 cGDWft"
+        className="StyledBox-sc-13pk1d4-0 bnvJhB"
       >
         <span
           className="StyledText-sc-1sadyjn-0 dEfHdc"
@@ -390,7 +390,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <div
-        className="StyledBox-sc-13pk1d4-0 fWrrBh"
+        className="StyledBox-sc-13pk1d4-0 koruWX"
       >
         <span
           className="StyledText-sc-1sadyjn-0 bEMqcB"
@@ -421,7 +421,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <div
-        className="StyledBox-sc-13pk1d4-0 jHMQGC"
+        className="StyledBox-sc-13pk1d4-0 dEYhEg"
       >
         <button
           aria-label="Close Download Subject Data Modal"
@@ -468,13 +468,13 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 kFLDHg sc-jAaTju lEldS"
+      className="StyledBox-sc-13pk1d4-0 bBlavh sc-jAaTju lEldS"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 cGDWft"
+        className="StyledBox-sc-13pk1d4-0 bnvJhB"
       >
         <span
           className="StyledText-sc-1sadyjn-0 bXoRNz"
@@ -499,7 +499,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
         </button>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 ilHtzj"
+        className="StyledBox-sc-13pk1d4-0 fhTKrx"
       />
     </div>
   </div>
@@ -521,7 +521,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
     type="button"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 jHQJnz"
+      className="StyledBox-sc-13pk1d4-0 cHqCJo"
     >
       <span
         className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs hCtDtz"
@@ -532,7 +532,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
       />
       <div
-        className="StyledBox-sc-13pk1d4-0 ekjAwv"
+        className="StyledBox-sc-13pk1d4-0 jmYunQ"
       >
         <svg
           aria-hidden="true"
@@ -595,7 +595,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
     type="button"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 hfsUvK"
+      className="StyledBox-sc-13pk1d4-0 eQTSO"
     >
       <span
         className="StyledText-sc-1sadyjn-0 gcASOG"
@@ -634,7 +634,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
     type="button"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 jHQJnz"
+      className="StyledBox-sc-13pk1d4-0 cHqCJo"
     >
       <span
         className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs hCtDtz"
@@ -672,19 +672,19 @@ exports[`Storyshots LineViewer Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 biltor sc-jzJRlG byHcWR"
+      className="StyledBox-sc-13pk1d4-0 eqlRDO sc-jzJRlG byHcWR"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 eTTqCm"
+        className="StyledBox-sc-13pk1d4-0 dYDcGv"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 hFIMGw"
+          className="StyledBox-sc-13pk1d4-0 cGyFlY"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 fWrrBh"
+            className="StyledBox-sc-13pk1d4-0 koruWX"
           >
             <span
               className="StyledText-sc-1sadyjn-0 dxiclx sc-jTzLTM krJVzu"
@@ -696,26 +696,26 @@ exports[`Storyshots LineViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 fWSBgY"
+        className="StyledBox-sc-13pk1d4-0 ionteQ"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 eDJfis"
+          className="StyledBox-sc-13pk1d4-0 fphcKH"
         />
         <div
-          className="StyledBox-sc-13pk1d4-0 iRPRCt"
+          className="StyledBox-sc-13pk1d4-0 hXtuvB"
         >
           
           <div
-            className="StyledBox-sc-13pk1d4-0 ekjAwv"
+            className="StyledBox-sc-13pk1d4-0 jmYunQ"
           >
             <label
               checked={false}
-              className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 irBISV"
+              className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 bowKqg"
               onClick={[Function]}
             >
               <div
                 checked={false}
-                className="StyledBox-sc-13pk1d4-0 hZaesx StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                className="StyledBox-sc-13pk1d4-0 gwogWI StyledCheckBox-sc-1dbk5ju-6 jXdLin"
               >
                 <input
                   checked={false}
@@ -727,7 +727,7 @@ exports[`Storyshots LineViewer Default 1`] = `
                 />
                 <div
                   checked={false}
-                  className="StyledBox-sc-13pk1d4-0 bbcswH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                  className="StyledBox-sc-13pk1d4-0 ePeoSc StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                 />
               </div>
             </label>
@@ -735,7 +735,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
             />
             <div
-              className="StyledBox-sc-13pk1d4-0 jUNXut"
+              className="StyledBox-sc-13pk1d4-0 fCLZEk"
             >
               <div
                 className="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 VFomL"
@@ -757,10 +757,10 @@ exports[`Storyshots LineViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 gPLowh"
+        className="StyledBox-sc-13pk1d4-0 jtTEOq"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 ekjAwv"
+          className="StyledBox-sc-13pk1d4-0 jmYunQ"
         >
           <button
             className="StyledButton-sc-323bzc-0 jfbKsv"
@@ -781,7 +781,7 @@ exports[`Storyshots LineViewer Default 1`] = `
           </button>
         </div>
         <div
-          className="StyledBox-sc-13pk1d4-0 TetEL"
+          className="StyledBox-sc-13pk1d4-0 cXyCMS"
         >
           <button
             className="StyledButton-sc-323bzc-0 chnll"
@@ -813,7 +813,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
 >
   <label
     checked={false}
-    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 kWeChd"
+    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 fDNAwi"
     disabled={false}
     onClick={[Function]}
   >
@@ -824,7 +824,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     </span>
     <div
       checked={false}
-      className="StyledBox-sc-13pk1d4-0 fdQGpV StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+      className="StyledBox-sc-13pk1d4-0 gQwoEq StyledCheckBox-sc-1dbk5ju-6 jXdLin"
       disabled={false}
     >
       <input
@@ -857,10 +857,10 @@ exports[`Storyshots MetadataButton Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 fALNzc"
+      className="StyledBox-sc-13pk1d4-0 dapJBf"
     >
       <button
         aria-label="Open Metadata Information"
@@ -874,7 +874,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
         type="button"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 esKdNL"
+          className="StyledBox-sc-13pk1d4-0 fWGhHx"
         >
           <svg
             aria-hidden="true"
@@ -905,19 +905,19 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 jLJOXa"
+      className="StyledBox-sc-13pk1d4-0 hXCUVc"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 kULYLq"
+        className="StyledBox-sc-13pk1d4-0 cokIGr"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 fWrrBh"
+          className="StyledBox-sc-13pk1d4-0 koruWX"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 hFIMGw"
+            className="StyledBox-sc-13pk1d4-0 cGyFlY"
           >
             <span
               className="StyledText-sc-1sadyjn-0 dEfHdc"
@@ -966,17 +966,17 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
           />
           <form
-            className="StyledBox-sc-13pk1d4-0 fWrrBh"
+            className="StyledBox-sc-13pk1d4-0 koruWX"
             onSubmit={[Function]}
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 jbNAjJ"
+              className="StyledBox-sc-13pk1d4-0 bybHCg"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 iEMnku"
+                className="StyledBox-sc-13pk1d4-0 bSclKh"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-gipzik keWqgP"
+                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO sc-gipzik keWqgP"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -985,7 +985,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                     ID TYPE
                   </label>
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
                   >
                     <button
                       aria-label="Open Drop"
@@ -1000,10 +1000,10 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 hFIMGw"
+                        className="StyledBox-sc-13pk1d4-0 cGyFlY"
                       >
                         <div
-                          className="StyledBox-sc-13pk1d4-0 hxmgAG"
+                          className="StyledBox-sc-13pk1d4-0 gbHXHp"
                         >
                           <span
                             className="StyledText-sc-1sadyjn-0 bmpSIR"
@@ -1012,7 +1012,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                           </span>
                         </div>
                         <div
-                          className="StyledBox-sc-13pk1d4-0 eWMcdv"
+                          className="StyledBox-sc-13pk1d4-0 jZzjOu"
                           style={
                             Object {
                               "minWidth": "auto",
@@ -1041,10 +1041,10 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
               />
               <div
-                className="StyledBox-sc-13pk1d4-0 bgTRhM"
+                className="StyledBox-sc-13pk1d4-0 enNkZt"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO sc-gipzik keWqgP"
+                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO sc-gipzik keWqgP"
                 >
                   <label
                     className="StyledText-sc-1sadyjn-0 cxYjCj"
@@ -1053,7 +1053,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                     NAME
                   </label>
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
                   >
                     <div
                       className="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 kYQCpm"
@@ -1090,10 +1090,10 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <div
-              className="StyledBox-sc-13pk1d4-0 cGDWft"
+              className="StyledBox-sc-13pk1d4-0 bnvJhB"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                className="StyledBox-sc-13pk1d4-0 koruWX"
               >
                 <span
                   className="StyledText-sc-1sadyjn-0 kutFY"
@@ -1104,21 +1104,21 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
                       disabled={false}
                       htmlFor="unseen"
                       onClick={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1134,7 +1134,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1151,21 +1151,21 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
                       disabled={false}
                       htmlFor="in_progress"
                       onClick={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1181,7 +1181,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1198,21 +1198,21 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
                       disabled={false}
                       htmlFor="ready"
                       onClick={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1228,7 +1228,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1245,21 +1245,21 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
                       disabled={false}
                       htmlFor="approved"
                       onClick={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1275,7 +1275,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1290,7 +1290,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 </div>
               </div>
               <div
-                className="StyledBox-sc-13pk1d4-0 fWrrBh"
+                className="StyledBox-sc-13pk1d4-0 koruWX"
               >
                 <span
                   className="StyledText-sc-1sadyjn-0 kutFY"
@@ -1301,21 +1301,21 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hEeEAx FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cLmlkO"
+                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 gHIYHd"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
                       disabled={false}
                       htmlFor="flagged"
                       onClick={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 ijCAgr StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1331,7 +1331,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 eoaItH StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
@@ -1350,7 +1350,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <div
-              className="StyledBox-sc-13pk1d4-0 jHMQGC"
+              className="StyledBox-sc-13pk1d4-0 dEYhEg"
             >
               <button
                 aria-label="Close Subject Search Modal"
@@ -1397,10 +1397,10 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 fPaSPq"
+      className="StyledBox-sc-13pk1d4-0 eBKTXt"
     >
       <span
         className="StyledText-sc-1sadyjn-0 dEfHdc"
@@ -1456,18 +1456,18 @@ exports[`Storyshots SubjectViewer Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 dwUWku"
+    className="StyledBox-sc-13pk1d4-0 NJyzF"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 hHJqSn"
+      className="StyledBox-sc-13pk1d4-0 fsSIbr"
       onMouseLeave={[Function]}
       onMouseOver={[Function]}
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 iGfFSe"
+        className="StyledBox-sc-13pk1d4-0 jRmxqc"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 hFIMGw"
+          className="StyledBox-sc-13pk1d4-0 cGyFlY"
         >
           <span
             className="StyledText-sc-1sadyjn-0 bXoRNz"
@@ -1476,7 +1476,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
             Original Subject
           </span>
           <div
-            className="StyledBox-sc-13pk1d4-0 ekjAwv"
+            className="StyledBox-sc-13pk1d4-0 jmYunQ"
           >
             <button
               className="StyledButton-sc-323bzc-0 jfbKsv"
@@ -1498,20 +1498,20 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 lfMSfr sc-hzDkRC eniHZY"
+        className="StyledBox-sc-13pk1d4-0 gcHNQT sc-hzDkRC eniHZY"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 lfMSfr sc-jhAzac ZlZeV"
+          className="StyledBox-sc-13pk1d4-0 gcHNQT sc-jhAzac ZlZeV"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 kYbCiA sc-bRBYWo cfFjGV"
+            className="StyledBox-sc-13pk1d4-0 knzWfv sc-bRBYWo cfFjGV"
           />
           <div
-            className="StyledBox-sc-13pk1d4-0 fWrrBh sc-jhAzac sc-fBuWsC deBBpZ"
+            className="StyledBox-sc-13pk1d4-0 koruWX sc-jhAzac sc-fBuWsC deBBpZ"
           />
         </div>
         <div
-          className="StyledBox-sc-13pk1d4-0 lfMSfr"
+          className="StyledBox-sc-13pk1d4-0 gcHNQT"
         />
       </div>
     </div>
@@ -1524,13 +1524,13 @@ exports[`Storyshots UnapproveModal Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 iNPZuM"
+    className="StyledBox-sc-13pk1d4-0 knMaQB"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 fPaSPq"
+      className="StyledBox-sc-13pk1d4-0 eBKTXt"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 cGDWft"
+        className="StyledBox-sc-13pk1d4-0 bnvJhB"
       >
         <span
           className="StyledText-sc-1sadyjn-0 dEfHdc"
@@ -1587,7 +1587,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <div
-        className="StyledBox-sc-13pk1d4-0 jHMQGC"
+        className="StyledBox-sc-13pk1d4-0 dEYhEg"
       >
         <button
           aria-label="Close Unapprove Subject Modal"
