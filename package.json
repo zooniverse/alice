@@ -38,7 +38,7 @@
     "@storybook/addon-actions": "^5.2.5",
     "@storybook/addon-links": "^5.2.5",
     "@storybook/addons": "^5.2.5",
-    "@storybook/react": "^5.2.5",
+    "@storybook/react": "^6.4.20",
     "babel-core": "^6.26.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "~1.15.6",
