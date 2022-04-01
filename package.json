@@ -9,7 +9,7 @@
     "@storybook/addon-storyshots": "^5.2.5",
     "@zooniverse/grommet-theme": "^2.1.0",
     "babel-preset-react-app": "^7.0.0",
-    "coveralls": "^3.0.7",
+    "coveralls": "^3.1.1",
     "downloadjs": "^1.4.7",
     "formik": "^1.5.8",
     "frisbee": "^3.1.4",
