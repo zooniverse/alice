@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@storybook/addon-storyshots": "^5.2.5",
@@ -17,7 +17,7 @@
     "grommet": "^2.7.11",
     "grommet-icons": "^4.4.0",
     "jest-styled-components": "^6.3.3",
-    "jest-when": "^2.7.0",
+    "jest-when": "^3.3.1",
     "mobx": "^5.15.7",
     "mobx-devtools-mst": "^0.9.30",
     "mobx-react": "^6.1.1",
