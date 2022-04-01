@@ -21,7 +21,7 @@
     "mobx": "^5.13.0",
     "mobx-devtools-mst": "^0.9.21",
     "mobx-react": "^6.1.1",
-    "mobx-state-tree": "^3.14.1",
+    "mobx-state-tree": "^3.17.3",
     "mst-middlewares": "^3.15.0",
     "panoptes-client": "3.3.2",
     "ramda": "^0.26.1",
