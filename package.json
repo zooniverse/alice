@@ -30,7 +30,7 @@
     "react-router-dom": "^5.1.0",
     "react-scripts": "3.0.1",
     "rosie": "^2.1.0",
-    "styled-components": "^4.3.2",
+    "styled-components": "^4.4.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {
