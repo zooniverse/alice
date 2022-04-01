@@ -117,7 +117,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-ellipsis fa-w-14 "
+          className="svg-inline--fa fa-ellipsis "
           data-icon="ellipsis"
           data-prefix="fas"
           focusable="false"
@@ -162,7 +162,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="svg-inline--fa fa-circle-xmark fa-w-16 "
+                  className="svg-inline--fa fa-circle-xmark "
                   data-icon="circle-xmark"
                   data-prefix="fas"
                   focusable="false"
@@ -361,7 +361,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-circle-xmark fa-w-16 fa-xs "
+            className="svg-inline--fa fa-circle-xmark fa-xs "
             data-icon="circle-xmark"
             data-prefix="fas"
             focusable="false"
@@ -536,7 +536,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-pause fa-w-10 fa-xs "
+          className="svg-inline--fa fa-pause fa-xs "
           color="#555555"
           data-icon="pause"
           data-prefix="fas"
@@ -557,7 +557,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
         />
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-pause fa-w-10 fa-xs fa-rotate-90 "
+          className="svg-inline--fa fa-pause fa-xs fa-rotate-90 "
           color="#CCCCCC"
           data-icon="pause"
           data-prefix="fas"
@@ -646,7 +646,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
       />
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-rotate-right fa-w-16 fa-xs "
+        className="svg-inline--fa fa-arrow-rotate-right fa-xs "
         color="#555555"
         data-icon="arrow-rotate-right"
         data-prefix="fas"
@@ -878,7 +878,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-info fa-w-6 sc-cvbbAY josHqt"
+            className="svg-inline--fa fa-info sc-cvbbAY josHqt"
             data-icon="info"
             data-prefix="fas"
             focusable="false"
@@ -937,7 +937,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="svg-inline--fa fa-circle-xmark fa-w-16 "
+                className="svg-inline--fa fa-circle-xmark "
                 data-icon="circle-xmark"
                 data-prefix="fas"
                 focusable="false"
@@ -1550,7 +1550,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-circle-xmark fa-w-16 fa-xs "
+            className="svg-inline--fa fa-circle-xmark fa-xs "
             data-icon="circle-xmark"
             data-prefix="fas"
             focusable="false"
