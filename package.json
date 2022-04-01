@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@storybook/addon-storyshots": "^5.2.5",
@@ -25,7 +25,7 @@
     "mst-middlewares": "^3.15.0",
     "panoptes-client": "3.3.5",
     "ramda": "^0.26.1",
-    "react": "^16.9.0",
+    "react": "^16.14.0",
     "react-dom": "^16.13.0",
     "react-rnd": "^10.3.5",
     "react-router-dom": "^5.1.0",
