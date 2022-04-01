@@ -117,17 +117,17 @@ exports[`Storyshots AggregationSettings Default 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-ellipsis-h fa-w-16 "
-          data-icon="ellipsis-h"
+          className="svg-inline--fa fa-ellipsis fa-w-14 "
+          data-icon="ellipsis"
           data-prefix="fas"
           focusable="false"
           role="img"
           style={Object {}}
-          viewBox="0 0 512 512"
+          viewBox="0 0 448 512"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+            d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"
             fill="currentColor"
             style={Object {}}
           />
@@ -162,8 +162,8 @@ exports[`Storyshots AggregationSettings Default 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  className="svg-inline--fa fa-times-circle fa-w-16 "
-                  data-icon="times-circle"
+                  className="svg-inline--fa fa-circle-xmark fa-w-16 "
+                  data-icon="circle-xmark"
                   data-prefix="fas"
                   focusable="false"
                   role="img"
@@ -172,7 +172,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+                    d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
                     fill="currentColor"
                     style={Object {}}
                   />
@@ -361,8 +361,8 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-times-circle fa-w-16 fa-xs "
-            data-icon="times-circle"
+            className="svg-inline--fa fa-circle-xmark fa-w-16 fa-xs "
+            data-icon="circle-xmark"
             data-prefix="fas"
             focusable="false"
             role="img"
@@ -371,7 +371,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+              d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
               fill="currentColor"
               style={Object {}}
             />
@@ -536,18 +536,18 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-pause fa-w-14 fa-xs "
+          className="svg-inline--fa fa-pause fa-w-10 fa-xs "
           color="#555555"
           data-icon="pause"
           data-prefix="fas"
           focusable="false"
           role="img"
           style={Object {}}
-          viewBox="0 0 448 512"
+          viewBox="0 0 320 512"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z"
+            d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"
             fill="currentColor"
             style={Object {}}
           />
@@ -557,18 +557,18 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
         />
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-pause fa-w-14 fa-xs fa-rotate-90 "
+          className="svg-inline--fa fa-pause fa-w-10 fa-xs fa-rotate-90 "
           color="#CCCCCC"
           data-icon="pause"
           data-prefix="fas"
           focusable="false"
           role="img"
           style={Object {}}
-          viewBox="0 0 448 512"
+          viewBox="0 0 320 512"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z"
+            d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"
             fill="currentColor"
             style={Object {}}
           />
@@ -646,9 +646,9 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
       />
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-redo fa-w-16 fa-xs "
+        className="svg-inline--fa fa-arrow-rotate-right fa-w-16 fa-xs "
         color="#555555"
-        data-icon="redo"
+        data-icon="arrow-rotate-right"
         data-prefix="fas"
         focusable="false"
         role="img"
@@ -657,7 +657,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"
+          d="M496 48V192c0 17.69-14.31 32-32 32H320c-17.69 0-32-14.31-32-32s14.31-32 32-32h63.39c-29.97-39.7-77.25-63.78-127.6-63.78C167.7 96.22 96 167.9 96 256s71.69 159.8 159.8 159.8c34.88 0 68.03-11.03 95.88-31.94c14.22-10.53 34.22-7.75 44.81 6.375c10.59 14.16 7.75 34.22-6.375 44.81c-39.03 29.28-85.36 44.86-134.2 44.86C132.5 479.9 32 379.4 32 256s100.5-223.9 223.9-223.9c69.15 0 134 32.47 176.1 86.12V48c0-17.69 14.31-32 32-32S496 30.31 496 48z"
           fill="currentColor"
           style={Object {}}
         />
@@ -888,7 +888,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z"
+              d="M160 448h-32V224c0-17.69-14.33-32-32-32L32 192c-17.67 0-32 14.31-32 32s14.33 31.1 32 31.1h32v192H32c-17.67 0-32 14.31-32 32s14.33 32 32 32h128c17.67 0 32-14.31 32-32S177.7 448 160 448zM96 128c26.51 0 48-21.49 48-48S122.5 32.01 96 32.01s-48 21.49-48 48S69.49 128 96 128z"
               fill="currentColor"
               style={Object {}}
             />
@@ -937,8 +937,8 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             >
               <svg
                 aria-hidden="true"
-                className="svg-inline--fa fa-times-circle fa-w-16 "
-                data-icon="times-circle"
+                className="svg-inline--fa fa-circle-xmark fa-w-16 "
+                data-icon="circle-xmark"
                 data-prefix="fas"
                 focusable="false"
                 role="img"
@@ -947,7 +947,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+                  d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
                   fill="currentColor"
                   style={Object {}}
                 />
@@ -1550,8 +1550,8 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-times-circle fa-w-16 fa-xs "
-            data-icon="times-circle"
+            className="svg-inline--fa fa-circle-xmark fa-w-16 fa-xs "
+            data-icon="circle-xmark"
             data-prefix="fas"
             focusable="false"
             role="img"
@@ -1560,7 +1560,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+              d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
               fill="currentColor"
               style={Object {}}
             />
