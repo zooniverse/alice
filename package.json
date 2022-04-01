@@ -7,7 +7,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@storybook/addon-storyshots": "^5.2.5",
-    "@zooniverse/grommet-theme": "^2.1.0",
+    "@zooniverse/grommet-theme": "^3.0.0",
     "babel-preset-react-app": "^7.0.0",
     "coveralls": "^3.1.1",
     "downloadjs": "^1.4.7",

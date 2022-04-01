@@ -36,7 +36,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
               type="button"
             >
               <span
-                className="StyledText-sc-1sadyjn-0 bEMqcB"
+                className="StyledText-sc-1sadyjn-0 ceLiyb"
                 size="small"
               >
                 ADD LINE
@@ -87,7 +87,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 cqufCe sc-bZQynM evmlAb"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 fNQaFh"
+                  className="StyledText-sc-1sadyjn-0 cDmvCm"
                   size="xsmall"
                 >
                   This page does not contain transcription data.
@@ -146,7 +146,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
               className="StyledBox-sc-13pk1d4-0 yGrji"
             >
               <span
-                className="StyledText-sc-1sadyjn-0 bmpSIR"
+                className="StyledText-sc-1sadyjn-0 ceLiyb"
               >
                 Edit Aggregation Settings
               </span>
@@ -189,7 +189,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 czHqvg"
                 >
                   <span
-                    className="StyledText-sc-1sadyjn-0 bmpSIR"
+                    className="StyledText-sc-1sadyjn-0 ceLiyb"
                   >
                     Choose a clustering algorithm based on the way in which transcriptions have been made.
                   </span>
@@ -220,7 +220,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 bmpSIR"
+                          className="StyledText-sc-1sadyjn-0 ceLiyb"
                         >
                           OPTICS Reducer
                         </span>
@@ -228,7 +228,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 fNQaFh"
+                          className="StyledText-sc-1sadyjn-0 cDmvCm"
                           size="xsmall"
                         >
                           Used for clustering full-width transcriptions
@@ -256,7 +256,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 bmpSIR"
+                          className="StyledText-sc-1sadyjn-0 ceLiyb"
                         >
                           DBSCAN Reducer
                         </span>
@@ -264,7 +264,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 fNQaFh"
+                          className="StyledText-sc-1sadyjn-0 cDmvCm"
                           size="xsmall"
                         >
                           Used for clustering shorter, incomplete transcriptions of a line
@@ -290,7 +290,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                     type="button"
                   >
                     <span
-                      className="StyledText-sc-1sadyjn-0 bEMqcB"
+                      className="StyledText-sc-1sadyjn-0 ceLiyb"
                       size="small"
                     >
                       CLOSE AND CANCEL
@@ -310,7 +310,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                     type="button"
                   >
                     <span
-                      className="StyledText-sc-1sadyjn-0 bEMqcB"
+                      className="StyledText-sc-1sadyjn-0 ceLiyb"
                       size="small"
                     >
                       NEXT
@@ -341,7 +341,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         className="StyledBox-sc-13pk1d4-0 bnvJhB"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 dEfHdc"
+          className="StyledText-sc-1sadyjn-0 cbxRyB"
           size="large"
         >
           Download subject data
@@ -382,7 +382,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 cCeGeK"
+        className="StyledText-sc-1sadyjn-0 hbnEID"
       >
         Download a .zip file containing:
       </span>
@@ -393,7 +393,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         className="StyledBox-sc-13pk1d4-0 koruWX"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 bEMqcB"
+          className="StyledText-sc-1sadyjn-0 ceLiyb"
           size="small"
         >
           • Line by line transcription and metadata (.csv)
@@ -402,7 +402,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
         />
         <span
-          className="StyledText-sc-1sadyjn-0 bEMqcB"
+          className="StyledText-sc-1sadyjn-0 ceLiyb"
           size="small"
         >
           • Text-only file (.txt)
@@ -411,7 +411,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
         />
         <span
-          className="StyledText-sc-1sadyjn-0 bEMqcB"
+          className="StyledText-sc-1sadyjn-0 ceLiyb"
           size="small"
         >
           • Raw, unparsed transcription data (.json)
@@ -434,7 +434,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 bEMqcB"
+            className="StyledText-sc-1sadyjn-0 ceLiyb"
             size="small"
           >
             CLOSE
@@ -451,7 +451,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 bEMqcB"
+            className="StyledText-sc-1sadyjn-0 ceLiyb"
             size="small"
           >
             DOWNLOAD
@@ -492,7 +492,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-jDwBTQ eYRRwn"
+            className="StyledText-sc-1sadyjn-0 ceLiyb sc-jDwBTQ eYRRwn"
           >
             Delete Pages
           </span>
@@ -524,7 +524,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 cHqCJo"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs hCtDtz"
+        className="StyledText-sc-1sadyjn-0 hTlKKJ sc-hMqMXs hCtDtz"
       >
         Layout
       </span>
@@ -598,7 +598,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 eQTSO"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG"
+        className="StyledText-sc-1sadyjn-0 hTlKKJ"
       >
         MORE
       </span>
@@ -637,7 +637,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
       className="StyledBox-sc-13pk1d4-0 cHqCJo"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 gcASOG sc-hMqMXs hCtDtz"
+        className="StyledText-sc-1sadyjn-0 hTlKKJ sc-hMqMXs hCtDtz"
       >
         Undo
       </span>
@@ -719,7 +719,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               >
                 <input
                   checked={false}
-                  className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 cZcPJD"
+                  className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 iuSxgv"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -742,7 +742,7 @@ exports[`Storyshots LineViewer Default 1`] = `
               >
                 <input
                   autoComplete="off"
-                  className="StyledTextInput-sc-1x30a0s-0 bVzAne"
+                  className="StyledTextInput-sc-1x30a0s-0 hKDmcF"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -773,7 +773,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-jTzLTM krJVzu"
+              className="StyledText-sc-1sadyjn-0 cDmvCm sc-jTzLTM krJVzu"
               size="xsmall"
             >
               Cancel
@@ -794,7 +794,7 @@ exports[`Storyshots LineViewer Default 1`] = `
             type="button"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 fNQaFh sc-jTzLTM krJVzu"
+              className="StyledText-sc-1sadyjn-0 cDmvCm sc-jTzLTM krJVzu"
               size="xsmall"
             >
               Add Line
@@ -818,7 +818,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     onClick={[Function]}
   >
     <span
-      className="StyledText-sc-1sadyjn-0 gcASOG sc-kEYyzF ggEPv"
+      className="StyledText-sc-1sadyjn-0 hTlKKJ sc-kEYyzF ggEPv"
     >
       Ready For Review
     </span>
@@ -829,7 +829,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
     >
       <input
         checked={false}
-        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dmrmuV"
+        className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 cmPpnw"
         disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
@@ -838,7 +838,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
       />
       <span
         checked={false}
-        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 kOvstK"
+        className="StyledCheckBox__StyledCheckBoxToggle-sc-1dbk5ju-4 fUIWkU"
         disabled={false}
       >
         <span
@@ -920,7 +920,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 cGyFlY"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 dEfHdc"
+              className="StyledText-sc-1sadyjn-0 cbxRyB"
               size="large"
             >
               Search or Filter
@@ -958,7 +958,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
           />
           <span
-            className="StyledText-sc-1sadyjn-0 bmpSIR sc-jlyJG iqYbEW"
+            className="StyledText-sc-1sadyjn-0 ceLiyb sc-jlyJG iqYbEW"
           >
             Find a specific subject
           </span>
@@ -979,7 +979,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO sc-gipzik keWqgP"
                 >
                   <label
-                    className="StyledText-sc-1sadyjn-0 cxYjCj"
+                    className="StyledText-sc-1sadyjn-0 gFYzgc"
                     htmlFor="type"
                   >
                     ID TYPE
@@ -1006,7 +1006,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                           className="StyledBox-sc-13pk1d4-0 gbHXHp"
                         >
                           <span
-                            className="StyledText-sc-1sadyjn-0 bmpSIR"
+                            className="StyledText-sc-1sadyjn-0 ceLiyb"
                           >
                             Select...
                           </span>
@@ -1047,7 +1047,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO sc-gipzik keWqgP"
                 >
                   <label
-                    className="StyledText-sc-1sadyjn-0 cxYjCj"
+                    className="StyledText-sc-1sadyjn-0 gFYzgc"
                     htmlFor="id"
                   >
                     NAME
@@ -1060,7 +1060,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                     >
                       <input
                         autoComplete="off"
-                        className="StyledTextInput-sc-1x30a0s-0 kiJqqj"
+                        className="StyledTextInput-sc-1x30a0s-0 bxPWWW"
                         color="red"
                         disabled={false}
                         id="id"
@@ -1082,7 +1082,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 bmpSIR sc-jlyJG iqYbEW"
+              className="StyledText-sc-1sadyjn-0 ceLiyb sc-jlyJG iqYbEW"
             >
               Filter subject list by status
             </span>
@@ -1096,7 +1096,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 koruWX"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 kutFY"
+                  className="StyledText-sc-1sadyjn-0 eGrHYw"
                 >
                   Approval Status
                 </span>
@@ -1123,7 +1123,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOxrOf"
                           disabled={false}
                           id="unseen"
                           name="unseen"
@@ -1139,7 +1139,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        className="StyledText-sc-1sadyjn-0 ceLiyb"
                         size="small"
                       >
                         UNSEEN
@@ -1170,7 +1170,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOxrOf"
                           disabled={false}
                           id="in_progress"
                           name="in_progress"
@@ -1186,7 +1186,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        className="StyledText-sc-1sadyjn-0 ceLiyb"
                         size="small"
                       >
                         IN PROGRESS
@@ -1217,7 +1217,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOxrOf"
                           disabled={false}
                           id="ready"
                           name="ready"
@@ -1233,7 +1233,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        className="StyledText-sc-1sadyjn-0 ceLiyb"
                         size="small"
                       >
                         READY FOR REVIEW
@@ -1264,7 +1264,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOxrOf"
                           disabled={false}
                           id="approved"
                           name="approved"
@@ -1280,7 +1280,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        className="StyledText-sc-1sadyjn-0 ceLiyb"
                         size="small"
                       >
                         APPROVED
@@ -1293,7 +1293,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 koruWX"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 kutFY"
+                  className="StyledText-sc-1sadyjn-0 eGrHYw"
                 >
                   Additional Filters
                 </span>
@@ -1320,7 +1320,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       >
                         <input
                           checked={false}
-                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dijSVl"
+                          className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 dOxrOf"
                           disabled={false}
                           id="flagged"
                           name="flagged"
@@ -1336,7 +1336,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 bEMqcB"
+                        className="StyledText-sc-1sadyjn-0 ceLiyb"
                         size="small"
                       >
                         FLAGGED
@@ -1363,7 +1363,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="button"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-jlyJG iqYbEW"
+                  className="StyledText-sc-1sadyjn-0 ceLiyb sc-jlyJG iqYbEW"
                 >
                   Close
                 </span>
@@ -1378,7 +1378,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="submit"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 bmpSIR sc-jlyJG iqYbEW"
+                  className="StyledText-sc-1sadyjn-0 ceLiyb sc-jlyJG iqYbEW"
                 >
                   Search
                 </span>
@@ -1403,7 +1403,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       className="StyledBox-sc-13pk1d4-0 eBKTXt"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 dEfHdc"
+        className="StyledText-sc-1sadyjn-0 cbxRyB"
         size="large"
       >
         Subject locked
@@ -1412,7 +1412,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-gPEVay yONTa"
+        className="StyledText-sc-1sadyjn-0 ceLiyb sc-gPEVay yONTa"
       >
         This subject cannot be accessed because 
         <strong />
@@ -1422,7 +1422,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-gPEVay yONTa"
+        className="StyledText-sc-1sadyjn-0 ceLiyb sc-gPEVay yONTa"
       >
         For access, ask them to close their version.
       </span>
@@ -1440,7 +1440,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         type="button"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 bEMqcB"
+          className="StyledText-sc-1sadyjn-0 ceLiyb"
           size="small"
         >
           BACK TO GROUP INDEX
@@ -1489,7 +1489,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
               type="button"
             >
               <span
-                className="StyledText-sc-1sadyjn-0 bmpSIR"
+                className="StyledText-sc-1sadyjn-0 ceLiyb"
               >
                 HIDE ALL LINES
               </span>
@@ -1533,7 +1533,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox-sc-13pk1d4-0 bnvJhB"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 dEfHdc"
+          className="StyledText-sc-1sadyjn-0 cbxRyB"
           size="large"
         >
           Unapprove subject data
@@ -1571,7 +1571,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-iRbamj jHMZAa"
+        className="StyledText-sc-1sadyjn-0 ceLiyb sc-iRbamj jHMZAa"
       >
         By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
       </span>
@@ -1579,7 +1579,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 bmpSIR sc-iRbamj jHMZAa"
+        className="StyledText-sc-1sadyjn-0 ceLiyb sc-iRbamj jHMZAa"
       >
         This action can be reversed at any time.
       </span>
@@ -1600,7 +1600,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 bEMqcB"
+            className="StyledText-sc-1sadyjn-0 ceLiyb"
             size="small"
           >
             CLOSE AND CANCEL
@@ -1617,7 +1617,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 bEMqcB"
+            className="StyledText-sc-1sadyjn-0 ceLiyb"
             size="small"
           >
             YES, UNAPPROVE

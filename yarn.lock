@@ -2416,10 +2416,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zooniverse/grommet-theme@^2.1.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@zooniverse/grommet-theme/-/grommet-theme-2.2.0.tgz#fd27cd6ed43d4f29601e13989f8dd051e3651347"
-  integrity sha512-taWLbzDgXPPBiQFVmzODrfvqpK2PUTo1pi1a+q3N5jDyFgo1m3BM2ulWfloLKytqObMbzYzuBe1HGtaDWnc6NA==
+"@zooniverse/grommet-theme@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@zooniverse/grommet-theme/-/grommet-theme-3.0.0.tgz#e9cdcf90db7015ce88ba6815653d2442cdd1b811"
+  integrity sha512-lrGlIPv2DLKfao/c3IikvQQhOGDA9Ysqf1qDWo4yJcfYgkUbfIDZSVOKWRi4Y/G4PzqaRVaQnk2TTejctFWCbw==
   dependencies:
     deep-freeze "~0.0.1"
 
