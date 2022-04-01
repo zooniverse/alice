@@ -17,7 +17,7 @@
     "grommet": "^2.10.0",
     "grommet-icons": "^4.4.0",
     "jest-styled-components": "^6.3.3",
-    "jest-when": "^2.7.0",
+    "jest-when": "^3.3.1",
     "mobx": "^5.15.7",
     "mobx-devtools-mst": "^0.9.30",
     "mobx-react": "^6.1.1",
