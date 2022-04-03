@@ -6,16 +6,16 @@ import {
   MIN_STEP
 } from './ImageStore'
 
-let imageStore;
-
-const scaleValues = {
-  clientHeight: 200,
-  clientWidth: 100,
-  naturalHeight: 400,
-  naturalWidth: 200,
-}
-
 describe('Model > ImageStore', function () {
+  let imageStore;
+
+  const scaleValues = {
+    clientHeight: 200,
+    clientWidth: 100,
+    naturalHeight: 400,
+    naturalWidth: 200,
+  }
+
   beforeEach(function() {
     imageStore = ImageStore.create()
   })

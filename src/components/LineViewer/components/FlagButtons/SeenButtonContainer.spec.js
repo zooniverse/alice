@@ -2,13 +2,13 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import SeenButtonContainer from './SeenButtonContainer'
 
-let wrapper
-const toggleCurrentSeenSpy = jest.fn()
-const reduction = {
-  toggleCurrentSeen: toggleCurrentSeenSpy
-}
-
 describe('Component > SeenButtonContainer', function () {
+  let wrapper
+  const toggleCurrentSeenSpy = jest.fn()
+  const reduction = {
+    toggleCurrentSeen: toggleCurrentSeenSpy
+  }
+
   beforeEach(function() {
     wrapper = shallow(<SeenButtonContainer reduction={reduction} />);
   })

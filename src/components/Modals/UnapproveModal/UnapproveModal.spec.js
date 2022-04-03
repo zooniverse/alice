@@ -3,11 +3,11 @@ import React from 'react'
 import { Button } from 'grommet'
 import UnapproveModal from './UnapproveModal'
 
-let wrapper
-let onCloseSpy = jest.fn()
-let onUnapproveSpy = jest.fn()
-
 describe('Component > UnapproveModal', function () {
+  let wrapper
+  let onCloseSpy = jest.fn()
+  let onUnapproveSpy = jest.fn()
+
   beforeAll(function () {
     wrapper = shallow(<UnapproveModal onClose={onCloseSpy} onUnapprove={onUnapproveSpy} />);
   })

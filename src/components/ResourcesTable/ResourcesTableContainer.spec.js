@@ -2,9 +2,9 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import ResourcesTableContainer from './ResourcesTableContainer'
 
-let wrapper
-
 describe('Component > ResourcesTableContainer', function () {
+  let wrapper
+
   beforeEach(function() {
     wrapper = shallow(<ResourcesTableContainer />);
   })

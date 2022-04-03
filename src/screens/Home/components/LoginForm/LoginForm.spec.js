@@ -4,14 +4,14 @@ import { Formik } from 'formik'
 import { Button } from 'grommet'
 import LoginForm from './LoginForm'
 
-let wrapper
-let validateFormSpy = jest.fn().mockResolvedValue(true)
-const initialValues = {
-  login: '',
-  password: '',
-}
-
 describe('Component > LoginForm', function () {
+  let wrapper
+  let validateFormSpy = jest.fn().mockResolvedValue(true)
+  const initialValues = {
+    login: '',
+    password: '',
+  }
+
   beforeEach(function () {
     wrapper = shallow(<LoginForm />)
   })

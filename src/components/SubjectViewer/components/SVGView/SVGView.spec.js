@@ -3,20 +3,20 @@ import React from 'react'
 import SVGView from './SVGView'
 import 'jest-styled-components'
 
-const ref = React.createRef()
-ref.current = { getBoundingClientRect: () => {
-  return {
-    height: 100,
-    width: 100
-  }
-} }
-
-const setTranslateSpy = jest.fn()
-const mockEvent = {
-  preventDefault: () => {}
-}
-
 describe('Component > SVGView', function () {
+  const ref = React.createRef()
+  ref.current = { getBoundingClientRect: () => {
+    return {
+      height: 100,
+      width: 100
+    }
+  } }
+
+  const setTranslateSpy = jest.fn()
+  const mockEvent = {
+    preventDefault: () => {}
+  }
+
   afterEach(() => jest.clearAllMocks());
 
   describe('when disabled', function () {

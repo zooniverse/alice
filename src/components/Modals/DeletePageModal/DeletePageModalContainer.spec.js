@@ -2,19 +2,19 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import DeletePageModalContainer from './DeletePageModalContainer'
 
-let wrapper
-const deletePageSpy = jest.fn()
-const toggleModalSpy = jest.fn()
-const contextValues = {
-  modal: {
-    toggleModal: toggleModalSpy
-  },
-  transcriptions: {
-    deletePage: deletePageSpy
-  }
-}
-
 describe('Component > DeletePageModalContainer', function () {
+  let wrapper
+  const deletePageSpy = jest.fn()
+  const toggleModalSpy = jest.fn()
+  const contextValues = {
+    modal: {
+      toggleModal: toggleModalSpy
+    },
+    transcriptions: {
+      deletePage: deletePageSpy
+    }
+  }
+
   beforeEach(function () {
     jest
       .spyOn(React, 'useContext')

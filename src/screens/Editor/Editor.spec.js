@@ -6,75 +6,75 @@ import MODALS from 'helpers/modals'
 import { act } from 'react-dom/test-utils'
 import { Editor, Resizer } from './Editor'
 
-let wrapper
-const checkIfLockedSpy = jest.fn()
-const fetchSubjectSpy = jest.fn()
-const getResourcesSpy = jest.fn()
-const preventDefaultSpy = jest.fn()
-const resetImageSpy = jest.fn()
-const setActiveTranscriptionSpy = jest.fn()
-const setState = jest.fn()
-const toggleModalSpy = jest.fn()
-const unlockTranscriptionSpy = jest.fn()
-
-const match = {
-  params: {
-    subject: 2
-  }
-}
-const rect = {
-  top: 10,
-  left: 20
-}
-const refValue = {
-  current: {
-    clientHeight: 100,
-    clientWidth: 100,
-    getBoundingClientRect: () => rect
-  }
-}
-const mockEvent = {
-  clientX: 0,
-  clientY: 0,
-  preventDefault: preventDefaultSpy
-}
-const contextValues = {
-  aggregations: {
-    showModal: false
-  },
-  editor: {
-    layout: 'row'
-  },
-  getResources: getResourcesSpy,
-  image: {
-    reset: resetImageSpy,
-    zoomIn: () => {}
-  },
-  modal: {
-    toggleModal: toggleModalSpy
-  },
-  projects: {
-    isViewer: false
-  },
-  subjects: {
-    all: { '1': { locations: [{ 'image': 'site.com' }] } },
-    asyncState: ASYNC_STATES.IDLE,
-    current: { locations: [{ 'image': 'site.com' }] },
-    fetchSubject: fetchSubjectSpy,
-  },
-  transcriptions: {
-    checkIfLocked: checkIfLockedSpy,
-    current: undefined,
-    extracts: [],
-    index: 0,
-    lockedByCurrentUser: false,
-    setActiveTranscription: setActiveTranscriptionSpy,
-    slopeKeys: [],
-    unlockTranscription: unlockTranscriptionSpy
-  }
-}
-
 describe('Component > Editor', function () {
+  let wrapper
+  const checkIfLockedSpy = jest.fn()
+  const fetchSubjectSpy = jest.fn()
+  const getResourcesSpy = jest.fn()
+  const preventDefaultSpy = jest.fn()
+  const resetImageSpy = jest.fn()
+  const setActiveTranscriptionSpy = jest.fn()
+  const setState = jest.fn()
+  const toggleModalSpy = jest.fn()
+  const unlockTranscriptionSpy = jest.fn()
+
+  const match = {
+    params: {
+      subject: 2
+    }
+  }
+  const rect = {
+    top: 10,
+    left: 20
+  }
+  const refValue = {
+    current: {
+      clientHeight: 100,
+      clientWidth: 100,
+      getBoundingClientRect: () => rect
+    }
+  }
+  const mockEvent = {
+    clientX: 0,
+    clientY: 0,
+    preventDefault: preventDefaultSpy
+  }
+  const contextValues = {
+    aggregations: {
+      showModal: false
+    },
+    editor: {
+      layout: 'row'
+    },
+    getResources: getResourcesSpy,
+    image: {
+      reset: resetImageSpy,
+      zoomIn: () => {}
+    },
+    modal: {
+      toggleModal: toggleModalSpy
+    },
+    projects: {
+      isViewer: false
+    },
+    subjects: {
+      all: { '1': { locations: [{ 'image': 'site.com' }] } },
+      asyncState: ASYNC_STATES.IDLE,
+      current: { locations: [{ 'image': 'site.com' }] },
+      fetchSubject: fetchSubjectSpy,
+    },
+    transcriptions: {
+      checkIfLocked: checkIfLockedSpy,
+      current: undefined,
+      extracts: [],
+      index: 0,
+      lockedByCurrentUser: false,
+      setActiveTranscription: setActiveTranscriptionSpy,
+      slopeKeys: [],
+      unlockTranscription: unlockTranscriptionSpy
+    }
+  }
+
   it('should render without crashing', function () {
     wrapper = shallow(<Editor match={match} />);
     expect(wrapper).toBeDefined()

@@ -4,11 +4,11 @@ import mockData from './mockData'
 import TranscriptionTable from './TranscriptionTable'
 import TranscriptionTableRow from './TranscriptionTableRow'
 
-let wrapper;
-let useStateSpy;
-let setState = jest.fn()
-
 describe('Component > TranscriptionTable', function () {
+  let wrapper;
+  let useStateSpy;
+  let setState = jest.fn()
+
   beforeEach(function() {
     useStateSpy = jest.spyOn(React, 'useState')
     useStateSpy.mockImplementation((init) => [init, setState])

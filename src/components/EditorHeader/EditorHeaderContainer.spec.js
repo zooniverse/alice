@@ -9,33 +9,33 @@ import LayoutButton from './components/HeaderButton/LayoutButtonContainer'
 import MoreButton from './components/MoreButton'
 import { EDIT_PATH, PROJECTS_PATH, SUBJECTS_PATH } from 'paths'
 
-let wrapper
-const contextValues = {
-  aggregations: {
-    showModal: false
-  },
-  auth: {
-    user: { id: '1' }
-  },
-  projects: {
-    isViewer: false
-  },
-  transcriptions: {
-    approved: false
-  }
-}
-const EDIT_PATH_HISTORY = {
-  location: {
-    pathname: EDIT_PATH
-  }
-}
-const SUBJECTS_PATH_HISTORY = {
-  location: {
-    pathname: SUBJECTS_PATH
-  }
-}
-
 describe('Component > EditorHeaderContainer', function () {
+  let wrapper
+  const contextValues = {
+    aggregations: {
+      showModal: false
+    },
+    auth: {
+      user: { id: '1' }
+    },
+    projects: {
+      isViewer: false
+    },
+    transcriptions: {
+      approved: false
+    }
+  }
+  const EDIT_PATH_HISTORY = {
+    location: {
+      pathname: EDIT_PATH
+    }
+  }
+  const SUBJECTS_PATH_HISTORY = {
+    location: {
+      pathname: SUBJECTS_PATH
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

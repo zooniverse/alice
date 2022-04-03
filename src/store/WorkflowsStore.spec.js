@@ -3,44 +3,44 @@ import mockJWT from 'helpers/mockJWT'
 import { AppStore } from './AppStore'
 import WorkflowFactory from './factories/workflow'
 
-let workflowsStore
-let rootStore
-const workflowTwo = WorkflowFactory.build({ id: '2' })
-
-let toveStubArray = {
-  get: () => Promise.resolve(
-    {
-      body: JSON.stringify(
-        {
-          data: [WorkflowFactory.build(), workflowTwo],
-          meta: {
-            pagination: { last: 1 }
-          }
-        })
-    }
-  )
-}
-
-let toveStub = {
-  get: () => Promise.resolve(
-    {
-      body: JSON.stringify(
-        {
-          data: workflowTwo,
-          meta: {
-            pagination: { last: 1 }
-          }
-        })
-    }
-  )
-}
-
-const error = { message: 'Failed to Return' }
-let failedToveStub = {
-  get: () => Promise.reject(error)
-}
-
 describe('WorkflowsStore', function () {
+  let workflowsStore
+  let rootStore
+  const workflowTwo = WorkflowFactory.build({ id: '2' })
+
+  let toveStubArray = {
+    get: () => Promise.resolve(
+      {
+        body: JSON.stringify(
+          {
+            data: [WorkflowFactory.build(), workflowTwo],
+            meta: {
+              pagination: { last: 1 }
+            }
+          })
+      }
+    )
+  }
+
+  let toveStub = {
+    get: () => Promise.resolve(
+      {
+        body: JSON.stringify(
+          {
+            data: workflowTwo,
+            meta: {
+              pagination: { last: 1 }
+            }
+          })
+      }
+    )
+  }
+
+  const error = { message: 'Failed to Return' }
+  let failedToveStub = {
+    get: () => Promise.reject(error)
+  }
+
   describe('success state', function () {
     beforeEach(function () {
       rootStore = AppStore.create({

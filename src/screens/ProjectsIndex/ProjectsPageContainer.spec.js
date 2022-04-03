@@ -6,47 +6,47 @@ import { act } from 'react-dom/test-utils'
 import { ProjectPageContainer } from './ProjectsPageContainer'
 import ProjectCard from './components/ProjectCard'
 
-let wrapper
-const getResourcesSpy = jest.fn()
-const getProjectsSpy = jest.fn()
-const selectProjectSpy = jest.fn()
-
-const collabProjects = [
-  {
-    id: '1',
-    role: 'Volunteer',
-    avatar_src: 'www.image.com',
-    display_name: 'Fake Project'
-  }
-]
-const ownerProjects = [
-  {
-    id: '2',
-    role: 'Researcher',
-    avatar_src: 'www.image.com',
-    display_name: 'Fake Project'
-  }
-]
-const fakeUser = { id: 12 }
-const contextValues = {
-  auth: {
-    user: fakeUser
-  },
-  getResources: getResourcesSpy,
-  projects: {
-    asyncState: ASYNC_STATES.IDLE,
-    collabProjects,
-    getProjects: getProjectsSpy,
-    selectProject: selectProjectSpy,
-    ownerProjects
-  }
-}
-
-const match = {
-  params: {}
-}
-
 describe('Component > ProjectPageContainer', function () {
+  let wrapper
+  const getResourcesSpy = jest.fn()
+  const getProjectsSpy = jest.fn()
+  const selectProjectSpy = jest.fn()
+
+  const collabProjects = [
+    {
+      id: '1',
+      role: 'Volunteer',
+      avatar_src: 'www.image.com',
+      display_name: 'Fake Project'
+    }
+  ]
+  const ownerProjects = [
+    {
+      id: '2',
+      role: 'Researcher',
+      avatar_src: 'www.image.com',
+      display_name: 'Fake Project'
+    }
+  ]
+  const fakeUser = { id: 12 }
+  const contextValues = {
+    auth: {
+      user: fakeUser
+    },
+    getResources: getResourcesSpy,
+    projects: {
+      asyncState: ASYNC_STATES.IDLE,
+      collabProjects,
+      getProjects: getProjectsSpy,
+      selectProject: selectProjectSpy,
+      ownerProjects
+    }
+  }
+
+  const match = {
+    params: {}
+  }
+
   describe('with props', function () {
     beforeEach(function() {
       jest

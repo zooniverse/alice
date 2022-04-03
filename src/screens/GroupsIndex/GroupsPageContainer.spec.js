@@ -3,29 +3,29 @@ import React from 'react'
 import ResourcesTable from '../../components/ResourcesTable'
 import { GroupsPageContainer } from './GroupsPageContainer'
 
-let wrapper
-const getResourcesSpy = jest.fn()
-const selectGroupSpy = jest.fn()
-const setPageSpy = jest.fn()
-const pushSpy = jest.fn()
-const contextValues = {
-  getResources: getResourcesSpy,
-  groups: {
-    all: [],
-    selectGroup: selectGroupSpy,
-    setPage: setPageSpy
-  }
-}
-const history = { push: pushSpy }
-const match = {
-  params: {
-    group: 1,
-    project: 1,
-    workflow: 1
-  }
-}
-
 describe('Component > GroupsPageContainer', function () {
+  let wrapper
+  const getResourcesSpy = jest.fn()
+  const selectGroupSpy = jest.fn()
+  const setPageSpy = jest.fn()
+  const pushSpy = jest.fn()
+  const contextValues = {
+    getResources: getResourcesSpy,
+    groups: {
+      all: [],
+      selectGroup: selectGroupSpy,
+      setPage: setPageSpy
+    }
+  }
+  const history = { push: pushSpy }
+  const match = {
+    params: {
+      group: 1,
+      project: 1,
+      workflow: 1
+    }
+  }
+
   beforeEach(function() {
     jest.spyOn(React, 'useContext')
       .mockImplementation(() => contextValues )

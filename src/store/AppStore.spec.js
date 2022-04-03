@@ -1,24 +1,24 @@
 import { AppStore } from './AppStore'
 
-let appStore
-
-const params = {
-  project: '1',
-  workflow: '1',
-  group: '1',
-  subject: '1'
-}
-
-const checkCurrentSpy = jest.fn().mockResolvedValue(null)
-const initializeSpy = jest.fn()
-const selectProjectSpy = jest.fn().mockResolvedValue(null)
-const selectWorkflowSpy = jest.fn().mockResolvedValue(null)
-const selectGroupSpy = jest.fn()
-const selectTranscriptionSpy = jest.fn().mockResolvedValue(null)
-const selectGroupsSpy = jest.fn()
-const resetTransciptionsSpy = jest.fn()
-
 describe('AppStore', function () {
+  let appStore
+
+  const params = {
+    project: '1',
+    workflow: '1',
+    group: '1',
+    subject: '1'
+  }
+
+  const checkCurrentSpy = jest.fn().mockResolvedValue(null)
+  const initializeSpy = jest.fn()
+  const selectProjectSpy = jest.fn().mockResolvedValue(null)
+  const selectWorkflowSpy = jest.fn().mockResolvedValue(null)
+  const selectGroupSpy = jest.fn()
+  const selectTranscriptionSpy = jest.fn().mockResolvedValue(null)
+  const selectGroupsSpy = jest.fn()
+  const resetTransciptionsSpy = jest.fn()
+
   beforeAll(function() {
     appStore = AppStore.create()
     Object.defineProperty(

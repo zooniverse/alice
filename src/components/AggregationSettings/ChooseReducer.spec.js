@@ -6,9 +6,9 @@ import { REDUCERS } from './AggregationSettingsContainer'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-let wrapper
-
 describe('Component > ChooseReducer', function () {
+  let wrapper
+
   beforeEach(function() {
     wrapper = shallow(<ChooseReducer />);
   })

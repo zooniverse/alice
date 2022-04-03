@@ -1,8 +1,8 @@
 import { GroupsStore } from './GroupsStore'
 
-let editorStore
-
 describe('GroupsStore', function () {
+  let editorStore
+
   beforeEach(function () {
     editorStore = GroupsStore.create()
   })

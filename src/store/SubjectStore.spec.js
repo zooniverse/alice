@@ -3,15 +3,15 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
 import { Subject } from './SubjectStore'
 
-let subjectStore
-
-const mockSubject = {
-  id: '1',
-  locations: [],
-  metadata: {}
-}
-
 describe('SubjectStore', function () {
+  let subjectStore
+
+  const mockSubject = {
+    id: '1',
+    locations: [],
+    metadata: {}
+  }
+
   beforeEach(function () {
     jest
       .spyOn(apiClient, 'type')
@@ -49,7 +49,15 @@ describe('SubjectStore', function () {
 })
 
 describe('SubjectStore error', function () {
+  let subjectStore
+
+  const mockSubject = {
+    id: '1',
+    locations: [],
+    metadata: {}
+  }
   let error = { message: 'No subject found' }
+
   beforeEach(function () {
     jest
       .spyOn(apiClient, 'type')
@@ -82,6 +90,14 @@ describe('SubjectStore error', function () {
 })
 
 describe('SubjectStore empty return when fetching subjects', function () {
+  let subjectStore
+
+  const mockSubject = {
+    id: '1',
+    locations: [],
+    metadata: {}
+  }
+
   it('should resolve the call without error', async function () {
     jest
       .spyOn(apiClient, 'type')

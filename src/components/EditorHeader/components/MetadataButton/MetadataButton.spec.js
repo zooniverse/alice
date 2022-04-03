@@ -4,9 +4,9 @@ import { Button } from 'grommet'
 import { MetadataButton } from './MetadataButton'
 import mockMetadata from './mockMetadata'
 
-let wrapper
-
 describe('Component > MetadataButton', function () {
+  let wrapper
+
   beforeEach(function() {
     wrapper = shallow(<MetadataButton />);
   })

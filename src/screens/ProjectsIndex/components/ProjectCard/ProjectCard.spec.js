@@ -3,23 +3,23 @@ import React from 'react'
 import { Button, Image } from 'grommet'
 import { ProjectCard } from './ProjectCard'
 
-let wrapper
-const project = {
-  avatar_src: 'source.com'
-}
-const pushSpy = jest.fn()
-const setStateSpy = jest.fn()
-const history = {
-  push: pushSpy
-}
-const contextValues = {
-  workflows: {
-    setState: setStateSpy
-  }
-}
-
 
 describe('Component > ProjectCard', function () {
+  let wrapper
+  const project = {
+    avatar_src: 'source.com'
+  }
+  const pushSpy = jest.fn()
+  const setStateSpy = jest.fn()
+  const history = {
+    push: pushSpy
+  }
+  const contextValues = {
+    workflows: {
+      setState: setStateSpy
+    }
+  }
+
   beforeEach(function() {
     jest.spyOn(React, 'useContext')
       .mockImplementation((context) => contextValues)

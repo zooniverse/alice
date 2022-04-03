@@ -4,10 +4,10 @@ import { Button, Text } from 'grommet'
 
 import DownloadDataModal from './DownloadDataModal'
 
-let wrapper
-const onCloseSpy = jest.fn()
-
 describe('Component > DownloadDataModal', function () {
+  let wrapper
+  const onCloseSpy = jest.fn()
+
   beforeEach(function () {
     wrapper = shallow(<DownloadDataModal onClose={onCloseSpy} />);
   })

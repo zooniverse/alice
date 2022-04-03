@@ -2,14 +2,14 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import About from './About'
 
-let wrapper
-let setState = jest.fn()
-const modal = {
-  caption: 'This Image',
-  image: 'image.png'
-}
-
 describe('Component > About', function () {
+  let wrapper
+  let setState = jest.fn()
+  const modal = {
+    caption: 'This Image',
+    image: 'image.png'
+  }
+
   beforeEach(function () {
     jest
       .spyOn(React, 'useState')

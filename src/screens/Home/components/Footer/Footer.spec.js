@@ -2,9 +2,9 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import Footer from './Footer'
 
-let wrapper
-
 describe('Component > Footer', function () {
+  let wrapper
+
   beforeEach(function () {
     wrapper = shallow(<Footer />)
   })

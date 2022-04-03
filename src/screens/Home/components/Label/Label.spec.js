@@ -2,9 +2,9 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import Label from './Label'
 
-let wrapper
-
 describe('Component > Label', function () {
+  let wrapper
+
   beforeEach(function () {
     wrapper = shallow(<Label />)
   })

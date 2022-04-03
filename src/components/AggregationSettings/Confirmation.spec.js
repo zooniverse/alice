@@ -3,9 +3,9 @@ import React from 'react'
 import { Button } from 'grommet'
 import Confirmation from './Confirmation'
 
-let wrapper
-
 describe('Component > Confirmation', function () {
+  let wrapper
+
   beforeEach(function() {
     wrapper = shallow(<Confirmation />);
   })

@@ -2,19 +2,19 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import SearchModalContainer from './SearchModalContainer'
 
-let wrapper;
-const searchTranscriptionsSpy = jest.fn()
-const toggleModalSpy = jest.fn()
-const contextValues = {
-  modal: {
-    toggleModal: toggleModalSpy
-  },
-  search: {
-    searchTranscriptions: searchTranscriptionsSpy
-  }
-}
-
 describe('Component > SearchModalContainer', function () {
+  let wrapper;
+  const searchTranscriptionsSpy = jest.fn()
+  const toggleModalSpy = jest.fn()
+  const contextValues = {
+    modal: {
+      toggleModal: toggleModalSpy
+    },
+    search: {
+      searchTranscriptions: searchTranscriptionsSpy
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

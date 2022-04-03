@@ -3,9 +3,9 @@ import React from 'react'
 import ASYNC_STATES from 'helpers/asyncStates'
 import { SaveStatus } from './SaveStatus'
 
-let wrapper
-
 describe('Component > SaveStatus', function () {
+  let wrapper
+
   it('should render without crashing', function () {
     wrapper = shallow(<SaveStatus />);
     expect(wrapper).toBeDefined()

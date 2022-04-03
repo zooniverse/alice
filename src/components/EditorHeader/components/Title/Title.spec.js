@@ -3,39 +3,39 @@ import React from 'react'
 import { Button } from 'grommet'
 import { CapitalText, StyledHeading, Title } from './Title'
 
-let wrapper
-const editContext = {
-  aggregations: {
-    showModal: false
-  },
-  projects: {
-    title: 'Project'
-  },
-  workflows: {
-    title: 'Workflow'
-  },
-  groups: {
-    title: 'Group'
-  },
-  transcriptions: {
-    approvedCount: 0,
-    all: { size: 0 },
-    title: 'Subject',
-    totalCount: 100
-  }
-}
-
-const pushSpy = jest.fn()
-
-const history = {
-  location: {
-    pathname: '/projects/123/workflows/123/groups/4/subjects'
-  },
-  push: pushSpy
-}
-
 
 describe('Component > Title', function () {
+  let wrapper
+  const editContext = {
+    aggregations: {
+      showModal: false
+    },
+    projects: {
+      title: 'Project'
+    },
+    workflows: {
+      title: 'Workflow'
+    },
+    groups: {
+      title: 'Group'
+    },
+    transcriptions: {
+      approvedCount: 0,
+      all: { size: 0 },
+      title: 'Subject',
+      totalCount: 100
+    }
+  }
+
+  const pushSpy = jest.fn()
+
+  const history = {
+    location: {
+      pathname: '/projects/123/workflows/123/groups/4/subjects'
+    },
+    push: pushSpy
+  }
+
   beforeEach(function() {
     wrapper = shallow(<Title />);
   })

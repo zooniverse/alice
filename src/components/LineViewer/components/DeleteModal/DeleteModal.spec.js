@@ -3,11 +3,11 @@ import React from 'react'
 import { Button } from 'grommet'
 import DeleteModal from './DeleteModal'
 
-let wrapper
-const deleteLineSpy = jest.fn()
-const toggleModalSpy = jest.fn()
-
 describe('Component > DeleteModal', function () {
+  let wrapper
+  const deleteLineSpy = jest.fn()
+  const toggleModalSpy = jest.fn()
+
   beforeEach(function () {
     wrapper = shallow(
       <DeleteModal

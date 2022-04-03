@@ -3,10 +3,10 @@ import React from 'react'
 import { Button } from 'grommet'
 import SearchTag from './SearchTag'
 
-let wrapper
-const clearTagSpy = jest.fn()
-
 describe('Component > SearchTag', function () {
+  let wrapper
+  const clearTagSpy = jest.fn()
+
   beforeEach(function() {
     wrapper = shallow(<SearchTag clearTag={clearTagSpy} />);
   })

@@ -5,41 +5,41 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import { ResourcesTable, StyledDataTable } from './ResourcesTable'
 import SearchTags from './components/SearchTags'
 
-let wrapper;
-let html;
-const onSelectionSpy = jest.fn()
-const pushSpy = jest.fn()
-
-const history = {
-  location: { pathname: '/projects' },
-  push: pushSpy
-}
-
-const COLUMNS = [
-  {
-    property: "firstColumn",
-    header: "First Column"
-  },
-  {
-    property: "secondColumn",
-    header: "Second Column",
-  },
-]
-
-const DATA = [
-  {
-    id: '1',
-    firstColumn: "First Item",
-    secondColumn: "Second Item"
-  },
-  {
-    id: '2',
-    firstColumn: "First Item",
-    secondColumn: "Second Item"
-  }
-]
-
 describe('Component > ResourcesTable', function () {
+  let wrapper;
+  let html;
+  const onSelectionSpy = jest.fn()
+  const pushSpy = jest.fn()
+
+  const history = {
+    location: { pathname: '/projects' },
+    push: pushSpy
+  }
+
+  const COLUMNS = [
+    {
+      property: "firstColumn",
+      header: "First Column"
+    },
+    {
+      property: "secondColumn",
+      header: "Second Column",
+    },
+  ]
+
+  const DATA = [
+    {
+      id: '1',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    },
+    {
+      id: '2',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    }
+  ]
+
   beforeEach(function() {
     wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} />)
     html = wrapper.html()
@@ -68,6 +68,40 @@ describe('Component > ResourcesTable', function () {
 })
 
 describe('ResourcesTable functions', function () {
+  let wrapper;
+  let html;
+  const onSelectionSpy = jest.fn()
+  const pushSpy = jest.fn()
+
+  const history = {
+    location: { pathname: '/projects' },
+    push: pushSpy
+  }
+
+  const COLUMNS = [
+    {
+      property: "firstColumn",
+      header: "First Column"
+    },
+    {
+      property: "secondColumn",
+      header: "Second Column",
+    },
+  ]
+
+  const DATA = [
+    {
+      id: '1',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    },
+    {
+      id: '2',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    }
+  ]
+
   beforeEach(function () {
     wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} history={history} />)
   })
@@ -84,6 +118,40 @@ describe('ResourcesTable functions', function () {
 })
 
 describe('ResourcesTable onSelection prop', function () {
+  let wrapper;
+  let html;
+  const onSelectionSpy = jest.fn()
+  const pushSpy = jest.fn()
+
+  const history = {
+    location: { pathname: '/projects' },
+    push: pushSpy
+  }
+
+  const COLUMNS = [
+    {
+      property: "firstColumn",
+      header: "First Column"
+    },
+    {
+      property: "secondColumn",
+      header: "Second Column",
+    },
+  ]
+
+  const DATA = [
+    {
+      id: '1',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    },
+    {
+      id: '2',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    }
+  ]
+
   beforeEach(function () {
     wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} onSelection={onSelectionSpy} />)
   })

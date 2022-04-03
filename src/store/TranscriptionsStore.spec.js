@@ -1,7 +1,7 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as graphQl from 'graphql-request'
+import { when } from 'mobx'
 import apiClient from 'panoptes-client/lib/api-client.js';
-import { mockExtract } from 'helpers/parseTranscriptionData.spec'
 import mockJWT from 'helpers/mockJWT'
 import STATUS from 'helpers/status'
 import { AppStore } from './AppStore'
@@ -13,103 +13,113 @@ import {
   headers
 } from './testUtils/transcriptionsStore'
 
-let rootStore
-let transcriptionsStore
+describe('TranscriptionsStore', function () {
+  let rootStore
+  let transcriptionsStore
 
-const patchToveSpy = jest.fn().mockResolvedValue({ ok: true, headers })
-const toggleModalSpy = jest.fn()
+  const patchToveSpy = jest.fn().mockResolvedValue({ ok: true, headers })
+  const toggleModalSpy = jest.fn()
 
-const getToveLockedResponse = () => Promise.resolve(
-  {
-    body: JSON.stringify(
-      {
-        data: TranscriptionFactory.build({
-          attributes: { locked_by: 'ANOTHER_USER' }
-        })
-      })
-  }
-)
-
-const extract = {
-  data: mockExtract,
-  userId: '123',
-  classificationAt: 1515450629.237
-}
-
-const extracts = {
-  workflow: {
-    extracts: [extract]
-  }
-}
-
-const mockReduction = {
-  clusters_text: [],
-  clusters_x: [],
-  clusters_y: [],
-  consensus_score: 0,
-  consensus_text: 'Text',
-  edited_consensus_text: '',
-  extract_index: [],
-  flagged: true,
-  gold_standard: [],
-  gutter_label: 0,
-  line_editor: '',
-  line_slope: 0,
-  low_consensus: false,
-  number_views: 0,
-  original_transcriber: '',
-  seen: false,
-  slope_label: 0,
-  user_ids: []
-}
-
-const mockReaggregation = {
-  frame0: [{}],
-  low_consensus_lines: 1,
-  parameters: {},
-  reducer: 'reducer',
-  transcribed_lines: 2
-}
-
-const user = {
-  id: '123',
-  display_name: 'A_User'
-}
-
-const postCaesarSpy = jest.fn().mockResolvedValue({ body: mockReaggregation })
-
-const multipleTranscriptionsStub = {
-  get: () => Promise.resolve(
+  const getToveLockedResponse = () => Promise.resolve(
     {
       body: JSON.stringify(
         {
-          data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: STATUS.APPROVED, subject_id: '2', text: new Map() }})],
-          meta: {
-            pagination: { last: 1, records: 2 },
-            approved_count: 1
-          }
+          data: TranscriptionFactory.build({
+            attributes: { locked_by: 'ANOTHER_USER' }
+          })
         })
     }
-  ),
-  patch: patchToveSpy
-}
+  )
 
-const aggregatorStub = {
-  post: postCaesarSpy
-}
-const failedAggregatorPost = {
-  post: jest.fn().mockResolvedValue({ ok: false })
-}
-const singleTranscriptionStub = {
-  get: getToveResponse,
-  patch: patchToveSpy
-}
+  const extract = {
+    data: {
+    frame0: {
+      slope: [0],
+      text: [['My text for this line']],
+      points: {
+        x: [[200, 200]],
+        y: [[300, 300]]
+      }
+    },
+    time: new Date()
+  },
+    userId: '123',
+    classificationAt: 1515450629.237
+  }
 
-const lockedTranscriptionStub = {
-  get: getToveLockedResponse
-}
+  const extracts = {
+    workflow: {
+      extracts: [extract]
+    }
+  }
 
-describe('TranscriptionsStore', function () {
+  const mockReduction = {
+    clusters_text: [],
+    clusters_x: [],
+    clusters_y: [],
+    consensus_score: 0,
+    consensus_text: 'Text',
+    edited_consensus_text: '',
+    extract_index: [],
+    flagged: true,
+    gold_standard: [],
+    gutter_label: 0,
+    line_editor: '',
+    line_slope: 0,
+    low_consensus: false,
+    number_views: 0,
+    original_transcriber: '',
+    seen: false,
+    slope_label: 0,
+    user_ids: []
+  }
+
+  const mockReaggregation = {
+    frame0: [{}],
+    low_consensus_lines: 1,
+    parameters: {},
+    reducer: 'reducer',
+    transcribed_lines: 2
+  }
+
+  const user = {
+    id: '123',
+    display_name: 'A_User'
+  }
+
+  const postCaesarSpy = jest.fn().mockResolvedValue({ body: mockReaggregation })
+
+  const multipleTranscriptionsStub = {
+    get: () => Promise.resolve(
+      {
+        body: JSON.stringify(
+          {
+            data: [TranscriptionFactory.build(), TranscriptionFactory.build({ id: '2', attributes: { status: STATUS.APPROVED, subject_id: '2', text: new Map() }})],
+            meta: {
+              pagination: { last: 1, records: 2 },
+              approved_count: 1
+            }
+          })
+      }
+    ),
+    patch: patchToveSpy
+  }
+
+  const aggregatorStub = {
+    post: postCaesarSpy
+  }
+  const failedAggregatorPost = {
+    post: jest.fn().mockResolvedValue({ ok: false })
+  }
+  const singleTranscriptionStub = {
+    get: getToveResponse,
+    patch: patchToveSpy
+  }
+
+  const lockedTranscriptionStub = {
+    get: getToveLockedResponse
+  }
+
   describe('fetching multiple transcriptions', function () {
     describe('success state', function () {
       beforeEach(async function () {
@@ -209,7 +219,8 @@ describe('TranscriptionsStore', function () {
           { writable: true, value: toggleModalSpy }
         )
         transcriptionsStore = rootStore.transcriptions
-        await transcriptionsStore.selectTranscription(1)
+        transcriptionsStore.selectTranscription(1)
+        await when(() => transcriptionsStore.parsedExtracts.length > 0)
       })
 
       afterEach(() => jest.clearAllMocks());

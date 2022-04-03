@@ -2,9 +2,9 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import Overlay from './Overlay'
 
-let wrapper
-
 describe('Component > Overlay', function () {
+  let wrapper
+
   beforeEach(function() {
     wrapper = shallow(<Overlay />);
   })

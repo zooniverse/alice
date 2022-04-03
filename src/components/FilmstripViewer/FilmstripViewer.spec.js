@@ -12,19 +12,19 @@ import FilmstripThumbnail from './components/FilmstripThumbnail'
 import StepNavigation from '../StepNavigation'
 import Overlay from '../Overlay'
 
-let wrapper;
-const slopeDefinitions = {
-  'frame0.0': '0',
-  'frame1.0': '90',
-  'frame2.0': '0',
-  'frame3.0': '0',
-  'frame4.0': '0',
-  'frame5.0': '0',
-}
-
-const slopeKeys = ['frame0.0', 'frame1.0', 'frame2.0', 'frame3.0', 'frame4.0', 'frame5.0']
-
 describe('Component > FilmstripViewer', function () {
+  let wrapper;
+  const slopeDefinitions = {
+    'frame0.0': '0',
+    'frame1.0': '90',
+    'frame2.0': '0',
+    'frame3.0': '0',
+    'frame4.0': '0',
+    'frame5.0': '0',
+  }
+
+  const slopeKeys = ['frame0.0', 'frame1.0', 'frame2.0', 'frame3.0', 'frame4.0', 'frame5.0']
+
   beforeEach(function() {
     wrapper = mount(
       <FilmstripViewer

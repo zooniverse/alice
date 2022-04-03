@@ -7,10 +7,10 @@ import 'jest-styled-components'
 import Badge, { DropLink, StyledAvatar, StyledBox } from './Badge'
 import DefaultAvatar from '../../images/user.svg'
 
-let wrapper
-const setOpenSpy = jest.fn()
-
 describe('Component > Badge', function () {
+  let wrapper
+  const setOpenSpy = jest.fn()
+
   it('should render without crashing', function () {
     wrapper = shallow(<Badge setOpen={setOpenSpy} />);
     expect(wrapper).toBeDefined()

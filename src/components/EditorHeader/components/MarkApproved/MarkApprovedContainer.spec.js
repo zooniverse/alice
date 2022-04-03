@@ -3,24 +3,24 @@ import React from 'react'
 import MODALS from 'helpers/modals'
 import MarkApprovedContainer from './MarkApprovedContainer'
 
-let wrapper
-const toggleModalSpy = jest.fn()
-const updateApprovalSpy = jest.fn()
-const contextValues = {
-  modal: {
-    toggleModal: toggleModalSpy
-  },
-  projects: {
-    isAdmin: false
-  },
-  transcriptions: {
-    approved: true,
-    readyForReview: false,
-    updateApproval: updateApprovalSpy
-  }
-}
-
 describe('Component > MarkApprovedContainer', function () {
+  let wrapper
+  const toggleModalSpy = jest.fn()
+  const updateApprovalSpy = jest.fn()
+  const contextValues = {
+    modal: {
+      toggleModal: toggleModalSpy
+    },
+    projects: {
+      isAdmin: false
+    },
+    transcriptions: {
+      approved: true,
+      readyForReview: false,
+      updateApproval: updateApprovalSpy
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

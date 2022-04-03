@@ -4,9 +4,9 @@ import { Button } from 'grommet'
 import { Down, Up } from 'grommet-icons'
 import HeaderButton from './HeaderButton'
 
-let wrapper
-
 describe('Component > HeaderButton', function () {
+  let wrapper
+
   beforeAll(function () {
     wrapper = shallow(<HeaderButton />);
   })

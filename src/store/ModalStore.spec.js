@@ -1,9 +1,9 @@
 import { ModalStore } from './ModalStore'
 import MODALS from 'helpers/modals'
 
-let modalStore
-
 describe('ModalStore', function () {
+  let modalStore
+
   beforeEach(function () {
     modalStore = ModalStore.create()
   })

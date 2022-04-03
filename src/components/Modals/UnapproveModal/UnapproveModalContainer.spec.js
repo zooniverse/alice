@@ -2,22 +2,22 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import UnapproveModalContainer from './UnapproveModalContainer'
 
-let wrapper
-let toggleModalSpy = jest.fn()
-let updateApprovalSpy = jest.fn()
-const contextValues = {
-  modal: {
-    toggleModal: toggleModalSpy,
-  },
-  projects: {
-    role: 'Researcher'
-  },
-  transcriptions: {
-    updateApproval: updateApprovalSpy
-  }
-}
-
 describe('Component > UnapproveModalContainer', function () {
+  let wrapper
+  let toggleModalSpy = jest.fn()
+  let updateApprovalSpy = jest.fn()
+  const contextValues = {
+    modal: {
+      toggleModal: toggleModalSpy,
+    },
+    projects: {
+      role: 'Researcher'
+    },
+    transcriptions: {
+      updateApproval: updateApprovalSpy
+    }
+  }
+
   beforeAll(function () {
     jest
       .spyOn(React, 'useContext')

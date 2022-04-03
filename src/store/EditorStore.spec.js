@@ -1,8 +1,8 @@
 import { EditorStore } from './EditorStore'
 
-let editorStore
-
 describe('EditorStore', function () {
+  let editorStore
+
   beforeEach(function () {
     editorStore = EditorStore.create()
   })

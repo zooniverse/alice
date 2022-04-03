@@ -1,20 +1,20 @@
 import Reduction from './Reduction'
 import * as mobX from 'mobx-state-tree'
 
-let reduction
-const checkForFlagUpdateSpy = jest.fn()
-const saveTranscriptionsSpy = jest.fn()
-
-const consensusText = 'Consensus Text'
-const contextValues = {
-  auth: { userName: 'User' },
-  transcriptions: {
-    checkForFlagUpdate: checkForFlagUpdateSpy,
-    saveTranscription: saveTranscriptionsSpy
-  }
-}
-
 describe('Reduction', function () {
+  let reduction
+  const checkForFlagUpdateSpy = jest.fn()
+  const saveTranscriptionsSpy = jest.fn()
+
+  const consensusText = 'Consensus Text'
+  const contextValues = {
+    auth: { userName: 'User' },
+    transcriptions: {
+      checkForFlagUpdate: checkForFlagUpdateSpy,
+      saveTranscription: saveTranscriptionsSpy
+    }
+  }
+
   beforeEach(function () {
     jest
       .spyOn(mobX, 'getRoot')

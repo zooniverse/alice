@@ -2,9 +2,9 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import ErrorNotifierContainer from './ErrorNotifierContainer'
 
-let wrapper
-
 describe('Component > ErrorNotifierContainer', function () {
+  let wrapper
+
   beforeEach(function() {
     wrapper = shallow(<ErrorNotifierContainer />);
   })

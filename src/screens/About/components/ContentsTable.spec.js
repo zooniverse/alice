@@ -2,15 +2,15 @@ import { mount } from 'enzyme'
 import React from 'react'
 import ContentsTable from './ContentsTable'
 
-const ref = React.createRef()
-ref.current = { getBoundingClientRect: () => {
-  return {
-    height: 100,
-    width: 100
-  }
-} }
-
 describe('Component > ContentsTable', function () {
+  const ref = React.createRef()
+  ref.current = { getBoundingClientRect: () => {
+    return {
+      height: 100,
+      width: 100
+    }
+  } }
+
   describe('with a ref', function () {
     it('should render without crashing', function () {
       const wrapper = mount(

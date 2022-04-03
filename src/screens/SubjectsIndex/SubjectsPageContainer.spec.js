@@ -7,45 +7,45 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { SubjectsPageContainer } from './SubjectsPageContainer'
 import ResourcesTable from '../../components/ResourcesTable'
 
-let wrapper
-const getResourcesSpy = jest.fn()
-const fetchTranscriptionsSpy = jest.fn()
-const pushSpy = jest.fn()
-const resetSpy = jest.fn()
-const toggleModalSpy = jest.fn()
-const contextValues = {
-  auth: { userName: 'A_USER' },
-  getResources: getResourcesSpy,
-  modal: {
-    toggleModal: toggleModalSpy
-  },
-  search: {
-    active: false,
-    reset: resetSpy
-  },
-  transcriptions: {
-    all: { values: () => [] },
-    asyncState: ASYNC_STATES.IDLE,
-    fetchTranscriptions: fetchTranscriptionsSpy,
-    totalPages: 8
-  }
-}
-const history = {
-  location: {
-    pathname: '/projects/123/workflows/123/groups/123/subjects/123/edit'
-  },
-  push: pushSpy
-}
-const match = {
-  params: {
-    project: '123',
-    workflow: '123',
-    group: '123',
-    subject: '123'
-  }
-}
-
 describe('Component > SubjectsPageContainer', function () {
+  let wrapper
+  const getResourcesSpy = jest.fn()
+  const fetchTranscriptionsSpy = jest.fn()
+  const pushSpy = jest.fn()
+  const resetSpy = jest.fn()
+  const toggleModalSpy = jest.fn()
+  const contextValues = {
+    auth: { userName: 'A_USER' },
+    getResources: getResourcesSpy,
+    modal: {
+      toggleModal: toggleModalSpy
+    },
+    search: {
+      active: false,
+      reset: resetSpy
+    },
+    transcriptions: {
+      all: { values: () => [] },
+      asyncState: ASYNC_STATES.IDLE,
+      fetchTranscriptions: fetchTranscriptionsSpy,
+      totalPages: 8
+    }
+  }
+  const history = {
+    location: {
+      pathname: '/projects/123/workflows/123/groups/123/subjects/123/edit'
+    },
+    push: pushSpy
+  }
+  const match = {
+    params: {
+      project: '123',
+      workflow: '123',
+      group: '123',
+      subject: '123'
+    }
+  }
+
   describe('with idle state', function() {
     beforeEach(function() {
       jest.spyOn(React, 'useContext')
