@@ -7,21 +7,21 @@ import mockData from './mockData'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-let pointerBox;
-let wrapper;
-let useStateSpy;
-
-const preventDefaultSpy = jest.fn();
-let setActiveTranscriptionSpy = jest.fn();
-let setDragIDSpy = jest.fn();
-let moveDataSpy = jest.fn();
-let setState = jest.fn();
-let setTextObjectSpy = jest.fn();
-const stopPropagationSpy = jest.fn();
-
-const mockEvent = { preventDefault: preventDefaultSpy, stopPropagation: stopPropagationSpy }
-
 describe('Component > TranscriptionTable', function () {
+  let pointerBox;
+  let wrapper;
+  let useStateSpy;
+
+  const preventDefaultSpy = jest.fn();
+  let setActiveTranscriptionSpy = jest.fn();
+  let setDragIDSpy = jest.fn();
+  let moveDataSpy = jest.fn();
+  let setState = jest.fn();
+  let setTextObjectSpy = jest.fn();
+  const stopPropagationSpy = jest.fn();
+
+  const mockEvent = { preventDefault: preventDefaultSpy, stopPropagation: stopPropagationSpy }
+
   beforeEach(function() {
     useStateSpy = jest.spyOn(React, 'useState')
     useStateSpy.mockImplementation((init) => [init, setState])

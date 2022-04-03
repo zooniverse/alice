@@ -3,15 +3,15 @@ import React from 'react'
 import AnnotationsPane from './AnnotationsPane'
 import SVGLines from './SVGLines'
 
-let wrapper
-
-const lines = [
-  { x1: 0, x2: 0, y1: 10, y2: 10 },
-  { x1: 0, x2: 0, y1: 0, y2: 10 }
-]
-const onLineClickSpy = jest.fn()
-
 describe('Component > AnnotationsPane', function () {
+  let wrapper
+
+  const lines = [
+    { x1: 0, x2: 0, y1: 10, y2: 10 },
+    { x1: 0, x2: 0, y1: 0, y2: 10 }
+  ]
+  const onLineClickSpy = jest.fn()
+
   beforeEach(function() {
     wrapper = shallow(
       <AnnotationsPane

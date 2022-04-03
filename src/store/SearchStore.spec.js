@@ -1,10 +1,10 @@
 import { AppStore } from './AppStore'
 import STATUS from 'helpers/status'
 
-let searchStore
-const fetchTranscriptionsSpy = jest.fn()
-
 describe('SearchStore', function () {
+  let searchStore
+  const fetchTranscriptionsSpy = jest.fn()
+
   beforeEach(function () {
     const rootStore = AppStore.create()
     Object.defineProperty(

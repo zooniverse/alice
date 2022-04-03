@@ -2,16 +2,16 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import SearchTagContainer from './SearchTagContainer'
 
-let wrapper
-const contextValues = {
-  search: {
-    approved: true,
-    id: '1',
-    type: 'ZOONIVERSE ID'
-  }
-}
-
 describe('Component > SearchTagContainer', function () {
+  let wrapper
+  const contextValues = {
+    search: {
+      approved: true,
+      id: '1',
+      type: 'ZOONIVERSE ID'
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

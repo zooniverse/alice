@@ -4,23 +4,23 @@ import { Select } from 'grommet'
 import { Formik } from 'formik'
 import { SearchModal } from './SearchModal'
 
-let wrapper;
-let innerForm;
-let onSubmitSpy = jest.fn()
-let setFieldValueSpy = jest.fn()
-let setValueSpy = jest.fn()
-const initialValues = {
-  id: null,
-  type: '',
-  unseen: false,
-  in_progress: false,
-  ready: false,
-  approved: false,
-  flagged: false,
-  lowConsensus: false,
-}
-
 describe('Component > SearchModal', function () {
+  let wrapper;
+  let innerForm;
+  let onSubmitSpy = jest.fn()
+  let setFieldValueSpy = jest.fn()
+  let setValueSpy = jest.fn()
+  const initialValues = {
+    id: null,
+    type: '',
+    unseen: false,
+    in_progress: false,
+    ready: false,
+    approved: false,
+    flagged: false,
+    lowConsensus: false,
+  }
+
   beforeEach(function() {
     wrapper = shallow(
       <SearchModal

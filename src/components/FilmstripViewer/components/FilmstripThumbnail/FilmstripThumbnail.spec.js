@@ -4,20 +4,20 @@ import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import FilmstripThumbnail, { StyledButton } from './FilmstripThumbnail'
 
-const preventDefaultSpy = jest.fn()
-const rearrangePagesSpy = jest.fn()
-const setHoveredIndexSpy = jest.fn()
-const setSlopeValues = jest.fn()
-const selectImage = jest.fn()
-const setStateSpy = jest.fn()
-const slopeValues = ['frame0', 'frame1', 'frame2']
-const stopPropagationSpy = jest.fn()
-const mockEvent = { preventDefault: preventDefaultSpy, stopPropagation: stopPropagationSpy }
-
-let button
-let wrapper
-
 describe('Component > FilmstripViewer', function () {
+  const preventDefaultSpy = jest.fn()
+  const rearrangePagesSpy = jest.fn()
+  const setHoveredIndexSpy = jest.fn()
+  const setSlopeValues = jest.fn()
+  const selectImage = jest.fn()
+  const setStateSpy = jest.fn()
+  const slopeValues = ['frame0', 'frame1', 'frame2']
+  const stopPropagationSpy = jest.fn()
+  const mockEvent = { preventDefault: preventDefaultSpy, stopPropagation: stopPropagationSpy }
+
+  let button
+  let wrapper
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useState')

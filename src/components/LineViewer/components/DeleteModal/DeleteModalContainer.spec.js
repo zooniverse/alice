@@ -2,17 +2,17 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import DeleteModalContainer from './DeleteModalContainer'
 
-let wrapper
-const deleteCurrentLineSpy = jest.fn()
-const toggleModalSpy = jest.fn()
-
-const context = {
-  transcriptions: {
-    deleteCurrentLine: deleteCurrentLineSpy
-  }
-}
-
 describe('Component > DeleteModalContainer', function () {
+  let wrapper
+  const deleteCurrentLineSpy = jest.fn()
+  const toggleModalSpy = jest.fn()
+
+  const context = {
+    transcriptions: {
+      deleteCurrentLine: deleteCurrentLineSpy
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

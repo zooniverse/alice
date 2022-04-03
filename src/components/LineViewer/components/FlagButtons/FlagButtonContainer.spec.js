@@ -2,13 +2,13 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import FlagButtonContainer from './FlagButtonContainer'
 
-let wrapper
-const toggleCurrentFlagSpy = jest.fn()
-const reduction = {
-  toggleCurrentFlag: toggleCurrentFlagSpy
-}
-
 describe('Component > FlagButtonContainer', function () {
+  let wrapper
+  const toggleCurrentFlagSpy = jest.fn()
+  const reduction = {
+    toggleCurrentFlag: toggleCurrentFlagSpy
+  }
+
   beforeEach(function() {
     wrapper = shallow(<FlagButtonContainer reduction={reduction} />);
   })

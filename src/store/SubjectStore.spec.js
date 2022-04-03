@@ -3,15 +3,15 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import { AppStore } from './AppStore'
 import { Subject } from './SubjectStore'
 
-let subjectStore
-
-const mockSubject = {
-  id: '1',
-  locations: [],
-  metadata: {}
-}
-
 describe('SubjectStore', function () {
+  let subjectStore
+
+  const mockSubject = {
+    id: '1',
+    locations: [],
+    metadata: {}
+  }
+
   beforeEach(function () {
     jest
       .spyOn(apiClient, 'type')

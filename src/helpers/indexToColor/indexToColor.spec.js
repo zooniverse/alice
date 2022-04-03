@@ -1,8 +1,8 @@
 import indexToColor from './indexToColor'
 
-let FINAL_CASE = 11
-
 describe('Helper > indexToColor', function () {
+  let FINAL_CASE = 11
+
   it('should return a black hex code by default', function () {
     const value = indexToColor()
     expect(value).toBe('#000000')

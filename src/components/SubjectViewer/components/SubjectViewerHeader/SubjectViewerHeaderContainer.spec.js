@@ -2,19 +2,19 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import SubjectViewerHeaderContainer from './SubjectViewerHeaderContainer'
 
-let wrapper
-const toggleLineVisibilitySpy = jest.fn()
-const contextValues = {
-  editor: {
-    linesVisible: true,
-    toggleLineVisibility: toggleLineVisibilitySpy
-  },
-  transcriptions: {
-    isActive: false
-  }
-}
-
 describe('Component > SubjectViewerHeaderContainer', function () {
+  let wrapper
+  const toggleLineVisibilitySpy = jest.fn()
+  const contextValues = {
+    editor: {
+      linesVisible: true,
+      toggleLineVisibility: toggleLineVisibilitySpy
+    },
+    transcriptions: {
+      isActive: false
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

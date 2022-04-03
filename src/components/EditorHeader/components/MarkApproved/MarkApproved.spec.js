@@ -2,9 +2,9 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { MarkApproved } from './MarkApproved'
 
-let wrapper
-
 describe('Component > MarkApproved', function () {
+  let wrapper
+
   beforeEach(function() {
     wrapper = shallow(<MarkApproved isAdmin />);
   })

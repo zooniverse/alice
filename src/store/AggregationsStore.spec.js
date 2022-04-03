@@ -1,8 +1,8 @@
 import { AggregationsStore } from './AggregationsStore'
 
-let aggregationsStore
-
 describe('AggregationsStore', function () {
+  let aggregationsStore
+
   beforeEach(function () {
     aggregationsStore = AggregationsStore.create()
   })

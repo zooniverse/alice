@@ -5,31 +5,31 @@ import { Formik } from 'formik'
 import { REDUCERS } from './AggregationSettingsContainer'
 import DBScanReducer from './DBScanReducer'
 
-let form
-let wrapper
-let setCallbackSpy = jest.fn()
-let setScreenSpy = jest.fn()
-const error = 'This is an error'
-
-const initialValues = {
-  epsSlope: 25,
-  epsLine: 40,
-  epsWord: 40,
-  gutterTol: 0,
-  minSamples: 1,
-  minWordCount: 1
-}
-
-const errors = {
-  epsSlope: error,
-  epsLine: error,
-  epsWord: error,
-  gutterTol: error,
-  minSamples: error,
-  minWordCount: error
-}
-
 describe('Component > DBScanReducer', function () {
+  let form
+  let wrapper
+  let setCallbackSpy = jest.fn()
+  let setScreenSpy = jest.fn()
+  const error = 'This is an error'
+
+  const initialValues = {
+    epsSlope: 25,
+    epsLine: 40,
+    epsWord: 40,
+    gutterTol: 0,
+    minSamples: 1,
+    minWordCount: 1
+  }
+
+  const errors = {
+    epsSlope: error,
+    epsLine: error,
+    epsWord: error,
+    gutterTol: error,
+    minSamples: error,
+    minWordCount: error
+  }
+
   beforeEach(function() {
     wrapper = shallow(<DBScanReducer setCallback={setCallbackSpy} setScreen={setScreenSpy} />);
   })

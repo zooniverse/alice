@@ -4,14 +4,14 @@ import { Layer } from 'grommet'
 import MODALS from 'helpers/modals'
 import ModalManager from './ModalManager'
 
-let wrapper
-const contextValues = {
-  modal: {
-    current: MODALS.SEARCH,
-  }
-}
-
 describe('Component > ModalManager', function () {
+  let wrapper
+  const contextValues = {
+    modal: {
+      current: MODALS.SEARCH,
+    }
+  }
+
   beforeAll(function () {
     wrapper = shallow(<ModalManager />);
   })

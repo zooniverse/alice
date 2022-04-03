@@ -2,24 +2,24 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import TranscriptionTableContainer from './TranscriptionTableContainer'
 
-let wrapper
-const setActiveTranscriptionSpy = jest.fn()
-const contextValues = {
-  projects: {
-    isViewer: false
-  },
-  subjects: {
-    index: 0
-  },
-  transcriptions: {
-    current: {
-      text: new Map()
-    },
-    setActiveTranscription: setActiveTranscriptionSpy
-  }
-}
-
 describe('Component > TranscriptionTableContainer', function () {
+  let wrapper
+  const setActiveTranscriptionSpy = jest.fn()
+  const contextValues = {
+    projects: {
+      isViewer: false
+    },
+    subjects: {
+      index: 0
+    },
+    transcriptions: {
+      current: {
+        text: new Map()
+      },
+      setActiveTranscription: setActiveTranscriptionSpy
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

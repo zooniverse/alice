@@ -3,15 +3,15 @@ import React from 'react'
 import MODALS from 'helpers/modals'
 import SearchButtonContainer from './SearchButtonContainer'
 
-let wrapper
-let toggleModalSpy = jest.fn()
-const contextValues = {
-  modal: {
-    toggleModal: toggleModalSpy,
-  }
-}
-
 describe('Component > SearchButtonContainer', function () {
+  let wrapper
+  let toggleModalSpy = jest.fn()
+  const contextValues = {
+    modal: {
+      toggleModal: toggleModalSpy,
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

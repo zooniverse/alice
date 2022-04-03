@@ -3,12 +3,12 @@ import React from 'react'
 import { Button, RadioButton, RadioButtonGroup, Text } from 'grommet'
 import StepNavigation from './StepNavigation'
 
-let wrapper
-const setStepSpy = jest.fn()
-const steps = [0, 1, 2, 3, 4, 5, 6]
-const TOTAL_PAGES = 7
-
 describe('Component > StepNavigation', function () {
+  let wrapper
+  const setStepSpy = jest.fn()
+  const steps = [0, 1, 2, 3, 4, 5, 6]
+  const TOTAL_PAGES = 7
+
   beforeEach(function() {
     wrapper = shallow(
       <StepNavigation

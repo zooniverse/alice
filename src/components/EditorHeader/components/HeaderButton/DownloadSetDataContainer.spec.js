@@ -2,18 +2,18 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import DownloadSetDataContainer from './DownloadSetDataContainer'
 
-let wrapper
-const toggleModalSpy = jest.fn()
-const contextValues = {
-  modal: {
-    toggleModal: toggleModalSpy
-  },
-  transcriptions: {
-    approvedCount: 5
-  }
-}
-
 describe('Component > DownloadSetDataContainer', function () {
+  let wrapper
+  const toggleModalSpy = jest.fn()
+  const contextValues = {
+    modal: {
+      toggleModal: toggleModalSpy
+    },
+    transcriptions: {
+      approvedCount: 5
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

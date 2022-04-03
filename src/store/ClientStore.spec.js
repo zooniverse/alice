@@ -1,11 +1,11 @@
 import { AppStore } from './AppStore'
 
-let clientStore;
-let rootStore;
-let toveGetSpy = jest.fn().mockResolvedValue(new Response())
-const toveZipStub = { get: toveGetSpy }
-
 describe('ClientStore', function () {
+  let clientStore;
+  let rootStore;
+  let toveGetSpy = jest.fn().mockResolvedValue(new Response())
+  const toveZipStub = { get: toveGetSpy }
+
   beforeEach(function() {
     rootStore = AppStore.create({
       client: { toveZip: toveZipStub },

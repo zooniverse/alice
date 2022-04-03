@@ -5,10 +5,10 @@ import EditorHeader from './EditorHeader'
 import Back from './components/Back'
 import MarkApproved from './components/MarkApproved'
 
-let wrapper
-const user = { id: '1' }
-
 describe('Component > EditorHeader', function () {
+  let wrapper
+  const user = { id: '1' }
+
   it('should render without crashing', function () {
     wrapper = shallow(<EditorHeader />);
     expect(wrapper).toBeDefined()

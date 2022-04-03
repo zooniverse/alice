@@ -2,15 +2,15 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import LayoutButtonContainer from './LayoutButtonContainer'
 
-let wrapper
-const toggleLayoutSpy = jest.fn()
-const contextValues = {
-  editor: {
-    toggleLayout: toggleLayoutSpy
-  }
-}
-
 describe('Component > UndoButton', function () {
+  let wrapper
+  const toggleLayoutSpy = jest.fn()
+  const contextValues = {
+    editor: {
+      toggleLayout: toggleLayoutSpy
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

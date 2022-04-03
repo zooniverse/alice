@@ -2,25 +2,25 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { AggregationSettingsContainer } from './AggregationSettingsContainer'
 
-let wrapper
-const reaggregateDBScanSpy = jest.fn()
-const reaggregateOpticsSpy = jest.fn()
-const toggleModalSpy = jest.fn()
-const contextValues = {
-  aggregations: {
-    toggleModal: toggleModalSpy
-  },
-  transcriptions: {
-    current: {
-      reducer: '',
-      parameters: {}
-    },
-    reaggregateOptics: reaggregateOpticsSpy,
-    reaggregateDBScan: reaggregateDBScanSpy,
-  }
-}
-
 describe('Component > AggregationSettingsContainer', function () {
+  let wrapper
+  const reaggregateDBScanSpy = jest.fn()
+  const reaggregateOpticsSpy = jest.fn()
+  const toggleModalSpy = jest.fn()
+  const contextValues = {
+    aggregations: {
+      toggleModal: toggleModalSpy
+    },
+    transcriptions: {
+      current: {
+        reducer: '',
+        parameters: {}
+      },
+      reaggregateOptics: reaggregateOpticsSpy,
+      reaggregateDBScan: reaggregateDBScanSpy,
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

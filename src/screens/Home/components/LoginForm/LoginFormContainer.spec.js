@@ -3,18 +3,18 @@ import React from 'react'
 import LoginFormContainer from './LoginFormContainer'
 import LoginForm from './LoginForm'
 
-let wrapper
-let loginForm
-let loginSpy = jest.fn()
-
-const contextValues = {
-  auth: {
-    error: 'Error!',
-    login: loginSpy,
-  }
-}
-
 describe('Component > LoginFormContainer', function () {
+  let wrapper
+  let loginForm
+  let loginSpy = jest.fn()
+
+  const contextValues = {
+    auth: {
+      error: 'Error!',
+      login: loginSpy,
+    }
+  }
+
   beforeEach(function () {
     jest
       .spyOn(React, 'useContext')

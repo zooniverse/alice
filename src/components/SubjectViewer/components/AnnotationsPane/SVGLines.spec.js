@@ -4,20 +4,20 @@ import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import SVGLines, { G } from './SVGLines'
 
-let wrapper
-
-const lines = [
-  { x1: 0, x2: 0, y1: 100, y2: 100, slope: 0 },
-  { x1: 0, x2: 0, y1: 200, y2: 200, slope: 0 },
-  { x1: 0, x2: 0, y1: 300, y2: 300, slope: 90 },
-  { x1: 0, x2: 0, y1: 400, y2: 400, slope: 90 }
-]
-
-const rightToLeftLines = [
-  { x1: 0, x2: 100, y1: 100, y2: 100, slope: 0 }
-]
-
 describe('Component > SVGLines', function () {
+  let wrapper
+
+  const lines = [
+    { x1: 0, x2: 0, y1: 100, y2: 100, slope: 0 },
+    { x1: 0, x2: 0, y1: 200, y2: 200, slope: 0 },
+    { x1: 0, x2: 0, y1: 300, y2: 300, slope: 90 },
+    { x1: 0, x2: 0, y1: 400, y2: 400, slope: 90 }
+  ]
+
+  const rightToLeftLines = [
+    { x1: 0, x2: 100, y1: 100, y2: 100, slope: 0 }
+  ]
+
   beforeEach(function() {
     wrapper = shallow(<SVGLines activeSlope={90} lines={lines} />);
   })

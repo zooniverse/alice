@@ -2,10 +2,10 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import Back from './Back'
 
-let wrapper
-const user = { id: '1' };
-
 describe('Component > Back', function () {
+  let wrapper
+  const user = { id: '1' };
+
   beforeEach(function() {
     wrapper = shallow(<Back />);
   })

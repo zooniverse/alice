@@ -5,26 +5,26 @@ import SubjectViewerContainer from './SubjectViewerContainer'
 import SVGView from './components/SVGView'
 import ImageTools from './components/ImageTools'
 
-let wrapper
-const testContext = {
-  aggregations: {
-    showModal: false
-  },
-  subjects: {
-    current: {
-      locations: [{ image: 'www.fakelocation.com' }]
-    },
-    index: 0
-  },
-  image: {
-    rotation: 0,
-    scale: 1,
-    translateX: 0,
-    translateY: 0
-  }
-}
-
 describe('Component > SubjectViewerContainer', function () {
+  let wrapper
+  const testContext = {
+    aggregations: {
+      showModal: false
+    },
+    subjects: {
+      current: {
+        locations: [{ image: 'www.fakelocation.com' }]
+      },
+      index: 0
+    },
+    image: {
+      rotation: 0,
+      scale: 1,
+      translateX: 0,
+      translateY: 0
+    }
+  }
+
   beforeEach(function() {
     wrapper = shallow(<SubjectViewerContainer />);
   })

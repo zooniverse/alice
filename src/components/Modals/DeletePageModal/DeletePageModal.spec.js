@@ -2,9 +2,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import DeletePageModal from './DeletePageModal'
 
-let wrapper
-
 describe('Component > DeletePageModal', function () {
+  let wrapper
+
   beforeEach(function () {
     wrapper = shallow(<DeletePageModal />);
   })

@@ -3,21 +3,21 @@ import React from 'react'
 import STATUS from 'helpers/status'
 import FilmstripViewerContainer from './FilmstripViewerContainer'
 
-let wrapper
-const resetSpy = jest.fn()
-const changeIndexSpy = jest.fn()
-const setActiveTranscriptionSpy = jest.fn()
-
-const contextValues = {
-  aggregations: { showModal: false },
-  image: { reset: resetSpy },
-  transcriptions: {
-    changeIndex: changeIndexSpy,
-    setActiveTranscription: setActiveTranscriptionSpy
-  }
-}
-
 describe('Component > FilmstripViewerContainer', function () {
+  let wrapper
+  const resetSpy = jest.fn()
+  const changeIndexSpy = jest.fn()
+  const setActiveTranscriptionSpy = jest.fn()
+
+  const contextValues = {
+    aggregations: { showModal: false },
+    image: { reset: resetSpy },
+    transcriptions: {
+      changeIndex: changeIndexSpy,
+      setActiveTranscription: setActiveTranscriptionSpy
+    }
+  }
+
   it('should render without crashing', function () {
     wrapper = shallow(<FilmstripViewerContainer />);
     expect(wrapper).toBeDefined()
@@ -35,6 +35,11 @@ describe('Component > FilmstripViewerContainer', function () {
 })
 
 describe('Context > FilmstripViewerContainer', function () {
+  let wrapper
+  const resetSpy = jest.fn()
+  const changeIndexSpy = jest.fn()
+  const setActiveTranscriptionSpy = jest.fn()
+
   describe('with an approved subject', function () {
     it('should set the draggable prop to false', function () {
       const approvedContext = {

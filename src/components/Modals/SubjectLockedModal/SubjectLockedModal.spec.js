@@ -3,10 +3,10 @@ import React from 'react'
 import { Button } from 'grommet'
 import SubjectLockedModal from './SubjectLockedModal'
 
-let wrapper
-let onBackSpy = jest.fn()
-
 describe('Component > SubjectLockedModal', function () {
+  let wrapper
+  let onBackSpy = jest.fn()
+
   beforeAll(function () {
     wrapper = shallow(<SubjectLockedModal onBack={onBackSpy} />);
   })

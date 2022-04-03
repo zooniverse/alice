@@ -8,10 +8,10 @@ import OpticsReducer from './OpticsReducer'
 import ChooseReducer from './ChooseReducer'
 import Confirmation from './Confirmation'
 
-let wrapper
-let closeContainerSpy = jest.fn()
-
 describe('Component > AggregationSettings', function () {
+  let wrapper
+  let closeContainerSpy = jest.fn()
+
   beforeEach(function() {
     wrapper = shallow(
       <AggregationSettings

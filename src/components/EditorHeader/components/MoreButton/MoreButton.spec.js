@@ -2,17 +2,17 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import MoreButton from './MoreButton'
 
-let wrapper
-let setOpenSpy = jest.fn()
-let toggleDownloadSpy = jest.fn()
-let toggleModalSpy = jest.fn()
-const contextValues = {
-  aggregations: {
-    toggleModal: toggleModalSpy
-  }
-}
-
 describe('Component > UndoButton', function () {
+  let wrapper
+  let setOpenSpy = jest.fn()
+  let toggleDownloadSpy = jest.fn()
+  let toggleModalSpy = jest.fn()
+  const contextValues = {
+    aggregations: {
+      toggleModal: toggleModalSpy
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

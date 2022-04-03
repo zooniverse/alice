@@ -5,10 +5,10 @@ import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 import FlagButton, { StyledButton, StyledFontAwesomeIcon } from './FlagButton'
 
-let wrapper
-const onShowFlagSpy = jest.fn()
-
 describe('Component > FlagButton', function () {
+  let wrapper
+  const onShowFlagSpy = jest.fn()
+
   beforeEach(function () {
     wrapper = shallow(<FlagButton onShowFlag={onShowFlagSpy} />)
   })

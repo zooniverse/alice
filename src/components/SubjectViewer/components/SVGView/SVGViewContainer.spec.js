@@ -5,47 +5,47 @@ import ASYNC_STATES from 'helpers/asyncStates'
 import SVGViewContainer from './SVGViewContainer'
 import SVGView from './SVGView'
 
-let svg
-let wrapper
-const setScaleSpy = jest.fn()
-const setStateSpy = jest.fn()
-
-const contextValues = {
-  editor: {
-    linesVisible: true
-  },
-  image: {
-    rotation: 0,
-    scale: 1,
-    setScale: setScaleSpy,
-    translateX: 0,
-    translateY: 0
-  },
-  subjects: {
-    asyncState: ASYNC_STATES.READY,
-    current: {
-      locations: [{
-        image: 'www.test.com'
-    }]
-    },
-  },
-  transcriptions: {
-    current: null,
-    extracts: [],
-    index: 0
-  }
-}
-
-class ValidImage {
-  constructor () {
-    this.naturalHeight = 200
-    this.naturalWidth = 100
-  }
-}
-
-const image = new ValidImage()
-
 describe('Component > SVGViewContainer', function () {
+  let svg
+  let wrapper
+  const setScaleSpy = jest.fn()
+  const setStateSpy = jest.fn()
+
+  const contextValues = {
+    editor: {
+      linesVisible: true
+    },
+    image: {
+      rotation: 0,
+      scale: 1,
+      setScale: setScaleSpy,
+      translateX: 0,
+      translateY: 0
+    },
+    subjects: {
+      asyncState: ASYNC_STATES.READY,
+      current: {
+        locations: [{
+          image: 'www.test.com'
+      }]
+      },
+    },
+    transcriptions: {
+      current: null,
+      extracts: [],
+      index: 0
+    }
+  }
+
+  class ValidImage {
+    constructor () {
+      this.naturalHeight = 200
+      this.naturalWidth = 100
+    }
+  }
+
+  const image = new ValidImage()
+
   beforeEach(async function () {
     jest
       .spyOn(React, 'useContext')

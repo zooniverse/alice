@@ -2,15 +2,15 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import UndoButtonContainer from './UndoButtonContainer'
 
-let wrapper
-const undoSpy = jest.fn()
-const context = {
-  transcriptions: {
-    undo: undoSpy
-  }
-}
-
 describe('Component > UndoButton', function () {
+  let wrapper
+  const undoSpy = jest.fn()
+  const context = {
+    transcriptions: {
+      undo: undoSpy
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

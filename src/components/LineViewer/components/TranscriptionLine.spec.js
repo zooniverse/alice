@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import TranscriptionLine, { ItalicText } from './TranscriptionLine'
 
-let wrapper
-
-const gsTranscription = { goldStandard: true }
-const index = 0
-const setItemSpy = jest.fn()
-
 describe('Component > TranscriptionLine', function () {
+  let wrapper
+
+  const gsTranscription = { goldStandard: true }
+  const index = 0
+  const setItemSpy = jest.fn()
+
   beforeEach(function() {
     wrapper = shallow(
       <TranscriptionLine

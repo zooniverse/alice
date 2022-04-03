@@ -2,23 +2,23 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import DownloadDataModalContainer from './DownloadDataModalContainer'
 
-let wrapper
-const downloadDataSpy = jest.fn()
-const toggleModalSpy = jest.fn()
-const contextValues = {
-  client: {
-    downloadData: downloadDataSpy
-  },
-  modal: {
-    toggleModal: toggleModalSpy
-  },
-  transcriptions: {
-    approvedCount: 0,
-    all: new Map()
-  }
-}
-
 describe('Component > DownloadDataModalContainer', function () {
+  let wrapper
+  const downloadDataSpy = jest.fn()
+  const toggleModalSpy = jest.fn()
+  const contextValues = {
+    client: {
+      downloadData: downloadDataSpy
+    },
+    modal: {
+      toggleModal: toggleModalSpy
+    },
+    transcriptions: {
+      approvedCount: 0,
+      all: new Map()
+    }
+  }
+
   beforeEach(function () {
     jest
       .spyOn(React, 'useContext')

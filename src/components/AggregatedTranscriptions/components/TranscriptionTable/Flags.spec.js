@@ -3,12 +3,12 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Flags, StyledFontAwesomeIcon } from './Flags'
 
-let wrapper
-const reviewedDatum = { seen: true }
-const flaggedDatum = { flagged: true }
-const goldStandardDatum = { goldStandard: true }
-
 describe('Component > Flags', function () {
+  let wrapper
+  const reviewedDatum = { seen: true }
+  const flaggedDatum = { flagged: true }
+  const goldStandardDatum = { goldStandard: true }
+
   it('should render without crashing', function () {
     wrapper = shallow(<Flags />);
     expect(wrapper).toBeDefined()

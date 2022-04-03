@@ -3,30 +3,30 @@ import React from 'react'
 import BadgeContainer from './BadgeContainer'
 import Badge from './Badge'
 
-let wrapper
-let badgeComponent
-const logoutSpy = jest.fn()
-const unlockTranscriptionSpy = jest.fn()
-
-const contextValues = {
-  aggregations: {
-    showModal: false
-  },
-  auth: {
-    logout: logoutSpy,
-    user: { avatar_src: 'source.jpg' },
-    userName: 'Test_User'
-  },
-  projects: {
-    role: 'Researcher'
-  },
-  transcriptions: {
-    isActive: false,
-    unlockTranscription: unlockTranscriptionSpy
-  }
-}
-
 describe('Component > BadgeContainer', function () {
+  let wrapper
+  let badgeComponent
+  const logoutSpy = jest.fn()
+  const unlockTranscriptionSpy = jest.fn()
+
+  const contextValues = {
+    aggregations: {
+      showModal: false
+    },
+    auth: {
+      logout: logoutSpy,
+      user: { avatar_src: 'source.jpg' },
+      userName: 'Test_User'
+    },
+    projects: {
+      role: 'Researcher'
+    },
+    transcriptions: {
+      isActive: false,
+      unlockTranscription: unlockTranscriptionSpy
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

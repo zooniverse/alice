@@ -3,21 +3,21 @@ import React from 'react'
 import MODALS from 'helpers/modals'
 import MoreButtonContainer from './MoreButtonContainer'
 
-let wrapper
-const toggleModalSpy = jest.fn()
-const contextValues = {
-  aggregations: {
-    showModal: false
-  },
-  modal: {
-    toggleModal: toggleModalSpy
-  },
-  transcriptions: {
-    approved: false
-  }
-}
-
 describe('Component > UndoButton', function () {
+  let wrapper
+  const toggleModalSpy = jest.fn()
+  const contextValues = {
+    aggregations: {
+      showModal: false
+    },
+    modal: {
+      toggleModal: toggleModalSpy
+    },
+    transcriptions: {
+      approved: false
+    }
+  }
+
   beforeEach(function() {
     jest
       .spyOn(React, 'useContext')

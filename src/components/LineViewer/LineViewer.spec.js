@@ -4,42 +4,42 @@ import { Button, CheckBox, Text, TextInput } from 'grommet'
 import DeleteModal from './components/DeleteModal'
 import { LineViewer } from './LineViewer'
 
-const setConsensusTextSpy = jest.fn()
-const setInputTextSpy = jest.fn()
-const setItemSpy = jest.fn()
-const transcriptionOptions = [
-  {
-    date: '',
-    goldStandard: false,
-    user: 'A_User',
-    text: 'Testing'
-  }
-]
-const reduction = {
-  consensus_score: 0,
-  consensus_text: 'Consensus Text',
-  number_views: 0,
-  setConsensusText: setConsensusTextSpy
-}
-
-jest
-  .spyOn(React, 'useRef')
-  .mockImplementation(() => { return { current: { value: 'Input Field' } }})
-
-let wrapper = shallow(
-  <LineViewer
-    algorithmChoice={transcriptionOptions.length}
-    consensusText='Original Consensus Text'
-    inputText='Input Field'
-    reduction={reduction}
-    setInputText={setInputTextSpy}
-    setItem={setItemSpy}
-    transcriptionOptions={transcriptionOptions}
-    typedChoice={transcriptionOptions.length + 1}
-  />
-)
-
 describe('Component > LineViewer', function () {
+  const setConsensusTextSpy = jest.fn()
+  const setInputTextSpy = jest.fn()
+  const setItemSpy = jest.fn()
+  const transcriptionOptions = [
+    {
+      date: '',
+      goldStandard: false,
+      user: 'A_User',
+      text: 'Testing'
+    }
+  ]
+  const reduction = {
+    consensus_score: 0,
+    consensus_text: 'Consensus Text',
+    number_views: 0,
+    setConsensusText: setConsensusTextSpy
+  }
+
+  jest
+    .spyOn(React, 'useRef')
+    .mockImplementation(() => { return { current: { value: 'Input Field' } }})
+
+  let wrapper = shallow(
+    <LineViewer
+      algorithmChoice={transcriptionOptions.length}
+      consensusText='Original Consensus Text'
+      inputText='Input Field'
+      reduction={reduction}
+      setInputText={setInputTextSpy}
+      setItem={setItemSpy}
+      transcriptionOptions={transcriptionOptions}
+      typedChoice={transcriptionOptions.length + 1}
+    />
+  )
+
   afterEach(() => jest.clearAllMocks());
 
   it('should render without crashing', function () {

@@ -2,9 +2,9 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import PhotoBlock, { CapitalText, StyledImage } from './PhotoBlock'
 
-let wrapper
-
 describe('Component > PhotoBlock', function () {
+  let wrapper
+
   beforeEach(function() {
     const photos = [{ alt: 'A photo' },{ alt: 'Another photo' }]
     wrapper = shallow(<PhotoBlock caption='A caption' photos={photos} />);

@@ -2,25 +2,25 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { SubjectLockedModalContainer } from './SubjectLockedModalContainer'
 
-let wrapper
-const toggleModalSpy = jest.fn()
-const pushSpy = jest.fn()
-let history = {
-  location: {
-    pathname: '/projects/123/workflows/123/groups/123/subjects/123/edit'
-  },
-  push: pushSpy
-}
-const contextValues = {
-  modal: {
-    toggleModal: toggleModalSpy,
-  },
-  transcriptions: {
-    current: { locked_by: 'A_USER' }
-  }
-}
-
 describe('Component > SubjectLockedModalContainer', function () {
+  let wrapper
+  const toggleModalSpy = jest.fn()
+  const pushSpy = jest.fn()
+  let history = {
+    location: {
+      pathname: '/projects/123/workflows/123/groups/123/subjects/123/edit'
+    },
+    push: pushSpy
+  }
+  const contextValues = {
+    modal: {
+      toggleModal: toggleModalSpy,
+    },
+    transcriptions: {
+      current: { locked_by: 'A_USER' }
+    }
+  }
+
   beforeAll(function () {
     jest
       .spyOn(React, 'useContext')

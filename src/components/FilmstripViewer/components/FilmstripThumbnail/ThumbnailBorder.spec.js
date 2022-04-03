@@ -3,9 +3,9 @@ import React from 'react'
 import { Text } from 'grommet'
 import ThumbnailBorder, { StyledBox } from './ThumbnailBorder'
 
-let wrapper
-
 describe('Component > FilmstripViewer', function () {
+  let wrapper
+
   beforeEach(function() {
     wrapper = shallow(<ThumbnailBorder />)
   })
