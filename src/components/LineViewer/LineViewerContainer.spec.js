@@ -4,42 +4,42 @@ import { Grommet } from 'grommet'
 import LineViewerContainer from './LineViewerContainer'
 import LineViewer from './LineViewer'
 
-let wrapper
-
-const deleteCurrentLineSpy = jest.fn()
-const setActiveTranscriptionSpy = jest.fn()
-const currentFrame = {
-  consensus_score: 0,
-  consensus_text: 'This text',
-  clusters_text: [
-    ['This, That'],
-    ['text, text']
-  ],
-  gold_standard: [false, false]
-}
-const currentTranscription = {
-  text: new Map([
-    ['frame0', [currentFrame]]
-  ])
-}
-
-const contextValues = {
-  projects: {
-    isViewer: false
-  },
-  transcriptions: {
-    activeTranscriptionIndex: 0,
-    currentTranscriptions: currentFrame,
-    deleteCurrentLine: deleteCurrentLineSpy,
-    current: currentTranscription,
-    index: 0,
-    isActive: true,
-    parsedExtracts: [[{}]],
-    setActiveTranscription: setActiveTranscriptionSpy
-  }
-}
-
 describe('Component > LineViewerContainer', function () {
+  let wrapper
+
+  const deleteCurrentLineSpy = jest.fn()
+  const setActiveTranscriptionSpy = jest.fn()
+  const currentFrame = {
+    consensus_score: 0,
+    consensus_text: 'This text',
+    clusters_text: [
+      ['This, That'],
+      ['text, text']
+    ],
+    gold_standard: [false, false]
+  }
+  const currentTranscription = {
+    text: new Map([
+      ['frame0', [currentFrame]]
+    ])
+  }
+
+  const contextValues = {
+    projects: {
+      isViewer: false
+    },
+    transcriptions: {
+      activeTranscriptionIndex: 0,
+      currentTranscriptions: currentFrame,
+      deleteCurrentLine: deleteCurrentLineSpy,
+      current: currentTranscription,
+      index: 0,
+      isActive: true,
+      parsedExtracts: [[{}]],
+      setActiveTranscription: setActiveTranscriptionSpy
+    }
+  }
+
   it('should render without crashing', function () {
     jest
       .spyOn(React, 'useContext')
