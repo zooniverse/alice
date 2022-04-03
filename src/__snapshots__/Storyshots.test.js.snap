@@ -5,28 +5,28 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 htJbXs"
+      className="StyledBox-sc-13pk1d4-0 dwEnuX"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 dfkMUT sc-cSHVUG hDUXUW"
+        className="StyledBox-sc-13pk1d4-0 irRPqL sc-cSHVUG hDUXUW"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 kipODK"
+          className="StyledBox-sc-13pk1d4-0 kWsDmD"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 ipDZoh"
+            className="StyledBox-sc-13pk1d4-0 eBtkDK"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 bXoRNz"
+              className="StyledText-sc-1sadyjn-0 kItKvV"
               size="1em"
             >
               Transcribed Text
             </span>
             <button
-              className="StyledButton-sc-323bzc-0 dmFHgS"
+              className="StyledButton-sc-323bzc-0 eDTDBY"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -36,7 +36,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
               type="button"
             >
               <span
-                className="StyledText-sc-1sadyjn-0 ceLiyb"
+                className="StyledText-sc-1sadyjn-0 ibNMyq"
                 size="small"
               >
                 ADD LINE
@@ -44,16 +44,16 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
             </button>
           </div>
           <div
-            className="StyledBox-sc-13pk1d4-0 hCTAHO sc-chPdSV lxGhg"
+            className="StyledBox-sc-13pk1d4-0 cVfyEW sc-chPdSV lxGhg"
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 bIBUuE"
+              className="StyledBox-sc-13pk1d4-0 dGnQel"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 bGdGYa"
+                className="StyledBox-sc-13pk1d4-0 kjivgS"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 jPnVmB"
+                  className="StyledBox-sc-13pk1d4-0 jhfXfP"
                 >
                   <h6
                     className="sc-gzVnrw kDhxVb"
@@ -62,7 +62,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   </h6>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 koruWX"
+                  className="StyledBox-sc-13pk1d4-0 iYntKu"
                 >
                   <h6
                     className="sc-gzVnrw kDhxVb"
@@ -71,7 +71,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                   </h6>
                 </div>
                 <div
-                  className="StyledBox-sc-13pk1d4-0 jJdlSY"
+                  className="StyledBox-sc-13pk1d4-0 iSTKXf"
                 >
                   <h6
                     className="sc-gzVnrw sc-htoDjs GbAiK"
@@ -81,13 +81,13 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
                 </div>
               </div>
               <div
-                className="StyledBox-sc-13pk1d4-0 drPSxh"
+                className="StyledBox-sc-13pk1d4-0 eSKOkP"
               />
               <div
-                className="StyledBox-sc-13pk1d4-0 cqufCe sc-bZQynM evmlAb"
+                className="StyledBox-sc-13pk1d4-0 ilsTzm sc-bZQynM evmlAb"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 cDmvCm"
+                  className="StyledText-sc-1sadyjn-0 RVZwg"
                   size="xsmall"
                 >
                   This page does not contain transcription data.
@@ -107,13 +107,13 @@ exports[`Storyshots AggregationSettings Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 cbpHOs"
+      className="StyledBox-sc-13pk1d4-0 bqaot"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 gwYnZy sc-eNQAEJ esYNcD"
+        className="StyledBox-sc-13pk1d4-0 ehyleK sc-eNQAEJ esYNcD"
       >
         <svg
           aria-hidden="true"
@@ -134,25 +134,25 @@ exports[`Storyshots AggregationSettings Default 1`] = `
         </svg>
       </div>
       <div
-        className="StyledStack-ajspsk-0 cBSAEZ"
+        className="StyledStack-sc-ajspsk-0 iHjoYe"
       >
         <div
-          className="StyledStack__StyledStackLayer-ajspsk-1 zZZtW"
+          className="StyledStack__StyledStackLayer-sc-ajspsk-1 jiApIn"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 koruWX"
+            className="StyledBox-sc-13pk1d4-0 iYntKu"
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 yGrji"
+              className="StyledBox-sc-13pk1d4-0 dBvOPe"
             >
               <span
-                className="StyledText-sc-1sadyjn-0 ceLiyb"
+                className="StyledText-sc-1sadyjn-0 ibNMyq"
               >
                 Edit Aggregation Settings
               </span>
               <button
                 aria-label="Close Aggregation Settings"
-                className="StyledButton-sc-323bzc-0 dmFHgS"
+                className="StyledButton-sc-323bzc-0 eDTDBY"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -180,27 +180,27 @@ exports[`Storyshots AggregationSettings Default 1`] = `
               </button>
             </div>
             <div
-              className="StyledBox-sc-13pk1d4-0 koruWX"
+              className="StyledBox-sc-13pk1d4-0 iYntKu"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 koruWX"
+                className="StyledBox-sc-13pk1d4-0 iYntKu"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 czHqvg"
+                  className="StyledBox-sc-13pk1d4-0 ohWhF"
                 >
                   <span
-                    className="StyledText-sc-1sadyjn-0 ceLiyb"
+                    className="StyledText-sc-1sadyjn-0 ibNMyq"
                   >
                     Choose a clustering algorithm based on the way in which transcriptions have been made.
                   </span>
                   <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
                   />
                   <div
-                    className="StyledBox-sc-13pk1d4-0 gIvbdb"
+                    className="StyledBox-sc-13pk1d4-0 hbspRQ"
                   >
                     <button
-                      className="StyledButton-sc-323bzc-0 dmFHgS"
+                      className="StyledButton-sc-323bzc-0 eDTDBY"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
@@ -209,26 +209,27 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 czHqvg sc-kGXeez fOyJew"
+                        className="StyledBox-sc-13pk1d4-0 ohWhF sc-kGXeez fOyJew"
                       >
                         <img
                           alt="Optics Aggregation Example"
-                          className="StyledImage-ey4zx9-0 kIodYe"
+                          className="StyledImage-sc-ey4zx9-0 iSpWZD"
+                          onLoad={[Function]}
                           src="optics.png"
                         />
                         <div
-                          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+                          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 ceLiyb"
+                          className="StyledText-sc-1sadyjn-0 ibNMyq"
                         >
                           OPTICS Reducer
                         </span>
                         <div
-                          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+                          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 cDmvCm"
+                          className="StyledText-sc-1sadyjn-0 RVZwg"
                           size="xsmall"
                         >
                           Used for clustering full-width transcriptions
@@ -236,7 +237,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       </div>
                     </button>
                     <button
-                      className="StyledButton-sc-323bzc-0 dmFHgS"
+                      className="StyledButton-sc-323bzc-0 eDTDBY"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
@@ -245,26 +246,27 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 czHqvg sc-kpOJdX kdgkNy"
+                        className="StyledBox-sc-13pk1d4-0 ohWhF sc-kpOJdX kdgkNy"
                       >
                         <img
                           alt="DBScan Aggregation Example"
-                          className="StyledImage-ey4zx9-0 kIodYe"
+                          className="StyledImage-sc-ey4zx9-0 iSpWZD"
+                          onLoad={[Function]}
                           src="dbscan.png"
                         />
                         <div
-                          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+                          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 ceLiyb"
+                          className="StyledText-sc-1sadyjn-0 ibNMyq"
                         >
                           DBSCAN Reducer
                         </span>
                         <div
-                          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+                          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
                         />
                         <span
-                          className="StyledText-sc-1sadyjn-0 cDmvCm"
+                          className="StyledText-sc-1sadyjn-0 RVZwg"
                           size="xsmall"
                         >
                           Used for clustering shorter, incomplete transcriptions of a line
@@ -274,14 +276,14 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                   </div>
                 </div>
                 <div
-                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 zwPvD"
+                  className="StyledBox-sc-13pk1d4-0 hGlvOv"
                 >
                   <button
                     aria-label="Close Aggregation Settings"
-                    className="StyledButton-sc-323bzc-0 dmFHgS"
+                    className="StyledButton-sc-323bzc-0 eDTDBY"
                     onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -290,17 +292,17 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                     type="button"
                   >
                     <span
-                      className="StyledText-sc-1sadyjn-0 ceLiyb"
+                      className="StyledText-sc-1sadyjn-0 ibNMyq"
                       size="small"
                     >
                       CLOSE AND CANCEL
                     </span>
                   </button>
                   <div
-                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 gNUkxn"
+                    className="StyledBox__StyledBoxGap-sc-13pk1d4-1 gSOXbB"
                   />
                   <button
-                    className="StyledButton-sc-323bzc-0 ivDLrh"
+                    className="StyledButton-sc-323bzc-0 edSFVv"
                     disabled={true}
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -310,7 +312,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                     type="button"
                   >
                     <span
-                      className="StyledText-sc-1sadyjn-0 ceLiyb"
+                      className="StyledText-sc-1sadyjn-0 ibNMyq"
                       size="small"
                     >
                       NEXT
@@ -332,26 +334,26 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 jGXRJc"
+      className="StyledBox-sc-13pk1d4-0 bOnDuA"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 bnvJhB"
+        className="StyledBox-sc-13pk1d4-0 gPJlMN"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 cbxRyB"
+          className="StyledText-sc-1sadyjn-0 bFwqjc"
           size="large"
         >
           Download subject data
         </span>
         <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 gNUkxn"
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 gSOXbB"
         />
         <button
           aria-label="Close Download Subject Data Modal"
-          className="StyledButton-sc-323bzc-0 laBEqz"
+          className="StyledButton-sc-323bzc-0 kxezLV"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -379,53 +381,53 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         </button>
       </div>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 hbnEID"
+        className="StyledText-sc-1sadyjn-0 liotTx"
       >
         Download a .zip file containing:
       </span>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <div
-        className="StyledBox-sc-13pk1d4-0 koruWX"
+        className="StyledBox-sc-13pk1d4-0 iYntKu"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 ceLiyb"
+          className="StyledText-sc-1sadyjn-0 ibNMyq"
           size="small"
         >
           • Line by line transcription and metadata (.csv)
         </span>
         <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
         />
         <span
-          className="StyledText-sc-1sadyjn-0 ceLiyb"
+          className="StyledText-sc-1sadyjn-0 ibNMyq"
           size="small"
         >
           • Text-only file (.txt)
         </span>
         <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
         />
         <span
-          className="StyledText-sc-1sadyjn-0 ceLiyb"
+          className="StyledText-sc-1sadyjn-0 ibNMyq"
           size="small"
         >
           • Raw, unparsed transcription data (.json)
         </span>
       </div>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <div
-        className="StyledBox-sc-13pk1d4-0 dEYhEg"
+        className="StyledBox-sc-13pk1d4-0 hSKaAI"
       >
         <button
           aria-label="Close Download Subject Data Modal"
-          className="StyledButton-sc-323bzc-0 jfbKsv"
+          className="StyledButton-sc-323bzc-0 dPtlpN"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -434,7 +436,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 ceLiyb"
+            className="StyledText-sc-1sadyjn-0 ibNMyq"
             size="small"
           >
             CLOSE
@@ -442,7 +444,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         </button>
         <button
           aria-label="Download Subject Data"
-          className="StyledButton-sc-323bzc-0 jfbKsv"
+          className="StyledButton-sc-323bzc-0 dPtlpN"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -451,7 +453,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 ceLiyb"
+            className="StyledText-sc-1sadyjn-0 ibNMyq"
             size="small"
           >
             DOWNLOAD
@@ -468,22 +470,22 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 bBlavh sc-jAaTju lEldS"
+      className="StyledBox-sc-13pk1d4-0 kRqKFZ sc-jAaTju lEldS"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 bnvJhB"
+        className="StyledBox-sc-13pk1d4-0 gPJlMN"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 bXoRNz"
+          className="StyledText-sc-1sadyjn-0 kItKvV"
           size="1em"
         >
           All Pages
         </span>
         <button
-          className="StyledButton-sc-323bzc-0 dmFHgS"
+          className="StyledButton-sc-323bzc-0 eDTDBY"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -492,14 +494,14 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 ceLiyb sc-jDwBTQ eYRRwn"
+            className="StyledText-sc-1sadyjn-0 ibNMyq sc-jDwBTQ eYRRwn"
           >
             Delete Pages
           </span>
         </button>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 fhTKrx"
+        className="StyledBox-sc-13pk1d4-0 galHFf"
       />
     </div>
   </div>
@@ -511,7 +513,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <button
-    className="StyledButton-sc-323bzc-0 dmFHgS"
+    className="StyledButton-sc-323bzc-0 eDTDBY"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -521,18 +523,18 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
     type="button"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 cHqCJo"
+      className="StyledBox-sc-13pk1d4-0 iPNppa"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 hTlKKJ sc-hMqMXs hCtDtz"
+        className="StyledText-sc-1sadyjn-0 cWmfjX sc-hMqMXs hCtDtz"
       >
         Layout
       </span>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 kOByep"
       />
       <div
-        className="StyledBox-sc-13pk1d4-0 jmYunQ"
+        className="StyledBox-sc-13pk1d4-0 lfmUmX"
       >
         <svg
           aria-hidden="true"
@@ -553,7 +555,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
           />
         </svg>
         <div
-          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 hhQian"
+          className="StyledBox__StyledBoxGap-sc-13pk1d4-1 gEstju"
         />
         <svg
           aria-hidden="true"
@@ -585,7 +587,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
 >
   <button
     aria-label="Open Drop"
-    className="StyledButton-sc-323bzc-0 dmFHgS"
+    className="StyledButton-sc-323bzc-0 eDTDBY"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -595,21 +597,21 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
     type="button"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 eQTSO"
+      className="StyledBox-sc-13pk1d4-0 hgdohb"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 hTlKKJ"
+        className="StyledText-sc-1sadyjn-0 cWmfjX"
       >
         MORE
       </span>
       <svg
         aria-label="FormDown"
-        className="StyledIcon-ofa7kd-0 iOkQrb"
+        className="StyledIcon-sc-ofa7kd-0 bFNbxN"
         viewBox="0 0 24 24"
       >
-        <polyline
+        <path
+          d="m18 9-6 6-6-6"
           fill="none"
-          points="18 9 12 15 6 9"
           stroke="#000"
           strokeWidth="2"
         />
@@ -624,7 +626,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <button
-    className="StyledButton-sc-323bzc-0 ivDLrh"
+    className="StyledButton-sc-323bzc-0 edSFVv"
     disabled={true}
     onBlur={[Function]}
     onClick={[Function]}
@@ -634,15 +636,15 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
     type="button"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 cHqCJo"
+      className="StyledBox-sc-13pk1d4-0 iPNppa"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 hTlKKJ sc-hMqMXs hCtDtz"
+        className="StyledText-sc-1sadyjn-0 cWmfjX sc-hMqMXs hCtDtz"
       >
         Undo
       </span>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 kOByep"
       />
       <svg
         aria-hidden="true"
@@ -672,138 +674,8 @@ exports[`Storyshots LineViewer Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
-  >
-    <div
-      className="StyledBox-sc-13pk1d4-0 eqlRDO sc-jzJRlG byHcWR"
-    >
-      <div
-        className="StyledBox-sc-13pk1d4-0 dYDcGv"
-      >
-        <div
-          className="StyledBox-sc-13pk1d4-0 cGyFlY"
-        >
-          <div
-            className="StyledBox-sc-13pk1d4-0 koruWX"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 dxiclx sc-jTzLTM krJVzu"
-              size="0.6em"
-            >
-              Selected Transcription
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        className="StyledBox-sc-13pk1d4-0 ionteQ"
-      >
-        <div
-          className="StyledBox-sc-13pk1d4-0 fphcKH"
-        />
-        <div
-          className="StyledBox-sc-13pk1d4-0 hXtuvB"
-        >
-          
-          <div
-            className="StyledBox-sc-13pk1d4-0 jmYunQ"
-          >
-            <label
-              checked={false}
-              className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 bowKqg"
-              onClick={[Function]}
-            >
-              <div
-                checked={false}
-                className="StyledBox-sc-13pk1d4-0 gwogWI StyledCheckBox-sc-1dbk5ju-6 jXdLin"
-              >
-                <input
-                  checked={false}
-                  className="StyledCheckBox__StyledCheckBoxInput-sc-1dbk5ju-2 iuSxgv"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  type="checkbox"
-                />
-                <div
-                  checked={false}
-                  className="StyledBox-sc-13pk1d4-0 ePeoSc StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
-                />
-              </div>
-            </label>
-            <div
-              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
-            />
-            <div
-              className="StyledBox-sc-13pk1d4-0 fCLZEk"
-            >
-              <div
-                className="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 VFomL"
-              >
-                <input
-                  autoComplete="off"
-                  className="StyledTextInput-sc-1x30a0s-0 hKDmcF"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  placeholder="Write new..."
-                  size="xsmall"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="StyledBox-sc-13pk1d4-0 jtTEOq"
-      >
-        <div
-          className="StyledBox-sc-13pk1d4-0 jmYunQ"
-        >
-          <button
-            className="StyledButton-sc-323bzc-0 jfbKsv"
-            disabled={false}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 cDmvCm sc-jTzLTM krJVzu"
-              size="xsmall"
-            >
-              Cancel
-            </span>
-          </button>
-        </div>
-        <div
-          className="StyledBox-sc-13pk1d4-0 cXyCMS"
-        >
-          <button
-            className="StyledButton-sc-323bzc-0 chnll"
-            disabled={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <span
-              className="StyledText-sc-1sadyjn-0 cDmvCm sc-jTzLTM krJVzu"
-              size="xsmall"
-            >
-              Add Line
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
+  />
 </div>
 `;
 
@@ -813,18 +685,29 @@ exports[`Storyshots MarkApproved Default 1`] = `
 >
   <label
     checked={false}
-    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 fDNAwi"
+    className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 yBfvd"
     disabled={false}
+    label={
+      <ForwardRef(Styled(Text))
+        color="#5C5C5C"
+      >
+        Ready For Review
+      </ForwardRef(Styled(Text))>
+    }
     onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     <span
-      className="StyledText-sc-1sadyjn-0 hTlKKJ sc-kEYyzF ggEPv"
+      className="StyledText-sc-1sadyjn-0 cWmfjX sc-kEYyzF ggEPv"
     >
       Ready For Review
     </span>
     <div
       checked={false}
-      className="StyledBox-sc-13pk1d4-0 gQwoEq StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+      className="StyledBox-sc-13pk1d4-0 gqiZYy StyledCheckBox-sc-1dbk5ju-6 jXdLin"
       disabled={false}
     >
       <input
@@ -857,14 +740,14 @@ exports[`Storyshots MetadataButton Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 dapJBf"
+      className="StyledBox-sc-13pk1d4-0 bXNMyQ"
     >
       <button
         aria-label="Open Metadata Information"
-        className="StyledButton-sc-323bzc-0 kIGMdK"
+        className="StyledButton-sc-323bzc-0 bggMKZ"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -874,7 +757,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
         type="button"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 fWGhHx"
+          className="StyledBox-sc-13pk1d4-0 ZHBjp"
         >
           <svg
             aria-hidden="true"
@@ -905,29 +788,29 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 hXCUVc"
+      className="StyledBox-sc-13pk1d4-0 kYlaKZ"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 cokIGr"
+        className="StyledBox-sc-13pk1d4-0 cUPvPZ"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 koruWX"
+          className="StyledBox-sc-13pk1d4-0 iYntKu"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 cGyFlY"
+            className="StyledBox-sc-13pk1d4-0 fXgVZL"
           >
             <span
-              className="StyledText-sc-1sadyjn-0 cbxRyB"
+              className="StyledText-sc-1sadyjn-0 bFwqjc"
               size="large"
             >
               Search or Filter
             </span>
             <button
               aria-label="Close Subject Search Modal"
-              className="StyledButton-sc-323bzc-0 kIGMdK"
+              className="StyledButton-sc-323bzc-0 bggMKZ"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -955,41 +838,45 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             </button>
           </div>
           <div
-            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
           />
           <span
-            className="StyledText-sc-1sadyjn-0 ceLiyb sc-jlyJG iqYbEW"
+            className="StyledText-sc-1sadyjn-0 ibNMyq sc-jlyJG iqYbEW"
           >
             Find a specific subject
           </span>
           <div
-            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+            className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
           />
           <form
-            className="StyledBox-sc-13pk1d4-0 koruWX"
+            className="StyledBox-sc-13pk1d4-0 iYntKu"
             onSubmit={[Function]}
           >
             <div
-              className="StyledBox-sc-13pk1d4-0 bybHCg"
+              className="StyledBox-sc-13pk1d4-0 YtNpL"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 bSclKh"
+                className="StyledBox-sc-13pk1d4-0 bVFppQ"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO sc-gipzik keWqgP"
+                  className="StyledBox-sc-13pk1d4-0 iYntKu FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
                 >
                   <label
-                    className="StyledText-sc-1sadyjn-0 gFYzgc"
+                    className="StyledText-sc-1sadyjn-0 gqCeYR"
                     htmlFor="type"
                   >
                     ID TYPE
                   </label>
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
+                    className="StyledBox-sc-13pk1d4-0 cNNIgr FormField__FormFieldContentBox-sc-m9hood-1 kjPekL"
                   >
                     <button
-                      aria-label="Open Drop"
-                      className="StyledButton-sc-323bzc-0 dmFHgS Select__StyledSelectDropButton-sc-17idtfo-1 cvpccN"
+                      aria-expanded={false}
+                      aria-haspopup="listbox"
+                      aria-label="Open Drop; Selected: [object Object]"
+                      className="StyledButton-sc-323bzc-0 eDTDBY Select__StyledSelectDropButton-sc-17idtfo-2 gGPOvJ"
                       id="type"
                       onBlur={[Function]}
                       onClick={[Function]}
@@ -1000,19 +887,26 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       type="button"
                     >
                       <div
-                        className="StyledBox-sc-13pk1d4-0 cGyFlY"
+                        className="StyledBox-sc-13pk1d4-0 fXgVZL"
                       >
                         <div
-                          className="StyledBox-sc-13pk1d4-0 gbHXHp"
+                          className="StyledBox-sc-13pk1d4-0 eCRfzy"
                         >
                           <span
-                            className="StyledText-sc-1sadyjn-0 ceLiyb"
+                            className="StyledText-sc-1sadyjn-0 ibNMyq"
                           >
                             Select...
                           </span>
+                          <input
+                            className="Select__HiddenInput-sc-17idtfo-1 gLckHE"
+                            id="type__input"
+                            name="type"
+                            readOnly={true}
+                            type="text"
+                          />
                         </div>
                         <div
-                          className="StyledBox-sc-13pk1d4-0 jZzjOu"
+                          className="StyledBox-sc-13pk1d4-0 kpOcBE"
                           style={
                             Object {
                               "minWidth": "auto",
@@ -1021,12 +915,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         >
                           <svg
                             aria-label="FormDown"
-                            className="StyledIcon-ofa7kd-0 bKsZCm"
+                            className="StyledIcon-sc-ofa7kd-0 jowTsj"
                             viewBox="0 0 24 24"
                           >
-                            <polyline
+                            <path
+                              d="m18 9-6 6-6-6"
                               fill="none"
-                              points="18 9 12 15 6 9"
                               stroke="#000"
                               strokeWidth="2"
                             />
@@ -1038,29 +932,31 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 </div>
               </div>
               <div
-                className="StyledBox__StyledBoxGap-sc-13pk1d4-1 iEoiXx"
+                className="StyledBox__StyledBoxGap-sc-13pk1d4-1 jZnmGk"
               />
               <div
-                className="StyledBox-sc-13pk1d4-0 enNkZt"
+                className="StyledBox-sc-13pk1d4-0 iOnaLF"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO sc-gipzik keWqgP"
+                  className="StyledBox-sc-13pk1d4-0 iYntKu FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
                 >
                   <label
-                    className="StyledText-sc-1sadyjn-0 gFYzgc"
+                    className="StyledText-sc-1sadyjn-0 gqCeYR"
                     htmlFor="id"
                   >
                     NAME
                   </label>
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
+                    className="StyledBox-sc-13pk1d4-0 cNNIgr FormField__FormFieldContentBox-sc-m9hood-1 kjPekL"
                   >
                     <div
                       className="StyledTextInput__StyledTextInputContainer-sc-1x30a0s-1 kYQCpm"
                     >
                       <input
                         autoComplete="off"
-                        className="StyledTextInput-sc-1x30a0s-0 bxPWWW"
+                        className="StyledTextInput-sc-1x30a0s-0 ddiGfT"
                         color="red"
                         disabled={false}
                         id="id"
@@ -1079,46 +975,60 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               </div>
             </div>
             <div
-              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
             />
             <span
-              className="StyledText-sc-1sadyjn-0 ceLiyb sc-jlyJG iqYbEW"
+              className="StyledText-sc-1sadyjn-0 ibNMyq sc-jlyJG iqYbEW"
             >
               Filter subject list by status
             </span>
             <div
-              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
             />
             <div
-              className="StyledBox-sc-13pk1d4-0 bnvJhB"
+              className="StyledBox-sc-13pk1d4-0 gPJlMN"
             >
               <div
-                className="StyledBox-sc-13pk1d4-0 koruWX"
+                className="StyledBox-sc-13pk1d4-0 iYntKu"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 eGrHYw"
+                  className="StyledText-sc-1sadyjn-0 iEktqY"
                 >
                   Approval Status
                 </span>
                 <div
-                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 iYntKu FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
+                    className="StyledBox-sc-13pk1d4-0 cNNIgr FormField__FormFieldContentBox-sc-m9hood-1 kjPekL"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 vqKGU"
                       disabled={false}
                       htmlFor="unseen"
+                      label={
+                        <ForwardRef
+                          level={1}
+                          size="small"
+                        >
+                          UNSEEN
+                        </ForwardRef>
+                      }
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 iFSids StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1134,12 +1044,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 diPsgx StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 ceLiyb"
+                        className="StyledText-sc-1sadyjn-0 ibNMyq"
                         size="small"
                       >
                         UNSEEN
@@ -1148,24 +1058,38 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   </div>
                 </div>
                 <div
-                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 iYntKu FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
+                    className="StyledBox-sc-13pk1d4-0 cNNIgr FormField__FormFieldContentBox-sc-m9hood-1 kjPekL"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 vqKGU"
                       disabled={false}
                       htmlFor="in_progress"
+                      label={
+                        <ForwardRef
+                          level={1}
+                          size="small"
+                        >
+                          IN PROGRESS
+                        </ForwardRef>
+                      }
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 iFSids StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1181,12 +1105,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 diPsgx StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 ceLiyb"
+                        className="StyledText-sc-1sadyjn-0 ibNMyq"
                         size="small"
                       >
                         IN PROGRESS
@@ -1195,24 +1119,38 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   </div>
                 </div>
                 <div
-                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 iYntKu FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
+                    className="StyledBox-sc-13pk1d4-0 cNNIgr FormField__FormFieldContentBox-sc-m9hood-1 kjPekL"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 vqKGU"
                       disabled={false}
                       htmlFor="ready"
+                      label={
+                        <ForwardRef
+                          level={1}
+                          size="small"
+                        >
+                          READY FOR REVIEW
+                        </ForwardRef>
+                      }
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 iFSids StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1228,12 +1166,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 diPsgx StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 ceLiyb"
+                        className="StyledText-sc-1sadyjn-0 ibNMyq"
                         size="small"
                       >
                         READY FOR REVIEW
@@ -1242,24 +1180,38 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   </div>
                 </div>
                 <div
-                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 iYntKu FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
+                    className="StyledBox-sc-13pk1d4-0 cNNIgr FormField__FormFieldContentBox-sc-m9hood-1 kjPekL"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 vqKGU"
                       disabled={false}
                       htmlFor="approved"
+                      label={
+                        <ForwardRef
+                          level={1}
+                          size="small"
+                        >
+                          APPROVED
+                        </ForwardRef>
+                      }
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 iFSids StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1275,12 +1227,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 diPsgx StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 ceLiyb"
+                        className="StyledText-sc-1sadyjn-0 ibNMyq"
                         size="small"
                       >
                         APPROVED
@@ -1290,32 +1242,46 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 </div>
               </div>
               <div
-                className="StyledBox-sc-13pk1d4-0 koruWX"
+                className="StyledBox-sc-13pk1d4-0 iYntKu"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 eGrHYw"
+                  className="StyledText-sc-1sadyjn-0 iEktqY"
                 >
                   Additional Filters
                 </span>
                 <div
-                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+                  className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 koruWX FormField__FormFieldBox-m9hood-0 btlOdO"
+                  className="StyledBox-sc-13pk1d4-0 iYntKu FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
                 >
                   <div
-                    className="StyledBox-sc-13pk1d4-0 cIMTgH"
+                    className="StyledBox-sc-13pk1d4-0 cNNIgr FormField__FormFieldContentBox-sc-m9hood-1 kjPekL"
                   >
                     <label
                       checked={false}
-                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 iZKIBR"
+                      className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 vqKGU"
                       disabled={false}
                       htmlFor="flagged"
+                      label={
+                        <ForwardRef
+                          level={1}
+                          size="small"
+                        >
+                          FLAGGED
+                        </ForwardRef>
+                      }
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
                     >
                       <div
                         checked={false}
-                        className="StyledBox-sc-13pk1d4-0 fGNplZ StyledCheckBox-sc-1dbk5ju-6 jXdLin"
+                        className="StyledBox-sc-13pk1d4-0 iFSids StyledCheckBox-sc-1dbk5ju-6 jXdLin"
                         disabled={false}
                       >
                         <input
@@ -1331,12 +1297,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         />
                         <div
                           checked={false}
-                          className="StyledBox-sc-13pk1d4-0 hfDYfZ StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
+                          className="StyledBox-sc-13pk1d4-0 diPsgx StyledCheckBox__StyledCheckBoxBox-sc-1dbk5ju-3 fxKnpz"
                           disabled={false}
                         />
                       </div>
                       <span
-                        className="StyledText-sc-1sadyjn-0 ceLiyb"
+                        className="StyledText-sc-1sadyjn-0 ibNMyq"
                         size="small"
                       >
                         FLAGGED
@@ -1347,14 +1313,14 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               </div>
             </div>
             <div
-              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 bloGGK"
+              className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
             />
             <div
-              className="StyledBox-sc-13pk1d4-0 dEYhEg"
+              className="StyledBox-sc-13pk1d4-0 hSKaAI"
             >
               <button
                 aria-label="Close Subject Search Modal"
-                className="StyledButton-sc-323bzc-0 dmFHgS"
+                className="StyledButton-sc-323bzc-0 eDTDBY"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -1363,14 +1329,14 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="button"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 ceLiyb sc-jlyJG iqYbEW"
+                  className="StyledText-sc-1sadyjn-0 ibNMyq sc-jlyJG iqYbEW"
                 >
                   Close
                 </span>
               </button>
               <button
                 aria-label="Submit Subject Search Query"
-                className="StyledButton-sc-323bzc-0 dmFHgS"
+                className="StyledButton-sc-323bzc-0 eDTDBY"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onMouseOut={[Function]}
@@ -1378,7 +1344,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 type="submit"
               >
                 <span
-                  className="StyledText-sc-1sadyjn-0 ceLiyb sc-jlyJG iqYbEW"
+                  className="StyledText-sc-1sadyjn-0 ibNMyq sc-jlyJG iqYbEW"
                 >
                   Search
                 </span>
@@ -1397,41 +1363,41 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 eBKTXt"
+      className="StyledBox-sc-13pk1d4-0 hkCoks"
     >
       <span
-        className="StyledText-sc-1sadyjn-0 cbxRyB"
+        className="StyledText-sc-1sadyjn-0 bFwqjc"
         size="large"
       >
         Subject locked
       </span>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 ceLiyb sc-gPEVay yONTa"
+        className="StyledText-sc-1sadyjn-0 ibNMyq sc-gPEVay yONTa"
       >
         This subject cannot be accessed because 
         <strong />
          is currently accessing it.
       </span>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 ceLiyb sc-gPEVay yONTa"
+        className="StyledText-sc-1sadyjn-0 ibNMyq sc-gPEVay yONTa"
       >
         For access, ask them to close their version.
       </span>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <button
         aria-label="Return to Group Index Page"
-        className="StyledButton-sc-323bzc-0 jfbKsv"
+        className="StyledButton-sc-323bzc-0 dPtlpN"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1440,7 +1406,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
         type="button"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 ceLiyb"
+          className="StyledText-sc-1sadyjn-0 ibNMyq"
           size="small"
         >
           BACK TO GROUP INDEX
@@ -1456,30 +1422,30 @@ exports[`Storyshots SubjectViewer Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 NJyzF"
+    className="StyledBox-sc-13pk1d4-0 jeSEdO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 fsSIbr"
+      className="StyledBox-sc-13pk1d4-0 ILkBc"
       onMouseLeave={[Function]}
       onMouseOver={[Function]}
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 jRmxqc"
+        className="StyledBox-sc-13pk1d4-0 jbrYGY"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 cGyFlY"
+          className="StyledBox-sc-13pk1d4-0 fXgVZL"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 bXoRNz"
+            className="StyledText-sc-1sadyjn-0 kItKvV"
             size="1em"
           >
             Original Subject
           </span>
           <div
-            className="StyledBox-sc-13pk1d4-0 jmYunQ"
+            className="StyledBox-sc-13pk1d4-0 lfmUmX"
           >
             <button
-              className="StyledButton-sc-323bzc-0 jfbKsv"
+              className="StyledButton-sc-323bzc-0 dPtlpN"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -1489,7 +1455,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
               type="button"
             >
               <span
-                className="StyledText-sc-1sadyjn-0 ceLiyb"
+                className="StyledText-sc-1sadyjn-0 ibNMyq"
               >
                 HIDE ALL LINES
               </span>
@@ -1498,20 +1464,20 @@ exports[`Storyshots SubjectViewer Default 1`] = `
         </div>
       </div>
       <div
-        className="StyledBox-sc-13pk1d4-0 gcHNQT sc-hzDkRC eniHZY"
+        className="StyledBox-sc-13pk1d4-0 cdwQai sc-hzDkRC eniHZY"
       >
         <div
-          className="StyledBox-sc-13pk1d4-0 gcHNQT sc-jhAzac ZlZeV"
+          className="StyledBox-sc-13pk1d4-0 cdwQai sc-jhAzac ZlZeV"
         >
           <div
-            className="StyledBox-sc-13pk1d4-0 knzWfv sc-bRBYWo cfFjGV"
+            className="StyledBox-sc-13pk1d4-0 cadKlJ sc-bRBYWo cfFjGV"
           />
           <div
-            className="StyledBox-sc-13pk1d4-0 koruWX sc-jhAzac sc-fBuWsC deBBpZ"
+            className="StyledBox-sc-13pk1d4-0 iYntKu sc-jhAzac sc-fBuWsC deBBpZ"
           />
         </div>
         <div
-          className="StyledBox-sc-13pk1d4-0 gcHNQT"
+          className="StyledBox-sc-13pk1d4-0 cdwQai"
         />
       </div>
     </div>
@@ -1524,23 +1490,23 @@ exports[`Storyshots UnapproveModal Default 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
 >
   <div
-    className="StyledBox-sc-13pk1d4-0 knMaQB"
+    className="StyledBox-sc-13pk1d4-0 fmXOTO"
   >
     <div
-      className="StyledBox-sc-13pk1d4-0 eBKTXt"
+      className="StyledBox-sc-13pk1d4-0 hkCoks"
     >
       <div
-        className="StyledBox-sc-13pk1d4-0 bnvJhB"
+        className="StyledBox-sc-13pk1d4-0 gPJlMN"
       >
         <span
-          className="StyledText-sc-1sadyjn-0 cbxRyB"
+          className="StyledText-sc-1sadyjn-0 bFwqjc"
           size="large"
         >
           Unapprove subject data
         </span>
         <button
           aria-label="Close Unapprove Subject Modal"
-          className="StyledButton-sc-323bzc-0 jfbKsv"
+          className="StyledButton-sc-323bzc-0 dPtlpN"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1568,30 +1534,30 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         </button>
       </div>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 ceLiyb sc-iRbamj jHMZAa"
+        className="StyledText-sc-1sadyjn-0 ibNMyq sc-iRbamj jHMZAa"
       >
         By unapproving this subject, the subject's data will be unavailable for future downloads until re-marked as approved.
       </span>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <span
-        className="StyledText-sc-1sadyjn-0 ceLiyb sc-iRbamj jHMZAa"
+        className="StyledText-sc-1sadyjn-0 ibNMyq sc-iRbamj jHMZAa"
       >
         This action can be reversed at any time.
       </span>
       <div
-        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 cDZOKh"
+        className="StyledBox__StyledBoxGap-sc-13pk1d4-1 dlYXhu"
       />
       <div
-        className="StyledBox-sc-13pk1d4-0 dEYhEg"
+        className="StyledBox-sc-13pk1d4-0 hSKaAI"
       >
         <button
           aria-label="Close Unapprove Subject Modal"
-          className="StyledButton-sc-323bzc-0 jfbKsv"
+          className="StyledButton-sc-323bzc-0 dPtlpN"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1600,7 +1566,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 ceLiyb"
+            className="StyledText-sc-1sadyjn-0 ibNMyq"
             size="small"
           >
             CLOSE AND CANCEL
@@ -1608,7 +1574,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         </button>
         <button
           aria-label="Confirm to Unapprove Subject"
-          className="StyledButton-sc-323bzc-0 jfbKsv"
+          className="StyledButton-sc-323bzc-0 dPtlpN"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1617,7 +1583,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
           type="button"
         >
           <span
-            className="StyledText-sc-1sadyjn-0 ceLiyb"
+            className="StyledText-sc-1sadyjn-0 ibNMyq"
             size="small"
           >
             YES, UNAPPROVE
