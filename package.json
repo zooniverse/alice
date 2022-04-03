@@ -27,7 +27,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-rnd": "^10.3.5",
-    "react-router-dom": "^5.1.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "3.0.1",
     "rosie": "^2.1.0",
     "styled-components": "^4.4.1",
