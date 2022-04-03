@@ -11,7 +11,7 @@ describe('Helpers > parseTranscriptionData', function () {
     clusters_x: [0, 100],
     clusters_y: [100, 200]
   }
-  export const mockExtract = {
+  const mockExtract = {
     frame0: {
       slope: [0],
       text: [['My text for this line']],
@@ -25,7 +25,7 @@ describe('Helpers > parseTranscriptionData', function () {
   const extractsByUser = {
     1: [mockExtract]
   }
-  export const mockReduction = {
+  const mockReduction = {
     gold_standard: [false],
     line_slope: 0,
     extract_index: [0],

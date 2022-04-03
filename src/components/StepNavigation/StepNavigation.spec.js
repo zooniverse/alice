@@ -76,6 +76,8 @@ describe('Component > StepNavigation', function () {
 })
 
 describe('StepNavigation with no props', function () {
+  let wrapper
+
   it('should return nothing', function () {
     wrapper = shallow(<StepNavigation />)
     expect(wrapper.props()).toEqual({})

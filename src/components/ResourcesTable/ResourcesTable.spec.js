@@ -68,6 +68,40 @@ describe('Component > ResourcesTable', function () {
 })
 
 describe('ResourcesTable functions', function () {
+  let wrapper;
+  let html;
+  const onSelectionSpy = jest.fn()
+  const pushSpy = jest.fn()
+
+  const history = {
+    location: { pathname: '/projects' },
+    push: pushSpy
+  }
+
+  const COLUMNS = [
+    {
+      property: "firstColumn",
+      header: "First Column"
+    },
+    {
+      property: "secondColumn",
+      header: "Second Column",
+    },
+  ]
+
+  const DATA = [
+    {
+      id: '1',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    },
+    {
+      id: '2',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    }
+  ]
+
   beforeEach(function () {
     wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} history={history} />)
   })
@@ -84,6 +118,40 @@ describe('ResourcesTable functions', function () {
 })
 
 describe('ResourcesTable onSelection prop', function () {
+  let wrapper;
+  let html;
+  const onSelectionSpy = jest.fn()
+  const pushSpy = jest.fn()
+
+  const history = {
+    location: { pathname: '/projects' },
+    push: pushSpy
+  }
+
+  const COLUMNS = [
+    {
+      property: "firstColumn",
+      header: "First Column"
+    },
+    {
+      property: "secondColumn",
+      header: "Second Column",
+    },
+  ]
+
+  const DATA = [
+    {
+      id: '1',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    },
+    {
+      id: '2',
+      firstColumn: "First Item",
+      secondColumn: "Second Item"
+    }
+  ]
+
   beforeEach(function () {
     wrapper = shallow(<ResourcesTable columns={COLUMNS} data={DATA} onSelection={onSelectionSpy} />)
   })

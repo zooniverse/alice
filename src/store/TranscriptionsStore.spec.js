@@ -1,7 +1,7 @@
 import ASYNC_STATES from 'helpers/asyncStates'
 import * as graphQl from 'graphql-request'
+import { when } from 'mobx'
 import apiClient from 'panoptes-client/lib/api-client.js';
-import { mockExtract } from 'helpers/parseTranscriptionData.spec'
 import mockJWT from 'helpers/mockJWT'
 import STATUS from 'helpers/status'
 import { AppStore } from './AppStore'
@@ -32,7 +32,17 @@ describe('TranscriptionsStore', function () {
   )
 
   const extract = {
-    data: mockExtract,
+    data: {
+    frame0: {
+      slope: [0],
+      text: [['My text for this line']],
+      points: {
+        x: [[200, 200]],
+        y: [[300, 300]]
+      }
+    },
+    time: new Date()
+  },
     userId: '123',
     classificationAt: 1515450629.237
   }
@@ -209,7 +219,8 @@ describe('TranscriptionsStore', function () {
           { writable: true, value: toggleModalSpy }
         )
         transcriptionsStore = rootStore.transcriptions
-        await transcriptionsStore.selectTranscription(1)
+        transcriptionsStore.selectTranscription(1)
+        await when(() => transcriptionsStore.parsedExtracts.length > 0)
       })
 
       afterEach(() => jest.clearAllMocks());

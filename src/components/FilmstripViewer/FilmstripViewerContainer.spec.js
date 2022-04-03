@@ -40,6 +40,15 @@ describe('Context > FilmstripViewerContainer', function () {
   const changeIndexSpy = jest.fn()
   const setActiveTranscriptionSpy = jest.fn()
 
+  const contextValues = {
+    aggregations: { showModal: false },
+    image: { reset: resetSpy },
+    transcriptions: {
+      changeIndex: changeIndexSpy,
+      setActiveTranscription: setActiveTranscriptionSpy
+    }
+  }
+
   describe('with an approved subject', function () {
     it('should set the draggable prop to false', function () {
       const approvedContext = {

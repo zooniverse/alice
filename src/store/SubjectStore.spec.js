@@ -49,7 +49,15 @@ describe('SubjectStore', function () {
 })
 
 describe('SubjectStore error', function () {
+  let subjectStore
+
+  const mockSubject = {
+    id: '1',
+    locations: [],
+    metadata: {}
+  }
   let error = { message: 'No subject found' }
+
   beforeEach(function () {
     jest
       .spyOn(apiClient, 'type')
@@ -82,6 +90,14 @@ describe('SubjectStore error', function () {
 })
 
 describe('SubjectStore empty return when fetching subjects', function () {
+  let subjectStore
+
+  const mockSubject = {
+    id: '1',
+    locations: [],
+    metadata: {}
+  }
+
   it('should resolve the call without error', async function () {
     jest
       .spyOn(apiClient, 'type')
