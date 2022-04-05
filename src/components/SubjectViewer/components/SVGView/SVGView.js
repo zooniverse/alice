@@ -15,9 +15,9 @@ const SVG = styled.svg`
 `
 
 const SVGView = React.forwardRef(function ({ disabled, height, image, url, transform, width}, ref) {
-  if (url.length === 0 || disabled || !ref) return null;
-
   const [isMoving, setMove] = React.useState(false)
+
+  if (url.length === 0 || disabled || !ref) return null;
 
   const boundingBox = ref.current && ref.current.getBoundingClientRect()
   const viewerWidth = (boundingBox && boundingBox.width) || 0
