@@ -44,12 +44,11 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "~1.15.6",
     "nock": "^13.2.4",
-    "require-context.macro": "^1.2.2",
     "react-scripts": "3.4.4"
   },
   "homepage": "https://alice.zooniverse.org",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --watchAll=false --silent",
     "test:debug": "react-scripts --inspect test --runInBand --no-cache",
