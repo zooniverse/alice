@@ -29,7 +29,6 @@
     "react-dom": "^16.14.0",
     "react-rnd": "^10.3.5",
     "react-router-dom": "^5.1.0",
-    "react-scripts": "3.0.1",
     "rosie": "^2.1.0",
     "styled-components": "^4.4.1",
     "yup": "^0.32.11"
@@ -45,7 +44,8 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "~1.15.6",
     "nock": "^13.2.4",
-    "require-context.macro": "^1.2.2"
+    "require-context.macro": "^1.2.2",
+    "react-scripts": "3.4.4"
   },
   "homepage": "https://alice.zooniverse.org",
   "scripts": {

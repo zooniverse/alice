@@ -55,7 +55,7 @@ jobs:
     if: always()
     with:
       commit_id: ${{ github.sha }}
-      job_name: Build Staging / build_staging
+      job_name: Build Staging
       status: ${{ needs.deploy.result }}
       title: 'ALICE Staging deploy complete'
       title_link: 'https://preview.zooniverse.org/alice'
