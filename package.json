@@ -14,7 +14,7 @@
     "frisbee": "^3.1.4",
     "graphql": "^16.3.0",
     "graphql-request": "^4.2.0",
-    "grommet": "^2.10.0",
+    "grommet": "^2.23.0",
     "grommet-icons": "^4.4.0",
     "jest-styled-components": "^6.3.4",
     "jest-when": "^3.3.1",
