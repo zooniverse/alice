@@ -112,6 +112,7 @@ const TranscriptionsStore = types.model('TranscriptionsStore', {
     const lockedBy = resource.data.attributes.locked_by
     const lockedByDifferentUser = lockedBy && lockedBy !== getRoot(self).auth.user.login
     if (lockedByDifferentUser) {
+      self.current.lockedBy = lockedBy
       getRoot(self).modal.toggleModal(MODALS.LOCKED)
     }
   })
