@@ -364,6 +364,7 @@ describe('TranscriptionsStore', function () {
         })
 
         it('should show when the transcription is locked', async function () {
+          await unlockedTranscriptionStore.selectTranscription(1)
           await unlockedTranscriptionStore.checkIfLocked()
           expect(toggleModalSpy).toHaveBeenCalled()
         })
