@@ -9782,13 +9782,13 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
 
-json-api-client@~5.1.0:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/json-api-client/-/json-api-client-5.1.1.tgz#ee937ca187a2daa98a7aeda7211bcd7f59fb655c"
-  integrity sha512-uvqHHh/bZcFEsZbytikxieiPurz6jM+kEqjnpbeeh7Deq06p5ns5+S6fzi7uw+7aBlUJEkdVMM6NrIppiGqrsA==
+json-api-client@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/json-api-client/-/json-api-client-6.0.0.tgz#4ee660250e833e664d07a53b7a03a1b32a95bed5"
+  integrity sha512-rAC5Zhswdxuv2wxmN/gcliAHykz8Sv8ARtbZEkAhevLEWbxitoYMrPEElFFWB5w/QA3cyUSglJbsUlTb9n9Lnw==
   dependencies:
     normalizeurl "~1.0.0"
-    superagent "^7.1.3"
+    superagent "^8.0.0"
 
 json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
@@ -10499,7 +10499,7 @@ mime@1.6.0:
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
 
-mime@^2.4.4, mime@^2.5.0:
+mime@2.6.0, mime@^2.4.4:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.6.0.tgz#a2a682a95cd4d0cb1d6257e28f83da7e35800367"
   integrity sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==
@@ -11340,12 +11340,12 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
   integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
 
-panoptes-client@3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/panoptes-client/-/panoptes-client-3.4.1.tgz#a1da40e182730dcc600625082c7e859b3683b637"
-  integrity sha512-jBTN754730Zd7XdAA409B7TiLAPIkuzfe0hZhK5EpTzqUgII+dP+5TzhqVHPzUZngIqTkTxx1neL0vSrygNHmA==
+panoptes-client@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/panoptes-client/-/panoptes-client-4.0.0.tgz#3c6a31db3783d4694049222510679e9348ee9f79"
+  integrity sha512-hPdWcQGAQl8atDMcDTfV5IrwZz7I4uFxXNNmU4H7KnfBGm+LUGxCFshOuZjHe8OghDIiGXyirDrba2vP9N050g==
   dependencies:
-    json-api-client "~5.1.0"
+    json-api-client "~6.0.0"
     local-storage "^2.0.0"
     sugar-client "^2.0.0"
 
@@ -14521,10 +14521,10 @@ sugar-client@^2.0.0:
   resolved "https://registry.yarnpkg.com/sugar-client/-/sugar-client-2.0.0.tgz#2dd8158a331c54c08307d14b8abb4b0012d90d1c"
   integrity sha512-87RfgwzyiQrA77lsBGYFPjHbDVzkcSl5aiubz3n7qPOwf9LLNKe+PvtlNf0bnFS63+gGWe6r8A18iaKLBthw1w==
 
-superagent@^7.1.3:
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/superagent/-/superagent-7.1.3.tgz#783ff8330e7c2dad6ad8f0095edc772999273b6b"
-  integrity sha512-WA6et4nAvgBCS73lJvv1D0ssI5uk5Gh+TGN/kNe+B608EtcVs/yzfl+OLXTzDs7tOBDIpvgh/WUs1K2OK1zTeQ==
+superagent@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/superagent/-/superagent-8.0.0.tgz#2ea4587df4b81ef023ec01ebc6e1bcb9e2344cb6"
+  integrity sha512-iudipXEel+SzlP9y29UBWGDjB+Zzag+eeA1iLosaR2YHBRr1Q1kC29iBrF2zIVD9fqVbpZnXkN/VJmwFMVyNWg==
   dependencies:
     component-emitter "^1.3.0"
     cookiejar "^2.1.3"
@@ -14533,7 +14533,7 @@ superagent@^7.1.3:
     form-data "^4.0.0"
     formidable "^2.0.1"
     methods "^1.1.2"
-    mime "^2.5.0"
+    mime "2.6.0"
     qs "^6.10.3"
     readable-stream "^3.6.0"
     semver "^7.3.7"
