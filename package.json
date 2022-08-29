@@ -43,7 +43,7 @@
     "babel-core": "^6.26.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "~1.15.6",
-    "nock": "^13.2.4",
+    "nock": "^13.2.9",
     "react-scripts": "3.4.4"
   },
   "resolutions": {
