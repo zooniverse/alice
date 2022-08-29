@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@zooniverse/grommet-theme": "^3.0.0",
@@ -13,7 +13,7 @@
     "formik": "^2.2.9",
     "frisbee": "^3.1.4",
     "graphql": "^16.5.0",
-    "graphql-request": "^4.3.0",
+    "graphql-request": "^5.0.0",
     "grommet": "^2.25.1",
     "grommet-icons": "^4.4.0",
     "jest-styled-components": "^6.3.4",
