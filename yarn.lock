@@ -10718,10 +10718,10 @@ ms@2.1.3, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-mst-middlewares@~3.15.0:
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/mst-middlewares/-/mst-middlewares-3.15.0.tgz#91517667f7b455402f565b918f23c1a943c01b7c"
-  integrity sha512-JHmyijpbI3Hesj23bdU5q3gfm2bqkp989UqtN+K5toN5z6oYD/QMF2X1veZlZkVu+y05Ay1ZD8ForQXv1tgEww==
+mst-middlewares@~5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/mst-middlewares/-/mst-middlewares-5.0.5.tgz#b6e48fb5c3d40f8ac8b0e9aed8f2b8c84e8e0358"
+  integrity sha512-rZ9BVUaDHuTbI1NwCxq1oHVXvtawyUohjWdD2PYoqO1e01nBoEuxOU82IR90vgC2c1TAaaOE3IfKaYo5+/8hrw==
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
