@@ -2,7 +2,7 @@
 
 exports[`Storyshots AggregatedTranscriptions Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -104,7 +104,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
 
 exports[`Storyshots AggregationSettings Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -127,7 +127,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"
+            d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"
             fill="currentColor"
             style={Object {}}
           />
@@ -172,7 +172,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
+                    d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
                     fill="currentColor"
                     style={Object {}}
                   />
@@ -331,7 +331,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
 
 exports[`Storyshots DownloadDataModal Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -373,7 +373,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
+              d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
               fill="currentColor"
               style={Object {}}
             />
@@ -467,7 +467,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
 
 exports[`Storyshots FilmstripViewer Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -510,7 +510,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
 
 exports[`Storyshots HeaderButtons LayoutButton 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <button
     className="StyledButton-sc-323bzc-0 eDTDBY"
@@ -549,7 +549,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"
+            d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
             fill="currentColor"
             style={Object {}}
           />
@@ -570,7 +570,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M272 63.1l-32 0c-26.51 0-48 21.49-48 47.1v288c0 26.51 21.49 48 48 48L272 448c26.51 0 48-21.49 48-48v-288C320 85.49 298.5 63.1 272 63.1zM80 63.1l-32 0c-26.51 0-48 21.49-48 48v288C0 426.5 21.49 448 48 448l32 0c26.51 0 48-21.49 48-48v-288C128 85.49 106.5 63.1 80 63.1z"
+            d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"
             fill="currentColor"
             style={Object {}}
           />
@@ -583,7 +583,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
 
 exports[`Storyshots HeaderButtons MoreButton 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <button
     aria-label="Open Drop"
@@ -623,7 +623,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
 
 exports[`Storyshots HeaderButtons UndoButton 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <button
     className="StyledButton-sc-323bzc-0 edSFVv"
@@ -659,7 +659,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M496 48V192c0 17.69-14.31 32-32 32H320c-17.69 0-32-14.31-32-32s14.31-32 32-32h63.39c-29.97-39.7-77.25-63.78-127.6-63.78C167.7 96.22 96 167.9 96 256s71.69 159.8 159.8 159.8c34.88 0 68.03-11.03 95.88-31.94c14.22-10.53 34.22-7.75 44.81 6.375c10.59 14.16 7.75 34.22-6.375 44.81c-39.03 29.28-85.36 44.86-134.2 44.86C132.5 479.9 32 379.4 32 256s100.5-223.9 223.9-223.9c69.15 0 134 32.47 176.1 86.12V48c0-17.69 14.31-32 32-32S496 30.31 496 48z"
+          d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z"
           fill="currentColor"
           style={Object {}}
         />
@@ -671,7 +671,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
 
 exports[`Storyshots LineViewer Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -681,7 +681,7 @@ exports[`Storyshots LineViewer Default 1`] = `
 
 exports[`Storyshots MarkApproved Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <label
     checked={false}
@@ -737,7 +737,7 @@ exports[`Storyshots MarkApproved Default 1`] = `
 
 exports[`Storyshots MetadataButton Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -771,7 +771,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M160 448h-32V224c0-17.69-14.33-32-32-32L32 192c-17.67 0-32 14.31-32 32s14.33 31.1 32 31.1h32v192H32c-17.67 0-32 14.31-32 32s14.33 32 32 32h128c17.67 0 32-14.31 32-32S177.7 448 160 448zM96 128c26.51 0 48-21.49 48-48S122.5 32.01 96 32.01s-48 21.49-48 48S69.49 128 96 128z"
+              d="M144 80c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z"
               fill="currentColor"
               style={Object {}}
             />
@@ -785,7 +785,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
 
 exports[`Storyshots SearchModalContainer Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -830,7 +830,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
+                  d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
                   fill="currentColor"
                   style={Object {}}
                 />
@@ -876,7 +876,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       aria-expanded={false}
                       aria-haspopup="listbox"
                       aria-label="Open Drop; Selected: [object Object]"
-                      className="StyledButton-sc-323bzc-0 eDTDBY Select__StyledSelectDropButton-sc-17idtfo-2 gGPOvJ"
+                      className="StyledButton-sc-323bzc-0 eDTDBY StyledSelect__StyledSelectDropButton-sc-znp66n-5 koaUUc"
                       id="type"
                       onBlur={[Function]}
                       onClick={[Function]}
@@ -898,7 +898,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                             Select...
                           </span>
                           <input
-                            className="Select__HiddenInput-sc-17idtfo-1 gLckHE"
+                            className="StyledSelect__HiddenInput-sc-znp66n-2 drNEcH"
                             id="type__input"
                             name="type"
                             readOnly={true}
@@ -1338,6 +1338,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 aria-label="Submit Subject Search Query"
                 className="StyledButton-sc-323bzc-0 eDTDBY"
                 onBlur={[Function]}
+                onClick={[Function]}
                 onFocus={[Function]}
                 onMouseOut={[Function]}
                 onMouseOver={[Function]}
@@ -1360,7 +1361,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
 
 exports[`Storyshots SubjectLockedModal Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -1419,7 +1420,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
 
 exports[`Storyshots SubjectViewer Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 jeSEdO"
@@ -1487,7 +1488,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
 
 exports[`Storyshots UnapproveModal Default 1`] = `
 <div
-  className="StyledGrommet-sc-19lkkz7-0 jpnCZn"
+  className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <div
     className="StyledBox-sc-13pk1d4-0 fmXOTO"
@@ -1526,7 +1527,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"
+              d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
               fill="currentColor"
               style={Object {}}
             />
