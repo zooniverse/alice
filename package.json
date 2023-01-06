@@ -45,10 +45,6 @@
     "nock": "^13.2.9",
     "react-scripts": "3.4.4"
   },
-  "resolutions": {
-    "babel-loader": "8.1.0",
-    "webpack": "4.42.0"
-  },
   "homepage": "https://alice.zooniverse.org",
   "scripts": {
     "start": "HTTPS=true react-scripts start",
