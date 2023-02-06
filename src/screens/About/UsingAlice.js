@@ -17,7 +17,7 @@ export default function UsingAlice() {
       <AboutTitle title='Using ALICE with your team' />
       <BodyText>
         Once you have finished building your project and the Zooniverse team has
-        completed the setup, ALICE will be ready for use.
+        completed the setup, you won't see your project listed on the ALICE projects page right away. This is normal behavior; your project will not be listed in ALICE until there is data ready for you to review. Once your project data begins to retire, follow the steps below to log in.
       </BodyText>
       <AboutTitle level={4} title='Logging into ALICE and finding your project' />
       <BodyText>
