@@ -12,6 +12,7 @@ import { ProjectsStore } from './ProjectsStore'
 import { ModalStore } from './ModalStore'
 import { TranscriptionsStore } from './TranscriptionsStore'
 import { WorkflowsStore } from './WorkflowsStore'
+import history from '../history'
 
 const AppStore = types.model('AppStore', {
   aggregations: types.optional(AggregationsStore, () => AggregationsStore.create({})),
@@ -57,6 +58,9 @@ const AppStore = types.model('AppStore', {
     self.client.initialize()
     yield self.auth.checkCurrent()
     self.initialized = true;
+    if (self.auth.user) {
+      history.push('/projects')
+    }
   })
 
   return {
