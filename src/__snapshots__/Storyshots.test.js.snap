@@ -688,11 +688,11 @@ exports[`Storyshots MarkApproved Default 1`] = `
     className="StyledCheckBox__StyledCheckBoxContainer-sc-1dbk5ju-1 yBfvd"
     disabled={false}
     label={
-      <ForwardRef(Styled(Text))
+      <Styled(Text)
         color="#5C5C5C"
       >
         Ready For Review
-      </ForwardRef(Styled(Text))>
+      </Styled(Text)>
     }
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -1013,12 +1013,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       disabled={false}
                       htmlFor="unseen"
                       label={
-                        <ForwardRef
+                        <Text
                           level={1}
                           size="small"
                         >
                           UNSEEN
-                        </ForwardRef>
+                        </Text>
                       }
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1074,12 +1074,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       disabled={false}
                       htmlFor="in_progress"
                       label={
-                        <ForwardRef
+                        <Text
                           level={1}
                           size="small"
                         >
                           IN PROGRESS
-                        </ForwardRef>
+                        </Text>
                       }
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1135,12 +1135,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       disabled={false}
                       htmlFor="ready"
                       label={
-                        <ForwardRef
+                        <Text
                           level={1}
                           size="small"
                         >
                           READY FOR REVIEW
-                        </ForwardRef>
+                        </Text>
                       }
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1196,12 +1196,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       disabled={false}
                       htmlFor="approved"
                       label={
-                        <ForwardRef
+                        <Text
                           level={1}
                           size="small"
                         >
                           APPROVED
-                        </ForwardRef>
+                        </Text>
                       }
                       onClick={[Function]}
                       onMouseEnter={[Function]}
@@ -1266,12 +1266,12 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       disabled={false}
                       htmlFor="flagged"
                       label={
-                        <ForwardRef
+                        <Text
                           level={1}
                           size="small"
                         >
                           FLAGGED
-                        </ForwardRef>
+                        </Text>
                       }
                       onClick={[Function]}
                       onMouseEnter={[Function]}
