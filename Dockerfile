@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:18-alpine
 
 WORKDIR /usr/src/
 
@@ -7,6 +7,6 @@ USER node
 
 ADD ./package.json /usr/src
 ADD ./yarn.lock /usr/src
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 COPY ./ /usr/src

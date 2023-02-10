@@ -2,6 +2,8 @@ version: '3.4'
 
 services:
   dev:
+    stdin_open: true
+    tty: true
     image: zooniverse-text-editor:latest
     build:
       context: ./
