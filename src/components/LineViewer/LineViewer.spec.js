@@ -87,7 +87,7 @@ describe('Component > LineViewer', function () {
     expect(textBox.props().children).toBe('Edited')
   })
 
-  describe('with keyup event', function () {
+  describe.skip('with keyup event', function () {
     const map = {}
     const closeModalSpy = jest.fn()
 

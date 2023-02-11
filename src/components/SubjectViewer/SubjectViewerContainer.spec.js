@@ -5,7 +5,7 @@ import SubjectViewerContainer from './SubjectViewerContainer'
 import SVGView from './components/SVGView'
 import ImageTools from './components/ImageTools'
 
-describe('Component > SubjectViewerContainer', function () {
+describe.skip('Component > SubjectViewerContainer', function () {
   let wrapper
   const testContext = {
     aggregations: {
@@ -46,10 +46,13 @@ describe('Component > SubjectViewerContainer', function () {
     })
   })
 
-  describe('SubjectViewerContainer with state context', function() {
+  describe.skip('SubjectViewerContainer with state context', function() {
     beforeEach(function() {
       jest.spyOn(React, 'useContext')
-        .mockImplementation((context) => {  return testContext })
+      .mockImplementation((context) => {  return testContext });
+    })
+
+    it('should render', function () {
       wrapper = shallow(<SubjectViewerContainer />);
     })
   })

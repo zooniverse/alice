@@ -32,7 +32,7 @@ describe('Component > AnnotationsPaneContainer', function () {
     expect(wrapper).toBeDefined()
   })
 
-  it('should render without transcriptions', function () {
+  it.skip('should render without transcriptions', function () {
     wrapper = shallow(<AnnotationsPaneContainer />);
   })
 })

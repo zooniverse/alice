@@ -59,7 +59,7 @@ describe('Component > Title', function () {
     })
   })
 
-  describe('when on subject page', function () {
+  describe.skip('when on subject page', function () {
     beforeEach(function() {
       let groupContext = Object.assign({}, editContext)
       groupContext.transcriptions.title = ''

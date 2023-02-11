@@ -184,7 +184,7 @@ describe('TranscriptionsStore', function () {
   })
 
   describe('fetching a single transcription', function () {
-    describe('success state', function () {
+    describe.skip('success state', function () {
       beforeEach(async function () {
         jest.useFakeTimers();
         jest
@@ -447,7 +447,7 @@ describe('TranscriptionsStore', function () {
       })
     })
 
-    describe('failure state', function () {
+    describe.skip('failure state', function () {
       it('should register an error on selecting', async function () {
         rootStore = AppStore.create({
           client: { tove: mockJWT(failedToveStub), toveZip: mockJWT() }

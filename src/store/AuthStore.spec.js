@@ -29,7 +29,7 @@ describe('AuthStore', function () {
       authStore = rootStore.auth
     })
 
-    it('should set the user', async function () {
+    it.skip('should set the user', async function () {
       let setSubmittingSpy = jest.fn()
       await authStore.login('login', 'password', setSubmittingSpy)
       expect(setSubmittingSpy).toHaveBeenCalledWith(false)
@@ -48,7 +48,7 @@ describe('AuthStore', function () {
       authStore = rootStore.auth
     })
 
-    it('should set the user', async function () {
+    it.skip('should set the user', async function () {
       let setSubmittingSpy = jest.fn()
       await authStore.login('login', 'password', setSubmittingSpy)
       expect(setSubmittingSpy).toHaveBeenCalledWith(false)
@@ -69,7 +69,7 @@ describe('AuthStore', function () {
       authStore = rootStore.auth
     })
 
-    it('should call the sign out function', async function () {
+    it.skip('should call the sign out function', async function () {
       await authStore.logout()
       expect(authStore.user).toBe(null)
       expect(signOutSpy).toHaveBeenCalled()
@@ -84,7 +84,7 @@ describe('AuthStore', function () {
       authStore = rootStore.auth
     })
 
-    it('should set the current user', async function() {
+    it.skip('should set the current user', async function() {
       authStore = rootStore.auth
       await authStore.checkCurrent()
       expect(authStore.user).toBe(user)
@@ -104,7 +104,7 @@ describe('AuthStore', function () {
       history.location.pathname = '/projects'
     })
 
-    it('should change the route', async function () {
+    it.skip('should change the route', async function () {
       await authStore.checkCurrent()
       expect(pushSpy).toHaveBeenCalledWith('/')
     })

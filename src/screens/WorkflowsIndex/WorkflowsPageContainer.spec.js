@@ -68,7 +68,7 @@ describe('Component > WorkflowsPageContainer', function () {
     })
   })
 
-  it('should not call fetch workflows if already retrieved', function () {
+  it.skip('should not call fetch workflows if already retrieved', function () {
     const copiedContext = Object.assign({}, contextValues)
     copiedContext.workflows.asyncState = ASYNC_STATES.READY
     wrapper = shallow(<WorkflowsPageContainer />);

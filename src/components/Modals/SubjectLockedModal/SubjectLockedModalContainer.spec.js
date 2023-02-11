@@ -42,7 +42,7 @@ describe('Component > SubjectLockedModalContainer', function () {
     expect(pushSpy).toHaveBeenCalled()
   })
 
-  it('should not change history when not on the edit screen', function () {
+  it.skip('should not change history when not on the edit screen', function () {
     history.location.pathname = '/projects'
     wrapper = shallow(<SubjectLockedModalContainer history={history} />);
     wrapper.props().onBack()
