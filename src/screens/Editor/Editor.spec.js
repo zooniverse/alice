@@ -154,25 +154,28 @@ describe('Component > Editor', function () {
       jest
         .spyOn(React, 'useState')
         .mockImplementation((val) => [val, setState])
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => Object.assign({}, contextValues))
       wrapper = shallow(<Editor match={match} />);
     })
 
     afterEach(() => jest.clearAllMocks());
 
-    it.skip('should execute onMouseDown', function () {
+    it('should execute onMouseDown', function () {
       const resizer = wrapper.find(Resizer).first().props()
       resizer.onMouseDown(mockEvent)
       expect(setState).toHaveBeenCalledWith(true)
       expect(setState).toHaveBeenCalledWith({ x: -20 })
     })
 
-    it.skip('should execute onMouseLeave', function () {
+    it('should execute onMouseLeave', function () {
       const editorBox = wrapper.find(Box).at(2).props()
       editorBox.onMouseLeave()
       expect(setState).toHaveBeenCalledWith(false)
     })
 
-    it.skip('should execute onMouseUp', function () {
+    it('should execute onMouseUp', function () {
       const editorBox = wrapper.find(Box).at(2).props()
       editorBox.onMouseUp()
       expect(setState).toHaveBeenCalledWith(false)
@@ -189,7 +192,7 @@ describe('Component > Editor', function () {
         wrapper = shallow(<Editor match={match} />);
       })
 
-      it.skip('should execute onMouseMove', function () {
+      it('should execute onMouseMove', function () {
         const editorBox = wrapper.find(Box).at(2).props()
         editorBox.onMouseMove(mockEvent)
         expect(preventDefaultSpy).toHaveBeenCalled()
@@ -197,7 +200,7 @@ describe('Component > Editor', function () {
       })
     })
 
-    describe.skip('setting subjects', function () {
+    describe('setting subjects', function () {
       beforeEach(function() {
         jest
           .spyOn(React, 'useContext')
@@ -226,7 +229,7 @@ describe('Component > Editor', function () {
         wrapper = shallow(<Editor match={match} />);
       })
 
-      it.skip('should execute onMouseMove', function () {
+      it('should execute onMouseMove', function () {
         const editorBox = wrapper.find(Box).at(2).props()
         editorBox.onMouseMove(mockEvent)
         expect(preventDefaultSpy).toHaveBeenCalled()

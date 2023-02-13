@@ -32,7 +32,10 @@ describe('Component > AnnotationsPaneContainer', function () {
     expect(wrapper).toBeDefined()
   })
 
-  it.skip('should render without transcriptions', function () {
+  it('should render without transcriptions', function () {
+    jest
+      .spyOn(React, 'useContext')
+      .mockImplementation((context) => contextValues)
     wrapper = shallow(<AnnotationsPaneContainer />);
   })
 })

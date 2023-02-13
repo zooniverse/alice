@@ -21,7 +21,7 @@ describe('Component > SubjectLockedModalContainer', function () {
     }
   }
 
-  beforeAll(function () {
+  beforeEach(function () {
     jest
       .spyOn(React, 'useContext')
       .mockImplementation(() => contextValues )
@@ -42,7 +42,7 @@ describe('Component > SubjectLockedModalContainer', function () {
     expect(pushSpy).toHaveBeenCalled()
   })
 
-  it.skip('should not change history when not on the edit screen', function () {
+  it('should not change history when not on the edit screen', function () {
     history.location.pathname = '/projects'
     wrapper = shallow(<SubjectLockedModalContainer history={history} />);
     wrapper.props().onBack()

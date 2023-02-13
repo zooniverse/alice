@@ -5,7 +5,7 @@ import SubjectViewerContainer from './SubjectViewerContainer'
 import SVGView from './components/SVGView'
 import ImageTools from './components/ImageTools'
 
-describe.skip('Component > SubjectViewerContainer', function () {
+describe('Component > SubjectViewerContainer', function () {
   let wrapper
   const testContext = {
     aggregations: {
@@ -25,11 +25,8 @@ describe.skip('Component > SubjectViewerContainer', function () {
     }
   }
 
-  beforeEach(function() {
-    wrapper = shallow(<SubjectViewerContainer />);
-  })
-
   it('should render without crashing', function () {
+    wrapper = shallow(<SubjectViewerContainer />);
     expect(wrapper).toBeDefined()
   })
 
@@ -46,10 +43,13 @@ describe.skip('Component > SubjectViewerContainer', function () {
     })
   })
 
-  describe.skip('SubjectViewerContainer with state context', function() {
+  describe('SubjectViewerContainer with state context', function() {
     beforeEach(function() {
       jest.spyOn(React, 'useContext')
       .mockImplementation((context) => {  return testContext });
+      const setState = jest.fn()
+      const useStateSpy = jest.spyOn(React, 'useState')
+      useStateSpy.mockImplementation((value) => [value, setState])
     })
 
     it('should render', function () {
@@ -64,6 +64,8 @@ describe.skip('Component > SubjectViewerContainer', function () {
       setState = jest.fn()
       const useStateSpy = jest.spyOn(React, 'useState')
       useStateSpy.mockImplementation((value) => [value, setState])
+      jest.spyOn(React, 'useContext')
+      .mockImplementation((context) => {  return testContext });
       wrapper = shallow(<SubjectViewerContainer />);
     })
 

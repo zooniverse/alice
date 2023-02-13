@@ -37,6 +37,9 @@ describe('Component > Title', function () {
   }
 
   beforeEach(function() {
+    jest
+      .spyOn(React, 'useContext')
+      .mockImplementation(() => editContext )
     wrapper = shallow(<Title />);
   })
 
@@ -59,7 +62,7 @@ describe('Component > Title', function () {
     })
   })
 
-  describe.skip('when on subject page', function () {
+  describe('when on subject page', function () {
     beforeEach(function() {
       let groupContext = Object.assign({}, editContext)
       groupContext.transcriptions.title = ''
