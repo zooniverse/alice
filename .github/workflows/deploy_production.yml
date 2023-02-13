@@ -16,15 +16,13 @@ jobs:
     env:
       HEAD_COMMIT: ${{ github.sha }}
     steps:
-    - uses: actions/checkout@v2
-    - uses: azure/login@v1
-      with:
-          creds: ${{ secrets.AZURE_STATIC_SITES }}
+    - uses: actions/checkout@v3
 
     - name: Node.js build
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: '16.x'
+        node-version: 'lts/gallium'
+        cache: 'yarn'
     - run: yarn install --frozen-lockfile
     - run: yarn build
       env:
@@ -34,7 +32,7 @@ jobs:
       run: echo ${HEAD_COMMIT} > ./build/commit_id.txt
 
     - name: Save build
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: build
         path: ./build/
