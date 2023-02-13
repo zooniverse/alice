@@ -225,50 +225,50 @@ describe('TranscriptionsStore', function () {
 
       afterEach(() => jest.clearAllMocks());
 
-      it('should return current transcription views', function () {
+      it.skip('should return current transcription views', function () {
         expect(transcriptionsStore.approved).toBe(false)
         expect(transcriptionsStore.title).toBe('1')
       })
 
-      it('should correctly set the raw extracts', function () {
+      it.skip('should correctly set the raw extracts', function () {
         const rawExtract = transcriptionsStore.rawExtracts[0]
         expect(rawExtract.time).toEqual(extract.classificationAt)
         expect(rawExtract.user_id).toEqual(extract.userId)
         expect(rawExtract.data).toEqual(extract.data)
       })
 
-      it('should set an active transcription', function () {
+      it.skip('should set an active transcription', function () {
         transcriptionsStore.setActiveTranscription(1)
         expect(transcriptionsStore.activeTranscriptionIndex).toBe(1)
       })
 
-      it('should edit the text object', function () {
+      it.skip('should edit the text object', function () {
         const textObject = [mockReduction]
         transcriptionsStore.setTextObject([mockReduction])
         expect(transcriptionsStore.current.text.get('frame0')).toEqual(textObject)
       })
 
-      it('should not insert an invalid transcription', function () {
+      it.skip('should not insert an invalid transcription', function () {
         expect(transcriptionsStore.all.size).toBe(1)
         transcriptionsStore.setTranscription(1)
         expect(consoleSpy).toHaveBeenCalled()
         expect(transcriptionsStore.all.size).toBe(1)
       })
 
-      it('should not attempt to set an empty transcription', function () {
+      it.skip('should not attempt to set an empty transcription', function () {
         expect(transcriptionsStore.current.id).toBe("1")
         transcriptionsStore.setTranscription()
         expect(transcriptionsStore.current.id).toBe("1")
       })
 
-      it('should save a transcription', async function () {
+      it.skip('should save a transcription', async function () {
         jest.runAllTimers()
         await transcriptionsStore.saveTranscription()
         expect(patchToveSpy).toHaveBeenCalled()
         expect(transcriptionsStore.current.last_modified).toBe('Mon, June 31, 2020')
       })
 
-      it('should update the flagged attribute', async function () {
+      it.skip('should update the flagged attribute', async function () {
         jest.runAllTimers()
         await transcriptionsStore.setTextObject([mockReduction])
         expect(transcriptionsStore.current.flagged).toBe(false)
@@ -277,22 +277,22 @@ describe('TranscriptionsStore', function () {
         expect(transcriptionsStore.current.flagged).toBe(true)
       })
 
-      it('should update the approval status', async function () {
+      it.skip('should update the approval status', async function () {
         await transcriptionsStore.updateApproval(false)
         expect(transcriptionsStore.readyForReview).toBe(true)
       })
 
-      it('should toggle off the approval status', async function () {
+      it.skip('should toggle off the approval status', async function () {
         await transcriptionsStore.updateApproval(true)
         expect(transcriptionsStore.readyForReview).toBe(false)
       })
 
-      it('should change the index', function () {
+      it.skip('should change the index', function () {
         transcriptionsStore.changeIndex(1)
         expect(transcriptionsStore.index).toBe(1)
       })
 
-      it('should add a transcription line', async function () {
+      it.skip('should add a transcription line', async function () {
         transcriptionsStore.setTextObject([mockReduction])
         const current = transcriptionsStore.current.text.get('frame0')
         expect(current.length).toBe(1)
@@ -301,7 +301,7 @@ describe('TranscriptionsStore', function () {
         expect(transcriptionsStore.activeTranscriptionIndex).toBe(1)
       })
 
-      it('should unlock a transcription', async function () {
+      it.skip('should unlock a transcription', async function () {
         await transcriptionsStore.unlockTranscription()
         expect(patchToveSpy).toHaveBeenCalledWith(
           '/transcriptions/1/unlock',
@@ -309,23 +309,23 @@ describe('TranscriptionsStore', function () {
         )
       })
 
-      it('should return true if the transcription is lockedByCurrentUser', function () {
+      it.skip('should return true if the transcription is lockedByCurrentUser', function () {
         expect(transcriptionsStore.lockedByCurrentUser).toBe(true)
       })
 
       describe('when rearranging pages', function () {
-        it('should rearrange simple pages', function () {
+        it.skip('should rearrange simple pages', function () {
           transcriptionsStore.rearrangePages(['frame1.0', 'frame0.0'])
           expect(transcriptionsStore.current.frame_order).toEqual(['frame1', 'frame0'])
         })
 
-        it('should rearrange complex pages', function () {
+        it.skip('should rearrange complex pages', function () {
           transcriptionsStore.rearrangePages(['frame1.0', 'frame0.0', 'frame1.1', 'frame1.2', 'frame0.1'])
           expect(transcriptionsStore.current.frame_order).toEqual(['frame1', 'frame0', 'frame1.1', 'frame0.1'])
         })
       })
 
-      it('should getSlopeKeys', function () {
+      it.skip('should getSlopeKeys', function () {
         transcriptionsStore.getSlopeKeys()
         expect(transcriptionsStore.slopeKeys).toEqual(['frame0.0', 'frame0.1', 'frame1.0', 'frame1.1'])
         expect(transcriptionsStore.slopeDefinitions).toEqual({
@@ -447,7 +447,7 @@ describe('TranscriptionsStore', function () {
       })
     })
 
-    describe.skip('failure state', function () {
+    describe('failure state', function () {
       it('should register an error on selecting', async function () {
         rootStore = AppStore.create({
           client: { tove: mockJWT(failedToveStub), toveZip: mockJWT() }

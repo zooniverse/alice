@@ -19,7 +19,7 @@ describe('AuthStore', function () {
   })
 
   describe('login function success', function () {
-    beforeAll(function () {
+    beforeEach(function () {
       jest
         .spyOn(auth, 'checkBearerToken')
         .mockImplementation(() => Promise.resolve())
@@ -29,7 +29,7 @@ describe('AuthStore', function () {
       authStore = rootStore.auth
     })
 
-    it.skip('should set the user', async function () {
+    it('should set the user', async function () {
       let setSubmittingSpy = jest.fn()
       await authStore.login('login', 'password', setSubmittingSpy)
       expect(setSubmittingSpy).toHaveBeenCalledWith(false)
@@ -41,14 +41,14 @@ describe('AuthStore', function () {
   describe('login function failure', function () {
     const error = 'Failed to find user'
 
-    beforeAll(function () {
+    beforeEach(function () {
       jest
         .spyOn(auth, 'signIn')
         .mockImplementation(() => Promise.reject({ message: error }))
       authStore = rootStore.auth
     })
 
-    it.skip('should set the user', async function () {
+    it('should set the user', async function () {
       let setSubmittingSpy = jest.fn()
       await authStore.login('login', 'password', setSubmittingSpy)
       expect(setSubmittingSpy).toHaveBeenCalledWith(false)
@@ -60,7 +60,7 @@ describe('AuthStore', function () {
     let signOutSpy
     const user = { id: '1' }
 
-    beforeAll(function () {
+    beforeEach(function () {
       signOutSpy = jest.spyOn(auth, 'signOut').mockImplementation(() => Promise.resolve())
       rootStore = AppStore.create({ auth: { user } })
       Object.defineProperty(
@@ -69,7 +69,7 @@ describe('AuthStore', function () {
       authStore = rootStore.auth
     })
 
-    it.skip('should call the sign out function', async function () {
+    it('should call the sign out function', async function () {
       await authStore.logout()
       expect(authStore.user).toBe(null)
       expect(signOutSpy).toHaveBeenCalled()
@@ -77,14 +77,14 @@ describe('AuthStore', function () {
   })
 
   describe('checkCurrent returns user', function () {
-    beforeAll(function () {
+    beforeEach(function () {
       jest
         .spyOn(auth, 'checkCurrent')
         .mockImplementation(() => Promise.resolve(user))
       authStore = rootStore.auth
     })
 
-    it.skip('should set the current user', async function() {
+    it('should set the current user', async function() {
       authStore = rootStore.auth
       await authStore.checkCurrent()
       expect(authStore.user).toBe(user)
@@ -93,7 +93,7 @@ describe('AuthStore', function () {
 
   describe('checkCurrent returns nothing', function () {
     let pushSpy
-    beforeAll(function () {
+    beforeEach(function () {
       pushSpy = jest
         .spyOn(history, 'push')
         .mockImplementation(() => {})
@@ -104,7 +104,7 @@ describe('AuthStore', function () {
       history.location.pathname = '/projects'
     })
 
-    it.skip('should change the route', async function () {
+    it('should change the route', async function () {
       await authStore.checkCurrent()
       expect(pushSpy).toHaveBeenCalledWith('/')
     })
