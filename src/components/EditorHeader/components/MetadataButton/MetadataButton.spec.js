@@ -7,11 +7,8 @@ import mockMetadata from './mockMetadata'
 describe('Component > MetadataButton', function () {
   let wrapper
 
-  beforeEach(function() {
-    wrapper = shallow(<MetadataButton />);
-  })
-
   it('should render without crashing', function () {
+    wrapper = shallow(<MetadataButton />);
     expect(wrapper).toBeDefined()
   })
 

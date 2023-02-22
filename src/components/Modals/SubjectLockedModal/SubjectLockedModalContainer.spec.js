@@ -21,7 +21,7 @@ describe('Component > SubjectLockedModalContainer', function () {
     }
   }
 
-  beforeAll(function () {
+  beforeEach(function () {
     jest
       .spyOn(React, 'useContext')
       .mockImplementation(() => contextValues )

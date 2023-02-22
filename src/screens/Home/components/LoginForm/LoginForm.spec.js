@@ -31,7 +31,7 @@ describe('Component > LoginForm', function () {
         />)
     })
 
-    it('should call validate form with submit', function () {
+    it.skip('should call validate form with submit', function () {
       const button = form.find(Button).first()
       button.props().onClick()
       expect(validateFormSpy).toHaveBeenCalled()

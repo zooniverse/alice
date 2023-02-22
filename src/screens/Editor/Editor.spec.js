@@ -154,6 +154,9 @@ describe('Component > Editor', function () {
       jest
         .spyOn(React, 'useState')
         .mockImplementation((val) => [val, setState])
+      jest
+        .spyOn(React, 'useContext')
+        .mockImplementation(() => Object.assign({}, contextValues))
       wrapper = shallow(<Editor match={match} />);
     })
 
@@ -201,7 +204,11 @@ describe('Component > Editor', function () {
       beforeEach(function() {
         jest
           .spyOn(React, 'useContext')
-        .mockImplementation(() => contextValues )
+        .mockImplementation(() => contextValues );
+        
+      })
+
+      it('should render', function () {
         wrapper = shallow(<Editor match={match} />);
       })
     })

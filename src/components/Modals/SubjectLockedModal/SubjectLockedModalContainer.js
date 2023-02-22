@@ -5,15 +5,15 @@ import { SUBJECTS_PATH } from 'paths'
 import { observer } from 'mobx-react'
 import SubjectLockedModal from './SubjectLockedModal'
 
-function SubjectLockedModalContainer(props) {
+function SubjectLockedModalContainer({ history }) {
   const store = React.useContext(AppContext)
   const lockedBy = store.transcriptions.current && store.transcriptions.current.locked_by
   const onBack = () => {
     store.modal.toggleModal('')
-    const matchProfile = matchPath(props.history.location.pathname, { path: SUBJECTS_PATH });
+    const matchProfile = matchPath(history.location.pathname, { path: SUBJECTS_PATH });
     if (matchProfile) {
       const nextPath = generatePath(SUBJECTS_PATH, matchProfile.params)
-      props.history.push(nextPath)
+      history.push(nextPath)
     }
   }
 

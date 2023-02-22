@@ -25,11 +25,8 @@ describe('Component > SubjectViewerContainer', function () {
     }
   }
 
-  beforeEach(function() {
-    wrapper = shallow(<SubjectViewerContainer />);
-  })
-
   it('should render without crashing', function () {
+    wrapper = shallow(<SubjectViewerContainer />);
     expect(wrapper).toBeDefined()
   })
 
@@ -49,7 +46,13 @@ describe('Component > SubjectViewerContainer', function () {
   describe('SubjectViewerContainer with state context', function() {
     beforeEach(function() {
       jest.spyOn(React, 'useContext')
-        .mockImplementation((context) => {  return testContext })
+      .mockImplementation((context) => {  return testContext });
+      const setState = jest.fn()
+      const useStateSpy = jest.spyOn(React, 'useState')
+      useStateSpy.mockImplementation((value) => [value, setState])
+    })
+
+    it('should render', function () {
       wrapper = shallow(<SubjectViewerContainer />);
     })
   })
@@ -61,6 +64,8 @@ describe('Component > SubjectViewerContainer', function () {
       setState = jest.fn()
       const useStateSpy = jest.spyOn(React, 'useState')
       useStateSpy.mockImplementation((value) => [value, setState])
+      jest.spyOn(React, 'useContext')
+      .mockImplementation((context) => {  return testContext });
       wrapper = shallow(<SubjectViewerContainer />);
     })
 

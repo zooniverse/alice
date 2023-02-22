@@ -19,7 +19,7 @@ describe('AuthStore', function () {
   })
 
   describe('login function success', function () {
-    beforeAll(function () {
+    beforeEach(function () {
       jest
         .spyOn(auth, 'checkBearerToken')
         .mockImplementation(() => Promise.resolve())
@@ -41,7 +41,7 @@ describe('AuthStore', function () {
   describe('login function failure', function () {
     const error = 'Failed to find user'
 
-    beforeAll(function () {
+    beforeEach(function () {
       jest
         .spyOn(auth, 'signIn')
         .mockImplementation(() => Promise.reject({ message: error }))
@@ -60,7 +60,7 @@ describe('AuthStore', function () {
     let signOutSpy
     const user = { id: '1' }
 
-    beforeAll(function () {
+    beforeEach(function () {
       signOutSpy = jest.spyOn(auth, 'signOut').mockImplementation(() => Promise.resolve())
       rootStore = AppStore.create({ auth: { user } })
       Object.defineProperty(
@@ -77,7 +77,7 @@ describe('AuthStore', function () {
   })
 
   describe('checkCurrent returns user', function () {
-    beforeAll(function () {
+    beforeEach(function () {
       jest
         .spyOn(auth, 'checkCurrent')
         .mockImplementation(() => Promise.resolve(user))
@@ -93,7 +93,7 @@ describe('AuthStore', function () {
 
   describe('checkCurrent returns nothing', function () {
     let pushSpy
-    beforeAll(function () {
+    beforeEach(function () {
       pushSpy = jest
         .spyOn(history, 'push')
         .mockImplementation(() => {})

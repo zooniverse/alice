@@ -37,6 +37,9 @@ describe('Component > Title', function () {
   }
 
   beforeEach(function() {
+    jest
+      .spyOn(React, 'useContext')
+      .mockImplementation(() => editContext )
     wrapper = shallow(<Title />);
   })
 

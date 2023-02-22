@@ -71,6 +71,8 @@ describe('Component > WorkflowsPageContainer', function () {
   it('should not call fetch workflows if already retrieved', function () {
     const copiedContext = Object.assign({}, contextValues)
     copiedContext.workflows.asyncState = ASYNC_STATES.READY
+    jest.spyOn(React, 'useContext')
+      .mockImplementation(() => copiedContext )
     wrapper = shallow(<WorkflowsPageContainer />);
     expect(fetchWorkflowsSpy).not.toHaveBeenCalled()
   })

@@ -51,7 +51,7 @@ describe('ProjectsStore', function () {
     client: { tove: mockJWT(toveStub), toveZip: mockJWT() }
   })
 
-  beforeAll(function () {
+  beforeEach(function () {
     const clientSpy = jest.spyOn(apiClient, 'type')
     when(clientSpy).calledWith('projects')
       .mockImplementation(() => {
@@ -171,7 +171,7 @@ describe('ProjectsStore getProject', function () {
     client: { tove: mockJWT(toveStub), toveZip: mockJWT() }
   })
 
-  beforeAll(function () {
+  beforeEach(function () {
     const clientSpy = jest.spyOn(apiClient, 'type')
     when(clientSpy).calledWith('projects')
       .mockImplementation(() => {
@@ -246,7 +246,7 @@ describe('ProjectsStore error states', function () {
     client: { tove: mockJWT(toveStub), toveZip: mockJWT() }
   })
 
-  beforeAll(function() {
+  beforeEach(function() {
     jest
       .spyOn(apiClient, 'type')
       .mockImplementation(() => {

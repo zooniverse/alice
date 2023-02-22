@@ -3,7 +3,7 @@ import { Box } from 'grommet'
 import EditorHeader from '../../components/EditorHeader'
 import ErrorNotifierContainer from './components/ErrorNotifierContainer'
 
-export default () => {
+export default function Header() {
   return (
     <Box margin={{ vertical: 'medium' }}>
       <Box margin={{ horizontal: 'medium' }} fill='vertical'>
