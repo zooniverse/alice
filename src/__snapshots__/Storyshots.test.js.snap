@@ -859,7 +859,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 hmBiuZ"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
+                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -938,7 +938,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 eURnJB"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
+                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -956,7 +956,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                     >
                       <input
                         autoComplete="off"
-                        className="StyledTextInput-sc-1x30a0s-0 ddiGfT"
+                        className="StyledTextInput-sc-1x30a0s-0 ehOqki"
                         color="red"
                         disabled={false}
                         id="id"
@@ -1000,7 +1000,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1061,7 +1061,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1122,7 +1122,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1183,7 +1183,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1253,7 +1253,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
