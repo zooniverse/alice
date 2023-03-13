@@ -606,7 +606,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
       </span>
       <svg
         aria-label="FormDown"
-        className="StyledIcon-sc-ofa7kd-0 bFNbxN"
+        className="StyledIcon-sc-ofa7kd-0 ibcaFN"
         viewBox="0 0 24 24"
       >
         <path
@@ -915,7 +915,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                         >
                           <svg
                             aria-label="FormDown"
-                            className="StyledIcon-sc-ofa7kd-0 jowTsj"
+                            className="StyledIcon-sc-ofa7kd-0 jDgNiG"
                             viewBox="0 0 24 24"
                           >
                             <path
