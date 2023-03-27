@@ -26,7 +26,7 @@ exports[`Storyshots AggregatedTranscriptions Default 1`] = `
               Transcribed Text
             </span>
             <button
-              className="StyledButton-sc-323bzc-0 eDTDBY"
+              className="StyledButton-sc-323bzc-0 ldwhia"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -152,7 +152,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
               </span>
               <button
                 aria-label="Close Aggregation Settings"
-                className="StyledButton-sc-323bzc-0 eDTDBY"
+                className="StyledButton-sc-323bzc-0 ldwhia"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -200,7 +200,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                     className="StyledBox-sc-13pk1d4-0 jJcUgv"
                   >
                     <button
-                      className="StyledButton-sc-323bzc-0 eDTDBY"
+                      className="StyledButton-sc-323bzc-0 ldwhia"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
@@ -237,7 +237,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                       </div>
                     </button>
                     <button
-                      className="StyledButton-sc-323bzc-0 eDTDBY"
+                      className="StyledButton-sc-323bzc-0 ldwhia"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
@@ -283,7 +283,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                 >
                   <button
                     aria-label="Close Aggregation Settings"
-                    className="StyledButton-sc-323bzc-0 eDTDBY"
+                    className="StyledButton-sc-323bzc-0 ldwhia"
                     onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -302,7 +302,7 @@ exports[`Storyshots AggregationSettings Default 1`] = `
                     className="StyledBox__StyledBoxGap-sc-13pk1d4-1 gSOXbB"
                   />
                   <button
-                    className="StyledButton-sc-323bzc-0 edSFVv"
+                    className="StyledButton-sc-323bzc-0 dQCQsf"
                     disabled={true}
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -353,7 +353,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         />
         <button
           aria-label="Close Download Subject Data Modal"
-          className="StyledButton-sc-323bzc-0 kxezLV"
+          className="StyledButton-sc-323bzc-0 boaNVh"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -427,7 +427,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
       >
         <button
           aria-label="Close Download Subject Data Modal"
-          className="StyledButton-sc-323bzc-0 dPtlpN"
+          className="StyledButton-sc-323bzc-0 ikkGlW"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -444,7 +444,7 @@ exports[`Storyshots DownloadDataModal Default 1`] = `
         </button>
         <button
           aria-label="Download Subject Data"
-          className="StyledButton-sc-323bzc-0 dPtlpN"
+          className="StyledButton-sc-323bzc-0 ikkGlW"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -485,7 +485,7 @@ exports[`Storyshots FilmstripViewer Default 1`] = `
           All Pages
         </span>
         <button
-          className="StyledButton-sc-323bzc-0 eDTDBY"
+          className="StyledButton-sc-323bzc-0 ldwhia"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -513,7 +513,7 @@ exports[`Storyshots HeaderButtons LayoutButton 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <button
-    className="StyledButton-sc-323bzc-0 eDTDBY"
+    className="StyledButton-sc-323bzc-0 ldwhia"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -587,7 +587,7 @@ exports[`Storyshots HeaderButtons MoreButton 1`] = `
 >
   <button
     aria-label="Open Drop"
-    className="StyledButton-sc-323bzc-0 eDTDBY"
+    className="StyledButton-sc-323bzc-0 ldwhia"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -626,7 +626,7 @@ exports[`Storyshots HeaderButtons UndoButton 1`] = `
   className="StyledGrommet-sc-19lkkz7-0 fOuhjc"
 >
   <button
-    className="StyledButton-sc-323bzc-0 edSFVv"
+    className="StyledButton-sc-323bzc-0 dQCQsf"
     disabled={true}
     onBlur={[Function]}
     onClick={[Function]}
@@ -747,7 +747,7 @@ exports[`Storyshots MetadataButton Default 1`] = `
     >
       <button
         aria-label="Open Metadata Information"
-        className="StyledButton-sc-323bzc-0 bggMKZ"
+        className="StyledButton-sc-323bzc-0 gsIVzY"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -810,7 +810,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             </span>
             <button
               aria-label="Close Subject Search Modal"
-              className="StyledButton-sc-323bzc-0 bggMKZ"
+              className="StyledButton-sc-323bzc-0 gsIVzY"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -859,7 +859,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 hmBiuZ"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
+                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -876,7 +876,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                       aria-expanded={false}
                       aria-haspopup="listbox"
                       aria-label="Open Drop; Selected: [object Object]"
-                      className="StyledButton-sc-323bzc-0 eDTDBY StyledSelect__StyledSelectDropButton-sc-znp66n-5 koaUUc"
+                      className="StyledButton-sc-323bzc-0 ldwhia StyledSelect__StyledSelectDropButton-sc-znp66n-5 koaUUc"
                       id="type"
                       onBlur={[Function]}
                       onClick={[Function]}
@@ -938,7 +938,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                 className="StyledBox-sc-13pk1d4-0 eURnJB"
               >
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
+                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp sc-gipzik keWqgP"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1000,7 +1000,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1061,7 +1061,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1122,7 +1122,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1183,7 +1183,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1253,7 +1253,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
                   className="StyledBox__StyledBoxGap-sc-13pk1d4-1 btfXFh"
                 />
                 <div
-                  className="StyledBox-sc-13pk1d4-0 hqILta FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
+                  className="StyledBox-sc-13pk1d4-0 iALYDe FormField__FormFieldBox-sc-m9hood-0 eXFEgp"
                   onBlur={[Function]}
                   onFocus={[Function]}
                 >
@@ -1320,7 +1320,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
             >
               <button
                 aria-label="Close Subject Search Modal"
-                className="StyledButton-sc-323bzc-0 eDTDBY"
+                className="StyledButton-sc-323bzc-0 ldwhia"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -1336,7 +1336,7 @@ exports[`Storyshots SearchModalContainer Default 1`] = `
               </button>
               <button
                 aria-label="Submit Subject Search Query"
-                className="StyledButton-sc-323bzc-0 eDTDBY"
+                className="StyledButton-sc-323bzc-0 ldwhia"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -1398,7 +1398,7 @@ exports[`Storyshots SubjectLockedModal Default 1`] = `
       />
       <button
         aria-label="Return to Group Index Page"
-        className="StyledButton-sc-323bzc-0 dPtlpN"
+        className="StyledButton-sc-323bzc-0 ikkGlW"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1446,7 +1446,7 @@ exports[`Storyshots SubjectViewer Default 1`] = `
             className="StyledBox-sc-13pk1d4-0 hSXSul"
           >
             <button
-              className="StyledButton-sc-323bzc-0 dPtlpN"
+              className="StyledButton-sc-323bzc-0 ikkGlW"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -1507,7 +1507,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         </span>
         <button
           aria-label="Close Unapprove Subject Modal"
-          className="StyledButton-sc-323bzc-0 dPtlpN"
+          className="StyledButton-sc-323bzc-0 ikkGlW"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1558,7 +1558,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
       >
         <button
           aria-label="Close Unapprove Subject Modal"
-          className="StyledButton-sc-323bzc-0 dPtlpN"
+          className="StyledButton-sc-323bzc-0 ikkGlW"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -1575,7 +1575,7 @@ exports[`Storyshots UnapproveModal Default 1`] = `
         </button>
         <button
           aria-label="Confirm to Unapprove Subject"
-          className="StyledButton-sc-323bzc-0 dPtlpN"
+          className="StyledButton-sc-323bzc-0 ikkGlW"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
