@@ -2138,6 +2138,11 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
+"@storybook/channels@7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-7.0.8.tgz#35aca088b17873f9519ce4d442b03f9ecca2ea6b"
+  integrity sha512-z8W4r8te/EiEDfk8qaxmjwMcKMe+x12leWEwtyz6e9XI0Q4qTk17dDtq/XZ5Ab2Ks4VSvWRu1e/QURiVpjbo2Q==
+
 "@storybook/client-api@6.5.16":
   version "6.5.16"
   resolved "https://registry.yarnpkg.com/@storybook/client-api/-/client-api-6.5.16.tgz#13e5a7c3d1f0f951ec4ef51cfcf2c5aafb560e12"
@@ -2481,13 +2486,14 @@
     npmlog "^5.0.1"
     pretty-hrtime "^1.0.3"
 
-"@storybook/preset-create-react-app@~4.1.2":
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@storybook/preset-create-react-app/-/preset-create-react-app-4.1.2.tgz#65bdfd3e32d84e06ad4db2bb491534cd6bcd2dbb"
-  integrity sha512-5uBZPhuyXx4APgLZnhiZ/PqYYprBua5CabQCfAlk+/9V4vSpX+ww+XP4Rl8Ifc/nf/HktgwtJFH4HXrZGRKC4w==
+"@storybook/preset-create-react-app@~7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@storybook/preset-create-react-app/-/preset-create-react-app-7.0.8.tgz#3722b8bb66da0e3008b5d46e09a664dcb0edc18b"
+  integrity sha512-888V4OCwlRjlFp7oIOJ7Ya3CUFuJu9L4yEF49wCo70U2Wv6Se1rxtdm93kRClAoLtzmTWfkh+vw9n5uXhaaRwQ==
   dependencies:
     "@pmmmwh/react-refresh-webpack-plugin" "^0.5.1"
-    "@storybook/react-docgen-typescript-plugin" canary
+    "@storybook/react-docgen-typescript-plugin" "1.0.6--canary.9.0c3f3b7.0"
+    "@storybook/types" "7.0.8"
     "@types/babel__core" "^7.1.7"
     babel-plugin-react-docgen "^4.1.0"
     pnp-webpack-plugin "^1.7.0"
@@ -2528,17 +2534,17 @@
     react-docgen-typescript "^2.1.1"
     tslib "^2.0.0"
 
-"@storybook/react-docgen-typescript-plugin@canary":
-  version "1.0.2--canary.7.324a727c65a1819f7f3ede5abc1f32d440e4530a.0"
-  resolved "https://registry.yarnpkg.com/@storybook/react-docgen-typescript-plugin/-/react-docgen-typescript-plugin-1.0.2--canary.7.324a727c65a1819f7f3ede5abc1f32d440e4530a.0.tgz#ce58c3618407074162641c25458c3c4403540e35"
-  integrity sha512-tnaT0VqSGhmMi/I880aMOToSrNd7XCr1avS/M1tk/+FDO+0GqHXo9abC5sos705ly3Hmi1FxFvHnzV/cvU1JTg==
+"@storybook/react-docgen-typescript-plugin@1.0.6--canary.9.0c3f3b7.0":
+  version "1.0.6--canary.9.0c3f3b7.0"
+  resolved "https://registry.yarnpkg.com/@storybook/react-docgen-typescript-plugin/-/react-docgen-typescript-plugin-1.0.6--canary.9.0c3f3b7.0.tgz#7f10f3c641f32e4513a8b6ffb5036933e7059534"
+  integrity sha512-KUqXC3oa9JuQ0kZJLBhVdS4lOneKTOopnNBK4tUAgoxWQ3u/IjzdueZjFr7gyBrXMoU6duutk3RQR9u8ZpYJ4Q==
   dependencies:
     debug "^4.1.1"
     endent "^2.0.1"
     find-cache-dir "^3.3.1"
     flat-cache "^3.0.4"
     micromatch "^4.0.2"
-    react-docgen-typescript "^2.1.1"
+    react-docgen-typescript "^2.2.2"
     tslib "^2.0.0"
 
 "@storybook/react@^6.5.16":
@@ -2649,6 +2655,16 @@
     core-js "^3.8.2"
     memoizerific "^1.11.3"
     regenerator-runtime "^0.13.7"
+
+"@storybook/types@7.0.8":
+  version "7.0.8"
+  resolved "https://registry.yarnpkg.com/@storybook/types/-/types-7.0.8.tgz#28764060f5ad89137bec0815e41f0bf4a1de801d"
+  integrity sha512-x83vL/TzBlv21nHuP35c+z4AUjHSY9G7NpZLTZ/5REcuXbeIfhjGOAyeUHB4lXhPXxsOlq3wHiQippB7bSJeeQ==
+  dependencies:
+    "@storybook/channels" "7.0.8"
+    "@types/babel__core" "^7.0.0"
+    "@types/express" "^4.7.0"
+    file-system-cache "^2.0.0"
 
 "@storybook/ui@6.5.16":
   version "6.5.16"
@@ -2896,7 +2912,7 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@*", "@types/express@^4.17.13":
+"@types/express@*", "@types/express@^4.17.13", "@types/express@^4.7.0":
   version "4.17.17"
   resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.17.tgz#01d5437f6ef9cfa8668e616e13c2f2ac9a491ae4"
   integrity sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==
@@ -7139,6 +7155,14 @@ file-system-cache@^1.0.5:
     fs-extra "^10.1.0"
     ramda "^0.28.0"
 
+file-system-cache@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/file-system-cache/-/file-system-cache-2.1.1.tgz#25bb4019f7d62b458f4bed45452b638e41f6412b"
+  integrity sha512-vgZ1uDsK29DM4pptUOv47zdJO2tYM5M/ERyAE9Jk0QBN6e64Md+a+xJSOp68dCCDH4niFMVD8nC8n8A5ic0bmg==
+  dependencies:
+    fs-extra "^11.1.0"
+    ramda "^0.28.0"
+
 file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
@@ -7418,6 +7442,15 @@ fs-extra@^10.0.0, fs-extra@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.1.0.tgz#02873cfbc4084dde127eaa5f9905eef2325d1abf"
   integrity sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
+fs-extra@^11.1.0:
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.1.1.tgz#da69f7c39f3b002378b0954bb6ae7efdc0876e2d"
+  integrity sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==
   dependencies:
     graceful-fs "^4.2.0"
     jsonfile "^6.0.1"
@@ -12379,7 +12412,7 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-react-docgen-typescript@^2.1.1:
+react-docgen-typescript@^2.1.1, react-docgen-typescript@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-2.2.2.tgz#4611055e569edc071204aadb20e1c93e1ab1659c"
   integrity sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==
