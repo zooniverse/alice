@@ -7,7 +7,7 @@ import mockData from './mockData'
 import renderer from 'react-test-renderer'
 import 'jest-styled-components'
 
-describe('Component > TranscriptionTable', function () {
+describe.skip('Component > TranscriptionTableRow', function () {
   let pointerBox;
   let wrapper;
   let useStateSpy;

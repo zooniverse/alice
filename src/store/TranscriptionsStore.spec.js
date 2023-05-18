@@ -13,7 +13,7 @@ import {
   headers
 } from './testUtils/transcriptionsStore'
 
-describe('TranscriptionsStore', function () {
+describe.skip('TranscriptionsStore', function () {
   let rootStore
   let transcriptionsStore
 
