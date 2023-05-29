@@ -34,7 +34,7 @@
     "yup": "^1.1.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-actions": "^7.0.18",
     "@storybook/addon-links": "^6.5.16",
     "@storybook/addon-storyshots": "^6.5.16",
     "@storybook/addons": "^6.5.16",
