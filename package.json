@@ -13,7 +13,7 @@
     "formik": "^2.4.1",
     "frisbee": "^3.1.4",
     "graphql": "^16.6.0",
-    "graphql-request": "^6.0.0",
+    "graphql-request": "^6.1.0",
     "grommet": "^2.32.1",
     "grommet-icons": "^4.10.0",
     "jest-styled-components": "^6.3.4",
