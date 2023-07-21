@@ -37,7 +37,7 @@ const ProjectsStore = types.model('ProjectsStore', {
 
   getRoles: flow (function * getRoles(ids = []) {
     const user = getRoot(self).auth.user
-    const roles = yield apiClient.type('project_roles').get({ user_id: user.id, project_id: ids })
+    const roles = yield apiClient.type('project_roles').get({ user_id: user.id, project_id: ids, page_size: ids.length })
     self.roles = roles.reduce((roles, role) => {
       let title = ROLES.VIEWER
       if (role.roles.some(role => editorRoles.includes(role))) { title = ROLES.EDITOR }
@@ -54,7 +54,7 @@ const ProjectsStore = types.model('ProjectsStore', {
       const response = yield client.get('/projects')
       const resources = JSON.parse(response.body)
       const ids = resources.data.map(project => project.id)
-      const projects = yield apiClient.type('projects').get({ id: ids.toString(), cards: true })
+      const projects = yield apiClient.type('projects').get({ id: ids.toString(), cards: true, page_size: ids.length })
       yield self.getRoles(ids)
 
       projects.forEach((project) => {
