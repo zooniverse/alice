@@ -2,19 +2,16 @@ import auth from 'panoptes-client/lib/auth'
 import { AppStore } from './AppStore'
 import history from '../history'
 
-describe.skip('AuthStore', function () {
+describe('AuthStore', function () {
   const user = { id: '1', display_name: 'A_USER' }
 
   let authStore
   const setBearerTokenSpy = jest.fn()
 
   let rootStore = AppStore.create()
-
-  beforeAll(function () {
-    Object.defineProperty(
-      rootStore.client, 'setBearerToken',
-      { writable: true, value: setBearerTokenSpy })
-  })
+  Object.defineProperty(
+    rootStore.client, 'setBearerToken',
+    { writable: true, value: setBearerTokenSpy })
 
   it('should exist', function () {
     authStore = rootStore.auth
