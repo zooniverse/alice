@@ -5,7 +5,7 @@ import SubjectViewerContainer from './SubjectViewerContainer'
 import SVGView from './components/SVGView'
 import ImageTools from './components/ImageTools'
 
-describe.skip('Component > SubjectViewerContainer', function () {
+describe('Component > SubjectViewerContainer', function () {
   let wrapper
   const testContext = {
     aggregations: {

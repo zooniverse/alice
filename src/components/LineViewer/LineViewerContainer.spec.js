@@ -4,7 +4,7 @@ import { Grommet } from 'grommet'
 import LineViewerContainer from './LineViewerContainer'
 import LineViewer from './LineViewer'
 
-describe.skip('Component > LineViewerContainer', function () {
+describe('Component > LineViewerContainer', function () {
   let wrapper
 
   const deleteCurrentLineSpy = jest.fn()

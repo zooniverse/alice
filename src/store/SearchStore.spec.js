@@ -1,7 +1,7 @@
 import { AppStore } from './AppStore'
 import STATUS from 'helpers/status'
 
-describe.skip('SearchStore', function () {
+describe('SearchStore', function () {
   let searchStore
   const fetchTranscriptionsSpy = jest.fn()
 
