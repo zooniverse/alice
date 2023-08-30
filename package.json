@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@zooniverse/grommet-theme": "^3.1.1",
@@ -23,7 +23,7 @@
     "mobx-react": "~6.1.1",
     "mobx-state-tree": "~3.17.3",
     "mst-middlewares": "~5.0.5",
-    "panoptes-client": "~5.5.4",
+    "panoptes-client": "~5.5.5",
     "ramda": "^0.29.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -31,7 +31,7 @@
     "react-router-dom": "^5.1.0",
     "rosie": "^2.1.0",
     "styled-components": "^4.4.1",
-    "yup": "^1.1.1"
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.16",
