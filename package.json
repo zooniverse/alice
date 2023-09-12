@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
+    "@storybook/addon-links": "^7.4.1",
     "@storybook/addon-storyshots": "^6.5.16",
     "@storybook/addons": "^6.5.16",
     "@storybook/builder-webpack5": "^6.5.16",
