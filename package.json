@@ -16,7 +16,7 @@
     "graphql-request": "^6.0.0",
     "grommet": "^2.34.0",
     "grommet-icons": "^4.11.0",
-    "jest-styled-components": "^6.3.4",
+    "jest-styled-components": "^7.2.0",
     "jest-when": "^3.6.0",
     "mobx": "~5.15.7",
     "mobx-devtools-mst": "^0.9.30",
@@ -30,7 +30,7 @@
     "react-rnd": "^10.4.1",
     "react-router-dom": "^5.1.0",
     "rosie": "^2.1.0",
-    "styled-components": "^4.4.1",
+    "styled-components": "^6.1.0",
     "yup": "^1.3.2"
   },
   "devDependencies": {
