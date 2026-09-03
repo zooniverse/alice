@@ -27,6 +27,17 @@ This project uses [Yarn](https://yarnpkg.com/en/docs) or [Docker](https://docs.d
 - `docker-compose down` to stop the dev containers
 - `docker-compose run --rm dev test` to run the tests
 
+### Dev Notes
+
+2026.09.01: please note that the **sign out/log out function doesn't work properly on localhost,** which may become a notable issue since you _can't sign in_ if you're already logged in on _any_ zooniverse.org website. 
+
+- Say you're already signed in on `www.zooniverse.org` (production).
+- Then, you switch windows to `https://local.zooniverse.org:3000/?env=production`.
+- If you try to login on the ALICE home page, you'll get an error `Cannot assign to read only property 'id' of object '#<Resource>'` 
+- To solve this problem, either:
+  - Accept that you're already signed in and just open `https://local.zooniverse.org:3000/projects?env=production` directly.
+  - Start a new session in a Chrome Incognito/Firefox Private window.
+
 ## Deployment
 
 Deployment is handled by Github Action. Both staging and production deployment can be run ad hoc in the actions tab as needed if you have the appropriate permissions on the repository.
