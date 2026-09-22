@@ -8,6 +8,9 @@ if (!env.match(/^(production|staging|development|test)$/)) {
   throw new Error(`Error: Invalid Environment - ${env}`);
 }
 
+export const ASM_COLLABORATIVE_ID = '5339'
+export const ASM_INDIVIDUAL_ID = '5329'
+
 const baseConfig = {
   development: {
     caesar: 'https://caesar-staging.zooniverse.org/graphql',
